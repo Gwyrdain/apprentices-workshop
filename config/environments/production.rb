@@ -75,4 +75,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  # Added per devise install instructions
+  config.action_mailer.default_url_options = { host: 'apprentices-workshop.herokuapp.com' }
+  
 end
