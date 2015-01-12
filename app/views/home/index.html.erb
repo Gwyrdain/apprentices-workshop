@@ -1,12 +1,13 @@
+<div class="jumbotron monospace"><b>The Apprentice's Workshop</b>
+[Exits: north east south west up down]
+You stand upon a blank page, waiting to be written.
 
-<div class="jumbotron">
-        
-    <p><b>The Apprentice's Workshop</b><br>
-    [Exits: none]<br>
-    You stand upon a blank page, waiting to be written.</p>
-    <p>></p>
-    
+></div>
+
+<% if user_signed_in? %>
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-primary' %>
+    <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-default' %>
+<% else %>
     <%= link_to 'Login', new_user_session_path, class: 'btn btn-default' %>
     <%= link_to 'Join', new_user_registration_path, class: 'btn btn-primary' %>
-
-</div>
+<% end %>
