@@ -6,8 +6,9 @@ class AreasController < ApplicationController
   respond_to :html
 
   def index
-    @areas = Area.where(user_id: current_user.id)
-#    @areas = Area.all
+#   For now, show all... later show only the user's areas.
+    @areas = Area.all
+#    @areas = Area.where(user_id: current_user.id)
 #    respond_with(@areas)
   end
 
@@ -37,7 +38,7 @@ class AreasController < ApplicationController
     if @area.update(area_params)
       redirect_to @area, notice: 'Area was sucessfully updated.'
     else
-      render action 'edit'
+      render action: 'edit'
     end     
 #    respond_with(@area)
   end

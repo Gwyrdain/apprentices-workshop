@@ -12,15 +12,15 @@
   <% end %>
 
   <div class="form-group monospace">
-    <%= f.label :name %><br>
+    <%= f.label :name %> <i>(maximum 20 characters)</i><br>
     <%= f.text_field :name, class: 'form-control' %>
   </div>
   <div class="form-group monospace">
-    <%= f.label :author %><br>
+    <%= f.label :author %> <i>(maximum 8 characters)</i><br>
     <%= f.text_field :author, class: 'form-control' %>
   </div>
   <div class="form-group monospace">
-    <%= f.label :difficulty %><br>
+    <%= f.label :difficulty %> <i>(must be 5 characters)</i><br>
     <%= f.text_field :difficulty, class: 'form-control' %>
   </div>
   <div class="actions">

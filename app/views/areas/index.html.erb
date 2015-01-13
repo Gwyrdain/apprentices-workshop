@@ -1,29 +1,29 @@
 <div class="panel panel-default">
-    <div class="panel-heading"><h1>Listing areas</h1></div>
+    <div class="panel-heading"><h1>Areas</h1></div>
     <div class="panel-body">
 
       
-      <table class="table monospace">
+      <table class="table table-hover monospace">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Author</th>
-            <th>Difficulty</th>
-            <th>UID</th>
-            <th colspan="3"></th>
+            <th><div class="monospace-pre">Levels  Author   Name</div></th>
+            <!-- Not used
+            <th>User</th>
+            -->
           </tr>
         </thead>
       
         <tbody>
           <% @areas.each do |area| %>
             <tr>
-              <td><%= area.name %></td>
-              <td><%= area.author %></td>
-              <td><%= area.difficulty %></td>
-              <td><%= area.user_id %></td>
-              <td><%= link_to 'Show', area %></td>
+              <td>
+                <div class="monospace-pre"><%= link_to(area) do %>{<%= area.difficulty %>} <%= format("%-8s", area.author) %> <%= format("%-20s", area.name) %><% end %> <%= link_to(edit_area_path(area)) do %><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span><% end %> <%= link_to(area, method: :delete, data: { confirm: 'Are you sure?' } ) do %><span class="glyphicon glyphicon-remove" aria-hidden="true"></span><% end %></div></div>
+              </td>
+              <!-- Not used
+              <td><%= area.user.email %></td>
               <td><%= link_to 'Edit', edit_area_path(area) %></td>
               <td><%= link_to 'Destroy', area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              -->
             </tr>
           <% end %>
         </tbody>
