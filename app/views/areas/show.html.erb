@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+    <div class="panel-heading monospace"><h1><%= @area.name %></h1></div>
+    <div class="panel-body monospace">
+
+      <p id="notice"><%= notice %></p>
+
+<!--      
+      <p>
+        <strong>Name:</strong>
+        <%= @area.name %>
+      </p>
+-->
+      
+      <p>
+        <strong>Author:</strong>
+        <%= @area.author %>
+      </p>
+      
+      <p>
+        <strong>Difficulty:</strong>
+        <%= @area.difficulty %>
+      </p>
+      
+    </div>
+    
+    <div class="panel-footer">
+      <%= link_to 'Edit', edit_area_path(@area) %> |
+      <%= link_to 'Back', areas_path %>
+    </div>
+    
+</div>

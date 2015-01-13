@@ -1,0 +1,38 @@
+<div class="panel panel-default">
+    <div class="panel-heading"><h1>Listing areas</h1></div>
+    <div class="panel-body">
+
+      
+      <table class="table monospace">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Difficulty</th>
+            <th>UID</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <% @areas.each do |area| %>
+            <tr>
+              <td><%= area.name %></td>
+              <td><%= area.author %></td>
+              <td><%= area.difficulty %></td>
+              <td><%= area.user_id %></td>
+              <td><%= link_to 'Show', area %></td>
+              <td><%= link_to 'Edit', edit_area_path(area) %></td>
+              <td><%= link_to 'Destroy', area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      
+    </div>
+    
+    <div class="panel-footer">
+      <%= link_to 'New Area', new_area_path %>
+    </div>
+    
+</div>
