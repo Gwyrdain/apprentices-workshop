@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-    <div class="panel-heading"><h1>Areas</h1></div>
+    <div class="panel-heading"><h1>Areas</h1><i>Showing all areas for development.  Only your own are editable.</i></div>
     <div class="panel-body">
 
       
@@ -7,9 +7,7 @@
         <thead>
           <tr>
             <th><div class="monospace-pre">Levels  Author   Name</div></th>
-            <!-- Not used
             <th>User</th>
-            -->
           </tr>
         </thead>
       
@@ -19,8 +17,8 @@
               <td>
                 <div class="monospace-pre"><%= link_to(area) do %>{<%= area.difficulty %>} <%= format("%-8s", area.author) %> <%= format("%-20s", area.name) %><% end %> <%= link_to(edit_area_path(area)) do %><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span><% end %> <%= link_to(area, method: :delete, data: { confirm: 'Are you sure?' } ) do %><span class="glyphicon glyphicon-remove" aria-hidden="true"></span><% end %></div></div>
               </td>
-              <!-- Not used
               <td><%= area.user.email %></td>
+              <!-- Not used
               <td><%= link_to 'Edit', edit_area_path(area) %></td>
               <td><%= link_to 'Destroy', area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               -->
