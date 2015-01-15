@@ -1,5 +1,7 @@
 <div class="panel panel-default">
-    <div class="panel-heading monospace"><h3><%= @help.keywords %></h3></div>
+    <div class="panel-heading monospace"><h3>
+        <%= link_to @area.name, area_path(@area) %> / <%= link_to 'Helps', area_helps_path(@area) %> / <strong><%= @help.keywords %></strong>
+    </h3></div>
     <div class="panel-body monospace">
 
       <p id="notice"><%= notice %></p>
@@ -16,7 +18,7 @@
       
       <p>
         <strong>Body:</strong>
-        <%= simple_format(@help.body) %>
+        <%= simple_format(word_wrap(@help.body, line_width: 75)) %>
       </p>
       
     <strong>Formatted help:</strong>
