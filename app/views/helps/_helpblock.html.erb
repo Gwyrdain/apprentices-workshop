@@ -1,3 +1,4 @@
-<kbd>
-    #AREA {<%= @area.difficulty %>} <%= format("%-8s", @area.author) %> <%= format("%-20s", @area.name)%>~ F [area_flag_sum]
-</kbd>
+<pre>
+<%= @help.min_level %> <%= @help.keywords %>~
+<%= word_wrap(@help.body, line_width: 75) %> ~
+</pre>

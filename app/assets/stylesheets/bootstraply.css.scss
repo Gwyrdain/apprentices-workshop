@@ -24,3 +24,12 @@ $jumbotron-color: darkcyan;
     font-family: $font-family-monospace;
     white-space: pre;
 }
+
+pre {
+    display: block;
+    font-family: $font-family-monospace;
+    white-space: pre;
+    margin: 10px 20px 0px 20px;
+    background-color: darkslategray;
+    color: wheat;
+}

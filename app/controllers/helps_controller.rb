@@ -7,17 +7,18 @@ class HelpsController < ApplicationController
 
     def show
         @area = Area.find(params[:area_id])
+        @help = Help.find(params[:id])
     end
 
     def new
         @area = Area.find(params[:area_id])
         @help = Help.new(:area_id => params[:area_id])
-#sample: @property = Property.new(:agency_id => params[:agency_id])
-        
+
     end
     
     def edit
-        
+        @area = Area.find(params[:area_id])
+        @help = Help.find(params[:id])
     end
 
     def create
@@ -25,7 +26,17 @@ class HelpsController < ApplicationController
         @help = @area.helps.create(help_params)
         redirect_to area_path(@area)
     end
-    
+
+  def update
+    @area = Area.find(params[:area_id])
+    @help = Help.find(params[:id])
+    if @help.update(help_params)
+      redirect_to area_help_path(@area, @help), notice: 'Area was sucessfully updated.'
+    else
+      render action: 'edit'
+    end     
+  end
+
     private
         def help_params
             params.require(:help).permit(:min_level, :keywords, :body )

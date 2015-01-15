@@ -5,22 +5,30 @@
       <p id="notice"><%= notice %></p>
 
       <p>
-        <strong>Author:</strong>
-        <%= @help.author %>
+        <strong>Minimum Level:</strong>
+        <%= @help.min_level %>
       </p>
       
       <p>
-        <strong>Difficulty:</strong>
-        <%= @help.difficulty %>
+        <strong>Keywords:</strong>
+        <%= @help.keywords %>
       </p>
       
-      <%= render 'helps/helpblock' %>
+      <p>
+        <strong>Body:</strong>
+        <%= simple_format(@help.body) %>
+      </p>
+      
+    <strong>Formatted help:</strong>
+    <p>
+        <%= render 'helps/helpblock' %>
+    </p>
 
     </div>
     
     <div class="panel-footer">
-      <%= link_to 'Edit', edit_help_path(@help) %> |
-      <%= link_to 'Back', helps_path %>
+      <%= link_to 'Edit', edit_area_help_path(@area, @help) %> |
+      <%= link_to 'Back', area_helps_path %>
     </div>
     
 </div>

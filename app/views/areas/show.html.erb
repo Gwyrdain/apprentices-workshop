@@ -21,17 +21,50 @@
         <%= @area.difficulty %>
       </p>
       
-      <p>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th>
+              <%= link_to(area_helps_path(@area)) do %>
+                Helps: <%= @area.helps.count %>
+              <% end %>
+            </th>
+            <th>
+              Mobiles: x
+            </th>
+            <th>
+              Objects: x
+            </th>
+            <th>
+              Rooms: x
+            </th>
+            <th>
+              Resets: x
+            </th>
+            <th>
+              Shops: x
+            </th>
+            <th>
+              Specials: x
+            </th>
+            <th>
+              Triggers: x
+            </th>
+            <th>
+              Rspecs: x
+            </th>
+          </tr>
+       </tbody>
+     </table>
+     
+    <strong>Formatted area header:</strong>
+    <p>
         <%= render 'areas/areablock' %>
-      </p>
-      
-      <p>
-        <%= link_to(area_helps_path(@area)) do %>
-          Helps: <%= @area.helps.count %>
-        <% end %>
-      </p>
-
+    </p>
+    
     </div>
+    
+
     
     <div class="panel-footer">
       <%= link_to 'Edit', edit_area_path(@area) %> |

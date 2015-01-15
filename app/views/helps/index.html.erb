@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div class="panel panel-default monospace">
     <div class="panel-heading"><h3>
       <%= @area.name %> / <strong>Helps</strong>
     </h3></div>
@@ -17,7 +17,7 @@
           <% @helps.each do |help| %>
             <tr>
               <td><%= help.min_level %></td>
-              <td><%= help.keywords %></td>
+              <td><%= link_to(area_help_path(@area, help)) do %><%= help.keywords %><% end %></td>
               <td><%= help.body %></td>
             </tr>
           <% end %>
@@ -25,9 +25,25 @@
       </table>
       
     </div>
-    
+
     <div class="panel-footer">
-      <%= link_to 'New Help', new_area_help_path %>
+      <%= link_to 'New Help', new_area_help_path %> | 
+      <%= link_to 'Back', area_path(@area) %>
     </div>
     
 </div>
+
+<br/>
+<strong>Formatted #HELP Block:</strong>
+<pre>
+#HELP
+<% @helps.each do |help| %>
+<%= help.min_level %> <%= help.keywords %>~
+<%= word_wrap(help.body, line_width: 75) %> ~
+<% end %>
+0 $~
+</pre>
+
+
+    
+
