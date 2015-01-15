@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top"> 
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -23,8 +23,8 @@
         <% if user_signed_in? %>
           <!--
           <li><%= link_to 'Add Area', new_area_path  %></li>
-          <li><%= link_to 'List Areas', areas_path  %></li>
           -->
+          <li><%= link_to 'My Areas', areas_path  %></li>
           <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
         <% else %>

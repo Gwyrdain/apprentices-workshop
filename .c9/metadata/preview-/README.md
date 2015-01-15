@@ -1,1 +1,0 @@
-{"changed":false,"filter":false,"title":"[P] /README.md","value":"","undoManager":{"mark":0,"position":-1,"stack":[]},"preview":{"path":"/README.md","previewer":"preview.markdown"}}
