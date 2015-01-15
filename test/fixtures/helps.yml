@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  min_level: 1
+  keywords: MyString
+  body: MyText
+  area_id: 
+
+two:
+  min_level: 1
+  keywords: MyString
+  body: MyText
+  area_id: 

@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-    <div class="panel-heading monospace"><h1><%= @area.name %></h1></div>
+    <div class="panel-heading monospace"><h3><%= @area.name %></h3></div>
     <div class="panel-body monospace">
 
       <p id="notice"><%= notice %></p>
@@ -21,6 +21,16 @@
         <%= @area.difficulty %>
       </p>
       
+      <p>
+        <%= render 'areas/areablock' %>
+      </p>
+      
+      <p>
+        <%= link_to(area_helps_path(@area)) do %>
+          Helps: <%= @area.helps.count %>
+        <% end %>
+      </p>
+
     </div>
     
     <div class="panel-footer">

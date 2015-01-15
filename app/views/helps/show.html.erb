@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+    <div class="panel-heading monospace"><h3><%= @help.keywords %></h3></div>
+    <div class="panel-body monospace">
+
+      <p id="notice"><%= notice %></p>
+
+      <p>
+        <strong>Author:</strong>
+        <%= @help.author %>
+      </p>
+      
+      <p>
+        <strong>Difficulty:</strong>
+        <%= @help.difficulty %>
+      </p>
+      
+      <%= render 'helps/helpblock' %>
+
+    </div>
+    
+    <div class="panel-footer">
+      <%= link_to 'Edit', edit_help_path(@help) %> |
+      <%= link_to 'Back', helps_path %>
+    </div>
+    
+</div>

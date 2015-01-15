@@ -1,0 +1,29 @@
+<%= form_for [@help.area, @help] do |f| %>
+  <% if @help.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@help.errors.count, "error") %> prohibited this area from being saved:</h3>
+
+      <ul>
+      <% @help.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group monospace">
+    <%= f.label :min_level %> <i>(non-negative integer)</i><br>
+    <%= f.text_field :min_level, class: 'form-control' %>
+  </div>
+  <div class="form-group monospace">
+    <%= f.label :keywords %> <i>(between 4 and 75 characters)</i><br>
+    <%= f.text_field :keywords, class: 'form-control' %>
+  </div>
+  <div class="form-group monospace">
+    <%= f.label :body %> <i>(minimum 4 charaters)</i><br>
+    <%= f.text_area :body, class: 'form-control', rows: 20 %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Submit', class: 'btn btn-primary' %>
+  </div>
+<% end %>

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  resources :areas
+  resources :areas do
+    resources :helps
+  end
 
   devise_for :users
-  root 'home#index'
+  root 'areas#index'
   get 'home/about'
 
   # The priority is based upon order of creation: first created -> highest priority.
