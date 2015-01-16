@@ -24,11 +24,26 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :terrain, :class => 'control-label col-md-2' %>
+    <%= f.label :terrain, :class => 'control-label col-md-2' %> 
     <div class="col-md-10">
-      <%= f.text_field :terrain, :class => 'text_field form-control' %>
+    <%= f.select(:terrain, options_for_select(
+          [
+            ['INSIDE', 0],
+            ['CITY', 1],
+            ['FIELD', 2],
+            ['FOREST', 3],
+            ['HILLS', 4],
+            ['MOUNTAIN', 5],
+            ['WATER SWIM', 6],
+            ['WATER NOSWIM', 7],
+            ['UNDERWATER', 8],
+            ['AIR', 9],
+            ['DESERT', 10]
+          ], 0
+        ), {}, {class: "form-control"}) %>
     </div>
   </div>
+
   <div class="form-group">
     <%= f.label :area_id, :class => 'control-label col-md-2' %>
     <div class="col-md-10">

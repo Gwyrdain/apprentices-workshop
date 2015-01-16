@@ -19,8 +19,30 @@
       </p>
       
       <p>
-        <strong><%= model_class.human_attribute_name(:room_flags) %>:</strong>
+        <strong><%= model_class.human_attribute_name(:room_flags) %> value:</strong>
         <%= @room.room_flags %>
+      </p>
+      
+      <p>
+        <strong><%= model_class.human_attribute_name(:room_flags) %>:</strong>
+        <% if @room.dark? %><ol>DARK</ol><% end %>
+        <% if @room.no_sleep? %><ol>NO SLEEP</ol><% end %>
+        <% if @room.no_mob? %><ol>NO MOB</ol><% end %>
+        <% if @room.indoors? %><ol>INDOORS</ol><% end %>
+        <% if @room.foggy? %><ol>FOGGY</ol><% end %>
+        <% if @room.private_room? %><ol>PRIVATE</ol><% end %>
+        <% if @room.peaceful? %><ol>PEACEFUL</ol><% end %>
+        <% if @room.solitary? %><ol>SOLITARY</ol><% end %>
+        <% if @room.no_recall? %><ol>NO RECALL</ol><% end %>
+        <% if @room.no_steal? %><ol>NO STEAL</ol><% end %>
+        <% if @room.notrans? %><ol>NOTRANS</ol><% end %>
+        <% if @room.no_spell? %><ol>NO SPELL</ol><% end %>
+        <% if @room.no_fly? %><ol>NO FLY</ol><% end %>
+        <% if @room.fly_ok? %><ol>FLY OK</ol><% end %>
+        <% if @room.no_quest? %><ol>NO QUEST</ol><% end %>
+        <% if @room.no_item? %><ol>NO ITEM</ol><% end %>
+        <% if @room.no_vnum? %><ol>NO VNUM</ol><% end %>
+
       </p>
       
       <p>
