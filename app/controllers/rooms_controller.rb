@@ -22,7 +22,11 @@ class RoomsController < ApplicationController
 
   def create
     @room = @area.rooms.create(room_params)
-    redirect_to area_rooms_path(@area)
+    if @room.save
+      redirect_to area_room_path(@area, @room), notice: 'Room was sucessfully created.'
+    else
+      render action: 'new'
+    end
   end
 
   def update

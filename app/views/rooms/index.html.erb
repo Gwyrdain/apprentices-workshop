@@ -14,7 +14,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @rooms.each do |room| %>
+    <% @rooms.order(:vnum).each do |room| %>
       <tr>
         <td><%= room.vnum %></td>
         <td><%= room.name %></td>

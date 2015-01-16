@@ -22,7 +22,11 @@ class HelpsController < ApplicationController
 
     def create
         @help = @area.helps.create(help_params)
-        redirect_to area_helps_path(@area)
+        if @help.save
+          redirect_to area_help_path(@area, @help), notice: 'Help was sucessfully created.'
+        else
+          render action: 'new'
+        end
     end
     
     def update

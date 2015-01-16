@@ -1,6 +1,6 @@
 <pre>
 #ROOMS
-<% @rooms.each do |room| %>
+<% @rooms.order(:vnum).each do |room| %>
 <%= render 'rooms/roomblock', :room => room %>
 <% end %>
 #0

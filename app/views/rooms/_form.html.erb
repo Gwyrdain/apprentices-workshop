@@ -1,4 +1,16 @@
 <%= form_for  [@room.area, @room], :html => { :class => 'form-horizontal' } do |f| %>
+  <% if @room.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@room.errors.count, "error") %> prohibited this area from being saved:</h3>
+
+      <ul>
+      <% @room.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="form-group">
     <%= f.label :vnum, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
