@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
   before_action :set_area, only: [:index, :show, :new, :edit, :create, :update, :destroy]
   before_action :set_room, only: [:show, :edit, :update, :destroy]
-
+  
   respond_to :html
 
   def index
@@ -64,4 +64,5 @@ class RoomsController < ApplicationController
                                    :no_quest, :no_item, :no_vnum
                                   )
     end
+    
 end

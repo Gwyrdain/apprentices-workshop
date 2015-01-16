@@ -11,6 +11,12 @@ class Room < ActiveRecord::Base
   validates :description, length: { minimum: 4 }
   validates :terrain, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
+  before_create :default_values
+  def default_values
+    self.room_flags ||= 0
+    self.terrain ||= 0
+  end
+
 end
 
 
