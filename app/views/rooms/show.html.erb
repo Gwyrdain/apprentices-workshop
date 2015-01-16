@@ -1,0 +1,50 @@
+<%- model_class = Room -%>
+
+<div class="panel panel-default">
+    <div class="panel-heading monospace"><h3>
+        <%= link_to @area.name, area_path(@area) %> / <%= link_to 'Rooms', area_rooms_path(@area) %> / <strong><%= @room.vnum %></strong>
+    </h3></div>
+    <div class="panel-body monospace">
+
+      <p id="notice"><%= notice %></p>
+      
+      <p>
+        <strong><%= model_class.human_attribute_name(:name) %>:</strong>
+        <%= @room.name %>
+      </p>
+      
+      <p>
+        <strong><%= model_class.human_attribute_name(:description) %>:</strong>
+        <%= simple_format(word_wrap(@room.description, line_width: 75)) %>
+      </p>
+      
+      <p>
+        <strong><%= model_class.human_attribute_name(:room_flags) %>:</strong>
+        <%= @room.room_flags %>
+      </p>
+      
+      <p>
+        <strong><%= model_class.human_attribute_name(:terrain) %>:</strong>
+        <%= @room.terrain %>
+      </p>
+
+    <strong>Formatted room:</strong>
+    <p>
+        <%= render 'rooms/roomblock' %>
+    </p>
+
+    </div>
+
+    <div class="panel-footer form-group">
+      <%= link_to t('.back', :default => t("helpers.links.back")),
+                  area_rooms_path(@area), :class => 'btn btn-default'  %>
+      <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                  edit_area_room_path(@area, @room), :class => 'btn btn-default' %>
+      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                  area_room_path(@area, @room),
+                  :method => 'delete',
+                  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                  :class => 'btn btn-danger' %>
+    </div>
+    
+</div>

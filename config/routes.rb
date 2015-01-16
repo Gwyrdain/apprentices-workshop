@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+
   resources :areas do
     resources :helps
+    resources :rooms
   end
 
   devise_for :users

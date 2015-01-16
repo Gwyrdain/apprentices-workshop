@@ -38,7 +38,9 @@
               Objects: x
             </th>
             <th>
-              Rooms: x
+              <%= link_to(area_rooms_path(@area)) do %>
+                Rooms: <%= @area.rooms.count %>
+              <% end %>
             </th>
             <th>
               Resets: x

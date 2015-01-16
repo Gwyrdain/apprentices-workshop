@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150115000142) do
+ActiveRecord::Schema.define(version: 20150116002217) do
 
   create_table "areas", force: true do |t|
     t.string   "name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150115000142) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "area_number"
   end
 
   add_index "areas", ["user_id"], name: "index_areas_on_user_id"
@@ -34,6 +35,19 @@ ActiveRecord::Schema.define(version: 20150115000142) do
   end
 
   add_index "helps", ["area_id"], name: "index_helps_on_area_id"
+
+  create_table "rooms", force: true do |t|
+    t.integer  "vnum"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "room_flags"
+    t.integer  "terrain"
+    t.integer  "area_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rooms", ["area_id"], name: "index_rooms_on_area_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

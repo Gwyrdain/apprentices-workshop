@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vnum: 1
+  name: MyString
+  description: MyText
+  room_flags: 1
+  terrain: 1
+  area_id: 
+
+two:
+  vnum: 1
+  name: MyString
+  description: MyText
+  room_flags: 1
+  terrain: 1
+  area_id: 
