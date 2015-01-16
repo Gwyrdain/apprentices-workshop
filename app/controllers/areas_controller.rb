@@ -55,7 +55,7 @@ class AreasController < ApplicationController
     end
 
     def area_params
-      params.require(:area).permit(:name, :author, :difficulty, :area_number)
+      params.require(:area).permit(:name, :author, :difficulty, :area_number, :flags)
     end
 end
 
