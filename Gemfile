@@ -13,6 +13,7 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass', '~> 3.3.1.0'
 gem 'bootstrap-sass-extras', '~> 0.0.2'
 gem 'devise', '~> 3.4.1'
+gem 'bitfields', '~> 0.5.2'
 
 group :development, :test do
     gem 'sqlite3'
