@@ -1,7 +1,7 @@
 <%- model_class = Room -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-</div>
+<div class="page-header"><h3>
+  <%= link_to @area.name, area_path(@area) %> / <strong><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></strong></h1>
+</h3></div>
 <table class="table table-hover monospace">
   <thead>
     <tr>
@@ -42,6 +42,7 @@
             :class => 'btn btn-primary' %>
 
 
+<br/>
 <br/>
 <strong>Formatted #ROOMS Block:</strong>
 <%= render 'rooms/roomsblock' %>

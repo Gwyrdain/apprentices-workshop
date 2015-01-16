@@ -1,3 +1,10 @@
-<pre>
-Single Room Block Here
-</pre>
+#<%= room.vnum %>
+<%= room.name %>~
+<%= word_wrap(room.description, line_width: 75) %>
+~
+<%= @area.area_number %> <%= room.room_flags %> <%= room.terrain %> 
+[Insert doors from doors table here?]
+~
+[Insert extra descriptions from table here?]
+~
+S
