@@ -6,7 +6,18 @@
     </h3></div>
     <div class="panel-body monospace">
       
-      <p id="notice"><%= notice %></p>
+<!--      <p id="notice"><%= notice %></p> -->
+
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Formal Vnum:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @room.formal_vnum %>
+          </div>
+        </div>
+      </div><br/>
 
       <div class="row">
         <div class="col-md-2">

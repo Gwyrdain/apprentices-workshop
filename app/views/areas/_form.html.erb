@@ -23,6 +23,17 @@
     <%= f.label :area_number %><br>
     <%= f.text_field :area_number, class: 'form-control' %>
   </div>
+
+  <div class="form-group monospace">
+    <%= f.label :vnum_qty, 'Vnum Quantity Assigned' %> 
+    <%= f.select(:vnum_qty, options_for_select(
+          [
+            ['100 (0-99)', 100],
+            ['200 (0-199)', 200]
+          ], @area.vnum_qty
+        ), {}, {class: "form-control"}) %>
+  </div>
+
   <div class="form-group monospace">
     <%= f.label :difficulty %> <i>(must be 5 characters)</i><br>
     <%= f.text_field :difficulty, class: 'form-control' %>
