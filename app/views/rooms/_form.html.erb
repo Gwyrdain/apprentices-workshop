@@ -17,12 +17,67 @@
       <%= f.text_area :description, :class => 'text_field form-control', rows: 20 %>
     </div>
   </div>
+
   <div class="form-group">
     <%= f.label :room_flags, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :room_flags, :class => 'text_field form-control' %>
-    </div>
+
+        <div class="check_box col-md-2">
+          <%= f.check_box :dark, {:checked => @room.dark? ? true : false} %> DARK
+          
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :no_sleep, {:checked => @room.no_sleep? ? true : false} %> NO SLEEP
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :no_mob, {:checked => @room.no_mob? ? true : false} %> NO MOB
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :indoors, {:checked => @room.indoors? ? true : false} %> INDOORS
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :foggy, {:checked => @room.foggy? ? true : false} %> FOGGY
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :private_room, {:checked => @room.private_room? ? true : false} %> PRIVATE
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :peaceful, {:checked => @room.peaceful? ? true : false} %> PEACEFUL
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :solitary, {:checked => @room.solitary? ? true : false} %> SOLITARY
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :no_recall, {:checked => @room.no_recall? ? true : false} %> NO RECALL
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :no_steal, {:checked => @room.no_steal? ? true : false} %> NO STEAL
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :notrans, {:checked => @room.notrans? ? true : false} %> NOTRANS
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :no_spell, {:checked => @room.no_spell? ? true : false} %> NO SPELL
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :no_fly, {:checked => @room.no_fly? ? true : false} %> NO FLY
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :fly_ok, {:checked => @room.fly_ok? ? true : false} %> FLY OK
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :no_quest, {:checked => @room.no_quest? ? true : false} %> NO QUEST
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :no_item, {:checked => @room.no_item? ? true : false} %> NO ITEM
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :no_vnum, {:checked => @room.no_vnum? ? true : false} %> NO VNUM
+        </div>
+
+    </div>  
   </div>
+  
   <div class="form-group">
     <%= f.label :terrain, :class => 'control-label col-md-2' %> 
     <div class="col-md-10">
@@ -39,7 +94,7 @@
             ['UNDERWATER', 8],
             ['AIR', 9],
             ['DESERT', 10]
-          ], 0
+          ], @room.terrain
         ), {}, {class: "form-control"}) %>
     </div>
   </div>

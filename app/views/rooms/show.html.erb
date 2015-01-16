@@ -6,49 +6,89 @@
     </h3></div>
     <div class="panel-body monospace">
 
-      <p id="notice"><%= notice %></p>
-      
-      <p>
-        <strong><%= model_class.human_attribute_name(:name) %>:</strong>
-        <%= @room.name %>
-      </p>
-      
-      <p>
-        <strong><%= model_class.human_attribute_name(:description) %>:</strong>
-        <%= simple_format(word_wrap(@room.description, line_width: 75)) %>
-      </p>
-      
-      <p>
-        <strong><%= model_class.human_attribute_name(:room_flags) %> value:</strong>
-        <%= @room.room_flags %>
-      </p>
-      
-      <p>
-        <strong><%= model_class.human_attribute_name(:room_flags) %>:</strong>
-        <% if @room.dark? %><ol>DARK</ol><% end %>
-        <% if @room.no_sleep? %><ol>NO SLEEP</ol><% end %>
-        <% if @room.no_mob? %><ol>NO MOB</ol><% end %>
-        <% if @room.indoors? %><ol>INDOORS</ol><% end %>
-        <% if @room.foggy? %><ol>FOGGY</ol><% end %>
-        <% if @room.private_room? %><ol>PRIVATE</ol><% end %>
-        <% if @room.peaceful? %><ol>PEACEFUL</ol><% end %>
-        <% if @room.solitary? %><ol>SOLITARY</ol><% end %>
-        <% if @room.no_recall? %><ol>NO RECALL</ol><% end %>
-        <% if @room.no_steal? %><ol>NO STEAL</ol><% end %>
-        <% if @room.notrans? %><ol>NOTRANS</ol><% end %>
-        <% if @room.no_spell? %><ol>NO SPELL</ol><% end %>
-        <% if @room.no_fly? %><ol>NO FLY</ol><% end %>
-        <% if @room.fly_ok? %><ol>FLY OK</ol><% end %>
-        <% if @room.no_quest? %><ol>NO QUEST</ol><% end %>
-        <% if @room.no_item? %><ol>NO ITEM</ol><% end %>
-        <% if @room.no_vnum? %><ol>NO VNUM</ol><% end %>
+      <div class="row">
+        <div class="col-md-2">
+          <strong><%= model_class.human_attribute_name(:name) %>:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @room.name %>
+          </div>
+        </div>
+      </div><br/>
 
-      </p>
+      <div class="row">
+        <div class="col-md-2">
+          <strong><%= model_class.human_attribute_name(:description) %>:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= simple_format(word_wrap(@room.description, line_width: 75)) %>
+          </div>
+        </div>
+      </div><br/>
+
+      <div class="row">
+        <div class="col-md-2">
+          <strong><%= model_class.human_attribute_name(:room_flags) %> value:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10"><%= @room.room_flags %></div>
+        </div>
+      </div><br/>
       
-      <p>
-        <strong><%= model_class.human_attribute_name(:terrain) %>:</strong>
-        <%= @room.terrain %>
-      </p>
+      <div class="row">
+        <div class="col-md-2">
+          <strong><%= model_class.human_attribute_name(:room_flags) %>:</strong>
+        </div>
+        <div class="col-md-10">
+          <% if @room.dark? %><div class="col-md-2">DARK</div><% end %>
+          <% if @room.no_sleep? %><div class="col-md-2">NO SLEEP</div><% end %>
+          <% if @room.no_mob? %><div class="col-md-2">NO MOB</div><% end %>
+          <% if @room.indoors? %><div class="col-md-2">INDOORS</div><% end %>
+          <% if @room.foggy? %><div class="col-md-2">FOGGY</div><% end %>
+          <% if @room.private_room? %><div class="col-md-2">PRIVATE</div><% end %>
+          <% if @room.peaceful? %><div class="col-md-2">PEACEFUL</div><% end %>
+          <% if @room.solitary? %><div class="col-md-2">SOLITARY</div><% end %>
+          <% if @room.no_recall? %><div class="col-md-2">NO RECALL</div><% end %>
+          <% if @room.no_steal? %><div class="col-md-2">NO STEAL</div><% end %>
+          <% if @room.notrans? %><div class="col-md-2">NOTRANS</div><% end %>
+          <% if @room.no_spell? %><div class="col-md-2">NO SPELL</div><% end %>
+          <% if @room.no_fly? %><div class="col-md-2">NO FLY</div><% end %>
+          <% if @room.fly_ok? %><div class="col-md-2">FLY OK</div><% end %>
+          <% if @room.no_quest? %><div class="col-md-2">NO QUEST</div><% end %>
+          <% if @room.no_item? %><div class="col-md-2">NO ITEM</div><% end %>
+          <% if @room.no_vnum? %><div class="col-md-2">NO VNUM</div><% end %>
+        </div>
+      </div><br/>
+
+      <div class="row">
+        <div class="col-md-2">
+          <strong><%= model_class.human_attribute_name(:terrain) %> value:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10"><%= @room.terrain %></div>
+        </div>
+      </div><br/>
+
+      <div class="row">
+        <div class="col-md-2">
+          <strong><%= model_class.human_attribute_name(:terrain) %>:</strong>
+        </div>
+        <div class="col-md-10">
+          <% if @room.terrain == 0 %><div class="col-md-2">INSIDE</div><% end %>
+          <% if @room.terrain == 1 %><div class="col-md-2">CITY</div><% end %>
+          <% if @room.terrain == 2 %><div class="col-md-2">FIELD</div><% end %>
+          <% if @room.terrain == 3 %><div class="col-md-2">FOREST</div><% end %>
+          <% if @room.terrain == 4 %><div class="col-md-2">HILLS</div><% end %>
+          <% if @room.terrain == 5 %><div class="col-md-2">MOUNTAIN</div><% end %>
+          <% if @room.terrain == 6 %><div class="col-md-2">WATER SWIM</div><% end %>
+          <% if @room.terrain == 7 %><div class="col-md-2">WATER NOSWIM</div><% end %>
+          <% if @room.terrain == 8 %><div class="col-md-2">UNDERWATER</div><% end %>
+          <% if @room.terrain == 9 %><div class="col-md-2">AIR</div><% end %>
+          <% if @room.terrain == 10 %><div class="col-md-2">DESERT</div><% end %>
+        </div>
+      </div><br/>
 
     <strong>Formatted room:</strong>
     <p>
