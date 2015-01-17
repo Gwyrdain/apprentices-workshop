@@ -15,4 +15,12 @@ class Area < ActiveRecord::Base
     self.flags ||= 0
   end
   
+  def nextroomvnum
+    $i = 0
+    while Room.exists?(:vnum => $i)  do
+        $i +=1
+    end
+    return $i
+  end
+  
 end

@@ -1,4 +1,4 @@
-<%= form_for [@help.area, @help] do |f| %>
+<%= form_for  [@help.area, @help], :html => { :class => 'form-horizontal' } do |f| %>
   <% if @help.errors.any? %>
     <div id="error_explanation">
       <h3><%= pluralize(@help.errors.count, "error") %> prohibited saving:</h3>
@@ -11,19 +11,34 @@
     </div>
   <% end %>
 
-  <div class="form-group monospace">
-    <%= f.label :min_level %> <i>(non-negative integer)</i><br>
-    <%= f.text_field :min_level, class: 'form-control' %>
+  <div class="form-group">
+    <%= f.label :min_level, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :min_level, :class => 'text_field form-control' %>
+    </div>
   </div>
-  <div class="form-group monospace">
-    <%= f.label :keywords %> <i>(between 4 and 75 characters)</i><br>
-    <%= f.text_field :keywords, class: 'form-control' %>
+  
+  <div class="form-group">
+    <%= f.label :keywords, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :keywords, :class => 'text_field form-control' %>
+    </div>
   </div>
-  <div class="form-group monospace">
-    <%= f.label :body %> <i>(minimum 4 charaters)</i><br>
-    <%= f.text_area :body, class: 'form-control', rows: 20 %>
+  
+  <div class="form-group">
+    <%= f.label :body, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :body, :class => 'text_field form-control', rows: 20  %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit 'Submit', class: 'btn btn-primary' %>
+
+
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  area_helps_path, :class => 'btn btn-default' %>
+    </div>
   </div>
+
 <% end %>

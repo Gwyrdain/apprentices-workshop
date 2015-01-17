@@ -14,6 +14,7 @@ class RoomsController < ApplicationController
 
   def new
         @room = @area.rooms.build
+        @room.vnum ||= @area.nextroomvnum
   end
 
   def edit

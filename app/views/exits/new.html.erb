@@ -4,8 +4,8 @@
     <div class="panel-heading monospace"><h3>
         <%= link_to @area.name, area_path(@area) %> /
         <%= link_to 'Rooms', area_rooms_path(@area) %> /
-        <%= link_to @room.vnum, area_room_path(@area, @room) %> /
-        <strong>New Exit</strong>
+        <%= link_to "Room: #{@room.vnum}", area_room_path(@area, @room) %> /
+        <%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %>
     </div>
     <div class="panel-body monospace">    
     
