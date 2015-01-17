@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150117030358) do
+ActiveRecord::Schema.define(version: 20150117051335) do
 
   create_table "areas", force: true do |t|
     t.string   "name"
@@ -26,6 +26,21 @@ ActiveRecord::Schema.define(version: 20150117030358) do
   end
 
   add_index "areas", ["user_id"], name: "index_areas_on_user_id"
+
+  create_table "exits", force: true do |t|
+    t.integer  "direction"
+    t.text     "description"
+    t.string   "keywords"
+    t.integer  "exittype"
+    t.integer  "keyvnum"
+    t.integer  "exitto"
+    t.string   "name"
+    t.integer  "room_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "exits", ["room_id"], name: "index_exits_on_room_id"
 
   create_table "helps", force: true do |t|
     t.integer  "min_level"

@@ -1,0 +1,2 @@
+module ExitsHelper
+end

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  direction: 1
+  description: MyText
+  keywords: MyString
+  type: 1
+  keyvnum: 1
+  exitto: 1
+  name: MyString
+  room_id: 
+
+two:
+  direction: 1
+  description: MyText
+  keywords: MyString
+  type: 1
+  keyvnum: 1
+  exitto: 1
+  name: MyString
+  room_id: 

@@ -11,6 +11,7 @@
       <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:room_flags) %></th>
       <th><%= model_class.human_attribute_name(:terrain) %></th>
+      <th>Exits</th>
       <th>Ex Descs</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -24,6 +25,7 @@
         <td><%= simple_format(word_wrap(room.description, line_width: 75)) %></td>
         <td><%= room.room_flags %></td>
         <td><%= room.terrain %></td>
+        <td><%= room.exits.count %></td>
         <td><%= room.rxdescs.count %></td>
         <td>
           <%= link_to area_room_path(@area, room), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :helps
     resources :rooms do
       resources :rxdescs
+      resources :exits
     end
   end
 
