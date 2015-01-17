@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150116215551) do
+ActiveRecord::Schema.define(version: 20150117030358) do
 
   create_table "areas", force: true do |t|
     t.string   "name"
@@ -50,6 +50,16 @@ ActiveRecord::Schema.define(version: 20150116215551) do
   end
 
   add_index "rooms", ["area_id"], name: "index_rooms_on_area_id"
+
+  create_table "rxdescs", force: true do |t|
+    t.string   "keywords"
+    t.text     "description"
+    t.integer  "room_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rxdescs", ["room_id"], name: "index_rxdescs_on_room_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

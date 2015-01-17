@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   resources :areas do
     resources :helps
-    resources :rooms
+    resources :rooms do
+      resources :rxdescs
+    end
   end
 
   devise_for :users
