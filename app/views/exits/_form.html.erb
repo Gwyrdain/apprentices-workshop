@@ -1,8 +1,29 @@
 <%= form_for [@exit.room.area, @exit.room, @exit], :html => { :class => 'form-horizontal' } do |f| %>
+  <% if @exit.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@exit.errors.count, "error") %> prohibited this exit from being saved:</h3>
+
+      <ul>
+      <% @exit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="form-group">
-    <%= f.label :direction, :class => 'control-label col-md-2' %>
+    <%= f.label :direction, :class => 'control-label col-md-2' %> 
     <div class="col-md-10">
-      <%= f.text_field :direction, :class => 'text_field form-control' %>
+    <%= f.select(:direction, options_for_select(
+          [
+            ['north', 0],
+            ['east', 1],
+            ['south', 2],
+            ['west', 3],
+            ['up', 4],
+            ['down', 5]
+          ], @exit.direction
+        ), {}, {class: "form-control"}) %>
     </div>
   </div>
   <div class="form-group">
@@ -41,18 +62,12 @@
       <%= f.text_field :name, :class => 'text_field form-control' %>
     </div>
   </div>
-  <div class="form-group">
-    <%= f.label :room_id, :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
-      <%= f.text_field :room_id, :class => 'text_field form-control' %>
-    </div>
-  </div>
 
   <div class="form-group">
     <div class='col-md-offset-2 col-md-10'>
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                  area_room_exits_path, :class => 'btn btn-default' %>
+                  area_room_path(@area, @room), :class => 'btn btn-default' %>
     </div>
   </div>
 <% end %>

@@ -1,7 +1,7 @@
 <%= form_for  [@room.area, @room], :html => { :class => 'form-horizontal' } do |f| %>
   <% if @room.errors.any? %>
     <div id="error_explanation">
-      <h3><%= pluralize(@room.errors.count, "error") %> prohibited this area from being saved:</h3>
+      <h3><%= pluralize(@room.errors.count, "error") %> prohibited saving:</h3>
 
       <ul>
       <% @room.errors.full_messages.each do |message| %>

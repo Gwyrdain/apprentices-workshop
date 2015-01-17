@@ -2,11 +2,11 @@
 
 <div class="panel panel-default">
     <div class="panel-heading monospace"><h3>
-        <%= link_to @area.name, area_path(@area) %> / <%= link_to 'Rooms', area_rooms_path(@area) %> / <strong><%= @room.vnum %></strong>
+        <%= link_to @area.name, area_path(@area) %> /
+        <%= link_to 'Rooms', area_rooms_path(@area) %> /
+        <strong>Room: <%= @room.vnum %></strong>
     </h3></div>
     <div class="panel-body monospace">
-      
-<!--      <p id="notice"><%= notice %></p> -->
 
       <div class="row">
         <div class="col-md-2">
@@ -122,6 +122,9 @@
                   <th><%=t '.actions', :default => t("helpers.actions") %></th>
                 </tr>
               </thead>
+              <tfoot><tr><td colspan = '100%'>
+                <%= link_to 'New Exit', new_area_room_exit_path(@area, @room), :class => 'btn btn-primary' %>
+              </td></tr></tfoot>
               <tbody>
                 <% @room.exits.each do |exit| %>
                   <tr>
@@ -149,7 +152,8 @@
             </table>
           </div>
         </div>
-      </div><br/>
+      </div>
+      <br/>
 
       <div class="row">
         <div class="col-md-2">
@@ -165,11 +169,14 @@
                   <th><%=t '.actions', :default => t("helpers.actions") %></th>
                 </tr>
               </thead>
+              <tfoot><tr><td colspan = '100%'>
+                <%= link_to 'New Extra Description', new_area_room_rxdesc_path(@area, @room), :class => 'btn btn-primary' %>
+              </td></tr></tfoot>
               <tbody>
                 <% @room.rxdescs.each do |rxdesc| %>
                   <tr>
                     <td><%= rxdesc.keywords %></td>
-                    <td><%= rxdesc.description %></td>
+                    <td><%= simple_format(truncate(rxdesc.description, length: 220, separator: ' ', omission: '[...]')) %></td>
                     <td>
                       <%= link_to area_room_rxdesc_path(@area, @room, rxdesc), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
                         <%= glyph 'info-sign' %>
@@ -187,7 +194,8 @@
             </table>
           </div>
         </div>
-      </div><br/>
+      </div>
+      <br/>
       
     <strong>Formatted room:</strong>
     <p>

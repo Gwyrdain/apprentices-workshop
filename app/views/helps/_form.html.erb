@@ -1,7 +1,7 @@
 <%= form_for [@help.area, @help] do |f| %>
   <% if @help.errors.any? %>
     <div id="error_explanation">
-      <h3><%= pluralize(@help.errors.count, "error") %> prohibited this area from being saved:</h3>
+      <h3><%= pluralize(@help.errors.count, "error") %> prohibited saving:</h3>
 
       <ul>
       <% @help.errors.full_messages.each do |message| %>

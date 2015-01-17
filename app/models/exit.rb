@@ -4,7 +4,9 @@ class Exit < ActiveRecord::Base
   validates :direction, :numericality => { only_integer: true,
                                    greater_than_or_equal_to: 0,
                                    less_than_or_equal_to: 5,
-                                  }
+                                  },
+                   uniqueness:   { scope: :room,
+                                   message: "No duplicate exit directions allowed." }
   validates :description, length: { minimum: 4 }
   validates :keywords, length: { in: 4..75 }
   validates :exittype, :numericality => { only_integer: true,

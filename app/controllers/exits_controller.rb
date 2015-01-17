@@ -17,7 +17,6 @@ class ExitsController < ApplicationController
   def new
 #    @exit = Exit.new
     @exit = @room.exits.build
-    respond_with(@exit)
   end
 
   def edit
@@ -26,7 +25,7 @@ class ExitsController < ApplicationController
   def create
     @exit = @room.exits.create(exit_params)
     if @exit.save
-      redirect_to area_room_exit_path(@area, @room, @exit), notice: 'Room Exit was sucessfully created.'
+      redirect_to area_room_path(@area, @room), notice: 'Room Exit was sucessfully created.'
     else
       render action: 'new'
     end

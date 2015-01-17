@@ -1,4 +1,16 @@
 <%= form_for [@rxdesc.room.area, @rxdesc.room, @rxdesc], :html => { :class => 'form-horizontal' } do |f| %>
+  <% if @rxdesc.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@rxdesc.errors.count, "error") %> prohibited saving:</h3>
+
+      <ul>
+      <% @rxdesc.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="form-group">
     <%= f.label :keywords, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -8,7 +20,7 @@
   <div class="form-group">
     <%= f.label :description, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :description, :class => 'text_field form-control' %>
+       <%= f.text_area :description, class: 'form-control', rows: 10 %>
     </div>
   </div>
 
@@ -16,7 +28,7 @@
     <div class='col-md-offset-2 col-md-10'>
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                  area_room_rxdescs_path, :class => 'btn btn-default' %>
+                  area_room_path(@area, @room), :class => 'btn btn-default' %>
     </div>
   </div>
 <% end %>
