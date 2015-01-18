@@ -33,7 +33,7 @@ class ExitsController < ApplicationController
 
   def update
     if @exit.update(exit_params)
-      redirect_to area_room_exit_path(@area, @room, @exit), notice: 'Room Exit was sucessfully updated.'
+      redirect_to area_room_path(@area, @room), notice: 'Room Exit was sucessfully updated.'
     else
       render action: 'edit'
     end 

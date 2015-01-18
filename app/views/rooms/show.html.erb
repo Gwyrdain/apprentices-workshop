@@ -133,7 +133,12 @@
                     <td><%= exit.keywords %></td>
                     <td><%= exit.exittype %></td>
                     <td><%= exit.keyvnum %></td>
-                    <td><%= exit.exitto %></td>
+                    <td><% if exit.destination_exists? %>
+                          <%= link_to exit.exitto, area_room_path(@area, Room.where(["vnum = ?", exit.exitto]).first ) %>
+                        <% else %>
+                          <span style="color:red"><%= exit.exitto %> <%= glyph 'exclamation-sign' %>
+                        <% end %>
+                    </td>
                     <td><%= exit.name %></td>
                     <td>
                       <%= link_to area_room_exit_path(@area, @room, exit), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>

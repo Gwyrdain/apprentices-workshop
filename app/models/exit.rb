@@ -21,5 +21,12 @@ class Exit < ActiveRecord::Base
                                   }
   validates :name, length: { in: 4..75 }
 
+  def destination_exists?
+    if Room.exists?(:vnum => self.exitto) 
+       return true
+    else
+      return false
+    end
+  end
 
 end

@@ -29,7 +29,7 @@
             <td><%= simple_format(truncate(room.description, length: 220, separator: ' ', omission: '[...]')) %></td>
             <td><%= room.room_flags %></td>
             <td><%= room.terrain %></td>
-            <td><%= room.exits.count %></td>
+            <td><%= room.exits.count %> <span style="color:red"><%= glyph('exclamation-sign') if not room.destinations_exist? %></span></td>
             <td><%= room.rxdescs.count %></td>
             <td>
               <%= link_to area_room_path(@area, room), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
