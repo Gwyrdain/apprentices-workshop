@@ -4,7 +4,7 @@
     <div class="panel-heading monospace"><h3>
         <%= link_to @area.name, area_path(@area) %> /
         <%= link_to "Room: #{@room.vnum}", area_room_path(@area, @room) %> /
-        <strong><%= @exit.direction %></strong>
+        <%= @exit.direction %>
     </h3></div>
     <div class="panel-body monospace">
       

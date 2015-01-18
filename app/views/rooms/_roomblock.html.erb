@@ -3,8 +3,10 @@
 <%= word_wrap(room.description, line_width: 75) %>
 ~
 <%= @area.area_number %> <%= room.room_flags %> <%= room.terrain %> 
-[Insert doors from doors table here?]
-~
-[Insert extra descriptions from table here?]
-~
+<% room.exits.order(:direction).each do |exit| %>
+<%= render 'exits/exitblock', :exit => exit %>
+<% end %>
+<% room.rxdescs.each do |rxdesc| %>
+<%= render 'rxdescs/rxdescblock', :rxdesc => rxdesc %>
+<% end %>
 S

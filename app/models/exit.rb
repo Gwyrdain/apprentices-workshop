@@ -27,8 +27,7 @@ class Exit < ActiveRecord::Base
   validates :exitto, :numericality => { only_integer: true,
                                    greater_than_or_equal_to: -1,
                                   }
-  validates :name, length: { in: 4..75 }
-  
+
   validates_with TrapExitValidator
 
   def dir_type_combo_ok?
