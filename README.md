@@ -1,8 +1,20 @@
 The Apprentice's Workshop
 =========================
 
-<Something>
+Things to do notes
 -----------
+* Change room.exit.exitto to use the room_id of the connecting room rather than vnum! This is critical for a simple renumbering scheme. Requires create room on exit creation? or allow null but use warnings/no export? What about external connections?  Maybe allowable external vnums can be defined and the area level, then used in exitto validation.
+
+
+
+
+
+
+
+
+
+
+
 
 ### Sample Markdown
 
