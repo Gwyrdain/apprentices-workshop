@@ -128,15 +128,15 @@
               <tbody>
                 <% @room.exits.each do |exit| %>
                   <tr>
-                    <td><%= exit.direction %></td>
+                    <td><%= exit.direction_word %></td>
                     <td><%= exit.description %></td>
                     <td><%= exit.keywords %></td>
-                    <td><%= exit.exittype %></td>
+                    <td><%= exit.exittype %><% if not exit.dir_type_combo_ok? %><span style="color:red"> <%= glyph 'exclamation-sign' %></span><% end %></td>
                     <td><%= exit.keyvnum %></td>
                     <td><% if exit.destination_exists? %>
                           <%= link_to exit.exitto, area_room_path(@area, Room.where(["vnum = ?", exit.exitto]).first ) %>
                         <% else %>
-                          <span style="color:red"><%= exit.exitto %> <%= glyph 'exclamation-sign' %>
+                          <span style="color:red"><%= exit.exitto %> <%= glyph 'exclamation-sign' %></span>
                         <% end %>
                     </td>
                     <td><%= exit.name %></td>

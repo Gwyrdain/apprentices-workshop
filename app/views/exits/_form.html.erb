@@ -41,7 +41,15 @@
   <div class="form-group">
     <%= f.label :exittype, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :exittype, :class => 'text_field form-control' %>
+    <%= f.select(:exittype, options_for_select(
+          [
+            ['No Exit (For Wall/Direction Descriptions)', -1],
+            ['No Door', 0],
+            ['Door (Passable/Pickable)', 1],
+            ['Door (Not Passable/Pickable)', 2],
+            ['Trap (Used with Spec_Collapse, Down Only)', 3]
+          ], @exit.exittype
+        ), {}, {class: "form-control"}) %>
     </div>
   </div>
   <div class="form-group">
