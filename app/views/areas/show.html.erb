@@ -1,37 +1,72 @@
+<%- model_class = Area -%>
+
 <div class="panel panel-default">
     <div class="panel-heading monospace"><h3>
-        <strong><%= @area.name %></strong>
+        <%= @area.name %>
     </h3></div>
     <div class="panel-body monospace">
-
-      <p id="notice"><%= notice %></p>
-
-<!--      
-      <p>
-        <strong>Name:</strong>
-        <%= @area.name %>
-      </p>
--->
       
-      <p>
-        <strong>Author:</strong>
-        <%= @area.author %>
-      </p>
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Author:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @area.author %>
+          </div>
+        </div>
+      </div><br/>
       
-      <p>
-        <strong>Difficulty:</strong>
-        <%= @area.difficulty %>
-      </p>
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Difficulty:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @area.difficulty %>
+          </div>
+        </div>
+      </div><br/>
+       
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Vnum Quantity Assigned:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @area.vnum_qty %>
+          </div>
+        </div>
+      </div><br/>
       
-      <p>
-        <strong>Vnum Quantity Assigned:</strong>
-        <%= @area.vnum_qty %>
-      </p>      
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Area flags value:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @area.flags_as_hex %>
+          </div>
+        </div>
+      </div><br/>
       
-      <p>
-        <strong>Flags:</strong>
-        <%= @area.flags %>
-      </p>
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Area Flags:</strong>
+        </div>
+        <div class="col-md-10">
+          <% if @area.flags == 0 %><div class="col-md-2">NATURAL</div><% end %>
+          <% if @area.manmade? %><div class="col-md-2">MANMADE</div><% end %>
+          <% if @area.city? %><div class="col-md-2">CITY</div><% end %>
+          <% if @area.forest? %><div class="col-md-2">FOREST</div><% end %>
+          <% if @area.limited? %><div class="col-md-2">LIMITED</div><% end %>
+          <% if @area.aerial? %><div class="col-md-2">AERIAL</div><% end %>
+          <% if @area.reserved? %><div class="col-md-2">RESERVED</div><% end %>
+          <% if @area.arena? %><div class="col-md-2">ARENA</div><% end %>
+          <% if @area.quest? %><div class="col-md-2">QUEST</div><% end %>
+          <% if @area.novnum? %><div class="col-md-2">NOVNUM</div><% end %>
+        </div>
+      </div><br/>
       
       <table class="table">
         <tbody>
@@ -78,11 +113,16 @@
     
     </div>
     
-
-    
-    <div class="panel-footer">
-      <%= link_to 'Edit', edit_area_path(@area) %> |
-      <%= link_to 'Back', areas_path %>
+    <div class="panel-footer form-group">
+      <%= link_to t('.back', :default => t("helpers.links.back")),
+                  areas_path(@area), :class => 'btn btn-default'  %>
+      <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                  edit_area_path(@area), :class => 'btn btn-default' %>
+      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                  area_path(@area),
+                  :method => 'delete',
+                  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                  :class => 'btn btn-danger' %>
     </div>
 
 </div>

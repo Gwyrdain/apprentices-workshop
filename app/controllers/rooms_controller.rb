@@ -31,7 +31,6 @@ class RoomsController < ApplicationController
   end
 
   def update
-    #render text: params.inspect
     if @room.update(room_params)
       redirect_to area_room_path(@area, @room), notice: 'Room was sucessfully updated.'
     else
@@ -58,11 +57,12 @@ class RoomsController < ApplicationController
     end
 
     def room_params
-      params.require(:room).permit(:vnum, :name, :description, :terrain, :area_id,
-                                   :dark, :no_sleep, :no_mob, :indoors, :foggy, 
-                                   :private_room, :peaceful, :solitary, :no_recall,
-                                   :no_steal, :notrans, :no_spell, :no_fly, :fly_ok,
-                                   :no_quest, :no_item, :no_vnum
+      params.require(:room).permit(:vnum, :name, :description, :terrain,
+                                   :area_id, :dark, :no_sleep, :no_mob,
+                                   :indoors, :foggy, :private_room, :peaceful,
+                                   :solitary, :no_recall, :no_steal, :notrans,
+                                   :no_spell, :no_fly, :fly_ok, :no_quest,
+                                   :no_item, :no_vnum
                                   )
     end
     

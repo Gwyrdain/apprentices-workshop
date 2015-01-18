@@ -55,6 +55,7 @@
           <strong><%= model_class.human_attribute_name(:room_flags) %>:</strong>
         </div>
         <div class="col-md-10">
+          <% if @room.room_flags == 0 %><div class="col-md-2">NONE</div><% end %>
           <% if @room.dark? %><div class="col-md-2">DARK</div><% end %>
           <% if @room.no_sleep? %><div class="col-md-2">NO SLEEP</div><% end %>
           <% if @room.no_mob? %><div class="col-md-2">NO MOB</div><% end %>

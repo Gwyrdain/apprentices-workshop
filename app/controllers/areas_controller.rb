@@ -9,29 +9,25 @@ class AreasController < ApplicationController
 #   For now, show all... later show only the user's areas.
     @areas = Area.all
 #    @areas = Area.where(user_id: current_user.id)
-#    respond_with(@areas)
   end
 
   def show
-#    respond_with(@area)
   end
 
   def new
     @area = current_user.areas.build
-#    respond_with(@area)
   end
 
   def edit
   end
 
   def create
-    @area = current_user.areas.build(area_params)
+    @area = current_user.areas.create(area_params)
     if @area.save
       redirect_to @area, notice: 'Area was sucessfully created.'
     else
       render action: 'new'
     end
-#    respond_with(@area)
   end
 
   def update
@@ -40,13 +36,11 @@ class AreasController < ApplicationController
     else
       render action: 'edit'
     end     
-#    respond_with(@area)
   end
 
   def destroy
     @area.destroy
     redirect_to areas_url
-#    respond_with(@area)
   end
 
   private
@@ -55,7 +49,11 @@ class AreasController < ApplicationController
     end
 
     def area_params
-      params.require(:area).permit(:name, :author, :difficulty, :area_number, :flags, :vnum_qty)
+      params.require(:area).permit(:name, :author, :difficulty, :area_number,
+                                   :vnum_qty, :manmade, :city, :forest,
+                                   :limited, :aerial, :reserved, :arena,
+                                   :quest, :novnum
+                                  )
     end
 end
 
