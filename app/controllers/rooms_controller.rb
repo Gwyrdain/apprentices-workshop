@@ -13,8 +13,13 @@ class RoomsController < ApplicationController
   end
 
   def new
-        @room = @area.rooms.build
+      @room = @area.rooms.build
+#      @room.vnum ||= @area.nextroomvnum
+      if params[:new_vnum]
+        @room.vnum = params[:new_vnum]
+      else
         @room.vnum ||= @area.nextroomvnum
+      end
   end
 
   def edit
