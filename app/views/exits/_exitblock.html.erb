@@ -1,6 +1,6 @@
 D<%= exit.direction %>
-<%= word_wrap(exit.description, line_width: 75) %>
-~
+<% if exit.description.length > 0 %><%= word_wrap(exit.description, line_width: 75) %>
+<% end %>~
 <%= exit.keywords %>~
 <%= exit.exittype %> <%= exit.keyvnum %> <%= exit.exitto_formal %><% if (exit.name.length > 0) %>
 O
