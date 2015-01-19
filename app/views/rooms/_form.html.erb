@@ -37,56 +37,72 @@
     <div class="col-md-10">
 
         <div class="check_box col-md-2">
-          <%= f.check_box :dark, {:checked => @room.dark? ? true : false} %> DARK
-          
+          <%= f.check_box :dark, {:checked => @room.dark? ? true : false} %>
+          <%= f.label :dark, 'dark'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :no_sleep, {:checked => @room.no_sleep? ? true : false} %> NO SLEEP
+          <%= f.check_box :no_sleep, {:checked => @room.no_sleep? ? true : false} %>
+          <%= f.label :no_sleep, 'no_sleep'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :no_mob, {:checked => @room.no_mob? ? true : false} %> NO MOB
+          <%= f.check_box :no_mob, {:checked => @room.no_mob? ? true : false} %>
+          <%= f.label :no_mob, 'no_mob'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :indoors, {:checked => @room.indoors? ? true : false} %> INDOORS
+          <%= f.check_box :indoors, {:checked => @room.indoors? ? true : false} %>
+          <%= f.label :indoors, 'indoors'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :foggy, {:checked => @room.foggy? ? true : false} %> FOGGY
+          <%= f.check_box :foggy, {:checked => @room.foggy? ? true : false} %>
+          <%= f.label :foggy, 'foggy'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :private_room, {:checked => @room.private_room? ? true : false} %> PRIVATE
+          <%= f.check_box :private_room, {:checked => @room.private_room? ? true : false} %>
+          <%= f.label :private_room, 'private_room'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :peaceful, {:checked => @room.peaceful? ? true : false} %> PEACEFUL
+          <%= f.check_box :peaceful, {:checked => @room.peaceful? ? true : false} %>
+          <%= f.label :peaceful, 'peaceful'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :solitary, {:checked => @room.solitary? ? true : false} %> SOLITARY
+          <%= f.check_box :solitary, {:checked => @room.solitary? ? true : false} %>
+          <%= f.label :solitary, 'solitary'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :no_recall, {:checked => @room.no_recall? ? true : false} %> NO RECALL
+          <%= f.check_box :no_recall, {:checked => @room.no_recall? ? true : false} %>
+          <%= f.label :no_recall, 'no_recall'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :no_steal, {:checked => @room.no_steal? ? true : false} %> NO STEAL
+          <%= f.check_box :no_steal, {:checked => @room.no_steal? ? true : false} %>
+          <%= f.label :no_steal, 'no_steal'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :notrans, {:checked => @room.notrans? ? true : false} %> NOTRANS
+          <%= f.check_box :notrans, {:checked => @room.notrans? ? true : false} %>
+          <%= f.label :notrans, 'notrans'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :no_spell, {:checked => @room.no_spell? ? true : false} %> NO SPELL
+          <%= f.check_box :no_spell, {:checked => @room.no_spell? ? true : false} %>
+          <%= f.label :no_spell, 'no_spell'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :no_fly, {:checked => @room.no_fly? ? true : false} %> NO FLY
+          <%= f.check_box :no_fly, {:checked => @room.no_fly? ? true : false} %>
+          <%= f.label :no_fly, 'no_fly'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :fly_ok, {:checked => @room.fly_ok? ? true : false} %> FLY OK
+          <%= f.check_box :fly_ok, {:checked => @room.fly_ok? ? true : false} %>
+          <%= f.label :fly_ok, 'fly_ok'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :no_quest, {:checked => @room.no_quest? ? true : false} %> NO QUEST
+          <%= f.check_box :no_quest, {:checked => @room.no_quest? ? true : false} %>
+          <%= f.label :no_quest, 'no_quest'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :no_item, {:checked => @room.no_item? ? true : false} %> NO ITEM
+          <%= f.check_box :no_item, {:checked => @room.no_item? ? true : false} %>
+          <%= f.label :no_item, 'no_item'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :no_vnum, {:checked => @room.no_vnum? ? true : false} %> NO VNUM
+          <%= f.check_box :no_vnum, {:checked => @room.no_vnum? ? true : false} %>
+          <%= f.label :no_vnum, 'no_vnum'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
 
     </div>  

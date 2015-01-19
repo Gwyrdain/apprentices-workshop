@@ -12,32 +12,19 @@ Things to do notes
 
 
 
-
-
-
-
-### Sample Markdown
-
-Paragraphs are separated
-by a blank line.
-
-Let 2 spaces at the end of a line to do a  
-line break
-
-Text attributes *italic*, **bold**, 
-`monospace`, ~~strikethrough~~ .
-
-A [link](http://example.com).
-<<<   No space between ] and (  >>>
-
-Shopping list:
-
-* apples
-* oranges
-* pears
-
-Numbered list:
-
-1. apples
-2. oranges
-3. pears
+      <%= link_to 'New Default Room', {:controller => "rooms", 
+                                       :action => "create", 
+                                       :vnum => @area.nextroomvnum,
+                                       :name => 'Room Name',
+                                       :description => 'Description',
+                                       :terrain => 0,
+                                       :room_flags => 0,
+                                       :area_id => @area.id },
+                                       :method => "post" %>
+                                       
+      <%= link_to new_area_room_path(@area, :vnum => $this_exit.exitto,
+                                            :name => 'Room Name',
+                                            :description => 'Description',
+                                            :terrain => 0,
+                                            :room_flags => 0
+                                            ), :class => 'btn btn-danger btn-md btn-block' do %>

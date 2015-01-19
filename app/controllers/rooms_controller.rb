@@ -15,11 +15,20 @@ class RoomsController < ApplicationController
   def new
       @room = @area.rooms.build
 #      @room.vnum ||= @area.nextroomvnum
-      if params[:new_vnum]
-        @room.vnum = params[:new_vnum]
-      else
-        @room.vnum ||= @area.nextroomvnum
-      end
+      #if params[:vnum]
+      #end
+      
+      @room.vnum = params[:vnum]
+      @room.name = params[:name]
+      @room.description = params[:description]
+      @room.terrain = params[:terrain]
+      @room.room_flags = params[:room_flags]
+      
+      @room.vnum ||= @area.nextroomvnum
+      ### Implement Defaults Here ###
+      #@room.terrain ||= @area.default_terrain
+      #@room.room_flags ||= @area.default_room_flags
+      
   end
 
   def edit
@@ -27,7 +36,12 @@ class RoomsController < ApplicationController
   end
 
   def create
+    if not params[:room]
+      @room = @area.rooms.build
+    end
+    
     @room = @area.rooms.create(room_params)
+    
     if @room.save
       redirect_to area_room_path(@area, @room), notice: 'Room was sucessfully created.'
     else
@@ -67,7 +81,7 @@ class RoomsController < ApplicationController
                                    :indoors, :foggy, :private_room, :peaceful,
                                    :solitary, :no_recall, :no_steal, :notrans,
                                    :no_spell, :no_fly, :fly_ok, :no_quest,
-                                   :no_item, :no_vnum
+                                   :no_item, :no_vnum, :room_flags
                                   )
     end
     

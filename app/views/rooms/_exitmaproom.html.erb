@@ -13,7 +13,12 @@
       
     <% else %>
       
-      <%= link_to new_area_room_path(@area, :new_vnum => $this_exit.exitto), :class => 'btn btn-danger btn-md btn-block' do %>
+      <%= link_to new_area_room_path(@area, :vnum => $this_exit.exitto,
+                                            :name => 'Room Name',
+                                            :description => 'Description',
+                                            :terrain => 0,
+                                            :room_flags => 0
+                                            ), :class => 'btn btn-danger btn-md btn-block' do %>
         <%= num_to_dir(dir).titleize %> to <%= $this_exit.exitto %><br>
         Room is<br>
         Undefined!
