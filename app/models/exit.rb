@@ -15,8 +15,6 @@ class Exit < ActiveRecord::Base
                                   },
                    uniqueness:   { scope: :room,
                                    message: "No duplicate exit directions allowed." }
-  validates :description, length: { minimum: 4 }
-  validates :keywords, length: { in: 4..75 }
   validates :exittype, :numericality => { only_integer: true,
                                    greater_than_or_equal_to: -1,
                                    less_than_or_equal_to: 4,
@@ -68,6 +66,12 @@ class Exit < ActiveRecord::Base
     else
       return (self.room.area.area_number * 100) + self.exitto
     end
+  end
+  
+  before_create :default_values
+  def default_values
+    self.exittype ||= 0
+    self.keyvnum ||= 0
   end
 
 end

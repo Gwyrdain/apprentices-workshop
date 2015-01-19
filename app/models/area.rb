@@ -28,7 +28,7 @@ class Area < ActiveRecord::Base
   
   def nextroomvnum
     $i = 0
-    while Room.exists?(:vnum => $i)  do
+    while self.rooms.exists?(:vnum => $i)  do
         $i +=1
     end
     return $i
