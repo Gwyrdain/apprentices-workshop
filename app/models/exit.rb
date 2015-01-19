@@ -61,5 +61,13 @@ class Exit < ActiveRecord::Base
     $word = 'Down' if i == 5
     return $word
   end
+  
+  def exitto_formal
+    if self.exitto > self.room.area.vnum_qty
+      return self.exitto
+    else
+      return (self.room.area.area_number * 100) + self.exitto
+    end
+  end
 
 end

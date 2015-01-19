@@ -129,7 +129,7 @@
                 <%= link_to 'New Exit', new_area_room_exit_path(@area, @room), :class => 'btn btn-primary' %>
               </td></tr></tfoot>
               <tbody>
-                <% @room.exits.each do |exit| %>
+                <% @room.exits.order(:direction).each do |exit| %>
                   <tr>
                     <td><%= exit.direction_word %></td>
                     <td><%= exit.description %></td>
