@@ -49,17 +49,6 @@ class Exit < ActiveRecord::Base
     return num_to_dir(self.direction)
   end
   
-  def num_to_dir(i)
-    $word = nil
-    $word = 'North' if i == 0
-    $word = 'East' if i == 1
-    $word = 'South' if i == 2
-    $word = 'West' if i == 3
-    $word = 'Up' if i == 4
-    $word = 'Down' if i == 5
-    return $word
-  end
-  
   def exitto_formal
     if self.exitto > self.room.area.vnum_qty
       return self.exitto
@@ -75,3 +64,14 @@ class Exit < ActiveRecord::Base
   end
 
 end
+
+  def num_to_dir(i)
+    $word = nil
+    $word = 'North' if i == 0
+    $word = 'East' if i == 1
+    $word = 'South' if i == 2
+    $word = 'West' if i == 3
+    $word = 'Up' if i == 4
+    $word = 'Down' if i == 5
+    return $word
+  end
