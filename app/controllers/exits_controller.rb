@@ -42,9 +42,9 @@ class ExitsController < ApplicationController
   def destroy
     @exit.destroy
     if @exit.save
-      redirect_to area_room_exits_path(@area, @room), notice: 'Room was sucessfully deleted.'
+      redirect_to area_room_path(@area, @room), notice: 'Room was sucessfully deleted.'
     else
-      redirect_to area_room_exits_path(@area, @room), notice: 'Something went wrong.'
+      redirect_to area_room_path(@area, @room), notice: 'Something went wrong.'
     end
   end
 

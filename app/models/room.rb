@@ -45,5 +45,15 @@ class Room < ActiveRecord::Base
     end
     return $exits_exist
   end
+  
+  def exit_dir_exists?(i)
+    $dir_exists = false
+    self.exits.each do |exit|
+      if exit.direction == i
+        $dir_exists = true
+      end
+    end
+    return $dir_exists
+  end
 
 end

@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-md-2">
+    <strong>Exit Map:</strong>
+  </div>
+  <div class="col-md-10 center">
+
+    <div class="row">
+      <div class="col-md-8"></div>
+      <%= render 'rooms/exitmaproom', :room => @room, :dir => 4 %>
+    </div>
+
+    <div class="row">&nbsp</div>
+    
+    <div class="row">
+      <div class="col-md-4"></div>
+      <%= render 'rooms/exitmaproom', :room => @room, :dir => 0 %>
+    </div>
+
+    <div class="row">&nbsp</div>
+    
+    <div class="row">
+      <div class="col-md-2"></div>
+      <%= render 'rooms/exitmaproom', :room => @room, :dir => 3 %>
+      
+      <div class="col-md-2">
+        <button type="button" class="btn btn-info btn-md btn-block" disabled="disabled">
+          <br>
+          You are here<br>
+          &nbsp
+        </button>
+      </div>
+      
+      <%= render 'rooms/exitmaproom', :room => @room, :dir => 1 %>
+      
+    </div>
+
+    <div class="row">&nbsp</div>
+    
+    <div class="row">
+      <div class="col-md-4"></div>
+      
+      <%= render 'rooms/exitmaproom', :room => @room, :dir => 2 %>
+      
+    </div>
+  
+    <div class="row">&nbsp</div>
+    
+    <div class="row">
+
+      <%= render 'rooms/exitmaproom', :room => @room, :dir => 5 %>
+      
+    </div>
+
+  </div>
+</div>
+<br/>

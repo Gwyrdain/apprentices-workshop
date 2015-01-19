@@ -48,13 +48,17 @@ class Exit < ActiveRecord::Base
   end
   
   def direction_word
-    $word = ''
-    $word = 'north' if self.direction == 0
-    $word = 'east' if self.direction == 1
-    $word = 'south' if self.direction == 2
-    $word = 'west' if self.direction == 3
-    $word = 'up' if self.direction == 4
-    $word = 'down' if self.direction == 5
+    return num_to_dir(self.direction)
+  end
+  
+  def num_to_dir(i)
+    $word = nil
+    $word = 'North' if i == 0
+    $word = 'East' if i == 1
+    $word = 'South' if i == 2
+    $word = 'West' if i == 3
+    $word = 'Up' if i == 4
+    $word = 'Down' if i == 5
     return $word
   end
 

@@ -1,0 +1,34 @@
+<div class="col-md-2">
+  <% if @room.exit_dir_exists?(dir) %>
+    <% $this_exit = @room.exits.where(direction: dir).first %>
+    
+    <% if $this_exit.destination_exists? %>
+      <% $dest_room = Room.where(vnum: $this_exit.exitto).first %>
+      
+      <%= link_to area_room_path(@area, $dest_room), :class => 'btn btn-success btn-md btn-block' do %>
+          <%= $this_exit.direction_word %> to <%= $this_exit.exitto %><br>
+          <%= truncate($dest_room.name, length: 14, separator: ' ', omission: '') %><br>
+          &nbsp
+      <% end %>
+      
+    <% else %>
+      
+      <button type="button" class="btn btn-danger btn-md btn-block" disabled="disabled">
+        <%= num_to_dir(dir).titleize %> to <%= $this_exit.exitto %><br>
+        Room is<br>
+        Undefined!
+      </button>
+      
+    <% end %>
+    
+  <% else %>
+  
+      <button type="button" class="btn btn-default btn-md btn-block" disabled="disabled">
+        No <%= num_to_dir(dir).titleize %> Exit<br>
+        &nbsp<br>
+        &nbsp
+      </button>
+    
+  <% end %>
+
+</div>
