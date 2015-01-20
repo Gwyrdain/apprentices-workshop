@@ -6,7 +6,7 @@ one:
   keywords: MyString
   type: 1
   keyvnum: 1
-  exitto: 1
+  exit_room_id: 1
   name: MyString
   room_id: 
 
@@ -16,6 +16,6 @@ two:
   keywords: MyString
   type: 1
   keyvnum: 1
-  exitto: 1
+  exit_room_id: 1
   name: MyString
   room_id: 

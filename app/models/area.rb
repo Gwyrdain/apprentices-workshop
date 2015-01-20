@@ -1,7 +1,7 @@
 class Area < ActiveRecord::Base
     belongs_to :user
-    has_many :helps
-    has_many :rooms
+    has_many :helps, dependent: :destroy
+    has_many :rooms, dependent: :destroy
     
     include Bitfields
     bitfield  :flags, 2**0 => :manmade,  # Hex 1

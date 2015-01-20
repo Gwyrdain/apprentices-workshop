@@ -62,6 +62,6 @@ class ExitsController < ApplicationController
     end
     
     def exit_params
-      params.require(:exit).permit(:direction, :description, :keywords, :exittype, :keyvnum, :exitto, :name, :room_id)
+      params.require(:exit).permit(:direction, :description, :keywords, :exittype, :keyvnum, :exit_room_id, :name, :room_id)
     end
 end

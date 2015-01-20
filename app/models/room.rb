@@ -1,7 +1,7 @@
 class Room < ActiveRecord::Base
   belongs_to :area
-  has_many :rxdescs
-  has_many :exits
+  has_many :rxdescs, dependent: :destroy
+  has_many :exits, dependent: :destroy
   
   include Bitfields
   bitfield :room_flags, 1 => :dark, 2 => :no_sleep, 4 => :no_mob, 8 => :indoors, 32 => :foggy, 512 => :private_room, 1024 => :peaceful, 2048 => :solitary, 8192 => :no_recall, 16384 => :no_steal, 32768 => :notrans, 65536 => :no_spell, 262144 => :no_fly, 1048576 => :fly_ok, 2097152 => :no_quest, 4194304 => :no_item, 8388608 => :no_vnum
@@ -54,6 +54,10 @@ class Room < ActiveRecord::Base
       end
     end
     return $dir_exists
+  end
+  
+  def vnum_and_name
+    return  format("%03d",self.vnum) + " " + self.name
   end
 
 end

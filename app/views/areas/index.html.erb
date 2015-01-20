@@ -11,6 +11,8 @@
             <th>Area #</th>
             <th>Vnum Qty</th>
             <th><div class="monospace-pre">Levels  Author   Name</div></th>
+            <th>Helps</th>
+            <th>Rooms</th>
             <th>User</th>
             <th><%=t '.actions', :default => t("helpers.actions") %></th>
           </tr>
@@ -24,6 +26,8 @@
               <td>
                 <div class="monospace-pre"><%= link_to(area) do %>{<%= area.difficulty %>} <%= format("%-8s", area.author) %> <%= format("%-20s", area.name) %><% end %></div>
               </td>
+              <td><%= area.helps.count %></td>
+              <td><%= area.rooms.count %></td>
               <td><%= area.user.email %></td>
               <td>
                 <%= link_to area_path(area), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>

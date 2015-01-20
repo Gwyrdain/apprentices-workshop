@@ -3,23 +3,23 @@
     <% $this_exit = @room.exits.where(direction: dir).first %>
     
     <% if $this_exit.destination_exists? %>
-      <% $dest_room = Room.where(area_id: @area.id, vnum: $this_exit.exitto).first %>
+      <% $dest_room = Room.where(area_id: @area.id, vnum: $this_exit.exit_room_id).first %>
       
       <%= link_to area_room_path(@area, $dest_room), :class => 'btn btn-success btn-md btn-block' do %>
-          <%= $this_exit.direction_word %> to <%= $this_exit.exitto %><br>
+          <%= $this_exit.direction_word %> to <%= $this_exit.exit_room_id %><br>
           <%= truncate($dest_room.name, length: 14, separator: ' ', omission: '') %><br>
           &nbsp
       <% end %>
       
     <% else %>
       
-      <%= link_to new_area_room_path(@area, :vnum => $this_exit.exitto,
+      <%= link_to new_area_room_path(@area, :vnum => $this_exit.exit_room_id,
                                             :name => 'Room Name',
                                             :description => 'Description',
                                             :terrain => 0,
                                             :room_flags => 0
                                             ), :class => 'btn btn-danger btn-md btn-block' do %>
-        <%= num_to_dir(dir).titleize %> to <%= $this_exit.exitto %><br>
+        <%= num_to_dir(dir).titleize %> to <%= $this_exit.exit_room_id %><br>
         Room is<br>
         Undefined!
       <% end %>

@@ -22,7 +22,7 @@ class Exit < ActiveRecord::Base
   validates :keyvnum, :numericality => { only_integer: true,
                                    greater_than_or_equal_to: -1,
                                   }
-  validates :exitto, :numericality => { only_integer: true,
+  validates :exit_room_id, :numericality => { only_integer: true,
                                    greater_than_or_equal_to: -1,
                                   }
 
@@ -38,7 +38,7 @@ class Exit < ActiveRecord::Base
 
 
   def destination_exists?
-    if Room.exists?(:vnum => self.exitto) 
+    if Room.exists?(:vnum => self.exit_room_id) 
       return true
     else
       return false
@@ -49,11 +49,11 @@ class Exit < ActiveRecord::Base
     return num_to_dir(self.direction)
   end
   
-  def exitto_formal
-    if self.exitto > self.room.area.vnum_qty
-      return self.exitto
+  def exit_room_id_formal
+    if self.exit_room_id > self.room.area.vnum_qty
+      return self.exit_room_id
     else
-      return (self.room.area.area_number * 100) + self.exitto
+      return (self.room.area.area_number * 100) + self.exit_room_id
     end
   end
   

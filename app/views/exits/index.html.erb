@@ -11,7 +11,7 @@
       <th><%= model_class.human_attribute_name(:keywords) %></th>
       <th><%= model_class.human_attribute_name(:exittype) %></th>
       <th><%= model_class.human_attribute_name(:keyvnum) %></th>
-      <th><%= model_class.human_attribute_name(:exitto) %></th>
+      <th><%= model_class.human_attribute_name(:exit_room_id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:room_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -27,7 +27,7 @@
           <td><%= exit.keywords %></td>
           <td><%= exit.exittype %></td>
           <td><%= exit.keyvnum %></td>
-          <td><%= exit.exitto %></td>
+          <td><%= exit.exit_room_id %></td>
           <td><%= exit.name %></td>
           <td><%= exit.room_id %></td>
         <td><%=l exit.created_at, format: :long %></td>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150117051335) do
+ActiveRecord::Schema.define(version: 20150120021948) do
 
   create_table "areas", force: true do |t|
     t.string   "name"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20150117051335) do
     t.string   "keywords"
     t.integer  "exittype"
     t.integer  "keyvnum"
-    t.integer  "exitto"
+    t.integer  "exit_room_id"
     t.string   "name"
     t.integer  "room_id"
     t.datetime "created_at"

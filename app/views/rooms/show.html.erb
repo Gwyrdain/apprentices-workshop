@@ -137,9 +137,9 @@
                     <td><%= exit.exittype %><% if not exit.dir_type_combo_ok? %><span style="color:red"> <%= glyph 'exclamation-sign' %></span><% end %></td>
                     <td><%= exit.keyvnum %></td>
                     <td><% if exit.destination_exists? %>
-                          <%= link_to exit.exitto, area_room_path(@area, Room.where(["vnum = ?", exit.exitto]).first ) %>
+                          <%= link_to exit.exit_room_id, area_room_path(@area, Room.where(["vnum = ?", exit.exit_room_id]).first ) %>
                         <% else %>
-                          <span style="color:red"><%= exit.exitto %> <%= glyph 'exclamation-sign' %></span>
+                          <span style="color:red"><%= exit.exit_room_id %> <%= glyph 'exclamation-sign' %></span>
                         <% end %>
                     </td>
                     <td><%= exit.name %></td>

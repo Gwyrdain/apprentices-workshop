@@ -18,7 +18,7 @@ class ExitsControllerTest < ActionController::TestCase
 
   test "should create exit" do
     assert_difference('Exit.count') do
-      post :create, exit: { description: @exit.description, direction: @exit.direction, exitto: @exit.exitto, keyvnum: @exit.keyvnum, keywords: @exit.keywords, name: @exit.name, room_id: @exit.room_id, type: @exit.type }
+      post :create, exit: { description: @exit.description, direction: @exit.direction, exit_room_id: @exit.exit_room_id, keyvnum: @exit.keyvnum, keywords: @exit.keywords, name: @exit.name, room_id: @exit.room_id, type: @exit.type }
     end
 
     assert_redirected_to exit_path(assigns(:exit))
@@ -35,7 +35,7 @@ class ExitsControllerTest < ActionController::TestCase
   end
 
   test "should update exit" do
-    patch :update, id: @exit, exit: { description: @exit.description, direction: @exit.direction, exitto: @exit.exitto, keyvnum: @exit.keyvnum, keywords: @exit.keywords, name: @exit.name, room_id: @exit.room_id, type: @exit.type }
+    patch :update, id: @exit, exit: { description: @exit.description, direction: @exit.direction, exit_room_id: @exit.exit_room_id, keyvnum: @exit.keyvnum, keywords: @exit.keywords, name: @exit.name, room_id: @exit.room_id, type: @exit.type }
     assert_redirected_to exit_path(assigns(:exit))
   end
 
