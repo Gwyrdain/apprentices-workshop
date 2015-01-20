@@ -55,31 +55,40 @@
     <%= f.label :flags, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
         <div class="check_box col-md-2">
-          <%= f.check_box :manmade, {:checked => @area.manmade? ? true : false} %> MANMADE
+          <%= f.check_box :manmade, {:checked => @area.manmade? ? true : false} %>
+          <%= f.label :manmade, 'manmade'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :city, {:checked => @area.city? ? true : false} %> CITY
+          <%= f.check_box :city, {:checked => @area.city? ? true : false} %>
+          <%= f.label :city, 'city'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :forest, {:checked => @area.forest? ? true : false} %> FOREST
+          <%= f.check_box :forest, {:checked => @area.forest? ? true : false} %>
+          <%= f.label :forest, 'forest'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :limited, {:checked => @area.limited? ? true : false} %> LIMITED
+          <%= f.check_box :limited, {:checked => @area.limited? ? true : false} %>
+          <%= f.label :limited, 'limited'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :aerial, {:checked => @area.aerial? ? true : false} %> AERIAL
+          <%= f.check_box :aerial, {:checked => @area.aerial? ? true : false} %>
+          <%= f.label :aerial, 'aerial'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :reserved, {:checked => @area.reserved? ? true : false} %> RESERVED
+          <%= f.check_box :reserved, {:checked => @area.reserved? ? true : false} %>
+          <%= f.label :reserved, 'reserved'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :arena, {:checked => @area.arena? ? true : false} %> ARENA
+          <%= f.check_box :arena, {:checked => @area.arena? ? true : false} %>
+          <%= f.label :arena, 'arena'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :quest, {:checked => @area.quest? ? true : false} %> QUEST
+          <%= f.check_box :quest, {:checked => @area.quest? ? true : false} %>
+          <%= f.label :quest, 'quest'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
-          <%= f.check_box :novnum, {:checked => @area.novnum? ? true : false} %> NOVNUM
+          <%= f.check_box :novnum, {:checked => @area.novnum? ? true : false} %>
+          <%= f.label :novnum, 'novnum'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
     </div>  
   </div>
