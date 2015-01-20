@@ -2,14 +2,14 @@
 ---
 
 ## Areas
-* Add default area terrain and room_flags.
+* ~~Add default area terrain and room_flags.~~ Done
 * ~~What about deleting an Area record... need to clean up assocaited records!~~ Added dependent: :destroy to all has_many associattions.  Need to carry this through.
 
 ## Helps
 * None.
 
 ## Rooms
-* Pull in default area terrain and room_flags where appropriate. (Commented out in controller)
+* ~~Pull in default area terrain and room_flags where appropriate.~~ Done
 * Need checker for exits:
   - one-way (N to room with no S),
   - reciprocal (N to room, S back to 1st),

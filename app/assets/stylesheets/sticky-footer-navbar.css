@@ -9,16 +9,16 @@ body {
   min-height: 100%;
   height: auto;
   /* Negative indent footer by its height */
-  margin: 0 auto -60px;
+  margin: 0 auto -40px;
   /* Pad bottom by footer height */
   padding: 60px 0 60px;
 }
 
 /* Set the fixed height of the footer here */
 #footer {
-  height: 60px;
+  height: 40px;
   background-color: #f5f5f5;
   text-align: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
