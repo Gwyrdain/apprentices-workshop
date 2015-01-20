@@ -2,6 +2,6 @@ D<%= exit.direction %>
 <% if exit.description.length > 0 %><%= word_wrap(exit.description, line_width: 75) %>
 <% end %>~
 <%= exit.keywords %>~
-<%= exit.exittype %> <%= exit.keyvnum %> <%= exit.exit_room_id_formal %><% if (exit.name.length > 0) %>
+<%= exit.exittype %> <%= exit.keyvnum %> <%= exit.destination.formal_vnum %><% if (exit.name.length > 0) %>
 O
 <%= exit.name %>~<% end %>

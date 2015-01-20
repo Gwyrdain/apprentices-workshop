@@ -3,31 +3,27 @@
     <% $this_exit = @room.exits.where(direction: dir).first %>
     
     <% if $this_exit.destination_exists? %>
-      <% $dest_room = Room.where(area_id: @area.id, vnum: $this_exit.exit_room_id).first %>
+      <% $dest_room = $this_exit.destination %>
       
+      <!-- IF EXIT IN THIS DIR AND THE DESTINATION EXISTS -->
       <%= link_to area_room_path(@area, $dest_room), :class => 'btn btn-success btn-md btn-block' do %>
-          <%= $this_exit.direction_word %> to <%= $this_exit.exit_room_id %><br>
+          <%= $this_exit.direction_word %> to <%= $this_exit.destination.vnum %><br>
           <%= truncate($dest_room.name, length: 14, separator: ' ', omission: '') %><br>
           &nbsp
       <% end %>
       
     <% else %>
-      
-      <%= link_to new_area_room_path(@area, :vnum => $this_exit.exit_room_id,
-                                            :name => 'Room Name',
-                                            :description => 'Description',
-                                            :terrain => 0,
-                                            :room_flags => 0
-                                            ), :class => 'btn btn-danger btn-md btn-block' do %>
-        <%= num_to_dir(dir).titleize %> to <%= $this_exit.exit_room_id %><br>
-        Room is<br>
-        Undefined!
-      <% end %>
+      <!-- IF EXIT IN THIS DIR BUT THE DESTINATION DOES NOT EXIST -->
+      <button type="button" class="btn btn-danger btn-md btn-block" disabled="disabled">
+        Bad <%= num_to_dir(dir).titleize %> Exit<br>
+        No<br>
+        Destination
+      </button>
       
     <% end %>
     
   <% else %>
-  
+      <!-- IF NO EXIT IN THIS DIR -->
       <button type="button" class="btn btn-default btn-md btn-block" disabled="disabled">
         No <%= num_to_dir(dir).titleize %> Exit<br>
         &nbsp<br>

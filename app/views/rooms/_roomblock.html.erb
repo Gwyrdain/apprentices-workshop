@@ -1,4 +1,4 @@
-#<%= room.formal_vnum %>
+<% if room.destinations_exist? %>#<%= room.formal_vnum %>
 <%= room.name %>~
 <%= word_wrap(room.description, line_width: 75) %>
 ~
@@ -9,4 +9,6 @@
 <% room.rxdescs.each do |rxdesc| %>
 <%= render 'rxdescs/rxdescblock', :rxdesc => rxdesc %>
 <% end %>
-S
+S<% else %>
+*** BAD EXITS IN ROOM <%= room.vnum %> ***
+<% end %>

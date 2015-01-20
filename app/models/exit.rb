@@ -36,25 +36,24 @@ class Exit < ActiveRecord::Base
     end
   end
 
-
   def destination_exists?
-    if Room.exists?(:vnum => self.exit_room_id) 
+    if Room.exists?(self.exit_room_id)
       return true
     else
       return false
     end
   end
+
+  def destination
+    if self.destination_exists?
+      return Room.find(self.exit_room_id)
+    else
+      return nil
+    end
+  end
   
   def direction_word
     return num_to_dir(self.direction)
-  end
-  
-  def exit_room_id_formal
-    if self.exit_room_id > self.room.area.vnum_qty
-      return self.exit_room_id
-    else
-      return (self.room.area.area_number * 100) + self.exit_room_id
-    end
   end
   
   before_create :default_values

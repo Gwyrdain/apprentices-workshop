@@ -15,8 +15,11 @@ class ExitsController < ApplicationController
   end
 
   def new
-#    @exit = Exit.new
     @exit = @room.exits.build
+    
+    @exit.exittype ||= 0
+    @exit.keyvnum ||= 0
+    
   end
 
   def edit

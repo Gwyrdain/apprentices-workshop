@@ -58,20 +58,20 @@
       <%= f.text_field :keyvnum, :class => 'text_field form-control' %>
     </div>
   </div>
+  <!-- OLD METHOD
   <div class="form-group">
     <%= f.label :exit_room_id, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :exit_room_id, :class => 'text_field form-control' %>
     </div>
   </div>
-  <!--
+  -->
   <div class="form-group">
-    <%= f.label :exit_room_id, :class => 'control-label col-md-2' %>
+    <%= f.label :exit_room_id, 'Exit to', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.collection_select(:exit_room_id, @area.rooms, :id, :vnum_and_name, {}, {class: "form-control"})  %>
     </div>
   </div>
-  -->
   <div class="form-group">
     <%= f.label :name, :class => 'control-label col-md-2' %>
     <div class="col-md-10">

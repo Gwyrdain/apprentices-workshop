@@ -59,8 +59,9 @@ class RoomsController < ApplicationController
 
   def destroy
     @room.destroy
+    Exit.where(:exit_room_id => @room.id).delete_all
     if @room.save
-      redirect_to area_rooms_path(@area), notice: 'Room was sucessfully deleted.'
+      redirect_to area_rooms_path(@area), notice: 'Room and all associated exits to this room were sucessfully deleted.'
     else
       redirect_to area_rooms_path(@area), notice: 'Something went wrong.'
     end
