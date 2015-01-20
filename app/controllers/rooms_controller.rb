@@ -25,9 +25,8 @@ class RoomsController < ApplicationController
       @room.room_flags = params[:room_flags]
       
       @room.vnum ||= @area.nextroomvnum
-      ### Implement Defaults Here ###
-      #@room.terrain ||= @area.default_terrain
-      #@room.room_flags ||= @area.default_room_flags
+      @room.terrain ||= @area.default_terrain
+      @room.room_flags ||= @area.default_room_flags
       
   end
 

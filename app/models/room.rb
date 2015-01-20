@@ -4,7 +4,23 @@ class Room < ActiveRecord::Base
   has_many :exits, dependent: :destroy
   
   include Bitfields
-  bitfield :room_flags, 1 => :dark, 2 => :no_sleep, 4 => :no_mob, 8 => :indoors, 32 => :foggy, 512 => :private_room, 1024 => :peaceful, 2048 => :solitary, 8192 => :no_recall, 16384 => :no_steal, 32768 => :notrans, 65536 => :no_spell, 262144 => :no_fly, 1048576 => :fly_ok, 2097152 => :no_quest, 4194304 => :no_item, 8388608 => :no_vnum
+  bitfield :room_flags, 1 => :dark,
+                        2 => :no_sleep,
+                        4 => :no_mob, 
+                        8 => :indoors, 
+                        32 => :foggy, 
+                        512 => :private_room, 
+                        1024 => :peaceful, 
+                        2048 => :solitary, 
+                        8192 => :no_recall, 
+                        16384 => :no_steal, 
+                        32768 => :notrans, 
+                        65536 => :no_spell, 
+                        262144 => :no_fly, 
+                        1048576 => :fly_ok, 
+                        2097152 => :no_quest, 
+                        4194304 => :no_item, 
+                        8388608 => :no_vnum
 
   validates :vnum, :numericality => { only_integer: true,
                                    greater_than_or_equal_to: 0,

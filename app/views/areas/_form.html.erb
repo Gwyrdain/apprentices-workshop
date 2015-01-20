@@ -94,6 +94,104 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :default_room_flags, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+
+        <div class="check_box col-md-2">
+          <%= f.check_box :dark, {:checked => @area.dark? ? true : false} %>
+          <%= f.label :dark, 'dark'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :no_sleep, {:checked => @area.no_sleep? ? true : false} %>
+          <%= f.label :no_sleep, 'no_sleep'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :no_mob, {:checked => @area.no_mob? ? true : false} %>
+          <%= f.label :no_mob, 'no_mob'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :indoors, {:checked => @area.indoors? ? true : false} %>
+          <%= f.label :indoors, 'indoors'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :foggy, {:checked => @area.foggy? ? true : false} %>
+          <%= f.label :foggy, 'foggy'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :private_room, {:checked => @area.private_room? ? true : false} %>
+          <%= f.label :private_room, 'private_room'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :peaceful, {:checked => @area.peaceful? ? true : false} %>
+          <%= f.label :peaceful, 'peaceful'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :solitary, {:checked => @area.solitary? ? true : false} %>
+          <%= f.label :solitary, 'solitary'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :no_recall, {:checked => @area.no_recall? ? true : false} %>
+          <%= f.label :no_recall, 'no_recall'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :no_steal, {:checked => @area.no_steal? ? true : false} %>
+          <%= f.label :no_steal, 'no_steal'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :notrans, {:checked => @area.notrans? ? true : false} %>
+          <%= f.label :notrans, 'notrans'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :no_spell, {:checked => @area.no_spell? ? true : false} %>
+          <%= f.label :no_spell, 'no_spell'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :no_fly, {:checked => @area.no_fly? ? true : false} %>
+          <%= f.label :no_fly, 'no_fly'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :fly_ok, {:checked => @area.fly_ok? ? true : false} %>
+          <%= f.label :fly_ok, 'fly_ok'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :no_quest, {:checked => @area.no_quest? ? true : false} %>
+          <%= f.label :no_quest, 'no_quest'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :no_item, {:checked => @area.no_item? ? true : false} %>
+          <%= f.label :no_item, 'no_item'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :no_vnum, {:checked => @area.no_vnum? ? true : false} %>
+          <%= f.label :no_vnum, 'no_vnum'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+
+    </div>  
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :default_terrain, :class => 'control-label col-md-2' %> 
+    <div class="col-md-10">
+    <%= f.select(:default_terrain, options_for_select(
+          [
+            ['INSIDE', 0],
+            ['CITY', 1],
+            ['FIELD', 2],
+            ['FOREST', 3],
+            ['HILLS', 4],
+            ['MOUNTAIN', 5],
+            ['WATER SWIM', 6],
+            ['WATER NOSWIM', 7],
+            ['UNDERWATER', 8],
+            ['AIR', 9],
+            ['DESERT', 10]
+          ], @area.default_terrain
+        ), {}, {class: "form-control"}) %>
+    </div>
+  </div>
+
+
+  <div class="form-group">
     <div class='col-md-offset-2 col-md-10'>
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

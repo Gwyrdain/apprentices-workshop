@@ -16,6 +16,11 @@ class AreasController < ApplicationController
 
   def new
     @area = current_user.areas.build
+
+    @area.flags ||= 0
+    @area.vnum_qty ||= 100
+    @area.default_terrain ||= 0
+    @area.default_room_flags ||= 0
   end
 
   def edit
@@ -52,7 +57,12 @@ class AreasController < ApplicationController
       params.require(:area).permit(:name, :author, :difficulty, :area_number,
                                    :vnum_qty, :manmade, :city, :forest,
                                    :limited, :aerial, :reserved, :arena,
-                                   :quest, :novnum
+                                   :quest, :novnum, :default_terrain, 
+                                   :default_room_flags, :dark, :no_sleep, :no_mob,
+                                   :indoors, :foggy, :private_room, :peaceful,
+                                   :solitary, :no_recall, :no_steal, :notrans,
+                                   :no_spell, :no_fly, :fly_ok, :no_quest,
+                                   :no_item, :no_vnum
                                   )
     end
 end

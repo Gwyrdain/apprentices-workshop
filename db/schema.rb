@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150120021948) do
+ActiveRecord::Schema.define(version: 20150120042901) do
 
   create_table "areas", force: true do |t|
     t.string   "name"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20150120021948) do
     t.integer  "area_number"
     t.integer  "flags"
     t.integer  "vnum_qty"
+    t.integer  "default_terrain"
+    t.integer  "default_room_flags"
   end
 
   add_index "areas", ["user_id"], name: "index_areas_on_user_id"
