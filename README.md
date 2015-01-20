@@ -11,6 +11,7 @@
 ## Rooms
 * ~~Pull in default area terrain and room_flags where appropriate.~~ Done
 * Need checker for exits:
+  - ~~opposite_dir added.~~
   - one-way (N to room with no S),
   - reciprocal (N to room, S back to 1st),
   - illogical (N to room, S to somewhere else). 

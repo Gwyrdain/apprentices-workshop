@@ -19,6 +19,7 @@ class ExitsController < ApplicationController
     
     @exit.exittype ||= 0
     @exit.keyvnum ||= 0
+    @exit.exit_room_id ||= -1
     
   end
 

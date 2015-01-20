@@ -66,12 +66,30 @@
     </div>
   </div>
   -->
+  
+  <script type = "text/javascript">
+    $(function() {
+        $('#undefined_room').click(function() {
+            var cb = $('#undefined_room').is(':checked');
+            $('#exit_exit_room_id').prop('disabled', cb);
+        });
+    });
+  </script>
+  
+   <div class="form-group">
+    <%= f.label :exit_room_id, 'Undefined Exit', :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.check_box :exit_room_id, {:id => 'undefined_room', :class => "checkbox"}, -1 %>
+    </div>
+  </div>
+
   <div class="form-group">
     <%= f.label :exit_room_id, 'Exit to', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.collection_select(:exit_room_id, @area.rooms.order('vnum ASC'), :id, :vnum_and_name, {}, {class: "form-control"})  %>
+      <%= f.collection_select(:exit_room_id, @area.rooms.order('vnum ASC'), :id, :vnum_and_name, {}, {disabled: 'disabled', class: "form-control"})  %>
     </div>
   </div>
+  
   <div class="form-group">
     <%= f.label :name, :class => 'control-label col-md-2' %>
     <div class="col-md-10">

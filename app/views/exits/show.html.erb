@@ -4,31 +4,92 @@
     <div class="panel-heading monospace"><h3>
         <%= link_to @area.name, area_path(@area) %> /
         <%= link_to "Room: #{@room.vnum}", area_room_path(@area, @room) %> /
-        <%= @exit.direction %>
+        <%= @exit.direction_word %>
     </h3></div>
     <div class="panel-body monospace">
       
-      <div class="fieldset">
-        <dl>
-            <dt class="label label-default"><%= model_class.human_attribute_name(:direction) %></dt>
-            <dd><pre class="prettyprint"><%= @exit.direction %></pre></dd>
-            <dt class="label label-default"><%= model_class.human_attribute_name(:description) %></dt>
-            <dd><pre class="prettyprint"><%= @exit.description %></pre></dd>
-            <dt class="label label-default"><%= model_class.human_attribute_name(:keywords) %></dt>
-            <dd><pre class="prettyprint"><%= @exit.keywords %></pre></dd>
-            <dt class="label label-default"><%= model_class.human_attribute_name(:exittype) %></dt>
-            <dd><pre class="prettyprint"><%= @exit.exittype %></pre></dd>
-            <dt class="label label-default"><%= model_class.human_attribute_name(:keyvnum) %></dt>
-            <dd><pre class="prettyprint"><%= @exit.keyvnum %></pre></dd>
-            <dt class="label label-default">Exit To</dt>
-            <dd><pre class="prettyprint"><%= @exit.destination.vnum %></pre></dd>
-            <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
-            <dd><pre class="prettyprint"><%= @exit.name %></pre></dd>
-            <dt class="label label-default"><%= model_class.human_attribute_name(:room_id) %></dt>
-            <dd><pre class="prettyprint"><%= @exit.room_id %></pre></dd>
-        </dl>
-      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Direction:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @exit.direction %> / <%= @exit.direction_word %>
+          </div>
+        </div>
+      </div><br/> 
       
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Description:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @exit.description %>
+          </div>
+        </div>
+      </div><br/> 
+      
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Keywords:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @exit.keywords %>
+          </div>
+        </div>
+      </div><br/> 
+
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Exit Type:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @exit.exittype %>
+          </div>
+        </div>
+      </div><br/> 
+
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Key Vnum:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @exit.keyvnum %>
+          </div>
+        </div>
+      </div><br/> 
+
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Destination:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <% if @exit.destination_exists? %>
+              <%= @exit.destination.vnum %>
+            <% else %>
+              *** BAD EXIT: NO DESTINATION ***
+            <% end %>
+          </div>
+        </div>
+      </div><br/>
+
+      
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Exit Name:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @exit.name %>
+          </div>
+        </div>
+      </div><br/> 
+
       <div class="form-group">
         <%= link_to t('.back', :default => t("helpers.links.back")),
                     area_room_path(@area, @room), :class => 'btn btn-default'  %>
