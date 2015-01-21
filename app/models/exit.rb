@@ -59,6 +59,31 @@ class Exit < ActiveRecord::Base
     return num_to_dir(self.direction)
   end
   
+  def formal_vnum
+    if self.destination_exists?
+      return self.destination.formal_vnum
+    else
+      return self.exit_room_id
+    end
+  end
+
+  def is_bad?
+    if (self.exit_room_id == -1 and self.exittype != -1)
+      return true
+    else
+      return false
+    end
+  end
+
+
+  def is_external?
+    if (self.exit_room_id > (self.room.area.vnum_qty - 1))
+      return true
+    else
+      return false
+    end
+  end
+
   before_create :default_values
   def default_values
     self.exittype ||= 0

@@ -27,7 +27,13 @@
           <td><%= exit.keywords %></td>
           <td><%= exit.exittype %></td>
           <td><%= exit.keyvnum %></td>
-          <td><%= exit.destination.vnum %></td>
+          <td>
+            <% if @exit.destination_exists? %>
+              <%= @exit.destination.vnum %>
+            <% else %>
+              *** BAD EXIT: NO DESTINATION ***
+            <% end %>
+            </td>
           <td><%= exit.name %></td>
           <td><%= exit.room_id %></td>
         <td><%=l exit.created_at, format: :long %></td>

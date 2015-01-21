@@ -136,11 +136,20 @@
                     <td><%= exit.keywords %></td>
                     <td><%= exit.exittype %><% if not exit.dir_type_combo_ok? %><span style="color:red"> <%= glyph 'exclamation-sign' %></span><% end %></td>
                     <td><%= exit.keyvnum %></td>
-                    <td><% if exit.destination_exists? %>
+                    <td>
+                      
+                        <% if exit.destination_exists? %>
                           <%= link_to exit.destination.vnum, area_room_path(@area, exit.destination ) %>
-                        <% else %>
+                        <% end %>
+                        
+                        <% if exit.is_bad? %>
                           <span style="color:red">Bad Exit <%= glyph 'exclamation-sign' %></span>
                         <% end %>
+                        
+                        <% if exit.is_external? %>
+                          <span style="color:orange">External <%= glyph 'warning-sign' %></span>
+                        <% end %>
+                        
                     </td>
                     <td><%= exit.name %></td>
                     <td>

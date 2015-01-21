@@ -12,6 +12,7 @@
 * ~~Pull in default area terrain and room_flags where appropriate.~~ Done
 * Need checker for exits:
   - ~~opposite_dir added.~~
+  - ~~Re-write testing of bad exits to distiguish external vnums, look-only exit directions, and actual BAD exits.~~  Added .is_bad?  No way to test for valid external vnums?
   - one-way (N to room with no S),
   - reciprocal (N to room, S back to 1st),
   - illogical (N to room, S to somewhere else). 

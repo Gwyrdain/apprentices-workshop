@@ -52,14 +52,24 @@ class Room < ActiveRecord::Base
     (area.area_number * 100) + self.vnum
   end
 
-  def destinations_exist?
-    $exits_exist = true
+  def any_bad_exits?
+    $bad_exits_exist = false
     self.exits.each do |exit|
-      if !exit.destination_exists?
-        $exits_exist = false
+      if exit.is_bad?
+        $bad_exits_exist = true
       end
     end
-    return $exits_exist
+    return $bad_exits_exist
+  end
+  
+  def any_external_exits?
+    $externals_exist = false
+    self.exits.each do |exit|
+      if exit.is_external?
+        $externals_exist = true
+      end
+    end
+    return $externals_exist
   end
   
   def exit_dir_exists?(i)
