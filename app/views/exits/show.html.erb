@@ -72,7 +72,7 @@
             <% if @exit.destination_exists? %>
               <%= @exit.destination.vnum %>
             <% else %>
-              *** BAD EXIT: NO DESTINATION ***
+              <%= @exit.formal_vnum %>
             <% end %>
           </div>
         </div>

@@ -10,12 +10,12 @@
 
 ## Rooms
 * ~~Pull in default area terrain and room_flags where appropriate.~~ Done
-* Need checker for exits:
-  - ~~opposite_dir added.~~
+* ~~Need checker for exits:~~
+  - ~~opposite_dir added.~~ Done
   - ~~Re-write testing of bad exits to distiguish external vnums, look-only exit directions, and actual BAD exits.~~  Added .is_bad?  No way to test for valid external vnums?
-  - one-way (N to room with no S),
-  - reciprocal (N to room, S back to 1st),
-  - illogical (N to room, S to somewhere else). 
+  - ~~one-way (N to room with no S),~~ Done
+  - ~~reciprocal (N to room, S back to 1st),~~ Done
+  - ~~illogical (N to room, S to somewhere else).~~ Done
 * ~~Change room.exit.exit_room_id to use the room_id of the connecting room rather than vnum!~~ Done
   - ~~Allow vnums to be changed without breaking exits.~~ Yes
   - Requires create room on exit creation? or allow null but use warnings/no export?

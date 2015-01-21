@@ -140,14 +140,32 @@
                       
                         <% if exit.destination_exists? %>
                           <%= link_to exit.destination.vnum, area_room_path(@area, exit.destination ) %>
+                          <% if exit.is_reciprocal? %>
+                            <span style="color:green" title="Reciprocal exit"><%= glyph 'sort' %></span>
+                          <% end %>
+                          <% if exit.is_loopback? %>
+                            <span style="color:green" title="Loopback exit"><%= glyph 'repeat' %></span>
+                          <% end %>
+                          <% if exit.is_one_way? %>
+                            <span style="color:orange" title="One way"><%= glyph 'arrow-up' %></span>
+                          <% end %>
+                          <% if exit.is_illogical? %>
+                            <span style="color:orange" title="Illogical exit"><%= glyph 'random' %></span>
+                          <% end %>
+                        <% else %>
+                          None
                         <% end %>
                         
                         <% if exit.is_bad? %>
-                          <span style="color:red">Bad Exit <%= glyph 'exclamation-sign' %></span>
+                          <span style="color:red" title="Bad exit"><%= glyph 'exclamation-sign' %></span>
                         <% end %>
                         
                         <% if exit.is_external? %>
-                          <span style="color:orange">External <%= glyph 'warning-sign' %></span>
+                          <span style="color:orange" title="External"><%= glyph 'road' %></span>
+                        <% end %>
+                        
+                        <% if exit.exittype == -1 %>
+                          <span style="color:green" title="Look only"><%= glyph 'eye-open' %></span>
                         <% end %>
                         
                     </td>

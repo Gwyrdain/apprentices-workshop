@@ -33,11 +33,11 @@
               <%= room.exits.count %>
               
               <% if room.any_bad_exits? %>
-                <span style="color:red"><%= glyph('exclamation-sign') %></span>
+                <span style="color:red" title="Room has bad exits."><%= glyph('exclamation-sign') %></span>
               <% end %>
               
               <% if room.any_external_exits? %>
-                <span style="color:orange"><%= glyph('warning-sign') %></span>
+                <span style="color:orange" title="Room has external exits."><%= glyph('warning-sign') %></span>
               <% end %>
               
               </td>

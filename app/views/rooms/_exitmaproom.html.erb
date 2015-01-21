@@ -14,21 +14,55 @@
       
     <% else %>
       <!-- IF EXIT IN THIS DIR BUT THE DESTINATION DOES NOT EXIST -->
-      <button type="button" class="btn btn-danger btn-md btn-block" disabled="disabled">
-        Bad <%= num_to_dir(dir).titleize %> Exit<br>
-        No<br>
-        Destination
-      </button>
+      
+      <% if $this_exit.exittype == -1 %>
+        <%= link_to edit_area_room_exit_path(@area, @room, $this_exit), :class => 'btn btn-primary btn-md btn-block' do %>
+          No <%= num_to_dir(dir).titleize %> Exit<br>
+          <br>
+          Look Only
+        <% end %>
+        
+      <% end %>
+
+      <% if $this_exit.is_external? %>
+        <button type="button" class="btn btn-warning btn-md btn-block" disabled="disabled">
+          <%= num_to_dir(dir).titleize %> Exit<br>
+          To External<br>
+          Destination?
+        </button>
+      <% end %>
+      
+      <% if $this_exit.is_bad? %>
+        <%= link_to edit_area_room_exit_path(@area, @room, $this_exit), :class => 'btn btn-danger btn-md btn-block' do %>
+          <%= num_to_dir(dir).titleize %> Exit<br>
+          is<br>
+          BAD
+        <% end %>
+        
+      <% end %>
       
     <% end %>
     
   <% else %>
-      <!-- IF NO EXIT IN THIS DIR -->
-      <button type="button" class="btn btn-default btn-md btn-block" disabled="disabled">
+      <%= link_to({ :controller => "exits", 
+                                       :action => "create",
+                                       :area_id => @room.area.id,
+                                       :room_id => @room.id,
+                                       :exittype => -1,
+                                       :keyvnum => 0,
+                                       :exit_room_id => -1,
+                                       :description => '',
+                                       :name => '',
+                                       :keywords => '',
+                                       :direction => dir
+                                       },
+                                       :method => "post",
+                                       :class => 'btn btn-default btn-md btn-block'
+                                       ) do %>
         No <%= num_to_dir(dir).titleize %> Exit<br>
-        &nbsp<br>
-        &nbsp
-      </button>
+        <br>
+        Add?
+      <% end %>
     
   <% end %>
 

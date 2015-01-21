@@ -48,11 +48,7 @@ class Exit < ActiveRecord::Base
   end
 
   def destination
-    if self.destination_exists?
       return Room.find(self.exit_room_id)
-    else
-      return nil
-    end
   end
   
   def direction_word
@@ -84,11 +80,59 @@ class Exit < ActiveRecord::Base
     end
   end
 
+  def is_loopback?
+    if self.destination.id == self.room.id
+      return true
+    else
+      return false
+    end
+  end
+
+  def is_one_way?
+    if not self.is_loopback?
+      if self.destination.exits.where(:direction => opposite_dir(self.direction)).first
+        return false
+      else
+        return true
+      end
+    else
+      return false
+    end
+  end
+  
+  def is_reciprocal?
+    if (not self.is_one_way? and not self.is_loopback?)
+      if self.destination.exits.where(:direction => opposite_dir(self.direction)).first.exit_room_id == self.room.id
+        return true
+      else
+        return false
+      end
+      return false
+    end
+  end
+
+  def is_illogical?
+    if (not self.is_one_way? and not self.is_loopback?)
+      if self.destination.exits.where(:direction => opposite_dir(self.direction)).first.exit_room_id == self.room.id
+        return false
+      else
+        return true
+      end
+      return false
+    end
+  end
+
   before_create :default_values
   def default_values
-    self.exittype ||= 0
+    self.direction ||= 0
+    self.description ||= ''
+    self.keywords ||= ''
+    self.exittype ||= -1
     self.keyvnum ||= 0
     self.exit_room_id ||= -1
+    self.name ||= ''
+
+
   end
 
 end

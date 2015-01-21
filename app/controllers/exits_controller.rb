@@ -16,18 +16,37 @@ class ExitsController < ApplicationController
 
   def new
     @exit = @room.exits.build
+
+    @exit.direction = params[:direction]
+    @exit.description = params[:description]
+    @exit.keywords = params[:keywords]
+    @exit.exittype = params[:exittype]
+    @exit.keyvnum = params[:keyvnum]
+    @exit.exit_room_id = params[:exit_room_id]
+    @exit.name = params[:name]
     
     @exit.exittype ||= 0
     @exit.keyvnum ||= 0
     @exit.exit_room_id ||= -1
-    
+      
   end
 
   def edit
   end
 
   def create
-    @exit = @room.exits.create(exit_params)
+    if not params[:exit]
+      @exit = @room.exits.build
+    end
+
+    @exit.direction = params[:direction]
+    @exit.description = params[:description]
+    @exit.keywords = params[:keywords]
+    @exit.exittype = params[:exittype]
+    @exit.keyvnum = params[:keyvnum]
+    @exit.exit_room_id = params[:exit_room_id]
+    @exit.name = params[:name]
+    
     if @exit.save
       redirect_to area_room_path(@area, @room), notice: 'Room Exit was sucessfully created.'
     else
