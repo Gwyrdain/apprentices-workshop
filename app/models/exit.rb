@@ -9,6 +9,10 @@ class ExitValidator < ActiveModel::Validator
       record.errors[:base] << "Look only exit directions cannot be combined with Local or External Exit Vnums."
     end
 
+    if (record.exittype != -1 and record.exit_room_id == -1)
+      record.errors[:base] << "Look only exit directions must be used if a Local or External Exit Vnum is not specified."
+    end
+
   end
   
 end
