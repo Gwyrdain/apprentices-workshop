@@ -1,5 +1,33 @@
 <script type = "text/javascript">
   $(function() {
+      $('input[name=ExitDestinationRadioOptions]:radio').click(function() {
+          if($('#LocalVnumRadio').is(':checked')) {
+            $('#exit_exit_room_id').prop('disabled', false).show();
+            $('#LocalVnumFormGroup').prop('disabled', false).show();
+            $('#ExternalVnumField').prop('disabled', true).hide();
+            $('#ExternalVnumFormGroup').prop('disabled', true).hide();
+            $('#NoExitField').prop('disabled', true);
+
+          }
+          if($('#ExternalVnumRadio').is(':checked')) {
+            $('#exit_exit_room_id').prop('disabled', true).hide();
+            $('#LocalVnumFormGroup').prop('disabled', true).hide();
+            $('#ExternalVnumField').prop('disabled', false).show();
+            $('#ExternalVnumFormGroup').prop('disabled', false).show();
+            $('#NoExitField').prop('disabled', true);
+            
+          }
+          if($('#NoExitVnumRadio').is(':checked')) {
+            $('#exit_exit_room_id').prop('disabled', true).hide();
+            $('#LocalVnumFormGroup').prop('disabled', true).hide();
+            $('#ExternalVnumField').prop('disabled', true).hide();
+            $('#ExternalVnumFormGroup').prop('disabled', true).hide();
+            $('#NoExitField').prop('disabled', false);
+          }
+
+        
+      });
+      
       $('#undefined_room').click(function() {
           var exit_undefined_cb_state = $('#undefined_room').is(':checked');
           var selected_exittype = $('#exit_exittype').val();
@@ -11,6 +39,7 @@
             $('#exit_exit_room_id').prop('disabled', exit_undefined_cb_state);    
           }
       });
+      
       $('#exit_exittype').change(function() {
           var exit_undefined_cb_state = $('#undefined_room').is(':checked');
           if(this.value == -1) {
@@ -60,7 +89,7 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :keywords, :class => 'control-label col-md-2' %>
+    <%= f.label :keywords, 'Door keywords', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :keywords, :class => 'text_field form-control' %>
     </div>
@@ -79,6 +108,14 @@
         ), {}, {class: "form-control"}) %>
     </div>
   </div>
+
+  <div class="form-group">
+    <%= f.label :name, 'Door name', :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :name, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  
   <div class="form-group">
     <%= f.label :keyvnum, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -86,26 +123,59 @@
     </div>
   </div>
 
-   <div class="form-group">
-    <%= f.label :exit_room_id, 'Undefined Exit', :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
-      <%= f.check_box :exit_room_id, {:id => 'undefined_room', :class => "checkbox"}, -1 %>
+  <% @exit.exit_room_id == -1 ? $NoExitVnumRadio = true : $NoExitVnumRadio = false %>
+  <% @exit.is_external? ? $ExternalVnumRadio = true : $ExternalVnumRadio = false %>
+  <% @exit.destination_exists? ? $LocalVnumRadio = true : $LocalVnumRadio = false %>
+
+  <div class="form-group">
+    <%= f.label 'Exit Destination', :class => 'control-label col-md-2' %>
+    <div class="col-md-3">
+      <label class="radio-inline">
+        <input type="radio" name="ExitDestinationRadioOptions" id="LocalVnumRadio" value="1" <%= "checked" if $LocalVnumRadio %>> Local Exit Vnum
+      </label>
+    </div>
+
+    <div class="col-md-3">
+      <label class="radio-inline">
+        <input type="radio" name="ExitDestinationRadioOptions" id="ExternalVnumRadio" value="2" <%= "checked" if $ExternalVnumRadio %>> External Exit Vnum
+      </label>
+    </div>
+    
+    <div class="col-md-3">
+      <label class="radio-inline">
+        <input type="radio" name="ExitDestinationRadioOptions" id="NoExitVnumRadio" value="3" <%= "checked" if $NoExitVnumRadio %>> No Exit (Look direction)
+      </label>
     </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :exit_room_id, 'Exit to', :class => 'control-label col-md-2' %>
+  <% if @exit.exit_room_id == -1 %>
+
+    <div class="form-group" id="LocalVnumFormGroup" hidden="hidden">
+      <%= f.label :exit_room_id, 'Exit to', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.collection_select(:exit_room_id, @area.rooms.order('vnum ASC'), :id, :vnum_and_name, {}, {disabled: 'disabled', class: "form-control"})  %>
+      </div>
+    </div>
+  
+  <% else %>
+
+    <div class="form-group" id="LocalVnumFormGroup" hidden="hidden">
+      <%= f.label :exit_room_id, 'Exit to', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.collection_select(:exit_room_id, @area.rooms.order('vnum ASC'), :id, :vnum_and_name, {}, {:class => "form-control"})  %>
+      </div>
+    </div>
+  
+  <% end %>
+
+  <div class="form-group" id="ExternalVnumFormGroup" hidden="hidden">
+    <%= f.label :exit_room_id, 'External Vnum', {:id => 'ExternalVnumFieldLabel', :class => 'control-label col-md-2'} %>
     <div class="col-md-10">
-      <%= f.collection_select(:exit_room_id, @area.rooms.order('vnum ASC'), :id, :vnum_and_name, {}, {disabled: 'disabled', class: "form-control"})  %>
+      <%= f.text_field :exit_room_id, {:id => 'ExternalVnumField', :class => 'text_field form-control'} %>
     </div>
   </div>
   
-  <div class="form-group">
-    <%= f.label :name, :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
-      <%= f.text_field :name, :class => 'text_field form-control' %>
-    </div>
-  </div>
+  <%= f.hidden_field :exit_room_id, {:id => 'NoExitField', :value => -1} %>
 
   <div class="form-group">
     <div class='col-md-offset-2 col-md-10'>
@@ -114,4 +184,34 @@
                   area_room_path(@area, @room), :class => 'btn btn-default' %>
     </div>
   </div>
+  
+  
+<script type = "text/javascript">
+
+          if($('#LocalVnumRadio').is(':checked')) {
+            $('#exit_exit_room_id').prop('disabled', false).show();
+            $('#LocalVnumFormGroup').prop('disabled', false).show();
+            $('#ExternalVnumField').prop('disabled', true).hide();
+            $('#ExternalVnumFormGroup').prop('disabled', true).hide();
+            $('#NoExitField').prop('disabled', true);
+          }
+          
+          if($('#ExternalVnumRadio').is(':checked')) {
+            $('#exit_exit_room_id').prop('disabled', true).hide();
+            $('#LocalVnumFormGroup').prop('disabled', true).hide();
+            $('#ExternalVnumField').prop('disabled', false).show();
+            $('#ExternalVnumFormGroup').prop('disabled', false).show();
+            $('#NoExitField').prop('disabled', true);
+          }
+          
+          if($('#NoExitVnumRadio').is(':checked')) {
+            $('#exit_exit_room_id').prop('disabled', true).hide();
+            $('#LocalVnumFormGroup').prop('disabled', true).hide();
+            $('#ExternalVnumField').prop('disabled', true).hide();
+            $('#ExternalVnumFormGroup').prop('disabled', true).hide();
+            $('#NoExitField').prop('disabled', false);
+          }
+
+</script>  
+  
 <% end %>

@@ -5,7 +5,7 @@
         <%= link_to @area.name, area_path(@area) %> /
         <%= link_to 'Rooms', area_rooms_path(@area) %> /
         <%= link_to "Room: #{@room.vnum}", area_room_path(@area, @room) %> /
-        <%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %>
+        <%= @exit.direction_word %>
     </div>
     <div class="panel-body monospace">    
     

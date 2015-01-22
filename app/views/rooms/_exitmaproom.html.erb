@@ -25,11 +25,11 @@
       <% end %>
 
       <% if $this_exit.is_external? %>
-        <button type="button" class="btn btn-warning btn-md btn-block" disabled="disabled">
+        <%= link_to edit_area_room_exit_path(@area, @room, $this_exit), :class => 'btn btn-warning btn-md btn-block' do %>
           <%= num_to_dir(dir).titleize %> Exit<br>
-          To External<br>
-          Destination?
-        </button>
+          To External:<br>
+          <%= $this_exit.exit_room_id %>
+        <% end %>
       <% end %>
       
       <% if $this_exit.is_bad? %>

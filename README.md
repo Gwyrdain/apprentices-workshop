@@ -1,9 +1,12 @@
 #The Apprentice's Workshop Notepad
 ---
 
+## General
+* Add jQ/AJAX for better experience!
+
 ## Areas
 * ~~Add default area terrain and room_flags.~~ Done
-* ~~What about deleting an Area record... need to clean up assocaited records!~~ Added dependent: :destroy to all has_many associattions.  Need to carry this through.
+* ~~What about deleting an Area record... need to clean up assocaited records!~~ Added dependent: :destroy to all has_many associations.  Need to carry this through.
 
 ## Helps
 * None.
@@ -41,3 +44,36 @@
 
 ## Mobiles
 * Not started.
+
+
+
+  <div class="form-group">
+    <%= f.label 'external_vnum_cb', 'Assign External Vnum', :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.check_box :exit_room_id, {:id => 'external_vnum_cb', :class => "checkbox"}, 1 %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :exit_room_id, 'External Vnum', :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :exit_room_id, {:id => 'external_vnum', disabled: 'disabled', class: "form-control"} %>
+    </div>
+  </div>
+  
+        $('#external_vnum_cb').click(function() {
+          var external_vnum_cb_state = $('#external_vnum_cb').is(':checked');
+          var exit_undefined_cb_state = $('#undefined_room').is(':checked');
+          var selected_exittype = $('#exit_exittype').val();
+          if(selected_exittype == -1) {
+            alert('Destination room must be undefined when ExitType = 0 (i.e., not an exit)')
+            $('#undefined_room').prop('checked', true);
+            $('#external_vnum_cb').prop('checked', false);
+            $('#exit_exit_room_id').prop('disabled', true);
+            $('#external_vnum').prop('disabled', true);
+          } else {
+            $('#external_vnum').prop('disabled', !external_vnum_cb_state);
+            $('#undefined_room').prop('disabled', external_vnum_cb_state);
+            $('#undefined_room').prop('checked', !external_vnum_cb_state);
+          }
+      });

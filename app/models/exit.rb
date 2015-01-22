@@ -1,9 +1,16 @@
-class TrapExitValidator < ActiveModel::Validator
+class ExitValidator < ActiveModel::Validator
   def validate(record)
+    
     if !record.dir_type_combo_ok? # if a bad combo
       record.errors[:base] << "Trap type exits must be combined with down exits."
     end
+    
+    if (record.exittype == -1 and record.exit_room_id != -1)
+      record.errors[:base] << "Look only exit directions cannot be combined with Local or External Exit Vnums."
+    end
+
   end
+  
 end
 
 class Exit < ActiveRecord::Base
@@ -29,7 +36,7 @@ class Exit < ActiveRecord::Base
                                    greater_than_or_equal_to: -2,
                                   }
 
-  validates_with TrapExitValidator
+  validates_with ExitValidator
 
   def dir_type_combo_ok?
     if ((self.exittype == 3) and !(self.direction == 5))  # is a trap, but not a down exit
