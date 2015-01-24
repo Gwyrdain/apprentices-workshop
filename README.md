@@ -3,6 +3,7 @@
 
 ## General
 * Add jQ/AJAX for better experience!
+* Add dependent: :destroy to all has_many associations moving forward.
 
 ## Areas
 * ~~Add default area terrain and room_flags.~~ Done
@@ -12,32 +13,7 @@
 * None.
 
 ## Rooms
-* ~~Pull in default area terrain and room_flags where appropriate.~~ Done
-* ~~Need checker for exits:~~
-  - ~~opposite_dir added.~~ Done
-  - ~~Re-write testing of bad exits to distiguish external vnums, look-only exit directions, and actual BAD exits.~~  Added .is_bad?  No way to test for valid external vnums?
-  - ~~one-way (N to room with no S),~~ Done
-  - ~~reciprocal (N to room, S back to 1st),~~ Done
-  - ~~illogical (N to room, S to somewhere else).~~ Done
-* ~~Change room.exit.exit_room_id to use the room_id of the connecting room rather than vnum!~~ Done
-  - ~~Allow vnums to be changed without breaking exits.~~ Yes
-  - Requires create room on exit creation? or allow null but use warnings/no export?
-  - What about external connections?
-  - Maybe allowable external vnums can be defined and the area level, then used in exit_room_id validation.
-* Examples of working link_to button , passing default room info
-      <%= link_to new_area_room_path(@area, :vnum => $this_exit.exit_room_id,
-                                            :name => 'Room Name',
-                                            :description => 'Description',
-                                            :terrain => 0,
-                                            :room_flags => 0
-                                            ), :class => 'btn btn-danger btn-md btn-block' do %>
-* Examples of working link_to, creating a room with no external input.  Extend to exit creation.
-      <%= link_to new_area_room_path(@area, :vnum => $this_exit.exit_room_id,
-                                            :name => 'Room Name',
-                                            :description => 'Description',
-                                            :terrain => 0,
-                                            :room_flags => 0
-                                            ), :class => 'btn btn-danger btn-md btn-block' do %>
+* No not allow export when bad exits exit.
 
 ## Objects
 * Not started.
@@ -77,3 +53,40 @@
             $('#undefined_room').prop('checked', !external_vnum_cb_state);
           }
       });
+      
+      
+      
+      
+  bitfield :misc_flags, 
+                    2**1 =>  :flag,          # Dec:          2 / Hex:         2
+                    2**2 =>  :flag,          # Dec:          4 / Hex:         4
+                    2**3 =>  :flag,          # Dec:          8 / Hex:         8
+                    2**4 =>  :flag,          # Dec:         16 / Hex:        10
+                    2**5 =>  :flag,          # Dec:         32 / Hex:        20
+                    2**6 =>  :flag,          # Dec:         64 / Hex:        40
+                    2**7 =>  :flag,          # Dec:        128 / Hex:        80
+                    2**8 =>  :flag,          # Dec:        256 / Hex:       100
+                    2**9 =>  :flag,          # Dec:        512 / Hex:       200
+                    2**10 => :flag,          # Dec:       1024 / Hex:       400
+                    2**11 => :flag,          # Dec:       2048 / Hex:       800
+                    2**12 => :flag,          # Dec:       4096 / Hex:      1000
+                    2**13 => :flag,          # Dec:       8192 / Hex:      2000
+                    2**14 => :flag,          # Dec:      16384 / Hex:      4000
+                    2**15 => :flag,          # Dec:      32768 / Hex:      8000
+                    2**16 => :flag,          # Dec:      65536 / Hex:     10000
+                    2**17 => :flag,          # Dec:     131072 / Hex:     20000
+                    2**18 => :flag,          # Dec:     262144 / Hex:     40000
+                    2**19 => :flag,          # Dec:     524288 / Hex:     80000
+                    2**20 => :flag,          # Dec:    1048576 / Hex:    100000
+                    2**21 => :flag,          # Dec:    2097152 / Hex:    200000
+                    2**22 => :flag,          # Dec:    4194304 / Hex:    400000
+                    2**23 => :flag,          # Dec:    8388608 / Hex:    800000
+                    2**24 => :flag,          # Dec:   16777216 / Hex:   1000000
+                    2**25 => :flag,          # Dec:   33554432 / Hex:   2000000
+                    2**26 => :flag,          # Dec:   67108864 / Hex:   4000000
+                    2**27 => :flag,          # Dec:  134217728 / Hex:   8000000
+                    2**28 => :flag,          # Dec:  268435456 / Hex:  10000000
+                    2**29 => :flag,          # Dec:  536870912 / Hex:  20000000
+                    2**30 => :flag,          # Dec: 1073741824 / Hex:  40000000
+                    2**31 => :flag,          # Dec: 2147483648 / Hex:  80000000
+                    2**32 => :flag,          # Dec: 4294967296 / Hex: 100000000

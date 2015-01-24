@@ -1,0 +1,155 @@
+<%- model_class = Obj -%>
+
+<div class="panel panel-default">
+  <div class="panel-heading monospace"><h3>
+      <%= link_to @area.name, area_path(@area) %> /
+      <%= link_to 'Objects', area_objs_path(@area) %> /
+      Object: <%= @obj.vnum %>
+  </h3></div>
+  <div class="panel-body monospace">
+
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Formal Vnum:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @obj.formal_vnum %>
+          </div>
+        </div>
+      </div><br/>
+
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Keywords:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @obj.keywords %>
+          </div>
+        </div>
+      </div><br/>
+
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Short description:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @obj.sdesc %>
+          </div>
+        </div>
+      </div><br/>
+
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Long description:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @obj.ldesc %>
+          </div>
+        </div>
+      </div><br/>
+
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Object type:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @obj.object_type %>
+          </div>
+        </div>
+      </div><br/>
+      
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Values:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-2">
+            <%= @obj.v0 %>
+          </div>
+          <div class="col-md-2">
+            <%= @obj.v1 %>
+          </div>
+          <div class="col-md-2">
+            <%= @obj.v2 %>
+          </div>
+          <div class="col-md-2">
+            <%= @obj.v3 %>
+          </div>
+        </div>
+      </div><br/>
+
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Extra flags:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @obj.extra_flags %>
+          </div>
+        </div>
+      </div><br/>
+
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Wear flags:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @obj.wear_flags %>
+          </div>
+        </div>
+      </div><br/>
+
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Weight:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @obj.weight %>
+          </div>
+        </div>
+      </div><br/>
+      
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Cost:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @obj.cost %>
+          </div>
+        </div>
+      </div><br/>
+ 
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Misc flags:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @obj.misc_flags %>
+          </div>
+        </div>
+      </div><br/>
+      
+    </div>
+      
+    <div class="panel-footer">
+      <%= link_to t('.back', :default => t("helpers.links.back")),
+                  area_objs_path(@area), :class => 'btn btn-default'  %>
+      <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                  edit_area_obj_path(@area, @obj), :class => 'btn btn-default' %>
+      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                  area_obj_path(@area, @obj),
+                  :method => 'delete',
+                  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                  :class => 'btn btn-danger' %>
+    </div>
+  
+</div>

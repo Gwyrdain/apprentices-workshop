@@ -1,0 +1,2 @@
+module ObjsHelper
+end

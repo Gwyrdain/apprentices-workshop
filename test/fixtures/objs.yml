@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  area_id: 
+  vnum: 1
+  keywords: MyString
+  sdesc: MyString
+  ldesc: MyString
+  type: 1
+  v0: 1
+  v1: 1
+  v2: 1
+  v3: 1
+  extra_flags: 1
+  wear_flags: 1
+  weight: 1
+  cost: 1
+  misc_flags: 1
+
+two:
+  area_id: 
+  vnum: 1
+  keywords: MyString
+  sdesc: MyString
+  ldesc: MyString
+  type: 1
+  v0: 1
+  v1: 1
+  v2: 1
+  v3: 1
+  extra_flags: 1
+  wear_flags: 1
+  weight: 1
+  cost: 1
+  misc_flags: 1

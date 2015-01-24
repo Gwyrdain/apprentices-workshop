@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150120042901) do
+ActiveRecord::Schema.define(version: 20150124054524) do
 
   create_table "areas", force: true do |t|
     t.string   "name"
@@ -54,6 +54,28 @@ ActiveRecord::Schema.define(version: 20150120042901) do
   end
 
   add_index "helps", ["area_id"], name: "index_helps_on_area_id"
+
+  create_table "objs", force: true do |t|
+    t.integer  "area_id"
+    t.integer  "vnum"
+    t.string   "keywords"
+    t.string   "sdesc"
+    t.string   "ldesc"
+    t.integer  "object_type"
+    t.integer  "v0"
+    t.integer  "v1"
+    t.integer  "v2"
+    t.integer  "v3"
+    t.integer  "extra_flags"
+    t.integer  "wear_flags"
+    t.integer  "weight"
+    t.integer  "cost"
+    t.integer  "misc_flags"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "objs", ["area_id"], name: "index_objs_on_area_id"
 
   create_table "rooms", force: true do |t|
     t.integer  "vnum"

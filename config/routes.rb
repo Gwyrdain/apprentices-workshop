@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
+  resources :objs
+
   resources :areas do
     resources :helps
     resources :rooms do
       resources :rxdescs
       resources :exits
     end
+    resources :objs
   end
 
   devise_for :users

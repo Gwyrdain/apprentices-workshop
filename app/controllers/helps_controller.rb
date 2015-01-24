@@ -31,7 +31,7 @@ class HelpsController < ApplicationController
     
     def update
         if @help.update(help_params)
-          redirect_to area_help_path(@area, @help), notice: 'Area was sucessfully updated.'
+          redirect_to area_help_path(@area, @help), notice: 'Help was sucessfully updated.'
         else
           render action: 'edit'
         end     

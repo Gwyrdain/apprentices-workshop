@@ -1,0 +1,22 @@
+<%- model_class = Obj -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= render :partial => 'form' %>
+
+<div class="panel panel-default">
+    <div class="panel-heading monospace"><h3>
+        <%= link_to @area.name, area_path(@area) %> / <%= link_to 'Objects', area_objs_path(@area) %> / <%= @obj.keywords %>
+    </h3></div>
+    <div class="panel-body monospace">
+
+        <%= render 'form' %>
+    
+    </div>
+    
+    <div class="panel-footer">
+        <%= link_to 'Show', area_obj_path(@area, @obj) %> |
+        <%= link_to 'Back', area_objs_path(@area) %>
+    </div>
+    
+</div>
