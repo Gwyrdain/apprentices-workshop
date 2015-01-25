@@ -4,7 +4,7 @@
   <div class="panel-heading monospace"><h3>
       <%= link_to @area.name, area_path(@area) %> /
       <%= link_to 'Objects', area_objs_path(@area) %> /
-      object: <%= @obj.vnum %>
+      Object: <%= @obj.vnum %>
   </h3></div>
   <div class="panel-body monospace">
 
@@ -92,19 +92,21 @@
         </div>
         <div class="col-md-10">
           <div class="col-md-2">
-            <%= @obj.v0 %>
+            [V0]: <%= @obj.v0 %>
           </div>
           <div class="col-md-2">
-            <%= @obj.v1 %>
+            [V1]: <%= @obj.v1 %>
           </div>
           <div class="col-md-2">
-            <%= @obj.v2 %>
+            [V2]: <%= @obj.v2 %>
           </div>
           <div class="col-md-2">
-            <%= @obj.v3 %>
+            [V3]: <%= @obj.v3 %>
           </div>
         </div>
       </div><br/>
+      
+      <%= render 'objs/objvalues', :obj => @obj %>
 
       <div class="row">
         <div class="col-md-2">

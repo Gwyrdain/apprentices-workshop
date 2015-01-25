@@ -1,4 +1,172 @@
-<div hidden='hidden' id=ItemValueGroupGeneric>
+<% spell_list = [
+                  ['Acid Blast', 70],
+                  ['Alarm', 48],
+                  ['Animate Dead', 97],
+                  ['Armor', 1],
+                  ['Attunement', 125],
+                  ['Bear Totem', 127],
+                  ['Bless', 3],
+                  ['Blindness', 4],
+                  ['Boar Totem', 126],
+                  ['Burning Hands', 5],
+                  ['Call Lightning', 6],
+                  ['Cause Critical Wounds', 63],
+                  ['Cause Disease', 105],
+                  ['Cause Light Wounds', 62],
+                  ['Cause Serious Wounds', 64],
+                  ['Change Sex', 82],
+                  ['Charm Person', 7],
+                  ['Chill Touch', 8],
+                  ['Cloak of Protection', 118],
+                  ['Colour Spray', 10],
+                  ['Comprehend', 46],
+                  ['Confusion', 113],
+                  ['Continual Light', 57],
+                  ['Control Weather', 11],
+                  ['Create Food', 12],
+                  ['Create Spring', 80],
+                  ['Create Water', 13],
+                  ['Cure Blindness', 14],
+                  ['Cure Critical Wounds', 15],
+                  ['Cure Deafness', 99],
+                  ['Cure Disease', 104],
+                  ['Cure Light Wounds', 16],
+                  ['Cure Mute', 139],
+                  ['Cure Poison', 43],
+                  ['Cure Serious Wounds', 61],
+                  ['Curse', 17],
+                  ['Darkness', 86],
+                  ['Deafness', 52],
+                  ['Detect Disease', 117],
+                  ['Detect Evil', 18],
+                  ['Detect Good', 9],
+                  ['Detect Hidden', 44],
+                  ['Detect Invisibility', 19],
+                  ['Detect magic', 20],
+                  ['Detect Poison', 21],
+                  ['Dispel Evil', 22],
+                  ['Dispel Good', 37],
+                  ['Dispel Magic', 59],
+                  ['Earthquake', 23],
+                  ['Enchant Weapon', 24],
+                  ['Energy Drain', 25],
+                  ['Exclude', 163],
+                  ['Faerie Fire', 72],
+                  ['Faerie Fog', 73],
+                  ['Fear', 106],
+                  ['Fireball', 26],
+                  ['Flamestrike', 65],
+                  ['Fly', 56],
+                  ['Gate a Vampire', 83],
+                  ['Give Health', 120],
+                  ['Give Mana', 121],
+                  ['Give Moves', 122],
+                  ['Hailstorm', 134],
+                  ['Harm', 27],
+                  ['Heal', 28],
+                  ['Hurricane', 135],
+                  ['Identify', 53],
+                  ['Immunity', 116],
+                  ['Improved Identify', 55],
+                  ['Improved Invisibility', 142],
+                  ['Infravision', 77],
+                  ['Invisibility', 29],
+                  ['Jump', 47],
+                  ['Know Alignment', 58],
+                  ['Lightning Bolt', 30],
+                  ['Locate Object', 31],
+                  ['Magic Missile', 32],
+                  ['Magic Stone', 131],
+                  ['Mass Invisibility', 69],
+                  ['Meteor Swarm', 95],
+                  ['Mute', 138],
+                  ['Naturalize', 95],
+                  ['Onset of Disease', 115],
+                  ['Owl Totem', 129],
+                  ['Pass Door', 74],
+                  ['Pass Without Trace', 100],
+                  ['Phosphate', 124],
+                  ['Poison', 33],
+                  ['Portal', 88],
+                  ['Protection from Evil', 34],
+                  ['Protection from Good', 45],
+                  ['Quiet', 108],
+                  ['Refresh', 81],
+                  ['Remove Curse', 35],
+                  ['Remove Fear', 107],
+                  ['Rift Souls', 119],
+                  ['Sanctuary', 36],
+                  ['Shield', 67],
+                  ['Shocking Grasp', 51],
+                  ['Silence', 112],
+                  ['Sleep', 38],
+                  ['Soul Sense', 123],
+                  ['Spiritual Hammer', 132],
+                  ['Stone Skin', 66],
+                  ['Strength', 39],
+                  ['Summon', 40],
+                  ['Sunlight', 140],
+                  ['Survey', 137],
+                  ['Teleport', 2],
+                  ['Thunderclap', 136],
+                  ['Tongues', 98],
+                  ['True Seeing', 103],
+                  ['Unicorn Totem', 130],
+                  ['Vampiric Touch', 85],
+                  ['Ventriloquate', 41],
+                  ['Water Breathing', 133],
+                  ['Weaken', 68],
+                  ['Weasel Totem', 128],
+                  ['Wizard Mark', 49],
+                  ['Word of Recall', 42]
+                ]
+%>
+<% liquid_types = [
+                    ['Water (clear)', 0],
+                    ['Beer (amber)', 1],
+                    ['Wine (rose)', 2],
+                    ['Ale (brown)', 3],
+                    ['Darkale (dark)', 4],
+                    ['Whiskey (golden)', 5],
+                    ['Lemonade (pink)', 6],
+                    ['Firebreather (boiling)', 7],
+                    ['Local Specialty (everclear)', 8],
+                    ['Slime (green)', 9],
+                    ['Milk (white)', 10],
+                    ['Tea (tan)', 11],
+                    ['Coffee (black)', 12],
+                    ['Blood (red)', 13],
+                    ['Saltwater (clear)', 14],
+                    ['Mead (thick golden)', 15],
+                    ['Dew (clear yellow)', 16]
+                  ]
+%>
+<% damage_types = [
+                    ['hits (blunt)', 0],
+                    ['slices (sharp)', 1],
+                    ['stabs (sharp, backstabs)', 2],
+                    ['slashs (sharp)', 3],
+                    ['whips (blunt)', 4],
+                    ['claws (sharp)', 5],
+                    ['blasts (blunt)', 6],
+                    ['pounds (blunt)', 7],
+                    ['crushs (blunt)', 8],
+                    ['strikes (blunt)', 9],
+                    ['bites (sharp)', 10],
+                    ['pierces (sharp, backstabs)', 11],
+                    ['smites (blunt)', 12]
+                  ]
+%>
+<% container_flags =  [
+                        ['Not closeable', 0],
+                        ['Closeable', 1],
+                        ['Closed (implies closable)', 5],
+                        ['Locked (implies closed)', 13],
+                        ['Pickproof (implies locked)', 15],
+                      ]
+%>
+
+<fieldset hidden='hidden' id=ItemValueGroupGeneric>
   
   <div class="form-group" hidden="hidden">
     <%= f.label :v0, :class => 'control-label col-md-2' %>
@@ -32,11 +200,11 @@
     </div>
   </div>
   
-</div>
+</fieldset>
 
 
 
-<div hidden='hidden' id=ItemValueGroupMoney>
+<fieldset hidden='hidden' id=ItemValueGroupMoney>
   
   <div class="form-group">
     <%= f.label :v0, '# of coins', :class => 'control-label col-md-2' %>
@@ -69,11 +237,11 @@
     </div>
   </div>
 
-</div>
+</fieldset>
 
 
 
-<div hidden='hidden' id=ItemValueGroupDrink>
+<fieldset hidden='hidden' id=ItemValueGroupDrink>
   
   <div class="form-group">
     <%= f.label :v0, '# of drinks', :class => 'control-label col-md-2' %>
@@ -92,22 +260,25 @@
   <div class="form-group">
     <%= f.label :v2, 'Liquid type', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :v2, :class => 'text_field form-control' %>
+      <%= f.select(:v2, options_for_select(liquid_types, @obj.v2
+          ), {}, {class: "form-control"}) %>
     </div>
   </div>
   
   <div class="form-group">
     <%= f.label :v3, 'Poison?', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :v3, :class => 'text_field form-control' %>
+      <div class="col-md-10">
+        <%= f.check_box :v3 %>
+      </div>
     </div>
   </div>
 
-</div>
+</fieldset>
 
 
 
-<div hidden='hidden' id=ItemValueGroupJewelry>
+<fieldset hidden='hidden' id=ItemValueGroupJewelry>
   
   <div class="form-group" hidden="hidden">
     <%= f.label :v0, :class => 'control-label col-md-2' %>
@@ -140,11 +311,11 @@
     </div>
   </div>
 
-</div>
+</fieldset>
 
 
 
-<div hidden='hidden' id=ItemValueGroupFountain>
+<fieldset hidden='hidden' id=ItemValueGroupFountain>
   
   <div class="form-group" hidden="hidden">
     <%= f.label :v0, :class => 'control-label col-md-2' %>
@@ -157,7 +328,8 @@
   <div class="form-group">
     <%= f.label :v1, 'liquid type', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :v1, :class => 'text_field form-control' %>
+      <%= f.select(:v1, options_for_select(liquid_types, @obj.v1
+          ), {}, {class: "form-control"}) %>
     </div>
   </div>
   
@@ -169,17 +341,17 @@
   </div>
   
   <div class="form-group">
-    <%= f.label :v3, 'spell #', :class => 'control-label col-md-2' %>
+    <%= f.label :v3, 'Spell', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :v3, :class => 'text_field form-control' %>
+      <%= f.select(:v3, options_for_select(spell_list, @obj.v3), {}, {class: "form-control"}) %>
     </div>
   </div>
   
-</div>
+</fieldset>
 
 
 
-<div hidden='hidden' id=ItemValueGroupWeapon>
+<fieldset hidden='hidden' id=ItemValueGroupWeapon>
   
   <div class="form-group" hidden="hidden">
     <%= f.label :v0, :class => 'control-label col-md-2' %>
@@ -204,17 +376,17 @@
   </div>
   
   <div class="form-group">
-    <%= f.label :v3, 'dmg type', :class => 'control-label col-md-2' %>
+    <%= f.label :v3, 'Damage type', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :v3, :class => 'text_field form-control' %>
+      <%= f.select(:v3, options_for_select(damage_types, @obj.v3), {}, {class: "form-control"}) %>
     </div>
   </div>
   
-</div>
+</fieldset>
 
 
 
-<div hidden='hidden' id=ItemValueGroupLight>
+<fieldset hidden='hidden' id=ItemValueGroupLight>
   
   <div class="form-group" hidden="hidden">
     <%= f.label :v0, :class => 'control-label col-md-2' %>
@@ -247,11 +419,11 @@
     </div>
   </div>
 
-</div>
+</fieldset>
 
 
 
-<div hidden='hidden' id=ItemValueGroupArmor>
+<fieldset hidden='hidden' id=ItemValueGroupArmor>
   
   <div class="form-group">
     <%= f.label :v0, 'AC', :class => 'control-label col-md-2' %>
@@ -282,11 +454,11 @@
     </div>
   </div>
   
-</div>
+</fieldset>
 
 
 
-<div hidden='hidden' id=ItemValueGroupContainer>
+<fieldset hidden='hidden' id=ItemValueGroupContainer>
   
   <div class="form-group">
     <%= f.label :v0, 'Hold weight', :class => 'control-label col-md-2' %>
@@ -298,7 +470,7 @@
   <div class="form-group">
     <%= f.label :v1, 'Container flags', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :v1, :class => 'text_field form-control' %>
+      <%= f.select(:v1, options_for_select(container_flags, @obj.v1), {}, {class: "form-control"}) %>
     </div>
   </div>
   
@@ -317,11 +489,11 @@
     </div>
   </div>
   
-</div>
+</fieldset>
 
 
 
-<div hidden='hidden' id=ItemValueGroupMultiUseMagicItems>
+<fieldset hidden='hidden' id=ItemValueGroupMultiUseMagicItems>
   
   <div class="form-group">
     <%= f.label :v0, 'Spell level', :class => 'control-label col-md-2' %>
@@ -345,17 +517,17 @@
   </div>
   
   <div class="form-group">
-    <%= f.label :v3, 'spell #', :class => 'control-label col-md-2' %>
+    <%= f.label :v3, 'Spell', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :v3, :class => 'text_field form-control' %>
+      <%= f.select(:v3, options_for_select(spell_list, @obj.v3), {}, {class: "form-control"}) %>
     </div>
   </div>
   
-</div>
+</fieldset>
 
 
 
-<div hidden='hidden' id=ItemValueGroupSingleUseMagicItems>
+<fieldset hidden='hidden' id=ItemValueGroupSingleUseMagicItems>
   
   <div class="form-group">
     <%= f.label :v0, 'Spell level', :class => 'control-label col-md-2' %>
@@ -365,31 +537,31 @@
   </div>
   
   <div class="form-group">
-    <%= f.label :v1, '1st spell #', :class => 'control-label col-md-2' %>
+    <%= f.label :v1, '1st Spell', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :v1, :class => 'text_field form-control' %>
+      <%= f.select(:v1, options_for_select(spell_list, @obj.v1), {}, {class: "form-control"}) %>
     </div>
   </div>
   
   <div class="form-group">
-    <%= f.label :v2, '2nd spell #', :class => 'control-label col-md-2' %>
+    <%= f.label :v2, '2nd Spell', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :v2, :class => 'text_field form-control' %>
+      <%= f.select(:v2, options_for_select(spell_list, @obj.v2), {}, {class: "form-control"}) %>
     </div>
   </div>
   
   <div class="form-group">
-    <%= f.label :v3, '3rd spell #', :class => 'control-label col-md-2' %>
+    <%= f.label :v3, '3rd Spell', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :v3, :class => 'text_field form-control' %>
+      <%= f.select(:v3, options_for_select(spell_list, @obj.v3), {}, {class: "form-control"}) %>
     </div>
   </div>
   
-</div>
+</fieldset>
 
 
 
-<div hidden='hidden' id=ItemValueGroupFood>
+<fieldset hidden='hidden' id=ItemValueGroupFood>
   
   <div class="form-group">
     <%= f.label :v0, 'Food-hours', :class => 'control-label col-md-2' %>
@@ -417,8 +589,10 @@
   <div class="form-group">
     <%= f.label :v3, 'Poison?', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :v3, :class => 'text_field form-control' %>
+      <div class="col-md-10">
+        <%= f.check_box :v3 %>
+      </div>
     </div>
   </div>
   
-</div>
+</fieldset>

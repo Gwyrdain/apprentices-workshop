@@ -1,186 +1,69 @@
 <script type = "text/javascript">
+  function hideItemGroups() {
+            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
+            $('#ItemValueGroupMoney').prop('disabled', true).hide();
+            $('#ItemValueGroupDrink').prop('disabled', true).hide();
+            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
+            $('#ItemValueGroupFountain').prop('disabled', true).hide();
+            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
+            $('#ItemValueGroupLight').prop('disabled', true).hide();
+            $('#ItemValueGroupArmor').prop('disabled', true).hide();
+            $('#ItemValueGroupContainer').prop('disabled', true).hide();
+            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
+            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
+            $('#ItemValueGroupFood').prop('disabled', true).hide();
+  }
+  
   $(function() {
     
       $('#obj_object_type').change(function() {
         
           if(this.value == 1) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
+            hideItemGroups();
             $('#ItemValueGroupLight').prop('disabled', false).show();
           }
           if(this.value == 20) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
+            hideItemGroups();
             $('#ItemValueGroupMoney').prop('disabled', false).show();
           }
           if(this.value == 17) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
+            hideItemGroups();
             $('#ItemValueGroupDrink').prop('disabled', false).show();
           }
           if(this.value == 30) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
+            hideItemGroups();
             $('#ItemValueGroupJewelry').prop('disabled', false).show();
           }
           if(this.value == 8 || this.value == 12 || this.value == 13 || this.value == 18 || this.value == 22 || this.value == 27) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
+            hideItemGroups();
             $('#ItemValueGroupGeneric').prop('disabled', false).show();
           }
           if(this.value == 25) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
+            hideItemGroups();
             $('#ItemValueGroupFountain').prop('disabled', false).show();
           }
           if(this.value == 5 || this.value == 6) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
+            hideItemGroups();
             $('#ItemValueGroupWeapon').prop('disabled', false).show();
           }
           if(this.value == 9 || this.value == 14) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
+            hideItemGroups();
             $('#ItemValueGroupArmor').prop('disabled', false).show();
           }
           if(this.value == 15) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
+            hideItemGroups();
             $('#ItemValueGroupContainer').prop('disabled', false).show();
           }
           if(this.value == 3 || this.value == 4 || this.value == 7 || this.value == 29 || this.value == 33) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
+            hideItemGroups();
             $('#ItemValueGroupMultiUseMagicItems').prop('disabled', false).show();
           }
           if(this.value == 2 || this.value == 10 || this.value == 26) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
+            hideItemGroups();
             $('#ItemValueGroupSingleUseMagicItems').prop('disabled', false).show();
           }
           if(this.value == 11 || this.value == 19) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
+            hideItemGroups();
             $('#ItemValueGroupFood').prop('disabled', false).show();
           }
       })
@@ -465,186 +348,54 @@
     
     var initial_selected = $( '#obj_object_type' ).val();
 
-          if(initial_selected== 1) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', false).show();
-          }
-          if(initial_selected== 20) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', false).show();
-          }
-          if(initial_selected== 17) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', false).show();
-          }
-          if(initial_selected== 30) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', false).show();
-          }
-          if(initial_selected== 8 || initial_selected== 12 || initial_selected== 13 || initial_selected== 18 || initial_selected== 22 || initial_selected== 27) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
-            $('#ItemValueGroupGeneric').prop('disabled', false).show();
-          }
-          if(initial_selected== 25) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', false).show();
-          }
-          if(initial_selected== 5 || initial_selected== 6) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', false).show();
-          }
-          if(initial_selected== 9 || initial_selected== 14) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', false).show();
-          }
-          if(initial_selected== 15) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', false).show();
-          }
-          if(initial_selected== 3 || initial_selected== 4 || initial_selected== 7 || initial_selected== 29 || initial_selected== 33) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', false).show();
-          }
-          if(initial_selected== 2 || initial_selected== 10 || initial_selected== 26) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', false).show();
-          }
-          if(initial_selected== 11 || initial_selected== 19) {
-            $('#ItemValueGroupGeneric').prop('disabled', true).hide();
-            $('#ItemValueGroupMoney').prop('disabled', true).hide();
-            $('#ItemValueGroupDrink').prop('disabled', true).hide();
-            $('#ItemValueGroupJewelry').prop('disabled', true).hide();
-            $('#ItemValueGroupFountain').prop('disabled', true).hide();
-            $('#ItemValueGroupWeapon').prop('disabled', true).hide();
-            $('#ItemValueGroupLight').prop('disabled', true).hide();
-            $('#ItemValueGroupArmor').prop('disabled', true).hide();
-            $('#ItemValueGroupContainer').prop('disabled', true).hide();
-            $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', true).hide();
-            $('#ItemValueGroupFood').prop('disabled', false).show();
-          }
+      if(initial_selected== 1) {
+        hideItemGroups();
+        $('#ItemValueGroupLight').prop('disabled', false).show();
+      }
+      if(initial_selected== 20) {
+        hideItemGroups();
+        $('#ItemValueGroupMoney').prop('disabled', false).show();
+      }
+      if(initial_selected== 17) {
+        hideItemGroups();
+        $('#ItemValueGroupDrink').prop('disabled', false).show();
+      }
+      if(initial_selected== 30) {
+        hideItemGroups();
+        $('#ItemValueGroupJewelry').prop('disabled', false).show();
+      }
+      if(initial_selected== 8 || initial_selected== 12 || initial_selected== 13 || initial_selected== 18 || initial_selected== 22 || initial_selected== 27) {
+        hideItemGroups();
+        $('#ItemValueGroupGeneric').prop('disabled', false).show();
+      }
+      if(initial_selected== 25) {
+        hideItemGroups();
+        $('#ItemValueGroupFountain').prop('disabled', false).show();
+      }
+      if(initial_selected== 5 || initial_selected== 6) {
+        hideItemGroups();
+        $('#ItemValueGroupWeapon').prop('disabled', false).show();
+      }
+      if(initial_selected== 9 || initial_selected== 14) {
+        hideItemGroups();
+        $('#ItemValueGroupArmor').prop('disabled', false).show();
+      }
+      if(initial_selected== 15) {
+        hideItemGroups();
+        $('#ItemValueGroupContainer').prop('disabled', false).show();
+      }
+      if(initial_selected== 3 || initial_selected== 4 || initial_selected== 7 || initial_selected== 29 || initial_selected== 33) {
+        hideItemGroups();
+        $('#ItemValueGroupMultiUseMagicItems').prop('disabled', false).show();
+      }
+      if(initial_selected== 2 || initial_selected== 10 || initial_selected== 26) {
+        hideItemGroups();
+        $('#ItemValueGroupSingleUseMagicItems').prop('disabled', false).show();
+      }
+      if(initial_selected== 11 || initial_selected== 19) {
+        hideItemGroups();
+        $('#ItemValueGroupFood').prop('disabled', false).show();
+      }
 
   });
 </script>
