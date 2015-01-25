@@ -2,7 +2,7 @@ class Obj < ActiveRecord::Base
   belongs_to :area
 #  has_many :oxdescs, dependent: :destroy
 #  has_many :applies, dependent: :destroy
-  
+
   include Bitfields
 
   bitfield :wear_flags, 
@@ -52,17 +52,49 @@ class Obj < ActiveRecord::Base
                     2**25 => :anti_unalign,  # Dec:   33554432 / Hex:   2000000
 #                   2**26 => :flag,          # Dec:   67108864 / Hex:   4000000
 #                   2**27 => :flag,          # Dec:  134217728 / Hex:   8000000
-                    2**28 => :neutral        # Dec:  268435456 / Hex:  10000000
-#                   2**29 => :flag,          # Dec:  536870912 / Hex:  20000000
-#                   2**30 => :flag,          # Dec: 1073741824 / Hex:  40000000
+                    2**28 => :neutral,        # Dec:  268435456 / Hex:  10000000
+                    2**29 => :no_hoard,      # Dec:  536870912 / Hex:  20000000
+                    2**30 => :masked        # Dec: 1073741824 / Hex:  40000000
 #                   2**31 => :flag,          # Dec: 2147483648 / Hex:  80000000
 #                   2**32 => :flag           # Dec: 4294967296 / Hex: 100000000
 
   bitfield :misc_flags, 
-                    2**0 =>  :flammable,     # Dec:          1 / Hex:         1
-                    2**1 =>  :metallic,      # Dec:          2 / Hex:         2
-                    2**2 =>  :two_handed,    # Dec:          4 / Hex:         4
-                    2**3 =>  :waterbreath    # Dec:          8 / Hex:         8
+                    2**0 =>  :flammable2,          # Dec:          1 / Hex:         1
+                    2**1 =>  :metallic2,           # Dec:          2 / Hex:         2
+                    2**2 =>  :two_handed2,         # Dec:          4 / Hex:         4
+                    2**3 =>  :underwater_breath    # Dec:          8 / Hex:         8
+
+  validates :vnum, :numericality => { only_integer: true,
+                                   greater_than_or_equal_to: 0,
+                                   :less_than => :max_vnum,
+                                   message: "Can't exceed max allowable vnum."
+                                  },
+                   uniqueness:   { scope: :area,
+                                   message: "No duplicate vnums allowed." }
+  validates :keywords, length: { in: 4..75 }
+  validates :sdesc, length: { in: 4..75 }
+  validates :ldesc, length: { minimum: 4 }
+  validates :object_type, numericality: { only_integer: true, greater_than: 0 }
+  validates :v0, numericality: { only_integer: true, greater_than: -2 }
+  validates :v1, numericality: { only_integer: true, greater_than: -2 }
+  validates :v2, numericality: { only_integer: true, greater_than: -2 }
+  validates :v3, numericality: { only_integer: true, greater_than: -2 }
+  validates :wear_flags, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :extra_flags, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :misc_flags, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
+  before_create :default_values
+  def default_values
+    self.v0 ||= 0
+    self.v1 ||= 0
+    self.v2 ||= 0
+    self.v3 ||= 0
+    self.extra_flags ||= 0
+    self.wear_flags ||= 1
+    self.misc_flags ||= 0
+    self.weight ||= 0
+    self.cost ||= 0
+  end
 
   def max_vnum
     area.vnum_qty

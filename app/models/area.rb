@@ -58,6 +58,14 @@ class Area < ActiveRecord::Base
     return $i
   end
   
+  def nextobjvnum
+    $i = 0
+    while self.objs.exists?(:vnum => $i)  do
+        $i +=1
+    end
+    return $i
+  end
+  
   def flags_as_hex
     #return self.flags.to_s(16).upper ... trying new
     return "%X" % self.flags

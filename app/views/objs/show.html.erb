@@ -4,7 +4,7 @@
   <div class="panel-heading monospace"><h3>
       <%= link_to @area.name, area_path(@area) %> /
       <%= link_to 'Objects', area_objs_path(@area) %> /
-      Object: <%= @obj.vnum %>
+      object: <%= @obj.vnum %>
   </h3></div>
   <div class="panel-body monospace">
 
@@ -57,9 +57,32 @@
           <strong>Object type:</strong>
         </div>
         <div class="col-md-10">
-          <div class="col-md-10">
-            <%= @obj.object_type %>
-          </div>
+          <% if @obj.object_type == 9  %><div class='col-md-2'>ARMOR</div><% end %>
+          <% if @obj.object_type == 14 %><div class='col-md-2'>ARMOR ANIMAL</div><% end %>
+          <% if @obj.object_type == 22 %><div class='col-md-2'>BOAT</div><% end %>
+          <% if @obj.object_type == 15 %><div class='col-md-2'>CONTAINER</div><% end %>
+          <% if @obj.object_type == 27 %><div class='col-md-2'>DECORATION</div><% end %>
+          <% if @obj.object_type == 17 %><div class='col-md-2'>DRINK CONTAINER</div><% end %>
+          <% if @obj.object_type == 7  %><div class='col-md-2'>FETISH</div><% end %>
+          <% if @obj.object_type == 19 %><div class='col-md-2'>FOOD</div><% end %>
+          <% if @obj.object_type == 25 %><div class='col-md-2'>FOUNTAIN</div><% end %>
+          <% if @obj.object_type == 12 %><div class='col-md-2'>FURNITURE</div><% end %>
+          <% if @obj.object_type == 30 %><div class='col-md-2'>JEWELRY</div><% end %>
+          <% if @obj.object_type == 18 %><div class='col-md-2'>KEY</div><% end %>
+          <% if @obj.object_type == 1  %><div class='col-md-2'>LIGHT</div><% end %>
+          <% if @obj.object_type == 20 %><div class='col-md-2'>MONEY</div><% end %>
+          <% if @obj.object_type == 11 %><div class='col-md-2'>PET FOOD</div><% end %>
+          <% if @obj.object_type == 26 %><div class='col-md-2'>PILL</div><% end %>
+          <% if @obj.object_type == 10 %><div class='col-md-2'>POTION</div><% end %>
+          <% if @obj.object_type == 33 %><div class='col-md-2'>RELIC</div><% end %>
+          <% if @obj.object_type == 29 %><div class='col-md-2'>RING</div><% end %>
+          <% if @obj.object_type == 2  %><div class='col-md-2'>SCROLL</div><% end %>
+          <% if @obj.object_type == 4  %><div class='col-md-2'>STAFF</div><% end %>
+          <% if @obj.object_type == 13 %><div class='col-md-2'>TRASH</div><% end %>
+          <% if @obj.object_type == 8  %><div class='col-md-2'>TREASURE</div><% end %>
+          <% if @obj.object_type == 3  %><div class='col-md-2'>WAND</div><% end %>
+          <% if @obj.object_type == 5  %><div class='col-md-2'>WEAPON</div><% end %>
+          <% if @obj.object_type == 6  %><div class='col-md-2'>WEAPON ANIMAL</div><% end %>
         </div>
       </div><br/>
       
@@ -88,20 +111,63 @@
           <strong>Extra flags:</strong>
         </div>
         <div class="col-md-10">
+          <% if @obj.extra_flags == 0 %><div class="col-md-2">NONE</div><% end %>
+          <% if @obj.glow? %><div class='col-md-2'>GLOW</div><% end %>
+          <% if @obj.hum? %><div class='col-md-2'>HUM</div><% end %>
+          <% if @obj.evil? %><div class='col-md-2'>EVIL</div><% end %>
+          <% if @obj.invis? %><div class='col-md-2'>INVIS</div><% end %>
+          <% if @obj.magic? %><div class='col-md-2'>MAGIC</div><% end %>
+          <% if @obj.nodrop? %><div class='col-md-2'>NODROP</div><% end %>
+          <% if @obj.anti_good? %><div class='col-md-2'>ANTI-GOOD</div><% end %>
+          <% if @obj.anti_evil? %><div class='col-md-2'>ANTI-EVIL</div><% end %>
+          <% if @obj.anti_neutral? %><div class='col-md-2'>ANTI-NEUTRAL</div><% end %>
+          <% if @obj.noremove? %><div class='col-md-2'>NOREMOVE</div><% end %>
+          <% if @obj.inventory? %><div class='col-md-2'>INVENTORY</div><% end %>
+          <% if @obj.metallic? %><div class='col-md-2'>METALLIC</div><% end %>
+          <% if @obj.good? %><div class='col-md-2'>GOOD</div><% end %>
+          <% if @obj.not_purgable? %><div class='col-md-2'>NOT_PURGABLE</div><% end %>
+          <% if @obj.flammable? %><div class='col-md-2'>FLAMMABLE</div><% end %>
+          <% if @obj.two_handed? %><div class='col-md-2'>TWO HANDED</div><% end %>
+          <% if @obj.use_cost? %><div class='col-md-2'>USE COST</div><% end %>
+          <% if @obj.anti_unalign? %><div class='col-md-2'>ANTI-UNALIGN</div><% end %>
+          <% if @obj.neutral? %><div class='col-md-2'>NEUTRAL</div><% end %>
+          <% if @obj.no_hoard? %><div class='col-md-2'>NO HOARD</div><% end %>
+          <% if @obj.masked? %><div class='col-md-2'>MASKED</div><% end %>
+        </div>
+      </div><br/>
+
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Takeable:</strong>
+        </div>
+        <div class="col-md-10">
           <div class="col-md-10">
-            <%= @obj.extra_flags %>
+            <% if @obj.takeable?%>YES<% else %>NO<% end %>
           </div>
         </div>
       </div><br/>
 
       <div class="row">
         <div class="col-md-2">
-          <strong>Wear flags:</strong>
+          <strong>Worn:</strong>
         </div>
         <div class="col-md-10">
-          <div class="col-md-10">
-            <%= @obj.wear_flags %>
-          </div>
+          <% if @obj.wear_flags < 2 %><div class='col-md-3'>NOT WORN/WORN AS LIGHT</div><% end %>
+          <% if @obj.finger? %><div class='col-md-2'>WORN AS FINGER</div><% end %>
+          <% if @obj.neck? %><div class='col-md-2'>WORN AS NECK</div><% end %>
+          <% if @obj.body? %><div class='col-md-2'>WORN AS BODY</div><% end %>
+          <% if @obj.head? %><div class='col-md-2'>WORN AS HEAD</div><% end %>
+          <% if @obj.legs? %><div class='col-md-2'>WORN AS LEGS</div><% end %>
+          <% if @obj.feet? %><div class='col-md-2'>WORN AS FEET</div><% end %>
+          <% if @obj.hands? %><div class='col-md-2'>WORN AS HANDS</div><% end %>
+          <% if @obj.arms? %><div class='col-md-2'>WORN AS ARMS</div><% end %>
+          <% if @obj.shield? %><div class='col-md-2'>WORN AS SHIELD</div><% end %>
+          <% if @obj.about? %><div class='col-md-2'>WORN AS ABOUT</div><% end %>
+          <% if @obj.waist? %><div class='col-md-2'>WORN AS WAIST</div><% end %>
+          <% if @obj.wrist? %><div class='col-md-2'>WORN AS WRIST</div><% end %>
+          <% if @obj.wield? %><div class='col-md-2'>WORN AS WIELD</div><% end %>
+          <% if @obj.hold? %><div class='col-md-2'>WORN AS HOLD</div><% end %>
+          <% if @obj.decoration? %><div class='col-md-2'>WORN AS DECORATION</div><% end %>
         </div>
       </div><br/>
 
@@ -132,9 +198,11 @@
           <strong>Misc flags:</strong>
         </div>
         <div class="col-md-10">
-          <div class="col-md-10">
-            <%= @obj.misc_flags %>
-          </div>
+          <% if @obj.misc_flags == 0 %><div class="col-md-2">NONE</div><% end %>
+          <% if @obj.flammable2? %><div class="col-md-2">FLAMMABLE</div><% end %>
+          <% if @obj.metallic2? %><div class="col-md-2">METALLIC</div><% end %>
+          <% if @obj.two_handed2? %><div class="col-md-2">TWO-HANDED</div><% end %>
+          <% if @obj.underwater_breath? %><div class="col-md-2">UNDERWATER BREATH</div><% end %>
         </div>
       </div><br/>
       
