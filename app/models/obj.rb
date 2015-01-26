@@ -1,7 +1,7 @@
 class Obj < ActiveRecord::Base
   belongs_to :area
-#  has_many :oxdescs, dependent: :destroy
-#  has_many :applies, dependent: :destroy
+  has_many :oxdescs, dependent: :destroy
+  has_many :applies, dependent: :destroy
 
   include Bitfields
 

@@ -209,6 +209,18 @@
         </div>
       </div><br/>
       
+      <%= render 'objs/appliestable', :obj => @obj %>
+
+      <%= render 'objs/oxdescstable', :obj => @obj %>
+
+      <br/>
+      
+    <strong>Formatted Object:</strong>
+    <p>
+        <pre><%= render 'objs/objblock', :obj => @obj %></pre>
+    </p>
+
+
     </div>
       
     <div class="panel-footer">

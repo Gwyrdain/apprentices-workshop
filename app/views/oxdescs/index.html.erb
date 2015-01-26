@@ -1,0 +1,36 @@
+<%- model_class = Oxdesc -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:keywords) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @oxdescs.each do |oxdesc| %>
+      <tr>
+          <td><%= oxdesc.keywords %></td>
+          <td><%= oxdesc.description %></td>
+        <td>
+          <%= link_to area_obj_oxdesc_path(@area, @obj, oxdesc), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+          <%- end -%>
+          <%= link_to edit_area_obj_oxdesc_path(@area, @obj, oxdesc), :class => 'btn btn-xs', :title => "#{ t('.edit', :default => t('helpers.links.edit')) }" do %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to area_obj_oxdesc_path(@area, @obj, oxdesc), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_area_obj_oxdesc_path,
+            :class => 'btn btn-primary' %>

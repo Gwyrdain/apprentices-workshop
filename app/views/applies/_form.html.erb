@@ -1,0 +1,34 @@
+<%= form_for [@apply.obj.area, @apply.obj, @apply], :html => { :class => 'form-horizontal' } do |f| %>
+  <% if @apply.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@apply.errors.count, "error") %> prohibited saving:</h3>
+
+      <ul>
+      <% @apply.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :apply_type, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :apply_type, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :magnitude, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+       <%= f.text_field :magnitude, class: 'form-control', rows: 10 %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  area_obj_path(@area, @obj), :class => 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>

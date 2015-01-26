@@ -8,7 +8,10 @@ Rails.application.routes.draw do
       resources :rxdescs
       resources :exits
     end
-    resources :objs
+    resources :objs do
+      resources :oxdescs
+      resources :applies
+    end
   end
 
   devise_for :users
