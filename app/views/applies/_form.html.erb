@@ -14,13 +14,40 @@
   <div class="form-group">
     <%= f.label :apply_type, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :apply_type, :class => 'text_field form-control' %>
+      <%= f.select(:apply_type, options_for_select(
+          [
+            ['STR', 1],
+            ['DEX', 2],
+            ['INT', 3],
+            ['WIS', 4],
+            ['CON', 5],
+            ['MANA', 12],
+            ['HIT', 13],
+            ['MOVE', 14],
+            ['AC', 17],
+            ['HITROLL', 18],
+            ['DAMROLL', 19],
+            ['SAVE V SPELL', 24],
+            ['CHARISMA', 25],
+            ['LUCK', 26],
+            ['NOSTEAL', 27],
+            ['NOSLEEP', 28],
+            ['NOSUMMON', 29],
+            ['NOCHARM', 30],
+            ['NOSEXCHANGE', 31],
+            ['TRUESEE', 32],
+            ['NOINFO', 33],
+            ['WATERBREATH', 34],
+            ['DAMAGE ABSORPTION', 41],
+            ['MAGICAL RESISTANCE', 43]
+          ], @apply.apply_type
+        ), {}, {class: "form-control"}) %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :magnitude, :class => 'control-label col-md-2' %>
+    <%= f.label :amount, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-       <%= f.text_field :magnitude, class: 'form-control', rows: 10 %>
+       <%= f.text_field :amount, class: 'form-control', rows: 10 %>
     </div>
   </div>
 

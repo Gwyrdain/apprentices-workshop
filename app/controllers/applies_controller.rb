@@ -63,6 +63,6 @@ class AppliesController < ApplicationController
     end
     
     def apply_params
-      params.require(:apply).permit(:apply_type, :magnitude, :obj_id)
+      params.require(:apply).permit(:apply_type, :amount, :obj_id)
     end
 end

@@ -1,5 +1,18 @@
 <%- model_class = Apply -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+
+<div class="panel panel-default">
+    <div class="panel-heading monospace"><h3>
+        <%= link_to @area.name, area_path(@area) %> /
+        <%= link_to 'Objs', area_objs_path(@area) %> /
+        <%= link_to "Obj: #{@obj.vnum}", area_obj_path(@area, @obj) %> /
+        Edit Apply
+    </div>
+    <div class="panel-body monospace">    
+    
+        <%= render :partial => 'form' %>
+
+    </div>
+
+    <div class="panel-footer"><%= link_to 'Back', area_obj_path(@area, @obj) %></div>
+
 </div>
-<%= render :partial => 'form' %>

@@ -59,10 +59,10 @@ class Obj < ActiveRecord::Base
 #                   2**32 => :flag           # Dec: 4294967296 / Hex: 100000000
 
   bitfield :misc_flags, 
-                    2**0 =>  :flammable2,          # Dec:          1 / Hex:         1
-                    2**1 =>  :metallic2,           # Dec:          2 / Hex:         2
-                    2**2 =>  :two_handed2,         # Dec:          4 / Hex:         4
-                    2**3 =>  :underwater_breath    # Dec:          8 / Hex:         8
+#                    2**0 =>  :flag,             # Dec:          1 / Hex:         1
+#                    2**1 =>  :flag,             # Dec:          2 / Hex:         2
+#                    2**2 =>  :flag,             # Dec:          4 / Hex:         4
+                    2**3 =>  :underwater_breath # Dec:          8 / Hex:         8
 
   validates :vnum, :numericality => { only_integer: true,
                                    greater_than_or_equal_to: 0,

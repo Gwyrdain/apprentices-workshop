@@ -111,7 +111,18 @@
 
       <div class="row">
         <div class="col-md-2">
-          <strong>Extra flags:</strong>
+          <strong>Takeable:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <% if @obj.takeable?%>YES<% else %>NO<% end %>
+          </div>
+        </div>
+      </div><br/>
+      
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Flags:</strong>
         </div>
         <div class="col-md-10">
           <% if @obj.extra_flags == 0 %><div class="col-md-2">NONE</div><% end %>
@@ -136,17 +147,7 @@
           <% if @obj.neutral? %><div class='col-md-2'>NEUTRAL</div><% end %>
           <% if @obj.no_hoard? %><div class='col-md-2'>NO HOARD</div><% end %>
           <% if @obj.masked? %><div class='col-md-2'>MASKED</div><% end %>
-        </div>
-      </div><br/>
-
-      <div class="row">
-        <div class="col-md-2">
-          <strong>Takeable:</strong>
-        </div>
-        <div class="col-md-10">
-          <div class="col-md-10">
-            <% if @obj.takeable?%>YES<% else %>NO<% end %>
-          </div>
+          <% if @obj.underwater_breath? %><div class="col-md-2">UNDERWATER BREATH</div><% end %>
         </div>
       </div><br/>
 
@@ -195,20 +196,7 @@
           </div>
         </div>
       </div><br/>
- 
-      <div class="row">
-        <div class="col-md-2">
-          <strong>Misc flags:</strong>
-        </div>
-        <div class="col-md-10">
-          <% if @obj.misc_flags == 0 %><div class="col-md-2">NONE</div><% end %>
-          <% if @obj.flammable2? %><div class="col-md-2">FLAMMABLE</div><% end %>
-          <% if @obj.metallic2? %><div class="col-md-2">METALLIC</div><% end %>
-          <% if @obj.two_handed2? %><div class="col-md-2">TWO-HANDED</div><% end %>
-          <% if @obj.underwater_breath? %><div class="col-md-2">UNDERWATER BREATH</div><% end %>
-        </div>
-      </div><br/>
-      
+
       <%= render 'objs/appliestable', :obj => @obj %>
 
       <%= render 'objs/oxdescstable', :obj => @obj %>

@@ -1,0 +1,15 @@
+#<%= obj.formal_vnum %>
+<%= obj.keywords %>~
+<%= obj.sdesc %>~
+<%= obj.ldesc %>~
+~
+<%= obj.object_type %> <%= obj.extra_flags %> <%= obj.wear_flags %>
+<%= obj.v0 %> <%= obj.v1 %> <%= obj.v2 %> <%= obj.v3 %>
+<%= obj.weight %> <%= obj.cost %> 0<% obj.applies.order(:apply_type).each do |apply| %>
+<%= render 'applies/applyblock', :apply => apply %><% end %>
+<% obj.oxdescs.each do |oxdesc| %>
+<%= render 'oxdescs/oxdescblock', :oxdesc => oxdesc %><% end %><% if obj.flammable? %>
+F<% end %><% if obj.metallic? && obj.object_type == 9 %>
+M<% end %><% if obj.two_handed? && obj.object_type == 5 %>
+T<% end %><% if obj.underwater_breath? && obj.object_type == 9 %>
+U<% end %>

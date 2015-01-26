@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:apply_type) %></th>
-      <th><%= model_class.human_attribute_name(:magnitude) %></th>
+      <th><%= model_class.human_attribute_name(:amount) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -14,7 +14,7 @@
     <% @applies.each do |apply| %>
       <tr>
           <td><%= apply.apply_type %></td>
-          <td><%= apply.magnitude %></td>
+          <td><%= apply.amount %></td>
         <td>
           <%= link_to area_obj_apply_path(@area, @obj, apply), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
             <%= glyph 'info-sign' %>

@@ -34,6 +34,8 @@ class ObjsController < ApplicationController
   def create
     @obj = @area.objs.create(obj_params)
     @obj.misc_flags ||= 0
+    @obj.extra_flags ||= 0
+    @obj.wear_flags ||= 0
     
     if @obj.save
       redirect_to area_obj_path(@area, @obj), notice: 'Object was sucessfully created.'
@@ -81,7 +83,6 @@ class ObjsController < ApplicationController
                                   :not_purgable, :flammable, :two_handed, 
                                   :use_cost, :anti_unalign, :neutral, :no_hoard,
                                   :masked,
-                                  :flammable2, :metallic2, :two_handed2,
                                   :underwater_breath
                                   )
     end

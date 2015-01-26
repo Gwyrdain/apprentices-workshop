@@ -10,21 +10,44 @@
       
       <div class="row">
         <div class="col-md-2">
-          <strong>Keywords:</strong>
+          <strong>Apply Type:</strong>
         </div>
         <div class="col-md-10">
           <div class="col-md-10">
-            <%= @apply.apply_type %>
+            <% if @apply.apply_type == 1 %>STR<% end %>
+            <% if @apply.apply_type == 2 %>DEX<% end %>
+            <% if @apply.apply_type == 3 %>INT<% end %>
+            <% if @apply.apply_type == 4 %>WIS<% end %>
+            <% if @apply.apply_type == 5 %>CON<% end %>
+            <% if @apply.apply_type == 12 %>MANA<% end %>
+            <% if @apply.apply_type == 13 %>HIT<% end %>
+            <% if @apply.apply_type == 14 %>MOVE<% end %>
+            <% if @apply.apply_type == 17 %>AC<% end %>
+            <% if @apply.apply_type == 18 %>HITROLL<% end %>
+            <% if @apply.apply_type == 19 %>DAMROLL<% end %>
+            <% if @apply.apply_type == 24 %>SAVE V SPELL<% end %>
+            <% if @apply.apply_type == 25 %>CHARISMA<% end %>
+            <% if @apply.apply_type == 26 %>LUCK<% end %>
+            <% if @apply.apply_type == 27 %>NOSTEAL<% end %>
+            <% if @apply.apply_type == 28 %>NOSLEEP<% end %>
+            <% if @apply.apply_type == 29 %>NOSUMMON<% end %>
+            <% if @apply.apply_type == 30 %>NOCHARM<% end %>
+            <% if @apply.apply_type == 31 %>NOSEXCHANGE<% end %>
+            <% if @apply.apply_type == 32 %>TRUESEE<% end %>
+            <% if @apply.apply_type == 33 %>NOINFO<% end %>
+            <% if @apply.apply_type == 34 %>WATERBREATH<% end %>
+            <% if @apply.apply_type == 41 %>DAMAGE ABSORPTION<% end %>
+            <% if @apply.apply_type == 43 %>MAGICAL RESISTANCE<% end %>
           </div>
         </div>
       </div><br/>      
       <div class="row">
         <div class="col-md-2">
-          <strong>Description:</strong>
+          <strong>Amount:</strong>
         </div>
         <div class="col-md-10">
           <div class="col-md-10">
-            <%= simple_format(word_wrap(@apply.magnitude, line_width: 75)) %>
+            <td><%= @apply.amount %></td>
           </div>
         </div>
       </div><br/>
