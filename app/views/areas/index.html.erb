@@ -12,6 +12,8 @@
             <th>Vnum Qty</th>
             <th><div class="monospace-pre">Levels  Author   Name</div></th>
             <th>Helps</th>
+            <th>Mobiles</th>
+            <th>Objects</th>
             <th>Rooms</th>
             <th>User</th>
             <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -27,6 +29,8 @@
                 <div class="monospace-pre"><%= link_to(area) do %>{<%= area.difficulty %>} <%= format("%-8s", area.author) %> <%= format("%-20s", area.name) %><% end %></div>
               </td>
               <td><%= area.helps.count %></td>
+              <td>--</td>
+              <td><%= area.objs.count %></td>
               <td><%= area.rooms.count %></td>
               <td><%= area.user.email %></td>
               <td>

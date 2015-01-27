@@ -57,32 +57,7 @@
           <strong>Object type:</strong>
         </div>
         <div class="col-md-10">
-          <% if @obj.object_type == 9  %><div class='col-md-2'>ARMOR</div><% end %>
-          <% if @obj.object_type == 14 %><div class='col-md-2'>ARMOR ANIMAL</div><% end %>
-          <% if @obj.object_type == 22 %><div class='col-md-2'>BOAT</div><% end %>
-          <% if @obj.object_type == 15 %><div class='col-md-2'>CONTAINER</div><% end %>
-          <% if @obj.object_type == 27 %><div class='col-md-2'>DECORATION</div><% end %>
-          <% if @obj.object_type == 17 %><div class='col-md-2'>DRINK CONTAINER</div><% end %>
-          <% if @obj.object_type == 7  %><div class='col-md-2'>FETISH</div><% end %>
-          <% if @obj.object_type == 19 %><div class='col-md-2'>FOOD</div><% end %>
-          <% if @obj.object_type == 25 %><div class='col-md-2'>FOUNTAIN</div><% end %>
-          <% if @obj.object_type == 12 %><div class='col-md-2'>FURNITURE</div><% end %>
-          <% if @obj.object_type == 30 %><div class='col-md-2'>JEWELRY</div><% end %>
-          <% if @obj.object_type == 18 %><div class='col-md-2'>KEY</div><% end %>
-          <% if @obj.object_type == 1  %><div class='col-md-2'>LIGHT</div><% end %>
-          <% if @obj.object_type == 20 %><div class='col-md-2'>MONEY</div><% end %>
-          <% if @obj.object_type == 11 %><div class='col-md-2'>PET FOOD</div><% end %>
-          <% if @obj.object_type == 26 %><div class='col-md-2'>PILL</div><% end %>
-          <% if @obj.object_type == 10 %><div class='col-md-2'>POTION</div><% end %>
-          <% if @obj.object_type == 33 %><div class='col-md-2'>RELIC</div><% end %>
-          <% if @obj.object_type == 29 %><div class='col-md-2'>RING</div><% end %>
-          <% if @obj.object_type == 2  %><div class='col-md-2'>SCROLL</div><% end %>
-          <% if @obj.object_type == 4  %><div class='col-md-2'>STAFF</div><% end %>
-          <% if @obj.object_type == 13 %><div class='col-md-2'>TRASH</div><% end %>
-          <% if @obj.object_type == 8  %><div class='col-md-2'>TREASURE</div><% end %>
-          <% if @obj.object_type == 3  %><div class='col-md-2'>WAND</div><% end %>
-          <% if @obj.object_type == 5  %><div class='col-md-2'>WEAPON</div><% end %>
-          <% if @obj.object_type == 6  %><div class='col-md-2'>WEAPON ANIMAL</div><% end %>
+          <div class='col-md-2'><%= object_type_from_num(@obj.object_type) %></div>
         </div>
       </div><br/>
       <!-- Not used

@@ -6,8 +6,7 @@
 * Add dependent: :destroy to all has_many associations moving forward.
 
 ## Areas
-* ~~Add default area terrain and room_flags.~~ Done
-* ~~What about deleting an Area record... need to clean up assocaited records!~~ Added dependent: :destroy to all has_many associations.  Need to carry this through.
+* None.
 
 ## Helps
 * None.
@@ -16,7 +15,7 @@
 * No not allow export when bad exits exit.
 
 ## Objects
-* Not started.
+* Working on validations.
 
 ## Mobiles
 * Not started.

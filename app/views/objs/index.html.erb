@@ -13,15 +13,9 @@
             <th><%= model_class.human_attribute_name(:sdesc) %></th>
             <th><%= model_class.human_attribute_name(:ldesc) %></th>
             <th><%= model_class.human_attribute_name(:object_type) %></th>
-            <th><%= model_class.human_attribute_name(:v0) %></th>
-            <th><%= model_class.human_attribute_name(:v1) %></th>
-            <th><%= model_class.human_attribute_name(:v2) %></th>
-            <th><%= model_class.human_attribute_name(:v3) %></th>
-            <th><%= model_class.human_attribute_name(:extra_flags) %></th>
             <th><%= model_class.human_attribute_name(:wear_flags) %></th>
             <th><%= model_class.human_attribute_name(:weight) %></th>
             <th><%= model_class.human_attribute_name(:cost) %></th>
-            <th><%= model_class.human_attribute_name(:misc_flags) %></th>
             <th><%=t '.actions', :default => t("helpers.actions") %></th>
           </tr>
         </thead>
@@ -32,16 +26,10 @@
                 <td><%= obj.keywords %></td>
                 <td><%= obj.sdesc %></td>
                 <td><%= obj.ldesc %></td>
-                <td><%= obj.object_type %></td>
-                <td><%= obj.v0 %></td>
-                <td><%= obj.v1 %></td>
-                <td><%= obj.v2 %></td>
-                <td><%= obj.v3 %></td>
-                <td><%= obj.extra_flags %></td>
+                <td><%= object_type_from_num(obj.object_type) %></td>
                 <td><%= obj.wear_flags %></td>
                 <td><%= obj.weight %></td>
                 <td><%= obj.cost %></td>
-                <td><%= obj.misc_flags %></td>
               <td>
                 <%= link_to area_obj_path(@area, obj), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
                   <%= glyph 'info-sign' %>
@@ -69,5 +57,5 @@
 
 <br/>
 <strong>Formatted #OBJECTS Block:</strong>
-
+<%= render 'objs/objsblock' %>
 <br/>
