@@ -21,50 +21,74 @@
           if(this.value == 1) {
             hideItemGroups();
             $('#ItemValueGroupLight').prop('disabled', false).show();
+            $('#obj_takeable').prop('checked', true);
+            $('#obj_wear_flags').val('0');
           }
           if(this.value == 20) {
             hideItemGroups();
             $('#ItemValueGroupMoney').prop('disabled', false).show();
+            $('#obj_takeable').prop('checked', true);
+            $('#obj_wear_flags').val('0');
           }
           if(this.value == 17) {
             hideItemGroups();
             $('#ItemValueGroupDrink').prop('disabled', false).show();
+            $('#obj_takeable').prop('checked', true);
+            $('#obj_wear_flags').val('0');
           }
           if(this.value == 30) {
             hideItemGroups();
             $('#ItemValueGroupJewelry').prop('disabled', false).show();
+            $('#obj_takeable').prop('checked', true);
           }
           if(this.value == 8 || this.value == 12 || this.value == 13 || this.value == 18 || this.value == 22 || this.value == 27) {
             hideItemGroups();
             $('#ItemValueGroupGeneric').prop('disabled', false).show();
+            $('#obj_wear_flags').val('0');
+            if(this.value == 27) {$('#obj_wear_flags').val('32768');};
           }
           if(this.value == 25) {
             hideItemGroups();
             $('#ItemValueGroupFountain').prop('disabled', false).show();
+            $('#obj_takeable').prop('checked', false);
+            $('#obj_wear_flags').val('0');
           }
           if(this.value == 5 || this.value == 6) {
             hideItemGroups();
             $('#ItemValueGroupWeapon').prop('disabled', false).show();
+            $('#obj_takeable').prop('checked', true);
+            $('#obj_wear_flags').val('8192');
+            if($('#obj_weight').val() > 9) {$('#obj_two_handed').prop('checked', true)};
           }
           if(this.value == 9 || this.value == 14) {
             hideItemGroups();
             $('#ItemValueGroupArmor').prop('disabled', false).show();
+            $('#obj_takeable').prop('checked', true);
+            if($('#ItemValueGroupArmor').find('#obj_v0').val() > 5) {$('#obj_metallic').prop('checked', true)};
           }
           if(this.value == 15) {
             hideItemGroups();
             $('#ItemValueGroupContainer').prop('disabled', false).show();
+            $('#obj_wear_flags').val('0');
           }
           if(this.value == 3 || this.value == 4 || this.value == 7 || this.value == 29 || this.value == 33) {
             hideItemGroups();
             $('#ItemValueGroupMultiUseMagicItems').prop('disabled', false).show();
+            $('#obj_takeable').prop('checked', true);
+            $('#obj_wear_flags').val('16384');
+            if(this.value == 29) {$('#obj_wear_flags').val('2');};
           }
           if(this.value == 2 || this.value == 10 || this.value == 26) {
             hideItemGroups();
             $('#ItemValueGroupSingleUseMagicItems').prop('disabled', false).show();
+            $('#obj_takeable').prop('checked', true);
+            $('#obj_wear_flags').val('16384');
           }
           if(this.value == 11 || this.value == 19) {
             hideItemGroups();
             $('#ItemValueGroupFood').prop('disabled', false).show();
+            $('#obj_takeable').prop('checked', true);
+            $('#obj_wear_flags').val('0');
           }
       })
 
