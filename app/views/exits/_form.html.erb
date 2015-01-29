@@ -32,7 +32,7 @@
           var exit_undefined_cb_state = $('#undefined_room').is(':checked');
           var selected_exittype = $('#exit_exittype').val();
           if(selected_exittype == -1) {
-            alert('Destination room must be undefined when ExitType = 0 (i.e., not an exit)')
+            bootbox.alert('Destination room must be undefined when ExitType = 0 (i.e., not an exit)')
             $('#undefined_room').prop('checked', true);
             $('#exit_exit_room_id').prop('disabled', true);
           } else {
