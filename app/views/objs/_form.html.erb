@@ -78,7 +78,7 @@
   <%= render 'objs/formobjvalues', :f => f %>
 
   <div class="form-group">
-    <%= f.label :extra_flags, :class => 'control-label col-md-2' %>
+    <%= f.label :extra_flags, 'Flags', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
 
         <div class="check_box col-md-2">
@@ -221,7 +221,7 @@
             ['WORN AS WIELD', 8192],
             ['WORN AS HOLD', 16384],
             ['WORN AS DECORATION', 32768]
-          ], @obj.wear_flags
+          ], (@obj.takeable? ? (@obj.wear_flags - 1) : @obj.wear_flags)               
         ), {}, {class: "form-control"}) %>
     </div>
   </div>

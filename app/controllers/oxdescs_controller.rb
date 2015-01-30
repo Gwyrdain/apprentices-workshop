@@ -26,7 +26,7 @@ class OxdescsController < ApplicationController
   def create
     @oxdesc = @obj.oxdescs.create(oxdesc_params)
     if @oxdesc.save
-      redirect_to area_obj_oxdesc_path(@area, @obj, @oxdesc), notice: 'Obj Extra Description was sucessfully created.'
+      redirect_to area_obj_path(@area, @obj), notice: 'Obj Extra Description was sucessfully created.'
     else
       render action: 'new'
     end

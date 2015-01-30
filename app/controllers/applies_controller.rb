@@ -26,7 +26,7 @@ class AppliesController < ApplicationController
   def create
     @apply = @obj.applies.create(apply_params)
     if @apply.save
-      redirect_to area_obj_apply_path(@area, @obj, @apply), notice: 'Obj Extra Description was sucessfully created.'
+      redirect_to area_obj_path(@area, @obj), notice: 'Obj Extra Description was sucessfully created.'
     else
       render action: 'new'
     end

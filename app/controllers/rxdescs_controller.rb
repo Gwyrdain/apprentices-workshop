@@ -26,7 +26,7 @@ class RxdescsController < ApplicationController
   def create
     @rxdesc = @room.rxdescs.create(rxdesc_params)
     if @rxdesc.save
-      redirect_to area_room_rxdesc_path(@area, @room, @rxdesc), notice: 'Room Extra Description was sucessfully created.'
+      redirect_to area_room_path(@area, @room), notice: 'Room Extra Description was sucessfully created.'
     else
       render action: 'new'
     end
