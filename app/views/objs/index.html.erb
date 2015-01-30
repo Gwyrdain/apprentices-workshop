@@ -20,7 +20,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @objs.each do |obj| %>
+          <% @objs.order(:vnum).each do |obj| %>
             <tr>
                 <td><%= obj.vnum %></td>
                 <td><%= obj.keywords %></td>
