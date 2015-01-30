@@ -23,11 +23,6 @@
         <%= simple_format(word_wrap(@help.body, line_width: 75)) %>
       </p>
       
-    <strong>Formatted help:</strong>
-    <p>
-        <%= render 'helps/helpblock' %>
-    </p>
-
     </div>
     
     <div class="panel-footer">
@@ -43,3 +38,7 @@
     </div>
     
 </div>
+
+<br>
+<strong>Formatted help:</strong>
+<pre><%= render 'helps/helpblock' %></pre>
