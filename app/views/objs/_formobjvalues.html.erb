@@ -404,10 +404,38 @@
     </div>
   </div>
   
+  <% @obj.v1 == -1 ? $LightInfinite = true : $LightInfinite = false %>
+  <% @obj.v1 ==  0 ? $LightDead     = true : $LightDead     = false %>
+  <% @obj.v1 >   0 ? $LightHours    = true : $LightHours    = false %>
+  
+  <div class="form-group">
+    <%= f.label 'Light Duration', :class => 'control-label col-md-2' %>
+    <div class="col-md-2">
+      <label class="radio-inline">
+        <input type="radio" name="LightRadioOptions" id="LightInfinite" value="1" <%= "checked" if $LightInfinite %>> Infinite
+      </label>
+    </div>
+
+    <div class="col-md-2">
+      <label class="radio-inline">
+        <input type="radio" name="LightRadioOptions" id="LightDead" value="2" <%= "checked" if $LightDead %>> Dead
+      </label>
+    </div>
+    
+    <div class="col-md-2">
+      <label class="radio-inline">
+        <input type="radio" name="LightRadioOptions" id="LightHours" value="3" <%= "checked" if $LightHours %>> Set Hours
+      </label>
+    </div>
+  </div>
+  
+  <%= f.hidden_field :v2, {:id => 'LightInfiniteField', :value => -1} %>
+  <%= f.hidden_field :v2, {:id => 'LightDeadField', :value => 0} %>
+  
   <div class="form-group">
     <%= f.label :v2, 'Hours lit', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :v2, :class => 'text_field form-control' %>
+      <%= f.text_field :v2, {:id => 'LightHoursField', :class => 'text_field form-control'} %>
     </div>
   </div>
   

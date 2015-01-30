@@ -15,6 +15,7 @@ gem 'bootstrap-sass-extras', '~> 0.0.2'
 gem 'devise', '~> 3.4.1'
 gem 'bitfields', '~> 0.5.2'
 gem 'bootbox-rails', '~> 0.4.0'
+gem 'jquery-turbolinks', '~> 2.1.0'
 
 group :development, :test do
     gem 'sqlite3'

@@ -10,6 +10,45 @@ function validMaxAC () {
   return true
 }
 
+function validHoldWeight () {
+  if( $('#obj_object_type').val() == 15 &&
+      $('#ItemValueGroupContainer').find('#obj_v0').val() <= $('#obj_weight').val() ) {
+        bootbox.alert('Container <strong>hold weight</strong> must be greater than object <strong>weight</strong>.  Increasing hold weight.');
+        $('#ItemValueGroupContainer').find('#obj_v0').val( parseInt($('#obj_weight').val(), 10) + 5 );
+    return false
+  }
+  return true
+}
+
+function validDrinks () {
+  if( $('#obj_object_type').val() == 17 &&
+      $('#ItemValueGroupDrink').find('#obj_v0').val() < $('#ItemValueGroupDrink').find('#obj_v1').val() ) {
+        bootbox.alert('Drink container <strong># of drinks</strong> must be greater than or equal to the <strong>amount left</strong>.  Increasing # of drinks.');
+        $('#ItemValueGroupDrink').find('#obj_v0').val( $('#ItemValueGroupDrink').find('#obj_v1').val() );
+    return false
+  }
+  return true
+}
+
+function validCharges () {
+  if( $('#ItemValueGroupMultiUseMagicItems').find('#obj_v1').val() < $('#ItemValueGroupMultiUseMagicItems').find('#obj_v2').val() ) {
+        bootbox.alert('<strong>Max charges</strong> must be greater than or equal to the <strong>remaining charged</strong>.  Increasing max charges.');
+        $('#ItemValueGroupMultiUseMagicItems').find('#obj_v1').val( $('#ItemValueGroupMultiUseMagicItems').find('#obj_v2').val() );
+    return false
+  }
+  return true
+}
+
+
+function validRange () {
+  if( ( $('#obj_object_type').val() == 5 || $('#obj_object_type').val() === 6) &&
+      $('#ItemValueGroupWeapon').find('#obj_v2').val() < $('#ItemValueGroupWeapon').find('#obj_v1').val() ) {
+        bootbox.alert('Weapon <strong>range max</strong> must be greater than or equal to <strong>range min</strong>.  Increasing range max.');
+        $('#ItemValueGroupWeapon').find('#obj_v2').val( $('#ItemValueGroupWeapon').find('#obj_v1').val() );
+    return false
+  }
+  return true
+}
 
 function validMetallic () {
   if( $('#obj_metallic').is(':checked') == true &&
@@ -88,6 +127,54 @@ $(function() {
 });
 
 $(function() {
+  $('#ItemValueGroupContainer').find('#obj_v0').change(function() { // This is the Hold Weight field.
+    validHoldWeight();
+  })
+});
+
+$(function() {
+  $('#ItemValueGroupDrink').find('#obj_v0').change(function() { // This is the # of drinks field.
+    validDrinks();
+  })
+});
+
+$(function() {
+  $('#ItemValueGroupDrink').find('#obj_v1').change(function() { // This is the amount left field.
+    validDrinks();
+  })
+});
+
+$(function() {
+  $('input[name=LightRadioOptions]:radio').click(function() {
+    setLightValueOptions();
+    })
+});
+
+$(function() {
+  $('#ItemValueGroupMultiUseMagicItems').find('#obj_v1').change(function() { // This is the max charges field.
+    validCharges();
+  })
+});
+
+$(function() {
+  $('#ItemValueGroupMultiUseMagicItems').find('#obj_v2').change(function() { // This is the remaining charges field.
+    validCharges();
+  })
+});
+
+$(function() {
+  $('#ItemValueGroupWeapon').find('#obj_v1').change(function() { // This is the range min field.
+    validRange();
+  })
+});
+
+$(function() {
+  $('#ItemValueGroupWeapon').find('#obj_v2').change(function() { // This is the range max field.
+    validRange();
+  })
+});
+
+$(function() {
   $('#obj_metallic').change(function() {
     validMetallic();
   })
@@ -114,6 +201,7 @@ $(function() {
 $(function() {
   $('#obj_weight').change(function() {
     validWeight();
+    validHoldWeight();
   })
 });
 
@@ -129,13 +217,19 @@ $(function() {
     $('#obj_object_type').change(function() {
       
       setObjValues();
-      
+
       validMaxAC();
+      validHoldWeight();
+      validDrinks();
+      validCharges();
+      validRange();
       validMetallic();
       validTwoHanded();
       validUnderwaterBreath();
       validWeight();
       validUseCost();
+
+      setLightValueOptions();
       
     })
 
@@ -177,7 +271,7 @@ function setObjValues() {
     hideItemGroups();
     $('#ItemValueGroupGeneric').prop('disabled', false).show();
     $('#obj_wear_flags').val('0');
-    if(this.value == 27) {$('#obj_wear_flags').val('32768');}; // DECORATION set to WEAR as DECORATION
+    if(i == 27) {$('#obj_wear_flags').val('32768');}; // DECORATION set to WEAR as DECORATION
   }
   if(i== 25) {
     hideItemGroups();
@@ -208,7 +302,7 @@ function setObjValues() {
     hideItemGroups();
     $('#ItemValueGroupMultiUseMagicItems').prop('disabled', false).show();
     $('#obj_wear_flags').val('16384');
-    if(this.value == 29) {$('#obj_wear_flags').val('2');};  // RING set to WEAR on FINGER
+    if(i == 29) {$('#obj_wear_flags').val('2');};  // RING set to WEAR on FINGER
   }
   if(i== 2 || i== 10 || i== 26) {
     hideItemGroups();
@@ -244,3 +338,20 @@ function hideItemGroups() {
   $('#obj_underwater_breath').parent().hide();
 }
 
+function setLightValueOptions() {
+      if($('#LightInfinite').is(':checked')) {
+        $('#LightInfiniteField').prop('disabled', false);
+        $('#LightDeadField').prop('disabled', true);
+        $('#LightHoursField').prop('disabled', true).val('-1');
+      }
+      if($('#LightDead').is(':checked')) {
+        $('#LightInfiniteField').prop('disabled', true);
+        $('#LightDeadField').prop('disabled', false);
+        $('#LightHoursField').prop('disabled', true).val('0');
+      }
+      if($('#LightHours').is(':checked')) {
+        $('#LightInfiniteField').prop('disabled', true);
+        $('#LightDeadField').prop('disabled', true);
+        $('#LightHoursField').prop('disabled', false);
+      }
+}
