@@ -12,7 +12,7 @@ function validMaxAC () {
 
 function validHoldWeight () {
   if( $('#obj_object_type').val() == 15 &&
-      $('#ItemValueGroupContainer').find('#obj_v0').val() <= $('#obj_weight').val() ) {
+      $('#ItemValueGroupContainer').find('#obj_v0').val() <= parseInt($('#obj_weight').val(), 10) ) {
         bootbox.alert('Container <strong>hold weight</strong> must be greater than object <strong>weight</strong>.  Increasing hold weight.');
         $('#ItemValueGroupContainer').find('#obj_v0').val( parseInt($('#obj_weight').val(), 10) + 5 );
     return false
@@ -36,6 +36,19 @@ function validCharges () {
         $('#ItemValueGroupMultiUseMagicItems').find('#obj_v1').val( $('#ItemValueGroupMultiUseMagicItems').find('#obj_v2').val() );
     return false
   }
+
+  if( $('#ItemValueGroupMultiUseMagicItems').find('#obj_v1').val() < 0 ) {
+        bootbox.alert('<strong>Max charges</strong> must be a positive integer.');
+        $('#ItemValueGroupMultiUseMagicItems').find('#obj_v1').val( '1' );
+    return false
+  }
+
+  if( $('#ItemValueGroupMultiUseMagicItems').find('#obj_v2').val() < 0 ) {
+        bootbox.alert('<strong>Remaining charges</strong> must be a positive integer.');
+        $('#ItemValueGroupMultiUseMagicItems').find('#obj_v2').val( '1' );
+    return false
+  }
+  
   return true
 }
 
@@ -133,6 +146,13 @@ $(function() {
 });
 
 $(function() {
+  $('#ItemValueGroupContainer').find('#obj_v1').change(function() { // This is the Container flags field.
+    setKeyValueOptions();
+  })
+});
+
+
+$(function() {
   $('#ItemValueGroupDrink').find('#obj_v0').change(function() { // This is the # of drinks field.
     validDrinks();
   })
@@ -147,6 +167,12 @@ $(function() {
 $(function() {
   $('input[name=LightRadioOptions]:radio').click(function() {
     setLightValueOptions();
+    })
+});
+
+$(function() {
+  $('input[name=ContainerKeyVnumRadioOptions]:radio').click(function() {
+    setKeyValueOptions();
     })
 });
 
@@ -213,11 +239,10 @@ $(function() {
 
   
 $(function() {
-  
     $('#obj_object_type').change(function() {
       
-      setObjValues();
-
+      initForm();
+      
       validMaxAC();
       validHoldWeight();
       validDrinks();
@@ -229,10 +254,7 @@ $(function() {
       validWeight();
       validUseCost();
 
-      setLightValueOptions();
-      
     })
-
 });
 
 
@@ -354,4 +376,58 @@ function setLightValueOptions() {
         $('#LightDeadField').prop('disabled', true);
         $('#LightHoursField').prop('disabled', false);
       }
+}
+
+function setKeyValueOptions() {
+  if( $('#ItemValueGroupContainer').find('#obj_v1').val() < 8 ) {
+      $('#LocalKeyVnumField').prop('disabled', true);
+      $('#ExternalKeyVnumField').prop('disabled', true);
+      $('#BadKeyVnumField').prop('disabled', false);
+      $('#LocalKeyVnumGroup').hide();
+      $('#ExternalKeyVnumGroup').hide();
+      $('#ContainerKeyVnumGroup').hide();
+  } else {
+    if( $('#ContainerKeyVnumGroup').is(":visible") ) {
+      if($('#LocalKeyVnumRadio').is(':checked')) {
+        $('#LocalKeyVnumField').prop('disabled', false);
+        $('#ExternalKeyVnumField').prop('disabled', true);
+        $('#BadKeyVnumField').prop('disabled', true);
+        $('#LocalKeyVnumGroup').show();
+        $('#ExternalKeyVnumGroup').hide();
+      }
+      if($('#ExternalKeyVnumRadio').is(':checked')) {
+        $('#LocalKeyVnumField').prop('disabled', true);
+        $('#ExternalKeyVnumField').prop('disabled', false);
+        $('#BadKeyVnumField').prop('disabled', true);
+        $('#LocalKeyVnumGroup').hide();
+        $('#ExternalKeyVnumGroup').show();
+      }
+      if($('#BadKeyVnumRadio').is(':checked')) {
+        $('#LocalKeyVnumField').prop('disabled', true);
+        $('#ExternalKeyVnumField').prop('disabled', true);
+        $('#BadKeyVnumField').prop('disabled', false);
+        $('#LocalKeyVnumGroup').hide();
+        $('#ExternalKeyVnumGroup').hide();
+        $('#ContainerKeyVnumGroup').hide();
+        $('#ItemValueGroupContainer').find('#obj_v1').val('5');
+        $('#ItemValueGroupContainer').find('#obj_v2').val('0');
+      }
+    } else {
+      $('#ContainerKeyVnumGroup').show()
+      $('#LocalKeyVnumRadio').prop('checked', true);
+      $('#LocalKeyVnumField').prop('disabled', false);
+      $('#ExternalKeyVnumField').prop('disabled', true);
+      $('#BadKeyVnumField').prop('disabled', true);
+      $('#LocalKeyVnumGroup').show();
+      $('#ExternalKeyVnumGroup').hide();
+    }
+      
+  }
+}
+
+
+function initForm() {
+  setObjValues();
+  setLightValueOptions();
+  setKeyValueOptions();
 }

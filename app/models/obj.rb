@@ -104,6 +104,9 @@ class Obj < ActiveRecord::Base
     (area.area_number * 100) + self.vnum
   end
 
+  def vnum_and_sdesc
+    return  format("%03d",self.vnum) + " " + self.sdesc
+  end
 
 end
 

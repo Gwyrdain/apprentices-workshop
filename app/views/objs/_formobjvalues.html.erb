@@ -501,13 +501,49 @@
       <%= f.select(:v1, options_for_select(container_flags, @obj.v1), {}, {class: "form-control"}) %>
     </div>
   </div>
-  
-  <div class="form-group">
-    <%= f.label :v2, 'Key vnum', :class => 'control-label col-md-2' %>
+
+  <% Obj.exists?(:vnum => @obj.v2)      ? $LocalKeyVnumRadio = true : $LocalKeyVnumRadio = false %>
+  <% @obj.v2 > (@obj.area.vnum_qty - 1) ? $ExternalKeyVnumRadio = true : $ExternalKeyVnumRadio = false %>
+  <% !Obj.exists?(:vnum => @obj.v2) && !(@obj.v2 > (@obj.area.vnum_qty - 1))     ? $BadKeyVnumRadio = true : $BadKeyVnumRadio = false %>
+
+
+  <div id="ContainerKeyVnumGroup" class="form-group">
+    <%= f.label 'Key', :class => 'control-label col-md-2' %>
+    <div class="col-md-3">
+      <label class="radio-inline">
+        <input type="radio" name="ContainerKeyVnumRadioOptions" id="LocalKeyVnumRadio" value="1" <%= "checked" if $LocalKeyVnumRadio %>> Local Key Vnum
+      </label>
+    </div>
+
+    <div class="col-md-3">
+      <label class="radio-inline">
+        <input type="radio" name="ContainerKeyVnumRadioOptions" id="ExternalKeyVnumRadio" value="2" <%= "checked" if $ExternalKeyVnumRadio %>> External Key Vnum
+      </label>
+    </div>
+    
+    <div class="col-md-3">
+      <label class="radio-inline">
+        <input type="radio" name="ContainerKeyVnumRadioOptions" id="BadKeyVnumRadio" value="3" <%= "checked" if $BadKeyVnumRadio %>> No Key
+      </label>
+    </div>
+
+  </div>
+
+  <div id="LocalKeyVnumGroup" class="form-group">
+    <%= f.label :v2, 'Local Key vnum', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :v2, :class => 'text_field form-control' %>
+      <%= f.collection_select(:v2, @area.objs.order('vnum ASC'), :vnum, :vnum_and_sdesc, {}, {:id => 'LocalKeyVnumField', :class => 'form-control'})  %>
     </div>
   </div>
+  
+  <div id="ExternalKeyVnumGroup" class="form-group">
+    <%= f.label :v2, 'External key vnum', :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :v2, {:id => 'ExternalKeyVnumField', :class => 'text_field form-control'} %>
+    </div>
+  </div>
+  
+  <%= f.hidden_field :v2, {:id => 'BadKeyVnumField', :value => -1} %>
   
   <div class="form-group" hidden="hidden">
     <%= f.label :v3, :class => 'control-label col-md-2' %>

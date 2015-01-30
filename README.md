@@ -15,7 +15,7 @@
 * No not allow export when bad exits exit.
 
 ## Objects
-* Working on validations.
+* Should local key assocaite by id rather than vnum?  Probably.
 
 ## Mobiles
 * Not started.
