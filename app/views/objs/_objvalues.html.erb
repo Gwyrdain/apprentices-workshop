@@ -212,16 +212,18 @@
           </div>
         </div>
       </div><br/>
+      <% if @obj.v1 >= 8%>
       <div class="row">
         <div class="col-md-2">
           <strong>Key vnum:</strong>
         </div>
         <div class="col-md-10">
           <div class="col-md-10">
-            <%= @obj.v2 %>
+            <% if @area.objs.exists?(:id => @obj.v2) %><%= Obj.find(@obj.v2).formal_vnum %><% else %><%= @obj.v2 %><% end %>
           </div>
         </div>
       </div><br/>
+      <% end %>
 
     <% end %>
     

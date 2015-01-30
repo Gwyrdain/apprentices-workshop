@@ -1,3 +1,33 @@
-<pre>
-    #AREA {<%= @area.difficulty %>} <%= format("%-8s", @area.author) %> <%= format("%-20s", @area.name)%>~ F <%= @area.flags_as_hex %>
-</pre>
+#AREA {<%= @area.difficulty %>} <%= format("%-8s", @area.author) %> <%= format("%-20s", @area.name)%>~ F <%= @area.flags_as_hex %>
+
+<%= render 'helps/helpsblock' %>
+
+#MOBILES
+...
+#0
+
+<%= render 'objs/objsblock' %>
+
+<%= render 'rooms/roomsblock' %>
+
+#RESETS...
+...
+S
+
+#SHOPS...
+...
+0
+
+#SPECIALS...
+...
+S
+
+#TRIGGERS...
+...
+S
+
+#RSPECS...
+...
+S
+
+#$

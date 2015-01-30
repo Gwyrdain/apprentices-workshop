@@ -1,7 +1,5 @@
-<pre>
 #ROOMS
-<% @rooms.order(:vnum).each do |room| %>
+<% @area.rooms.order(:vnum).each do |room| %>
 <%= render 'rooms/roomblock', :room => room %>
 <% end %>
 #0
-</pre>

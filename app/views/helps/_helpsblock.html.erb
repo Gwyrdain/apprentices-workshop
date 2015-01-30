@@ -1,8 +1,6 @@
-<pre>
 #HELP
-<% @helps.each do |help| %>
+<% @area.helps.each do |help| %>
 <%= help.min_level %> <%= help.keywords %>~
 <%= word_wrap(help.body, line_width: 75) %> ~
 <% end %>
 0 $~
-</pre>

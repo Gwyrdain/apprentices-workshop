@@ -502,9 +502,9 @@
     </div>
   </div>
 
-  <% Obj.exists?(:vnum => @obj.v2)      ? $LocalKeyVnumRadio = true : $LocalKeyVnumRadio = false %>
+  <% @area.objs.exists?(:id => @obj.v2)      ? $LocalKeyVnumRadio = true : $LocalKeyVnumRadio = false %>
   <% @obj.v2 > (@obj.area.vnum_qty - 1) ? $ExternalKeyVnumRadio = true : $ExternalKeyVnumRadio = false %>
-  <% !Obj.exists?(:vnum => @obj.v2) && !(@obj.v2 > (@obj.area.vnum_qty - 1))     ? $BadKeyVnumRadio = true : $BadKeyVnumRadio = false %>
+  <% !$LocalKeyVnumRadio && !(@obj.v2 > (@obj.area.vnum_qty - 1))     ? $BadKeyVnumRadio = true : $BadKeyVnumRadio = false %>
 
 
   <div id="ContainerKeyVnumGroup" class="form-group">
@@ -532,7 +532,7 @@
   <div id="LocalKeyVnumGroup" class="form-group">
     <%= f.label :v2, 'Local Key vnum', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.collection_select(:v2, @area.objs.order('vnum ASC'), :vnum, :vnum_and_sdesc, {}, {:id => 'LocalKeyVnumField', :class => 'form-control'})  %>
+      <%= f.collection_select(:v2, @area.objs.order('vnum ASC'), :id, :vnum_and_sdesc, {}, {:id => 'LocalKeyVnumField', :class => 'form-control'})  %>
     </div>
   </div>
   
@@ -543,7 +543,7 @@
     </div>
   </div>
   
-  <%= f.hidden_field :v2, {:id => 'BadKeyVnumField', :value => -1} %>
+  <%= f.hidden_field :v2, {:id => 'BadKeyVnumField', :value => 0} %>
   
   <div class="form-group" hidden="hidden">
     <%= f.label :v3, :class => 'control-label col-md-2' %>

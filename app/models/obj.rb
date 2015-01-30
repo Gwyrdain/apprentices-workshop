@@ -323,3 +323,5 @@ def object_type_from_num(i)
   $object_type = 'WEAPON ANIMAL' if i == 6
   return $object_type
 end
+
+

@@ -4,7 +4,7 @@
 <%= obj.ldesc %>~
 ~
 <%= obj.object_type %> <%= obj.extra_flags %> <%= obj.wear_flags %>
-<%= obj.v0 %> <%= obj.v1 %> <% if obj.object_type == 15 %><% if obj.v2 == -1 %>0<% else %><% if obj.v2 > (obj.area.vnum_qty - 1) %><%= obj.v2 %><% else %><%= (obj.area.area_number * 100) + obj.v2 %><% end %><% end %><% else %><%= obj.v2 %><%end%> <%= obj.v3 %>
+<%= obj.v0 %> <%= obj.v1 %> <% if obj.object_type == 15 && @area.objs.exists?(:id => obj.v2) %><%= Obj.find(obj.v2).formal_vnum %><% else %><%= obj.v2 %><% end %> <%= obj.v3 %>
 <%= obj.weight %> <%= obj.cost %> 0<% obj.applies.order(:apply_type).each do |apply| %>
 <%= render 'applies/applyblock', :apply => apply %><% end %><% obj.oxdescs.each do |oxdesc| %>
 <%= render 'oxdescs/oxdescblock', :oxdesc => oxdesc %><% end %><% if obj.flammable? %>

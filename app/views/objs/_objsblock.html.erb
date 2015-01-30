@@ -1,7 +1,5 @@
-<pre>
 #OBJECTS
-<% @objs.order(:vnum).each do |obj| %>
+<% @area.objs.order(:vnum).each do |obj| %>
 <%= render 'objs/objblock', :obj => obj %>
 <% end %>
 #0
-</pre>

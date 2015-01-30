@@ -6,7 +6,7 @@
 * Add dependent: :destroy to all has_many associations moving forward.
 
 ## Areas
-* None.
+* Do keys similar to Container keys.
 
 ## Helps
 * None.
@@ -15,10 +15,10 @@
 * No not allow export when bad exits exit.
 
 ## Objects
-* Should local key assocaite by id rather than vnum?  Probably.
+* None.
 
 ## Mobiles
-* Not started.
+* stay area flag by default
 
 
 
