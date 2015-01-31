@@ -26,7 +26,9 @@
                   <td><%= exit.description %></td>
                   <td><%= exit.keywords %></td>
                   <td><%= exit.exittype %><% if not exit.dir_type_combo_ok? %><span style="color:red"> <%= glyph 'exclamation-sign' %></span><% end %></td>
-                  <td><%= exit.keyvnum %></td>
+                  <td>
+                    <% if @area.objs.exists?(:id => exit.keyvnum) %><%= Obj.find(exit.keyvnum).formal_vnum %><% else %><%= exit.keyvnum %><% end %>
+                  </td>
                   <td>
                     
                       <% if exit.destination_exists? %>
