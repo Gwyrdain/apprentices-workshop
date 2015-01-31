@@ -46,6 +46,7 @@ function setExitDestinationType() {
     $('#NoExitField').prop('disabled', false);
     $('#exit_exittype').val('-1');
     $('#ExitDestinationGroup').hide();
+    setKeyType();
   }
   
   if($('#LocalVnumRadio').is(':checked')) {
