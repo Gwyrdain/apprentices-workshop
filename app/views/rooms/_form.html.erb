@@ -57,6 +57,14 @@
           <%= f.label :foggy, 'foggy'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
+          <%= f.check_box :fire, {:checked => @room.fire? ? true : false} %>
+          <%= f.label :fire, 'fire'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :lava, {:checked => @room.lava? ? true : false} %>
+          <%= f.label :lava, 'lava'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        <div class="check_box col-md-2">
           <%= f.check_box :private_room, {:checked => @room.private_room? ? true : false} %>
           <%= f.label :private_room, 'private_room'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
@@ -85,8 +93,16 @@
           <%= f.label :no_spell, 'no_spell'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
+          <%= f.check_box :seafloor, {:checked => @room.seafloor? ? true : false} %>
+          <%= f.label :seafloor, 'seafloor'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        <div class="check_box col-md-2">
           <%= f.check_box :no_fly, {:checked => @room.no_fly? ? true : false} %>
           <%= f.label :no_fly, 'no_fly'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :holy_ground, {:checked => @room.holy_ground? ? true : false} %>
+          <%= f.label :holy_ground, 'holy_ground'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
           <%= f.check_box :fly_ok, {:checked => @room.fly_ok? ? true : false} %>

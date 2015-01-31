@@ -88,6 +88,8 @@
           <% if @area.no_mob? %><div class="col-md-2">NO MOB</div><% end %>
           <% if @area.indoors? %><div class="col-md-2">INDOORS</div><% end %>
           <% if @area.foggy? %><div class="col-md-2">FOGGY</div><% end %>
+          <% if @area.fire? %><div class="col-md-2">FIRE</div><% end %>
+          <% if @area.lava? %><div class="col-md-2">LAVA</div><% end %>
           <% if @area.private_room? %><div class="col-md-2">PRIVATE</div><% end %>
           <% if @area.peaceful? %><div class="col-md-2">PEACEFUL</div><% end %>
           <% if @area.solitary? %><div class="col-md-2">SOLITARY</div><% end %>
@@ -95,7 +97,9 @@
           <% if @area.no_steal? %><div class="col-md-2">NO STEAL</div><% end %>
           <% if @area.notrans? %><div class="col-md-2">NOTRANS</div><% end %>
           <% if @area.no_spell? %><div class="col-md-2">NO SPELL</div><% end %>
+          <% if @area.seafloor? %><div class="col-md-2">SEAFLOOR</div><% end %>
           <% if @area.no_fly? %><div class="col-md-2">NO FLY</div><% end %>
+          <% if @area.holy_ground? %><div class="col-md-2">HOLY GROUND</div><% end %>
           <% if @area.fly_ok? %><div class="col-md-2">FLY OK</div><% end %>
           <% if @area.no_quest? %><div class="col-md-2">NO QUEST</div><% end %>
           <% if @area.no_item? %><div class="col-md-2">NO ITEM</div><% end %>

@@ -58,11 +58,12 @@ class AreasController < ApplicationController
                                    :vnum_qty, :manmade, :city, :forest,
                                    :limited, :aerial, :reserved, :arena,
                                    :quest, :novnum, :default_terrain, 
-                                   :default_room_flags, :dark, :no_sleep, :no_mob,
-                                   :indoors, :foggy, :private_room, :peaceful,
-                                   :solitary, :no_recall, :no_steal, :notrans,
-                                   :no_spell, :no_fly, :fly_ok, :no_quest,
-                                   :no_item, :no_vnum
+                                   :default_room_flags, :dark, :no_sleep,
+                                   :no_mob, :indoors, :foggy, :fire, :lava,
+                                   :private_room, :peaceful, :solitary,
+                                   :no_recall, :no_steal, :notrans,
+                                   :no_spell, :seafloor, :no_fly, :holy_ground,
+                                   :fly_ok, :no_quest, :no_item, :no_vnum
                                   )
     end
 end

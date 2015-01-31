@@ -44,10 +44,10 @@
     <%= f.select(:exittype, options_for_select(
           [
             ['No Exit (For Wall/Direction Descriptions)', -1],
-            ['No Door', 0],
-            ['Door (Passable/Pickable)', 1],
-            ['Door (Not Passable/Pickable)', 2],
-            ['Trap (Used with Spec_Collapse, Down Only)', 3]
+            ['Exit with No Door', 0],
+            ['Exit with Door (Passable/Pickable)', 1],
+            ['Exit with Door (Not Passable/Pickable)', 2],
+            ['Trap Exit (Used with Spec_Collapse, Down Only)', 3]
           ], @exit.exittype
         ), {}, {class: "form-control"}) %>
     </div>
@@ -59,13 +59,50 @@
       <%= f.text_field :name, :class => 'text_field form-control' %>
     </div>
   </div>
+
+  <% @area.objs.exists?(:id => @exit.keyvnum)      ? $LocalDoorKeyVnumRadio = true : $LocalDoorKeyVnumRadio = false %>
+  <% @exit.keyvnum > (@exit.room.area.vnum_qty - 1) ? $ExternalDoorKeyVnumRadio = true : $ExternalDoorKeyVnumRadio = false %>
+  <% !$LocalKeyVnumRadio && !(@exit.keyvnum > (@exit.room.area.vnum_qty - 1))     ? $NoDoorKeyRadio = true : $NoDoorKeyRadio = false %>
+
+  <div id="DoorKeyGroup">
+    <div class="form-group">
+      <%= f.label 'Key', :class => 'control-label col-md-2' %>
+      <div class="col-md-3">
+        <label class="radio-inline">
+          <input type="radio" name="DoorKeyVnumRadioOptions" id="LocalDoorKeyVnumRadio" value="1" <%= "checked" if $LocalDoorKeyVnumRadio %>> Local Key Vnum
+        </label>
+      </div>
   
-  <div id="DoorKeyGroup" class="form-group">
-    <%= f.label :keyvnum, :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
-      <%= f.text_field :keyvnum, :class => 'text_field form-control' %>
+      <div class="col-md-3">
+        <label class="radio-inline">
+          <input type="radio" name="DoorKeyVnumRadioOptions" id="ExternalDoorKeyVnumRadio" value="2" <%= "checked" if $ExternalDoorKeyVnumRadio %>> External Key Vnum
+        </label>
+      </div>
+      
+      <div class="col-md-3">
+        <label class="radio-inline">
+          <input type="radio" name="DoorKeyVnumRadioOptions" id="NoDoorKeyRadio" value="3" <%= "checked" if $NoDoorKeyRadio %>> No Key
+        </label>
+      </div>
+  
+    </div>
+    
+    <div id="LocalDoorKeyVnumGroup" class="form-group">
+      <%= f.label :keyvnum, 'Local key vnum', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.collection_select(:keyvnum, @area.objs.order('vnum ASC'), :id, :vnum_and_sdesc, {}, {:id => 'LocalDoorKeyVnumField', :class => 'form-control'})  %>
+      </div>
+    </div>
+    
+    <div id="ExternalDoorKeyVnumGroup" class="form-group">
+      <%= f.label :keyvnum, 'External key vnum', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :keyvnum, {:id => 'ExternalDoorKeyVnumField', :class => 'text_field form-control'} %>
+      </div>
     </div>
   </div>
+  
+  <%= f.hidden_field :keyvnum, {:id => 'NoDoorKeyField', :value => 0} %>
 
   <% @exit.exit_room_id == -1 ? $NoExitVnumRadio = true : $NoExitVnumRadio = false %>
   <% @exit.is_external? ? $ExternalVnumRadio = true : $ExternalVnumRadio = false %>

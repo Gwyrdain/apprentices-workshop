@@ -77,11 +77,12 @@ class RoomsController < ApplicationController
 
     def room_params
       params.require(:room).permit(:vnum, :name, :description, :terrain,
-                                   :area_id, :dark, :no_sleep, :no_mob,
-                                   :indoors, :foggy, :private_room, :peaceful,
-                                   :solitary, :no_recall, :no_steal, :notrans,
-                                   :no_spell, :no_fly, :fly_ok, :no_quest,
-                                   :no_item, :no_vnum, :room_flags
+                                   :area_id, :room_flags, :dark, :no_sleep,
+                                   :no_mob, :indoors, :foggy, :fire, :lava,
+                                   :private_room, :peaceful, :solitary,
+                                   :no_recall, :no_steal, :notrans,
+                                   :no_spell, :seafloor, :no_fly, :holy_ground,
+                                   :fly_ok, :no_quest, :no_item, :no_vnum
                                   )
     end
     
