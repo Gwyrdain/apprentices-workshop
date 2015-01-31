@@ -7,6 +7,7 @@
 
 ## Areas
 * Do keys similar to Container keys.
+* Is SEAFLOOR 131072 (2**17)?
 
 ## Helps
 * None.
@@ -22,20 +23,33 @@
 
 
 
-  <div class="form-group">
-    <%= f.label 'external_vnum_cb', 'Assign External Vnum', :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
-      <%= f.check_box :exit_room_id, {:id => 'external_vnum_cb', :class => "checkbox"}, 1 %>
-    </div>
-  </div>
+#Wish List
+---
+* I always thought a map feature would be nice so the front page of it would include an overhead map of the area and you could click on any room to edit it
+* when i was playing with the idea myself I was thinking about having little graphic icons for items, mobs, and rooms and then being able to drag/drop them into their proper place for resets so you’d look at a map of an area and then on the right side of the screen there’d be a list of mobs with little icons and you could drag the icon into the room you want it to reset and it’d do all the resets for you or you can click on the mob or the room and it’d open up the edit screen for that item/mob/room
 
-  <div class="form-group">
-    <%= f.label :exit_room_id, 'External Vnum', :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
-      <%= f.text_field :exit_room_id, {:id => 'external_vnum', disabled: 'disabled', class: "form-control"} %>
-    </div>
-  </div>
-  
+
+
+
+        <div class="form-group">
+          <%= f.label 'external_vnum_cb', 'Assign External Vnum', :class => 'control-label col-md-2' %>
+          <div class="col-md-10">
+            <%= f.check_box :exit_room_id, {:id => 'external_vnum_cb', :class => "checkbox"}, 1 %>
+          </div>
+        </div>
+      
+        <div class="form-group">
+          <%= f.label :exit_room_id, 'External Vnum', :class => 'control-label col-md-2' %>
+          <div class="col-md-10">
+            <%= f.text_field :exit_room_id, {:id => 'external_vnum', disabled: 'disabled', class: "form-control"} %>
+          </div>
+        </div>
+
+
+
+#Misc Notes
+---
+
         $('#external_vnum_cb').click(function() {
           var external_vnum_cb_state = $('#external_vnum_cb').is(':checked');
           var exit_undefined_cb_state = $('#undefined_room').is(':checked');
@@ -53,10 +67,7 @@
           }
       });
       
-      
-      
-      
-  bitfield :misc_flags, 
+      bitfield :misc_flags, 
                     2**1 =>  :flag,          # Dec:          2 / Hex:         2
                     2**2 =>  :flag,          # Dec:          4 / Hex:         4
                     2**3 =>  :flag,          # Dec:          8 / Hex:         8
@@ -89,3 +100,5 @@
                     2**30 => :flag,          # Dec: 1073741824 / Hex:  40000000
                     2**31 => :flag,          # Dec: 2147483648 / Hex:  80000000
                     2**32 => :flag,          # Dec: 4294967296 / Hex: 100000000
+
+
