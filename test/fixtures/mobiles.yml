@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vnum: 1
+  keywords: MyString
+  sdesc: MyString
+  ldesc: MyString
+  look_desc: MyText
+  act_flags: 1
+  affect_flags: 1
+  alignment: 1
+  level: 1
+  sex: 1
+  langs_known: 1
+  lang_spoken: 1
+  area_id: 
+
+two:
+  vnum: 1
+  keywords: MyString
+  sdesc: MyString
+  ldesc: MyString
+  look_desc: MyText
+  act_flags: 1
+  affect_flags: 1
+  alignment: 1
+  level: 1
+  sex: 1
+  langs_known: 1
+  lang_spoken: 1
+  area_id: 

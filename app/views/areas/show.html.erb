@@ -144,7 +144,9 @@
               <% end %>
             </th>
             <th>
-              Mobiles: x
+              <%= link_to(area_mobiles_path(@area)) do %>
+                Mobiles: <%= @area.mobiles.count %>
+              <% end %>
             </th>
             <th>
               <%= link_to(area_objs_path(@area)) do %>

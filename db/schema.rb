@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150126192429) do
+ActiveRecord::Schema.define(version: 20150201030634) do
 
   create_table "applies", force: true do |t|
     t.integer  "apply_type"
@@ -64,6 +64,26 @@ ActiveRecord::Schema.define(version: 20150126192429) do
   end
 
   add_index "helps", ["area_id"], name: "index_helps_on_area_id"
+
+  create_table "mobiles", force: true do |t|
+    t.integer  "vnum"
+    t.string   "keywords"
+    t.string   "sdesc"
+    t.string   "ldesc"
+    t.text     "look_desc"
+    t.integer  "act_flags"
+    t.integer  "affect_flags"
+    t.integer  "alignment"
+    t.integer  "level"
+    t.integer  "sex"
+    t.integer  "langs_known"
+    t.integer  "lang_spoken"
+    t.integer  "area_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mobiles", ["area_id"], name: "index_mobiles_on_area_id"
 
   create_table "objs", force: true do |t|
     t.integer  "area_id"

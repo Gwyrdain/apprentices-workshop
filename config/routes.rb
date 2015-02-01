@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :objs
-
   resources :areas do
     resources :helps
     resources :rooms do
@@ -12,6 +10,7 @@ Rails.application.routes.draw do
       resources :oxdescs
       resources :applies
     end
+    resources :mobiles
   end
 
   devise_for :users

@@ -1,0 +1,177 @@
+<%- model_class = Mobile -%>
+
+<div class="panel panel-default">
+  <div class="panel-heading monospace"><h3>
+      <%= link_to @area.name, area_path(@area) %> /
+      <%= link_to 'Mobiles', area_mobiles_path(@area) %> /
+      Mobile: <%= @mobile.vnum %>
+  </h3></div>
+  <div class="panel-body monospace">
+    
+  <div class="row">
+    <div class="col-md-2">
+      <strong>Formal Vnum:</strong>
+    </div>
+    <div class="col-md-10">
+      <div class="col-md-10">
+        <%= @mobile.formal_vnum %>
+      </div>
+    </div>
+  </div><br/>
+
+  <div class="row">
+    <div class="col-md-2">
+      <strong>Keywords:</strong>
+    </div>
+    <div class="col-md-10">
+      <div class="col-md-10">
+        <%= @mobile.keywords %>
+      </div>
+    </div>
+  </div><br/>
+  
+  <div class="row">
+    <div class="col-md-2">
+      <strong>Short description:</strong>
+    </div>
+    <div class="col-md-10">
+      <div class="col-md-10">
+        <%= @mobile.sdesc %>
+      </div>
+    </div>
+  </div><br/>
+  
+  <div class="row">
+    <div class="col-md-2">
+      <strong>Long description:</strong>
+    </div>
+    <div class="col-md-10">
+      <div class="col-md-10">
+        <%= @mobile.ldesc %>
+      </div>
+    </div>
+  </div><br/>
+  
+  <div class="row">
+    <div class="col-md-2">
+      <strong>Look description:</strong>
+    </div>
+    <div class="col-md-10">
+      <div class="col-md-10">
+        <%= simple_format(word_wrap(@mobile.look_desc, line_width: 75)) %>
+      </div>
+    </div>
+  </div><br/>
+  
+  <div class="row">
+    <div class="col-md-2">
+      <strong>Action flags:</strong>
+    </div>
+    <div class="col-md-10">
+      <div class="col-md-10">
+        <%= @mobile.act_flags %>
+      </div>
+    </div>
+  </div><br/>
+  
+  <div class="row">
+    <div class="col-md-2">
+      <strong>Affect flags:</strong>
+    </div>
+    <div class="col-md-10">
+      <div class="col-md-10">
+        <%= @mobile.affect_flags %>
+      </div>
+    </div>
+  </div><br/>
+  
+  <div class="row">
+    <div class="col-md-2">
+      <strong>Alignment:</strong>
+    </div>
+    <div class="col-md-10">
+        <% if @mobile.alignment == -1000 %><div class='col-md-2'>EVIL</div><% end %>
+        <% if @mobile.alignment ==     0 %><div class='col-md-2'>UNALIGNED</div><% end %>
+        <% if @mobile.alignment ==  1000 %><div class='col-md-2'>GOOD</div><% end %>
+    </div>
+  </div><br/>
+  
+  <div class="row">
+    <div class="col-md-2">
+      <strong>Level:</strong>
+    </div>
+    <div class="col-md-10">
+      <div class="col-md-10">
+        <%= @mobile.level %>
+      </div>
+    </div>
+  </div><br/>
+  
+  <div class="row">
+    <div class="col-md-2">
+      <strong>Sex:</strong>
+    </div>
+    <div class="col-md-10">
+        <% if @mobile.sex == 0 %><div class='col-md-2'>NO GENDER</div><% end %>
+        <% if @mobile.sex == 1 %><div class='col-md-2'>MALE</div><% end %>
+        <% if @mobile.sex == 2 %><div class='col-md-2'>FEMALE</div><% end %>
+    </div>
+  </div><br/>
+  
+  <div class="row">
+    <div class="col-md-2">
+      <strong>Languages known:</strong>
+    </div>
+    <div class="col-md-10">
+      <% if @mobile.langs_known == 0 %><div class="col-md-2">NONE</div><% end %>
+      <% if @mobile.common? %><div class='col-md-2'>COMMON</div><% end %>
+      <% if @mobile.dwarven? %><div class='col-md-2'>DWARVEN</div><% end %>
+      <% if @mobile.elven? %><div class='col-md-2'>ELVEN</div><% end %>
+      <% if @mobile.gnomish? %><div class='col-md-2'>GNOMISH</div><% end %>
+      <% if @mobile.halfling? %><div class='col-md-2'>HALFLING</div><% end %>
+      <% if @mobile.aarakocra? %><div class='col-md-2'>AARAKOCRA</div><% end %>
+      <% if @mobile.giant? %><div class='col-md-2'>GIANT</div><% end %>
+      <% if @mobile.minotaur? %><div class='col-md-2'>MINOTAUR</div><% end %>
+      <% if @mobile.ogre? %><div class='col-md-2'>OGRE</div><% end %>
+      <% if @mobile.thoras? %><div class='col-md-2'>THORAS</div><% end %>
+      <% if @mobile.goblin? %><div class='col-md-2'>GOBLIN</div><% end %>
+      <% if @mobile.drow? %><div class='col-md-2'>DROW</div><% end %>
+      <% if @mobile.kobold? %><div class='col-md-2'>KOBOLD</div><% end %>
+      <% if @mobile.orc? %><div class='col-md-2'>ORC</div><% end %>
+      <% if @mobile.troll? %><div class='col-md-2'>TROLL</div><% end %>
+      <% if @mobile.sahaguin? %><div class='col-md-2'>SAHAGUIN</div><% end %>
+      <% if @mobile.god? %><div class='col-md-2'>GOD</div><% end %>
+    </div>
+  </div><br/>
+  
+  <div class="row">
+    <div class="col-md-2">
+      <strong>Language spoken:</strong>
+    </div>
+    <div class="col-md-10">
+      <div class="col-md-10">
+        <%= lang_from_num( @mobile.lang_spoken ) %>
+      </div>
+    </div>
+  </div><br/>
+
+  <strong class="monospace">Formatted Mobile:</strong>
+  <p>
+      <pre><%= render 'mobiles/mobileblock', :mobile => @mobile %></pre>
+  </p>
+
+  </div>
+    
+  <div class="panel-footer">
+    <%= link_to t('.back', :default => t("helpers.links.back")),
+                area_mobiles_path(@area), :class => 'btn btn-default'  %>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                edit_area_mobile_path(@area, @mobile), :class => 'btn btn-default' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                area_mobile_path(@area, @mobile),
+                :method => 'delete',
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-danger' %>
+  </div>
+
+</div>

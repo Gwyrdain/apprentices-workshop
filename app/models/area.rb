@@ -3,6 +3,7 @@ class Area < ActiveRecord::Base
   has_many :helps, dependent: :destroy
   has_many :rooms, dependent: :destroy
   has_many :objs, dependent: :destroy
+  has_many :mobiles, dependent: :destroy
   
   include Bitfields
   bitfield  :flags, 2**0 => :manmade,  # Hex 1
@@ -78,6 +79,14 @@ class Area < ActiveRecord::Base
   def nextobjvnum
     $i = 0
     while self.objs.exists?(:vnum => $i)  do
+        $i +=1
+    end
+    return $i
+  end
+
+  def nextmobilevnum
+    $i = 0
+    while self.mobiles.exists?(:vnum => $i)  do
         $i +=1
     end
     return $i

@@ -1,0 +1,228 @@
+<%= form_for  [@mobile.area, @mobile], :html => { :class => 'form-horizontal' } do |f| %>
+  <% if @mobile.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@mobile.errors.count, "error") %> prohibited saving:</h3>
+
+      <ul>
+      <% @mobile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :vnum, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :vnum, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :keywords, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :keywords, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :sdesc, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :sdesc, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :ldesc, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :ldesc, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :look_desc, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :look_desc, :class => 'text_field form-control', rows: 10 %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :act_flags, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :act_flags, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :affect_flags, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :affect_flags, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label 'Alignment', :class => 'control-label col-md-2' %>
+    <div class="col-md-2">
+      <label class="radio-inline">
+        <%= f.radio_button :alignment, 0 %> Unaligned
+      </label>
+    </div>
+    <div class="col-md-2">
+      <label class="radio-inline">
+        <%= f.radio_button :alignment, -1000 %> Evil
+      </label>
+    </div>
+    <div class="col-md-2">
+      <label class="radio-inline">
+        <%= f.radio_button :alignment, 1000 %> Good
+      </label>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :level, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :level, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label 'Sex', :class => 'control-label col-md-2' %>
+    <div class="col-md-2">
+      <label class="radio-inline">
+        <%= f.radio_button :sex, 0 %> No gender
+      </label>
+    </div>
+    <div class="col-md-2">
+      <label class="radio-inline">
+        <%= f.radio_button :sex, 1 %> Male
+      </label>
+    </div>
+    <div class="col-md-2">
+      <label class="radio-inline">
+        <%= f.radio_button :sex, 2 %> Female
+      </label>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :langs_known, 'Languages Known', :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+
+      <div class="check_box col-md-2">
+        <%= f.check_box :common, {:checked => @mobile.common? ? true : false} %>
+        <%= f.label :common, 'common'.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :dwarven, {:checked => @mobile.dwarven? ? true : false} %>
+        <%= f.label :dwarven, 'dwarven'.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :elven, {:checked => @mobile.elven? ? true : false} %>
+        <%= f.label :elven, 'elven'.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :gnomish, {:checked => @mobile.gnomish? ? true : false} %>
+        <%= f.label :gnomish, 'gnomish'.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :halfling, {:checked => @mobile.halfling? ? true : false} %>
+        <%= f.label :halfling, 'halfling'.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :aarakocra, {:checked => @mobile.aarakocra? ? true : false} %>
+        <%= f.label :aarakocra, 'aarakocra'.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :giant, {:checked => @mobile.giant? ? true : false} %>
+        <%= f.label :giant, 'giant'.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :minotaur, {:checked => @mobile.minotaur? ? true : false} %>
+        <%= f.label :minotaur, 'minotaur'.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :ogre, {:checked => @mobile.ogre? ? true : false} %>
+        <%= f.label :ogre, 'ogre'.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :thoras, {:checked => @mobile.thoras? ? true : false} %>
+        <%= f.label :thoras, 'thoras'.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :goblin, {:checked => @mobile.goblin? ? true : false} %>
+        <%= f.label :goblin, 'goblin'.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :drow, {:checked => @mobile.drow? ? true : false} %>
+        <%= f.label :drow, 'drow'.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :kobold, {:checked => @mobile.kobold? ? true : false} %>
+        <%= f.label :kobold, 'kobold'.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :orc, {:checked => @mobile.orc? ? true : false} %>
+        <%= f.label :orc, 'orc'.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :troll, {:checked => @mobile.troll? ? true : false} %>
+        <%= f.label :troll, 'troll'.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :sahaguin, {:checked => @mobile.sahaguin? ? true : false} %>
+        <%= f.label :sahaguin, 'sahaguin'.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :god, {:checked => @mobile.god? ? true : false} %>
+        <%= f.label :god, 'god'.upcase, :class => 'control-label non-bold' %>
+      </div>
+
+    </div>  
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :lang_spoken, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.select(:lang_spoken, options_for_select(
+          [
+            ['COMMON', 1],
+            ['DWARVEN', 2],
+            ['ELVEN', 4],
+            ['GNOMISH', 8],
+            ['HALFLING', 16],
+            ['AARAKOCRA', 32],
+            ['GIANT', 64],
+            ['MINOTAUR', 128],
+            ['OGRE', 256],
+            ['THORAS', 512],
+            ['GOBLIN', 1024],
+            ['DROW', 2048],
+            ['KOBOLD', 4096],
+            ['ORC', 8192],
+            ['TROLL', 16384],
+            ['SAHAGUIN', 32768],
+            ['GOD', 65535]
+          ], @mobile.lang_spoken
+        ), {}, {class: "form-control"}) %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  area_mobiles_path(@area), :class => 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>

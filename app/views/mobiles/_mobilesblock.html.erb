@@ -1,0 +1,5 @@
+#MOBILES
+<% @area.mobiles.order(:vnum).each do |mobile| %>
+<%= render 'mobiles/mobileblock', :mobile => mobile %>
+<% end %>
+#0

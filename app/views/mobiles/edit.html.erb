@@ -1,0 +1,18 @@
+<%- model_class = Mobile -%>
+
+<div class="panel panel-default">
+    <div class="panel-heading monospace"><h3>
+        <%= link_to @area.name, area_path(@area) %> / <%= link_to 'Mobiles', area_mobiles_path(@area) %> / <%= @mobile.keywords %>
+    </h3></div>
+    <div class="panel-body monospace">
+
+        <%= render 'form' %>
+    
+    </div>
+    
+    <div class="panel-footer">
+        <%= link_to 'Show', area_mobile_path(@area, @mobile) %> |
+        <%= link_to 'Back', area_mobiles_path(@area) %>
+    </div>
+    
+</div>
