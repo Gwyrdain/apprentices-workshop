@@ -68,6 +68,7 @@
       });
       
       bitfield :misc_flags, 
+                    2**0 =>  :flag,          # Dec:          1 / Hex:         1
                     2**1 =>  :flag,          # Dec:          2 / Hex:         2
                     2**2 =>  :flag,          # Dec:          4 / Hex:         4
                     2**3 =>  :flag,          # Dec:          8 / Hex:         8

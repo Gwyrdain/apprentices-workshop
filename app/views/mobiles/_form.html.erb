@@ -41,12 +41,119 @@
       <%= f.text_area :look_desc, :class => 'text_field form-control', rows: 10 %>
     </div>
   </div>
+  
   <div class="form-group">
-    <%= f.label :act_flags, :class => 'control-label col-md-2' %>
+    <%= f.label :act_flags, 'Action flags', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :act_flags, :class => 'text_field form-control' %>
-    </div>
+
+      <div class="check_box col-md-2">
+        <%= f.check_box :sentinel, {:checked => @mobile.sentinel? ? true : false} %>
+        <%= f.label :sentinel, 'sentinel'.humanize.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :scavenger, {:checked => @mobile.scavenger? ? true : false} %>
+        <%= f.label :scavenger, 'scavenger'.humanize.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :plant, {:checked => @mobile.plant? ? true : false} %>
+        <%= f.label :plant, 'plant'.humanize.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :aggressive, {:checked => @mobile.aggressive? ? true : false} %>
+        <%= f.label :aggressive, 'aggressive'.humanize.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :stay_area, {:checked => @mobile.stay_area? ? true : false} %>
+        <%= f.label :stay_area, 'stay_area'.humanize.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :wimpy, {:checked => @mobile.wimpy? ? true : false} %>
+        <%= f.label :wimpy, 'wimpy'.humanize.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :train, {:checked => @mobile.train? ? true : false} %>
+        <%= f.label :train, 'train'.humanize.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :practice, {:checked => @mobile.practice? ? true : false} %>
+        <%= f.label :practice, 'practice'.humanize.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :super_wimpy, {:checked => @mobile.super_wimpy? ? true : false} %>
+        <%= f.label :super_wimpy, 'super_wimpy'.humanize.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :assist_same, {:checked => @mobile.assist_same? ? true : false} %>
+        <%= f.label :assist_same, 'assist_same'.humanize.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :assist, {:checked => @mobile.assist? ? true : false} %>
+        <%= f.label :assist, 'assist'.humanize.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :assist_always, {:checked => @mobile.assist_always? ? true : false} %>
+        <%= f.label :assist_always, 'assist_always'.humanize.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :swim, {:checked => @mobile.swim? ? true : false} %>
+        <%= f.label :swim, 'swim'.humanize.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :water_only, {:checked => @mobile.water_only? ? true : false} %>
+        <%= f.label :water_only, 'water_only'.humanize.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :animal, {:checked => @mobile.animal? ? true : false} %>
+        <%= f.label :animal, 'animal'.humanize.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :no_wear_eq, {:checked => @mobile.no_wear_eq? ? true : false} %>
+        <%= f.label :no_wear_eq, 'no_wear_eq'.humanize.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :no_corpse, {:checked => @mobile.no_corpse? ? true : false} %>
+        <%= f.label :no_corpse, 'no_corpse'.humanize.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :fireproof, {:checked => @mobile.fireproof? ? true : false} %>
+        <%= f.label :fireproof, 'fireproof'.humanize.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :intelligent, {:checked => @mobile.intelligent? ? true : false} %>
+        <%= f.label :intelligent, 'intelligent'.humanize.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :cloaked, {:checked => @mobile.cloaked? ? true : false} %>
+        <%= f.label :cloaked, 'cloaked'.humanize.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+      <div class="check_box col-md-2">
+        <%= f.check_box :no_random_eq, {:checked => @mobile.no_random_eq? ? true : false} %>
+        <%= f.label :no_random_eq, 'no_random_eq'.humanize.upcase, :class => 'control-label non-bold' %>
+      </div>
+      
+    </div>  
   </div>
+  
   <div class="form-group">
     <%= f.label :affect_flags, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -192,10 +299,11 @@
   </div>
   
   <div class="form-group">
-    <%= f.label :lang_spoken, :class => 'control-label col-md-2' %>
+    <%= f.label :lang_spoken, 'Language Spoken', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.select(:lang_spoken, options_for_select(
           [
+            ['NONE', 0],
             ['COMMON', 1],
             ['DWARVEN', 2],
             ['ELVEN', 4],

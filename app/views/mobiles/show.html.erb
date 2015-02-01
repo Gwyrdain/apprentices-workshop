@@ -68,9 +68,28 @@
       <strong>Action flags:</strong>
     </div>
     <div class="col-md-10">
-      <div class="col-md-10">
-        <%= @mobile.act_flags %>
-      </div>
+      <% if @mobile.act_flags == 0 %><div class="col-md-2">NONE</div><% end %>
+      <% if @mobile.sentinel? %><div class='col-md-2'>SENTINEL</div><% end %>
+      <% if @mobile.scavenger? %><div class='col-md-2'>SCAVENGER</div><% end %>
+      <% if @mobile.plant? %><div class='col-md-2'>PLANT</div><% end %>
+      <% if @mobile.aggressive? %><div class='col-md-2'>AGGRESSIVE</div><% end %>
+      <% if @mobile.stay_area? %><div class='col-md-2'>STAY AREA</div><% end %>
+      <% if @mobile.wimpy? %><div class='col-md-2'>WIMPY</div><% end %>
+      <% if @mobile.train? %><div class='col-md-2'>TRAIN</div><% end %>
+      <% if @mobile.practice? %><div class='col-md-2'>PRACTICE</div><% end %>
+      <% if @mobile.super_wimpy? %><div class='col-md-2'>SUPER WIMPY</div><% end %>
+      <% if @mobile.assist_same? %><div class='col-md-2'>ASSIST SAME</div><% end %>
+      <% if @mobile.assist? %><div class='col-md-2'>ASSIST</div><% end %>
+      <% if @mobile.assist_always? %><div class='col-md-2'>ASSIST ALWAYS</div><% end %>
+      <% if @mobile.swim? %><div class='col-md-2'>SWIM</div><% end %>
+      <% if @mobile.water_only? %><div class='col-md-2'>WATER ONLY</div><% end %>
+      <% if @mobile.animal? %><div class='col-md-2'>ANIMAL</div><% end %>
+      <% if @mobile.no_wear_eq? %><div class='col-md-2'>NO WEAR EQ</div><% end %>
+      <% if @mobile.no_corpse? %><div class='col-md-2'>NO CORPSE</div><% end %>
+      <% if @mobile.fireproof? %><div class='col-md-2'>FIREPROOF</div><% end %>
+      <% if @mobile.intelligent? %><div class='col-md-2'>INTELLIGENT</div><% end %>
+      <% if @mobile.cloaked? %><div class='col-md-2'>CLOAKED</div><% end %>
+      <% if @mobile.no_random_eq? %><div class='col-md-2'>NO RANDOM EQ</div><% end %>
     </div>
   </div><br/>
   
@@ -79,9 +98,33 @@
       <strong>Affect flags:</strong>
     </div>
     <div class="col-md-10">
-      <div class="col-md-10">
-        <%= @mobile.affect_flags %>
-      </div>
+      <% if @mobile.affect_flags == 0 %><div class="col-md-2">NONE</div><% end %>
+      <% if @mobile.blind? %><div class='col-md-2'>BLIND</div><% end %>
+      <% if @mobile.invisible? %><div class='col-md-2'>INVISIBLE</div><% end %>
+      <% if @mobile.detect_evil? %><div class='col-md-2'>DETECT EVIL</div><% end %>
+      <% if @mobile.detect_invis? %><div class='col-md-2'>DETECT INVIS</div><% end %>
+      <% if @mobile.detect_magic? %><div class='col-md-2'>DETECT MAGIC</div><% end %>
+      <% if @mobile.detect_hidden? %><div class='col-md-2'>DETECT HIDDEN</div><% end %>
+      <% if @mobile.detect_good? %><div class='col-md-2'>DETECT GOOD</div><% end %>
+      <% if @mobile.sanctuary? %><div class='col-md-2'>SANCTUARY</div><% end %>
+      <% if @mobile.faerie_fire? %><div class='col-md-2'>FAERIE FIRE</div><% end %>
+      <% if @mobile.infrared? %><div class='col-md-2'>INFRARED</div><% end %>
+      <% if @mobile.curse? %><div class='col-md-2'>CURSE</div><% end %>
+      <% if @mobile.no_steal? %><div class='col-md-2'>NO STEAL</div><% end %>
+      <% if @mobile.poison? %><div class='col-md-2'>POISON</div><% end %>
+      <% if @mobile.protect_from_evil? %><div class='col-md-2'>PROTECT FROM EVIL</div><% end %>
+      <% if @mobile.protect_from_good? %><div class='col-md-2'>PROTECT FROM GOOD</div><% end %>
+      <% if @mobile.sneak? %><div class='col-md-2'>SNEAK</div><% end %>
+      <% if @mobile.hide? %><div class='col-md-2'>HIDE</div><% end %>
+      <% if @mobile.sleep? %><div class='col-md-2'>SLEEP</div><% end %>
+      <% if @mobile.charm? %><div class='col-md-2'>CHARM</div><% end %>
+      <% if @mobile.flying? %><div class='col-md-2'>FLYING</div><% end %>
+      <% if @mobile.passdoor? %><div class='col-md-2'>PASSDOOR</div><% end %>
+      <% if @mobile.no_trace? %><div class='col-md-2'>NO TRACE</div><% end %>
+      <% if @mobile.no_sleep? %><div class='col-md-2'>NO SLEEP</div><% end %>
+      <% if @mobile.no_summon? %><div class='col-md-2'>NO SUMMON</div><% end %>
+      <% if @mobile.no_charm? %><div class='col-md-2'>NO CHARM</div><% end %>
+      <% if @mobile.improved_invis? %><div class='col-md-2'>IMPROVED INVIS</div><% end %>
     </div>
   </div><br/>
   
