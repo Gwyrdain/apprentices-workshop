@@ -3,41 +3,6 @@ class Mobile < ActiveRecord::Base
 
   include Bitfields
 
-  bitfield :affect_flags,
-                2**0 =>  :blind,               # Dec:          1 / Hex:         1
-                2**1 =>  :invisible,           # Dec:          2 / Hex:         2
-                2**2 =>  :detect_evil,         # Dec:          4 / Hex:         4
-                2**3 =>  :detect_invis,        # Dec:          8 / Hex:         8
-                2**4 =>  :detect_magic,        # Dec:         16 / Hex:        10
-                2**5 =>  :detect_hidden,       # Dec:         32 / Hex:        20
-                2**6 =>  :detect_good,         # Dec:         64 / Hex:        40
-                2**7 =>  :sanctuary,           # Dec:        128 / Hex:        80
-                2**8 =>  :faerie_fire,         # Dec:        256 / Hex:       100
-                2**9 =>  :infrared,            # Dec:        512 / Hex:       200
-                2**10 => :curse,               # Dec:       1024 / Hex:       400
-                2**11 => :no_steal,            # Dec:       2048 / Hex:       800
-                2**12 => :poison,              # Dec:       4096 / Hex:      1000
-                2**13 => :protect_from_evil,   # Dec:       8192 / Hex:      2000
-                2**14 => :protect_from_good,   # Dec:      16384 / Hex:      4000
-                2**15 => :sneak,               # Dec:      32768 / Hex:      8000
-                2**16 => :hide,                # Dec:      65536 / Hex:     10000
-                2**17 => :sleep,               # Dec:     131072 / Hex:     20000
-                2**18 => :charm,               # Dec:     262144 / Hex:     40000
-                2**19 => :flying,              # Dec:     524288 / Hex:     80000
-                2**20 => :passdoor,            # Dec:    1048576 / Hex:    100000
-                2**21 => :no_trace,            # Dec:    2097152 / Hex:    200000
-                2**22 => :no_sleep,            # Dec:    4194304 / Hex:    400000
-                2**23 => :no_summon,           # Dec:    8388608 / Hex:    800000
-                2**24 => :no_charm,            # Dec:   16777216 / Hex:   1000000
-#               2**25 => :flag,                # Dec:   33554432 / Hex:   2000000
-#               2**26 => :flag,                # Dec:   67108864 / Hex:   4000000
-                2**27 => :improved_invis       # Dec:  134217728 / Hex:   8000000
-#               2**28 => :flag,                # Dec:  268435456 / Hex:  10000000
-#               2**29 => :flag,                # Dec:  536870912 / Hex:  20000000
-#               2**30 => :flag,                # Dec: 1073741824 / Hex:  40000000
-#               2**31 => :flag,                # Dec: 2147483648 / Hex:  80000000
-#               2**32 => :flag,                # Dec: 4294967296 / Hex: 100000000
-
   bitfield :act_flags,
 #               2**0 =>  :flag,          # Dec:          1 / Hex:         1
                 2**1 =>  :sentinel,      # Dec:          2 / Hex:         2
@@ -72,6 +37,41 @@ class Mobile < ActiveRecord::Base
 #               2**30 => :flag,          # Dec: 1073741824 / Hex:  40000000
 #               2**31 => :flag,          # Dec: 2147483648 / Hex:  80000000
 #               2**32 => :flag,          # Dec: 4294967296 / Hex: 100000000
+
+  bitfield :affect_flags,
+                2**0 =>  :blind,               # Dec:          1 / Hex:         1
+                2**1 =>  :invisible,           # Dec:          2 / Hex:         2
+                2**2 =>  :detect_evil,         # Dec:          4 / Hex:         4
+                2**3 =>  :detect_invis,        # Dec:          8 / Hex:         8
+                2**4 =>  :detect_magic,        # Dec:         16 / Hex:        10
+                2**5 =>  :detect_hidden,       # Dec:         32 / Hex:        20
+                2**6 =>  :detect_good,         # Dec:         64 / Hex:        40
+                2**7 =>  :sanctuary,           # Dec:        128 / Hex:        80
+                2**8 =>  :faerie_fire,         # Dec:        256 / Hex:       100
+                2**9 =>  :infrared,            # Dec:        512 / Hex:       200
+                2**10 => :curse,               # Dec:       1024 / Hex:       400
+                2**11 => :no_steal,            # Dec:       2048 / Hex:       800
+                2**12 => :poison,              # Dec:       4096 / Hex:      1000
+                2**13 => :protect_from_evil,   # Dec:       8192 / Hex:      2000
+                2**14 => :protect_from_good,   # Dec:      16384 / Hex:      4000
+                2**15 => :sneak,               # Dec:      32768 / Hex:      8000
+                2**16 => :hide,                # Dec:      65536 / Hex:     10000
+                2**17 => :sleep,               # Dec:     131072 / Hex:     20000
+                2**18 => :charm,               # Dec:     262144 / Hex:     40000
+                2**19 => :flying,              # Dec:     524288 / Hex:     80000
+                2**20 => :passdoor,            # Dec:    1048576 / Hex:    100000
+                2**21 => :no_trace,            # Dec:    2097152 / Hex:    200000
+                2**22 => :no_sleep,            # Dec:    4194304 / Hex:    400000
+                2**23 => :no_summon,           # Dec:    8388608 / Hex:    800000
+                2**24 => :no_charm,            # Dec:   16777216 / Hex:   1000000
+#               2**25 => :flag,                # Dec:   33554432 / Hex:   2000000
+#               2**26 => :flag,                # Dec:   67108864 / Hex:   4000000
+                2**27 => :improved_invis       # Dec:  134217728 / Hex:   8000000
+#               2**28 => :flag,                # Dec:  268435456 / Hex:  10000000
+#               2**29 => :flag,                # Dec:  536870912 / Hex:  20000000
+#               2**30 => :flag,                # Dec: 1073741824 / Hex:  40000000
+#               2**31 => :flag,                # Dec: 2147483648 / Hex:  80000000
+#               2**32 => :flag,                # Dec: 4294967296 / Hex: 100000000
   
   bitfield :langs_known, 
                 2**0 =>  :common,        # Dec:          1 / Hex:         1
