@@ -1,3 +1,17 @@
-|-------------------------|
-|-== MOBILE BLOCK HERE ==-|
-|-------------------------|
+#<%= mobile.formal_vnum %>
+<%= mobile.keywords %>~
+<%= mobile.sdesc %>~
+<%= mobile.ldesc %>
+~
+<%= mobile.look_desc %>
+~
+<%= mobile.act_flags %> <%= mobile.affect_flags %> <%= mobile.alignment %> S
+<%= mobile.level %> 0 0 0d0+0 0d0+0
+0 0
+8 8 <%= mobile.sex %><% if mobile.langs_known + mobile.lang_spoken > 0 %>
+L
+<%= mobile.langs_known %> <%= mobile.lang_spoken %><% end %><% if mobile.animal? %>
+A<% end %><% if mobile.no_wear_eq? %>
+N<% end %><% if mobile.specials.count > 0 %><% if mobile.specials.first.name == 'spec_one_spell' %>
+O
+<%= mobile.spell %>~<% end %><% end %>

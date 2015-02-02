@@ -10,7 +10,10 @@ Rails.application.routes.draw do
       resources :oxdescs
       resources :applies
     end
-    resources :mobiles
+    resources :mobiles do
+      resources :specials
+      resources :shops
+    end
   end
 
   devise_for :users

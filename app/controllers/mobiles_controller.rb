@@ -76,7 +76,7 @@ class MobilesController < ApplicationController
       params.require(:mobile).permit(:vnum, :keywords, :sdesc, :ldesc,
                                      :look_desc, :act_flags, :affect_flags,
                                      :alignment, :level, :sex, :langs_known,
-                                     :lang_spoken, :area_id,
+                                     :lang_spoken, :spell, :area_id,
                                      :common, :dwarven, :elven, :gnomish, 
                                      :halfling, :aarakocra, :giant, :minotaur,
                                      :ogre, :thoras, :goblin, :drow, :kobold,

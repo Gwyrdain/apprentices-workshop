@@ -1,0 +1,133 @@
+<%= form_for [@special.mobile.area, @special.mobile, @special], :html => { :class => 'form-horizontal' } do |f| %>
+  <% if @special.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@special.errors.count, "error") %> prohibited saving:</h3>
+
+      <ul>
+      <% @special.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :special_type, 'Special Function Type', :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.select(:special_type, options_for_select(
+          [
+            ['Normal Mobile Special Function', 'M'],
+            ['Extended Mobile Special Function', 'N']
+          ], @special.special_type
+        ), {}, {class: "form-control"}) %>
+    </div>
+  </div>
+  
+  <fieldset hidden='hidden' id="NormalSpecialFunction">
+    <div class="form-group">
+      <%= f.label :name, 'Special Function Name', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.select(:name, options_for_select(
+            [
+              ['init_mage', 'init_mage'],
+              ['init_priest', 'init_priest'],
+              ['init_shaman', 'init_shaman'],
+              ['spec_breath_acid', 'spec_breath_acid'],
+              ['spec_breath_any', 'spec_breath_any'],
+              ['spec_breath_fire', 'spec_breath_fire'],
+              ['spec_breath_frost', 'spec_breath_frost'],
+              ['spec_breath_gas', 'spec_breath_gas'],
+              ['spec_cast_cleric', 'spec_cast_cleric'],
+              ['spec_cast_mage', 'spec_cast_mage'],
+              ['spec_cast_shaman', 'spec_cast_shaman'],
+              ['spec_cast_undead', 'spec_cast_undead'],
+              ['spec_corrosion', 'spec_corrosion'],
+              ['spec_demon', 'spec_demon'],
+              ['spec_demon_lord', 'spec_demon_lord'],
+              ['spec_fight_dirty', 'spec_fight_dirty'],
+              ['spec_fire_demon', 'spec_fire_demon'],
+              ['spec_guardian_demon', 'spec_guardian_demon'],
+              ['spec_mind_affects', 'spec_mind_affects'],
+              ['spec_one_spell', 'spec_one_spell'],
+              ['spec_pestilence', 'spec_pestilence'],
+              ['spec_poison', 'spec_poison'],
+              ['spec_poison_sting', 'spec_poison_sting'],
+              ['spec_shadow_demon', 'spec_shadow_demon'],
+              ['spec_storm_demon', 'spec_storm_demon'],
+              ['spec_fido', 'spec_fido'],
+              ['spec_grudge', 'spec_grudge'],
+              ['spec_guard', 'spec_guard'],
+              ['spec_howl', 'spec_howl'],
+              ['spec_hunt_area_only', 'spec_hunt_area_only'],
+              ['spec_immediate_relay', 'spec_immediate_relay'],
+              ['spec_janitor', 'spec_janitor'],
+              ['spec_no_hunt', 'spec_no_hunt'],
+              ['spec_respawn', 'spec_respawn'],
+              ['spec_sleeping_dragon', 'spec_sleeping_dragon'],
+              ['spec_teleport_on_load', 'spec_teleport_on_load'],
+              ['spec_thief', 'spec_thief']
+            ], @special.name
+          ), {}, {class: "form-control"}) %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset hidden='hidden' id="ExtendedSpecialFuntion">
+    <div class="form-group">
+      <%= f.label :name, 'Special Function Name', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.select(:name, options_for_select(
+            [
+              ['spec_act_on_give', 'spec_act_on_give'],
+              ['spec_mage_protector', 'spec_mage_protector'],
+              ['spec_timed_teleport', 'spec_timed_teleport']
+            ], @special.name
+          ), {}, {class: "form-control"}) %>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :extended_value_1, :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :extended_value_1, :class => 'text_field form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :extended_value_2, :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :extended_value_2, :class => 'text_field form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :extended_value_3, :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :extended_value_3, :class => 'text_field form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :extended_value_4, :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :extended_value_4, :class => 'text_field form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :extended_value_5, :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :extended_value_5, :class => 'text_field form-control' %>
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  area_mobile_path(@area, @mobile), :class => 'btn btn-default' %>
+    </div>
+  </div>
+  
+<script type = "text/javascript">
+  initSpecialsForm();
+</script>
+
+<% end %>

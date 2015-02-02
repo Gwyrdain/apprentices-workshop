@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150201030634) do
+ActiveRecord::Schema.define(version: 20150202053432) do
 
   create_table "applies", force: true do |t|
     t.integer  "apply_type"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20150201030634) do
     t.integer  "area_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "spell"
   end
 
   add_index "mobiles", ["area_id"], name: "index_mobiles_on_area_id"
@@ -139,6 +140,37 @@ ActiveRecord::Schema.define(version: 20150201030634) do
   end
 
   add_index "rxdescs", ["room_id"], name: "index_rxdescs_on_room_id"
+
+  create_table "shops", force: true do |t|
+    t.integer  "buy_type_1"
+    t.integer  "buy_type_2"
+    t.integer  "buy_type_3"
+    t.integer  "buy_type_4"
+    t.integer  "buy_type_5"
+    t.integer  "open_hour"
+    t.integer  "close_hour"
+    t.integer  "race"
+    t.integer  "mobile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shops", ["mobile_id"], name: "index_shops_on_mobile_id"
+
+  create_table "specials", force: true do |t|
+    t.string   "special_type"
+    t.string   "name"
+    t.integer  "extended_value_1"
+    t.integer  "extended_value_2"
+    t.integer  "extended_value_3"
+    t.integer  "extended_value_4"
+    t.integer  "extended_value_5"
+    t.integer  "mobile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "specials", ["mobile_id"], name: "index_specials_on_mobile_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

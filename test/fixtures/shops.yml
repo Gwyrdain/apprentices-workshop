@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  buy_type_1: 1
+  buy_type_2: 1
+  buy_type_3: 1
+  buy_type_4: 1
+  buy_type_5: 1
+  open_hour: 1
+  close_hour: 1
+  race: 1
+  mobile_id: 
+
+two:
+  buy_type_1: 1
+  buy_type_2: 1
+  buy_type_3: 1
+  buy_type_4: 1
+  buy_type_5: 1
+  open_hour: 1
+  close_hour: 1
+  race: 1
+  mobile_id: 

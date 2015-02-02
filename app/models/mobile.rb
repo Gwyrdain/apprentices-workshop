@@ -1,5 +1,8 @@
 class Mobile < ActiveRecord::Base
   belongs_to :area
+  
+  has_many :specials, dependent: :destroy
+  has_many :shops, dependent: :destroy
 
   include Bitfields
 

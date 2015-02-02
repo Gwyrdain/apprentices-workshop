@@ -19,7 +19,7 @@
 * None.
 
 ## Mobiles
-* stay area flag by default
+* Return to Extended Spec Funs
 
 
 
