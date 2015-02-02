@@ -240,7 +240,7 @@
   
   <div class="row">
     <div class="col-md-2">
-      <strong>Shop:</strong>
+      <strong>Shopkeeper Info:</strong>
     </div>
     <div class="col-md-10">
       <div class="col-md-10">
@@ -248,7 +248,9 @@
             <%= link_to 'Make a Shopkeeper', new_area_mobile_shop_path(@area, @mobile), :class => 'btn btn-primary btn-xs' %>
         <% else %>
           <% $shop = @mobile.shops.first %>
-          !!!
+          Buying items of type <%= $shop.buy_type_1 > 0 ? object_type_from_num($shop.buy_type_1).downcase : '' %><%= $shop.buy_type_2 > 0 ? " / " + object_type_from_num($shop.buy_type_2).downcase : '' %><%= $shop.buy_type_3 > 0 ? " / " + object_type_from_num($shop.buy_type_3).downcase : '' %><%= $shop.buy_type_4 > 0 ? " / " + object_type_from_num($shop.buy_type_4).downcase : '' %><%= $shop.buy_type_5 > 0 ? " / " + object_type_from_num($shop.buy_type_5).downcase : '' %>.<br/>
+          Open from <%= hour_from_num($shop.open_hour) %> to <%= hour_from_num($shop.close_hour) %>.<br/>
+          Racial pricing bais given to <%= race_from_num($shop.race) %>.<br/>
           <%= link_to area_mobile_shop_path(@area, @mobile, $shop), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
             <%= glyph 'info-sign' %>
           <%- end -%>
@@ -272,6 +274,13 @@
     <strong class="monospace">Formatted Special:</strong>
     <p>
         <pre><%= render 'specials/specialblock', :special => @mobile.specials.first %></pre>
+    </p>
+  <% end %>
+
+  <% if @mobile.shops.count > 0 %>
+    <strong class="monospace">Formatted Shop:</strong>
+    <p>
+        <pre><%= render 'shops/shopblock', :shop => @mobile.shops.first %></pre>
     </p>
   <% end %>
   

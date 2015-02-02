@@ -1,0 +1,7 @@
+#SHOPS
+<% @area.mobiles.order(:vnum).each do |mobile| %>
+  <% if mobile.shops.count > 0 %>
+<%= render 'shops/shopblock', :shop => mobile.shops.first %>
+  <% end %>
+<% end %>
+0

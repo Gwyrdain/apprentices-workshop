@@ -293,35 +293,6 @@ def container_flags_from_num(i)
   return $container_flags.upcase
 end
 
-def object_type_from_num(i)
-  $object_type = nil
-  $object_type = 'ARMOR' if i == 9
-  $object_type = 'ARMOR ANIMAL' if i == 14
-  $object_type = 'BOAT' if i == 22
-  $object_type = 'CONTAINER' if i == 15
-  $object_type = 'DECORATION' if i == 27
-  $object_type = 'DRINK CONTAINER' if i == 17
-  $object_type = 'FETISH' if i == 7
-  $object_type = 'FOOD' if i == 19
-  $object_type = 'FOUNTAIN' if i == 25
-  $object_type = 'FURNITURE' if i == 12
-  $object_type = 'JEWELRY' if i == 30
-  $object_type = 'KEY' if i == 18
-  $object_type = 'LIGHT' if i == 1
-  $object_type = 'MONEY' if i == 20
-  $object_type = 'PET FOOD' if i == 11
-  $object_type = 'PILL' if i == 26
-  $object_type = 'POTION' if i == 10
-  $object_type = 'RELIC' if i == 33
-  $object_type = 'RING' if i == 29
-  $object_type = 'SCROLL' if i == 2
-  $object_type = 'STAFF' if i == 4
-  $object_type = 'TRASH' if i == 13
-  $object_type = 'TREASURE' if i == 8
-  $object_type = 'WAND' if i == 3
-  $object_type = 'WEAPON' if i == 5
-  $object_type = 'WEAPON ANIMAL' if i == 6
-  return $object_type
-end
+
 
 
