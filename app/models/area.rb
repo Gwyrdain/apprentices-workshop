@@ -5,6 +5,9 @@ class Area < ActiveRecord::Base
   has_many :objs, dependent: :destroy
   has_many :mobiles, dependent: :destroy
   
+  has_many :shops, through: :mobiles
+  has_many :specials, through: :mobiles
+  
   include Bitfields
   bitfield  :flags, 2**0 => :manmade,  # Hex 1
                     2**1 => :city,     # Hex 2
