@@ -1,12 +1,12 @@
 class ShopsController < ApplicationController
   before_action :set_shop, only: [:show, :edit, :update, :destroy]
-  before_action :set_mobile, only: [:index, :show, :new, :edit, :create, :update, :destroy]
+  before_action :set_mobile, only: [:show, :new, :edit, :create, :update, :destroy]
   before_action :set_area, only: [:index, :show, :new, :edit, :create, :update, :destroy]
 
   respond_to :html
 
   def index
-    @shops = @mobile.shops
+    @shops = @area.shops
   end
 
   def show
@@ -58,7 +58,7 @@ class ShopsController < ApplicationController
     end
     
     def set_area
-      @area = Area.find(@mobile.area.id)
+      @area = Area.find(params[:area_id])
     end
     
     def shop_params

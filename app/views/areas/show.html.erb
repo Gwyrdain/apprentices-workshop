@@ -157,22 +157,26 @@
               <%= link_to(area_rooms_path(@area)) do %>
                 Rooms: <%= @area.rooms.count %>
               <% end %>
-            </th><!--
+            </th>
             <th>
               Resets: x
             </th>
             <th>
-              Shops: x
+              <%= link_to(area_shops_path(@area)) do %>
+                Shops: <%= @area.shops.count %>
+              <% end %>
             </th>
             <th>
-              Specials: x
+              <%= link_to(area_specials_path(@area)) do %>
+                Specials: <%= @area.specials.count %>
+              <% end %>
             </th>
             <th>
               Triggers: x
             </th>
             <th>
               Rspecs: x
-            </th> -->
+            </th>
           </tr>
        </tbody>
      </table>

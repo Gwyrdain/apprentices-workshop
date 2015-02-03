@@ -14,6 +14,8 @@ Rails.application.routes.draw do
       resources :specials
       resources :shops
     end
+    resources :specials
+    resources :shops
   end
 
   devise_for :users

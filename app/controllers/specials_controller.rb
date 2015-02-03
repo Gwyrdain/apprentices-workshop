@@ -1,12 +1,12 @@
 class SpecialsController < ApplicationController
   before_action :set_special, only: [:show, :edit, :update, :destroy]
-  before_action :set_mobile, only: [:index, :show, :new, :edit, :create, :update, :destroy]
+  before_action :set_mobile, only: [:show, :new, :edit, :create, :update, :destroy]
   before_action :set_area, only: [:index, :show, :new, :edit, :create, :update, :destroy]
 
   respond_to :html
 
   def index
-    @specials = @mobile.specials
+    @specials = @area.specials
   end
 
   def show
@@ -58,7 +58,7 @@ class SpecialsController < ApplicationController
     end
     
     def set_area
-      @area = Area.find(@mobile.area.id)
+      @area = Area.find(params[:area_id])
     end
     
     def special_params
