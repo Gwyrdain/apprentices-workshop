@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
 
+  resources :triggers
+
   resources :areas do
     resources :helps
     resources :rooms do
       resources :rxdescs
-      resources :exits
+      resources :exits do
+        resources :triggers
+      end
       resources :room_specials
     end
     resources :objs do
@@ -18,6 +22,7 @@ Rails.application.routes.draw do
     resources :specials
     resources :shops
     resources :room_specials
+    resources :triggers
   end
 
   devise_for :users

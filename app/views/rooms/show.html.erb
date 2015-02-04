@@ -153,6 +153,10 @@
           <pre><%= render 'room_specials/room_specialblock', :room_special => @room.room_specials.first %></pre>
       </p>
     <% end %>
+    
+    <strong class="monospace">Formatted Trigger(s):</strong>
+    <p><pre><% @room.exits.each do |exit| %><% if exit.triggers.count > 0 %><%= render 'triggers/triggerblock', :trigger => exit.triggers.first %>
+<% end %><% end %></pre></p>
 
     </div>
 

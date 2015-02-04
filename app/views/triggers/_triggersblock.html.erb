@@ -1,0 +1,9 @@
+#TRIGGERS
+<% @area.rooms.order(:vnum).each do |room| %>
+  <% room.exits.order(:direction).each do |exit| %>
+    <% if exit.triggers.count > 0 %>
+<%= render 'triggers/triggerblock', :trigger => exit.triggers.first %>
+    <% end %>
+  <% end %>
+<% end %>
+S

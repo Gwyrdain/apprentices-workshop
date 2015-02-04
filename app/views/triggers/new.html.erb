@@ -1,0 +1,19 @@
+<%- model_class = Trigger -%>
+
+<div class="panel panel-default">
+    <div class="panel-heading monospace"><h3>
+        <%= link_to @area.name, area_path(@area) %> /
+        <%= link_to 'Rooms', area_rooms_path(@area) %> /
+        <%= link_to "Room: #{@room.vnum}", area_room_path(@area, @room) %> /
+        <%= link_to "Exit: #{@exit.direction_word}", area_room_exit_path(@area, @room, @exit) %> /
+        New Exit Trigger
+    </div>
+    <div class="panel-body monospace">    
+    
+        <%= render :partial => 'form' %>
+
+    </div>
+
+    <div class="panel-footer"><%= link_to 'Back', area_room_path(@area, @room) %></div>
+
+</div>

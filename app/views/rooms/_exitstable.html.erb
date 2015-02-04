@@ -13,6 +13,7 @@
                 <th>Key Vnum</th>
                 <th>Exit To</th>
                 <th>Name</th>
+                <th>Trigger</th>
                 <th><%=t '.actions', :default => t("helpers.actions") %></th>
               </tr>
             </thead>
@@ -29,6 +30,7 @@
                   <td>
                     <% if @area.objs.exists?(:id => exit.keyvnum) %><%= Obj.find(exit.keyvnum).formal_vnum %><% else %><%= exit.keyvnum %><% end %>
                   </td>
+
                   <td>
                     
                       <% if exit.destination_exists? %>
@@ -63,6 +65,16 @@
                       
                   </td>
                   <td><%= exit.name %></td>
+                  <td>
+                    <% if exit.triggers.count > 0 %>
+                      <%= link_to exit.triggers.first.name, edit_area_room_exit_trigger_path(@area, @room, exit, exit.triggers.first), :class => 'btn btn-info btn-xs' %>
+                      <%= link_to area_room_exit_trigger_path(@area, @room, exit, exit.triggers.first), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+                        <%= glyph 'remove' %>
+                      <%- end -%>
+                    <% else %>
+                      <%= link_to 'Add Trigger', new_area_room_exit_trigger_path(@area, @room, exit), :class => 'btn btn-primary btn-xs' %>
+                    <% end %>
+                  </td>
                   <td>
                     <%= link_to area_room_exit_path(@area, @room, exit), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
                       <%= glyph 'info-sign' %>

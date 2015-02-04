@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150203061425) do
+ActiveRecord::Schema.define(version: 20150204034953) do
 
   create_table "applies", force: true do |t|
     t.integer  "apply_type"
@@ -201,6 +201,21 @@ ActiveRecord::Schema.define(version: 20150203061425) do
   end
 
   add_index "specials", ["mobile_id"], name: "index_specials_on_mobile_id"
+
+  create_table "triggers", force: true do |t|
+    t.string   "trigger_type"
+    t.string   "name"
+    t.integer  "extended_value_1"
+    t.integer  "extended_value_2"
+    t.integer  "extended_value_3"
+    t.integer  "extended_value_4"
+    t.integer  "extended_value_5"
+    t.integer  "exit_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "triggers", ["exit_id"], name: "index_triggers_on_exit_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

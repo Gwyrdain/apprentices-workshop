@@ -1,0 +1,134 @@
+<%= form_for [@trigger.exit.room.area , @trigger.exit.room, @trigger.exit, @trigger], :html => { :class => 'form-horizontal' } do |f| %>
+  <% if @trigger.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@trigger.errors.count, "error") %> prohibited saving:</h3>
+
+      <ul>
+      <% @trigger.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :trigger_type, 'Trigger Type', :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.select(:trigger_type, options_for_select(
+          [
+            ['Trigger After Move', 'A'],
+            ['Trigger Before Move', 'P'],
+            ['Extended Trigger Before Move', 'Q']
+          ], @trigger.trigger_type
+        ), {}, {class: "form-control"}) %>
+    </div>
+  </div>
+  
+  <fieldset id="TriggerAfterMove">
+    <div class="form-group">
+      <%= f.label :name, 'Trigger Name', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.select(:name, options_for_select(
+            [
+              ['spec_cavein', 'spec_cavein'],
+              ['spec_crack_head', 'spec_crack_head'],
+              ['spec_long_fall', 'spec_long_fall'],
+              ['spec_medium_fall', 'spec_medium_fall'],
+              ['spec_short_fall', 'spec_short_fall'],
+              ['spec_shut_door', 'spec_shut_door'],
+              ['spec_splash', 'spec_splash'],
+              ['spec_teleporter', 'spec_teleporter']
+            ], @trigger.name
+          ), {}, {class: "form-control"}) %>
+      </div>
+    </div>
+  </fieldset>
+  
+  <fieldset hidden='hidden' id="TriggerBeforeMove">
+    <div class="form-group">
+      <%= f.label :name, 'Trigger Name', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.select(:name, options_for_select(
+            [
+              ['spec_evil_only', 'spec_evil_only'],
+              ['spec_good_only', 'spec_good_only'],
+              ['spec_neutral_only', 'spec_neutral_only'],
+              ['spec_bard_only', 'spec_bard_only'],
+              ['spec_cleric_only', 'spec_cleric_only'],
+              ['spec_mage_only', 'spec_mage_only'],
+              ['spec_ranger_only', 'spec_ranger_only'],
+              ['spec_shaman_only', 'spec_shaman_only'],
+              ['spec_thief_only', 'spec_thief_only'],
+              ['spec_thug_only', 'spec_thug_only'],
+              ['spec_warrior_only', 'spec_warrior_only'],
+              ['spec_warrior_only2', 'spec_warrior_only2'],
+              ['spec_mudschool_newbies', 'spec_mudschool_newbies'],
+              ['spec_guild_entrance', 'spec_guild_entrance'],
+              ['spec_vortex_entry', 'spec_vortex_entry'],
+              ['spec_vortex_exit', 'spec_vortex_exit'],
+              ['spec_fallin', 'spec_fallin']
+            ], @trigger.name
+          ), {}, {class: "form-control"}) %>
+      </div>
+    </div>
+  </fieldset>
+  
+  <fieldset hidden='hidden' id="ExtendedTriggerBeforeMove">
+    <div class="form-group">
+      <%= f.label :name, 'Trigger Name', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.select(:name, options_for_select(
+            [
+              ['trig_block_heathen', 'trig_block_heathen'],
+              ['trig_sentinel_mob', 'trig_sentinel_mob'],
+              ['trig_time_block', 'trig_time_block']
+            ], @trigger.name
+          ), {}, {class: "form-control"}) %>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :extended_value_1, :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :extended_value_1, :class => 'text_field form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :extended_value_2, :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :extended_value_2, :class => 'text_field form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :extended_value_3, :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :extended_value_3, :class => 'text_field form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :extended_value_4, :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :extended_value_4, :class => 'text_field form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :extended_value_5, :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :extended_value_5, :class => 'text_field form-control' %>
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  area_room_path(@area, @room), :class => 'btn btn-default' %>
+    </div>
+  </div>
+  
+<script type = "text/javascript">
+  initTriggersForm();
+</script>
+
+<% end %>

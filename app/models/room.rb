@@ -3,6 +3,7 @@ class Room < ActiveRecord::Base
   has_many :rxdescs, dependent: :destroy
   has_many :exits, dependent: :destroy
   has_many :room_specials, dependent: :destroy
+  has_many :triggers, through: :exits, :source => :triggers
   
   include Bitfields
   bitfield :room_flags, 

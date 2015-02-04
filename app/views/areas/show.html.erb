@@ -177,7 +177,9 @@
               <% end %>
             </th>
             <th>
-              Triggers: x
+              <%= link_to(area_triggers_path(@area)) do %>
+                Triggers: <%= @area.triggers.count %>
+              <% end %>
             </th>
             <th>
               <%= link_to(area_room_specials_path(@area)) do %>
