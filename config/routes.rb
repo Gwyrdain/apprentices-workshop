@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :rooms do
       resources :rxdescs
       resources :exits
+      resources :room_specials
     end
     resources :objs do
       resources :oxdescs
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
     end
     resources :specials
     resources :shops
+    resources :room_specials
   end
 
   devise_for :users

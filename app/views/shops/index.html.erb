@@ -18,8 +18,9 @@
       </thead>
       <tbody>
         <% @shops.each do |shop| %>
+        <% $mobile = Mobile.find(shop.mobile_id) %>
           <tr>
-            <td><%= Mobile.find(shop.mobile_id).sdesc %></td>
+            <td><%= link_to area_mobile_path(@area, $mobile) do %><%= $mobile.formal_vnum %> <%= $mobile.sdesc %><% end %></td>
             <td><%= object_type_from_num(shop.buy_type_1) %></td>
             <td><%= object_type_from_num(shop.buy_type_2) %></td>
             <td><%= object_type_from_num(shop.buy_type_3) %></td>

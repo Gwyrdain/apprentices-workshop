@@ -1,0 +1,151 @@
+<%= form_for [@room_special.room.area, @room_special.room, @room_special], :html => { :class => 'form-horizontal' } do |f| %>
+  <% if @room_special.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@room_special.errors.count, "error") %> prohibited saving:</h3>
+
+      <ul>
+      <% @room_special.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="form-group">
+    <%= f.label :room_special_type, 'Special Function Type', :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.select(:room_special_type, options_for_select(
+          [
+            ['Normal Room Special Function', 'D'],
+            ['Extended Room Special Function', 'E']
+          ], @room_special.room_special_type
+        ), {}, {class: "form-control"}) %>
+    </div>
+  </div>
+  
+  <fieldset hidden='hidden' id="NormalSpecialFunction">
+    <div class="form-group">
+      <%= f.label :name, 'Special Function Name', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.select(:name, options_for_select(
+            [
+              ['spec_cliff_fall', 'spec_cliff_fall'],
+              ['spec_fire_bath', 'spec_fire_bath'],
+              ['spec_freefall_one', 'spec_freefall_one'],
+              ['spec_gas_chamber', 'spec_gas_chamber'],
+              ['spec_mildgas', 'spec_mildgas'],
+              ['spec_steam_bath', 'spec_steam_bath'],
+              ['spec_lock_down', 'spec_lock_down'],
+              ['spec_lock_east', 'spec_lock_east'],
+              ['spec_lock_north', 'spec_lock_north'],
+              ['spec_lock_south', 'spec_lock_south'],
+              ['spec_lock_up', 'spec_lock_up'],
+              ['spec_lock_west', 'spec_lock_west'],
+              ['spec_seal_exits', 'spec_seal_exits'],
+              ['spec_shut_down', 'spec_shut_down'],
+              ['spec_shut_east', 'spec_shut_east'],
+              ['spec_shut_north', 'spec_shut_north'],
+              ['spec_shut_south', 'spec_shut_south'],
+              ['spec_shut_up', 'spec_shut_up'],
+              ['spec_shut_west', 'spec_shut_west'],
+              ['spec_crumble_floor', 'spec_crumble_floor'],
+              ['spec_wind_tunnel', 'spec_wind_tunnel'],
+              ['spec_aircurrent_down', 'spec_aircurrent_down'],
+              ['spec_aircurrent_east', 'spec_aircurrent_east'],
+              ['spec_aircurrent_north', 'spec_aircurrent_north'],
+              ['spec_aircurrent_south', 'spec_aircurrent_south'],
+              ['spec_aircurrent_up', 'spec_aircurrent_up'],
+              ['spec_aircurrent_west', 'spec_aircurrent_west'],
+              ['spec_airfork_ne', 'spec_airfork_ne'],
+              ['spec_airfork_nw', 'spec_airfork_nw'],
+              ['spec_airfork_se', 'spec_airfork_se'],
+              ['spec_airfork_sw', 'spec_airfork_sw'],
+              ['spec_current_down', 'spec_current_down'],
+              ['spec_current_east', 'spec_current_east'],
+              ['spec_current_north', 'spec_current_north'],
+              ['spec_current_south', 'spec_current_south'],
+              ['spec_current_up', 'spec_current_up'],
+              ['spec_current_west', 'spec_current_west'],
+              ['spec_fork_ne', 'spec_fork_ne'],
+              ['spec_fork_nw', 'spec_fork_nw'],
+              ['spec_fork_se', 'spec_fork_se'],
+              ['spec_fork_sw', 'spec_fork_sw'],
+              ['spec_oceancurrent_down', 'spec_oceancurrent_down'],
+              ['spec_oceancurrent_east', 'spec_oceancurrent_east'],
+              ['spec_oceancurrent_north', 'spec_oceancurrent_north'],
+              ['spec_oceancurrent_south', 'spec_oceancurrent_south'],
+              ['spec_oceancurrent_up', 'spec_oceancurrent_up'],
+              ['spec_oceancurrent_west', 'spec_oceancurrent_west'],
+              ['spec_oceanfork_ne', 'spec_oceanfork_ne'],
+              ['spec_oceanfork_nw', 'spec_oceanfork_nw'],
+              ['spec_oceanfork_se', 'spec_oceanfork_se'],
+              ['spec_oceanfork_sw', 'spec_oceanfork_sw'],
+              ['spec_tide_ew', 'spec_tide_ew'],
+              ['spec_tide_ns', 'spec_tide_ns'],
+              ['spec_waterfall_east', 'spec_waterfall_east'],
+              ['spec_waterfall_north', 'spec_waterfall_north'],
+              ['spec_waterfall_south', 'spec_waterfall_south'],
+              ['spec_waterfall_west', 'spec_waterfall_west']
+            ], @room_special.name
+          ), {}, {class: "form-control"}) %>
+      </div>
+    </div>
+  </fieldset>
+  
+  <fieldset hidden='hidden' id="ExtendedSpecialFuntion">
+    <div class="form-group">
+      <%= f.label :name, 'Special Function Name', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.select(:name, options_for_select(
+            [
+              ['spec_check_door_open ', 'spec_check_door_open ']
+            ], @room_special.name
+          ), {}, {class: "form-control"}) %>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :extended_value_1, :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :extended_value_1, :class => 'text_field form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :extended_value_2, :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :extended_value_2, :class => 'text_field form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :extended_value_3, :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :extended_value_3, :class => 'text_field form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :extended_value_4, :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :extended_value_4, :class => 'text_field form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :extended_value_5, :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :extended_value_5, :class => 'text_field form-control' %>
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  area_room_specials_path(@area, @room), :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<script type = "text/javascript">
+  initRoomSpecialsForm();
+</script>
+
+<% end %>

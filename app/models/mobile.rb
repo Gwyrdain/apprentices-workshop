@@ -102,7 +102,7 @@ class Mobile < ActiveRecord::Base
                                   },
                    uniqueness:   { scope: :area,
                                    message: "No duplicate vnums allowed." }
-  validates :keywords, length: { in: 4..75 }
+  validates :keywords, length: { in: 3..75 }
   validates :sdesc, length: { in: 4..75 }
   validates :ldesc, length: { in: 4..75 }
   validates :look_desc, length: { minimum: 4 }

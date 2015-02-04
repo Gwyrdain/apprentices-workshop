@@ -15,8 +15,9 @@
       </thead>
       <tbody>
         <% @specials.each do |special| %>
+        <% $mobile = Mobile.find(special.mobile_id) %>
           <tr>
-            <td><%= Mobile.find(special.mobile_id).sdesc %></td>
+            <td><%= link_to area_mobile_path(@area, $mobile) do %><%= $mobile.formal_vnum %> <%= $mobile.sdesc %><% end %></td>
             <td><%= special.name %></td>
             <td>
               <%= link_to area_mobile_special_path(@area, special.mobile, special), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>

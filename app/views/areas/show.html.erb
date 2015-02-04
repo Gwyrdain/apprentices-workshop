@@ -159,6 +159,11 @@
               <% end %>
             </th>
             <th>
+              
+                Strings: x
+              
+            </th>
+            <th>
               Resets: x
             </th>
             <th>
@@ -175,7 +180,9 @@
               Triggers: x
             </th>
             <th>
-              Rspecs: x
+              <%= link_to(area_room_specials_path(@area)) do %>
+                Rspecs: <%= @area.room_specials.count %>
+              <% end %>
             </th>
           </tr>
        </tbody>

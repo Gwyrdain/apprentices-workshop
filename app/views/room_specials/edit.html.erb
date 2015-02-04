@@ -1,0 +1,18 @@
+<%- model_class = RoomSpecial -%>
+
+<div class="panel panel-default">
+    <div class="panel-heading monospace"><h3>
+        <%= link_to @area.name, area_path(@area) %> /
+        <%= link_to 'Rooms', area_rooms_path(@area) %> /
+        <%= link_to "Room: #{@room.vnum}", area_room_path(@area, @room) %> /
+        Edit Room Special Function
+    </div>
+    <div class="panel-body monospace">    
+    
+        <%= render :partial => 'form' %>
+
+    </div>
+
+    <div class="panel-footer"><%= link_to 'Back', area_room_path(@area, @room) %></div>
+
+</div>

@@ -2,6 +2,7 @@ class Room < ActiveRecord::Base
   belongs_to :area
   has_many :rxdescs, dependent: :destroy
   has_many :exits, dependent: :destroy
+  has_many :room_specials, dependent: :destroy
   
   include Bitfields
   bitfield :room_flags, 

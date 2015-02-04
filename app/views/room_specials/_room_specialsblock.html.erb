@@ -1,0 +1,7 @@
+#RSPECS
+<% @area.rooms.order(:vnum).each do |room| %>
+  <% if room.room_specials.count > 0 %>
+<%= render 'room_specials/room_specialblock', :room_special => room.room_specials.first %>
+  <% end %>
+<% end %>
+S
