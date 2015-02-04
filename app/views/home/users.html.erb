@@ -1,0 +1,32 @@
+<%- model_class = User -%>
+<div class="panel panel-default">
+  <div class="panel-heading"><h3>
+    <%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>
+  </h3></div>
+  <div class="panel-body">
+  
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>Email</th>
+        <th>Sign-in Count</th>
+        <th>Last Sign-in</th>
+        <th>Created</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users = User.all %>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.email %></td>
+          <td><%= user.sign_in_count %></td>
+          <td><%= user.last_sign_in_at %></td>
+          <td><%= user.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>
