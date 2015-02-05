@@ -3,6 +3,14 @@ class Shop < ActiveRecord::Base
   
   validates :mobile_id, uniqueness:  { scope: :mobile,
                                        message: "Only one shop allowed per mobile." }
+  validates :buy_type_1, numericality: { only_integer: true, greater_than: 0 }
+  validates :buy_type_2, numericality: { only_integer: true, greater_than: 0 }
+  validates :buy_type_3, numericality: { only_integer: true, greater_than: 0 }
+  validates :buy_type_4, numericality: { only_integer: true, greater_than: 0 }
+  validates :buy_type_5, numericality: { only_integer: true, greater_than: 0 }
+  validates :open_hour, numericality: { only_integer: true, greater_than: 0 }
+  validates :close_hour, numericality: { only_integer: true, greater_than: 0 }
+  validates :race, numericality: { only_integer: true, greater_than: -2 }
   
   before_create :default_values
   def default_values
