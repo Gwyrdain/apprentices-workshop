@@ -98,42 +98,99 @@
       <div class="col-md-10">
         <%= f.select(:name, options_for_select(
             [
-              ['spec_check_door_open ', 'spec_check_door_open ']
+              ['spec_check_door_open', 'spec_check_door_open']
             ], @room_special.name
-          ), {}, {class: "form-control"}) %>
+          ), {}, {id: "ExtendedRoomSpecialField", class: "form-control"}) %>
       </div>
     </div>
-    
+  </fieldset>
+  
+  <fieldset hidden='hidden' id="xGeneric">  
     <div class="form-group">
-      <%= f.label :extended_value_1, :class => 'control-label col-md-2' %>
+      <%= f.label :extended_value_1, :id => 'extended_value_1_label', :class => 'control-label col-md-2' %>
       <div class="col-md-10">
         <%= f.text_field :extended_value_1, :class => 'text_field form-control' %>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :extended_value_2, :class => 'control-label col-md-2' %>
+      <%= f.label :extended_value_2, :id => 'extended_value_2_label', :class => 'control-label col-md-2' %>
       <div class="col-md-10">
         <%= f.text_field :extended_value_2, :class => 'text_field form-control' %>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :extended_value_3, :class => 'control-label col-md-2' %>
+      <%= f.label :extended_value_3, :id => 'extended_value_3_label', :class => 'control-label col-md-2' %>
       <div class="col-md-10">
         <%= f.text_field :extended_value_3, :class => 'text_field form-control' %>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :extended_value_4, :class => 'control-label col-md-2' %>
+      <%= f.label :extended_value_4, :id => 'extended_value_4_label', :class => 'control-label col-md-2' %>
       <div class="col-md-10">
         <%= f.text_field :extended_value_4, :class => 'text_field form-control' %>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :extended_value_5, :class => 'control-label col-md-2' %>
+      <%= f.label :extended_value_5, :id => 'extended_value_5_label', :class => 'control-label col-md-2' %>
       <div class="col-md-10">
         <%= f.text_field :extended_value_5, :class => 'text_field form-control' %>
       </div>
     </div>
+  </fieldset>
+  
+  <fieldset hidden='hidden' id="xCheckDoorOpen">  
+    <div class="form-group">
+      <%= f.label :extended_value_1, 'Door direction', :id => 'extended_value_1_label', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.select(:extended_value_1, options_for_select(
+            [
+              ['North', 0],
+              ['East', 1],
+              ['South', 2],
+              ['West', 3],
+              ['Up', 4],
+              ['Down', 5]
+            ], :extended_value_1
+          ), {}, {class: "form-control"}) %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :extended_value_2, 'Attribute', :id => 'extended_value_2_label', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.select(:extended_value_2, options_for_select(
+            [
+              ['Strength', 0],
+              ['Intelligence', 1],
+              ['Wisdom', 2],
+              ['Dexterity', 3],
+              ['Constitution', 4],
+              ['Charisma', 5],
+              ['Luck', 6]
+            ], :extended_value_2
+          ), {}, {class: "form-control"}) %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :extended_value_3, 'Min. stat value', :id => 'extended_value_3_label', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :extended_value_3, :class => 'text_field form-control' %>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :extended_value_4, 'Success message', :id => 'extended_value_4_label', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.collection_select(:extended_value_4, @area.area_strings.order('vnum ASC'), :id, :vnum_and_strings, {}, {:class => "form-control"})  %>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :extended_value_5, 'Failure message', :id => 'extended_value_5_label', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.collection_select(:extended_value_5, @area.area_strings.order('vnum ASC'), :id, :vnum_and_strings, {}, {:class => "form-control"})  %>
+      </div>
+    </div>
+    
   </fieldset>
 
   <div class="form-group">

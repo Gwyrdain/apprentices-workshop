@@ -1,0 +1,57 @@
+<%- model_class = AreaString -%>
+<div class="panel panel-default monospace">
+  <div class="panel-heading"><h3>
+      <%= link_to @area.name, area_path(@area) %> /
+      <%= link_to 'Strings', area_area_strings_path(@area) %> /
+      String: <%= @area_string.vnum %>
+  </h3></div>
+  <div class="panel-body">
+      
+    <div class="row">
+      <div class="col-md-2">
+        <strong>Formal Vnum:</strong>
+      </div>
+      <div class="col-md-10">
+        <div class="col-md-10">
+          <%= @area_string.formal_vnum %>
+        </div>
+      </div>
+    </div><br/>
+    
+    <div class="row">
+      <div class="col-md-2">
+        <strong>Message to pc:</strong>
+      </div>
+      <div class="col-md-10">
+        <div class="col-md-10">
+          <%= @area_string.message_to_pc %>
+        </div>
+      </div>
+    </div><br/>
+    
+    <div class="row">
+      <div class="col-md-2">
+        <strong>Message to room:</strong>
+      </div>
+      <div class="col-md-10">
+        <div class="col-md-10">
+          <%= @area_string.message_to_room %>
+        </div>
+      </div>
+    </div><br/>
+    
+  </div>
+  
+  <div class="panel-footer">
+    <%= link_to t('.back', :default => t("helpers.links.back")),
+                area_area_strings_path(@area), :class => 'btn btn-default'  %>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                edit_area_area_string_path(@area, @area_string), :class => 'btn btn-default' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                area_area_string_path(@area, @area_string),
+                :method => 'delete',
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-danger' %>
+  </div>
+
+</div>

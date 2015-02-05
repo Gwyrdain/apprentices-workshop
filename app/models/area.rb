@@ -4,6 +4,7 @@ class Area < ActiveRecord::Base
   has_many :rooms, dependent: :destroy
   has_many :objs, dependent: :destroy
   has_many :mobiles, dependent: :destroy
+  has_many :area_strings, dependent: :destroy
   
   has_many :shops, through: :mobiles
   has_many :specials, through: :mobiles
@@ -92,6 +93,14 @@ class Area < ActiveRecord::Base
   def nextmobilevnum
     $i = 0
     while self.mobiles.exists?(:vnum => $i)  do
+        $i +=1
+    end
+    return $i
+  end
+
+  def nextarea_stringvnum
+    $i = 0
+    while self.area_strings.exists?(:vnum => $i)  do
         $i +=1
     end
     return $i

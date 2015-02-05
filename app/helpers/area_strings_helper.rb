@@ -1,0 +1,2 @@
+module AreaStringsHelper
+end

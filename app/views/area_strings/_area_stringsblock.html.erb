@@ -1,0 +1,5 @@
+#STRINGS
+<% @area.area_strings.order(:vnum).each do |area_string| %>
+<%= render 'area_strings/area_stringblock', :area_string => area_string %>
+<% end %>
+#0

@@ -1,12 +1,12 @@
 <%- model_class = Apply -%>
 
-<div class="panel panel-default">
-    <div class="panel-heading monospace"><h3>
+<div class="panel panel-default monospace">
+    <div class="panel-heading"><h3>
         <%= link_to @area.name, area_path(@area) %> /
         <%= link_to "Obj: #{@obj.vnum}", area_obj_path(@area, @obj) %> /
         <%= @apply.apply_type %>
     </h3></div>
-    <div class="panel-body monospace">
+    <div class="panel-body">
       
       <div class="row">
         <div class="col-md-2">

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vnum: 1
+  message_to_pc: MyString
+  message_to_room: MyString
+  area_id: 
+
+two:
+  vnum: 1
+  message_to_pc: MyString
+  message_to_room: MyString
+  area_id: 

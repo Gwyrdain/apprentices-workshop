@@ -1,13 +1,13 @@
 <%- model_class = Exit -%>
 
-<div class="panel panel-default">
-    <div class="panel-heading monospace"><h3>
+<div class="panel panel-default monospace">
+    <div class="panel-heading"><h3>
         <%= link_to @area.name, area_path(@area) %> /
         <%= link_to 'Rooms', area_rooms_path(@area) %> /
         <%= link_to "Room: #{@room.vnum}", area_room_path(@area, @room) %> /
         <%= @exit.direction_word %>
     </div>
-    <div class="panel-body monospace">    
+    <div class="panel-body">    
     
         <%= render :partial => 'form' %>
 

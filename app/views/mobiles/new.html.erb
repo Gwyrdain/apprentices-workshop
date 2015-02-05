@@ -1,12 +1,12 @@
 <%- model_class = Mobile -%>
 
-<div class="panel panel-default">
-    <div class="panel-heading monospace"><h3>
+<div class="panel panel-default monospace">
+    <div class="panel-heading"><h3>
         <%= link_to @area.name, area_path(@area) %> /
         <%= link_to 'Mobiles', area_mobiles_path(@area) %> /
         <%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %>
     </div>
-    <div class="panel-body monospace">    
+    <div class="panel-body">    
     
         <%= render :partial => 'form' %>
 

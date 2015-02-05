@@ -1,0 +1,41 @@
+<%= form_for  [@area_string.area, @area_string], :html => { :class => 'form-horizontal' } do |f| %>
+  <% if @area_string.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@area_string.errors.count, "error") %> prohibited saving:</h3>
+
+      <ul>
+      <% @area_string.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="form-group">
+    <%= f.label :vnum, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :vnum, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :message_to_pc, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :message_to_pc, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :message_to_room, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :message_to_room, :class => 'text_field form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  area_area_strings_path(@area), :class => 'btn btn-default' %>
+    </div>
+  </div>
+  
+<% end %>

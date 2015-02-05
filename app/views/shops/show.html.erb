@@ -1,113 +1,113 @@
 <%- model_class = Shop -%>
 
-<div class="panel panel-default">
-    <div class="panel-heading monospace"><h3>
-        <%= link_to @area.name, area_path(@area) %> /
-        <%= link_to "Mobile: #{@mobile.vnum}", area_mobile_path(@area, @mobile) %> /
-        Shop
-    </h3></div>
-    <div class="panel-body monospace">
-      
-      <div class="row">
-        <div class="col-md-2">
-          <strong>Buy type 1:</strong>
-        </div>
-        <div class="col-md-10">
-          <div class="col-md-10">
-            <%= @shop.buy_type_1 %>
-          </div>
-        </div>
-      </div><br/>
-      
-      <div class="row">
-        <div class="col-md-2">
-          <strong>Buy type 2:</strong>
-        </div>
-        <div class="col-md-10">
-          <div class="col-md-10">
-            <%= @shop.buy_type_2 %>
-          </div>
-        </div>
-      </div><br/>
-      
-      <div class="row">
-        <div class="col-md-2">
-          <strong>Buy type 3:</strong>
-        </div>
-        <div class="col-md-10">
-          <div class="col-md-10">
-            <%= @shop.buy_type_3 %>
-          </div>
-        </div>
-      </div><br/>
-      
-      <div class="row">
-        <div class="col-md-2">
-          <strong>Buy type 4:</strong>
-        </div>
-        <div class="col-md-10">
-          <div class="col-md-10">
-            <%= @shop.buy_type_4 %>
-          </div>
-        </div>
-      </div><br/>
-      
-      <div class="row">
-        <div class="col-md-2">
-          <strong>Buy type 5:</strong>
-        </div>
-        <div class="col-md-10">
-          <div class="col-md-10">
-            <%= @shop.buy_type_5 %>
-          </div>
-        </div>
-      </div><br/>
-      
-      <div class="row">
-        <div class="col-md-2">
-          <strong>Open hour:</strong>
-        </div>
-        <div class="col-md-10">
-          <div class="col-md-10">
-            <%= @shop.open_hour %>
-          </div>
-        </div>
-      </div><br/>
-      
-      <div class="row">
-        <div class="col-md-2">
-          <strong>Close hour:</strong>
-        </div>
-        <div class="col-md-10">
-          <div class="col-md-10">
-            <%= @shop.close_hour %>
-          </div>
-        </div>
-      </div><br/>
-      
-      <div class="row">
-        <div class="col-md-2">
-          <strong>Race:</strong>
-        </div>
-        <div class="col-md-10">
-          <div class="col-md-10">
-            <%= @shop.race %>
-          </div>
-        </div>
-      </div><br/>
-      
-      <div class="form-group">
-        <%= link_to t('.back', :default => t("helpers.links.back")),
-                    area_mobile_path(@area, @mobile), :class => 'btn btn-default'  %>
-        <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                    edit_area_mobile_shop_path(@area, @mobile, @shop), :class => 'btn btn-default' %>
-        <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                    area_mobile_shop_path(@area, @mobile, @shop),
-                    :method => 'delete',
-                    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                    :class => 'btn btn-danger' %>
+<div class="panel panel-default monospace">
+  <div class="panel-heading"><h3>
+      <%= link_to @area.name, area_path(@area) %> /
+      <%= link_to "Mobile: #{@mobile.vnum}", area_mobile_path(@area, @mobile) %> /
+      Shop
+  </h3></div>
+  <div class="panel-body">
+    
+    <div class="row">
+      <div class="col-md-2">
+        <strong>Buy type 1:</strong>
       </div>
-
+      <div class="col-md-10">
+        <div class="col-md-10">
+          <%= object_type_from_num(@shop.buy_type_1) %>
+        </div>
+      </div>
+    </div><br/>
+    
+    <div class="row">
+      <div class="col-md-2">
+        <strong>Buy type 2:</strong>
+      </div>
+      <div class="col-md-10">
+        <div class="col-md-10">
+          <%= object_type_from_num(@shop.buy_type_2) %>
+        </div>
+      </div>
+    </div><br/>
+    
+    <div class="row">
+      <div class="col-md-2">
+        <strong>Buy type 3:</strong>
+      </div>
+      <div class="col-md-10">
+        <div class="col-md-10">
+          <%= object_type_from_num(@shop.buy_type_3) %>
+        </div>
+      </div>
+    </div><br/>
+    
+    <div class="row">
+      <div class="col-md-2">
+        <strong>Buy type 4:</strong>
+      </div>
+      <div class="col-md-10">
+        <div class="col-md-10">
+          <%= object_type_from_num(@shop.buy_type_4) %>
+        </div>
+      </div>
+    </div><br/>
+    
+    <div class="row">
+      <div class="col-md-2">
+        <strong>Buy type 5:</strong>
+      </div>
+      <div class="col-md-10">
+        <div class="col-md-10">
+          <%= object_type_from_num(@shop.buy_type_5) %>
+        </div>
+      </div>
+    </div><br/>
+    
+    <div class="row">
+      <div class="col-md-2">
+        <strong>Open hour:</strong>
+      </div>
+      <div class="col-md-10">
+        <div class="col-md-10">
+          <%= hour_from_num(@shop.open_hour) %>
+        </div>
+      </div>
+    </div><br/>
+    
+    <div class="row">
+      <div class="col-md-2">
+        <strong>Close hour:</strong>
+      </div>
+      <div class="col-md-10">
+        <div class="col-md-10">
+          <%= hour_from_num(@shop.close_hour) %>
+        </div>
+      </div>
+    </div><br/>
+    
+    <div class="row">
+      <div class="col-md-2">
+        <strong>Race:</strong>
+      </div>
+      <div class="col-md-10">
+        <div class="col-md-10">
+          <%= race_from_num(@shop.race) %>
+        </div>
+      </div>
+    </div><br/>
+    
+    </div>
+    
+    <div class="panel-footer">
+      <%= link_to t('.back', :default => t("helpers.links.back")),
+                  area_mobile_path(@area, @mobile), :class => 'btn btn-default'  %>
+      <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                  edit_area_mobile_shop_path(@area, @mobile, @shop), :class => 'btn btn-default' %>
+      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                  area_mobile_shop_path(@area, @mobile, @shop),
+                  :method => 'delete',
+                  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                  :class => 'btn btn-danger' %>
     </div>
     
 </div>

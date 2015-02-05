@@ -1,13 +1,13 @@
 <%- model_class = Oxdesc -%>
 
-<div class="panel panel-default">
-    <div class="panel-heading monospace"><h3>
+<div class="panel panel-default monospace">
+    <div class="panel-heading"><h3>
         <%= link_to @area.name, area_path(@area) %> /
         <%= link_to 'Objs', area_objs_path(@area) %> /
         <%= link_to "Obj: #{@obj.vnum}", area_obj_path(@area, @obj) %> /
         New Object Extra Description
     </div>
-    <div class="panel-body monospace">    
+    <div class="panel-body">    
     
         <%= render :partial => 'form' %>
 

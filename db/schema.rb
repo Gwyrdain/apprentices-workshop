@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150204034953) do
+ActiveRecord::Schema.define(version: 20150205020116) do
 
   create_table "applies", force: true do |t|
     t.integer  "apply_type"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 20150204034953) do
   end
 
   add_index "applies", ["obj_id"], name: "index_applies_on_obj_id"
+
+  create_table "area_strings", force: true do |t|
+    t.integer  "vnum"
+    t.string   "message_to_pc"
+    t.string   "message_to_room"
+    t.integer  "area_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "area_strings", ["area_id"], name: "index_area_strings_on_area_id"
 
   create_table "areas", force: true do |t|
     t.string   "name"

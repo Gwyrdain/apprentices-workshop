@@ -1,46 +1,107 @@
 <%- model_class = RoomSpecial -%>
 
-<div class="panel panel-default">
-    <div class="panel-heading monospace"><h3>
-        <%= link_to @area.name, area_path(@area) %> /
-        <%= link_to "Room: #{@room.vnum}", area_room_path(@area, @room) %> /
-        <%= @room_special.name %>
-    </h3></div>
-    <div class="panel-body monospace">
-      
-      <div class="fieldset">
-        <dl>
-            <dt class="label label-default"><%= model_class.human_attribute_name(:room_special_type) %></dt>
-            <dd><pre class="prettyprint"><%= @room_special.room_special_type %></pre></dd>
-            <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
-            <dd><pre class="prettyprint"><%= @room_special.name %></pre></dd>
-            <dt class="label label-default"><%= model_class.human_attribute_name(:extended_value_1) %></dt>
-            <dd><pre class="prettyprint"><%= @room_special.extended_value_1 %></pre></dd>
-            <dt class="label label-default"><%= model_class.human_attribute_name(:extended_value_2) %></dt>
-            <dd><pre class="prettyprint"><%= @room_special.extended_value_2 %></pre></dd>
-            <dt class="label label-default"><%= model_class.human_attribute_name(:extended_value_3) %></dt>
-            <dd><pre class="prettyprint"><%= @room_special.extended_value_3 %></pre></dd>
-            <dt class="label label-default"><%= model_class.human_attribute_name(:extended_value_4) %></dt>
-            <dd><pre class="prettyprint"><%= @room_special.extended_value_4 %></pre></dd>
-            <dt class="label label-default"><%= model_class.human_attribute_name(:extended_value_5) %></dt>
-            <dd><pre class="prettyprint"><%= @room_special.extended_value_5 %></pre></dd>
-            <dt class="label label-default"><%= model_class.human_attribute_name(:room_id) %></dt>
-            <dd><pre class="prettyprint"><%= @room_special.room_id %></pre></dd>
-        </dl>
+<div class="panel panel-default monospace">
+  <div class="panel-heading"><h3>
+      <%= link_to @area.name, area_path(@area) %> /
+      <%= link_to "Room: #{@room.vnum}", area_room_path(@area, @room) %> /
+      <%= @room_special.name %>
+  </h3></div>
+  <div class="panel-body">
+    
+    <div class="row">
+      <div class="col-md-2">
+        <strong>Type:</strong>
       </div>
-      
-      <div class="form-group">
-        <%= link_to t('.back', :default => t("helpers.links.back")),
-                    area_room_path(@area, @room), :class => 'btn btn-default'  %>
-        <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                    edit_area_room_room_special_path(@area, @room, @room_special), :class => 'btn btn-default' %>
-        <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                    area_room_room_special_path(@area, @room, @room_special),
-                    :method => 'delete',
-                    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                    :class => 'btn btn-danger' %>
+      <div class="col-md-10">
+        <div class="col-md-10">
+          <% if @room_special.room_special_type == 'D' %>Normal Room Special Function<% end %>
+          <% if @room_special.room_special_type == 'E' %>Extended Room Special Function<% end %>
+        </div>
       </div>
-
-    </div>
+    </div><br/>
+    
+    <div class="row">
+      <div class="col-md-2">
+        <strong>Name:</strong>
+      </div>
+      <div class="col-md-10">
+        <div class="col-md-10">
+          <%= @room_special.name %>
+        </div>
+      </div>
+    </div><br/>
+    
+    <% if @room_special.room_special_type == 'E' %>
+    
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Ext. value 1:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @room_special.extended_value_1 %>
+          </div>
+        </div>
+      </div><br/>
+      
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Ext. value 1:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @room_special.extended_value_2 %>
+          </div>
+        </div>
+      </div><br/>
+      
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Ext. value 1:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @room_special.extended_value_3 %>
+          </div>
+        </div>
+      </div><br/>
+      
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Ext. value 1:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @room_special.extended_value_4 %>
+          </div>
+        </div>
+      </div><br/>
+      
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Ext. value 1:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @room_special.extended_value_5 %>
+          </div>
+        </div>
+      </div><br/>
+    
+    <% end %>
+    
+  </div>
+      
+  <div class="panel-footer">
+    <%= link_to t('.back', :default => t("helpers.links.back")),
+                area_room_path(@area, @room), :class => 'btn btn-default'  %>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                edit_area_room_room_special_path(@area, @room, @room_special), :class => 'btn btn-default' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                area_room_room_special_path(@area, @room, @room_special),
+                :method => 'delete',
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-danger' %>
+  </div>
     
 </div>

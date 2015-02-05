@@ -2,6 +2,7 @@
 
 function initRoomSpecialsForm() {
   setRoomSpecFunType();
+  setExtendedRoomSpecFunLabels();
 }
 
 function setRoomSpecFunType() {
@@ -18,10 +19,28 @@ function setRoomSpecFunType() {
   }
 }
 
+function setExtendedRoomSpecFunLabels() {
+  $('#xCheckDoorOpen').prop('disabled', true).hide()
+    
+  if( $('#room_special_room_special_type').val() == 'E' &&
+      $('#ExtendedRoomSpecialField').val() == 'spec_check_door_open' ) {
+    $('#xCheckDoorOpen').prop('disabled', false).show()
+  }
+
+}
+
+
 //  --=={ WATCH FOR FORM CHANGES }==-
 
 $(function() {
   $('#room_special_room_special_type').change(function() {
     setRoomSpecFunType()
+    setExtendedRoomSpecFunLabels();
+  })
+});
+
+$(function() {
+  $('#ExtendedRoomSpecialField').change(function() {
+    setExtendedRoomSpecFunLabels()
   })
 });

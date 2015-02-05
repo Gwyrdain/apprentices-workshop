@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :triggers
-
   resources :areas do
     resources :helps
     resources :rooms do
@@ -23,6 +21,7 @@ Rails.application.routes.draw do
     resources :shops
     resources :room_specials
     resources :triggers
+    resources :area_strings
   end
 
   devise_for :users
