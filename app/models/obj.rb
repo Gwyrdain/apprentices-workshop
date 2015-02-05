@@ -113,6 +113,7 @@ end
 
 def spell_from_num(i)
   $spell = nil
+  $spell = 'None' if i == 0
   $spell = 'Acid Blast' if i == 70
   $spell = 'Alarm' if i == 48
   $spell = 'Animate Dead' if i == 97
