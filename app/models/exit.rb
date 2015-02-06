@@ -89,7 +89,11 @@ class Exit < ActiveRecord::Base
     if (self.exit_room_id > (self.room.area.vnum_qty - 1))
       return true
     else
-      return false
+      if (self.destination_exists? && self.destination.area == self.room.area)
+        return false
+      else
+        return true
+      end
     end
   end
 
