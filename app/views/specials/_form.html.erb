@@ -82,10 +82,12 @@
               ['spec_mage_protector', 'spec_mage_protector'],
               ['spec_timed_teleport', 'spec_timed_teleport']
             ], @special.name
-          ), {}, {class: "form-control"}) %>
+          ), {}, {id: "ExtendedSpecialField", class: "form-control"}) %>
       </div>
     </div>
-    
+  </fieldset>
+  
+  <fieldset hidden='hidden' id="xGeneric">
     <div class="form-group">
       <%= f.label :extended_value_1, :class => 'control-label col-md-2' %>
       <div class="col-md-10">
@@ -116,6 +118,62 @@
         <%= f.text_field :extended_value_5, :class => 'text_field form-control' %>
       </div>
     </div>
+  </fieldset>
+  
+  <fieldset hidden='hidden' id="xActOnGive">
+    <div class="form-group">
+      <%= f.label :extended_value_1, 'Object to receive', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :extended_value_1, :class => 'text_field form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :extended_value_2, :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.select(:extended_value_2, options_for_select(
+            [
+              ['Transfer PC', 0],
+              ['Give PC object', 1]
+            ], :extended_value_2
+          ), {}, {class: "form-control"}) %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :extended_value_3, 'Target vnum', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :extended_value_3, :class => 'text_field form-control' %>
+      </div>
+    </div>
+
+    <%= f.hidden_field :extended_value_4, :value => -1 %>
+    
+    <div class="form-group">
+      <%= f.label :extended_value_5, 'Action description', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.collection_select(:extended_value_5, @area.area_strings.order('vnum ASC'), :id, :vnum_and_strings, {}, {:class => "form-control"})  %>
+      </div>
+    </div>
+  </fieldset>
+  
+  <fieldset hidden='hidden' id="xMageProtector">
+    <div class="form-group">
+      <%= f.label :extended_value_1, 'Pre-attack message', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.collection_select(:extended_value_1, @area.area_strings.order('vnum ASC'), :id, :vnum_and_strings, {}, {:class => "form-control"})  %>
+      </div>
+    </div>
+    
+    <%= f.hidden_field :extended_value_2, :value => -1 %>
+    
+    <%= f.hidden_field :extended_value_3, :value => -1 %>
+    
+    <%= f.hidden_field :extended_value_4, :value => -1 %>
+    
+    <%= f.hidden_field :extended_value_5, :value => -1 %>
+  </fieldset>
+  
+  <fieldset hidden='hidden' id="xTimedTeleport">
+    timed
   </fieldset>
 
   <div class="form-group">
