@@ -53,7 +53,7 @@ class Exit < ActiveRecord::Base
   end
 
   def destination_exists?
-    if Room.exists?(self.exit_room_id)
+    if ( Room.exists?(self.exit_room_id) && self.destination.area == self.room.area)
       return true
     else
       return false
@@ -89,7 +89,7 @@ class Exit < ActiveRecord::Base
     if (self.exit_room_id > (self.room.area.vnum_qty - 1))
       return true
     else
-      if (self.destination_exists? && self.destination.area == self.room.area)
+      if self.destination_exists?
         return false
       else
         return true
