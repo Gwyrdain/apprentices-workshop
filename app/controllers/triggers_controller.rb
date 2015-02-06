@@ -16,7 +16,12 @@ class TriggersController < ApplicationController
 
   def new
     @trigger = @exit.triggers.build
-
+    
+    @trigger.extended_value_1 ||= -1
+    @trigger.extended_value_2 ||= -1
+    @trigger.extended_value_3 ||= -1
+    @trigger.extended_value_4 ||= -1
+    @trigger.extended_value_5 ||= -1
   end
 
   def edit
@@ -25,6 +30,13 @@ class TriggersController < ApplicationController
 
   def create
     @trigger = @exit.triggers.create(trigger_params)
+    
+    @trigger.extended_value_1 ||= -1
+    @trigger.extended_value_2 ||= -1
+    @trigger.extended_value_3 ||= -1
+    @trigger.extended_value_4 ||= -1
+    @trigger.extended_value_5 ||= -1
+    
     if @trigger.save
       redirect_to area_room_path(@area, @room), notice: 'Exit Trigger was sucessfully created.'
     else

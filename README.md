@@ -3,23 +3,11 @@
 
 ## General
 * Add jQ/AJAX for better experience!
-* Add dependent: :destroy to all has_many associations moving forward.
-
-## Areas
-* None.
-
-## Helps
-* None.
+* Don't forget to dependent: :destroy all has_many associations...
+* Return to Extended Spec Funs
 
 ## Rooms
 * No not allow export when bad exits exit.
-
-## Objects
-* None.
-
-## Mobiles
-* Return to Extended Spec Funs
-
 
 
 #Wish List
@@ -30,42 +18,10 @@
 
 
 
-        <div class="form-group">
-          <%= f.label 'external_vnum_cb', 'Assign External Vnum', :class => 'control-label col-md-2' %>
-          <div class="col-md-10">
-            <%= f.check_box :exit_room_id, {:id => 'external_vnum_cb', :class => "checkbox"}, 1 %>
-          </div>
-        </div>
-      
-        <div class="form-group">
-          <%= f.label :exit_room_id, 'External Vnum', :class => 'control-label col-md-2' %>
-          <div class="col-md-10">
-            <%= f.text_field :exit_room_id, {:id => 'external_vnum', disabled: 'disabled', class: "form-control"} %>
-          </div>
-        </div>
-
-
 
 #Misc Notes
 ---
 
-        $('#external_vnum_cb').click(function() {
-          var external_vnum_cb_state = $('#external_vnum_cb').is(':checked');
-          var exit_undefined_cb_state = $('#undefined_room').is(':checked');
-          var selected_exittype = $('#exit_exittype').val();
-          if(selected_exittype == -1) {
-            alert('Destination room must be undefined when ExitType = 0 (i.e., not an exit)')
-            $('#undefined_room').prop('checked', true);
-            $('#external_vnum_cb').prop('checked', false);
-            $('#exit_exit_room_id').prop('disabled', true);
-            $('#external_vnum').prop('disabled', true);
-          } else {
-            $('#external_vnum').prop('disabled', !external_vnum_cb_state);
-            $('#undefined_room').prop('disabled', external_vnum_cb_state);
-            $('#undefined_room').prop('checked', !external_vnum_cb_state);
-          }
-      });
-      
       bitfield :misc_flags, 
                     2**0 =>  :flag,          # Dec:          1 / Hex:         1
                     2**1 =>  :flag,          # Dec:          2 / Hex:         2

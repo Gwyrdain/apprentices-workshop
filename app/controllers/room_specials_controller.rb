@@ -16,6 +16,12 @@ class RoomSpecialsController < ApplicationController
   def new
     @room_special = @room.room_specials.build
 
+    @room_special.extended_value_1 ||= -1
+    @room_special.extended_value_2 ||= -1
+    @room_special.extended_value_3 ||= -1
+    @room_special.extended_value_4 ||= -1
+    @room_special.extended_value_5 ||= -1
+
   end
 
   def edit
@@ -24,6 +30,13 @@ class RoomSpecialsController < ApplicationController
 
   def create
     @room_special = @room.room_specials.create(room_special_params)
+    
+    @room_special.extended_value_1 ||= -1
+    @room_special.extended_value_2 ||= -1
+    @room_special.extended_value_3 ||= -1
+    @room_special.extended_value_4 ||= -1
+    @room_special.extended_value_5 ||= -1
+    
     if @room_special.save
       redirect_to area_room_path(@area, @room), notice: 'Room Special Function was sucessfully created.'
     else

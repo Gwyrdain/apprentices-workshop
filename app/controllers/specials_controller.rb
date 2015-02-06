@@ -15,7 +15,13 @@ class SpecialsController < ApplicationController
 
   def new
     @special = @mobile.specials.build
-
+    
+    @special.extended_value_1 ||= -1
+    @special.extended_value_2 ||= -1
+    @special.extended_value_3 ||= -1
+    @special.extended_value_4 ||= -1
+    @special.extended_value_5 ||= -1
+    
   end
 
   def edit
@@ -24,6 +30,13 @@ class SpecialsController < ApplicationController
 
   def create
     @special = @mobile.specials.create(special_params)
+    
+    @special.extended_value_1 ||= -1
+    @special.extended_value_2 ||= -1
+    @special.extended_value_3 ||= -1
+    @special.extended_value_4 ||= -1
+    @special.extended_value_5 ||= -1
+
     if @special.save
       redirect_to area_mobile_path(@area, @mobile), notice: 'Special Function was sucessfully created.'
     else
