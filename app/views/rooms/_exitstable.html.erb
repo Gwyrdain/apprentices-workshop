@@ -48,7 +48,12 @@
                           <span style="color:orange" title="Illogical exit"><%= glyph 'random' %></span>
                         <% end %>
                       <% else %>
-                        None
+                        <% if exit.is_external? %>
+                          <%= exit.exit_room_id %>
+                        <% else %>
+                          None
+                        <% end %>
+                        
                       <% end %>
                       
                       <% if exit.is_bad? %>
