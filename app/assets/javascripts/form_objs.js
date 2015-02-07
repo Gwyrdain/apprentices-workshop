@@ -12,9 +12,9 @@ function validMaxAC () {
 
 function validHoldWeight () {
   if( $('#obj_object_type').val() == 15 &&
-      $('#ItemValueGroupContainer').find('#obj_v0').val() <= parseInt($('#obj_weight').val(), 10) ) {
+      $('#ItemValueGroupContainer').find('#obj_v0').val() <= $('#obj_weight').val().parseInt() ) {
         bootbox.alert('Container <strong>hold weight</strong> must be greater than object <strong>weight</strong>.  Increasing hold weight.');
-        $('#ItemValueGroupContainer').find('#obj_v0').val( parseInt($('#obj_weight').val(), 10) + 5 );
+        $('#ItemValueGroupContainer').find('#obj_v0').val( $('#obj_weight').val().parseInt() + 5 );
     return false
   }
   return true
@@ -54,8 +54,8 @@ function validCharges () {
 
 
 function validRange () {
-  if( ( $('#obj_object_type').val() == 5 || $('#obj_object_type').val() === 6) &&
-      $('#ItemValueGroupWeapon').find('#obj_v2').val() < $('#ItemValueGroupWeapon').find('#obj_v1').val() ) {
+  if( ( $('#obj_object_type').val() == 5 || $('#obj_object_type').val() == 6 ) &&
+      parseInt($('#ItemValueGroupWeapon').find('#obj_v2').val(), 10) < parseInt($('#ItemValueGroupWeapon').find('#obj_v1').val(), 10) ) {
         bootbox.alert('Weapon <strong>range max</strong> must be greater than or equal to <strong>range min</strong>.  Increasing range max.');
         $('#ItemValueGroupWeapon').find('#obj_v2').val( $('#ItemValueGroupWeapon').find('#obj_v1').val() );
     return false
