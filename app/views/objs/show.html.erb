@@ -128,25 +128,12 @@
 
       <div class="row">
         <div class="col-md-2">
-          <strong>Worn:</strong>
+          <strong>Wear location:</strong>
         </div>
         <div class="col-md-10">
-          <% if @obj.wear_flags < 2 %><div class='col-md-3'>NOT WORN/WORN AS LIGHT</div><% end %>
-          <% if @obj.finger? %><div class='col-md-2'>WORN AS FINGER</div><% end %>
-          <% if @obj.neck? %><div class='col-md-2'>WORN AS NECK</div><% end %>
-          <% if @obj.body? %><div class='col-md-2'>WORN AS BODY</div><% end %>
-          <% if @obj.head? %><div class='col-md-2'>WORN AS HEAD</div><% end %>
-          <% if @obj.legs? %><div class='col-md-2'>WORN AS LEGS</div><% end %>
-          <% if @obj.feet? %><div class='col-md-2'>WORN AS FEET</div><% end %>
-          <% if @obj.hands? %><div class='col-md-2'>WORN AS HANDS</div><% end %>
-          <% if @obj.arms? %><div class='col-md-2'>WORN AS ARMS</div><% end %>
-          <% if @obj.shield? %><div class='col-md-2'>WORN AS SHIELD</div><% end %>
-          <% if @obj.about? %><div class='col-md-2'>WORN AS ABOUT</div><% end %>
-          <% if @obj.waist? %><div class='col-md-2'>WORN AS WAIST</div><% end %>
-          <% if @obj.wrist? %><div class='col-md-2'>WORN AS WRIST</div><% end %>
-          <% if @obj.wield? %><div class='col-md-2'>WORN AS WIELD</div><% end %>
-          <% if @obj.hold? %><div class='col-md-2'>WORN AS HOLD</div><% end %>
-          <% if @obj.decoration? %><div class='col-md-2'>WORN AS DECORATION</div><% end %>
+          <div class="col-md-10">
+            <%= @obj.wear_location %>
+          </div>
         </div>
       </div><br/>
 

@@ -16,7 +16,7 @@
             <th><%= model_class.human_attribute_name(:sdesc) %></th>
             <th><%= model_class.human_attribute_name(:ldesc) %></th>
             <th><%= model_class.human_attribute_name(:object_type) %></th>
-            <th><%= model_class.human_attribute_name(:wear_flags) %></th>
+            <th>Wear Location</th>
             <th><%= model_class.human_attribute_name(:weight) %></th>
             <th><%= model_class.human_attribute_name(:cost) %></th>
             <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -30,7 +30,7 @@
                 <td><%= obj.sdesc %></td>
                 <td><%= obj.ldesc %></td>
                 <td><%= object_type_from_num(obj.object_type) %></td>
-                <td><%= obj.wear_flags %></td>
+                <td><%= obj.wear_location %></td>
                 <td><%= obj.weight %></td>
                 <td><%= obj.cost %></td>
               <td>
