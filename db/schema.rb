@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150205020116) do
+ActiveRecord::Schema.define(version: 20150207185335) do
 
   create_table "applies", force: true do |t|
     t.integer  "apply_type"
@@ -128,6 +128,19 @@ ActiveRecord::Schema.define(version: 20150205020116) do
   end
 
   add_index "oxdescs", ["obj_id"], name: "index_oxdescs_on_obj_id"
+
+  create_table "resets", force: true do |t|
+    t.string   "reset_type"
+    t.integer  "val_1"
+    t.integer  "val_2"
+    t.integer  "val_3"
+    t.integer  "val_4"
+    t.integer  "area_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "resets", ["area_id"], name: "index_resets_on_area_id"
 
   create_table "room_specials", force: true do |t|
     t.string   "room_special_type"

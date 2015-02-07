@@ -1,0 +1,35 @@
+<h1>Listing resets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Reset type</th>
+      <th>Val 1</th>
+      <th>Val 2</th>
+      <th>Val 3</th>
+      <th>Val 4</th>
+      <th>Area</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @resets.each do |reset| %>
+      <tr>
+        <td><%= reset.reset_type %></td>
+        <td><%= reset.val_1 %></td>
+        <td><%= reset.val_2 %></td>
+        <td><%= reset.val_3 %></td>
+        <td><%= reset.val_4 %></td>
+        <td><%= reset.area %></td>
+        <td><%= link_to 'Show', reset %></td>
+        <td><%= link_to 'Edit', edit_reset_path(reset) %></td>
+        <td><%= link_to 'Destroy', reset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reset', new_reset_path %>

@@ -1,0 +1,41 @@
+<%= form_for(@reset) do |f| %>
+  <% if @reset.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reset.errors.count, "error") %> prohibited this reset from being saved:</h2>
+
+      <ul>
+      <% @reset.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :reset_type %><br>
+    <%= f.text_field :reset_type %>
+  </div>
+  <div class="field">
+    <%= f.label :val_1 %><br>
+    <%= f.number_field :val_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :val_2 %><br>
+    <%= f.number_field :val_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :val_3 %><br>
+    <%= f.number_field :val_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :val_4 %><br>
+    <%= f.number_field :val_4 %>
+  </div>
+  <div class="field">
+    <%= f.label :area_id %><br>
+    <%= f.text_field :area_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

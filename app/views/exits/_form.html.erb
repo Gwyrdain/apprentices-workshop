@@ -53,12 +53,16 @@
     </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :name, 'Door name', :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
-      <%= f.text_field :name, :class => 'text_field form-control' %>
+  <%= f.hidden_field :name, {:id => 'DoorNameBlank', :value => ''} %>
+  
+  <fieldset id="DoorName">
+    <div class="form-group">
+      <%= f.label :name, 'Door name', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :name, :class => 'text_field form-control' %>
+      </div>
     </div>
-  </div>
+  </fieldset>
 
   <% @area.objs.exists?(:id => @exit.keyvnum)      ? $LocalDoorKeyVnumRadio = true : $LocalDoorKeyVnumRadio = false %>
   <% @exit.keyvnum > (@exit.room.area.vnum_qty - 1) ? $ExternalDoorKeyVnumRadio = true : $ExternalDoorKeyVnumRadio = false %>

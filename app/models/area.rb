@@ -5,6 +5,7 @@ class Area < ActiveRecord::Base
   has_many :objs, dependent: :destroy
   has_many :mobiles, dependent: :destroy
   has_many :area_strings, dependent: :destroy
+  has_many :resets, dependent: :destroy
   
   has_many :shops, through: :mobiles
   has_many :specials, through: :mobiles

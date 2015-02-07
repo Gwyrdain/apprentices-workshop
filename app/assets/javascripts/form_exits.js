@@ -1,7 +1,3 @@
-//  --=={ VALIDATTIONS }==-
-
-//  --=={ VALIDATTIONS }==-
-
 //  --=={ Form Setup / Visuals }==-
 
 function initExitsForm() {
@@ -27,15 +23,19 @@ function setExitType() {
 function setKeyType() {
   if( $('#exit_exittype').val() == 1 || $('#exit_exittype').val() ==  2 ) {
     $('#DoorKeyGroup').show();
+    $('#DoorName').prop('disabled', false).show();
+    $('#DoorNameBlank').prop('disabled', true);
     if($('#NoDoorKeyRadio').is(':checked')) { // IF it's LOCKABLE but no key is specified, reset to a local vnum.
-      $('#LocalDoorKeyVnumRadio').prop('checked', true);
-      $('#LocalDoorKeyVnumGroup').prop('disabled', false).show();
+      //$('#LocalDoorKeyVnumRadio').prop('checked', true);
+      //$('#LocalDoorKeyVnumGroup').prop('disabled', false).show();
     }
     setKeyFields();
   } else {
     $('#DoorKeyGroup').hide();  
     $('#NoDoorKeyRadio').prop('checked', true);
     $('#NoDoorKeyField').prop('disabled', false);
+    $('#DoorName').prop('disabled', true).hide();
+    $('#DoorNameBlank').prop('disabled', false);
   }
 }
 
@@ -66,8 +66,8 @@ function setKeyFields() {
   
   if($('#NoDoorKeyRadio').is(':checked')) {
     $('#NoDoorKeyField').prop('disabled', false);
-    $('#exit_exittype').val('0');
-    $('#DoorKeyGroup').hide();
+    //$('#exit_exittype').val('0');
+    //$('#DoorKeyGroup').hide();
   }
   
   if($('#LocalDoorKeyVnumRadio').is(':checked')) {
