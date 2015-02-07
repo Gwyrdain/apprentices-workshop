@@ -5,7 +5,7 @@ class MobilesController < ApplicationController
   respond_to :html
 
   def index
-    @mobiles = Mobile.all
+    @mobiles = @area.mobiles
   end
 
   def show

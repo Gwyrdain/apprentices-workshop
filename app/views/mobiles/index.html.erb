@@ -24,7 +24,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @mobiles.each do |mobile| %>
+          <% @mobiles.order(:vnum).each do |mobile| %>
             <tr>
                 <td><%= mobile.vnum %></td>
                 <td><%= mobile.keywords %></td>
