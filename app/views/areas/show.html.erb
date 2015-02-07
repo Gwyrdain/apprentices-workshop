@@ -19,6 +19,17 @@
       
       <div class="row">
         <div class="col-md-2">
+          <strong>Area number:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @area.area_number %>
+          </div>
+        </div>
+      </div><br/>
+      
+      <div class="row">
+        <div class="col-md-2">
           <strong>Difficulty:</strong>
         </div>
         <div class="col-md-10">
@@ -192,7 +203,7 @@
      
     </div>
     
-    <div class="panel-footer form-group">
+    <div class="panel-footer">
       <%= link_to t('.back', :default => t("helpers.links.back")),
                   areas_path(@area), :class => 'btn btn-default'  %>
       <%= link_to t('.edit', :default => t("helpers.links.edit")),
