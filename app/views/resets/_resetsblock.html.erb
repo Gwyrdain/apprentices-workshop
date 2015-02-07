@@ -1,0 +1,20 @@
+#RESETS
+*** Mobile Resets ***
+<% @area.resets.order(:val_2).where(reset_type: 'M').each do |reset| %>
+<%= render 'resets/resetblock', :reset => reset %>
+<% end %>
+<% @area.resets.order(:val_2).where(reset_type: 'Q').each do |reset| %>
+<%= render 'resets/resetblock', :reset => reset %>
+<% end %>
+*** Object Resets ***
+<% @area.resets.order(:val_2).where(reset_type: 'O').each do |reset| %>
+<%= render 'resets/resetblock', :reset => reset %>
+<% end %>
+***  Door Resets  ***
+<% @area.resets.order(:val_2).where(reset_type: 'D').each do |reset| %>
+<%= render 'resets/resetblock', :reset => reset %>
+<% end %>
+<% @area.resets.order(:val_2).where(reset_type: 'R').each do |reset| %>
+<%= render 'resets/resetblock', :reset => reset %>
+<% end %>
+S
