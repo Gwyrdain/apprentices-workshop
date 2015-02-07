@@ -7,7 +7,7 @@
 * Return to Extended Spec Funs
 
 ## Rooms
-* No not allow export when bad exits exit.
+* Do not allow export when bad exits exit.
 
 
 #Wish List

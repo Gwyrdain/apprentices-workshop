@@ -26,7 +26,7 @@ class AppliesController < ApplicationController
   def create
     @apply = @obj.applies.create(apply_params)
     if @apply.save
-      redirect_to area_obj_path(@area, @obj), notice: 'Obj Extra Description was sucessfully created.'
+      redirect_to area_obj_path(@area, @obj), notice: 'Apply was sucessfully created.'
     else
       render action: 'new'
     end
@@ -34,7 +34,7 @@ class AppliesController < ApplicationController
 
   def update
     if @apply.update(apply_params)
-      redirect_to area_obj_apply_path(@area, @obj, @apply), notice: 'Obj Extra Description was sucessfully updated.'
+      redirect_to area_obj_apply_path(@area, @obj, @apply), notice: 'Apply was sucessfully updated.'
     else
       render action: 'edit'
     end 
@@ -43,7 +43,7 @@ class AppliesController < ApplicationController
   def destroy
     @apply.destroy
     if @apply.save
-      redirect_to area_obj_applies_path(@area, @obj), notice: 'Obj was sucessfully deleted.'
+      redirect_to area_obj_applies_path(@area, @obj), notice: 'Apply was sucessfully deleted.'
     else
       redirect_to area_obj_applies_path(@area, @obj), notice: 'Something went wrong.'
     end
