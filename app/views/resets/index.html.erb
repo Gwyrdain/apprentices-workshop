@@ -12,21 +12,15 @@
         <thead>
           <tr>
             <th><%= model_class.human_attribute_name(:reset_type) %></th>
-            <th><%= model_class.human_attribute_name(:val_1) %></th>
-            <th><%= model_class.human_attribute_name(:val_2) %></th>
-            <th><%= model_class.human_attribute_name(:val_3) %></th>
-            <th><%= model_class.human_attribute_name(:val_4) %></th>
+            <th>Description</th>
             <th><%=t '.actions', :default => t("helpers.actions") %></th>
           </tr>
         </thead>
         <tbody>
-          <% @resets.each do |reset| %>
+          <% @resets.order(:reset_type, :val_2).each do |reset| %>
             <tr>
-              <td><%= reset.reset_type %></td>
-              <td><%= reset.val_1 %></td>
-              <td><%= reset.val_2 %></td>
-              <td><%= reset.val_3 %></td>
-              <td><%= reset.val_4 %></td>
+              <td><%= reset.desc_brief %></td>
+              <td><%= reset.comment %></td>
               <td>
                 <%= link_to area_reset_path(@area, reset), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
                   <%= glyph 'info-sign' %>

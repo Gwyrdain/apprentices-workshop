@@ -3,7 +3,7 @@
   <div class="panel-heading"><h3>
       <%= link_to @area.name, area_path(@area) %> /
       <%= link_to 'Resets', area_resets_path(@area) %> /
-      Reset: <%= @reset.description %>
+      Reset: <%= @reset.comment %>
   </h3></div>
   <div class="panel-body">
     
@@ -20,45 +20,49 @@
     
     <div class="row">
       <div class="col-md-2">
-        <strong>Frequency:</strong>
+        <strong>
+          <%= 'Mobile:' if ( @reset.reset_type == 'M' || @reset.reset_type == 'Q' ) %>
+          <%= 'Object:' if @reset.reset_type == 'O' %>
+          <%= 'Room:' if ( @reset.reset_type == 'D' || @reset.reset_type == 'R' ) %>
+        </strong>
       </div>
       <div class="col-md-10">
         <div class="col-md-10">
-          <%= 'Reset every cycle' if @reset.val_1 == 1 %>
-          <%= 'Reset only if zone is empty' if @reset.val_1 == 0 %>
+        <%= @reset.load_mob_vnum + ' ' + @reset.load_mob_name if ( @reset.reset_type == 'M' || @reset.reset_type == 'Q' ) %>
+        <%= @reset.load_obj_vnum + ' ' + @reset.load_obj_name if @reset.reset_type == 'O' %>
+        <%= @reset.reset_room_vnum + ' ' + @reset.reset_room_name if ( @reset.reset_type == 'D' || @reset.reset_type == 'R' ) %>
         </div>
       </div>
     </div><br/>
     
     <div class="row">
       <div class="col-md-2">
-        <strong>Value 2:</strong>
+        <strong>
+          <%= 'Mudwide limit:' if ( @reset.reset_type == 'M' || @reset.reset_type == 'Q' || @reset.reset_type == 'O' ) %>
+          <%= 'Door direction:' if @reset.reset_type == 'D' %>
+          <%= 'Exits to randomize:' if @reset.reset_type == 'R' %>
+        </strong>
       </div>
       <div class="col-md-10">
         <div class="col-md-10">
-          <%= @reset.val_2 %>
+          <%= @reset.val_3 if ( @reset.reset_type == 'M' || @reset.reset_type == 'Q' || @reset.reset_type == 'O' ) %>
+          <%= @reset.reset_door_direction if @reset.reset_type == 'D' %>
+          <%= num_to_exits(@reset.val_3) if @reset.reset_type == 'R' %>
         </div>
       </div>
     </div><br/>
     
     <div class="row">
       <div class="col-md-2">
-        <strong>Value 3:</strong>
+        <strong>
+          <%= 'Load to room:' if ( @reset.reset_type == 'M' || @reset.reset_type == 'Q' || @reset.reset_type == 'O' ) %>
+          <%= 'Door state:' if @reset.reset_type == 'D' %>
+        </strong>
       </div>
       <div class="col-md-10">
         <div class="col-md-10">
-          <%= @reset.val_3 %>
-        </div>
-      </div>
-    </div><br/>
-    
-    <div class="row">
-      <div class="col-md-2">
-        <strong>Value 4:</strong>
-      </div>
-      <div class="col-md-10">
-        <div class="col-md-10">
-          <%= @reset.val_4 %>
+          <%= @reset.load_room_vnum + ' ' + @reset.load_room_name if ( @reset.reset_type == 'M' || @reset.reset_type == 'Q' || @reset.reset_type == 'O') %>
+          <%= door_state(@reset.val_4) if  @reset.reset_type == 'D' %>
         </div>
       </div>
     </div><br/>

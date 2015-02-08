@@ -67,6 +67,16 @@ class Exit < ActiveRecord::Base
   def direction_word
     return num_to_dir(self.direction)
   end
+
+  def type_desc
+    $desc = 'nil'
+    $desc = 'Look-only' if self.exittype == -1
+    $desc = 'No door' if self.exittype == 0
+    $desc = 'Door (pick/pass ok)' if self.exittype == 1
+    $desc = 'Door (no pick/pass)' if self.exittype == 2
+    $desc = 'Trap' if self.exittype == 3
+    return $desc
+  end
   
   def formal_vnum
     if self.destination_exists?
