@@ -1,6 +1,8 @@
 class Reset < ActiveRecord::Base
   belongs_to :area
   
+  has_many :sub_resets, dependent: :destroy
+  
   validates :val_1, numericality: { only_integer: true, greater_than: -1 }
   validates :val_2, numericality: { only_integer: true, greater_than: -1 }
   validates :val_3, numericality: { only_integer: true, greater_than: -1 }
@@ -28,19 +30,19 @@ class Reset < ActiveRecord::Base
     $output = ''
     
     if ( self.reset_type == 'M' or self.reset_type == 'Q' )
-      $output = self.reset_type + ' ' + self.val_1.to_s + ' ' + self.load_mob_vnum
+      $output = self.reset_type + ' ' + '0' + ' ' + self.load_mob_vnum
       $output = $output + ' ' + self.val_3.to_s + ' ' + self.load_room_vnum + " * "
     end
     if self.reset_type == 'O'
-      $output = self.reset_type + ' ' + self.val_1.to_s + ' ' + self.load_obj_vnum
+      $output = self.reset_type + ' ' + '0' + ' ' + self.load_obj_vnum
       $output = $output + ' ' + self.val_3.to_s + ' ' + self.load_room_vnum + " * "
     end
     if self.reset_type == 'D'
-      $output = self.reset_type + ' ' + self.val_1.to_s + ' ' + self.reset_room_vnum
+      $output = self.reset_type + ' ' + '0' + ' ' + self.reset_room_vnum
       $output = $output + ' ' + self.val_3.to_s + ' ' + self.val_4.to_s + " * "
     end
     if self.reset_type == 'R'
-      $output = self.reset_type + ' ' + self.val_1.to_s + ' ' + self.reset_room_vnum
+      $output = self.reset_type + ' ' + '0' + ' ' + self.reset_room_vnum
       $output = $output + ' ' + self.val_3.to_s + " * "
     end
     

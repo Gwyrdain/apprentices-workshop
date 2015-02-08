@@ -1,0 +1,48 @@
+<%- model_class = SubReset -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:reset_type) %></th>
+      <th><%= model_class.human_attribute_name(:val_1) %></th>
+      <th><%= model_class.human_attribute_name(:val_2) %></th>
+      <th><%= model_class.human_attribute_name(:val_3) %></th>
+      <th><%= model_class.human_attribute_name(:val_4) %></th>
+      <th><%= model_class.human_attribute_name(:reset_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sub_resets.each do |sub_reset| %>
+      <tr>
+        <td><%= sub_reset.id %></td>
+          <td><%= sub_reset.reset_type %></td>
+          <td><%= sub_reset.val_1 %></td>
+          <td><%= sub_reset.val_2 %></td>
+          <td><%= sub_reset.val_3 %></td>
+          <td><%= sub_reset.val_4 %></td>
+          <td><%= sub_reset.reset_id %></td>
+        <td><%=l sub_reset.created_at, format: :long %></td>
+        <td>
+          <%= link_to sub_reset_path(sub_reset), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+          <%- end -%>
+          <%= link_to edit_sub_reset_path(sub_reset), :class => 'btn btn-xs', :title => "#{ t('.edit', :default => t('helpers.links.edit')) }" do %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to sub_reset_path(sub_reset), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_sub_reset_path,
+            :class => 'btn btn-primary' %>

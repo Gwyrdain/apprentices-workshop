@@ -129,6 +129,27 @@ class Obj < ActiveRecord::Base
     return $wear_loc    
   end
   
+  def wear_location_val
+    $wear_loc = nil
+    $wear_loc = 'NOT WORN / LIGHT' if self.wear_flags < 2
+    $wear_loc = 'FINGER' if self.finger?
+    $wear_loc = 'NECK' if self.neck?
+    $wear_loc = 'BODY' if self.body?
+    $wear_loc = 'HEAD' if self.head?
+    $wear_loc = 'LEGS' if self.legs?
+    $wear_loc = 'FEET' if self.feet?
+    $wear_loc = 'HANDS' if self.hands?
+    $wear_loc = 'ARMS' if self.arms?
+    $wear_loc = 'SHIELD' if self.shield?
+    $wear_loc = 'ABOUT' if self.about?
+    $wear_loc = 'WAIST' if self.waist?
+    $wear_loc = 'WRIST' if self.wrist?
+    $wear_loc = 'WIELDED' if self.wield?
+    $wear_loc = 'HOLD' if self.hold?
+    $wear_loc = 'DECORATION' if self.decoration?
+    return $wear_loc    
+  end
+  
   def type_word
     return object_type_from_num( self.object_type )
   end

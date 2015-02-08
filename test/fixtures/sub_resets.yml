@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reset_type: MyString
+  val_1: 1
+  val_2: 1
+  val_3: 1
+  val_4: 1
+  reset_id: 
+
+two:
+  reset_type: MyString
+  val_1: 1
+  val_2: 1
+  val_3: 1
+  val_4: 1
+  reset_id: 

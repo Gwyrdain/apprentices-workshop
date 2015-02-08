@@ -1,0 +1,46 @@
+<%= form_for @sub_reset, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="form-group">
+    <%= f.label :reset_type, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :reset_type, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :val_1, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :val_1, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :val_2, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :val_2, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :val_3, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :val_3, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :val_4, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :val_4, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :reset_id, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :reset_id, :class => 'text_field form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  sub_resets_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>

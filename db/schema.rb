@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207185335) do
+ActiveRecord::Schema.define(version: 20150208221035) do
 
   create_table "applies", force: true do |t|
     t.integer  "apply_type"
@@ -225,6 +225,19 @@ ActiveRecord::Schema.define(version: 20150207185335) do
   end
 
   add_index "specials", ["mobile_id"], name: "index_specials_on_mobile_id"
+
+  create_table "sub_resets", force: true do |t|
+    t.string   "reset_type"
+    t.integer  "val_1"
+    t.integer  "val_2"
+    t.integer  "val_3"
+    t.integer  "val_4"
+    t.integer  "reset_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sub_resets", ["reset_id"], name: "index_sub_resets_on_reset_id"
 
   create_table "triggers", force: true do |t|
     t.string   "trigger_type"

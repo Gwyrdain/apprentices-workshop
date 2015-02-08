@@ -22,7 +22,9 @@ Rails.application.routes.draw do
     resources :room_specials
     resources :triggers
     resources :area_strings
-    resources :resets
+    resources :resets do
+      resources :sub_resets
+    end
   end
 
   devise_for :users
