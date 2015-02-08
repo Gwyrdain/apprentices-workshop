@@ -1,0 +1,97 @@
+    <%= f.hidden_field :val_3, :value => 'No Door' %>
+    
+    <div class="form-group">
+      <%= f.label 'Door', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        
+        <div class="col-md-2">
+          <label class="radio-inline">
+            <% if Room.find(@reset.val_2).exits.exists?(:direction => 0) %>
+              <% if Room.find(@reset.val_2).exits.where(:direction => 0).first.has_door? %>
+                <%= f.radio_button :val_3, 0 %> North
+              <% else %>
+                <%= f.radio_button :val_3, 0, :disabled => true %> No North Door
+              <% end %>
+            <% else %>
+              <%= f.radio_button :val_3, 0, :disabled => true %> No North Exit
+            <% end %>
+          </label>
+        </div>
+    
+        <div class="col-md-2">
+          <label class="radio-inline">
+            <% if Room.find(@reset.val_2).exits.exists?(:direction => 1) %>
+              <% if Room.find(@reset.val_2).exits.where(:direction => 1).first.has_door? %>
+                <%= f.radio_button :val_3, 1 %> East
+              <% else %>
+                <%= f.radio_button :val_3, 1, :disabled => true %> No East Door
+              <% end %>
+            <% else %>
+              <%= f.radio_button :val_3, 1, :disabled => true %> No East Exit
+            <% end %>
+          </label>
+        </div>
+        
+        <div class="col-md-2">
+          <label class="radio-inline">
+            <% if Room.find(@reset.val_2).exits.exists?(:direction => 2) %>
+              <% if Room.find(@reset.val_2).exits.where(:direction => 2).first.has_door? %>
+                <%= f.radio_button :val_3, 2 %> South
+              <% else %>
+                <%= f.radio_button :val_3, 2, :disabled => true %> No South Door
+              <% end %>
+            <% else %>
+              <%= f.radio_button :val_3, 2, :disabled => true %> No South Exit
+            <% end %>
+          </label>
+        </div>
+        
+        <div class="col-md-2">
+          <label class="radio-inline">
+            <% if Room.find(@reset.val_2).exits.exists?(:direction => 3) %>
+              <% if Room.find(@reset.val_2).exits.where(:direction => 3).first.has_door? %>
+                <%= f.radio_button :val_3, 3 %> West
+              <% else %>
+                <%= f.radio_button :val_3, 3, :disabled => true %> No West Door
+              <% end %>
+            <% else %>
+              <%= f.radio_button :val_3, 3, :disabled => true %> No West Exit
+            <% end %>
+          </label>
+        </div>
+        
+        <div class="col-md-2">
+          <label class="radio-inline">
+            <% if Room.find(@reset.val_2).exits.exists?(:direction => 4) %>
+              <% if Room.find(@reset.val_2).exits.where(:direction => 4).first.has_door? %>
+                <%= f.radio_button :val_3, 4 %> Up
+              <% else %>
+                <%= f.radio_button :val_3, 4, :disabled => true %> No Up Door
+              <% end %>
+            <% else %>
+              <%= f.radio_button :val_3, 4, :disabled => true %> No Up Exit
+            <% end %>
+          </label>
+        </div>
+        
+        <div class="col-md-2">
+          <label class="radio-inline">
+            <% if Room.find(@reset.val_2).exits.exists?(:direction => 5) %>
+              <% if Room.find(@reset.val_2).exits.where(:direction => 5).first.has_door? %>
+                <%= f.radio_button :val_3, 5 %> Down
+              <% else %>
+                <%= f.radio_button :val_3, 5, :disabled => true %> No Down Door
+              <% end %>
+            <% else %>
+              <%= f.radio_button :val_3, 5, :disabled => true %> No Down Exit
+            <% end %>
+          </label>
+        </div>
+        
+      </div>
+    </div>
+    
+    
+    
+    
+    <!--<% if ( reset.reset_type == 'M' || reset.reset_type == 'Q' ) %><%= reset.reset_type %> <%= reset.val_1 %> <%= Mobile.find(reset.val_2).formal_vnum %> <%= reset.val_3 %> <%= Room.find(reset.val_4).formal_vnum %> * <%= reset.description %><% end %><% if reset.reset_type == 'O' %><%= reset.reset_type %> <%= reset.val_1 %> <%= Obj.find(reset.val_2).formal_vnum %> <%= reset.val_3 %> <%= Room.find(reset.val_4).formal_vnum %> * <%= reset.description %><% end %><% if reset.reset_type == 'D' %><%= reset.reset_type %> <%= reset.val_1 %> <%= Room.find(reset.val_2).formal_vnum %> <%= reset.val_3 %> <%= reset.val_4 %> * <%= reset.description %><% end %><% if reset.reset_type == 'R' %><%= reset.reset_type %> <%= reset.val_1 %> <%= Room.find(reset.val_2).formal_vnum %> <%= reset.val_3 %> * <%= reset.description %><% end %>-->

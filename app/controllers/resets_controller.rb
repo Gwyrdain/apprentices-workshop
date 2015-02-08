@@ -14,20 +14,9 @@ class ResetsController < ApplicationController
 
   def new
       @reset = @area.resets.build
-#      @reset.vnum ||= @area.nextresetvnum
-      #if params[:vnum]
-      #end
       
-      @reset.vnum = params[:vnum]
-      @reset.name = params[:name]
-      @reset.description = params[:description]
-      @reset.terrain = params[:terrain]
-      @reset.reset_flags = params[:reset_flags]
-      
-      @reset.vnum ||= @area.nextresetvnum
-      @reset.terrain ||= @area.default_terrain
-      @reset.reset_flags ||= @area.default_reset_flags
-      
+      @reset.reset_type = params[:reset_type]
+
   end
 
   def edit
@@ -58,7 +47,6 @@ class ResetsController < ApplicationController
 
   def destroy
     @reset.destroy
-    Exit.where(:exit_reset_id => @reset.id).delete_all
     if @reset.save
       redirect_to area_resets_path(@area), notice: 'Reset was sucessfully deleted.'
     else

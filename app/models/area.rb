@@ -147,3 +147,22 @@ def object_type_from_num(i)
   $object_type = 'WEAPON ANIMAL' if i == 6
   return $object_type
 end
+
+def num_to_exits(i)
+  $exit_list = nil
+  $exit_list = 'n' if i == 0
+  $exit_list = 'n, e' if i == 1
+  $exit_list = 'n, e, s' if i == 2
+  $exit_list = 'n, e, s, w' if i == 3
+  $exit_list = 'n, e, s, w, u' if i == 4
+  $exit_list = 'n, e, s, w, u, d' if i == 5
+  return $exit_list
+end
+
+def door_state(i)
+  $state = nil
+  $state = 'open' if i == 0
+  $state = 'closed' if i == 1
+  $state = 'closed+locked' if i == 2
+  return $state
+end

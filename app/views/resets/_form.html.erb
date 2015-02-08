@@ -1,40 +1,144 @@
-<%= form_for @reset, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for  [@reset.area, @reset], :html => { :class => 'form-horizontal' } do |f| %>
+  <% if @reset.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@reset.errors.count, "error") %> prohibited saving:</h3>
+
+      <ul>
+      <% @reset.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
   <div class="form-group">
     <%= f.label :reset_type, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :reset_type, :class => 'text_field form-control' %>
+      <%= f.select(:reset_type, options_for_select(
+            [
+              ['MOBILE', 'M'],
+              ['QUEST MOBILE', 'Q'],
+              ['OBJECT', 'O'],
+              ['DOOR', 'D'],
+              ['RANDOMIZE DOORS', 'R']
+            ], @reset.reset_type
+          ), {}, {class: "form-control"}) %>
     </div>
   </div>
-  <div class="form-group">
-    <%= f.label :val_1, :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
-      <%= f.text_field :val_1, :class => 'text_field form-control' %>
+
+  <%= f.hidden_field :val_1, :value => 1 %>
+
+  <fieldset id="MobileGroup">
+    <div class="form-group">
+      <%= f.label :val_2, 'Mobile', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.collection_select(:val_2, @area.mobiles.order('vnum ASC'), :id, :vnum_and_sdesc, {}, {:id => 'MobileVnumField', :class => 'form-control'})  %>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :val_2, :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
-      <%= f.text_field :val_2, :class => 'text_field form-control' %>
+    
+    <div class="form-group">
+      <%= f.label :val_3, 'Mudwide Limit', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :val_3, :class => 'text_field form-control' %>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :val_3, :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
-      <%= f.text_field :val_3, :class => 'text_field form-control' %>
+    
+    <div class="form-group">
+      <%= f.label :val_4, 'Room', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.collection_select(:val_4, @area.rooms.order('vnum ASC'), :id, :vnum_and_name, {}, {:id => 'MobileRoomVnumField', :class => "form-control"})  %>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :val_4, :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
-      <%= f.text_field :val_4, :class => 'text_field form-control' %>
+  </fieldset>
+
+  <fieldset id="ObjectGroup">
+    <div class="form-group">
+      <%= f.label :val_2, 'Object', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.collection_select(:val_2, @area.objs.order('vnum ASC'), :id, :vnum_and_sdesc, {}, {:id => 'ObjectVnumField', :class => 'form-control'})  %>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :area_id, :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
-      <%= f.text_field :area_id, :class => 'text_field form-control' %>
+    
+    <div class="form-group">
+      <%= f.label :val_3, 'Mudwide Limit', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :val_3, :class => 'text_field form-control' %>
+      </div>
     </div>
-  </div>
+    
+    <div class="form-group">
+      <%= f.label :val_4, 'Room', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.collection_select(:val_4, @area.rooms.order('vnum ASC'), :id, :vnum_and_name, {}, {:id => 'ObjectRoomVnumField', :class => "form-control"})  %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset id="DoorGroup">
+    <div class="form-group">
+      <%= f.label :val_2, 'Room', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.collection_select(:val_2, @area.rooms.order('vnum ASC'), :id, :vnum_and_name, {}, {:id => 'DoorRoomVnumField', :class => "form-control"})  %>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :val_3, 'Door direction', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.select(:val_3, options_for_select(
+              [
+                ['North', 0],
+                ['East', 1],
+                ['South', 2],
+                ['West', 3],
+                ['Up', 4],
+                ['Down', 5]
+              ], @reset.val_3
+            ), {}, {class: "form-control"}) %>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :val_4, 'Door state', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.select(:val_4, options_for_select(
+              [
+                ['Door open', 0],
+                ['Door closed', 1],
+                ['Door closed and locked', 2]
+              ], @reset.val_4
+            ), {}, {class: "form-control"}) %>
+      </div>
+    </div>
+  </fieldset>
+  
+  <fieldset id="RandomizeGroup">
+
+    <div class="form-group">
+      <%= f.label :val_2, 'Room', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.collection_select(:val_2, @area.rooms.order('vnum ASC'), :id, :vnum_and_name, {}, {:id => 'RandomizeRoomVnumField', :class => "form-control"})  %>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :val_3, 'Exits to randomize', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.select(:val_3, options_for_select(
+              [
+                ['Randomize: north', 0],
+                ['Randomize: north and south', 1],
+                ['Randomize: north, east, and south', 2],
+                ['Randomize: north, east, south, and west', 3],
+                ['Randomize: north, east, south, west, and up', 4],
+                ['Randomize: north, east, south, west, up, and down', 5]
+              ], @reset.val_3
+            ), {}, {class: "form-control"}) %>
+      </div>
+    </div>
+    
+    <%= f.hidden_field :val_4, :value => 0 %>
+  </fieldset>
 
   <div class="form-group">
     <div class='col-md-offset-2 col-md-10'>
@@ -43,4 +147,9 @@
                   area_resets_path(@area), :class => 'btn btn-default' %>
     </div>
   </div>
+
+<script type = "text/javascript">
+  initResetForm();
+</script>
+
 <% end %>

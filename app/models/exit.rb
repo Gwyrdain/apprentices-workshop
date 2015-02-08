@@ -138,6 +138,14 @@ class Exit < ActiveRecord::Base
       return false
     end
   end
+  
+  def has_door?
+    if ( self.exittype == 1 || self.exittype == 2 )
+      return true
+    else
+      return false
+    end
+  end
 
   before_create :default_values
   def default_values

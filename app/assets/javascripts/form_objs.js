@@ -241,7 +241,7 @@ $(function() {
 $(function() {
     $('#obj_object_type').change(function() {
       
-      initForm();
+      initObjForm();
       
       validMaxAC();
       validHoldWeight();
@@ -426,7 +426,7 @@ function setKeyValueOptions() {
 }
 
 
-function initForm() {
+function initObjForm() {
   setObjValues();
   setLightValueOptions();
   setKeyValueOptions();
