@@ -86,14 +86,10 @@ class Exit < ActiveRecord::Base
 
 
   def is_external?
-    if (self.exit_room_id > (self.room.area.vnum_qty - 1))
-      return true
+    if ( self.exit_room_id == -1 || self.destination_exists? )
+      return false
     else
-      if self.destination_exists?
-        return false
-      else
-        return true
-      end
+      return true
     end
   end
 
