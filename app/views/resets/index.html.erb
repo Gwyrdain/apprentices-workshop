@@ -20,7 +20,20 @@
           <% @resets.order(:reset_type, :val_2).each do |reset| %>
             <tr>
               <td><%= reset.desc_brief %></td>
-              <td><%= reset.comment %></td>
+              <td>
+                <%= reset.comment %>
+                <% if reset.reset_type == 'O' && reset.load_obj_type == 'CONTAINER' %>
+                  </br>
+                  &nbsp<%= link_to 'Put', '', :class => 'btn btn-default btn-xs' %>
+                <% end %>
+                <% if ( reset.reset_type == 'M' || reset.reset_type == 'Q' ) %>
+                  </br>
+                  &nbsp<%= link_to 'Give', '', :class => 'btn btn-default btn-xs' %>
+                  <% if reset.load_mob_can_wear? %>
+                    &nbsp<%= link_to 'Equip', '', :class => 'btn btn-default btn-xs' %>
+                  <% end %>
+                <% end %>
+              </td>
               <td>
                 <%= link_to area_reset_path(@area, reset), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
                   <%= glyph 'info-sign' %>

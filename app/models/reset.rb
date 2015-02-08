@@ -75,6 +75,14 @@ class Reset < ActiveRecord::Base
     end
   end
   
+  def load_mob_can_wear?
+    if self.area.mobiles.exists?(:id => self.val_2)
+      return !Mobile.find(self.val_2).no_wear_eq?
+    else
+      return false
+    end
+  end
+  
   def load_obj_name
     if self.area.objs.exists?(:id => self.val_2)
       return Obj.find(self.val_2).sdesc
@@ -86,6 +94,14 @@ class Reset < ActiveRecord::Base
   def load_obj_vnum
     if self.area.objs.exists?(:id => self.val_2)
       return Obj.find(self.val_2).formal_vnum.to_s
+    else
+      return 'UNKNOWN'
+    end
+  end
+
+  def load_obj_type
+    if self.area.objs.exists?(:id => self.val_2)
+      return Obj.find(self.val_2).type_word
     else
       return 'UNKNOWN'
     end
@@ -136,5 +152,6 @@ class Reset < ActiveRecord::Base
       return 'UNKNOWN'
     end
   end  
+
 end
 

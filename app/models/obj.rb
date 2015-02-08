@@ -128,6 +128,10 @@ class Obj < ActiveRecord::Base
     $wear_loc = 'DECORATION' if self.decoration?
     return $wear_loc    
   end
+  
+  def type_word
+    return object_type_from_num( self.object_type )
+  end
 
 end
 
