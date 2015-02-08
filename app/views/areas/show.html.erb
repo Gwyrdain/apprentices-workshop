@@ -175,7 +175,9 @@
               <% end %>
             </th>
             <th>
-                Resets:
+              <%= link_to(area_resets_path(@area)) do %>
+                Resets: <%= @area.resets.count %>
+              <% end %>
             </th>
             <th>
               <%= link_to(area_shops_path(@area)) do %>
