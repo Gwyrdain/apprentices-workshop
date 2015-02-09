@@ -1,1 +1,4 @@
-<%= reset.output %>
+<%= reset.output %><% if reset.sub_resets.count > 0 %><% reset.sub_resets.order(:val_2).where(reset_type: 'E').each do |sub_reset| %>
+<%= sub_reset.output %><% end %><% reset.sub_resets.order(:val_2).where(reset_type: 'G').each do |sub_reset| %>
+<%= sub_reset.output %><% end %><% reset.sub_resets.order(:val_2).where(reset_type: 'P').each do |sub_reset| %>
+<%= sub_reset.output %><% end %><% end %>

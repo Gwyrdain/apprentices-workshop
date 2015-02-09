@@ -37,17 +37,17 @@ class SubReset < ActiveRecord::Base
   
   def output
     $output = ''
-    
+
     if self.reset_type == 'E'
-      $output = self.reset_type + ' ' + self.val_1.to_s + ' ' + self.load_obj_vnum
-      $output = $output + ' ' + self.val_3.to_s + ' ' + self.load_obj_wear_loc + " * "
+      $output = self.reset_type + ' 0 ' + self.load_obj_vnum
+      $output = $output + ' ' + self.val_3.to_s + ' ' + self.val_4.to_s + " * "
     end
     if self.reset_type == 'G'
-      $output = self.reset_type + ' ' + self.val_1.to_s + ' ' + self.load_obj_vnum
+      $output = self.reset_type + ' 0 ' + self.load_obj_vnum
       $output = $output + ' ' + self.val_3.to_s + " * "
     end
     if self.reset_type == 'P'
-      $output = self.reset_type + ' ' + self.val_1.to_s + ' ' + self.load_obj_vnum
+      $output = self.reset_type + ' 0 ' + self.load_obj_vnum
       $output = $output + ' ' + self.val_3.to_s + ' ' + self.reset.load_obj_vnum + " * "
     end
     

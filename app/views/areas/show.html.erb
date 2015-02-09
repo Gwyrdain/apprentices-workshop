@@ -176,7 +176,7 @@
             </th>
             <th>
               <%= link_to(area_resets_path(@area)) do %>
-                Resets: <%= @area.resets.count %>
+                Resets: <%= @area.resets.count + @area.sub_resets.count %>
               <% end %>
             </th>
             <th>

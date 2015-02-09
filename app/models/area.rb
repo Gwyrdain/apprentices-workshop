@@ -10,6 +10,7 @@ class Area < ActiveRecord::Base
   has_many :shops, through: :mobiles
   has_many :specials, through: :mobiles
   has_many :room_specials, through: :rooms
+  has_many :sub_resets, through: :resets
   has_many :triggers, through: :rooms, :source => :triggers
   
   include Bitfields
