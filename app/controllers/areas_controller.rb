@@ -13,7 +13,7 @@ class AreasController < ApplicationController
 
   def show
     if params[:download]
-      $area_file = render_to_string(:partial => 'areas/areablock').gsub('&#39;',"'")
+      $area_file = render_to_string(:partial => 'areas/areablock').gsub('&#39;',"'").gsub(&quot;,'"')
       #$area_file = ActionController::Base.helpers.html_safe($area_file)
       send_data($area_file , :filename => @area.name + ".are")
     else
