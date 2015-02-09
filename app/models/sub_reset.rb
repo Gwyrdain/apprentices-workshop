@@ -115,74 +115,77 @@ class SubReset < ActiveRecord::Base
   def wear_loc_ok?
     i = true
     
-    if self.reset.area.objs.exists?(:id => self.val_2) # be sure object exists
-      $load_obj = Obj.find(self.val_2)
-      
-      if self.val_4 == 0 # LIGHT
-        $load_obj.wear_flags < 2 ? i = true : i = false
+    if self.reset_type == 'E'
+      if self.reset.area.objs.exists?(:id => self.val_2) # be sure object exists
+        $load_obj = Obj.find(self.val_2)
+        
+        if self.val_4 == 0 # LIGHT
+          $load_obj.wear_flags < 2 ? i = true : i = false
+        end
+        
+        if ( self.val_4 == 1 || self.val_4 == 2 ) # FINGER
+          $load_obj.finger? ? i = true : i = false
+        end
+        
+        if ( self.val_4 == 3 || self.val_4 == 4 ) # NECK
+          $load_obj.neck? ? i = true : i = false
+        end
+        
+        if self.val_4 == 5 # BODY
+          $load_obj.body? ? i = true : i = false
+        end
+        
+        if self.val_4 == 6 # HEAD
+          $load_obj.head? ? i = true : i = false
+        end
+        
+        if self.val_4 == 7 # LEGS
+          $load_obj.legs? ? i = true : i = false
+        end
+        
+        if self.val_4 == 8 # FEET
+          $load_obj.feet? ? i = true : i = false
+        end
+        
+        if self.val_4 == 9 # HANDS
+          $load_obj.hands? ? i = true : i = false
+        end
+        
+        if self.val_4 == 10 # ARMS
+          $load_obj.arms? ? i = true : i = false
+        end
+        
+        if self.val_4 == 11 # SHIELD
+          $load_obj.shield? ? i = true : i = false
+        end
+        
+        if self.val_4 == 12 # ABOUT
+          $load_obj.about? ? i = true : i = false
+        end
+        
+        if self.val_4 == 13 # WAIST
+          $load_obj.waist? ? i = true : i = false
+        end
+        
+        if ( self.val_4 == 14 || self.val_4 == 15 ) # WRIST
+          $load_obj.wrist? ? i = true : i = false
+        end
+        
+        if self.val_4 == 16 # WIELD
+          $load_obj.wield? ? i = true : i = false
+        end
+        
+        if self.val_4 == 17 # HOLD
+          $load_obj.hold? ? i = true : i = false
+        end
+        
+        if self.val_4 == 18 # DECORATION
+          $load_obj.decoration? ? i = true : i = false
+        end
+        
       end
-      
-      if ( self.val_4 == 1 || self.val_4 == 2 ) # FINGER
-        $load_obj.finger? ? i = true : i = false
-      end
-      
-      if ( self.val_4 == 3 || self.val_4 == 4 ) # NECK
-        $load_obj.neck? ? i = true : i = false
-      end
-      
-      if self.val_4 == 5 # BODY
-        $load_obj.body? ? i = true : i = false
-      end
-      
-      if self.val_4 == 6 # HEAD
-        $load_obj.head? ? i = true : i = false
-      end
-      
-      if self.val_4 == 7 # LEGS
-        $load_obj.legs? ? i = true : i = false
-      end
-      
-      if self.val_4 == 8 # FEET
-        $load_obj.feet? ? i = true : i = false
-      end
-      
-      if self.val_4 == 9 # HANDS
-        $load_obj.hands? ? i = true : i = false
-      end
-      
-      if self.val_4 == 10 # ARMS
-        $load_obj.arms? ? i = true : i = false
-      end
-      
-      if self.val_4 == 11 # SHIELD
-        $load_obj.shield? ? i = true : i = false
-      end
-      
-      if self.val_4 == 12 # ABOUT
-        $load_obj.about? ? i = true : i = false
-      end
-      
-      if self.val_4 == 13 # WAIST
-        $load_obj.waist? ? i = true : i = false
-      end
-      
-      if ( self.val_4 == 14 || self.val_4 == 15 ) # WRIST
-        $load_obj.wrist? ? i = true : i = false
-      end
-      
-      if self.val_4 == 16 # WIELD
-        $load_obj.wield? ? i = true : i = false
-      end
-      
-      if self.val_4 == 17 # HOLD
-        $load_obj.hold? ? i = true : i = false
-      end
-      
-      if self.val_4 == 18 # DECORATION
-        $load_obj.decoration? ? i = true : i = false
-      end
-      
     end
+    
     return i
   end
   
