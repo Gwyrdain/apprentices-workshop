@@ -8,6 +8,10 @@ $jumbotron-padding: 20px;
 $jumbotron-bg: #202020;
 $jumbotron-color: darkcyan;
 
+//$panel-body-padding: 15px;
+//$panel-heading-padding: 5px 15px 5px 15px;
+//$panel-footer-padding: $panel-heading-padding;
+
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -36,4 +40,8 @@ pre {
 
 .non-bold {
     font-weight: normal;
+}
+
+.subreset {
+    margin: 5px;
 }

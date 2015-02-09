@@ -22,17 +22,7 @@
               <td><%= reset.desc_brief %></td>
               <td>
                 <%= reset.comment %>
-                <% if reset.reset_type == 'O' && reset.load_obj_type == 'CONTAINER' %>
-                  </br>
-                  &nbsp<%= link_to 'Put', '', :class => 'btn btn-default btn-xs' %>
-                <% end %>
-                <% if ( reset.reset_type == 'M' || reset.reset_type == 'Q' ) %>
-                  </br>
-                  &nbsp<%= link_to 'Give', '', :class => 'btn btn-default btn-xs' %>
-                  <% if reset.load_mob_can_wear? %>
-                    &nbsp<%= link_to 'Equip', '', :class => 'btn btn-default btn-xs' %>
-                  <% end %>
-                <% end %>
+                <% if reset.sub_resets.count > 0 %><%= render 'resets/sub_resetstable', :reset => reset %><% end %>
               </td>
               <td>
                 <%= link_to area_reset_path(@area, reset), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
@@ -44,6 +34,15 @@
                 <%= link_to area_reset_path(@area, reset), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
                   <%= glyph 'remove' %>
                 <%- end -%>
+                <% if reset.reset_type == 'O' && reset.load_obj_type == 'CONTAINER' %>
+                  &nbsp<%= link_to 'Put', new_area_reset_sub_reset_path(@area, reset, :reset_type => 'P' ), :class => 'btn btn-primary btn-xs' %>
+                <% end %>
+                <% if ( reset.reset_type == 'M' || reset.reset_type == 'Q' ) %>
+                  &nbsp<%= link_to 'Give', new_area_reset_sub_reset_path(@area, reset, :reset_type => 'G' ), :class => 'btn btn-primary btn-xs' %>
+                  <% if reset.load_mob_can_wear? %>
+                    &nbsp<%= link_to 'Equip', new_area_reset_sub_reset_path(@area, reset, :reset_type => 'E' ), :class => 'btn btn-primary btn-xs' %>
+                  <% end %>
+                <% end %>
               </td>
             </tr>
           <% end %>
