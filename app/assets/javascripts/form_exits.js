@@ -4,6 +4,7 @@ function initExitsForm() {
   setKeyType();
   setExitType();
   setExitDestinationType();
+  setResetField();
 }
 
 function setExitType() {
@@ -20,6 +21,14 @@ function setExitType() {
   }
 }
 
+function setResetField() {
+  if( $('#exit_exittype').val() == 1 || $('#exit_exittype').val() ==  2 ) {
+    $('#DoorResetGroup').show();
+  } else {
+    $('#DoorResetGroup').hide();
+  }
+}
+
 function setKeyType() {
   if( $('#exit_exittype').val() == 1 || $('#exit_exittype').val() ==  2 ) {
     $('#DoorKeyGroup').show();
@@ -31,7 +40,7 @@ function setKeyType() {
     }
     setKeyFields();
   } else {
-    $('#DoorKeyGroup').hide();  
+    $('#DoorKeyGroup').hide();
     $('#NoDoorKeyRadio').prop('checked', true);
     $('#NoDoorKeyField').prop('disabled', false);
     $('#DoorName').prop('disabled', true).hide();
@@ -106,6 +115,7 @@ $(function() {
   $('#exit_exittype').change(function() {
     setKeyType();
     setExitType();
+    setResetField();
   })
 });
 

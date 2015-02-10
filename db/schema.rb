@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208221035) do
+ActiveRecord::Schema.define(version: 20150210042406) do
 
   create_table "applies", force: true do |t|
     t.integer  "apply_type"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20150208221035) do
     t.integer  "room_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "reset"
   end
 
   add_index "exits", ["room_id"], name: "index_exits_on_room_id"

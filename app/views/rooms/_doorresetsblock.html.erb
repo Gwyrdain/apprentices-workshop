@@ -1,0 +1,5 @@
+<% exits.each do |exit| %>
+<% if exit.has_reset? %>
+<%= exit.reset_output %>
+<% end %>
+<% end %>

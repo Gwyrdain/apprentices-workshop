@@ -111,7 +111,18 @@ class Area < ActiveRecord::Base
   def flags_as_hex
     #return self.flags.to_s(16).upper ... trying new
     return "%X" % self.flags
-    
+  end
+  
+  def door_reset_count
+    i = 0
+    self.rooms.each do |room|
+
+      room.exits.each do |exit|
+        i = i + 1 if exit.has_reset?
+      end
+
+    end
+    return i
   end
   
 end

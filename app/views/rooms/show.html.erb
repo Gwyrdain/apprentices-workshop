@@ -145,7 +145,13 @@
     <p>
         <pre><%= render 'rooms/roomblock', :room => @room %></pre>
     </p>
-    
+
+    <% if @room.exits.where(:reset => 0).count + @room.exits.where(:reset => 1).count + @room.exits.where(:reset => 2).count > 0 %>
+      <strong class="monospace">Formatted Resets:</strong>
+      <p>
+          <pre><%= render 'rooms/doorresetsblock', :exits => @room.exits %></pre>
+      </p>
+    <% end %>
       
     <% if @room.room_specials.count > 0 %>
       <strong class="monospace">Formatted Room Special:</strong>

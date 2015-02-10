@@ -152,6 +152,33 @@ class Exit < ActiveRecord::Base
       return false
     end
   end
+  
+  def reset_desc
+    $desc = 'none'
+    $desc = 'open' if self.reset == 0
+    $desc = 'closed' if self.reset == 1
+    $desc = 'closed & locked' if self.reset == 2
+    return $desc
+  end
+  
+  def reset_output
+    $output = 'D 0 ' + self.room.formal_vnum.to_s + ' ' + self.direction.to_s + ' ' + self.reset.to_s + ' * '
+    $output = $output + " " * ( 25 - $output.length )
+    $output = $output + self.comment    
+    return $output
+  end
+
+  def comment
+    $desc = "Set " + self.direction_word.downcase + " door at '" + self.room.name + "' to " + self.reset_desc
+  end
+  
+  def has_reset?
+    i = false
+    i = true if self.reset == 0
+    i = true if self.reset == 1
+    i = true if self.reset == 2
+    return i
+  end
 
   before_create :default_values
   def default_values
@@ -162,8 +189,6 @@ class Exit < ActiveRecord::Base
     self.keyvnum ||= 0
     self.exit_room_id ||= -1
     self.name ||= ''
-
-
   end
 
 end

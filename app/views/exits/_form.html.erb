@@ -161,6 +161,22 @@
   </div>
   
   <%= f.hidden_field :exit_room_id, {:id => 'NoExitField', :value => -1} %>
+  
+  <%= f.hidden_field :reset, {:id => 'NoDoorReset', :value => -1} %>
+  
+  <div class="form-group" id="DoorResetGroup">
+      <%= f.label :reset, 'Door reset', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.select(:reset, options_for_select(
+              [
+                ['none', -1],
+                ['open', 0],
+                ['closed', 1],
+                ['closed & locked', 2]
+              ], @exit.reset
+            ), {}, {class: "form-control"}) %>
+      </div>
+    </div>
 
   <div class="form-group">
     <div class='col-md-offset-2 col-md-10'>

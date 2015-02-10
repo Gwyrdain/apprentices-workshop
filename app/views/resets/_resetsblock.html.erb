@@ -8,9 +8,14 @@
 <% @area.resets.order(:val_2).where(reset_type: 'O').each do |reset| %>
 <%= render 'resets/resetblock', :reset => reset %>
 <% end %>
-<% end %><% if @area.resets.where(reset_type: 'D').count + @area.resets.where(reset_type: 'R').count > 0 %>***  Door Resets  ***
-<% @area.resets.order(:val_2).where(reset_type: 'D').each do |reset| %>
-<%= render 'resets/resetblock', :reset => reset %>
+<% end %><% if @area.door_reset_count + @area.resets.where(reset_type: 'R').count > 0 %>***  Door Resets  ***
+<% @area.rooms.order(:vnum).each do |room| %>
+<% room.exits.order(:direction).each do |exit| %>
+<% if exit.has_reset? %>
+<%= exit.reset_output %>
+<% end %>
+<% end %>
 <% end %><% @area.resets.order(:val_2).where(reset_type: 'R').each do |reset| %><%= render 'resets/resetblock', :reset => reset %>
 <% end %>
 <% end %>S
+
