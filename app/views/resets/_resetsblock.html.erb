@@ -1,16 +1,16 @@
 #RESETS
-*** Mobile Resets ***
+<% if @area.resets.where(reset_type: 'M').count + @area.resets.where(reset_type: 'Q').count > 0 %>*** Mobile Resets ***
 <% @area.resets.order(:val_2).where(reset_type: 'M').each do |reset| %>
 <%= render 'resets/resetblock', :reset => reset %>
 <% end %><% @area.resets.order(:val_2).where(reset_type: 'Q').each do |reset| %><%= render 'resets/resetblock', :reset => reset %>
 <% end %>
-*** Object Resets ***
+<% end %><% if @area.resets.where(reset_type: 'O').count > 0 %>*** Object Resets ***
 <% @area.resets.order(:val_2).where(reset_type: 'O').each do |reset| %>
 <%= render 'resets/resetblock', :reset => reset %>
 <% end %>
-***  Door Resets  ***
+<% end %><% if @area.resets.where(reset_type: 'D').count + @area.resets.where(reset_type: 'R').count > 0 %>***  Door Resets  ***
 <% @area.resets.order(:val_2).where(reset_type: 'D').each do |reset| %>
 <%= render 'resets/resetblock', :reset => reset %>
 <% end %><% @area.resets.order(:val_2).where(reset_type: 'R').each do |reset| %><%= render 'resets/resetblock', :reset => reset %>
 <% end %>
-S
+<% end %>S
