@@ -1,6 +1,7 @@
 class MobilesController < ApplicationController
   before_action :set_mobile, only: [:show, :edit, :update, :destroy]
   before_action :set_area, only: [:index, :show, :new, :edit, :create, :update, :destroy]
+  before_action :correct_user, only: [:update, :destroy] #[:show, :edit, :update, :destroy]
 
   respond_to :html
 
