@@ -1,5 +1,5 @@
 
-#AREA {<%= @area.difficulty %>} <%= format("%-8s", @area.author) %> <%= format("%-20s", @area.name)%>~ F <%= @area.flags_as_hex %>
+#AREA {<%= @area.difficulty %>} <%= format("%-8s", @area.author) %> <%= @area.name %>~ F <%= @area.flags_as_hex %>
 
 
 <% if @area.helps.count > 0 %><%= render 'helps/helpsblock' %>

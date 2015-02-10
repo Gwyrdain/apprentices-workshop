@@ -1,8 +1,5 @@
 <div class="panel panel-info">
-    <div class="panel-heading"><h3>
-        Extra Descriptions
-    </h3></div>
-
+  <div class="panel-heading"><strong>Extra Descriptions</strong></div>
     <table class="table table-hover monospace">
       <thead>
         <tr>
@@ -12,7 +9,7 @@
         </tr>
       </thead>
       <tfoot><tr><td colspan = '100%'>
-        <%= link_to 'New Extra Description', new_area_room_rxdesc_path(@area, @room), :class => 'btn btn-primary' %>
+        <%= link_to 'New Extra Description', new_area_room_rxdesc_path(@area, @room), :class => 'btn btn-primary btn-xs' %>
       </td></tr></tfoot>
       <tbody>
         <% @room.rxdescs.each do |rxdesc| %>

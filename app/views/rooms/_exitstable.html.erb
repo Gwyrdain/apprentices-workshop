@@ -1,8 +1,5 @@
 <div class="panel panel-info">
-    <div class="panel-heading"><h3>
-        Exits
-    </h3></div>
-
+  <div class="panel-heading"><strong>Exits</strong></div>
           <table class="table table-hover">
             <thead>
               <tr>
@@ -18,7 +15,7 @@
               </tr>
             </thead>
             <tfoot><tr><td colspan = '100%'>
-              <%= link_to 'New Exit', new_area_room_exit_path(@area, @room), :class => 'btn btn-primary' %>
+              <%= link_to 'New Exit', new_area_room_exit_path(@area, @room), :class => 'btn btn-primary btn-xs' %>
             </td></tr></tfoot>
             <tbody>
               <% @room.exits.order(:direction).each do |exit| %>
