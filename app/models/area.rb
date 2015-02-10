@@ -167,3 +167,11 @@ def door_state(i)
   $state = 'closed+locked' if i == 2
   return $state
 end
+
+def get_string_vnum(i)
+  if  AreaString.exists?(:id => i)
+    return AreaString.find(i).formal_vnum
+  else
+    return 'UNKNOWN'
+  end
+end

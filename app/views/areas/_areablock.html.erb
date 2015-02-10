@@ -1,18 +1,27 @@
+
 #AREA {<%= @area.difficulty %>} <%= format("%-8s", @area.author) %> <%= format("%-20s", @area.name)%>~ F <%= @area.flags_as_hex %>
+
 
 <% if @area.helps.count > 0 %><%= render 'helps/helpsblock' %>
 
+
 <% end %><% if @area.mobiles.count > 0 %><%= render 'mobiles/mobilesblock' %>
+
 
 <% end %><% if @area.objs.count > 0 %><%= render 'objs/objsblock' %>
 
+
 <% end %><% if @area.rooms.count > 0 %><%= render 'rooms/roomsblock' %>
+
 
 <% end %><% if @area.area_strings.count > 0 %><%= render 'area_strings/area_stringsblock' %>
 
+
 <% end %><% if @area.resets.count > 0 %><%= render 'resets/resetsblock' %>
 
+
 <% end %><% if @area.shops.count > 0 %><%= render 'shops/shopsblock' %>
+
 
 <% end %><% if @area.specials.count > 0 %><%= render 'specials/specialsblock' %>
 
@@ -21,3 +30,4 @@
 <% end %><% if @area.triggers.count > 0 %><%= render 'triggers/triggersblock' %>
 
 <% end %>#$
+
