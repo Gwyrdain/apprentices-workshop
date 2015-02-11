@@ -130,6 +130,14 @@ class Area < ActiveRecord::Base
     return i
   end
   
+  def viewable_to?(this_user)
+    if ( this_user.id == self.user_id || self.share_publicly? || this_user.is_admin? )
+      return true
+    else
+      return false
+    end
+  end
+    
 end
 
 

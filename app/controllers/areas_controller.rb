@@ -87,10 +87,11 @@ def correct_user
 end
 
 def can_user_view
-  if current_user.id != @area.user_id
-    if !@area.share_publicly?
-      redirect_to :back, notice: "Not authorized to view this area"
-    end
+  if ( current_user.id == @area.user_id || @area.share_publicly? || current_user.is_admin? )
+    # Proceed to view
+  else
+    redirect_to :back, notice: "Not authorized to view this area"
   end
+
 end
 

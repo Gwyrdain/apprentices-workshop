@@ -22,7 +22,7 @@
       
         <tbody>
           <% @areas.each do |area| %>
-            <% if ( area.user_id == current_user.id || area.share_publicly? ) %>
+            <% if area.viewable_to?(current_user) %>
               <tr>
                 <td><%= area.area_number %></td>
                 <td><%= area.vnum_qty %></td>
