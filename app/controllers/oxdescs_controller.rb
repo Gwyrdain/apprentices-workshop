@@ -60,7 +60,7 @@ class OxdescsController < ApplicationController
     end
     
     def set_area
-      @area = Area.find(@obj.area.id)
+      @area = Area.find(params[:area_id])
     end
     
     def oxdesc_params

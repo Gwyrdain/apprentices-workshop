@@ -186,6 +186,18 @@
   </div>
   
   <div class="form-group">
+    <%= f.label :misc_flags, 'Misc Settings', :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+
+        <div class="check_box col-md-3">
+          <%= f.check_box :share_publicly, {:checked => @area.dark? ? true : false} %>
+          <%= f.label :share_publicly, 'share_publicly'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+ 
+    </div>  
+  </div>
+  
+  <div class="form-group">
     <%= f.label :default_terrain, :class => 'control-label col-md-2' %> 
     <div class="col-md-10">
     <%= f.select(:default_terrain, options_for_select(

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150210042406) do
+ActiveRecord::Schema.define(version: 20150210203515) do
 
   create_table "applies", force: true do |t|
     t.integer  "apply_type"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20150210042406) do
     t.integer  "vnum_qty"
     t.integer  "default_terrain"
     t.integer  "default_room_flags"
+    t.integer  "misc_flags"
   end
 
   add_index "areas", ["user_id"], name: "index_areas_on_user_id"

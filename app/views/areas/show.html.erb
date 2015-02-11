@@ -8,6 +8,17 @@
       
       <div class="row">
         <div class="col-md-2">
+          <strong>Area Owner:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @area.user.email %>
+          </div>
+        </div>
+      </div><br/>
+      
+      <div class="row">
+        <div class="col-md-2">
           <strong>Author:</strong>
         </div>
         <div class="col-md-10">
@@ -143,6 +154,15 @@
           <% if @area.default_terrain == 8 %><div class="col-md-2">UNDERWATER</div><% end %>
           <% if @area.default_terrain == 9 %><div class="col-md-2">AIR</div><% end %>
           <% if @area.default_terrain == 10 %><div class="col-md-2">DESERT</div><% end %>
+        </div>
+      </div><br/>
+
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Misc. Settings:</strong>
+        </div>
+        <div class="col-md-10">
+          <% if @area.share_publicly? %><div class="col-md-2">PUBLICLY SHARED</div><% end %>
         </div>
       </div><br/>
       

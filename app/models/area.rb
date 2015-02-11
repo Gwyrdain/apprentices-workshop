@@ -14,6 +14,10 @@ class Area < ActiveRecord::Base
   has_many :triggers, through: :rooms, :source => :triggers
   
   include Bitfields
+  
+  bitfield :misc_flags,
+                    2**0 => :share_publicly
+  
   bitfield  :flags, 2**0 => :manmade,  # Hex 1
                     2**1 => :city,     # Hex 2
                     2**2 => :forest,   # Hex 4
@@ -71,6 +75,7 @@ class Area < ActiveRecord::Base
   def default_values
     self.flags ||= 0
     self.vnum_qty ||= 100
+    self.misc_flags ||= 0
     self.default_terrain ||= 0
     self.default_room_flags ||= 0
     return true

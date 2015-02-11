@@ -2,6 +2,7 @@ class AreasController < ApplicationController
   before_action :set_area, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!#, except: [:index]
   before_action :correct_user, only: [:update, :destroy] #[:show, :edit, :update, :destroy]
+  before_action :can_user_view, only: [:show, :edit]
 
   respond_to :html
 
@@ -28,9 +29,11 @@ class AreasController < ApplicationController
     @area.vnum_qty ||= 100
     @area.default_terrain ||= 0
     @area.default_room_flags ||= 0
+    @area.misc_flags ||= 0
   end
 
   def edit
+    
   end
 
   def create
@@ -70,14 +73,24 @@ class AreasController < ApplicationController
                                    :private_room, :peaceful, :solitary,
                                    :no_recall, :no_steal, :notrans,
                                    :no_spell, :seafloor, :no_fly, :holy_ground,
-                                   :fly_ok, :no_quest, :no_item, :no_vnum
+                                   :fly_ok, :no_quest, :no_item, :no_vnum,
+                                   :misc_flags, :share_publicly, :testing
                                   )
     end
 end
 
 
 def correct_user
-    @area = current_user.areas.find_by(id: params[:id])
+    #@area = current_user.areas.find_by(id: params[:id])
     #redirect_to areas_path, notice: "Not authorized to edit this area" if @area.nil?
-    redirect_to :back, notice: "Not authorized to edit this area" if @area.nil?
+    redirect_to :back, notice: "Not authorized to edit this area" if current_user.id != @area.user_id
 end
+
+def can_user_view
+  if current_user.id != @area.user_id
+    if !@area.share_publicly?
+      redirect_to :back, notice: "Not authorized to view this area"
+    end
+  end
+end
+

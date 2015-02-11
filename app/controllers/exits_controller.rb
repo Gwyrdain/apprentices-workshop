@@ -83,7 +83,7 @@ class ExitsController < ApplicationController
     end
     
     def set_area
-      @area = Area.find(@room.area.id)
+      @area = Area.find(params[:area_id])
     end
     
     def exit_params
