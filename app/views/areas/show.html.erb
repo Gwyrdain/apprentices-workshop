@@ -60,18 +60,7 @@
           </div>
         </div>
       </div><br/>
-      <!--
-      <div class="row">
-        <div class="col-md-2">
-          <strong>Area flags value:</strong>
-        </div>
-        <div class="col-md-10">
-          <div class="col-md-10">
-            <%= @area.flags_as_hex %>
-          </div>
-        </div>
-      </div><br/>
-      -->
+      
       <div class="row">
         <div class="col-md-2">
           <strong>Area Flags:</strong>
@@ -89,16 +78,7 @@
           <% if @area.novnum? %><div class="col-md-2">NOVNUM</div><% end %>
         </div>
       </div><br/>
-      <!--
-      <div class="row">
-        <div class="col-md-2">
-          <strong><%= model_class.human_attribute_name(:default_room_flags) %> value:</strong>
-        </div>
-        <div class="col-md-10">
-          <div class="col-md-10"><%= @area.default_room_flags %></div>
-        </div>
-      </div><br/>
-      -->
+
       <div class="row">
         <div class="col-md-2">
           <strong><%= model_class.human_attribute_name(:default_room_flags) %>:</strong>
@@ -128,16 +108,7 @@
           <% if @area.no_vnum? %><div class="col-md-2">NO VNUM</div><% end %>
         </div>
       </div><br/>
-      <!--
-      <div class="row">
-        <div class="col-md-2">
-          <strong><%= model_class.human_attribute_name(:default_terrain) %> value:</strong>
-        </div>
-        <div class="col-md-10">
-          <div class="col-md-10"><%= @area.default_terrain %></div>
-        </div>
-      </div><br/>
-      -->
+
       <div class="row">
         <div class="col-md-2">
           <strong><%= model_class.human_attribute_name(:default_terrain) %>:</strong>
@@ -185,64 +156,58 @@
         </div>
       </div><br/>
       
-      <table class="table">
-        <tbody>
-          <tr>
-            <th>
-              <%= link_to(area_helps_path(@area)) do %>
-                Helps: <%= @area.helps.count %>
-              <% end %>
-            </th>
-            <th>
-              <%= link_to(area_mobiles_path(@area)) do %>
-                Mobiles: <%= @area.mobiles.count %>
-              <% end %>
-            </th>
-            <th>
-              <%= link_to(area_objs_path(@area)) do %>
-                Objects: <%= @area.objs.count %>
-              <% end %>
-            </th>
-            <th>
-              <%= link_to(area_rooms_path(@area)) do %>
-                Rooms: <%= @area.rooms.count %>
-              <% end %>
-            </th>
-            <th>
-              <%= link_to(area_area_strings_path(@area)) do %>
-                Strings: <%= @area.area_strings.count %>
-              <% end %>
-            </th>
-            <th>
-              <%= link_to(area_resets_path(@area)) do %>
-                Resets: <%= @area.resets.count + @area.sub_resets.count + @area.door_reset_count %>
-              <% end %>
-            </th>
-            <th>
-              <%= link_to(area_shops_path(@area)) do %>
-                Shops: <%= @area.shops.count %>
-              <% end %>
-            </th>
-            <th>
-              <%= link_to(area_specials_path(@area)) do %>
-                Specials: <%= @area.specials.count %>
-              <% end %>
-            </th>
-            <th>
-              <%= link_to(area_triggers_path(@area)) do %>
-                Triggers: <%= @area.triggers.count %>
-              <% end %>
-            </th>
-            <th>
-              <%= link_to(area_room_specials_path(@area)) do %>
-                Rspecs: <%= @area.room_specials.count %>
-              <% end %>
-            </th>
-          </tr>
-       </tbody>
-     </table>
+      <hr>
+      <div class="row center">
+        
+        <div class="btn-group" role="group">
+
+          <%= link_to(area_helps_path(@area), :class => "btn btn-default") do %>
+            Helps: <%= @area.helps.count %>
+          <% end %>
+
+          <%= link_to(area_mobiles_path(@area), :class => "btn btn-default") do %>
+            Mobiles: <%= @area.mobiles.count %>
+          <% end %>
+
+          <%= link_to(area_objs_path(@area), :class => "btn btn-default") do %>
+            Objects: <%= @area.objs.count %>
+          <% end %>
+
+          <%= link_to(area_rooms_path(@area), :class => "btn btn-default") do %>
+            Rooms: <%= @area.rooms.count %>
+          <% end %>
+
+          <%= link_to(area_area_strings_path(@area), :class => "btn btn-default") do %>
+            Strings: <%= @area.area_strings.count %>
+          <% end %>
+
+          <%= link_to(area_resets_path(@area), :class => "btn btn-default") do %>
+            Resets: <%= @area.resets.count + @area.sub_resets.count + @area.door_reset_count %>
+          <% end %>
+
+          <%= link_to(area_shops_path(@area), :class => "btn btn-default") do %>
+            Shops: <%= @area.shops.count %>
+          <% end %>
+
+          <%= link_to(area_specials_path(@area), :class => "btn btn-default") do %>
+            Specials: <%= @area.specials.count %>
+          <% end %>
+
+          <%= link_to(area_triggers_path(@area), :class => "btn btn-default") do %>
+            Triggers: <%= @area.triggers.count %>
+          <% end %>
+          
+          <%= link_to(area_room_specials_path(@area), :class => "btn btn-default") do %>
+            Rspecs: <%= @area.room_specials.count %>
+          <% end %>
+          
+        </div>
+        
+      </div>
      
     </div>
+    
+    </br>
     
     <div class="panel-footer">
       <%= link_to t('.back', :default => t("helpers.links.back")),
@@ -255,12 +220,7 @@
                   :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                   :class => 'btn btn-danger' %>
       <%= link_to 'Download', area_path(@area, :download => true), :class => 'btn btn-primary'  %>
+      <%= link_to 'Preview', area_path(@area, :preview => true), :target => "_blank", :class => 'btn btn-success'  %>
     </div>
 
 </div>
-
-
-
-<br/>
-<strong class="monospace">Formatted Area File:</strong>
-<pre><%= render 'areas/areablock' %></pre>

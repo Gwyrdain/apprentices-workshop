@@ -17,8 +17,9 @@ class AreasController < ApplicationController
       $area_file = render_to_string(:partial => 'areas/areablock').gsub('&#39;',"'").gsub('&quot;','"')
       #$area_file = ActionController::Base.helpers.html_safe($area_file)
       send_data($area_file , :filename => @area.name + ".are")
-    else
-      # render normally
+    end
+    if params[:preview]
+      render('areas/areapreview')
     end
   end
 
