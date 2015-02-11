@@ -81,9 +81,13 @@ end
 
 
 def correct_user
-    #@area = current_user.areas.find_by(id: params[:id])
-    #redirect_to areas_path, notice: "Not authorized to edit this area" if @area.nil?
+  #@area = current_user.areas.find_by(id: params[:id])
+  #redirect_to areas_path, notice: "Not authorized to edit this area" if @area.nil?
+  if ( current_user.id == @area.user_id || current_user.is_admin? )
+    # Proceed
+  else
     redirect_to :back, notice: "Not authorized to edit this area" if current_user.id != @area.user_id
+  end
 end
 
 def can_user_view
