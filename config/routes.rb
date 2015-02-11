@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :areas do
+    resources :shares
     resources :helps
     resources :rooms do
       resources :rxdescs

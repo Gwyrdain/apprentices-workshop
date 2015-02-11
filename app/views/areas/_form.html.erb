@@ -190,7 +190,7 @@
     <div class="col-md-10">
 
         <div class="check_box col-md-3">
-          <%= f.check_box :share_publicly, {:checked => @area.dark? ? true : false} %>
+          <%= f.check_box :share_publicly, {:checked => @area.share_publicly? ? true : false} %>
           <%= f.label :share_publicly, 'share_publicly'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
  

@@ -1,0 +1,28 @@
+<%= form_for [@share.area, @share], :html => { :class => 'form-horizontal' } do |f| %>
+  <% if @share.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@share.errors.count, "error") %> prohibited saving:</h3>
+
+      <ul>
+      <% @share.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div id="LocalDoorKeyVnumGroup" class="form-group">
+      <%= f.label :user_id, 'User', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.collection_select(:user_id, User.order(:email), :id, :email, {}, {:id => 'EmailSelectList', :class => 'form-control'})  %>
+      </div>
+    </div>
+
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  area_path(@area), :class => 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>

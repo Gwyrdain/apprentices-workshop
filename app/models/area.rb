@@ -6,6 +6,7 @@ class Area < ActiveRecord::Base
   has_many :mobiles, dependent: :destroy
   has_many :area_strings, dependent: :destroy
   has_many :resets, dependent: :destroy
+  has_many :shares, dependent: :destroy
   
   has_many :shops, through: :mobiles
   has_many :specials, through: :mobiles
@@ -131,7 +132,7 @@ class Area < ActiveRecord::Base
   end
   
   def viewable_to?(this_user)
-    if ( this_user.id == self.user_id || self.share_publicly? || this_user.is_admin? )
+    if ( this_user.id == self.user_id || self.share_publicly? || this_user.is_admin? || self.shares.exists?(:user_id => this_user.id ) )
       return true
     else
       return false

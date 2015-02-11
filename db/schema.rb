@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150211014433) do
+ActiveRecord::Schema.define(version: 20150211023920) do
 
   create_table "applies", force: true do |t|
     t.integer  "apply_type"
@@ -196,6 +196,15 @@ ActiveRecord::Schema.define(version: 20150211014433) do
   end
 
   add_index "rxdescs", ["room_id"], name: "index_rxdescs_on_room_id"
+
+  create_table "shares", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "area_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shares", ["area_id"], name: "index_shares_on_area_id"
 
   create_table "shops", force: true do |t|
     t.integer  "buy_type_1"
