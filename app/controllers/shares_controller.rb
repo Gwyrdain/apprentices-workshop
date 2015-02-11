@@ -1,7 +1,7 @@
 class SharesController < ApplicationController
   before_action :set_share, only: [:show, :edit, :update, :destroy]
   before_action :set_area, only: [:index, :show, :new, :edit, :create, :update, :destroy]
-  before_action :correct_user, only: [:update, :destroy] #[:show, :edit, :update, :destroy]
+  before_action :shares_correct_user, only: [:new, :update, :destroy] #[:show, :edit, :update, :destroy]
 
   respond_to :html
 
@@ -61,4 +61,12 @@ class SharesController < ApplicationController
     def share_params
       params.require(:share).permit(:user_id, :area_id)
     end
+end
+
+def shares_correct_user
+  if ( current_user.id == @area.user_id || current_user.is_admin? )
+    # Proceed
+  else
+    redirect_to :back, notice: "Only the area owner may modify shares."
+  end
 end
