@@ -83,7 +83,7 @@ end
 def correct_user
   #@area = current_user.areas.find_by(id: params[:id])
   #redirect_to areas_path, notice: "Not authorized to edit this area" if @area.nil?
-  if ( current_user.id == @area.user_id || current_user.is_admin? || @area.shares.exists?(:user_id => current_user.id) )
+  if ( current_user.id == @area.user_id || @area.shared_with?(current_user) || current_user.is_admin? )
     # Proceed
   else
     redirect_to :back, notice: "Not authorized to edit this area"
@@ -91,7 +91,7 @@ def correct_user
 end
 
 def can_user_view
-  if ( current_user.id == @area.user_id || @area.share_publicly? || current_user.is_admin? || @area.shares.exists?(:user_id => current_user.id) )
+  if ( current_user.id == @area.user_id || @area.shared_with?(current_user) || current_user.is_admin? || self.share_publicly? )
     # Proceed to view
   else
     redirect_to :back, notice: "Not authorized to view this area"

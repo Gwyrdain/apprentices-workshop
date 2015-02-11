@@ -131,8 +131,9 @@ class Area < ActiveRecord::Base
     return i
   end
   
-  def viewable_to?(this_user)
-    if ( this_user.id == self.user_id || self.share_publicly? || this_user.is_admin? || self.shares.exists?(:user_id => this_user.id ) )
+  def shared_with?(this_user)
+#   if ( this_user.id == self.user_id || self.share_publicly? || this_user.is_admin? || self.shares.exists?(:user_id => this_user.id ) )
+    if self.shares.exists?(:user_id => this_user.id )
       return true
     else
       return false
