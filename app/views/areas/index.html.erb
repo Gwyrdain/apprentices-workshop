@@ -81,7 +81,7 @@
       
         <tbody>
           <% @areas.order(:area_number).where.not(:user => current_user.id).each do |area| %>
-            <% if area.shared_with?(current_user) %>
+            <% if ( area.shared_with?(current_user) || area.share_publicly? ) %>
               <tr>
                 <td><%= area.area_number %></td>
                 <td><%= area.vnum_qty %></td>
@@ -138,7 +138,7 @@
         
           <tbody>
             <% @areas.order(:area_number).where.not(:user => current_user.id).each do |area| %>
-              <% if !area.shared_with?(current_user) %>
+              <% if !( area.shared_with?(current_user) || area.share_publicly? ) %>
                 <tr>
                   <td><%= area.area_number %></td>
                   <td><%= area.vnum_qty %></td>
