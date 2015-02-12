@@ -6,7 +6,11 @@
     </div>
     <div class="panel-body">    
     
-        <%= render :partial => 'form' %>
+        <% if params[:import] %>
+            <%= render :partial => 'import' %>
+        <% else %>
+            <%= render :partial => 'form' %>
+        <% end %>
 
     </div>
 

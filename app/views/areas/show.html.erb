@@ -30,6 +30,17 @@
       
       <div class="row">
         <div class="col-md-2">
+          <strong>Description:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= simple_format(word_wrap(@area.description, line_width: 75)) %>
+          </div>
+        </div>
+      </div><br/>
+      
+      <div class="row">
+        <div class="col-md-2">
           <strong>Area number:</strong>
         </div>
         <div class="col-md-10">
@@ -41,11 +52,22 @@
       
       <div class="row">
         <div class="col-md-2">
-          <strong>Difficulty:</strong>
+          <strong>Low Level:</strong>
         </div>
         <div class="col-md-10">
           <div class="col-md-10">
-            <%= @area.difficulty %>
+            <%= @area.lowlevel %>
+          </div>
+        </div>
+      </div><br/>
+      
+      <div class="row">
+        <div class="col-md-2">
+          <strong>High Level:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @area.highlevel %>
           </div>
         </div>
       </div><br/>
@@ -223,4 +245,38 @@
       <%= link_to 'Preview', area_path(@area, :preview => true), :target => "_blank", :class => 'btn btn-success'  %>
     </div>
 
+</div>
+
+<br/>
+<strong class="monospace">Formatted #AREA Header:</strong>
+<pre><%= render 'areas/areaheader' %></pre>
+<br/>
+
+<div class="panel panel-info">
+  <div class="panel-heading">Information</div>
+  <div class="panel-body">
+    Sample informational review...</br>
+    * ### external exit connections are included.</br>
+  </div>
+</div>
+
+<div class="panel panel-warning">
+  <div class="panel-heading">Warnings Found -- Please review</div>
+  <div class="panel-body">
+    Sample warnings...</br>
+    * Used a non-generic spec_fun: _xyz_ at ...</br>
+    * Illogical exits found at ...</br>
+    * Area includes the exit randomizer reset.</br>
+    * A deprecated room flag was used.</br>
+  </div>
+</div>
+
+<div class="panel panel-danger">
+  <div class="panel-heading">Errors Found -- Area file will NOT export</div>
+  <div class="panel-body">
+    Sample errors...</br>
+    * Container xyz was filled beyond capacity.</br>
+    * A trap exit type was used without the required xyz fucntion.</br>
+    * 
+  </div>
 </div>

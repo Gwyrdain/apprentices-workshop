@@ -65,9 +65,11 @@ class Area < ActiveRecord::Base
 #               2**32 => :flag,          # Dec: 4294967296 / Hex: 100000000
 
   validates :name, length: { in: 1..20 }
-  validates :author, length: { in: 1..8 }
-  validates :difficulty, length: { is: 5 }
+  validates :author, length: { in: 1..75 }
+
   validates :vnum_qty, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :lowlevel, numericality: { only_integer: true, greater_than: 0, less_than: 51  }
+  validates :highlevel, numericality: { only_integer: true, greater_than: 0, less_than: 51  }
   validates :default_terrain, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :area_number,  numericality: { only_integer: true, greater_than: 0 },
                                            uniqueness:   { message: "Area number already in use." }
@@ -117,6 +119,20 @@ class Area < ActiveRecord::Base
   def flags_as_hex
     #return self.flags.to_s(16).upper ... trying new
     return "%X" % self.flags
+  end
+  
+  def flags_as_string
+    $flags_string = ''
+    $flags_string = $flags_string + ' MANMADE' if self.manmade
+    $flags_string = $flags_string + ' CITY' if self.city
+    $flags_string = $flags_string + ' FOREST' if self.forest
+    $flags_string = $flags_string + ' LIMITED' if self.limited
+    $flags_string = $flags_string + ' AERIAL' if self.aerial
+    $flags_string = $flags_string + ' RESERVED' if self.reserved
+    $flags_string = $flags_string + ' ARENA' if self.arena
+    $flags_string = $flags_string + ' QUEST' if self.quest
+    $flags_string = $flags_string + ' NOVNUM' if self.novnum
+    return $flags_string
   end
   
   def door_reset_count

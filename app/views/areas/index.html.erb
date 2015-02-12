@@ -26,7 +26,7 @@
               <td><%= area.area_number %></td>
               <td><%= area.vnum_qty %></td>
               <td>
-                <div class="monospace-pre"><%= link_to(area) do %>{<%= area.difficulty %>} <%= format("%-8s", area.author) %> <%= area.name %><% end %></div>
+                <%= link_to(area) do %><%= area.name %><% end %>
               </td>
               <td><%= area.helps.count %></td>
               <td><%= area.mobiles.count %></td>
@@ -52,7 +52,11 @@
     </div>
     
     <div class="panel-footer">
-      <%= link_to 'New Area', new_area_path %>
+      <%= link_to 'New Area', new_area_path, :class => 'btn btn-primary'  %>
+      <% if current_user.is_admin? %>
+        <%= link_to 'Import Area', new_area_path(:import => true), :class => 'btn btn-warning'  %>
+      <% end %>
+
     </div>
     
 </div>
@@ -86,7 +90,7 @@
                 <td><%= area.area_number %></td>
                 <td><%= area.vnum_qty %></td>
                 <td>
-                  <div class="monospace-pre"><%= link_to(area) do %>{<%= area.difficulty %>} <%= format("%-8s", area.author) %> <%= area.name %><% end %></div>
+                  <%= link_to(area) do %><%= area.name %><% end %>
                 </td>
                 <td><%= area.helps.count %></td>
                 <td><%= area.mobiles.count %></td>
@@ -143,7 +147,7 @@
                   <td><%= area.area_number %></td>
                   <td><%= area.vnum_qty %></td>
                   <td>
-                    <div class="monospace-pre"><%= link_to(area) do %>{<%= area.difficulty %>} <%= format("%-8s", area.author) %> <%= area.name %><% end %></div>
+                    <%= link_to(area) do %><%= area.name %><% end %>
                   </td>
                   <td><%= area.helps.count %></td>
                   <td><%= area.mobiles.count %></td>

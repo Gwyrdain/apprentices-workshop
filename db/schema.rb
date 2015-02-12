@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150211023920) do
+ActiveRecord::Schema.define(version: 20150212223116) do
 
   create_table "applies", force: true do |t|
     t.integer  "apply_type"
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20150211023920) do
   create_table "areas", force: true do |t|
     t.string   "name"
     t.string   "author"
-    t.string   "difficulty"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -47,6 +46,9 @@ ActiveRecord::Schema.define(version: 20150211023920) do
     t.integer  "default_terrain"
     t.integer  "default_room_flags"
     t.integer  "misc_flags"
+    t.text     "description",        default: ""
+    t.integer  "lowlevel",           default: 1
+    t.integer  "highlevel",          default: 50
   end
 
   add_index "areas", ["user_id"], name: "index_areas_on_user_id"

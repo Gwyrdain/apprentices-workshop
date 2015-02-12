@@ -14,7 +14,7 @@ class AreasController < ApplicationController
 
   def show
     if params[:download]
-      $area_file = render_to_string(:partial => 'areas/areablock').gsub('&#39;',"'").gsub('&quot;','"')
+      $area_file = render_to_string(:partial => 'areas/areafile').gsub('&#39;',"'").gsub('&quot;','"')
       #$area_file = ActionController::Base.helpers.html_safe($area_file)
       send_data($area_file , :filename => @area.name + ".are")
     end
@@ -31,6 +31,7 @@ class AreasController < ApplicationController
     @area.default_terrain ||= 0
     @area.default_room_flags ||= 0
     @area.misc_flags ||= 0
+    
   end
 
   def edit
@@ -39,6 +40,11 @@ class AreasController < ApplicationController
 
   def create
     @area = current_user.areas.create(area_params)
+    
+    if params[:import]
+      redirect_to areas_path, notice: 'Whatever trevor.'
+    end
+    
     if @area.save
       redirect_to @area, notice: 'Area was sucessfully created.'
     else
@@ -53,7 +59,7 @@ class AreasController < ApplicationController
       render action: 'edit'
     end     
   end
-
+  
   def destroy
     @area.destroy
     redirect_to areas_url
@@ -65,7 +71,7 @@ class AreasController < ApplicationController
     end
 
     def area_params
-      params.require(:area).permit(:name, :author, :difficulty, :area_number,
+      params.require(:area).permit(:name, :author, :area_number,
                                    :vnum_qty, :manmade, :city, :forest,
                                    :limited, :aerial, :reserved, :arena,
                                    :quest, :novnum, :default_terrain, 
@@ -75,7 +81,8 @@ class AreasController < ApplicationController
                                    :no_recall, :no_steal, :notrans,
                                    :no_spell, :seafloor, :no_fly, :holy_ground,
                                    :fly_ok, :no_quest, :no_item, :no_vnum,
-                                   :misc_flags, :share_publicly, :testing
+                                   :misc_flags, :share_publicly,
+                                   :description, :lowlevel, :highlevel
                                   )
     end
 end
