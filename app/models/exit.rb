@@ -104,7 +104,7 @@ class Exit < ActiveRecord::Base
   end
 
   def is_loopback?
-    if self.destination.id == self.room.id
+    if ( self.destination_exists? && self.destination.id == self.room.id )
       return true
     else
       return false
@@ -112,7 +112,7 @@ class Exit < ActiveRecord::Base
   end
 
   def is_one_way?
-    if not self.is_loopback?
+    if ( self.destination_exists? && !self.is_loopback? )
       if self.destination.exits.where(:direction => opposite_dir(self.direction)).first
         return false
       else

@@ -91,11 +91,31 @@ class Room < ActiveRecord::Base
     return $externals_exist
   end
   
- def any_illogical_exits?
+  def any_illogical_exits?
     $illogical_exits_exist = false
     self.exits.each do |exit|
       if exit.is_illogical?
         $illogical_exits_exist = true
+      end
+    end
+    return $illogical_exits_exist
+  end
+  
+  def any_loopback_exits?
+    $loopback_exits_exist = false
+    self.exits.each do |exit|
+      if exit.is_loopback?
+        $loopback_exits_exist = true
+      end
+    end
+    return $illogical_exits_exist
+  end
+  
+  def any_oneway_exits?
+    $oneway_exits_exist = false
+    self.exits.each do |exit|
+      if exit.is_one_way?
+        $oneway_exits_exist = true
       end
     end
     return $illogical_exits_exist
