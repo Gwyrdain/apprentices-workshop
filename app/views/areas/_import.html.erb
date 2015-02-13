@@ -1,28 +1,63 @@
-  <%= form_for [@area], :html => { :class => 'form-horizontal' } do |f| %>
-  <% if @area.errors.any? %>
-    <div id="error_explanation">
-      <h3><%= pluralize(@area.errors.count, "error") %> prohibited saving:</h3>
+<script type = "text/javascript">
+  
+  $(document).on('change', '.btn-file :file', function() {
+    var input = $(this),
+        numFiles = input.get(0).files ? input.get(0).files.length : 1,
+        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.trigger('fileselect', [numFiles, label]);
+  });
+  
+  $(document).ready( function() {
+      $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+          
+          var input = $(this).parents('.input-group').find(':text'),
+              log = numFiles > 1 ? numFiles + ' files selected' : label;
+          
+          if( input.length ) {
+              input.val(log);
+          } else {
+              if( log ) alert(log);
+          }
+          
+      });
+  });
 
-      <ul>
-      <% @area.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+</script> 
+
+<% if @area.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(@area.errors.count, "error") %> prohibited saving:</h3>
+
+    <ul>
+    <% @area.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_tag import_areas_path, multipart: true, :class => 'form-horizontal' do %>
   
   <div class="form-group">
-    <%= f.label :file, :class => 'control-label col-md-2' %>
+    
+    <%= label_tag :file, "Area file", :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.file_field :file %>
+      <div class="input-group">
+          <span class="input-group-btn">
+              <span class="btn btn-primary btn-file">
+                  Browse <%= file_field_tag :file %>
+              </span>
+          </span>
+          <input type="text" class="form-control" readonly>
+      </div>
     </div>
   </div>
 
   <div class="form-group">
-    <div class='col-md-offset-2 col-md-10'>
-      <%= f.submit nil, :class => 'btn btn-primary' %>
+    <div class='col-md-offset-2 col-md-10'>  
+      <%= submit_tag "Import", :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                  areas_path, :class => 'btn btn-default' %>
+            areas_path, :class => 'btn btn-default' %>
     </div>
   </div>
 

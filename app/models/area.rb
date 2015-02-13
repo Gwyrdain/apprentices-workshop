@@ -84,6 +84,12 @@ class Area < ActiveRecord::Base
     return true
   end
   
+  def self.import(file)
+    #CSV.foreach(file.path, headers: true) do |row|
+    #  Product.create! row.to_hash
+    #end
+  end
+  
   def nextroomvnum
     $i = 0
     while self.rooms.exists?(:vnum => $i)  do

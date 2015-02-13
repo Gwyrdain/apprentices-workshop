@@ -95,3 +95,44 @@
     
     
     <!--<% if ( reset.reset_type == 'M' || reset.reset_type == 'Q' ) %><%= reset.reset_type %> <%= reset.val_1 %> <%= Mobile.find(reset.val_2).formal_vnum %> <%= reset.val_3 %> <%= Room.find(reset.val_4).formal_vnum %> * <%= reset.comment %><% end %><% if reset.reset_type == 'O' %><%= reset.reset_type %> <%= reset.val_1 %> <%= Obj.find(reset.val_2).formal_vnum %> <%= reset.val_3 %> <%= Room.find(reset.val_4).formal_vnum %> * <%= reset.comment %><% end %><% if reset.reset_type == 'D' %><%= reset.reset_type %> <%= reset.val_1 %> <%= Room.find(reset.val_2).formal_vnum %> <%= reset.val_3 %> <%= reset.val_4 %> * <%= reset.comment %><% end %><% if reset.reset_type == 'R' %><%= reset.reset_type %> <%= reset.val_1 %> <%= Room.find(reset.val_2).formal_vnum %> <%= reset.val_3 %> * <%= reset.comment %><% end %>-->
+    
+    
+    
+      <div class="form-group">
+    <%= f.label :file, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      
+        <%= f.file_field :file %>
+        
+        <span class="btn btn-default btn-file">
+            Browse <input type="file">
+        </span>
+            
+    </div>
+  </div>
+  
+  
+  
+<!--
+<div class="form-group">
+  <%= f.label :file, :class => 'control-label col-md-2' %>
+  <div class="col-md-10">
+    <div class="input-group">
+        <span class="input-group-btn">
+            <span class="btn btn-primary btn-file">
+                Browse <input type="file" multiple>
+            </span>
+        </span>
+        <input type="text" class="form-control" readonly>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class='col-md-offset-2 col-md-10'>
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                areas_path, :class => 'btn btn-default' %>
+  </div>
+</div>
+-->

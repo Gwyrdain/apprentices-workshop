@@ -39,18 +39,18 @@ class AreasController < ApplicationController
   end
 
   def create
-    if params[:import]
-      render('areas/areapreview')
-    else
-      
-      @area = current_user.areas.create(area_params)
+    @area = current_user.areas.create(area_params)
 
-      if @area.save
-        redirect_to @area, notice: 'Area was sucessfully created.'
-      else
-        render action: 'new'
-      end
+    if @area.save
+      redirect_to @area, notice: 'Area was sucessfully created.'
+    else
+      render action: 'new'
     end
+  end
+  
+  def import
+    Area.import(params[:file])
+    redirect_to areas_path, notice: "Area file imported."
   end
 
   def update
@@ -83,7 +83,8 @@ class AreasController < ApplicationController
                                    :no_spell, :seafloor, :no_fly, :holy_ground,
                                    :fly_ok, :no_quest, :no_item, :no_vnum,
                                    :misc_flags, :share_publicly,
-                                   :description, :lowlevel, :highlevel
+                                   :description, :lowlevel, :highlevel,
+                                   :file
                                   )
     end
 end

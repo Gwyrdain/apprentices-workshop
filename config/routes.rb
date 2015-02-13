@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :areas do
+    collection { post :import }
     resources :shares
     resources :helps
     resources :rooms do

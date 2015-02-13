@@ -22,6 +22,7 @@ function setSpecFunType() {
 function setExtendedSpecFunLabels() {
   $('#xGeneric').prop('disabled', true).hide()
   $('#xActOnGive').prop('disabled', true).hide()
+  $('#xCallForHelp').prop('disabled', true).hide()
   $('#xMageProtector').prop('disabled', true).hide()
   $('#xTimedTeleport').prop('disabled', true).hide()
     
@@ -29,6 +30,12 @@ function setExtendedSpecFunLabels() {
       $('#ExtendedSpecialField').val() == 'spec_act_on_give' ) {
     $('#xActOnGive').prop('disabled', false).show()
   }
+  
+  if( $('#special_special_type').val() == 'N' &&
+      $('#ExtendedSpecialField').val() == 'spec_call_for_help' ) {
+    $('#xGeneric').prop('disabled', false).show()
+  }
+  
   
   if( $('#special_special_type').val() == 'N' &&
       $('#ExtendedSpecialField').val() == 'spec_mage_protector' ) {
