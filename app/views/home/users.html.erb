@@ -17,7 +17,7 @@
     </thead>
     <tbody>
       <% @users = User.all %>
-      <% @users.order(:id).each do |user| %>
+      <% @users.order(current_sign_in_at: :desc).each do |user| %>
         <tr>
           <td><%= user.id %></td>
           <td><%= user.email %></td>

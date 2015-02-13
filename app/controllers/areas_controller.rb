@@ -39,16 +39,17 @@ class AreasController < ApplicationController
   end
 
   def create
-    @area = current_user.areas.create(area_params)
-    
     if params[:import]
-      redirect_to areas_path, notice: 'Whatever trevor.'
-    end
-    
-    if @area.save
-      redirect_to @area, notice: 'Area was sucessfully created.'
+      render('areas/areapreview')
     else
-      render action: 'new'
+      
+      @area = current_user.areas.create(area_params)
+
+      if @area.save
+        redirect_to @area, notice: 'Area was sucessfully created.'
+      else
+        render action: 'new'
+      end
     end
   end
 
