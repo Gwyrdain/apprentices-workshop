@@ -17,13 +17,13 @@
     </thead>
     <tbody>
       <% @users = User.all %>
-      <% @users.each do |user| %>
+      <% @users.order(:id).each do |user| %>
         <tr>
           <td><%= user.id %></td>
           <td><%= user.email %></td>
           <td><%= user.sign_in_count %></td>
-          <td><%= user.last_sign_in_at %></td>
-          <td><%= user.created_at %></td>
+          <td><%= user.last_sign_in_at.in_time_zone("Arizona") %></td>
+          <td><%= user.created_at.in_time_zone("Arizona") %></td>
         </tr>
       <% end %>
     </tbody>

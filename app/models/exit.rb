@@ -135,7 +135,7 @@ class Exit < ActiveRecord::Base
   end
 
   def is_illogical?
-    if (not self.is_one_way? and not self.is_loopback?)
+    if (self.destination_exists? && !self.is_one_way? && !self.is_loopback?)
       if self.destination.exits.where(:direction => opposite_dir(self.direction)).first.exit_room_id == self.room.id
         return false
       else

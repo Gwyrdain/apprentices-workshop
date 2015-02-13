@@ -91,6 +91,16 @@ class Room < ActiveRecord::Base
     return $externals_exist
   end
   
+ def any_illogical_exits?
+    $illogical_exits_exist = false
+    self.exits.each do |exit|
+      if exit.is_illogical?
+        $illogical_exits_exist = true
+      end
+    end
+    return $illogical_exits_exist
+  end
+  
   def exit_dir_exists?(i)
     $dir_exists = false
     self.exits.each do |exit|
