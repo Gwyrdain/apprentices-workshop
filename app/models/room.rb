@@ -108,7 +108,7 @@ class Room < ActiveRecord::Base
         $loopback_exits_exist = true
       end
     end
-    return $illogical_exits_exist
+    return $loopback_exits_exist
   end
   
   def any_oneway_exits?
@@ -118,7 +118,7 @@ class Room < ActiveRecord::Base
         $oneway_exits_exist = true
       end
     end
-    return $illogical_exits_exist
+    return $oneway_exits_exist
   end
   
   def exit_dir_exists?(i)
