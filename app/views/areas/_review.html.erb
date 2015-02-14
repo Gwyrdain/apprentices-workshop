@@ -32,7 +32,7 @@
       
         <% if !obj.has_assoc_reset? %><li class="list-group-item list-group-item-warning">No reset has been created for <%= link_to obj.vnum_and_sdesc, area_obj_path(@area, obj) %>.</li><% end %>
         
-        <% if obj.has_applies_without_magic_flag? %><li class="list-group-item list-group-item-warning">No 'MAGIC' flag set for <%= link_to obj.vnum_and_sdesc, area_obj_path(@area, obj) %> (which has applies).</li><% end %>
+        <% if obj.has_applies_without_magic_flag? %><li class="list-group-item list-group-item-danger">No 'MAGIC' flag set for <%= link_to obj.vnum_and_sdesc, area_obj_path(@area, obj) %> (which has applies).</li><% end %>
         
       <% end %>
     
