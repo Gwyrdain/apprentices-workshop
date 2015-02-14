@@ -107,7 +107,14 @@
         </div>
         
         <div class="check_box col-md-2">
-          <%= f.check_box :magic, {:checked => @obj.magic? ? true : false} %>
+
+          <% if @obj.applies.count > 0 %>
+            <%= f.check_box :magic, {:checked => true, :disabled => true} %>
+            <%= f.hidden_field :magic, :value => '1' %>
+          <% else %>
+            <%= f.check_box :magic, {:checked => @obj.magic? ? true : false} %>
+          <% end %>
+
           <%= f.label :magic, 'magic'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         

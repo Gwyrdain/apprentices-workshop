@@ -135,11 +135,17 @@ class Obj < ActiveRecord::Base
   
   def has_assoc_reset?
     i = false
-    
     i = true if ( self.area.resets.where(:reset_type => 'O', :val_2 => self.id).count > 0 )
     i = true if ( self.area.sub_resets.where(:val_2 => self.id).count > 0 )
-
     return i
+  end
+  
+  def has_applies_without_magic_flag?
+    if ( self.applies.count > 0 && !self.magic )
+      return true
+    else
+      return false
+    end
   end
 
 end

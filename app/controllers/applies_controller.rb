@@ -27,6 +27,7 @@ class AppliesController < ApplicationController
   def create
     @apply = @obj.applies.create(apply_params)
     if @apply.save
+      Obj.update(@apply.obj_id, :magic => true)
       redirect_to area_obj_path(@area, @obj), notice: 'Apply was sucessfully created.'
     else
       render action: 'new'
@@ -35,6 +36,7 @@ class AppliesController < ApplicationController
 
   def update
     if @apply.update(apply_params)
+      Obj.update(@apply.obj_id, :magic => true)
       redirect_to area_obj_apply_path(@area, @obj, @apply), notice: 'Apply was sucessfully updated.'
     else
       render action: 'edit'
@@ -44,9 +46,9 @@ class AppliesController < ApplicationController
   def destroy
     @apply.destroy
     if @apply.save
-      redirect_to area_obj_applies_path(@area, @obj), notice: 'Apply was sucessfully deleted.'
+      redirect_to area_obj_path(@area, @obj), notice: 'Apply was sucessfully deleted.'
     else
-      redirect_to area_obj_applies_path(@area, @obj), notice: 'Something went wrong.'
+      redirect_to area_obj_path(@area, @obj), notice: 'Something went wrong.'
     end
   end
 
