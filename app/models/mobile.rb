@@ -136,6 +136,14 @@ class Mobile < ActiveRecord::Base
   def vnum_and_sdesc
     return  format("%03d",self.vnum) + " " + self.sdesc
   end
+  
+  def has_assoc_reset?
+    if self.area.resets.where(:reset_type => 'M', :val_2 => self.id).count > 0
+      return true
+    else
+      return false
+    end
+  end
 
 end
 

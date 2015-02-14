@@ -2,9 +2,10 @@
   <div class="panel-heading">Area Review</div>
   <div class="panel-body">
 
-    <!-- REVIEW ROOMS FOR ISSUES -->
+    
     <ul class="list-group">
-      
+    
+      <!-- REVIEW ROOMS FOR ISSUES -->  
       <% @area.rooms.order(:vnum).each do |room| %>
       
         <% if room.any_loopback_exits? %><li class="list-group-item list-group-item-info">Loopback exits detected in room <%= link_to room.vnum_and_name, area_room_path(@area, room) %>.</li><% end %>
@@ -14,6 +15,20 @@
         <% if room.any_illogical_exits? %><li class="list-group-item list-group-item-warning">Illogical exits detected in room <%= link_to room.vnum_and_name, area_room_path(@area, room) %>.</li><% end %>
 
         <% if room.any_bad_exits? %><li class="list-group-item list-group-item-danger">Bad exits detected in room-- <%= link_to '#{room.formal_vnum} #{room.name}', area_room_path(@area, room) %>.</li><% end %>
+        
+      <% end %>
+      
+      <!-- REVIEW MOBILES FOR ISSUES -->  
+      <% @area.mobiles.order(:vnum).each do |mobile| %>
+      
+        <% if !mobile.has_assoc_reset? %><li class="list-group-item list-group-item-warning">No reset has been created for <%= link_to mobile.vnum_and_sdesc, area_mobile_path(@area, mobile) %>.</li><% end %>
+        
+      <% end %>
+      
+      <!-- REVIEW OBJECTS FOR ISSUES -->  
+      <% @area.objs.order(:vnum).each do |obj| %>
+      
+        <% if !obj.has_assoc_reset? %><li class="list-group-item list-group-item-warning">No reset has been created for <%= link_to obj.vnum_and_sdesc, area_obj_path(@area, obj) %>.</li><% end %>
         
       <% end %>
     

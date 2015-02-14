@@ -23,6 +23,7 @@
             <th><%= model_class.human_attribute_name(:sex) %></th>
             <th><%= model_class.human_attribute_name(:langs_known) %></th>
             <th><%= model_class.human_attribute_name(:lang_spoken) %></th>
+            <th>Has Reset</th>
             <th><%=t '.actions', :default => t("helpers.actions") %></th>
           </tr>
         </thead>
@@ -41,6 +42,7 @@
                 <td><%= mobile.sex %></td>
                 <td><%= mobile.langs_known %></td>
                 <td><%= mobile.lang_spoken %></td>
+                <td><%= mobile.has_assoc_reset? %></td>
               <td>
                 <%= link_to area_mobile_path(@area, mobile), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
                   <%= glyph 'info-sign' %>

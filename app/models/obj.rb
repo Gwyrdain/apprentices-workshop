@@ -132,6 +132,15 @@ class Obj < ActiveRecord::Base
   def type_word
     return object_type_from_num( self.object_type )
   end
+  
+  def has_assoc_reset?
+    i = false
+    
+    i = true if ( self.area.resets.where(:reset_type => 'O', :val_2 => self.id).count > 0 )
+    i = true if ( self.area.sub_resets.where(:val_2 => self.id).count > 0 )
+
+    return i
+  end
 
 end
 

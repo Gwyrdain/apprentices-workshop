@@ -19,6 +19,7 @@
             <th>Wear Location</th>
             <th><%= model_class.human_attribute_name(:weight) %></th>
             <th><%= model_class.human_attribute_name(:cost) %></th>
+            <th>Has Reset</th>
             <th><%=t '.actions', :default => t("helpers.actions") %></th>
           </tr>
         </thead>
@@ -33,6 +34,7 @@
                 <td><%= obj.wear_location %></td>
                 <td><%= obj.weight %></td>
                 <td><%= obj.cost %></td>
+                <td><%= obj.has_assoc_reset? %></td>
               <td>
                 <%= link_to area_obj_path(@area, obj), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
                   <%= glyph 'info-sign' %>
