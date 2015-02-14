@@ -41,6 +41,12 @@ class AreasController < ApplicationController
   def create
     @area = current_user.areas.create(area_params)
 
+    @area.flags ||= 0
+    @area.vnum_qty ||= 100
+    @area.default_terrain ||= 0
+    @area.default_room_flags ||= 0
+    @area.misc_flags ||= 0
+
     if @area.save
       redirect_to @area, notice: 'Area was sucessfully created.'
     else
@@ -49,8 +55,14 @@ class AreasController < ApplicationController
   end
   
   def import
-    Area.import(params[:file])
-    redirect_to areas_path, notice: "Area file imported."
+    @area = Area.import(params[:file], current_user.id)
+    
+    if @area.save
+      redirect_to @area, notice: 'Area was sucessfully imported.'
+    else
+      redirect_to areas_path, notice: 'Something went wrong.'
+    end
+    
   end
 
   def update

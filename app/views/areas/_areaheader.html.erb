@@ -1,13 +1,14 @@
 #AREA
 Format 2
 Name <%= @area.name %>~
-Author <%= @area.author %>~
-Lowlevel <%= @area.lowlevel  %>
-Highlevel <%= @area.highlevel  %>
-Flags<%= @area.flags_as_string %> End
-Description
-<%= word_wrap(@area.description, line_width: 75)  %>
-~
 Revision $Revision$
 Updated $Date$
+Author <%= @area.author %>~
+Lowlevel <%= @area.lowlevel %>
+Highlevel <%= @area.highlevel %><% if @area.description.length > 0 %>
+Description
+<%= word_wrap(@area.description, line_width: 75)  %>
+~<% end %>
+Flags<%= @area.flags_as_string %> End
+
 End

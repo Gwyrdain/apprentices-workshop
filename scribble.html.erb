@@ -136,3 +136,43 @@
   </div>
 </div>
 -->
+
+
+
+
+  def self.import(file, user_id)
+
+    range_low ||= 0
+    range_high ||= 0
+    author ||= ''
+    name ||= ''
+    flags ||= 0
+    
+    lines = file.tempfile.readlines.map(&:chomp) #readlines from file & removes newline symbol
+    lines.each do |l| 
+      if (l.include?("#AREA") && l.include?("~")) # FORMAT 1 Area Header
+        m = l.match(/\{(.*)\} (........) (.*)~\s*F (\d+)/)
+
+          if m
+            author = m[2].strip
+            name = m[3].strip
+            flags = m[4].to_i
+    
+            if m[1].match(/(\d) (\d)/)
+              range = m[1].match(/(\d+) (\d+)/)
+                range_low = range[1].to_i
+                range_high = range[2].to_i
+            else
+              if m[1].match(/ALL/)
+                range_low = 1
+                range_high = 50
+              end
+              if m[1].match(/HARD/)
+                range_low = 50
+                range_high = 50
+              end
+            end
+          end
+
+      end
+    end
