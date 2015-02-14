@@ -23,6 +23,8 @@
       
         <% if !mobile.has_assoc_reset? %><li class="list-group-item list-group-item-warning">No reset has been created for <%= link_to mobile.vnum_and_sdesc, area_mobile_path(@area, mobile) %>.</li><% end %>
         
+        <% if !mobile.stay_area? %><li class="list-group-item list-group-item-warning">The 'STAY AREA' flag is not set for <%= link_to mobile.vnum_and_sdesc, area_mobile_path(@area, mobile) %>.</li><% end %>
+        
       <% end %>
       
       <!-- REVIEW OBJECTS FOR ISSUES -->  
