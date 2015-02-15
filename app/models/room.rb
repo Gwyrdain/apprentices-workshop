@@ -72,63 +72,73 @@ class Room < ActiveRecord::Base
   end
 
   def any_bad_exits?
-    $bad_exits_exist = false
+    $result = false
     self.exits.each do |exit|
       if exit.is_bad?
-        $bad_exits_exist = true
+        $result = true
       end
     end
-    return $bad_exits_exist
+    return $result
   end
   
   def any_external_exits?
-    $externals_exist = false
+    $result = false
     self.exits.each do |exit|
       if exit.is_external?
-        $externals_exist = true
+        $result = true
       end
     end
-    return $externals_exist
+    return $result
   end
   
   def any_illogical_exits?
-    $illogical_exits_exist = false
+    $result = false
     self.exits.each do |exit|
       if exit.is_illogical?
-        $illogical_exits_exist = true
+        $result = true
       end
     end
-    return $illogical_exits_exist
+    return $result
   end
   
   def any_loopback_exits?
-    $loopback_exits_exist = false
+    $result = false
     self.exits.each do |exit|
       if exit.is_loopback?
-        $loopback_exits_exist = true
+        $result = true
       end
     end
-    return $loopback_exits_exist
+    return $result
   end
   
   def any_oneway_exits?
-    $oneway_exits_exist = false
+    $result = false
     self.exits.each do |exit|
       if exit.is_one_way?
-        $oneway_exits_exist = true
+        $result = true
       end
     end
-    return $oneway_exits_exist
+    return $result
+  end
+  
+  def any_door_mismatches?
+    $result = false
+    self.exits.each do |exit|
+      if exit.reciprocal_door_mismatch?
+        $result = true
+      end
+    end
+    return $result
   end
   
   def exit_dir_exists?(i)
-    $dir_exists = false
+    $result = false
     self.exits.each do |exit|
       if exit.direction == i
-        $dir_exists = true
+        $result = true
       end
     end
-    return $dir_exists
+    return $result
   end
   
   def vnum_and_name

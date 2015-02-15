@@ -133,6 +133,22 @@ class Exit < ActiveRecord::Base
       return false
     end
   end
+  
+  def reciprocal_door_mismatch?
+    $result = false
+    if self.is_reciprocal?
+      $reciprocal_exit = self.destination.exits.where(:direction => opposite_dir(self.direction)).first
+      if $reciprocal_exit.exittype != self.exittype
+        $result = "mismatched exit types: #{self.type_desc} vs #{$reciprocal_exit.type_desc}"
+      else
+        if $reciprocal_exit.reset != self.reset
+          $result = "mismatched reset types: #{self.reset_desc} vs #{$reciprocal_exit.reset_desc}"
+        end
+      end
+    end
+    return $result
+  end
+  
 
   def is_illogical?
     if (self.destination_exists? && !self.is_one_way? && !self.is_loopback?)

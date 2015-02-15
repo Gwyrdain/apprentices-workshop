@@ -46,6 +46,12 @@
                         <% if exit.is_illogical? %>
                           <span style="color:orange" title="Illogical exit"><%= glyph 'random' %></span>
                         <% end %>
+                        <% if exit.reciprocal_door_mismatch? %>
+                          <span style="color:orange" title="<%= exit.reciprocal_door_mismatch? %>"><%= glyph 'warning-sign' %></span>
+                        <% end %>
+                        
+                        
+                        
                       <% else %>
                         <% if exit.is_external? %>
                           <%= exit.exit_room_id %>
