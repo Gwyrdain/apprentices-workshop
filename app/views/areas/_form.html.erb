@@ -28,7 +28,7 @@
   <div class="form-group">
     <%= f.label :description, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_area :description, :class => 'text_field form-control', cols: (ApplicationController::WORDWRAP_LENGTH - 5), rows: 10 %>
+      <%= ruler %><%= f.text_area :description, :class => 'text_field form-control', rows: 10 %>
     </div>
   </div>
  
@@ -206,6 +206,11 @@
         <div class="check_box col-md-3">
           <%= f.check_box :share_publicly, {:checked => @area.share_publicly? ? true : false} %>
           <%= f.label :share_publicly, 'share_publicly'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        
+        <div class="check_box col-md-3">
+          <%= f.check_box :use_rulers, {:checked => @area.use_rulers? ? true : false} %>
+          <%= f.label :use_rulers, 'use_rulers'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
  
     </div>  

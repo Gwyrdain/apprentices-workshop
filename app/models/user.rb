@@ -7,8 +7,9 @@ class User < ActiveRecord::Base
   
   include Bitfields
   
-  bitfield :roles,
+  bitfield :settings,
                     2**0 => :admin
+                    
 
   def is_admin?
     if ( self.admin? || self.id == 1 )  

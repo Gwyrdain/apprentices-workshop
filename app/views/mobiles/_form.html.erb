@@ -38,7 +38,7 @@
   <div class="form-group">
     <%= f.label :look_desc, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_area :look_desc, :class => 'text_field form-control', cols: (ApplicationController::WORDWRAP_LENGTH - 5), rows: 10 %>
+      <%= ruler %><%= f.text_area :look_desc, :class => 'text_field form-control', rows: 10 %>
     </div>
   </div>
   

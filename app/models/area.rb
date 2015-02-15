@@ -17,7 +17,8 @@ class Area < ActiveRecord::Base
   include Bitfields
   
   bitfield :misc_flags,
-                    2**0 => :share_publicly
+                    2**0 => :share_publicly,
+                    2**1 => :use_rulers
   
   bitfield  :flags, 2**0 => :manmade,  # Hex 1
                     2**1 => :city,     # Hex 2

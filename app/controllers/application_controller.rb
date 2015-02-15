@@ -4,5 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
    WORDWRAP_LENGTH = 75
+   WORDWRAP_RULER = '----+----|----+----|----+----|----+----|----+----|----+----|----+----|----+'
   
 end

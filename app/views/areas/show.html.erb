@@ -157,6 +157,9 @@
         <div class="col-md-10">
           <% if @area.share_publicly? %><div class="col-md-2">PUBLICLY SHARED</div><% end %>
         </div>
+        <div class="col-md-10">
+          <% if @area.use_rulers? %><div class="col-md-2">USE RULERS</div><% end %>
+        </div>
       </div><br/>
       
       <div class="row">

@@ -96,7 +96,7 @@ class AreasController < ApplicationController
                                    :fly_ok, :no_quest, :no_item, :no_vnum,
                                    :misc_flags, :share_publicly,
                                    :description, :lowlevel, :highlevel,
-                                   :file
+                                   :file, :use_rulers
                                   )
     end
 end
