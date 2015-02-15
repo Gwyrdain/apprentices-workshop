@@ -4,7 +4,7 @@
 
     
     <ul class="list-group">
-    
+
       <!-- REVIEW ROOMS FOR ISSUES -->  
       <% @area.rooms.order(:vnum).each do |room| %>
       
@@ -19,6 +19,12 @@
       <% end %>
       
       <!-- REVIEW MOBILES FOR ISSUES -->  
+      
+      <% @area.resets.where(:reset_type => 'Q').each do |reset| %>
+      
+        <li class="list-group-item list-group-item-warning">A QUEST MOBILE reset was used to: <%= link_to reset.comment, area_reset_path(@area, reset) %>.</li>
+      <% end %>
+      
       <% @area.mobiles.order(:vnum).each do |mobile| %>
       
         <% if !mobile.has_assoc_reset? %><li class="list-group-item list-group-item-warning">No reset has been created for <%= link_to mobile.vnum_and_sdesc, area_mobile_path(@area, mobile) %>.</li><% end %>
@@ -35,6 +41,8 @@
         <% if obj.has_applies_without_magic_flag? %><li class="list-group-item list-group-item-danger">No 'MAGIC' flag set for <%= link_to obj.vnum_and_sdesc, area_obj_path(@area, obj) %> (which has applies).</li><% end %>
         
       <% end %>
+      
+      
     
     </ul>
 
