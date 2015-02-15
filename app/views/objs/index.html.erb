@@ -11,30 +11,30 @@
       <table class="table table-hover monospace">
         <thead>
           <tr>
-            <th><%= model_class.human_attribute_name(:vnum) %></th>
+            <th>Object</th>
             <th><%= model_class.human_attribute_name(:keywords) %></th>
-            <th><%= model_class.human_attribute_name(:sdesc) %></th>
             <th><%= model_class.human_attribute_name(:ldesc) %></th>
             <th><%= model_class.human_attribute_name(:object_type) %></th>
             <th>Wear Location</th>
             <th><%= model_class.human_attribute_name(:weight) %></th>
             <th><%= model_class.human_attribute_name(:cost) %></th>
-            <th>Has Reset</th>
             <th><%=t '.actions', :default => t("helpers.actions") %></th>
           </tr>
         </thead>
         <tbody>
           <% @objs.order(:vnum).each do |obj| %>
             <tr>
-                <td><%= obj.vnum %></td>
+                <td><%= obj.vnum_and_sdesc %>
+                  <% if !obj.has_assoc_reset? %>
+                    <span style="color:orange" title="No associated reset."><%= glyph('warning-sign') %></span>
+                  <% end %>
+                </td>
                 <td><%= obj.keywords %></td>
-                <td><%= obj.sdesc %></td>
                 <td><%= obj.ldesc %></td>
                 <td><%= object_type_from_num(obj.object_type) %></td>
                 <td><%= obj.wear_location %></td>
                 <td><%= obj.weight %></td>
                 <td><%= obj.cost %></td>
-                <td><%= obj.has_assoc_reset? %></td>
               <td>
                 <%= link_to area_obj_path(@area, obj), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
                   <%= glyph 'info-sign' %>

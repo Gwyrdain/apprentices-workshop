@@ -11,38 +11,30 @@
       <table class="table table-hover monospace">
         <thead>
           <tr>
-            <th><%= model_class.human_attribute_name(:vnum) %></th>
+            <th>Mobile</th>
             <th><%= model_class.human_attribute_name(:keywords) %></th>
-            <th><%= model_class.human_attribute_name(:sdesc) %></th>
             <th><%= model_class.human_attribute_name(:ldesc) %></th>
             <th><%= model_class.human_attribute_name(:look_desc) %></th>
-            <th><%= model_class.human_attribute_name(:act_flags) %></th>
-            <th><%= model_class.human_attribute_name(:affect_flags) %></th>
             <th><%= model_class.human_attribute_name(:alignment) %></th>
             <th><%= model_class.human_attribute_name(:level) %></th>
             <th><%= model_class.human_attribute_name(:sex) %></th>
-            <th><%= model_class.human_attribute_name(:langs_known) %></th>
-            <th><%= model_class.human_attribute_name(:lang_spoken) %></th>
-            <th>Has Reset</th>
             <th><%=t '.actions', :default => t("helpers.actions") %></th>
           </tr>
         </thead>
         <tbody>
           <% @mobiles.order(:vnum).each do |mobile| %>
             <tr>
-                <td><%= mobile.vnum %></td>
+                <td><%= mobile.vnum_and_sdesc %>
+                  <% if !mobile.has_assoc_reset? %>
+                    <span style="color:orange" title="No associated reset."><%= glyph('warning-sign') %></span>
+                  <% end %>
+                </td>
                 <td><%= mobile.keywords %></td>
-                <td><%= mobile.sdesc %></td>
                 <td><%= mobile.ldesc %></td>
-                <td><%= simple_format(truncate(mobile.look_desc, length: 220, separator: ' ', omission: '[...]')) %></td>
-                <td><%= mobile.act_flags %></td>
-                <td><%= mobile.affect_flags %></td>
-                <td><%= mobile.alignment %></td>
+                <td><%= simple_format(truncate(mobile.look_desc, length: 80, separator: ' ', omission: '[...]')) %></td>
+                <td><%= mobile.alignment_word %></td>
                 <td><%= mobile.level %></td>
-                <td><%= mobile.sex %></td>
-                <td><%= mobile.langs_known %></td>
-                <td><%= mobile.lang_spoken %></td>
-                <td><%= mobile.has_assoc_reset? %></td>
+                <td><%= mobile.sex_word %></td>
               <td>
                 <%= link_to area_mobile_path(@area, mobile), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
                   <%= glyph 'info-sign' %>

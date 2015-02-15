@@ -133,9 +133,9 @@
       <strong>Alignment:</strong>
     </div>
     <div class="col-md-10">
-        <% if @mobile.alignment == -1000 %><div class='col-md-2'>EVIL</div><% end %>
-        <% if @mobile.alignment ==     0 %><div class='col-md-2'>UNALIGNED</div><% end %>
-        <% if @mobile.alignment ==  1000 %><div class='col-md-2'>GOOD</div><% end %>
+      <div class="col-md-10">
+        <%= @mobile.alignment_word.upcase %>
+      </div>
     </div>
   </div><br/>
   
@@ -155,9 +155,9 @@
       <strong>Sex:</strong>
     </div>
     <div class="col-md-10">
-        <% if @mobile.sex == 0 %><div class='col-md-2'>NO GENDER</div><% end %>
-        <% if @mobile.sex == 1 %><div class='col-md-2'>MALE</div><% end %>
-        <% if @mobile.sex == 2 %><div class='col-md-2'>FEMALE</div><% end %>
+      <div class="col-md-10">
+        <%= @mobile.sex_word.upcase %>
+      </div>
     </div>
   </div><br/>
   

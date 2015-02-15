@@ -144,6 +144,22 @@ class Mobile < ActiveRecord::Base
       return false
     end
   end
+  
+  def sex_word
+    $sex = nil
+    $sex = 'none'    if self.sex == 0
+    $sex = 'male'    if self.sex == 1
+    $sex = 'female'  if self.sex == 2
+    return $sex
+  end
+  
+  def alignment_word
+    $alignment = nil
+    $alignment = 'evil'    if self.alignment == -1000
+    $alignment = 'unaligned'    if self.alignment == 0
+    $alignment = 'good'  if self.alignment == 1000
+    return $alignment
+  end
 
 end
 
