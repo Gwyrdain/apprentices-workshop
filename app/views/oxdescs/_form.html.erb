@@ -20,7 +20,7 @@
   <div class="form-group">
     <%= f.label :description, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-       <%= f.text_area :description, class: 'form-control', rows: 10 %>
+       <%= f.text_area :description, class: 'form-control', cols: (ApplicationController::WORDWRAP_LENGTH - 5), rows: 10 %>
     </div>
   </div>
 
