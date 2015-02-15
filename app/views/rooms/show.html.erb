@@ -36,7 +36,7 @@
         </div>
         <div class="col-md-10">
           <div class="col-md-10">
-            <%= simple_format(word_wrap(@room.description, line_width: 75)) %>
+            <%= simple_format(word_wrap(@room.description, line_width: ApplicationController::WORDWRAP_LENGTH)) %>
           </div>
         </div>
       </div><br/>

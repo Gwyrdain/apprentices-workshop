@@ -6,7 +6,7 @@ Lowlevel <%= @area.lowlevel %>
 Highlevel <%= @area.highlevel %><% if @area.flags > 0 %>
 Flags<%= @area.flags_as_string %> End<% end %><% if @area.description.length > 0 %>
 Description
-<%= word_wrap(@area.description, line_width: 75)  %>
+<%= word_wrap(@area.description, line_width: ApplicationController::WORDWRAP_LENGTH)  %>
 ~<% end %>
 Revision $Revision$
 Updated $Date$

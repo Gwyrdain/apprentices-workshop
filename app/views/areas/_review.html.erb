@@ -21,7 +21,6 @@
       <!-- REVIEW MOBILES FOR ISSUES -->  
       
       <% @area.resets.where(:reset_type => 'Q').each do |reset| %>
-      
         <li class="list-group-item list-group-item-warning">A QUEST MOBILE reset was used to: <%= link_to reset.comment, area_reset_path(@area, reset) %>.</li>
       <% end %>
       
