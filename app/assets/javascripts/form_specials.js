@@ -3,6 +3,8 @@
 function initSpecialsForm() {
   setSpecFunType();
   setExtendedSpecFunLabels();
+  setActOnGiveActionFields();
+  updateChanceString();
 }
 
 function setSpecFunType() {
@@ -33,20 +35,43 @@ function setExtendedSpecFunLabels() {
   
   if( $('#special_special_type').val() == 'N' &&
       $('#ExtendedSpecialField').val() == 'spec_call_for_help' ) {
-    $('#xGeneric').prop('disabled', false).show()
+    $('#xCallForHelp').prop('disabled', false).show()
   }
   
   
   if( $('#special_special_type').val() == 'N' &&
       $('#ExtendedSpecialField').val() == 'spec_mage_protector' ) {
-    $('#xGeneric').prop('disabled', false).show()
+    $('#xMageProtector').prop('disabled', false).show()
   }
   
   if( $('#special_special_type').val() == 'N' &&
       $('#ExtendedSpecialField').val() == 'spec_timed_teleport' ) {
-    $('#xGeneric').prop('disabled', false).show()
+    $('#xTimedTeleport').prop('disabled', false).show()
   }
 
+}
+
+
+function setActOnGiveActionFields() {
+  $('#ActOnGive_GiveObj').prop('disabled', true).hide()
+  $('#ActOnGive_Transfer').prop('disabled', true).hide()
+
+  if( $('#MobilesAction').val() == '0' &&
+      $('#ExtendedSpecialField').val() == 'spec_act_on_give' ) {
+    $('#ActOnGive_Transfer').prop('disabled', false).show()
+  }
+  
+  if( $('#MobilesAction').val() == '1' &&
+      $('#ExtendedSpecialField').val() == 'spec_act_on_give' ) {
+    $('#ActOnGive_GiveObj').prop('disabled', false).show()
+  }
+  
+}
+
+function updateChanceString() {
+  var chance_val = Math.pow(2,$('#ChanceN').val())
+  var chance_pct = ( 1 / chance_val ) * 100
+  $('#Chance').val( chance_pct.toFixed(2) + '% (1 in ' + chance_val.toString() + ')' );
 }
 
 //  --=={ WATCH FOR FORM CHANGES }==-
@@ -63,3 +88,16 @@ $(function() {
     setExtendedSpecFunLabels()
   })
 });
+
+$(function() {
+  $('#MobilesAction').change(function() {
+    setActOnGiveActionFields()
+  })
+});
+
+$(function() {
+  $('#ChanceN').change(function() {
+    updateChanceString()
+  })
+});
+

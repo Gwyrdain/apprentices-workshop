@@ -1,3 +1,31 @@
+<% hours_list = [
+                  ['12AM (00:00)', 0],
+                  [' 1AM (01:00)', 1],
+                  [' 2AM (02:00)', 2],
+                  [' 3AM (03:00)', 3],
+                  [' 4AM (04:00)', 4],
+                  [' 5AM (05:00)', 5],
+                  [' 6AM (06:00)', 6],
+                  [' 7AM (07:00)', 7],
+                  [' 8AM (08:00)', 8],
+                  [' 9AM (09:00)', 9],
+                  ['10AM (10:00)', 10],
+                  ['11AM (11:00)', 11],
+                  ['12PM (12:00)', 12],
+                  [' 1PM (13:00)', 13],
+                  [' 2PM (14:00)', 14],
+                  [' 3PM (15:00)', 15],
+                  [' 4PM (16:00)', 16],
+                  [' 5PM (17:00)', 17],
+                  [' 6PM (18:00)', 18],
+                  [' 7PM (19:00)', 19],
+                  [' 8PM (20:00)', 20],
+                  [' 9PM (21:00)', 21],
+                  ['10PM (22:00)', 22],
+                  ['11PM (23:00)', 23],
+                ]
+%>
+
 <%= form_for [@special.mobile.area, @special.mobile, @special], :html => { :class => 'form-horizontal' } do |f| %>
   <% if @special.errors.any? %>
     <div id="error_explanation">
@@ -122,45 +150,96 @@
   </fieldset>
   
   <fieldset hidden='hidden' id="xActOnGive">
+    
     <div class="form-group">
       <%= f.label :extended_value_1, 'Object to receive', :class => 'control-label col-md-2' %>
       <div class="col-md-10">
-        <%= f.text_field :extended_value_1, :class => 'text_field form-control' %>
+        <%= f.collection_select(:extended_value_1, @area.objs.order('vnum ASC'), :id, :vnum_and_sdesc, {}, {:id => 'ObjToReceive', :class => 'form-control'})  %>
       </div>
     </div>
+    
     <div class="form-group">
-      <%= f.label :extended_value_2, :class => 'control-label col-md-2' %>
+      <%= f.label :extended_value_2, "Mobile's action", :class => 'control-label col-md-2' %>
       <div class="col-md-10">
         <%= f.select(:extended_value_2, options_for_select(
             [
               ['Transfer PC', 0],
               ['Give PC object', 1]
-            ], :extended_value_2
-          ), {}, {class: "form-control"}) %>
+            ], @special.extended_value_2
+          ), {}, {id: "MobilesAction", class: "form-control"}) %>
       </div>
     </div>
-    <div class="form-group">
-      <%= f.label :extended_value_3, 'Target vnum', :class => 'control-label col-md-2' %>
-      <div class="col-md-10">
-        <%= f.text_field :extended_value_3, :class => 'text_field form-control' %>
+    
+    <fieldset id="ActOnGive_GiveObj">
+      <div class="form-group">
+        <%= f.label :extended_value_3, 'Object to give', :class => 'control-label col-md-2' %>
+        <div class="col-md-10">
+          <%= f.collection_select(:extended_value_3, @area.objs.order('vnum ASC'), :id, :vnum_and_sdesc, {}, {:id => 'ObjToGive', :class => 'form-control'})  %>
+        </div>
       </div>
-    </div>
+    </fieldset>
+    
+    <fieldset id="ActOnGive_Transfer">
+      <div class="form-group">
+        <%= f.label :extended_value_3, 'Transfer to room', :class => 'control-label col-md-2' %>
+        <div class="col-md-10">
+          <%= f.collection_select(:extended_value_3, @area.rooms.order('vnum ASC'), :id, :vnum_and_name, {}, {:id => 'RoomForTransfer', :class => 'form-control'})  %>
+        </div>
+      </div>
+    </fieldset>
 
     <%= f.hidden_field :extended_value_4, :value => -1 %>
     
     <div class="form-group">
       <%= f.label :extended_value_5, 'Action description', :class => 'control-label col-md-2' %>
       <div class="col-md-10">
-        <%= f.collection_select(:extended_value_5, @area.area_strings.order('vnum ASC'), :id, :vnum_and_strings, {}, {:class => "form-control"})  %>
+      <%= f.select(:extended_value_5, options_for_select(
+          [['Default description', -1]] + @area.area_strings.order('vnum ASC').map{ |e| [e.vnum_and_strings, e.id] }, @special.extended_value_5
+        ), {}, {class: "form-control"}) %>
       </div>
     </div>
   </fieldset>
   
+  <fieldset hidden='hidden' id="xCallForHelp">
+
+    <div class="form-group">
+      <%= f.label :extended_value_1, "Requested helper", :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.select(:extended_value_1, options_for_select(
+            [
+              ['Mobile with spec_cxxx', 1],
+              ['Mobile with spec_sxxx', 2]
+            ], @special.extended_value_1
+          ), {}, {id: "RequestedHelper", class: "form-control"}) %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :extended_value_2, "Helper distance", :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.select(:extended_value_2, options_for_select(
+            [
+              ['World-wide', -1],
+              ['Helper within same room', 0],
+              ['Helper within same area', 1]
+            ], @special.extended_value_2
+          ), {}, {id: "RequestedHelper", class: "form-control"}) %>
+      </div>
+    </div>
+    
+    <%= f.hidden_field :extended_value_3, :value => -1 %>
+    <%= f.hidden_field :extended_value_4, :value => -1 %>
+    <%= f.hidden_field :extended_value_5, :value => -1 %>
+
+  </fieldset>
+  
   <fieldset hidden='hidden' id="xMageProtector">
     <div class="form-group">
-      <%= f.label :extended_value_1, 'Pre-attack message', :class => 'control-label col-md-2' %>
+      <%= f.label :extended_value_1, 'Message', :class => 'control-label col-md-2' %>
       <div class="col-md-10">
-        <%= f.collection_select(:extended_value_1, @area.area_strings.order('vnum ASC'), :id, :vnum_and_strings, {}, {:class => "form-control"})  %>
+      <%= f.select(:extended_value_1, options_for_select(
+          [['Default message', -1]] + @area.area_strings.order('vnum ASC').map{ |e| [e.vnum_and_strings, e.id] }, @special.extended_value_1
+        ), {}, {class: "form-control"}) %>
       </div>
     </div>
     
@@ -174,7 +253,29 @@
   </fieldset>
   
   <fieldset hidden='hidden' id="xTimedTeleport">
-    timed
+    
+    <div class="form-group">
+      <%= f.label :extended_value_1, 'Hour', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.select(:extended_value_1, options_for_select(hours_list, @special.extended_value_1
+            ), {}, {class: "form-control"}) %>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <%= f.label :extended_value_2, 'n <small>(for a 1 in 2<sup>n</sup> chance)</small>'.html_safe, :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :extended_value_2, {:id => 'ChanceN', :class => 'text_field form-control'} %>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label 'Chance', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <input class="text_field form-control" id="Chance"  type="text" disabled="disabled" />
+      </div>
+    </div>
+    
   </fieldset>
 
   <div class="form-group">

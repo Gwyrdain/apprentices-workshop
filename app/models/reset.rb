@@ -18,12 +18,12 @@ class Reset < ActiveRecord::Base
   end
 
   def comment
-    $desc = nil
-    $desc = "Load '" + self.load_mob_name + "' at '" + self.load_room_name + "'" if ( self.reset_type == 'M' || self.reset_type == 'Q' )
-    $desc = "Load '" + self.load_obj_name + "' at '" + self.load_room_name + "'" if self.reset_type == 'O'
-    $desc = "Set " + self.reset_door_direction + " door at '" + self.reset_room_name + "' to " + door_state(self.val_4) if self.reset_type == 'D'
-    $desc = "Randomize any " + num_to_exits(self.val_3) + " exits at '" + self.reset_room_name + "'" if self.reset_type == 'R'
-    return $desc
+    $comment = nil
+    $comment = "Load '" + self.load_mob_name + "' at '" + self.load_room_name + "'" if ( self.reset_type == 'M' || self.reset_type == 'Q' )
+    $comment = "Load '" + self.load_obj_name + "' at '" + self.load_room_name + "'" if self.reset_type == 'O'
+    $comment = "Set " + self.reset_door_direction + " door at '" + self.reset_room_name + "' to " + door_state(self.val_4) if self.reset_type == 'D'
+    $comment = "Randomize any " + num_to_exits(self.val_3) + " exits at '" + self.reset_room_name + "'" if self.reset_type == 'R'
+    return $comment
   end
   
   def output
@@ -34,7 +34,7 @@ class Reset < ActiveRecord::Base
       $output = $output + ' ' + self.val_3.to_s + ' ' + self.load_room_vnum + " * "
     end
     if self.reset_type == 'O'
-      $output = self.reset_type + ' ' + '0' + ' ' + self.load_obj_vnum
+      $output = self.reset_type + ' ' + '0' + ' ' + obj_info(self.val_2, 'formal_vnum')
       $output = $output + ' ' + self.val_3.to_s + ' ' + self.load_room_vnum + " * "
     end
     if self.reset_type == 'D'

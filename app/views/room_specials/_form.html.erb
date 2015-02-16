@@ -150,7 +150,7 @@
               ['West', 3],
               ['Up', 4],
               ['Down', 5]
-            ], :extended_value_1
+            ], @room_special.extended_value_1
           ), {}, {class: "form-control"}) %>
       </div>
     </div>
@@ -166,7 +166,7 @@
               ['Constitution', 4],
               ['Charisma', 5],
               ['Luck', 6]
-            ], :extended_value_2
+            ], @room_special.extended_value_2
           ), {}, {class: "form-control"}) %>
       </div>
     </div>
@@ -180,14 +180,18 @@
     <div class="form-group">
       <%= f.label :extended_value_4, 'Success message', :id => 'extended_value_4_label', :class => 'control-label col-md-2' %>
       <div class="col-md-10">
-        <%= f.collection_select(:extended_value_4, @area.area_strings.order('vnum ASC'), :id, :vnum_and_strings, {}, {:class => "form-control"})  %>
+      <%= f.select(:extended_value_4, options_for_select(
+          [['No success message', -1]] + @area.area_strings.order('vnum ASC').map{ |e| [e.vnum_and_strings, e.id] }, @room_special.extended_value_4
+        ), {}, {class: "form-control"}) %>
       </div>
     </div>
     
     <div class="form-group">
       <%= f.label :extended_value_5, 'Failure message', :id => 'extended_value_5_label', :class => 'control-label col-md-2' %>
       <div class="col-md-10">
-        <%= f.collection_select(:extended_value_5, @area.area_strings.order('vnum ASC'), :id, :vnum_and_strings, {}, {:class => "form-control"})  %>
+      <%= f.select(:extended_value_5, options_for_select(
+          [['No failure message', -1]] + @area.area_strings.order('vnum ASC').map{ |e| [e.vnum_and_strings, e.id] }, @room_special.extended_value_5
+        ), {}, {class: "form-control"}) %>
       </div>
     </div>
     

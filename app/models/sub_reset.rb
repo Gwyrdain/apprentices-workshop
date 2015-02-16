@@ -29,27 +29,24 @@ class SubReset < ActiveRecord::Base
 
   def comment
     $desc = nil
-    $desc = "Equip '" + self.reset.load_mob_name + "' with '" + self.load_obj_name + "' as " + self.wear_loc_word if self.reset_type == 'E'
-    $desc = "Give '" + self.reset.load_mob_name + "' '" + self.load_obj_name + "'" if self.reset_type == 'G'
-    $desc = "Put '" + self.load_obj_name + "' into '" + self.reset.load_obj_name + "'" if self.reset_type == 'P'
+    $obj_sdesc = obj_info(self.val_2, 'sdesc')
+    $desc = "Equip '#{self.reset.load_mob_name}' with '#{$obj_sdesc}' as #{self.wear_loc_word}" if self.reset_type == 'E'
+    $desc = "Give '#{self.reset.load_mob_name}' '#{$obj_sdesc}'" if self.reset_type == 'G'
+    $desc = "Put '#{$obj_sdesc}' into '#{obj_info(self.reset.val_2, 'sdesc')}'" if self.reset_type == 'P'
     return $desc
   end
   
   def output
-    $output = ''
+    $output = "#{self.reset_type} 0 #{obj_info(self.val_2, 'formal_vnum')} 100"
 
     if self.reset_type == 'E'
-      $output = self.reset_type + ' 0 ' + self.load_obj_vnum + ' 100 ' + self.val_4.to_s + ' * '
-    end
-    if self.reset_type == 'G'
-      $output = self.reset_type + ' 0 ' + self.load_obj_vnum + ' 100 * '
+      $output = $output << " #{self.val_4}"
     end
     if self.reset_type == 'P'
-      $output = self.reset_type + ' 0 ' + self.load_obj_vnum + ' 100 ' + self.reset.load_obj_vnum + ' * '
+      $output = $output << " #{obj_info(self.reset.val_2, 'formal_vnum')}"
     end
     
-    $output = $output + " " * ( 25 - $output.length )
-    $output = $output + self.comment    
+    $output = $output << " *" << " " * ( 25 - $output.length ) << self.comment    
     return $output
   end
   
@@ -59,30 +56,6 @@ class SubReset < ActiveRecord::Base
     $desc = "GIVE" if self.reset_type == 'G'
     $desc = "PUT" if self.reset_type == 'P'
     return $desc
-  end
-  
-  def load_obj_name
-    if self.reset.area.objs.exists?(:id => self.val_2)
-      return Obj.find(self.val_2).sdesc
-    else
-      return 'UNKNOWN'
-    end
-  end
-
-  def load_obj_vnum
-    if self.reset.area.objs.exists?(:id => self.val_2)
-      return Obj.find(self.val_2).formal_vnum.to_s
-    else
-      return 'UNKNOWN'
-    end
-  end
-  
-  def load_obj_wear_loc
-    if self.reset.area.objs.exists?(:id => self.val_2)
-      return 'PutLocationHere' # Obj.find(self.val_2).formal_vnum.to_s
-    else
-      return 'UNKNOWN'
-    end
   end
   
   def wear_loc_word

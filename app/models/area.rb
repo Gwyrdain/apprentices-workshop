@@ -262,6 +262,18 @@ def num_to_exits(i)
   return $exit_list
 end
 
+def num_to_attribute(i)
+  $attribute = nil
+  $attribute = 'STR' if i == 0
+  $attribute = 'INT' if i == 1
+  $attribute = 'WIS' if i == 2
+  $attribute = 'DEX' if i == 3
+  $attribute = 'CON' if i == 4
+  $attribute = 'CHR' if i == 5
+  $attribute = 'LUC' if i == 6
+  return $attribute
+end
+
 def door_state(i)
   $state = nil
   $state = 'open' if i == 0
@@ -271,10 +283,53 @@ def door_state(i)
 end
 
 def get_string_vnum(i)
-  if  AreaString.exists?(:id => i)
-    return AreaString.find(i).formal_vnum
-  else
-    return 'UNKNOWN'
+  if i == -1
+    return '-1'
+    else
+    if  AreaString.exists?(:id => i)
+      return AreaString.find(i).formal_vnum
+    else
+      return 'UNKNOWN'
+    end
   end
 end
 
+
+
+# functions to fetch Room, Object, Mobile retated strings
+def obj_info(id, property)
+  $result = nil
+  if Obj.exists?(:id => id)
+    $this_obj = Obj.find(id)
+    $result = $this_obj.formal_vnum.to_s if property == 'formal_vnum'
+    $result = $this_obj.sdesc            if property == 'sdesc'
+    $result = $this_obj.type_word        if property == 'type_word'
+  else
+    $result = 'UNKNOWN'
+  end
+  return $result
+end
+
+def room_info(id, property)
+  $result = nil
+  if Room.exists?(:id => id)
+    $this_room = Room.find(id)
+    $result = $this_room.formal_vnum.to_s if property == 'formal_vnum'
+    $result = $this_room.name             if property == 'name'
+  else
+    $result = 'UNKNOWN'
+  end
+  return $result
+end
+
+def mobile_info(id, property)
+  $result = nil
+  if Mobile.exists?(:id => id)
+    $this_mobile = Mobile.find(id)
+    $result = $this_mobile.formal_vnum.to_s if property == 'formal_vnum'
+    $result = $this_mobile.sdesc             if property == 'sdesc'
+  else
+    $result = 'UNKNOWN'
+  end
+  return $result
+end
