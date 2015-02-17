@@ -81,6 +81,7 @@
           <%= f.label :forest, 'forest'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
+        <!-- These area flags removed
           <%= f.check_box :limited, {:checked => @area.limited? ? true : false} %>
           <%= f.label :limited, 'limited'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
@@ -96,6 +97,7 @@
           <%= f.check_box :arena, {:checked => @area.arena? ? true : false} %>
           <%= f.label :arena, 'arena'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
+        -->
         <div class="check_box col-md-2">
           <%= f.check_box :quest, {:checked => @area.quest? ? true : false} %>
           <%= f.label :quest, 'quest'.humanize.upcase, :class => 'control-label non-bold' %>
@@ -103,6 +105,10 @@
         <div class="check_box col-md-2">
           <%= f.check_box :novnum, {:checked => @area.novnum? ? true : false} %>
           <%= f.label :novnum, 'novnum'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :no_save, {:checked => @area.no_save? ? true : false} %>
+          <%= f.label :no_save, 'no_save'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
     </div>  
   </div>

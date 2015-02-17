@@ -86,8 +86,8 @@ class AreasController < ApplicationController
     def area_params
       params.require(:area).permit(:name, :author, :area_number,
                                    :vnum_qty, :manmade, :city, :forest,
-                                   :limited, :aerial, :reserved, :arena,
-                                   :quest, :novnum, :default_terrain, 
+#                                   :limited, :aerial, :reserved, :arena, <-- These area flags removed
+                                   :quest, :novnum, :no_save, :default_terrain, 
                                    :default_room_flags, :dark, :no_sleep,
                                    :no_mob, :indoors, :foggy, :fire, :lava,
                                    :private_room, :peaceful, :solitary,

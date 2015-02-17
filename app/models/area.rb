@@ -28,7 +28,8 @@ class Area < ActiveRecord::Base
                     2**5 => :reserved, # Hex 20
                     2**6 => :arena,    # Hex 40
                     2**7 => :quest,    # Hex 80
-                    2**8 => :novnum    # Hex 100
+                    2**8 => :novnum,   # Hex 100
+                    2**9 => :no_save   # Hex 200
                     
   bitfield :default_room_flags, 
                 2**0 =>  :dark,          # Dec:          1 / Hex:         1
@@ -192,6 +193,7 @@ class Area < ActiveRecord::Base
     $flags_string = $flags_string + ' ARENA' if self.arena
     $flags_string = $flags_string + ' QUEST' if self.quest
     $flags_string = $flags_string + ' NOVNUM' if self.novnum
+    $flags_string = $flags_string + ' NO SAVE' if self.no_save
     return $flags_string
   end
   
