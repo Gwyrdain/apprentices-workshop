@@ -28,6 +28,8 @@ class RoomsController < ApplicationController
       @room.vnum ||= @area.nextroomvnum
       @room.terrain ||= @area.default_terrain
       @room.room_flags ||= @area.default_room_flags
+      @room.description = '<room description here>'
+      @room.name = '<room name here>'
       
   end
 
