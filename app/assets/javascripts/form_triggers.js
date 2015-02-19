@@ -38,10 +38,10 @@ function setExtendedTriggerType() {
   if( $('#trigger_trigger_type').val() == 'Q' ) {
     
     if( $('#ExtendedTriggerBeforeMoveType').val() == 'trig_block_heathen' ) {
-      $('#xGeneric').prop('disabled', false).show();
+      $('#xBlockHeathen').prop('disabled', false).show();
     }
     if( $('#ExtendedTriggerBeforeMoveType').val() == 'trig_sentinel_mob' ) {
-      $('#xGeneric').prop('disabled', false).show();
+      $('#xSentinelMob').prop('disabled', false).show();
     }
       if( $('#ExtendedTriggerBeforeMoveType').val() == 'trig_time_block' ) {
       $('#xTimeBlock').prop('disabled', false).show();

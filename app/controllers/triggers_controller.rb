@@ -83,7 +83,8 @@ class TriggersController < ApplicationController
       params.require(:trigger).permit(:trigger_type, :name, :extended_value_1,
                                       :extended_value_2, :extended_value_3,
                                       :extended_value_4, :extended_value_5,
-                                      :exit_id
+                                      :exit_id, :bit_1, :bit_2, :bit_3,
+                                      :bit_4, :bit_5
                                      )
     end
 end

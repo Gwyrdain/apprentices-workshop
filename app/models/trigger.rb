@@ -9,6 +9,15 @@ class Trigger < ActiveRecord::Base
   validates :extended_value_4, numericality: { only_integer: true, greater_than: -2 }
   validates :extended_value_5, numericality: { only_integer: true, greater_than: -2 }
   
+  include Bitfields
+  bitfield :extended_value_5, 
+                2**0 =>  :bit_1,          # Dec:          1 / Hex:         1
+                2**1 =>  :bit_2,          # Dec:          2 / Hex:         2
+                2**2 =>  :bit_3,          # Dec:          4 / Hex:         4
+                2**3 =>  :bit_4,          # Dec:          8 / Hex:         8
+                2**4 =>  :bit_5           # Dec:         16 / Hex:        10
+  
+  
   before_create :default_values
   def default_values
     self.trigger_type ||= 'A'
@@ -25,10 +34,10 @@ class Trigger < ActiveRecord::Base
     
     if self.trigger_type == 'Q'
       if self.name == 'trig_block_heathen'
-        $output = $output << " #{self.extended_value_1} #{self.extended_value_2} #{self.extended_value_3} #{self.extended_value_4} #{self.extended_value_5}"
+        $output = $output << " #{self.extended_value_1} #{get_string_vnum(self.extended_value_2)} #{get_string_vnum(self.extended_value_3)} #{self.extended_value_4} #{self.extended_value_5}"
       end
       if self.name == 'trig_sentinel_mob'
-        $output = $output << " #{self.extended_value_1} #{self.extended_value_2} #{self.extended_value_3} #{self.extended_value_4} #{self.extended_value_5}"
+        $output = $output << " #{obj_info(self.extended_value_1, 'formal_vnum')} #{get_string_vnum(self.extended_value_2)} #{get_string_vnum(self.extended_value_3)} #{self.extended_value_4 == -1 ? -1 : mobile_info(self.extended_value_4, 'formal_vnum')} #{self.extended_value_5}"
       end
       if self.name == 'trig_time_block'
         $output = $output << " #{self.extended_value_1} #{self.extended_value_2} #{get_string_vnum(self.extended_value_3)} #{get_string_vnum(self.extended_value_4)} -1"
@@ -43,10 +52,10 @@ class Trigger < ActiveRecord::Base
     $comment = "#{self.exit.room.name} (#{exit.direction_word})"
     
     if self.name == 'trig_block_heathen'
-      $comment = $comment << ": something goes here."
+      $comment = $comment << ": allow followers#{self.bit_1 == true ? ', UA PCs' : ''}#{self.bit_2 == true ? ', venerators' : ''}#{self.bit_3 == true ? ', NPCs' : ''}"
     end
     if self.name == 'trig_sentinel_mob'
-      $comment = $comment << ": something goes here."
+      $comment = $comment << ": hold #{obj_info(self.extended_value_1, 'sdesc')} #{self.extended_value_4 == -1 ? '' : 'for ' << mobile_info(self.extended_value_4, 'sdesc') << ' ' }for passage"
     end
     if self.name == 'trig_time_block'
       $comment = $comment << ": deny access between #{hour_from_num(self.extended_value_1)} and #{hour_from_num(self.extended_value_2)}"
