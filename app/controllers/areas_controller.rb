@@ -21,6 +21,9 @@ class AreasController < ApplicationController
     if params[:preview]
       render('areas/areapreview')
     end
+    if params[:review]
+      render('areas/areareview')
+    end
   end
 
   def new
