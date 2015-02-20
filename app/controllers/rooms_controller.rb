@@ -14,11 +14,20 @@ class RoomsController < ApplicationController
   end
 
   def new
+    if params[:makeallrooms]
+      $make_qty = @area.vnum_qty - @area.rooms.count
+      $make_qty.times do
+        @area.rooms.create(:vnum => @area.nextroomvnum,
+                           :name => '<room name here>',
+                           :description => '<room description here>',
+                           :terrain => @area.default_terrain,
+                           :room_flags => @area.default_room_flags
+                          )
+           #@area = Area.create!({name: name, author: author, lowlevel: range_low, highlevel: range_high, flags: flags, vnum_qty: 100, area_number: 1, default_terrain: 0, user_id: user_id})
+      end
+      redirect_to area_rooms_path(@area), notice: 'Empty rooms created.'
+    else
       @room = @area.rooms.build
-#      @room.vnum ||= @area.nextroomvnum
-      #if params[:vnum]
-      #end
-      
       @room.vnum = params[:vnum]
       @room.name = params[:name]
       @room.description = params[:description]
@@ -30,7 +39,7 @@ class RoomsController < ApplicationController
       @room.room_flags ||= @area.default_room_flags
       @room.description = '<room description here>'
       @room.name = '<room name here>'
-      
+    end
   end
 
   def edit
@@ -41,9 +50,7 @@ class RoomsController < ApplicationController
     if not params[:room]
       @room = @area.rooms.build
     end
-    
     @room = @area.rooms.create(room_params)
-    
     if @room.save
       redirect_to area_room_path(@area, @room), notice: 'Room was sucessfully created.'
     else

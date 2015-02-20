@@ -3,12 +3,6 @@
 
 ## General
 * Add jQ/AJAX for better experience!
-* Don't forget to dependent: :destroy all has_many associations...
-* Return to Extended Spec Funs
-
-## Rooms
-* Do not allow export when bad exits exit.
-
 
 #Wish List
 ---
