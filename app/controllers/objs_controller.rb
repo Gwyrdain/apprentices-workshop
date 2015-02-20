@@ -14,18 +14,39 @@ class ObjsController < ApplicationController
   end
 
   def new
-    @obj = @area.objs.build
-
-    @obj.vnum = @area.nextobjvnum
-    @obj.v0 = 0
-    @obj.v1 = 0
-    @obj.v2 = 0
-    @obj.v3 = 0
-    @obj.extra_flags = 0
-    @obj.wear_flags = 1
-    @obj.misc_flags = 0
-    @obj.weight = 1
-    @obj.cost = 0
+    if params[:make]
+      params[:make].to_i.times do
+        @area.objs.create(:vnum => @area.nextobjvnum,
+                          :sdesc => '<sdesc here>',
+                          :ldesc => '<ldesc here>',
+                          :keywords => '<keywords here>',
+                          :object_type => 1,
+                          :v0 => 0,
+                          :v1 => 0,
+                          :v2 => 0,
+                          :v3 => 0,
+                          :extra_flags => 0,
+                          :wear_flags => 1,
+                          :misc_flags => 0,
+                          :weight => 1,
+                          :cost => 0
+                          )
+      end
+      redirect_to area_objs_path(@area), notice: 'Empty objects created.'
+    else
+      @obj = @area.objs.build
+  
+      @obj.vnum = @area.nextobjvnum
+      @obj.v0 = 0
+      @obj.v1 = 0
+      @obj.v2 = 0
+      @obj.v3 = 0
+      @obj.extra_flags = 0
+      @obj.wear_flags = 1
+      @obj.misc_flags = 0
+      @obj.weight = 1
+      @obj.cost = 0
+    end
   end
 
   def edit

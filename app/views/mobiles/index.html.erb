@@ -54,8 +54,11 @@
     </div>
 
     <div class="panel-footer">
-      <%= link_to 'New mobile', new_area_mobile_path %> | 
-      <%= link_to 'Back', area_path(@area) %>
+      <%= link_to 'New mobile', new_area_mobile_path, :class => 'btn btn-primary' %>
+      <%= link_to 'Back', area_path(@area), :class => 'btn btn-default' %>
+      <% if @area.mobiles.count < @area.vnum_qty %>
+        <%= link_to 'Pre-make 10 Mobiles', new_area_mobile_path(@area, :make => 10), :class => 'btn btn-success' %>
+      <% end %>
     </div>
     
 </div>

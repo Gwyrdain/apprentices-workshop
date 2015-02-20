@@ -23,7 +23,6 @@ class RoomsController < ApplicationController
                            :terrain => @area.default_terrain,
                            :room_flags => @area.default_room_flags
                           )
-           #@area = Area.create!({name: name, author: author, lowlevel: range_low, highlevel: range_high, flags: flags, vnum_qty: 100, area_number: 1, default_terrain: 0, user_id: user_id})
       end
       redirect_to area_rooms_path(@area), notice: 'Empty rooms created.'
     else
