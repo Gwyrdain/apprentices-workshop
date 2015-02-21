@@ -193,7 +193,7 @@ class Area < ActiveRecord::Base
     $flags_string = $flags_string + ' ARENA' if self.arena
     $flags_string = $flags_string + ' QUEST' if self.quest
     $flags_string = $flags_string + ' NOVNUM' if self.novnum
-    $flags_string = $flags_string + ' NO SAVE' if self.no_save
+    $flags_string = $flags_string + ' NOSAVE' if self.no_save
     return $flags_string
   end
   
