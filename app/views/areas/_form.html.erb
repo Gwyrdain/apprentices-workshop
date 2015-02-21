@@ -64,22 +64,26 @@
       <%= f.text_field :highlevel, :class => 'text_field form-control' %>
     </div>
   </div>
+  
+  <div class="form-group">
+    <%= f.label 'Environment flag', :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <div class="col-md-2">
+        <label class="radio-inline">
+          <%= f.radio_button :manmade, 0, {:checked => (@area.manmade? == false || @area.flags == 0) ? true : false} %> NATURAL
+        </label>
+      </div>
+      <div class="col-md-2">
+        <label class="radio-inline">
+          <%= f.radio_button :manmade, 1, {:checked => @area.manmade? ? true : false} %> MANMADE
+        </label>
+      </div>
+    </div>
+  </div>
  
   <div class="form-group">
-    <%= f.label :flags, :class => 'control-label col-md-2' %>
+    <%= f.label :flags, 'Other flags', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-        <div class="check_box col-md-2">
-          <%= f.check_box :natural, {:checked => @area.flags == 0 ? true : false} %>
-          <%= f.label :natural, 'natural'.humanize.upcase, :class => 'control-label non-bold' %>
-        </div>
-      <fieldset id="NaturalFlag">
-        <%= f.hidden_field :flags, :value => 0 %>
-      </fieldset>
-      <fieldset id="NonNaturalFlags">
-        <div class="check_box col-md-2">
-          <%= f.check_box :manmade, {:checked => @area.manmade? ? true : false} %>
-          <%= f.label :manmade, 'manmade'.humanize.upcase, :class => 'control-label non-bold' %>
-        </div>
         <div class="check_box col-md-2">
           <%= f.check_box :city, {:checked => @area.city? ? true : false} %>
           <%= f.label :city, 'city'.humanize.upcase, :class => 'control-label non-bold' %>
@@ -118,7 +122,6 @@
           <%= f.check_box :no_save, {:checked => @area.no_save? ? true : false} %>
           <%= f.label :no_save, 'no_save'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
-      </fieldset>
     </div>
   </div>
 
