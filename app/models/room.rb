@@ -169,5 +169,45 @@ class Room < ActiveRecord::Base
   def vnum_and_name
     return  format("%03d",self.vnum) + " " + self.name
   end
+  
+  def terrain_word
+    $result = 'INSIDE'
+    $result = 'CITY' if self.terrain == 1
+    $result = 'FIELD' if self.terrain == 2
+    $result = 'FOREST' if self.terrain == 3
+    $result = 'HILLS' if self.terrain == 4
+    $result = 'MOUNTAIN' if self.terrain == 5
+    $result = 'WATER SWIM' if self.terrain == 6
+    $result = 'WATER NOSWIM' if self.terrain == 7
+    $result = 'UNDERWATER' if self.terrain == 8
+    $result = 'AIR' if self.terrain == 9
+    $result = 'DESERT' if self.terrain == 10
+    return $result
+  end
+
+  def room_flags_as_string
+    $flags_string = ''
+    $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }DARK" if self.dark
+    $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }NO_SLEEP" if self.no_sleep
+    $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }NO_MOB" if self.no_mob
+    $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }INDOORS" if self.indoors
+    $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }FOGGY" if self.foggy
+    $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }FIRE" if self.fire
+    $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }PRIVATE" if self.private_room
+    $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }PEACEFUL" if self.peaceful
+    $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }SOLITARY" if self.solitary
+    $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }NO_RECALL" if self.no_recall
+    $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }NO_STEAL" if self.no_steal
+    $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }NO_TRANS" if self.notrans
+    $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }NO_SPELL" if self.no_spell
+    $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }SEAFLOOR" if self.seafloor
+    $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }NO_FLY" if self.no_fly
+    $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }HOLY_GROUND" if self.holy_ground
+    $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }FLY_OK" if self.fly_ok
+    $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }NO_QUEST" if self.no_quest
+    $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }NO_ITEM" if self.no_item
+    $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }NO_VNUM" if self.no_vnum
+    return $flags_string
+  end
 
 end

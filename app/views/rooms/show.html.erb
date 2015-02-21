@@ -13,131 +13,27 @@
       </h3>
     </div>
     <div class="panel-body">
-
-      <div class="row">
-        <div class="col-md-2">
-          <strong>Formal Vnum:</strong>
-        </div>
-        <div class="col-md-10">
-          <div class="col-md-10">
-            <%= @room.formal_vnum %>
-          </div>
-        </div>
-      </div><br/>
-
-      <div class="row">
-        <div class="col-md-2">
-          <strong><%= model_class.human_attribute_name(:name) %>:</strong>
-        </div>
-        <div class="col-md-10">
-          <div class="col-md-10">
-            <%= @room.name %>
-          </div>
-        </div>
-      </div><br/>
-
-      <div class="row">
-        <div class="col-md-2">
-          <strong><%= model_class.human_attribute_name(:description) %>:</strong>
-        </div>
-        <div class="col-md-10">
-          <div class="col-md-10">
-            <%= simple_format(word_wrap(@room.description, line_width: ApplicationController::WORDWRAP_LENGTH)) %>
-          </div>
-        </div>
-      </div><br/>
-
-      <div class="row">
-        <div class="col-md-2">
-          <strong><%= model_class.human_attribute_name(:room_flags) %> value:</strong>
-        </div>
-        <div class="col-md-10">
-          <div class="col-md-10"><%= @room.room_flags %></div>
-        </div>
-      </div><br/>
       
-      <div class="row">
-        <div class="col-md-2">
-          <strong><%= model_class.human_attribute_name(:room_flags) %>:</strong>
-        </div>
-        <div class="col-md-10">
-          <% if @room.room_flags == 0 %><div class="col-md-2">NONE</div><% end %>
-          <% if @room.dark? %><div class="col-md-2">DARK</div><% end %>
-          <% if @room.no_sleep? %><div class="col-md-2">NO SLEEP</div><% end %>
-          <% if @room.no_mob? %><div class="col-md-2">NO MOB</div><% end %>
-          <% if @room.indoors? %><div class="col-md-2">INDOORS</div><% end %>
-          <% if @room.foggy? %><div class="col-md-2">FOGGY</div><% end %>
-          <% if @room.fire? %><div class="col-md-2">FIRE</div><% end %>
-          <% if @room.lava? %><div class="col-md-2">LAVA</div><% end %>
-          <% if @room.private_room? %><div class="col-md-2">PRIVATE</div><% end %>
-          <% if @room.peaceful? %><div class="col-md-2">PEACEFUL</div><% end %>
-          <% if @room.solitary? %><div class="col-md-2">SOLITARY</div><% end %>
-          <% if @room.no_recall? %><div class="col-md-2">NO RECALL</div><% end %>
-          <% if @room.no_steal? %><div class="col-md-2">NO STEAL</div><% end %>
-          <% if @room.notrans? %><div class="col-md-2">NOTRANS</div><% end %>
-          <% if @room.no_spell? %><div class="col-md-2">NO SPELL</div><% end %>
-          <% if @room.seafloor? %><div class="col-md-2">SEAFLOOR</div><% end %>
-          <% if @room.no_fly? %><div class="col-md-2">NO FLY</div><% end %>
-          <% if @room.holy_ground? %><div class="col-md-2">HOLY GROUND</div><% end %>
-          <% if @room.fly_ok? %><div class="col-md-2">FLY OK</div><% end %>
-          <% if @room.no_quest? %><div class="col-md-2">NO QUEST</div><% end %>
-          <% if @room.no_item? %><div class="col-md-2">NO ITEM</div><% end %>
-          <% if @room.no_vnum? %><div class="col-md-2">NO VNUM</div><% end %>
-        </div>
-      </div><br/>
+      <%= render 'mudroomview' %>
 
       <div class="row">
         <div class="col-md-2">
-          <strong><%= model_class.human_attribute_name(:terrain) %> value:</strong>
+          <strong>Room special:</strong>
         </div>
         <div class="col-md-10">
-          <div class="col-md-10"><%= @room.terrain %></div>
-        </div>
-      </div><br/>
-
-      <div class="row">
-        <div class="col-md-2">
-          <strong><%= model_class.human_attribute_name(:terrain) %>:</strong>
-        </div>
-        <div class="col-md-10">
-          <% if @room.terrain == 0 %><div class="col-md-2">INSIDE</div><% end %>
-          <% if @room.terrain == 1 %><div class="col-md-2">CITY</div><% end %>
-          <% if @room.terrain == 2 %><div class="col-md-2">FIELD</div><% end %>
-          <% if @room.terrain == 3 %><div class="col-md-2">FOREST</div><% end %>
-          <% if @room.terrain == 4 %><div class="col-md-2">HILLS</div><% end %>
-          <% if @room.terrain == 5 %><div class="col-md-2">MOUNTAIN</div><% end %>
-          <% if @room.terrain == 6 %><div class="col-md-2">WATER SWIM</div><% end %>
-          <% if @room.terrain == 7 %><div class="col-md-2">WATER NOSWIM</div><% end %>
-          <% if @room.terrain == 8 %><div class="col-md-2">UNDERWATER</div><% end %>
-          <% if @room.terrain == 9 %><div class="col-md-2">AIR</div><% end %>
-          <% if @room.terrain == 10 %><div class="col-md-2">DESERT</div><% end %>
-        </div>
-      </div><br/>
-      
-        <div class="row">
-          <div class="col-md-2">
-            <strong>Room special function:</strong>
-          </div>
           <div class="col-md-10">
-            <div class="col-md-10">
-              <% if @room.room_specials.count < 1 %>
-                  <%= link_to 'Add a Room Special Function', new_area_room_room_special_path(@area, @room), :class => 'btn btn-primary btn-xs' %>
-              <% else %>
-                <% $room_special = @room.room_specials.first %>
-                <%= $room_special.name %>
-                <%= link_to area_room_room_special_path(@area, @room, $room_special), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
-                  <%= glyph 'info-sign' %>
-                <%- end -%>
-                <%= link_to edit_area_room_room_special_path(@area, @room, $room_special), :class => 'btn btn-xs', :title => "#{ t('.edit', :default => t('helpers.links.edit')) }" do %>
-                  <%= glyph 'pencil' %>
-                <%- end -%>
-                <%= link_to area_room_room_special_path(@area, @room, $room_special), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
-                  <%= glyph 'remove' %>
-                <%- end -%>
+            <% if @room.room_specials.count < 1 %>
+                <%= link_to 'Add a Room Special Function', new_area_room_room_special_path(@area, @room), :class => 'btn btn-primary btn-xs' %>
+            <% else %>
+              <% $room_special = @room.room_specials.first %>
+              <%= link_to $room_special.name, edit_area_room_room_special_path(@area, @room, $room_special), :class => 'btn btn-info btn-xs' %>
+              <%= link_to area_room_room_special_path(@area, @room, $room_special), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+                <%= glyph 'remove' %>
               <% end %>
-            </div>
+            <% end %>
           </div>
-        </div><br/>
+        </div>
+      </div><br/>
 
       <%= render 'rooms/exitmap', :room => @room %>
           
