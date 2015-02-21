@@ -5,6 +5,7 @@ function initExitsForm() {
   setExitType();
   setExitDestinationType();
   setResetField();
+  CheckForLoopBack();
 }
 
 function setExitType() {
@@ -108,6 +109,19 @@ function hideKeyTypes() {
   $('#NoDoorKeyField').prop('disabled', true);
 }
 
+function CheckForLoopBack() {
+  
+  if($('#ParentRoomID').text() == $('#exit_exit_room_id').val()) {
+    $('#exit_exit_room_id').parent().parent().addClass("has-warning");
+    $('#ExitIDHelpBlock').show()
+  } else {
+    $('#exit_exit_room_id').parent().parent().removeClass("has-warning");
+    $('#ExitIDHelpBlock').hide()
+  }
+
+  $('#NoDoorKeyField').prop('disabled', true);
+}
+
 
 //  --=={ WATCH FOR FORM CHANGES }==-
 
@@ -131,4 +145,8 @@ $(function() {
   })
 });
 
-
+$(function() {
+  $('#exit_exit_room_id').change(function() {
+    CheckForLoopBack()
+  })
+});
