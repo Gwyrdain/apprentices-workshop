@@ -1,11 +1,17 @@
 <%- model_class = Mobile -%>
 
 <div class="panel panel-default monospace">
-  <div class="panel-heading"><h3>
+  <div class="panel-heading">
+    <h3>
       <%= link_to @area.name, area_path(@area) %> /
       <%= link_to 'Mobiles', area_mobiles_path(@area) %> /
       Mobile: <%= @mobile.vnum %>
-  </h3></div>
+        <div class="btn-group pull-right" role="group" aria-label="...">
+          <% if @mobile.last_mobile %><%= link_to "Last Mobile: #{@mobile.last_mobile.vnum}", area_mobile_path(@area, @mobile.last_mobile), :class => 'btn btn-default' %><% end %>
+          <% if @mobile.next_mobile %><%= link_to "Next Mobile: #{@mobile.next_mobile.vnum}", area_mobile_path(@area, @mobile.next_mobile), :class => 'btn btn-default' %><% end %>
+        </div>
+    </h3>
+  </div>
   <div class="panel-body">
     
   <div class="row">

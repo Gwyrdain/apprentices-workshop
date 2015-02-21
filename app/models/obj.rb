@@ -95,6 +95,31 @@ class Obj < ActiveRecord::Base
     self.weight ||= 0
     self.cost ||= 0
   end
+  
+  def next_obj
+    $next_obj = false # return self if no next obj
+    x = self.vnum + 1
+    for i in x..self.area.vnum_qty
+      if self.area.objs.exists?(:vnum => i)
+        $next_obj = self.area.objs.where(:vnum => i).first
+        break
+      end
+    end
+    return $next_obj
+  end
+  
+  def last_obj
+    $last_obj = false # return self if no last obj
+    i = self.vnum
+    until i < 0
+      i -= 1
+      if self.area.objs.exists?(:vnum => i)
+        $last_obj = self.area.objs.where(:vnum => i).first
+        break
+      end
+    end
+    return $last_obj
+  end
 
   def max_vnum
     area.vnum_qty

@@ -124,6 +124,31 @@ class Mobile < ActiveRecord::Base
     self.langs_known ||= 0
     self.lang_spoken ||= 0
   end
+  
+  def next_mobile
+    $next_mobile = false # return self if no next mobile
+    x = self.vnum + 1
+    for i in x..self.area.vnum_qty
+      if self.area.mobiles.exists?(:vnum => i)
+        $next_mobile = self.area.mobiles.where(:vnum => i).first
+        break
+      end
+    end
+    return $next_mobile
+  end
+  
+  def last_mobile
+    $last_mobile = false # return self if no last mobile
+    i = self.vnum
+    until i < 0
+      i -= 1
+      if self.area.mobiles.exists?(:vnum => i)
+        $last_mobile = self.area.mobiles.where(:vnum => i).first
+        break
+      end
+    end
+    return $last_mobile
+  end
 
   def max_vnum
     area.vnum_qty

@@ -70,6 +70,31 @@ class Room < ActiveRecord::Base
   def formal_vnum
     (area.area_number * 100) + self.vnum
   end
+  
+  def next_room
+    $next_room = false # return self if no next room
+    x = self.vnum + 1
+    for i in x..self.area.vnum_qty
+      if self.area.rooms.exists?(:vnum => i)
+        $next_room = self.area.rooms.where(:vnum => i).first
+        break
+      end
+    end
+    return $next_room
+  end
+  
+  def last_room
+    $last_room = false # return self if no last room
+    i = self.vnum
+    until i < 0
+      i -= 1
+      if self.area.rooms.exists?(:vnum => i)
+        $last_room = self.area.rooms.where(:vnum => i).first
+        break
+      end
+    end
+    return $last_room
+  end
 
   def any_bad_exits?
     $result = false
