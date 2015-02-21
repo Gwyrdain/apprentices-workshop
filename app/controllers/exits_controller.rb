@@ -17,30 +17,33 @@ class ExitsController < ApplicationController
 
   def new
     if params[:make_reciprocal]
-      @new_room = @area.rooms.create(:vnum => @area.nextroomvnum,
-                                     :name => '<room name here>',
-                                     :description => '<room description here>',
-                                     :terrain => @area.default_terrain,
-                                     :room_flags => @area.default_room_flags
-                                    )
-      @this_exit = @room.exits.create(:exittype => 0,
-                                      :keyvnum => 0,
-                                      :exit_room_id => @new_room.id,
-                                      :description => '',
-                                      :name => '',
-                                      :keywords => '',
-                                      :direction => params[:dir]
-                                     )
-      @remote_exit = @new_room.exits.create(:exittype => 0,
-                                            :keyvnum => 0,
-                                            :exit_room_id => @room.id,
-                                            :description => '',
-                                            :name => '',
-                                            :keywords => '',
-                                            :direction => opposite_dir( params[:dir].to_i )
-                                           )
-
-      redirect_to area_room_path(@area, @room), notice: 'Reciprocal exit and new room created.'
+      if @area.vnum_qty > @area.rooms.count
+        @new_room = @area.rooms.create(:vnum => @area.nextroomvnum,
+                                       :name => '<room name here>',
+                                       :description => '<room description here>',
+                                       :terrain => @area.default_terrain,
+                                       :room_flags => @area.default_room_flags
+                                      )
+        @this_exit = @room.exits.create(:exittype => 0,
+                                        :keyvnum => 0,
+                                        :exit_room_id => @new_room.id,
+                                        :description => '',
+                                        :name => '',
+                                        :keywords => '',
+                                        :direction => params[:dir]
+                                       )
+        @remote_exit = @new_room.exits.create(:exittype => 0,
+                                              :keyvnum => 0,
+                                              :exit_room_id => @room.id,
+                                              :description => '',
+                                              :name => '',
+                                              :keywords => '',
+                                              :direction => opposite_dir( params[:dir].to_i )
+                                             )
+        redirect_to area_room_path(@area, @room), notice: 'Reciprocal exit and new room created.'
+      else
+        redirect_to area_room_path(@area, @room), notice: 'Cannot create a reciprocal exit.  No additional room vnums are available.'
+      end
     else
       @exit = @room.exits.build
   
