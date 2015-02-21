@@ -15,6 +15,9 @@ class SubReset < ActiveRecord::Base
   validates :val_2, numericality: { only_integer: true, greater_than: -1 }
   validates :val_3, numericality: { only_integer: true, greater_than: -1 }
   validates :val_4, numericality: { only_integer: true, greater_than: -1 }
+  validates :val_4, uniqueness: { scope: :reset, message: "No duplicate wear locations allowed." }, if: :equip_reset?
+  
+  
   
   validates_with SubResetValidator
   
@@ -25,6 +28,10 @@ class SubReset < ActiveRecord::Base
     self.val_2 ||= 0
     self.val_3 ||= 0
     self.val_4 ||= 0
+  end
+  
+  def equip_reset?
+    self.reset_type == 'E' ? true : false
   end
 
   def comment
