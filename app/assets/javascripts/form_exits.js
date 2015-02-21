@@ -11,7 +11,10 @@ function initExitsForm() {
 function setExitType() {
   if( $('#exit_exittype').val() == -1 ) { // IF it's a LOOK-ONLY exit.
     hideExitDestinationTypes();
+    $('#NoExitField').prop('disabled', false);
     $('#ExitDestinationGroup').hide();
+    setKeyType();
+    
   } else {
     $('#ExitDestinationGroup').show();
     if($('#NoExitVnumRadio').is(':checked')) { // IF it's not LOOK-ONLY but it's set to 'no exit' reset to a local vnum.
