@@ -210,24 +210,3 @@ class Exit < ActiveRecord::Base
 
 end
 
-def num_to_dir(i)
-  $word = nil
-  $word = 'North' if i == 0
-  $word = 'East' if i == 1
-  $word = 'South' if i == 2
-  $word = 'West' if i == 3
-  $word = 'Up' if i == 4
-  $word = 'Down' if i == 5
-  return $word
-end
-
-def opposite_dir(i)
-  $dir = nil
-  $dir = 0 if i == 2  # N opposite of S
-  $dir = 2 if i == 0  # S opposite of N
-  $dir = 1 if i == 3  # E opposite of W
-  $dir = 3 if i == 1  # W opposite of E
-  $dir = 4 if i == 5  # U opposite of D
-  $dir = 5 if i == 4  # D opposite of U
-  return $dir
-end

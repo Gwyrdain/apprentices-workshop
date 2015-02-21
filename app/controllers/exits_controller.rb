@@ -16,20 +16,46 @@ class ExitsController < ApplicationController
   end
 
   def new
-    @exit = @room.exits.build
+    if params[:make_reciprocal]
+      @new_room = @area.rooms.create(:vnum => @area.nextroomvnum,
+                                     :name => '<room name here>',
+                                     :description => '<room description here>',
+                                     :terrain => @area.default_terrain,
+                                     :room_flags => @area.default_room_flags
+                                    )
+      @this_exit = @room.exits.create(:exittype => 0,
+                                      :keyvnum => 0,
+                                      :exit_room_id => @new_room.id,
+                                      :description => '',
+                                      :name => '',
+                                      :keywords => '',
+                                      :direction => params[:dir]
+                                     )
+      @remote_exit = @new_room.exits.create(:exittype => 0,
+                                            :keyvnum => 0,
+                                            :exit_room_id => @room.id,
+                                            :description => '',
+                                            :name => '',
+                                            :keywords => '',
+                                            :direction => opposite_dir( params[:dir].to_i )
+                                           )
 
-    @exit.direction = params[:direction]
-    @exit.description = params[:description]
-    @exit.keywords = params[:keywords]
-    @exit.exittype = params[:exittype]
-    @exit.keyvnum = params[:keyvnum]
-    @exit.exit_room_id = params[:exit_room_id]
-    @exit.name = params[:name]
-    
-    @exit.exittype ||= 0
-    @exit.keyvnum ||= 0
-    @exit.exit_room_id ||= -1
+      redirect_to area_room_path(@area, @room), notice: 'Reciprocal exit and new room created.'
+    else
+      @exit = @room.exits.build
+  
+      @exit.direction = params[:direction]
+      @exit.description = params[:description]
+      @exit.keywords = params[:keywords]
+      @exit.exittype = params[:exittype]
+      @exit.keyvnum = params[:keyvnum]
+      @exit.exit_room_id = params[:exit_room_id]
+      @exit.name = params[:name]
       
+      @exit.exittype ||= 0
+      @exit.keyvnum ||= 0
+      @exit.exit_room_id ||= -1
+    end #if make_reciprocal
   end
 
   def edit
@@ -48,7 +74,6 @@ class ExitsController < ApplicationController
     else
       @exit = @room.exits.create(exit_params)
     end
-
     if @exit.save
       redirect_to area_room_path(@area, @room), notice: 'Room Exit was sucessfully created.'
     else

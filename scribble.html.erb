@@ -176,3 +176,27 @@
 
       end
     end
+    
+    
+    
+    
+    
+          <%= link_to({ :controller => "exits", 
+                                       :action => "create",
+                                       :area_id => @room.area.id,
+                                       :room_id => @room.id,
+                                       :exittype => -1,
+                                       :keyvnum => 0,
+                                       :exit_room_id => -1,
+                                       :description => '',
+                                       :name => '',
+                                       :keywords => '',
+                                       :direction => dir
+                                       },
+                                       :method => "post",
+                                       :class => 'btn btn-default btn-md btn-block'
+                                       ) do %>
+        No <%= num_to_dir(dir).titleize %> Exit<br>
+        <br>
+        Add?
+      <% end %>

@@ -44,26 +44,11 @@
     <% end %>
     
   <% else %>
-      <%= link_to({ :controller => "exits", 
-                                       :action => "create",
-                                       :area_id => @room.area.id,
-                                       :room_id => @room.id,
-                                       :exittype => -1,
-                                       :keyvnum => 0,
-                                       :exit_room_id => -1,
-                                       :description => '',
-                                       :name => '',
-                                       :keywords => '',
-                                       :direction => dir
-                                       },
-                                       :method => "post",
-                                       :class => 'btn btn-default btn-md btn-block'
-                                       ) do %>
-        No <%= num_to_dir(dir).titleize %> Exit<br>
-        <br>
-        Add?
-      <% end %>
-    
+    <%= link_to new_area_room_exit_path(@area, @room, :make_reciprocal => true, :dir => dir), :class => 'btn btn-default btn-md btn-block' do %>
+      No <%= num_to_dir(dir).titleize %> Exit<br>
+      <br>
+      Add?
+    <% end %>
   <% end %>
 
 </div>
