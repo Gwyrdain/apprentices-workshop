@@ -1,4 +1,5 @@
 class TriggersController < ApplicationController
+  before_action :authenticate_user!#, except: [:index]
   before_action :set_trigger, only: [:show, :edit, :update, :destroy]
   before_action :set_exit, only: [:show, :new, :edit, :create, :update, :destroy]
   before_action :set_room, only: [:show, :new, :edit, :create, :update, :destroy]

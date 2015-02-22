@@ -1,6 +1,6 @@
 class AreasController < ApplicationController
-  before_action :set_area, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!#, except: [:index]
+  before_action :set_area, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:update, :destroy] #[:show, :edit, :update, :destroy]
   before_action :can_user_view, only: [:show, :edit]
 

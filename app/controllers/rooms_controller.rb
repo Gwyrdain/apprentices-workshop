@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user!#, except: [:index]
   before_action :set_area, only: [:index, :show, :new, :edit, :create, :update, :destroy]
   before_action :set_room, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:new, :edit, :create, :update, :destroy] #[:show, :edit, :update, :destroy]

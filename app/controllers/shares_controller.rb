@@ -1,4 +1,5 @@
 class SharesController < ApplicationController
+  before_action :authenticate_user!#, except: [:index]
   before_action :set_share, only: [:show, :edit, :update, :destroy]
   before_action :set_area, only: [:index, :show, :new, :edit, :create, :update, :destroy]
   before_action :shares_correct_user, only: [:new, :update, :destroy] #[:show, :edit, :update, :destroy]
