@@ -1,0 +1,2 @@
+<% if @area.resets.where(reset_type: 'O').where(val_4: @room.id).count > 0 %><% @area.resets.order(:val_2).where(reset_type: 'O').where(val_4: @room.id).each do |reset| %><font color='green'><%= obj_info(reset.obj_id, 'ldesc') %></font>
+<% end %><% end %>

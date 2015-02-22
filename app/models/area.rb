@@ -306,6 +306,7 @@ def obj_info(id, property)
     $result = $this_obj.formal_vnum.to_s if property == 'formal_vnum'
     $result = $this_obj.sdesc            if property == 'sdesc'
     $result = $this_obj.type_word        if property == 'type_word'
+    $result = $this_obj.ldesc            if property == 'ldesc'
   else
     $result = 'UNKNOWN'
   end
@@ -329,7 +330,8 @@ def mobile_info(id, property)
   if Mobile.exists?(:id => id)
     $this_mobile = Mobile.find(id)
     $result = $this_mobile.formal_vnum.to_s if property == 'formal_vnum'
-    $result = $this_mobile.sdesc             if property == 'sdesc'
+    $result = $this_mobile.sdesc            if property == 'sdesc'
+    $result = $this_mobile.ldesc            if property == 'ldesc'
   else
     $result = 'UNKNOWN'
   end

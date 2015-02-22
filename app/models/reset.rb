@@ -61,6 +61,14 @@ class Reset < ActiveRecord::Base
     return $desc
   end
   
+  def mob_id
+    return self.val_2
+  end
+  
+  def obj_id
+    return self.val_2
+  end
+  
   def load_mob_name
     if self.area.mobiles.exists?(:id => self.val_2)
       return Mobile.find(self.val_2).sdesc
