@@ -28,8 +28,8 @@
           <td><%= exit.exittype %></td>
           <td><%= exit.keyvnum %></td>
           <td>
-            <% if @exit.destination_exists? %>
-              <%= @exit.destination.vnum %>
+            <% if exit.destination_exists? %>
+              <%= exit.destination.vnum %>
             <% else %>
               *** BAD EXIT: NO DESTINATION ***
             <% end %>

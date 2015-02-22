@@ -155,18 +155,28 @@
   <%= f.hidden_field :reset, {:id => 'NoDoorReset', :value => -1} %>
   
   <div class="form-group" id="DoorResetGroup">
-      <%= f.label :reset, 'Door reset', :class => 'control-label col-md-2' %>
-      <div class="col-md-10">
-        <%= f.select(:reset, options_for_select(
-              [
-                ['none', -1],
-                ['open', 0],
-                ['closed', 1],
-                ['closed & locked', 2]
-              ], @exit.reset
-            ), {}, {class: "form-control"}) %>
-      </div>
+    <%= f.label :reset, 'Door reset', :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.select(:reset, options_for_select(
+            [
+              ['none', -1],
+              ['open', 0],
+              ['closed', 1],
+              ['closed & locked', 2]
+            ], @exit.reset
+          ), {}, {class: "form-control"}) %>
     </div>
+  </div>
+  
+  <!--
+  <div class="form-group">
+    <%= f.label :force_reciprocal, 'Reciprocality', :class => 'control-label col-md-2' %>
+    <div class="check_box col-md-10">
+      <%= f.check_box :force_reciprocal, {:checked => false} %>
+      <%= f.label :force_reciprocal, '(force reciprocality and matching properties on the far side)', :class => 'control-label non-bold' %>
+    </div>
+  </div>
+  -->
 
   <div class="form-group">
     <div class='col-md-offset-2 col-md-10'>

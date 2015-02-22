@@ -18,4 +18,4 @@
 //= require bootstrap
 //= require_tree .
 //= require bootbox
-//= require bootstrap-datepicker
+//= require bootstrap-datepicker/core
