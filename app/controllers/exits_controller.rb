@@ -78,7 +78,7 @@ class ExitsController < ApplicationController
       @exit = @room.exits.create(exit_params)
     end
     if @exit.save
-      redirect_to area_room_path(@area, @room), notice: 'Room Exit was sucessfully created.'
+      redirect_to area_room_path(@area, @room), notice: 'Exit was sucessfully created.'
     else
       render action: 'new'
     end
@@ -86,7 +86,7 @@ class ExitsController < ApplicationController
 
   def update
     if @exit.update(exit_params)
-      redirect_to area_room_path(@area, @room), notice: 'Room Exit was sucessfully updated.'
+      redirect_to area_room_path(@area, @room), notice: 'Exit was sucessfully updated.'
     else
       render action: 'edit'
     end 
@@ -95,7 +95,7 @@ class ExitsController < ApplicationController
   def destroy
     @exit.destroy
     if @exit.save
-      redirect_to area_room_path(@area, @room), notice: 'Room was sucessfully deleted.'
+      redirect_to area_room_path(@area, @room), notice: 'Exit was sucessfully deleted.'
     else
       redirect_to area_room_path(@area, @room), notice: 'Something went wrong.'
     end
