@@ -6,6 +6,7 @@ function initExitsForm() {
   setExitDestinationType();
   setResetField();
   CheckForLoopBack();
+  setKeyFields();
 }
 
 function setExitType() {
@@ -121,8 +122,6 @@ function CheckForLoopBack() {
     $('#exit_exit_room_id').parent().parent().removeClass("has-warning");
     $('#ExitIDHelpBlock').hide()
   }
-
-  $('#NoDoorKeyField').prop('disabled', true);
 }
 
 
