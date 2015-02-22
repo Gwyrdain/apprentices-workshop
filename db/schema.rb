@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150215163130) do
+ActiveRecord::Schema.define(version: 20150222001222) do
 
   create_table "applies", force: true do |t|
     t.integer  "apply_type"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150215163130) do
     t.text     "description",        default: ""
     t.integer  "lowlevel",           default: 1
     t.integer  "highlevel",          default: 50
+    t.date     "installed"
   end
 
   add_index "areas", ["user_id"], name: "index_areas_on_user_id"

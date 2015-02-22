@@ -7,7 +7,8 @@ Highlevel <%= @area.highlevel %><% if @area.flags > 0 %>
 Flags<%= @area.flags_as_string %> End<% end %><% if @area.description.length > 0 %>
 Description
 <%= word_wrap(@area.description, line_width: ApplicationController::WORDWRAP_LENGTH)  %>
-~<% end %>
+~<% end %><% if @area.installed %>
+Installed <%= @area.installed %><% end %>
 Revision $Revision$
 Updated $Date$
 End
