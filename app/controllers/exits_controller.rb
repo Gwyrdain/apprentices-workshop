@@ -66,31 +66,89 @@ class ExitsController < ApplicationController
   end
 
   def create
-    if not params[:exit]
-      @exit = @room.exits.build
-      @exit.direction = params[:direction]
-      @exit.description = params[:description]
-      @exit.keywords = params[:keywords]
-      @exit.exittype = params[:exittype]
-      @exit.keyvnum = params[:keyvnum]
-      @exit.exit_room_id = params[:exit_room_id]
-      @exit.name = params[:name]
-    else
+    if params[:force_reciprocal]
       @exit = @room.exits.create(exit_params)
-    end
-    if @exit.save
-      redirect_to area_room_path(@area, @room), notice: 'Exit was sucessfully created.'
+      $far_room = Room.find(@exit.exit_room_id)
+      
+      if $far_room.exits.exists?(:direction => opposite_dir( @exit.direction ))
+        $far_exit = $far_room.exits.where(:direction => opposite_dir( @exit.direction )).first
+        Exit.update($far_exit.id,
+                    :exittype => @exit.exittype,
+                    :keyvnum => @exit.keyvnum,
+                    :exit_room_id => @exit.room.id,
+                    :name => @exit.name,
+                    :keywords => @exit.keywords,
+                    :reset => @exit.reset
+                   )
+        redirect_to area_room_path(@area, @room), notice: 'Exit created and reciprocal forced to match.'
+      else
+        $far_room.exits.create( :exittype => @exit.exittype,
+                                :keyvnum => @exit.keyvnum,
+                                :exit_room_id => @exit.room.id,
+                                :name => @exit.name,
+                                :keywords => @exit.keywords,
+                                :description => @exit.description,
+                                :direction => opposite_dir( @exit.direction ),
+                                :reset => @exit.reset
+                               )
+        redirect_to area_room_path(@area, @room), notice: 'Exit created and reciprocal created to match.'
+      end
     else
-      render action: 'new'
+      if not params[:exit]
+        @exit = @room.exits.build
+        @exit.direction = params[:direction]
+        @exit.description = params[:description]
+        @exit.keywords = params[:keywords]
+        @exit.exittype = params[:exittype]
+        @exit.keyvnum = params[:keyvnum]
+        @exit.exit_room_id = params[:exit_room_id]
+        @exit.name = params[:name]
+      else
+        @exit = @room.exits.create(exit_params)
+      end
+      if @exit.save
+        redirect_to area_room_path(@area, @room), notice: 'Exit was sucessfully created.'
+      else
+        render action: 'new'
+      end
     end
   end
 
   def update
-    if @exit.update(exit_params)
-      redirect_to area_room_path(@area, @room), notice: 'Exit was sucessfully updated.'
+    if params[:force_reciprocal]
+      @exit = @room.exits.create(exit_params)
+      $far_room = Room.find(@exit.exit_room_id)
+      
+      if $far_room.exits.exists?(:direction => opposite_dir( @exit.direction ))
+        $far_exit = $far_room.exits.where(:direction => opposite_dir( @exit.direction )).first
+        Exit.update($far_exit.id,
+                    :exittype => @exit.exittype,
+                    :keyvnum => @exit.keyvnum,
+                    :exit_room_id => @exit.room.id,
+                    :name => @exit.name,
+                    :keywords => @exit.keywords,
+                    :reset => @exit.reset
+                   )
+        redirect_to area_room_path(@area, @room), notice: 'Exit updated and reciprocal forced to match.'
+      else
+        $far_room.exits.create( :exittype => @exit.exittype,
+                                :keyvnum => @exit.keyvnum,
+                                :exit_room_id => @exit.room.id,
+                                :name => @exit.name,
+                                :keywords => @exit.keywords,
+                                :description => @exit.description,
+                                :direction => opposite_dir( @exit.direction ),
+                                :reset => @exit.reset
+                               )
+        redirect_to area_room_path(@area, @room), notice: 'Exit updated and reciprocal created to match.'
+      end
     else
-      render action: 'edit'
-    end 
+      if @exit.update(exit_params)
+        redirect_to area_room_path(@area, @room), notice: 'Exit was sucessfully updated.'
+      else
+        render action: 'edit'
+      end
+    end
   end
 
   def destroy
@@ -116,6 +174,9 @@ class ExitsController < ApplicationController
     end
     
     def exit_params
-      params.require(:exit).permit(:direction, :description, :keywords, :exittype, :keyvnum, :exit_room_id, :name, :reset, :room_id)
+      params.require(:exit).permit(:direction, :description, :keywords, 
+                                   :exittype, :keyvnum, :exit_room_id, :name,
+                                   :reset, :room_id
+                                   )
     end
 end
