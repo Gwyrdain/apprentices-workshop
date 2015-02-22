@@ -47,7 +47,7 @@ class ExitsController < ApplicationController
     else
       @exit = @room.exits.build
   
-      @exit.direction = params[:direction]
+      @exit.direction = params[:dir]
       @exit.description = params[:description]
       @exit.keywords = params[:keywords]
       @exit.exittype = params[:exittype]

@@ -44,10 +44,18 @@
     <% end %>
     
   <% else %>
-    <%= link_to new_area_room_exit_path(@area, @room, :make_reciprocal => true, :dir => dir), :class => 'btn btn-default btn-md btn-block' do %>
-      No <%= num_to_dir(dir).titleize %> Exit<br>
-      <br>
-      Add?
+    <% if @area.rooms.count < @area.vnum_qty %>
+      <%= link_to new_area_room_exit_path(@area, @room, :make_reciprocal => true, :dir => dir), :class => 'btn btn-default btn-md btn-block' do %>
+        No <%= num_to_dir(dir).titleize %> Exit<br>
+        Add<br>
+        Reciprocal?
+      <% end %>
+    <% else %>
+      <%= link_to new_area_room_exit_path(@area, @room, :dir => dir), :class => 'btn btn-default btn-md btn-block' do %>
+        No <%= num_to_dir(dir).titleize %> Exit<br>
+        <br>
+        Add Exit?
+      <% end %>
     <% end %>
   <% end %>
 
