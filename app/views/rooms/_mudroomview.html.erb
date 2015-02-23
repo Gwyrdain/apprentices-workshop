@@ -3,7 +3,8 @@
 <%= @room.name %>
 <font color=red>[</font><font color=darkred>Exits:<% if @room.exits.count < 1 %> <font color=white>none</font><% end %><% @room.exits.order(:direction).each do |exit| %> <u><% if exit.destination_exists? %><%= link_to exit.direction_word.downcase, area_room_path(@area, exit.destination), {:style => 'color: darkred'} %><% else %><%= link_to exit.direction_word.downcase, edit_area_room_exit_path(@area, @room, exit), {:style => 'color: darkred'} %><% end %></u><% end %></font><font color=red>]</font>
 <%= word_wrap(@room.description, line_width: ApplicationController::WORDWRAP_LENGTH) %>
+<% if @room.has_contents? %>
 
-<%= render 'objs_in_room' %><%= render 'mobs_in_room' %>
+<%= render 'objs_in_room' %><%= render 'mobs_in_room'%><% end %>
 <font color=lightgray>></font><% if @area.use_rulers? %>
 <%= ApplicationController::WORDWRAP_RULER %><% end %></div>

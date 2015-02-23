@@ -209,5 +209,13 @@ class Room < ActiveRecord::Base
     $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }NO_VNUM" if self.no_vnum
     return $flags_string
   end
+  
+  def has_contents?
+    if self.area.resets.where(reset_type: ['M', 'Q', 'O']).where(val_4: self.id).count > 0
+      return true
+    else
+      return false
+    end
+  end
 
 end

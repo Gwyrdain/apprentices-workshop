@@ -61,7 +61,7 @@ class Reset < ActiveRecord::Base
     return $desc
   end
   
-  def mob_id
+  def mobile_id
     return self.val_2
   end
   
