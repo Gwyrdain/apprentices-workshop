@@ -1,0 +1,6 @@
+ {<% if @room.room_specials.count < 1 %>no room special <%= link_to '<font color=lime>+</font>'.html_safe, new_area_room_room_special_path(@area, @room) %><% else %><%
+$room_special = @room.room_specials.first %><%= 
+link_to "<font color=white>#{$room_special.name}</font>".html_safe, edit_area_room_room_special_path(@area, @room, $room_special) %> <%=
+link_to '<font color=red>x</font>'.html_safe, area_room_room_special_path(@area, @room, $room_special),
+ :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm",
+ :default => 'Are you sure?')) } %><% end %>}

@@ -16,25 +16,6 @@
       
       <%= render 'mudroomview' %>
 
-      <div class="row">
-        <div class="col-md-2">
-          <strong>Room special:</strong>
-        </div>
-        <div class="col-md-10">
-          <div class="col-md-10">
-            <% if @room.room_specials.count < 1 %>
-                <%= link_to 'Add a Room Special Function', new_area_room_room_special_path(@area, @room), :class => 'btn btn-primary btn-xs' %>
-            <% else %>
-              <% $room_special = @room.room_specials.first %>
-              <%= link_to $room_special.name, edit_area_room_room_special_path(@area, @room, $room_special), :class => 'btn btn-info btn-xs' %>
-              <%= link_to area_room_room_special_path(@area, @room, $room_special), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
-                <%= glyph 'remove' %>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-      </div><br/>
-
       <%= render 'rooms/exitmap', :room => @room %>
           
       <%= render 'rooms/exitstable', :room => @room %>

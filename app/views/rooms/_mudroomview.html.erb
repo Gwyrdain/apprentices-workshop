@@ -1,6 +1,7 @@
 <div class="jumbotron monospace-pre"><% if @area.use_rulers? %><%= ApplicationController::WORDWRAP_RULER %>
-<% end %><font color=white>[<%= @room.formal_vnum %>]<% if @room.room_flags > 0 %> [<%= @room.room_flags_as_string %>]<% end %> &lt<%= @room.terrain_word %>&gt</font>
-<%= @room.name %>
+<% end %><font color=white>[<%= @room.formal_vnum %>]<% if @room.room_flags > 0 %> [<%= @room.room_flags_as_string %>]<% end %> &lt<%= @room.terrain_word %>&gt<%= render 'roomspecial'%></font>
+
+<%= link_to "<font color='darkcyan'>#{@room.name}</font>".html_safe, edit_area_room_path(@area, @room) %>
 <font color=red>[</font><font color=darkred>Exits:<% if @room.exits.count < 1 %> <font color=white>none</font><% end %><% @room.exits.order(:direction).each do |exit| %> <u><% if exit.destination_exists? %><%= link_to exit.direction_word.downcase, area_room_path(@area, exit.destination), {:style => 'color: darkred'} %><% else %><%= link_to exit.direction_word.downcase, edit_area_room_exit_path(@area, @room, exit), {:style => 'color: darkred'} %><% end %></u><% end %></font><font color=red>]</font>
 <%= word_wrap(@room.description, line_width: ApplicationController::WORDWRAP_LENGTH) %>
 <% if @room.has_contents? %>
