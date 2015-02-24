@@ -45,7 +45,11 @@ class ResetsController < ApplicationController
     @reset = @area.resets.create(reset_params)
     
     if @reset.save
-      redirect_to area_reset_path(@area, @reset), notice: 'Reset was sucessfully created.'
+      if params[:return_to_room]
+        redirect_to area_room_path(@area, params[:return_to_room]), notice: 'Reset was sucessfully created.'
+      else
+        redirect_to area_reset_path(@area, @reset), notice: 'Reset was sucessfully created.'
+      end
     else
       render action: 'new'
     end
@@ -53,7 +57,11 @@ class ResetsController < ApplicationController
 
   def update
     if @reset.update(reset_params)
-      redirect_to area_reset_path(@area, @reset), notice: 'Reset was sucessfully updated.'
+      if params[:return_to_room]
+        redirect_to area_room_path(@area, params[:return_to_room]), notice: 'Reset was sucessfully updated.'
+      else
+        redirect_to area_reset_path(@area, @reset), notice: 'Reset was sucessfully updated.'
+      end
     else
       render action: 'edit'
     end    
@@ -62,7 +70,11 @@ class ResetsController < ApplicationController
   def destroy
     @reset.destroy
     if @reset.save
-      redirect_to area_resets_path(@area), notice: 'Reset was sucessfully deleted.'
+      if params[:return_to_room]
+        redirect_to area_room_path(@area, params[:return_to_room]), notice: 'Reset was sucessfully deleted.'
+      else
+        redirect_to area_resets_path(@area), notice: 'Reset was sucessfully deleted.'
+      end
     else
       redirect_to area_resets_path(@area), notice: 'Something went wrong.'
     end

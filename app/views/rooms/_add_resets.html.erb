@@ -1,5 +1,5 @@
 <% @reset = @area.resets.build %>
-<%= form_for  [@reset.area, @reset], :html => { :class => 'form-inline center' } do |f| %>
+<%= form_for  [@reset.area, @reset], :url => area_resets_path(@reset.area, :return_to_room => @room.id), :html => { :class => 'form-inline center' } do |f| %>
   <% if @reset.errors.any? %>
     <div id="error_explanation">
       <h3><%= pluralize(@reset.errors.count, "error") %> prohibited saving:</h3>
@@ -31,7 +31,7 @@
 
 <% end %>
 </br>
-<%= form_for  [@reset.area, @reset], :html => { :class => 'form-inline center' } do |f| %>
+<%= form_for  [@reset.area, @reset], :url => area_resets_path(@reset.area, :return_to_room => @room.id), :html => { :class => 'form-inline center' } do |f| %>
   <% if @reset.errors.any? %>
     <div id="error_explanation">
       <h3><%= pluralize(@reset.errors.count, "error") %> prohibited saving:</h3>
@@ -61,7 +61,7 @@
     <%= f.hidden_field :val_4, :value => @room.id %>
 
   <%= f.hidden_field :val_4, :value => @room.id %>
-
+  
   <%= f.submit 'Add Object Reset', :class => 'btn btn-default' %>
 
 <% end %>

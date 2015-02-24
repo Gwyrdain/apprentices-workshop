@@ -69,7 +69,11 @@ class MobilesController < ApplicationController
 
   def update
     if @mobile.update(mobile_params)
-      redirect_to area_mobile_path(@area, @mobile), notice: 'Mobile was sucessfully updated.'
+      if params[:return_to_room]
+        redirect_to area_room_path(@area, params[:return_to_room]), notice: 'Mobile was sucessfully updated.'
+      else
+        redirect_to area_mobile_path(@area, @mobile), notice: 'Mobile was sucessfully updated.'
+      end
     else
       render action: 'edit'
     end 

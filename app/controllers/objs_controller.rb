@@ -69,7 +69,12 @@ class ObjsController < ApplicationController
 
   def update
     if @obj.update(obj_params)
-      redirect_to area_obj_path(@area, @obj), notice: 'Object was sucessfully updated.'
+      
+      if params[:return_to_room]
+        redirect_to area_room_path(@area, params[:return_to_room]), notice: 'Object was sucessfully updated.'
+      else
+        redirect_to area_obj_path(@area, @obj), notice: 'Object was sucessfully updated.'
+      end
     else
       render action: 'edit'
     end 
