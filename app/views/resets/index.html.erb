@@ -59,7 +59,9 @@
     
 </div>
 
-<br/>
-<strong class="monospace">Formatted #RESETS Block:</strong>
-<pre><%= render 'resets/resetsblock' %></pre>
-<br/>
+<% if @area.show_formatted_blocks? %>
+  <br/>
+  <strong class="monospace">Formatted #RESETS Block:</strong>
+  <pre><%= render 'resets/resetsblock' %></pre>
+  <br/>
+<% end %>

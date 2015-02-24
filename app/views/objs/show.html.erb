@@ -169,13 +169,13 @@
 
       <%= render 'objs/oxdescstable', :obj => @obj %>
 
+    <% if @area.show_formatted_blocks? %>
       <br/>
-      
-    <strong class="monospace">Formatted Object:</strong>
-    <p>
-        <pre><%= render 'objs/objblock', :obj => @obj %></pre>
-    </p>
-
+      <strong class="monospace">Formatted Object:</strong>
+      <p>
+          <pre><%= render 'objs/objblock', :obj => @obj %></pre>
+      </p>
+    <% end %>
 
     </div>
       

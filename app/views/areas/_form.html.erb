@@ -237,6 +237,11 @@
           <%= f.check_box :use_rulers, {:checked => @area.use_rulers? ? true : false} %>
           <%= f.label :use_rulers, 'use_rulers'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
+        
+        <div class="check_box col-md-3">
+          <%= f.check_box :show_formatted_blocks, {:checked => @area.show_formatted_blocks? ? true : false} %>
+          <%= f.label :show_formatted_blocks, 'show_formatted_blocks'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
  
     </div>  
   </div>

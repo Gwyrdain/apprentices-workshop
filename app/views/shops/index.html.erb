@@ -52,8 +52,9 @@
     
 </div>
 
-<br/>
+<% if @area.show_formatted_blocks? %>
 <br/>
 <strong class="monospace">Formatted #SHOPS Block:</strong>
 <pre><%= render 'shops/shopsblock' %></pre>
 <br/>
+<% end %>

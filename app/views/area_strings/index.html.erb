@@ -48,7 +48,9 @@
     
 </div>
 
+<% if @area.show_formatted_blocks? %>
 <br/>
 <strong class="monospace">Formatted #STRINGS Block:</strong>
 <pre><%= render 'area_strings/area_stringsblock' %></pre>
 <br/>
+<% end %>

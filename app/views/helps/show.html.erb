@@ -57,6 +57,8 @@
   
 </div>
 
+<% if @area.show_formatted_blocks? %>
 <br>
 <strong class="monospace">Formatted Help:</strong>
 <pre><%= render 'helps/helpblock', :help => @help %></pre>
+<% end %>

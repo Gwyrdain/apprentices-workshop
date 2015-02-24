@@ -45,8 +45,9 @@
     
 </div>
 
-<br/>
+<% if @area.show_formatted_blocks? %>
 <br/>
 <strong class="monospace">Formatted #TRIGGERS Block:</strong>
 <pre><%= render 'triggers/triggersblock' %></pre>
 <br/>
+<% end %>

@@ -99,7 +99,8 @@ class AreasController < ApplicationController
                                    :fly_ok, :no_quest, :no_item, :no_vnum,
                                    :misc_flags, :share_publicly,
                                    :description, :lowlevel, :highlevel,
-                                   :file, :use_rulers, :flags, :installed
+                                   :file, :use_rulers, :flags, :installed,
+                                   :show_formatted_blocks
                                   )
     end
 end

@@ -24,7 +24,8 @@
       
       <%= render 'rooms/rxdescstable', :room => @room %>
 
-      <br/>
+    <% if @area.show_formatted_blocks? %>
+    <br/>
       
     <strong class="monospace">Formatted Room:</strong>
     <p>
@@ -48,7 +49,7 @@
     <strong class="monospace">Formatted Trigger(s):</strong>
     <p><pre><% @room.exits.each do |exit| %><% if exit.triggers.count > 0 %><%= render 'triggers/triggerblock', :trigger => exit.triggers.first %>
 <% end %><% end %></pre></p>
-
+    <% end %>
     </div>
 
     <div class="panel-footer">

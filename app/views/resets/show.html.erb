@@ -68,12 +68,15 @@
     </div><br/>
     
     <%= render 'resets/sub_resetstable', :reset => @reset %>
-    
-    <strong class="monospace">Formatted Reset:</strong>
-    <p>
-        <pre><%= render 'resets/resetblock', :reset => @reset %></pre>
-    </p>
 
+    
+    <% if @area.show_formatted_blocks? %>
+      <strong class="monospace">Formatted Reset:</strong>
+      <p>
+          <pre><%= render 'resets/resetblock', :reset => @reset %></pre>
+      </p>
+    <% end %>
+    
     </div>
       
     <div class="panel-footer">

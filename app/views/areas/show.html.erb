@@ -169,6 +169,7 @@
         <div class="col-md-10">
           <% if @area.share_publicly? %><div class="col-md-2">PUBLICLY SHARED</div><% end %>
           <% if @area.use_rulers? %><div class="col-md-2">USE RULERS</div><% end %>
+          <% if @area.show_formatted_blocks? %><div class="col-md-3">SHOW FORMATTED BLOCKS</div><% end %>
         </div>
       </div><br/>
       
@@ -261,9 +262,10 @@
 
 </div>
 
+<% if @area.show_formatted_blocks? %>
 <br/>
 <strong class="monospace">Formatted #AREA Header:</strong>
 <pre><%= render 'areas/areaheader' %></pre>
 <br/>
+<% end %>
 
-<%#= render 'areas/review' %>

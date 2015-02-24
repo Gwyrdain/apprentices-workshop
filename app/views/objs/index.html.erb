@@ -63,7 +63,9 @@
     
 </div>
 
+<% if @area.show_formatted_blocks? %>
 <br/>
 <strong class="monospace">Formatted #OBJECTS Block:</strong>
 <pre><%= render 'objs/objsblock' %></pre>
 <br/>
+<% end %>

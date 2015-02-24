@@ -269,27 +269,29 @@
         <% end %>
       </div>
     </div>
-  </div><br/>
-
-  <strong class="monospace">Formatted Mobile:</strong>
-  <p>
-      <pre><%= render 'mobiles/mobileblock', :mobile => @mobile %></pre>
-  </p>
+  </div>
   
-  <% if @mobile.specials.count > 0 %>
-    <strong class="monospace">Formatted Special:</strong>
+  <% if @area.show_formatted_blocks? %>
+    <br/>
+    <strong class="monospace">Formatted Mobile:</strong>
     <p>
-        <pre><%= render 'specials/specialblock', :special => @mobile.specials.first %></pre>
+        <pre><%= render 'mobiles/mobileblock', :mobile => @mobile %></pre>
     </p>
-  <% end %>
-
-  <% if @mobile.shops.count > 0 %>
-    <strong class="monospace">Formatted Shop:</strong>
-    <p>
-        <pre><%= render 'shops/shopblock', :shop => @mobile.shops.first %></pre>
-    </p>
-  <% end %>
+    
+    <% if @mobile.specials.count > 0 %>
+      <strong class="monospace">Formatted Special:</strong>
+      <p>
+          <pre><%= render 'specials/specialblock', :special => @mobile.specials.first %></pre>
+      </p>
+    <% end %>
   
+    <% if @mobile.shops.count > 0 %>
+      <strong class="monospace">Formatted Shop:</strong>
+      <p>
+          <pre><%= render 'shops/shopblock', :shop => @mobile.shops.first %></pre>
+      </p>
+    <% end %>
+  <% end %>
   </div>
     
   <div class="panel-footer">

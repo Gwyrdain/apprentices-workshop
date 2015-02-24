@@ -63,7 +63,9 @@
     
 </div>
 
+<% if @area.show_formatted_blocks? %>
 <br/>
 <strong class="monospace">Formatted #MOBILES Block:</strong>
 <pre><%= render 'mobiles/mobilesblock' %></pre>
 <br/>
+<% end %>

@@ -43,8 +43,9 @@
     
 </div>
 
-<br/>
+<% if @area.show_formatted_blocks? %>
 <br/>
 <strong class="monospace">Formatted #SPECIALS Block:</strong>
 <pre><%= render 'specials/specialsblock' %></pre>
 <br/>
+<% end %>
