@@ -37,8 +37,8 @@ class SubReset < ActiveRecord::Base
   def comment
     $desc = nil
     $obj_sdesc = obj_info(self.val_2, 'sdesc')
-    $desc = "Equip '#{self.reset.load_mob_name}' with '#{$obj_sdesc}' as #{self.wear_loc_word}" if self.reset_type == 'E'
-    $desc = "Give '#{self.reset.load_mob_name}' '#{$obj_sdesc}'" if self.reset_type == 'G'
+    $desc = "Equip '#{mobile_info(self.reset.val_2, 'sdesc')}' with '#{$obj_sdesc}' as #{self.wear_loc_word}" if self.reset_type == 'E'
+    $desc = "Give '#{mobile_info(self.reset.val_2, 'sdesc')}' '#{$obj_sdesc}'" if self.reset_type == 'G'
     $desc = "Put '#{$obj_sdesc}' into '#{obj_info(self.reset.val_2, 'sdesc')}'" if self.reset_type == 'P'
     return $desc
   end

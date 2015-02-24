@@ -15,10 +15,22 @@ class ResetsController < ApplicationController
   end
 
   def new
-      @reset = @area.resets.build
+    if params[:copy_reset]
+      base_reset = Reset.find(params[:copy_reset])
+      new_reset = base_reset.dup
+      new_reset.save
       
+      base_reset.sub_resets.each do |sub_reset|
+        new_sub_reset = sub_reset.dup
+        new_sub_reset.reset_id = new_reset.id
+        new_sub_reset.save
+      end
+      
+      redirect_to area_resets_path(@area), notice: 'Reset copied.'
+    else
+      @reset = @area.resets.build
       @reset.reset_type = params[:reset_type]
-
+    end
   end
 
   def edit

@@ -1,6 +1,19 @@
 <div class="panel panel-info subreset">
   <div class="panel-heading">Associated Sub-resets</div>
     <table class="table table-hover table-condensed">
+      <% if @reset != nil %>
+        <tfoot><tr><td colspan = '100%'>
+          <% if reset.reset_type == 'O' && obj_info(reset.val_2, 'type_word') == 'CONTAINER' %>
+            &nbsp<%= link_to 'Put', new_area_reset_sub_reset_path(@area, reset, :reset_type => 'P' ), :class => 'btn btn-primary btn-xs' %>
+          <% end %>
+          <% if ( reset.reset_type == 'M' || reset.reset_type == 'Q' ) %>
+            &nbsp<%= link_to 'Give', new_area_reset_sub_reset_path(@area, reset, :reset_type => 'G' ), :class => 'btn btn-primary btn-xs' %>
+            <% if mobile_info(reset.val_2, 'can_wear?') %>
+              &nbsp<%= link_to 'Equip', new_area_reset_sub_reset_path(@area, reset, :reset_type => 'E' ), :class => 'btn btn-primary btn-xs' %>
+            <% end %>
+          <% end %>
+        </td></tr></tfoot>
+      <% end %>
       <tbody>
         <% reset.sub_resets.each do |sub_reset| %>
           <tr>

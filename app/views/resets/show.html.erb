@@ -28,9 +28,9 @@
       </div>
       <div class="col-md-10">
         <div class="col-md-10">
-        <%= @reset.load_mob_vnum + ' ' + @reset.load_mob_name if ( @reset.reset_type == 'M' || @reset.reset_type == 'Q' ) %>
-        <%= @reset.load_obj_vnum + ' ' + @reset.load_obj_name if @reset.reset_type == 'O' %>
-        <%= @reset.reset_room_vnum + ' ' + @reset.reset_room_name if ( @reset.reset_type == 'D' || @reset.reset_type == 'R' ) %>
+        <%= mobile_info(@reset.val_2, 'formal_vnum') + ' ' + mobile_info(@reset.val_2, 'sdesc') if ( @reset.reset_type == 'M' || @reset.reset_type == 'Q' ) %>
+        <%= obj_info(@reset.val_2, 'formal_vnum') + ' ' + obj_info(@reset.val_2, 'sdesc') if @reset.reset_type == 'O' %>
+        <%= room_info(@reset.val_2, 'formal_vnum') + ' ' + room_info(@reset.val_2, 'name') if ( @reset.reset_type == 'D' || @reset.reset_type == 'R' ) %>
         </div>
       </div>
     </div><br/>
@@ -61,17 +61,18 @@
       </div>
       <div class="col-md-10">
         <div class="col-md-10">
-          <%= @reset.load_room_vnum + ' ' + @reset.load_room_name if ( @reset.reset_type == 'M' || @reset.reset_type == 'Q' || @reset.reset_type == 'O') %>
+          <%= room_info(@reset.val_4, 'formal_vnum') + ' ' + room_info(@reset.val_4, 'name') if ( @reset.reset_type == 'M' || @reset.reset_type == 'Q' || @reset.reset_type == 'O') %>
           <%= door_state(@reset.val_4) if  @reset.reset_type == 'D' %>
         </div>
       </div>
     </div><br/>
     
+    <%= render 'resets/sub_resetstable', :reset => @reset %>
+    
     <strong class="monospace">Formatted Reset:</strong>
     <p>
         <pre><%= render 'resets/resetblock', :reset => @reset %></pre>
     </p>
-
 
     </div>
       
@@ -88,3 +89,4 @@
     </div>
   
 </div>
+

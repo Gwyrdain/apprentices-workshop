@@ -332,6 +332,7 @@ def mobile_info(id, property)
     $result = $this_mobile.formal_vnum.to_s if property == 'formal_vnum'
     $result = $this_mobile.sdesc            if property == 'sdesc'
     $result = $this_mobile.ldesc            if property == 'ldesc'
+    $result = !$this_mobile.no_wear_eq?     if property == 'can_wear?'
   else
     $result = 'UNKNOWN'
   end

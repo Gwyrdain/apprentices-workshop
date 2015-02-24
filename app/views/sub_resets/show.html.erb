@@ -30,7 +30,7 @@
       </div>
       <div class="col-md-10">
         <div class="col-md-10">
-        <%= @sub_reset.load_obj_vnum + ' ' + @sub_reset.load_obj_name %>
+        <%= obj_info(@sub_reset.val_2, 'formal_vnum') + ' ' + obj_info(@sub_reset.val_2, 'sdesc') %>
         </div>
       </div>
     </div><br/>
@@ -58,7 +58,7 @@
       <div class="col-md-10">
         <div class="col-md-10">
           <%= @sub_reset.wear_loc_word if @sub_reset.reset_type == 'E' %>
-          <%= @sub_reset.reset.load_obj_name if  @sub_reset.reset_type == 'P' %>
+          <%= obj_info(@sub_reset.reset.val_2, 'sdesc') if  @sub_reset.reset_type == 'P' %>
         </div>
       </div>
     </div><br/>

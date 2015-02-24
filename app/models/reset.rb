@@ -19,10 +19,10 @@ class Reset < ActiveRecord::Base
 
   def comment
     $comment = nil
-    $comment = "Load '" + self.load_mob_name + "' at '" + self.load_room_name + "'" if ( self.reset_type == 'M' || self.reset_type == 'Q' )
-    $comment = "Load '" + self.load_obj_name + "' at '" + self.load_room_name + "'" if self.reset_type == 'O'
-    $comment = "Set " + self.reset_door_direction + " door at '" + self.reset_room_name + "' to " + door_state(self.val_4) if self.reset_type == 'D'
-    $comment = "Randomize any " + num_to_exits(self.val_3) + " exits at '" + self.reset_room_name + "'" if self.reset_type == 'R'
+    $comment = "Load '" + mobile_info(self.val_2, 'sdesc') + "' at '" + room_info(self.val_4, 'name') + "'" if ( self.reset_type == 'M' || self.reset_type == 'Q' )
+    $comment = "Load '" + obj_info(self.val_2, 'sdesc') + "' at '" + room_info(self.val_4, 'name') + "'" if self.reset_type == 'O'
+    $comment = "Set " + self.reset_door_direction + " door at '" + room_info(self.val_2, 'name') + "' to " + door_state(self.val_4) if self.reset_type == 'D'
+    $comment = "Randomize any " + num_to_exits(self.val_3) + " exits at '" + room_info(self.val_2, 'name') + "'" if self.reset_type == 'R'
     return $comment
   end
   
@@ -30,19 +30,19 @@ class Reset < ActiveRecord::Base
     $output = ''
     
     if ( self.reset_type == 'M' or self.reset_type == 'Q' )
-      $output = self.reset_type + ' ' + '0' + ' ' + self.load_mob_vnum
-      $output = $output + ' ' + self.val_3.to_s + ' ' + self.load_room_vnum + " * "
+      $output = self.reset_type + ' ' + '0' + ' ' + mobile_info(self.val_2, 'formal_vnum')
+      $output = $output + ' ' + self.val_3.to_s + ' ' + room_info(self.val_4, 'formal_vnum') + " * "
     end
     if self.reset_type == 'O'
       $output = self.reset_type + ' ' + '0' + ' ' + obj_info(self.val_2, 'formal_vnum')
-      $output = $output + ' ' + self.val_3.to_s + ' ' + self.load_room_vnum + " * "
+      $output = $output + ' ' + self.val_3.to_s + ' ' + room_info(self.val_4, 'formal_vnum') + " * "
     end
     if self.reset_type == 'D'
-      $output = self.reset_type + ' ' + '0' + ' ' + self.reset_room_vnum
+      $output = self.reset_type + ' ' + '0' + ' ' + room_info(self.val_2, 'formal_vnum')
       $output = $output + ' ' + self.val_3.to_s + ' ' + self.val_4.to_s + " * "
     end
     if self.reset_type == 'R'
-      $output = self.reset_type + ' ' + '0' + ' ' + self.reset_room_vnum
+      $output = self.reset_type + ' ' + '0' + ' ' + room_info(self.val_2, 'formal_vnum')
       $output = $output + ' ' + self.val_3.to_s + " * "
     end
     
@@ -68,87 +68,7 @@ class Reset < ActiveRecord::Base
   def obj_id
     return self.val_2
   end
-  
-  def load_mob_name
-    if self.area.mobiles.exists?(:id => self.val_2)
-      return Mobile.find(self.val_2).sdesc
-    else
-      return 'UNKNOWN'
-    end
-  end
 
-  def load_mob_vnum
-    if self.area.mobiles.exists?(:id => self.val_2)
-      return Mobile.find(self.val_2).formal_vnum.to_s
-    else
-      return 'UNKNOWN'
-    end
-  end
-  
-  def load_mob_can_wear?
-    if self.area.mobiles.exists?(:id => self.val_2)
-      return !Mobile.find(self.val_2).no_wear_eq?
-    else
-      return false
-    end
-  end
-  
-  def load_obj_name
-    if self.area.objs.exists?(:id => self.val_2)
-      return Obj.find(self.val_2).sdesc
-    else
-      return 'UNKNOWN'
-    end
-  end
-
-  def load_obj_vnum
-    if self.area.objs.exists?(:id => self.val_2)
-      return Obj.find(self.val_2).formal_vnum.to_s
-    else
-      return 'UNKNOWN'
-    end
-  end
-
-  def load_obj_type
-    if self.area.objs.exists?(:id => self.val_2)
-      return Obj.find(self.val_2).type_word
-    else
-      return 'UNKNOWN'
-    end
-  end
-  
-  def load_room_name
-    if self.area.rooms.exists?(:id => self.val_4)
-      return Room.find(self.val_4).name
-    else
-      return 'UNKNOWN'
-    end
-  end
-  
-  def load_room_vnum
-    if self.area.rooms.exists?(:id => self.val_4)
-      return Room.find(self.val_4).formal_vnum.to_s
-    else
-      return 'UNKNOWN'
-    end
-  end
-  
-  def reset_room_name
-    if self.area.rooms.exists?(:id => self.val_2)
-      return Room.find(self.val_2).name
-    else
-      return 'UNKNOWN'
-    end
-  end
-  
-  def reset_room_vnum
-    if self.area.rooms.exists?(:id => self.val_2)
-      return Room.find(self.val_2).formal_vnum.to_s
-    else
-      return 'UNKNOWN'
-    end
-  end
-  
   def reset_door_direction
     if ( self.area.rooms.exists?(:id => self.val_2) &&
          Room.find(self.val_2).exits.exists?(:direction => self.val_3) )
