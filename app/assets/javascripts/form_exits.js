@@ -60,17 +60,20 @@ function setExitDestinationType() {
     $('#NoExitField').prop('disabled', false);
     $('#exit_exittype').val('-1');
     $('#ExitDestinationGroup').hide();
+    $('#Reciprocality').prop('disabled', true).hide();
     setKeyType();
   }
   
   if($('#LocalVnumRadio').is(':checked')) {
     $('#exit_exit_room_id').prop('disabled', false).show();
     $('#LocalVnumFormGroup').prop('disabled', false).show();
+    $('#Reciprocality').prop('disabled', false).show();
   }
   
   if($('#ExternalVnumRadio').is(':checked')) {
     $('#ExternalVnumField').prop('disabled', false).show();
     $('#ExternalVnumFormGroup').prop('disabled', false).show();
+    $('#Reciprocality').prop('disabled', true).hide();
   }
   
 }
