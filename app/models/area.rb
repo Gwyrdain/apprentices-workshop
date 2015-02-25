@@ -106,6 +106,10 @@ class Area < ActiveRecord::Base
     rooms_block = 'No Rooms Block'
     strings_block = 'No Strings Block'
     resets_block = 'No Resets Block'
+    shops_block = 'No Shops Block'
+    specials_block = 'No Specials Block'
+    rspecs_block = 'No Room Specials Block'
+    triggers_block = 'No Triggers Block'
     
     if area_file.match(/^#AREA.*~/)
       header_v1 = area_file.match(/^#AREA.*~/)
@@ -128,8 +132,22 @@ class Area < ActiveRecord::Base
     if area_file.match(/^#RESETS.*?\nS/m)
       resets_block = area_file.match(/^#RESETS.*?\nS/m)
     end
+    if area_file.match(/^#SHOPS.*?\n0/m)
+      shops_block = area_file.match(/^#SHOPS.*?\n0/m)
+    end
+    if area_file.match(/^#SPECIALS.*?\nS/m)
+      specials_block = area_file.match(/^#SPECIALS.*?\nS/m)
+    end
+    if area_file.match(/^#RSPECS.*?\nS/m)
+      rspecs_block = area_file.match(/^#RSPECS.*?\nS/m)
+    end
+    if area_file.match(/^#TRIGGERS.*?\nS/m)
+      triggers_block = area_file.match(/^#TRIGGERS.*?\nS/m)
+    end
 
-    return "#{header_v1}<hr>#{header_v2}<hr>#{mobiles_block}<hr>#{objects_block}<hr>#{rooms_block}<hr>#{strings_block}<hr>#{resets_block}"
+    return "#{header_v1}<hr>#{header_v2}<hr>#{mobiles_block}<hr>#{objects_block}<hr>" <<
+           "#{rooms_block}<hr>#{strings_block}<hr>#{resets_block}<hr>#{shops_block}" <<
+           "#{specials_block}<hr>#{rspecs_block}<hr>#{triggers_block}<hr><b>EOF</b>"
 
   end
   

@@ -116,7 +116,7 @@ class ExitsController < ApplicationController
 
   def update
     if params[:force_reciprocal]
-      @exit = @room.exits.create(exit_params)
+      @exit = @exit.update(exit_params)
       $far_room = Room.find(@exit.exit_room_id)
       
       if $far_room.exits.exists?(:direction => opposite_dir( @exit.direction ))
