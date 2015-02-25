@@ -138,7 +138,15 @@
   <div class="form-group" id="LocalVnumFormGroup" hidden="hidden">
     <%= f.label :exit_room_id, 'Exit to', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.collection_select(:exit_room_id, @area.rooms.order('vnum ASC'), :id, :vnum_and_name, {}, {:class => "form-control"})  %>
+      <% if @area.rooms.count < @area.vnum_qty %>
+        <%= f.select(:exit_room_id, options_for_select(
+              [['--- New Room', 0]] + @area.rooms.order('vnum ASC').map{ |e| [e.vnum_and_name, e.id] }, @exit.exit_room_id
+            ), {}, {:class => "form-control"}) %>
+      <% else %>
+        <%= f.select(:exit_room_id, options_for_select(
+              @area.rooms.order('vnum ASC').map{ |e| [e.vnum_and_name, e.id] }, @exit.exit_room_id
+            ), {}, {:class => "form-control"}) %>
+      <% end %>
       <span id="ExitIDHelpBlock" class="help-block">Warning: Loopback exit selected.</span>
     </div>
   </div>

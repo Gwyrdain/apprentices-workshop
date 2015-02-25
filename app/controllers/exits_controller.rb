@@ -66,10 +66,25 @@ class ExitsController < ApplicationController
   end
 
   def create
+    
+    if params[:exit_room_id].to_i == 0 # Calling for a New Room
+      $far_room = @area.rooms.create(:vnum => @area.nextroomvnum,
+                                     :name => '<room name here>',
+                                     :description => '<room description here>',
+                                     :terrain => @area.default_terrain,
+                                     :room_flags => @area.default_room_flags
+                                    )
+      $exit_room_id = $far_room.id
+    else
+      $exit_room_id = params[:exit_room_id]
+    end
+    
     if params[:force_reciprocal]
       @exit = @room.exits.create(exit_params)
-      $far_room = Room.find(@exit.exit_room_id)
+      @exit.update(:exit_room_id => $exit_room_id)
       
+      $far_room = Room.find(params[:exit_room_id]) if params[:exit_room_id].to_i != 0
+
       if $far_room.exits.exists?(:direction => opposite_dir( @exit.direction ))
         $far_exit = $far_room.exits.where(:direction => opposite_dir( @exit.direction )).first
         Exit.update($far_exit.id,
@@ -101,10 +116,12 @@ class ExitsController < ApplicationController
         @exit.keywords = params[:keywords]
         @exit.exittype = params[:exittype]
         @exit.keyvnum = params[:keyvnum]
-        @exit.exit_room_id = params[:exit_room_id]
+        @exit.exit_room_id = $exit_room_id
         @exit.name = params[:name]
       else
         @exit = @room.exits.create(exit_params)
+        @exit.update(:exit_room_id => $exit_room_id)
+        
       end
       if @exit.save
         redirect_to area_room_path(@area, @room), notice: 'Exit was sucessfully created.'
@@ -115,10 +132,25 @@ class ExitsController < ApplicationController
   end
 
   def update
+    
+    if params[:exit_room_id].to_i == 0 # Calling for a New Room
+      $far_room = @area.rooms.create(:vnum => @area.nextroomvnum,
+                                     :name => '<room name here>',
+                                     :description => '<room description here>',
+                                     :terrain => @area.default_terrain,
+                                     :room_flags => @area.default_room_flags
+                                    )
+      $exit_room_id = $far_room.id
+    else
+      $exit_room_id = params[:exit_room_id]
+    end
+    
     if params[:force_reciprocal]
       @exit.update(exit_params)
-      $far_room = Room.find(@exit.exit_room_id)
+      @exit.update(:exit_room_id => $exit_room_id)
       
+      $far_room = Room.find(params[:exit_room_id]) if params[:exit_room_id].to_i != 0
+
       if $far_room.exits.exists?(:direction => opposite_dir( @exit.direction ))
         $far_exit = $far_room.exits.where(:direction => opposite_dir( @exit.direction )).first
         Exit.update($far_exit.id,
@@ -143,7 +175,8 @@ class ExitsController < ApplicationController
         redirect_to area_room_path(@area, @room), notice: 'Exit updated and reciprocal created to match.'
       end
     else
-      if @exit.update(exit_params)
+      
+      if @exit.update(exit_params) && @exit.update(:exit_room_id => $exit_room_id)
         redirect_to area_room_path(@area, @room), notice: 'Exit was sucessfully updated.'
       else
         render action: 'edit'
