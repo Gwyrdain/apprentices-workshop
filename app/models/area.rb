@@ -110,9 +110,13 @@ class Area < ActiveRecord::Base
     specials_block = 'No Specials Block'
     rspecs_block = 'No Room Specials Block'
     triggers_block = 'No Triggers Block'
+    header_info = ''
     
-    if area_file.match(/^#AREA.*~/)
-      header_v1 = area_file.match(/^#AREA.*~/)
+    if area_file.match(/^#AREA.*~.*?\n/)
+      header_v1 = area_file.match(/^#AREA.*~.*?\n/)
+      
+      header_info = parse_area_header_v1(header_v1[0], user_id)
+      
     end
     if area_file.match(/^#AREA.*?\nEnd/m)
       header_v2 = area_file.match(/^#AREA.*?\nEnd/m)
@@ -145,7 +149,7 @@ class Area < ActiveRecord::Base
       triggers_block = area_file.match(/^#TRIGGERS.*?\nS/m)
     end
 
-    return "#{header_v1}<hr>#{header_v2}<hr>#{mobiles_block}<hr>#{objects_block}<hr>" <<
+    return "#{header_info}<hr>#{header_v1}<hr>#{header_v2}<hr>#{mobiles_block}<hr>#{objects_block}<hr>" <<
            "#{rooms_block}<hr>#{strings_block}<hr>#{resets_block}<hr>#{shops_block}" <<
            "#{specials_block}<hr>#{rspecs_block}<hr>#{triggers_block}<hr><b>EOF</b>"
 
@@ -410,4 +414,34 @@ def race_from_num(i)
   $race = 'minotaurs' if i == 8
   $race = 'ogres' if i == 9
   return $race
+end
+
+def parse_area_header_v1(header, user_id)
+  m = header.match(/\{(.*)\} (........) (.*)~\s*F (\d+)/)
+  
+  header_info = Hash.new
+  
+  if m
+    header_info["author"] = m[2].strip
+    header_info["name"]   = m[3].strip
+    header_info["flags"]  = m[4].to_i
+
+    if m[1].match(/(\d) (\d)/)
+      range = m[1].match(/(\d+) (\d+)/)
+        header_info["range_low"]  = range[1].to_i
+        header_info["range_high"] = range[2].to_i
+    else
+      if m[1].match(/ALL/)
+        header_info["range_low"]   = 1
+        header_info["range_high"]  = 50
+      end
+      if m[1].match(/HARD/)
+        header_info["range_low"]   = 50
+        header_info["range_high"]  = 50
+      end
+    end
+  end
+
+  return header_info
+  
 end

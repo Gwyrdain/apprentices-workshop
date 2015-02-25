@@ -225,6 +225,27 @@
   </div>
   
   <div class="form-group">
+    <%= f.label :default_terrain, :class => 'control-label col-md-2' %> 
+    <div class="col-md-10">
+    <%= f.select(:default_terrain, options_for_select(
+          [
+            ['INSIDE', 0],
+            ['CITY', 1],
+            ['FIELD', 2],
+            ['FOREST', 3],
+            ['HILLS', 4],
+            ['MOUNTAIN', 5],
+            ['WATER SWIM', 6],
+            ['WATER NOSWIM', 7],
+            ['UNDERWATER', 8],
+            ['AIR', 9],
+            ['DESERT', 10]
+          ], @area.default_terrain
+        ), {}, {class: "form-control"}) %>
+    </div>
+  </div>
+  
+  <div class="form-group">
     <%= f.label :misc_flags, 'Misc Settings', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
 
@@ -245,28 +266,6 @@
  
     </div>  
   </div>
-  
-  <div class="form-group">
-    <%= f.label :default_terrain, :class => 'control-label col-md-2' %> 
-    <div class="col-md-10">
-    <%= f.select(:default_terrain, options_for_select(
-          [
-            ['INSIDE', 0],
-            ['CITY', 1],
-            ['FIELD', 2],
-            ['FOREST', 3],
-            ['HILLS', 4],
-            ['MOUNTAIN', 5],
-            ['WATER SWIM', 6],
-            ['WATER NOSWIM', 7],
-            ['UNDERWATER', 8],
-            ['AIR', 9],
-            ['DESERT', 10]
-          ], @area.default_terrain
-        ), {}, {class: "form-control"}) %>
-    </div>
-  </div>
-
 
   <div class="form-group">
     <div class='col-md-offset-2 col-md-10'>
