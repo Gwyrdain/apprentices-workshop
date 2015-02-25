@@ -24,9 +24,9 @@
       
       <div class="col-md-2">
         <button type="button" class="btn btn-info btn-md btn-block" disabled="disabled">
-          <br>
-          You are here<br>
-          &nbsp
+          <%= @room.vnum %><br>
+          <%= truncate(@room.name, length: 14, separator: ' ', omission: '') %><br>
+          (You area here)
         </button>
       </div>
       
