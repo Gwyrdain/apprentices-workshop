@@ -1,0 +1,723 @@
+#AREA { 1 50} Nati     Natis Funny Farm~ F 0
+
+#HELPS
+0 'Natis Funny Farm'~
+This sample area was written by Natilena to help both new writers writing
+their first area, and for area editor programmers writing their first TFC
+area editor.
+~
+
+0 $~
+
+#MOBILES
+#30900
+shopkeeper~
+a shopkeeper~
+A shopkeeper stands here waiting for you to say something.
+~
+Tired and worn out the shopkeeper does know his business.  He also
+knows ALL the languages but speaks common.  Doesn't he rock?  Detect
+Invis, Hidden and No Steal as well as No Summon. Flagged Sentinal
+~
+2 8390696 0 S
+60 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+65535 1
+#30901
+elf~
+an elf~
+An elf is here hopping around.
+~
+Its an elf! He speaks elven and is good.  He is super-wimpy and
+aggressive.  Strange combo!  Infravision, sneak and no-sleep are
+the affects on him.
+~
+2080 4227584 1000 S
+0 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+4 4
+#30902
+dwarf~
+a female dwarf~
+A female dwarf is here wondering were all the good looking men are.
+~
+A dwarf who speaks and understands only dwarven. She's neutral and
+flagged protection good and sanctuary.  Assist same and stay area
+also set on her.
+~
+4160 16512 0 S
+22 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+L
+2 2
+#30903
+sahuagin fishy fish fred~
+a sahuagin fishy~
+Fred, the Sahuagin styles himself as fishy
+~
+Affects curse and Invis, actions practice and train.  He understands
+common and elven but only speaks sahuagin.
+~
+1536 1026 0 S
+45 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+65535 32768
+#30904
+giant oak~
+a giant oak~
+A giant oak tree tries to smush you with its branches.
+~
+Flagged aggressive and plant.  Affected by anti-magic.
+~
+40 33554432 0 S
+35 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#30905
+wolf~
+a wolf~
+A wolf is here, how boring.
+~
+Aggressive.  No Trace.  Also with the animal flag and no wear flag.
+And lets throw in a spec_howl for the fun of it.
+~
+32 2097152 500 S
+0 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+A
+N
+#30906
+red demon blazing~
+a blazing red demon~
+A blazing and red demon nibbles on your toes.
+~
+Spec fire demon on this one.  could you guess!?  Oh and agressive. Its
+invisible, detect magic, protect good and protect evil.  Alignment is
+also evil.
+~
+32 24594 -1000 S
+80 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#30907
+nasty mage mean awful crazy~
+a nasty mean awful crazy mage~
+A crazy and nasty looking mage glares at you
+~
+Arch mage type.  Detect invis, infravision, no charm, imp invis,
+detect magic, flying, no sleep, pass door.  Sentinal action flag.
+Loves speaking ogre!  Almost sounds like an ad for a dating site now.
+~
+2 150995464 -700 S
+80 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+L
+256 65535
+#30908
+mage apprentice~
+an obligatory mage's apprentice~
+An obligatory mage's apprentice watches everything his master does.
+~
+Blind, curse and charm.  This dude is hobbled!  spec mage protector.
+~
+2 263169 0 S
+10 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#30909
+trout~
+a trout~
+A trout swims here.
+~
+action flags swim, no corpse and water only.  Animal and no wear
+flagged.
+~
+1146880 0 0 S
+5 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+A
+N
+#30910
+cityguard city guard simple~
+a simple cityguard~
+A very simple cityguard stands here.
+~
+spec_guard only and he speaks common.  He's kinda simple, be nice
+to him.
+~
+0 0 0 S
+0 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+1 1
+#0
+
+
+#OBJECTS
+#30900
+twinkie~
+a twinkie~
+A cream filled cake called a twinkie that is one step away from plastic is here.~
+~
+19 0 0
+0 0 0 0
+2 0 0
+E
+cream~
+The cream inside is unnaturally white and smooth.
+~
+E
+cake~
+The cake is so yellow you know there must be a lot of dye in it.
+~
+E
+waistline~
+Yup, its getting bigger.
+~
+#30901
+jaunty top hat~
+a jaunty top hat~
+A jaunty top hat is here getting dusty.~
+~
+9 0 17
+3 0 0 0
+3 500 0
+A
+5 3
+A
+25 3
+E
+hat fancy top~
+Its a fancy looking hat indeed!  Con and Chr applies.
+~
+F
+#30902
+one hand sword handed~
+a one handed sword~
+A one handed sword with dmg, glow, magic & nodrop applied.~
+~
+5 193 8193
+0 2 10 3
+3 100 0
+A
+19 5
+#30903
+two handed hand sword~
+a two handed sword~
+A sword with higher range, hit applied, extras inventory bless invis.~
+~
+5 8480 8193
+0 1 15 1
+7 300 0
+A
+18 6
+T
+#30904
+heavy mail shirt~
+a heavy mail shirt~
+A heavy mail shirt, con & int.  magic, dark flags.  Metallic~
+~
+9 68 9
+9 0 0 0
+0 100 0
+A
+5 2
+A
+3 3
+M
+#30905
+potion~
+a potion~
+A potion of fly is here. Magic and no-hoard.~
+~
+10 536870976 16385
+9 56 0 0
+2 5 0
+#30906
+fountain~
+a fountain~
+A fountain is here, spell blindness.~
+~
+25 0 0
+0 14 20 4
+0 0 0
+#30907
+puddle~
+a puddle~
+A puddle that is technically a water fountain is here.~
+~
+25 0 0
+0 0 0 0
+0 0 0
+#30908
+chest~
+a chest~
+A chest is here to hold a key.~
+~
+15 0 0
+55 5 0 0
+0 0 0
+#30909
+chest locked~
+a locked chest~
+A locked chest is here holding god knows what. Pickproof.~
+~
+15 1 0
+55 15 30910 0
+0 0 0
+E
+chest~
+Its a chest! And this is a description.  chest
+key vnum 30910, same as door.
+~
+#30910
+key special~
+a special key~
+A special key that opens doors and chests!~
+~
+18 12416 1
+0 0 0 0
+1 0 0
+E
+key flags~
+no drop, no remove and inventory!
+~
+#30911
+light source~
+a light source~
+A light source with a timer is here. 2 STR for the fun of it.~
+~
+1 0 1
+0 0 10 0
+3 90 0
+A
+1 2
+#30912
+amulet~
+an amulet~
+An amulet of applies. Yup, its got lots.~
+~
+30 64 5
+0 0 0 0
+2 10 0
+A
+1 1
+A
+2 1
+A
+3 1
+A
+4 1
+A
+5 1
+A
+12 10
+A
+14 10
+A
+13 10
+A
+24 -1
+A
+41 1
+A
+43 1
+A
+26 1
+#30913
+wwp worn with pride~
+a wwp drink container~
+A wwp and a drink container. Glow Hum Magic. Flammable.~
+~
+17 67 32769
+10 10 2 0
+0 0 0
+F
+#0
+
+
+#ROOMS
+#30900
+Welcome to Room 1~
+You are inside but you feel a little like you're going to die.  Wonder if it has
+something to do with the strange gas pouring into the room?  Extra flags are
+none, extra description on "flag" and rspec is spec_gas_chamber.  Proceed north
+if you're close to death.  Oh and only if you want to crack your noggin.
+~
+309 0 0
+D0
+Look its another room to the north!
+~
+~
+0 0 30901
+E
+flags flag~
+Sector type is inside.  There are no flags on this room.
+~
+E
+~
+
+~
+S
+#30901
+Another Room Code Name 2~
+To the south there is a stinky smell, you might not want to go there. East and
+down seem like safe smelling options though!  This spot you're standing in now
+appears to be a desert its also feeling rather safe!  Exits are south, down
+and east.  Oh.. though you can only go back south if you're a mudschool newbie!
+~
+309 1024 10
+D1
+Lets go east, it looks fun!
+~
+~
+0 0 30914
+D2
+
+~
+~
+0 0 30900
+D5
+
+~
+~
+0 0 30902
+S
+#30902
+Underwater?!~
+You're underwater.  It is also "seafloor" and "nofly" flagged.  There is a
+door to the east with a description and it appears to be locked.  Luckily
+there's a chest and a key right at your feet.  How about that for handy.
+~
+309 393216 8
+D1
+A heavy wooden door stops you from going that way.
+~
+~
+2 30910 30903
+O
+heavy wooden door~
+D4
+
+~
+~
+0 0 30901
+S
+#30903
+Underwater Rapid~
+You're underwater and there's rapids!  Whoosh!  You should be swept east again
+before you can finish reading this.  To make it fun its also solitary, no trans
+and no recall.
+~
+309 43008 8
+D1
+
+~
+~
+0 0 30904
+D3
+A heavy wooden door blocks your way
+~
+~
+2 30910 30902
+O
+heavy wooden door~
+S
+#30904
+Resting Spot~
+A a lovely peaceful resting spot.  Be nice to stay a while but .. oh crap!  Its
+no spell along with being peaceful!  Oh well.  Climb the bank north if you want
+but you can't go back west, those silly rapids are there anyway.  Since you're
+sitting here there are some descriptions to read like "flower" or "footprints".
+There is also a e/w tide.
+~
+309 66560 4
+D0
+
+~
+~
+0 0 30905
+D3
+
+~
+~
+0 0 30903
+E
+flower red poppy poppies~
+You look at the flower you never really knew was there and
+feel just a little more peaceful.
+~
+E
+footprint footprints~
+You can see your own footprints in the mud and you can see mud
+on your feet.  Go figure!
+~
+S
+#30905
+Edge of the World~
+What the heck?  Where did the ground go?  Hope you're flying!
+~
+309 1048576 9
+D2
+
+~
+~
+0 0 30904
+D4
+
+~
+~
+0 0 30906
+S
+#30906
+Flying High!~
+Flap flap flap, you're flying!  Looking down you can see there's a place to
+land. While you're flapping there are all 6 exit descriptions to look at.  You
+can move down, north or south.
+~
+309 0 9
+D0
+Looking to the north you see ..  a room in the middle of the sky?  Weird.
+~
+~
+0 0 30908
+D1
+Looking east you see rooms that look like they have rooms specs!
+~
+~
+0 0 30909
+D2
+Looking south you feel like it might cave in on you.
+~
+~
+0 0 30907
+D3
+To the west you see..  nothing!
+~
+~
+0 0 0
+D4
+You look up and the sun blinds you for a moment.
+~
+~
+0 0 0
+D5
+Past your toes there's kindof a maybe sorta spot to land down there.  Maybe
+~
+~
+0 0 30905
+S
+#30907
+Cave-in and Darkness~
+Flagged dark and with a Cave In spec.  Yup.
+~
+309 1 0
+D2
+
+~
+~
+0 0 30906
+S
+#30908
+Running out of ideas~
+This is another room!  There's a shopkeeper here.  Buy something, he's got kids.
+~
+309 0 1
+D2
+
+~
+~
+1 0 30906
+S
+#30909
+More specs!~
+Wind Tunnel plus notrans and foggy. Room flags are piped not combined.
+~
+309 32768|32 0
+D2
+
+~
+~
+0 0 30910
+D3
+
+~
+~
+0 0 30906
+S
+#30910
+More specs!~
+Fire Bath and no_steal.
+~
+309 16384 0
+D0
+
+~
+~
+0 0 30909
+D2
+
+~
+~
+1 0 30911
+S
+#30911
+More specs!~
+Seal exits specs with doors to north and south.
+~
+309 0 0
+D0
+
+~
+~
+1 0 30910
+O
+door~
+D2
+
+~
+~
+0 0 30912
+O
+door~
+S
+#30912
+More specs!~
+Waterfall to the west.  Enjoy that one!
+~
+309 0 0
+D0
+
+~
+~
+1 0 30911
+O
+door~
+D3
+
+~
+~
+0 0 30913
+S
+#30913
+HOT ROOM!~
+Lava lake spec. Oh and desert sector type.  Thats gotta be hot!
+~
+309 0 10
+D2
+
+~
+~
+1 0 30914
+S
+#30914
+Nothing Special~
+West is back to the beginning of this little test circle.  Nothing
+special at all about this room!  Oh and this room also is flagged
+noQuest.  Just because.
+~
+309 2097152 0
+D0
+
+~
+~
+1 0 30913
+D3
+
+~
+~
+0 0 30901
+S
+#0
+
+
+#RESETS
+D 1 30902 1 2  * Underwater?!
+D 1 30903 3 2  * Underwater Rapid
+* D 1 30906 0 1  * Flying High
+D 1 30908 2 1  * Running out of ideas
+D 1 30910 2 2  * More specs!
+D 1 30911 0 1  * More specs!
+* D 1 30911 2 1  * More specs!
+D 1 30912 0 1  * More specs!
+* D 1 30912 2 0  * Hot Room
+D 1 30914 0 0  * Nothing Special
+O 1 30908 1 30902  * a chest -> Underwater?!
+P 1 30910 1 30908
+O 1 30909 1 30902  * a locked chest -> Underwater?!
+O 1 30906 1 30909  * a fountain -> More specs!
+O 1 30907 1 30913  * a puddle -> HOT ROOM!
+M 1 30900 1 30908  * a shopkeeper -> Running out of ideas
+E 1 30913 100 18  * a wwp drink container
+G 1 30900 10   * a twinkie
+G 1 30905 5   * a potion
+M 1 30901 1 30909  * an elf -> More specs!
+E 1 30901 100 6  * a jaunty top hat
+E 1 30904 100 5  * a heavy mail shirt
+E 1 30912 100 4  * an amulet
+M 1 30902 1 30904  * a female dwarf -> Resting Spot
+E 1 30911 100 0  * a light source
+M 1 30903 1 30903  * a sahuagin fishy -> Underwater Rapid
+M 1 30904 2 30914  * a giant oak -> Nothing Special
+M 1 30905 5 30907  * a wolf -> Cave-in and Darkness
+M 1 30906 2 30913  * a blazing red demon -> HOT ROOM!
+G 1 30905 100   * a potion
+M 1 30907 1 30911  * a nasty mean awful crazy mage -> More specs!
+E 1 30901 100 6  * a jaunty top hat
+E 1 30902 100 16  * a one handed sword
+E 1 30904 100 5  * a heavy mail shirt
+E 1 30911 100 0  * a light source
+M 1 30908 1 30911  * an obligatory mage's apprentice -> More specs!
+E 1 30913 100 18  * a wwp drink container
+G 1 30905 5   * a potion
+M 1 30909 5 30903  * a trout -> Underwater Rapid
+M 1 30910 5 30900  * a simple cityguard -> Welcome to Room 1
+E 1 30903 100 16  * a two handed sword
+E 1 30904 100 5  * a heavy mail shirt
+E 1 30911 100 0  * a light source
+E 1 30901 100 6  * a jaunty top hat
+S
+
+
+#SHOPS
+30900  0 0 0 0 0  100 100  8 18  -1 * a shopkeeper
+0
+
+
+#SPECIALS
+M 30905 spec_howl  * a wolf
+M 30906 spec_fire_demon  * a blazing red demon
+M 30907 init_mage * a nasty mean awful crazy mage
+M 30908 spec_mage_protector  * an obligatory mage's apprentice
+M 30910 spec_guard  * a simple cityguard
+S
+#RSPECS
+D 30900 spec_gas_chamber
+D 30903 spec_rapids_east
+D 30904 spec_tide_ew
+D 30907 spec_cavein
+D 30909 spec_wind_tunnel
+D 30910 spec_fire_bath
+D 30911 spec_seal_exits
+D 30912 spec_waterfall_west
+D 30913 spec_lava_lake
+S
+#TRIGGERS
+* A 30907 0 spec_cavein *30907: Cave-in and Darkness
+* A 30906 2 spec_cavein *30906: Flying High!
+A 30900 0 spec_crack_head *30900: Welcome to Room 1
+P 30901 2 spec_mudschool_newbies *30901: Another Room Code Name 2
+S
+#$
+

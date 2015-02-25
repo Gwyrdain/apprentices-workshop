@@ -95,55 +95,42 @@ class Area < ActiveRecord::Base
     name ||= ''
     flags ||= 0
     
-    lines = file.tempfile.readlines.map(&:chomp) #readlines from file & removes newline symbol
-    lines.each do |l| 
-      if (l.include?("#AREA") && l.include?("~")) # FORMAT 1 Area Header
-        m = l.match(/\{(.*)\} (........) (.*)~\s*F (\d+)/)
-
-        if m
-          author = m[2].strip
-          name = m[3].strip
-          flags = m[4].to_i
-  
-          if m[1].match(/(\d) (\d)/)
-            range = m[1].match(/(\d+) (\d+)/)
-              range_low = range[1].to_i
-              range_high = range[2].to_i
-          else
-            if m[1].match(/ALL/)
-              range_low = 1
-              range_high = 50
-            end
-            if m[1].match(/HARD/)
-              range_low = 50
-              range_high = 50
-            end
-          end
-        end
-
-      end # #AREA Format 1
-      
-      if read_area_block == true
-        #do something
-        
-        if l.match(/^End/) # FORMAT 2 Area Header
-          read_area_block = false # stop reading the area block
-          # process area block
-        end
-        
-      end
-        
-      if (l.match(/^#AREA/) && !l.include?("~")) # FORMAT 2 Area Header
-        read_area_block = true # start reading the area block
-      end
-
-      
-    end # lines do
     
-   #@area = Area.create!({name: name, author: author, lowlevel: range_low, highlevel: range_high, flags: flags, vnum_qty: 100, area_number: 1, default_terrain: 0, user_id: user_id})
+    area_file = file.read
+    #lines = area_file.readlines.map(&:chomp) #readlines from file & removes newline symbol
 
+    header_v1 = 'No Format 1 Area Header'
+    header_v2 = 'No Format 2 Area Header'
+    mobiles_block = 'No Mobiles Block'
+    objects_block = 'No Objects Block'
+    rooms_block = 'No Rooms Block'
+    strings_block = 'No Strings Block'
+    resets_block = 'No Resets Block'
     
-  
+    if area_file.match(/^#AREA.*~/)
+      header_v1 = area_file.match(/^#AREA.*~/)
+    end
+    if area_file.match(/^#AREA.*?\nEnd/m)
+      header_v2 = area_file.match(/^#AREA.*?\nEnd/m)
+    end
+    if area_file.match(/^#MOBILES.*?\n#0/m)
+      mobiles_block = area_file.match(/^#MOBILES.*?\n#0/m)
+    end
+    if area_file.match(/^#OBJECTS.*?\n#0/m)
+      objects_block = area_file.match(/^#OBJECTS.*?\n#0/m)
+    end
+    if area_file.match(/^#ROOMS.*?\n#0/m)
+      rooms_block = area_file.match(/^#ROOMS.*?\n#0/m)
+    end
+    if area_file.match(/^#STRINGS.*?\n#0/m)
+      strings_block = area_file.match(/^#STRINGS.*?\n#0/m)
+    end
+    if area_file.match(/^#RESETS.*?\nS/m)
+      resets_block = area_file.match(/^#RESETS.*?\nS/m)
+    end
+
+    return "#{header_v1}<hr>#{header_v2}<hr>#{mobiles_block}<hr>#{objects_block}<hr>#{rooms_block}<hr>#{strings_block}<hr>#{resets_block}"
+
   end
   
   def nextroomvnum
