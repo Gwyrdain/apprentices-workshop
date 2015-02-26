@@ -8,6 +8,15 @@ class RoomsController < ApplicationController
 
   def index
     @rooms = @area.rooms
+    
+    if params[:purge]
+      @area.rooms.where(:name => '<room name here>').each do |room|
+        Exit.where(:exit_room_id => room.id).delete_all
+        room.delete
+      end
+      redirect_to area_rooms_path(@area), notice: 'Purged empty rooms.'
+    end
+    
   end
 
   def show
