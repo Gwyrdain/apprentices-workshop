@@ -67,24 +67,25 @@ class ExitsController < ApplicationController
 
   def create
     
-    if params[:exit_room_id].to_i == 0 # Calling for a New Room
+    if params[:exit][:exit_room_id] == 0 # Calling for a New Room
+      new_room = true
       $far_room = @area.rooms.create(:vnum => @area.nextroomvnum,
-                                     :name => '<room name here>',
+                                     :name => 'xxx<room name here>',
                                      :description => '<room description here>',
                                      :terrain => @area.default_terrain,
                                      :room_flags => @area.default_room_flags
                                     )
-      $exit_room_id = $far_room.id
-    else
-      $exit_room_id = params[:exit_room_id]
     end
-    
+
     if params[:force_reciprocal]
       @exit = @room.exits.create(exit_params)
-      @exit.update(:exit_room_id => $exit_room_id)
       
-      $far_room = Room.find(params[:exit_room_id]) if params[:exit_room_id].to_i != 0
-
+      if new_room
+        @exit.update(:exit_room_id => $far_room.id)
+      else
+        $far_room = Room.find(params[:exit][:exit_room_id])
+      end
+        
       if $far_room.exits.exists?(:direction => opposite_dir( @exit.direction ))
         $far_exit = $far_room.exits.where(:direction => opposite_dir( @exit.direction )).first
         Exit.update($far_exit.id,
@@ -108,7 +109,7 @@ class ExitsController < ApplicationController
                                )
         redirect_to area_room_path(@area, @room), notice: 'Exit created and reciprocal created to match.'
       end
-    else
+    else #if not force_reciprocal
       if not params[:exit]
         @exit = @room.exits.build
         @exit.direction = params[:direction]
@@ -120,8 +121,10 @@ class ExitsController < ApplicationController
         @exit.name = params[:name]
       else
         @exit = @room.exits.create(exit_params)
-        @exit.update(:exit_room_id => $exit_room_id)
         
+        if new_room
+          @exit.update(:exit_room_id => $far_room.id)
+        end
       end
       if @exit.save
         redirect_to area_room_path(@area, @room), notice: 'Exit was sucessfully created.'
@@ -133,24 +136,25 @@ class ExitsController < ApplicationController
 
   def update
     
-    if params[:exit_room_id].to_i == 0 # Calling for a New Room
+    if params[:exit][:exit_room_id] == 0 # Calling for a New Room
+      new_room = true
       $far_room = @area.rooms.create(:vnum => @area.nextroomvnum,
                                      :name => '<room name here>',
                                      :description => '<room description here>',
                                      :terrain => @area.default_terrain,
                                      :room_flags => @area.default_room_flags
                                     )
-      $exit_room_id = $far_room.id
-    else
-      $exit_room_id = params[:exit_room_id]
     end
     
     if params[:force_reciprocal]
       @exit.update(exit_params)
-      @exit.update(:exit_room_id => $exit_room_id)
       
-      $far_room = Room.find(params[:exit_room_id]) if params[:exit_room_id].to_i != 0
-
+      if new_room
+        @exit.update(:exit_room_id => $far_room.id)
+      else
+        $far_room = Room.find( params[:exit][:exit_room_id] )
+      end
+      
       if $far_room.exits.exists?(:direction => opposite_dir( @exit.direction ))
         $far_exit = $far_room.exits.where(:direction => opposite_dir( @exit.direction )).first
         Exit.update($far_exit.id,
@@ -175,8 +179,9 @@ class ExitsController < ApplicationController
         redirect_to area_room_path(@area, @room), notice: 'Exit updated and reciprocal created to match.'
       end
     else
-      
-      if @exit.update(exit_params) && @exit.update(:exit_room_id => $exit_room_id)
+
+      if @exit.update(exit_params)
+        @exit.update(:exit_room_id => $far_room.id) if new_room
         redirect_to area_room_path(@area, @room), notice: 'Exit was sucessfully updated.'
       else
         render action: 'edit'
