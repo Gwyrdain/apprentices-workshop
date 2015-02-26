@@ -67,10 +67,10 @@ class ExitsController < ApplicationController
 
   def create
     
-    if params[:exit][:exit_room_id] == 0 # Calling for a New Room
+    if params[:exit][:exit_room_id].to_i == 0 # Calling for a New Room
       new_room = true
       $far_room = @area.rooms.create(:vnum => @area.nextroomvnum,
-                                     :name => 'xxx<room name here>',
+                                     :name => '<room name here>',
                                      :description => '<room description here>',
                                      :terrain => @area.default_terrain,
                                      :room_flags => @area.default_room_flags
@@ -136,7 +136,7 @@ class ExitsController < ApplicationController
 
   def update
     
-    if params[:exit][:exit_room_id] == 0 # Calling for a New Room
+    if params[:exit][:exit_room_id].to_i == 0 # Calling for a New Room
       new_room = true
       $far_room = @area.rooms.create(:vnum => @area.nextroomvnum,
                                      :name => '<room name here>',
