@@ -8,6 +8,13 @@ class ObjsController < ApplicationController
 
   def index
     @objs = @area.objs
+    
+    if params[:purge]
+      @area.objs.where(:sdesc => '<sdesc here>').each do |obj|
+        obj.destroy
+      end
+      redirect_to area_objs_path(@area), notice: 'Purged unedited objects.'
+    end
   end
 
   def show

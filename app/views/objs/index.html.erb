@@ -59,6 +59,9 @@
       <% if @area.objs.count < @area.vnum_qty %>
         <%= link_to 'Pre-make 10 Objects', new_area_obj_path(@area, :make => 10), :class => 'btn btn-success' %>
       <% end %>
+      <% if @area.objs.where(:sdesc => '<sdesc here>').count > 0 %>
+        <%= link_to 'Purge Unedited Objects', area_objs_path(@area, :purge => true), :class => 'btn btn-danger' %>
+      <% end %>
     </div>
     
 </div>

@@ -59,6 +59,9 @@
       <% if @area.mobiles.count < @area.vnum_qty %>
         <%= link_to 'Pre-make 10 Mobiles', new_area_mobile_path(@area, :make => 10), :class => 'btn btn-success' %>
       <% end %>
+      <% if @area.mobiles.where(:sdesc => '<sdesc here>').count > 0 %>
+        <%= link_to 'Purge Unedited Mobiles', area_mobiles_path(@area, :purge => true), :class => 'btn btn-danger' %>
+      <% end %>
     </div>
     
 </div>

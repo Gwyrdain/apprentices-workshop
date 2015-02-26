@@ -8,6 +8,13 @@ class MobilesController < ApplicationController
 
   def index
     @mobiles = @area.mobiles
+    
+    if params[:purge]
+      @area.mobiles.where(:sdesc => '<sdesc here>').each do |mobile|
+        mobile.destroy
+      end
+      redirect_to area_mobiles_path(@area), notice: 'Purged unedited mobiles.'
+    end
   end
 
   def show

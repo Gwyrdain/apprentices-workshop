@@ -12,9 +12,9 @@ class RoomsController < ApplicationController
     if params[:purge]
       @area.rooms.where(:name => '<room name here>').each do |room|
         Exit.where(:exit_room_id => room.id).delete_all
-        room.delete
+        room.destroy
       end
-      redirect_to area_rooms_path(@area), notice: 'Purged empty rooms.'
+      redirect_to area_rooms_path(@area), notice: 'Purged unedited rooms.'
     end
     
   end
