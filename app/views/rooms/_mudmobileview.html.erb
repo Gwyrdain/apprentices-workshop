@@ -1,15 +1,18 @@
 <div id=<%= "\"mobile_reset_#{reset.id}\"".html_safe %> hidden='hidden'><% mobile = Mobile.find(reset.mobile_id) %><font color=yellow>look <%= mobile.keywords.slice(/\w+/) %> peek</font>
 
 <font color=silver><%= word_wrap(mobile.look_desc, line_width: ApplicationController::WORDWRAP_LENGTH) %>
-<%= mobile.sdesc.humanize %> is in perfect health.<% if reset.sub_resets.where(:reset_type => 'E').count > 0 %>
+<%= mobile.sdesc.humanize %> is in perfect health.
+<% if reset.sub_resets.where(:reset_type => 'E').count > 0 %>
 
 <%= mobile.sdesc.humanize %> is using:
 <% reset.sub_resets.where(:reset_type => 'E').order(:val_4).each do |sub_reset| %><%= sub_reset.equip_view_prefix %><%=
 link_to obj_inv_view(sub_reset.obj_id), edit_area_obj_path(@area, sub_reset.obj_id, :return_to_room => @room.id) %><%=
-render 'reset_in_room', :reset => sub_reset %><% end %><% end %>
-
+render 'reset_in_room', :reset => sub_reset %>
+<% end %><% end %>
 You peek at the inventory:
 <% if reset.sub_resets.where(:reset_type => 'G').count > 0 %><font color=green><% reset.sub_resets.where(:reset_type => 'G').each do |sub_reset| %><%=
-obj_info(sub_reset.val_2, 'sdesc') %><%= render 'sub_reset_in_room', :reset => sub_reset %><% end %></font><% else %>     Nothing.<% end %>
+obj_info(sub_reset.val_2, 'sdesc') %><%= render 'sub_reset_in_room', :reset => sub_reset %>
+<% end %></font><% else %>     Nothing.
+<% end %>
 
 ></font></div>
