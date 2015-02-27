@@ -1,0 +1,3 @@
+<% if @area.resets.where(reset_type: ['M', 'Q']).where(val_4: @room.id).count > 0 %><% @area.resets.order(:val_2).where(reset_type: ['M', 'Q']).where(val_4: @room.id).each do |reset| %><% if Mobile.exists?(:id => reset.obj_id) %><%=
+link_to mobile_room_view(reset.mobile_id), edit_area_mobile_path(@area, reset.mobile_id, :return_to_room => @room.id) %><%= render 'reset_in_room', :reset => reset %>
+<% end %><% end %><% end %>

@@ -88,6 +88,10 @@ class SubReset < ActiveRecord::Base
     $loc_word = 'DECORATION' if self.val_4 == 18
     return $loc_word
   end
+  
+  def obj_id
+    return self.val_2
+  end
 
   def wear_loc_ok?
     i = true
@@ -164,6 +168,27 @@ class SubReset < ActiveRecord::Base
     end
     
     return i
+  end
+  
+  def equip_view_prefix
+    $prefix = '<used as light' if self.val_4 == 0
+    $prefix = '<worn on finger' if self.val_4 == 1 || self.val_4 == 2
+    $prefix = '<worn around neck' if self.val_4 == 3 || self.val_4 == 4
+    $prefix = '<worn on body' if self.val_4 == 5
+    $prefix = '<worn on head' if self.val_4 == 6
+    $prefix = '<worn on legs' if self.val_4 == 7
+    $prefix = '<worn on feet' if self.val_4 == 8
+    $prefix = '<worn on hands' if self.val_4 == 9
+    $prefix = '<worn on arms' if self.val_4 == 10
+    $prefix = '<worn as shield' if self.val_4 == 11
+    $prefix = '<worn about body' if self.val_4 == 12
+    $prefix = '<worn about waist' if self.val_4 == 13
+    $prefix = '<worn around wrist' if self.val_4 == 14 || self.val_4 == 15
+    $prefix = '<wielded' if self.val_4 == 16
+    $prefix = '<held' if self.val_4 == 17
+    $prefix = '<worn with pride' if self.val_4 == 18
+    $prefix = $prefix << ">" << " " * ( 21 - $prefix.length )
+    return $prefix
   end
   
 end

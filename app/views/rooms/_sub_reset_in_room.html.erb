@@ -1,0 +1,5 @@
+ <font color=#303030>[<%= 
+link_to "<font color=#303030>Reset with limit: #{reset.val_3}</font>".html_safe, edit_area_reset_sub_reset_path(@area, reset.reset, reset, :return_to_room => @room.id) %> <%=
+link_to '<font color=red>x</font>'.html_safe, area_reset_sub_reset_path(@area, reset.reset, reset, :return_to_room => @room.id),
+ :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm",
+ :default => 'Are you sure?')) } %>]</font>

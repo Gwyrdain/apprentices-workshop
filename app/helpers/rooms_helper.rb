@@ -18,6 +18,24 @@ module RoomsHelper
     end
   end
   
+  def obj_inv_view(id)
+    output = ''
+    if Obj.exists?(:id => id)
+      this_obj = Obj.find(id)
+      output = "<font color=green>"
+      
+      output = output << "(Magical) " if this_obj.magic?
+      output = output << "(Glowing) " if this_obj.glow?
+      output = output << "(Humming) " if this_obj.hum?
+      output = output << "(Invis) "   if this_obj.invis?
+      
+      output = output << "#{this_obj.sdesc}</font>"
+      return output.html_safe
+    else
+      return '*** ERROR: OBJECT NOT FOUND ***'
+    end
+  end
+  
   def mobile_room_view(id)
     output = ''
     if Mobile.exists?(:id => id)
