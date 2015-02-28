@@ -1,7 +1,7 @@
 #SPECIALS
 <% @area.mobiles.order(:vnum).each do |mobile| %>
-  <% if mobile.specials.count > 0 %>
-<%= render 'specials/specialblock', :special => mobile.specials.first %>
+  <% mobile.specials.each do |special| %>
+<%= render 'specials/specialblock', :special => special %>
   <% end %>
 <% end %>
 S
