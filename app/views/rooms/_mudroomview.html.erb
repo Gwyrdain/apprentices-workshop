@@ -13,6 +13,4 @@ link_to exit.direction_word.downcase, edit_area_room_exit_path(@area, @room, exi
 @area.resets.order(:val_2).where(reset_type: ['M', 'Q']).where(val_4: @room.id).each do |reset| %><% if Mobile.exists?(:id => reset.obj_id) %><%= 
 render 'mudmobileview', :reset => reset %><% end %><% end %><% end %>
 
-<% if @area.use_rulers? %><%= ApplicationController::WORDWRAP_RULER %><% end %>
-
-</div>
+<% if @area.use_rulers? %><%= ApplicationController::WORDWRAP_RULER %><% end %></div>

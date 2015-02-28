@@ -11,6 +11,8 @@
     </div>
   <% end %>
   
+  <% if params[:return_to_room] %><input name="return_to_room" type="hidden" value="<%= params[:return_to_room] %>" /><% end %>
+  
   <% if @reset.reset_type == 'O' %>
     <div class="form-group">
       <%= f.label :reset_type, :class => 'control-label col-md-2' %>

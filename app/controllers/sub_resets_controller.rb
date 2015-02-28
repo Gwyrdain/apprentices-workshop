@@ -35,7 +35,11 @@ class SubResetsController < ApplicationController
     @sub_reset = @reset.sub_resets.create(sub_reset_params)
 
     if @sub_reset.save
-      redirect_to area_reset_path(@area, @reset), notice: 'Sub-reset was sucessfully created.'
+      if params[:return_to_room]
+        redirect_to area_room_path(@area, params[:return_to_room]), notice: 'Sub-reset was sucessfully created.'
+      else
+        redirect_to area_reset_path(@area, @reset), notice: 'Sub-reset was sucessfully created.'
+      end
     else
       render action: 'new'
     end
@@ -43,7 +47,11 @@ class SubResetsController < ApplicationController
 
   def update
     if @sub_reset.update(sub_reset_params)
-      redirect_to area_reset_path(@area, @reset), notice: 'Sub-reset was sucessfully updated.'
+      if params[:return_to_room]
+        redirect_to area_room_path(@area, params[:return_to_room]), notice: 'Sub-reset was sucessfully created.'
+      else
+        redirect_to area_reset_path(@area, @reset), notice: 'Sub-reset was sucessfully updated.'
+      end
     else
       render action: 'edit'
     end    

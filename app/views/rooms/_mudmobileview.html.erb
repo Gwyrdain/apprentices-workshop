@@ -1,7 +1,7 @@
 <div id=<%= "\"mobile_reset_#{reset.id}\"".html_safe %> hidden='hidden'><% mobile = Mobile.find(reset.mobile_id) %><font color=yellow>look <%= mobile.keywords.slice(/\w+/) %> peek</font>
 
 <font color=silver><%= word_wrap(mobile.look_desc, line_width: ApplicationController::WORDWRAP_LENGTH) %>
-<%= mobile.sdesc.humanize %> is in perfect health.
+<%= link_to mobile.sdesc.humanize, edit_area_mobile_path(@area, mobile, :return_to_room => @room.id), {:style => 'color: silver'} %> is in perfect health.
 <% if reset.sub_resets.where(:reset_type => 'E').count > 0 %>
 
 <%= mobile.sdesc.humanize %> is using:
@@ -15,4 +15,6 @@ obj_info(sub_reset.val_2, 'sdesc') %><%= render 'sub_reset_in_room', :reset => s
 <% end %></font><% else %>     Nothing.
 <% end %>
 
-></font></div>
+></font> [ <%= link_to 'give', new_area_reset_sub_reset_path(@area, reset, :reset_type => 'G', :return_to_room => @room.id) %><% if
+mobile_info(reset.val_2, 'can_wear?') %> | <%= link_to 'equip', new_area_reset_sub_reset_path(@area, reset, :reset_type => 'E',
+:return_to_room => @room.id ) %> ]</div><% end %>
