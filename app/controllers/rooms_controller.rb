@@ -90,24 +90,29 @@ class RoomsController < ApplicationController
   end
   
   def edit_multiple
-
-    @rooms = Room.find(params[:room_ids])
-
-    if params[:commit] == "Delete Selected"
-      @rooms.each do |room|
-        room.destroy
+    
+    if params[:room_ids]
+  
+      @rooms = Room.find(params[:room_ids])
+  
+      if params[:commit] == "Delete Selected"
+        @rooms.each do |room|
+          room.destroy
+        end
+        redirect_to area_rooms_path(@area), notice: 'Deleted multiple rooms.'
       end
-      redirect_to area_rooms_path(@area), notice: 'Deleted multiple rooms.'
-    end
-    if params[:commit] == "Update Rooms"
-      @rooms.reject! do |room|
-        room.update_attributes(room_params.reject { |k,v| v.blank? })
+      if params[:commit] == "Update Rooms"
+        @rooms.reject! do |room|
+          room.update_attributes(room_params.reject { |k,v| v.blank? })
+        end
+        if @rooms.empty?
+          redirect_to area_rooms_path(@area), notice: 'Updated multiple rooms.'
+        else
+          render "edit_multiple"
+        end
       end
-      if @rooms.empty?
-        redirect_to area_rooms_path(@area), notice: 'Updated multiple rooms.'
-      else
-        render "edit_multiple"
-      end
+    else
+      redirect_to area_rooms_path(@area), notice: 'No rooms selected.'
     end
   end
 
