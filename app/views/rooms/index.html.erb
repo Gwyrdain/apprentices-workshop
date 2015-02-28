@@ -1,4 +1,6 @@
 <%- model_class = Room -%>
+<%= form_tag edit_multiple_area_rooms_path(@area), :method => :post do %>
+
 <div class="panel panel-default monospace">
     <div class="panel-heading"><h3>
       <%= link_to @area.name, area_path(@area) %> / <%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>
@@ -15,6 +17,7 @@
     <table class="table table-hover monospace">
       <thead>
         <tr>
+          <td></td>
           <th>Vnum</th>
           <th><%= model_class.human_attribute_name(:name) %></th>
           <th><%= model_class.human_attribute_name(:description) %></th>
@@ -27,6 +30,7 @@
       <tbody>
         <% @rooms.order(:vnum).each do |room| %>
           <tr>
+            <td><%= check_box_tag "room_ids[]", room.id %></td>
             <td><%= room.formal_vnum %></td>
             <td><%= link_to room.name, area_room_path(@area, room) %></td>
             <td><%= simple_format(truncate(room.description, length: 220, separator: ' ', omission: '[...]')) %></td>
@@ -61,11 +65,14 @@
     <div class="panel-footer">
       <%= link_to 'New Room', new_area_room_path, :class => 'btn btn-primary' %>
       <%= link_to 'Back', area_path(@area), :class => 'btn btn-default' %>
+      <%= submit_tag "Edit Selected", :class => 'btn btn-warning' %>
+      <%= submit_tag "Delete Selected", :class => 'btn btn-danger', data: { confirm: "Are you sure?" } %>
+
       <% if @area.rooms.count < @area.vnum_qty %>
         <%= link_to 'Pre-make Empty Rooms', new_area_room_path(@area, :makeallrooms => true), :class => 'btn btn-success' %>
       <% end %>
       <% if @area.rooms.where(:name => '<room name here>').count > 0 %>
-        <%= link_to 'Purge Unedited Rooms', area_rooms_path(@area, :purge => true), :class => 'btn btn-danger' %>
+        <%= link_to 'Purge Unedited Rooms', area_rooms_path(@area, :purge => true), :class => 'btn btn-danger', data: { confirm: "Are you sure?" }  %>
       <% end %>
     </div>
     
@@ -76,4 +83,5 @@
 <strong class="monospace">Formatted #ROOMS Block:</strong>
 <pre><%= render 'rooms/roomsblock' %></pre>
 <br/>
+<% end %>
 <% end %>

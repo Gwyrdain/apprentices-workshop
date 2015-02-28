@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!#, except: [:index]
-  before_action :set_area, only: [:index, :show, :new, :edit, :create, :update, :destroy]
+  before_action :set_area, only: [:index, :show, :new, :edit, :create, :update, :destroy, :edit_multiple]
   before_action :set_room, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:new, :edit, :create, :update, :destroy] #[:show, :edit, :update, :destroy]
   
@@ -15,6 +15,10 @@ class RoomsController < ApplicationController
         room.destroy
       end
       redirect_to area_rooms_path(@area), notice: 'Purged unedited rooms.'
+    end
+    
+    if params[:edit_multiple]
+      render 'edit_multiple'
     end
     
   end
@@ -82,6 +86,28 @@ class RoomsController < ApplicationController
       redirect_to area_rooms_path(@area), notice: 'Room and all associated exits to this room were sucessfully deleted.'
     else
       redirect_to area_rooms_path(@area), notice: 'Something went wrong.'
+    end
+  end
+  
+  def edit_multiple
+
+    @rooms = Room.find(params[:room_ids])
+
+    if params[:commit] == "Delete Selected"
+      @rooms.each do |room|
+        room.destroy
+      end
+      redirect_to area_rooms_path(@area), notice: 'Deleted multiple rooms.'
+    end
+    if params[:commit] == "Update Rooms"
+      @rooms.reject! do |room|
+        room.update_attributes(room_params.reject { |k,v| v.blank? })
+      end
+      if @rooms.empty?
+        redirect_to area_rooms_path(@area), notice: 'Updated multiple rooms.'
+      else
+        render "edit_multiple"
+      end
     end
   end
 

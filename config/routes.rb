@@ -5,6 +5,11 @@ Rails.application.routes.draw do
     resources :shares
     resources :helps
     resources :rooms do
+      collection do
+        get :edit_multiple
+        put :edit_multiple
+        post :edit_multiple
+      end
       resources :rxdescs
       resources :exits do
         resources :triggers
