@@ -113,7 +113,7 @@ class Exit < ActiveRecord::Base
 
   def is_one_way?
     if ( self.destination_exists? && !self.is_loopback? )
-      if self.destination.exits.where(:direction => opposite_dir(self.direction)).first
+      if self.destination.exits.where(:exit_room_id => self.room.id).first
         return false
       else
         return true
@@ -125,7 +125,8 @@ class Exit < ActiveRecord::Base
   
   def is_reciprocal?
     if (self.destination_exists? && !self.is_one_way? && !self.is_loopback?)
-      if self.destination.exits.where(:direction => opposite_dir(self.direction)).first.exit_room_id == self.room.id
+      if (self.destination.exits.where(:direction => opposite_dir(self.direction)).count > 0 && 
+          self.destination.exits.where(:direction => opposite_dir(self.direction)).first.exit_room_id == self.room.id )
         return true
       else
         return false
@@ -153,7 +154,8 @@ class Exit < ActiveRecord::Base
 
   def is_illogical?
     if (self.destination_exists? && !self.is_one_way? && !self.is_loopback?)
-      if self.destination.exits.where(:direction => opposite_dir(self.direction)).first.exit_room_id == self.room.id
+      if (self.destination.exits.where(:direction => opposite_dir(self.direction)).count > 0 && 
+          self.destination.exits.where(:direction => opposite_dir(self.direction)).first.exit_room_id == self.room.id )
         return false
       else
         return true
