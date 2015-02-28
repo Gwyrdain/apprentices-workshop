@@ -5,6 +5,10 @@
       <%= link_to new_area_room_path(@area), :class => 'btn btn-xs', :title => "#{ t('.new', :default => t('helpers.links.show')) }" do %>
         <%= glyph 'plus' %>
       <%- end -%>
+      <div class="btn-group pull-right" role="group" aria-label="...">
+        <%= link_to "Mobiles", area_mobiles_path(@area), :class => 'btn btn-default' %>
+        <%= link_to "Objects", area_objs_path(@area), :class => 'btn btn-default' %>
+      </div>
     </h3></div>
     <div class="panel-body">
     

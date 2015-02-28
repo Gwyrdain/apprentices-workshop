@@ -5,12 +5,17 @@
       <%= link_to new_area_obj_path(@area), :class => 'btn btn-xs', :title => "#{ t('.new', :default => t('helpers.links.show')) }" do %>
         <%= glyph 'plus' %>
       <%- end -%>
+      <div class="btn-group pull-right" role="group" aria-label="...">
+        <%= link_to "Rooms", area_rooms_path(@area), :class => 'btn btn-default' %>
+        <%= link_to "Mobiles", area_mobiles_path(@area), :class => 'btn btn-default' %>
+      </div>
     </h3></div>
     <div class="panel-body">
 
       <table class="table table-hover monospace">
         <thead>
           <tr>
+            <th>Vnum</th>
             <th>Object</th>
             <th><%= model_class.human_attribute_name(:keywords) %></th>
             <th><%= model_class.human_attribute_name(:ldesc) %></th>
@@ -24,7 +29,8 @@
         <tbody>
           <% @objs.order(:vnum).each do |obj| %>
             <tr>
-                <td><%= obj.vnum_and_sdesc %>
+                <td><%= obj.formal_vnum %></td>
+                <td><%= link_to obj.sdesc, area_obj_path(@area, obj) %>
                   <% if !obj.has_assoc_reset? %>
                     <span style="color:orange" title="No associated reset."><%= glyph('warning-sign') %></span>
                   <% end %>
