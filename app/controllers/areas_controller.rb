@@ -1,3 +1,5 @@
+include ActionView::Helpers::OutputSafetyHelper
+
 class AreasController < ApplicationController
   before_action :authenticate_user!#, except: [:index]
   before_action :set_area, only: [:show, :edit, :update, :destroy]
@@ -14,8 +16,7 @@ class AreasController < ApplicationController
 
   def show
     if params[:download]
-      $area_file = render_to_string(:partial => 'areas/areafile').gsub('&#39;',"'").gsub('&quot;','"')
-      #$area_file = ActionController::Base.helpers.html_safe($area_file)
+      $area_file = render_to_string(:partial => 'areas/areafile').gsub('&#39;',"'").gsub('&quot;','"').gsub('&amp;','&').gsub('&lt;','<').gsub('&gt;','>')
       send_data($area_file , :filename => @area.name + ".are")
     end
     if params[:preview]
