@@ -108,6 +108,29 @@ class MobilesController < ApplicationController
         redirect_to area_mobiles_path(@area), notice: 'Deleted multiple mobiles.'
       end
       if params[:commit] == "Update Mobiles"
+        if !params[:add_special].blank?
+          @mobiles.each do |mobile|
+            if mobile.specials.where(:name => params[:add_special]).count < 1
+              mobile.specials.create( :special_type => 'M',
+                                      :name => params[:add_special],
+                                      :extended_value_1 => '-1',
+                                      :extended_value_2 => '-1',
+                                      :extended_value_3 => '-1',
+                                      :extended_value_4 => '-1',
+                                      :extended_value_5 => '-1',
+                                      :mobile_id => mobile.id
+                                      )
+            end
+          end
+        end
+        if !params[:remove_special].blank?
+          @mobiles.each do |mobile|
+            if mobile.specials.where(:name => params[:remove_special]).count > 0
+              mobile.specials.where(:name => params[:remove_special]).first.destroy
+            end
+          end
+        end
+        
         @mobiles.reject! do |mobile|
           mobile.update_attributes(mobile_params.reject { |k,v| v.blank? })
         end
