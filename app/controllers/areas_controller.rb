@@ -18,6 +18,7 @@ class AreasController < ApplicationController
     if params[:download]
       $area_file = render_to_string(:partial => 'areas/areafile').gsub('&#39;',"'").gsub('&quot;','"').gsub('&amp;','&').gsub('&lt;','<').gsub('&gt;','>')
       send_data($area_file , :filename => @area.name + ".are")
+      #render :text => $area_file.force_encoding('US-ASCII').encoding.name
     end
     if params[:preview]
       render('areas/areapreview')

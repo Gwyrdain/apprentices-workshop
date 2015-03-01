@@ -17,10 +17,20 @@ Rails.application.routes.draw do
       resources :room_specials
     end
     resources :objs do
+      collection do
+        get :edit_multiple
+        put :edit_multiple
+        post :edit_multiple
+      end
       resources :oxdescs
       resources :applies
     end
     resources :mobiles do
+      collection do
+        get :edit_multiple
+        put :edit_multiple
+        post :edit_multiple
+      end
       resources :specials
       resources :shops
     end

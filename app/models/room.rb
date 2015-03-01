@@ -48,13 +48,9 @@ class Room < ActiveRecord::Base
                                   },
                    uniqueness:   { scope: :area,
                                    message: "No duplicate vnums allowed." }
-
-# validates :baggage, :numericality => { :less_than => :max_vnum }, :presence => true 
-
-
     
-  validates :name, length: { in: 4..75 }
-  validates :description, length: { minimum: 4 }
+  validates :name, length: { in: 4..75 }, format: { with: /\A[ -~]+\z/, message: "Only US-ASCII characters are permitted." }
+  validates :description, length: { minimum: 4 }, format: { with: /\A[ -~]+\z/, message: "Only US-ASCII characters are permitted." }
   validates :terrain, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   before_create :default_values

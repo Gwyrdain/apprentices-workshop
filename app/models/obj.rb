@@ -71,9 +71,9 @@ class Obj < ActiveRecord::Base
                                   },
                    uniqueness:   { scope: :area,
                                    message: "No duplicate vnums allowed." }
-  validates :keywords, length: { in: 4..75 }
-  validates :sdesc, length: { in: 4..75 }
-  validates :ldesc, length: { minimum: 4 }
+  validates :keywords, length: { in: 4..75 }, format: { with: /\A[ -~]+\z/, message: "Only US-ASCII characters are permitted." }
+  validates :sdesc, length: { in: 4..75 }, format: { with: /\A[ -~]+\z/, message: "Only US-ASCII characters are permitted." }
+  validates :ldesc, length: { minimum: 4 }, format: { with: /\A[ -~]+\z/, message: "Only US-ASCII characters are permitted." }
   validates :object_type, numericality: { only_integer: true, greater_than: 0 }
   validates :v0, numericality: { only_integer: true, greater_than: -2 }
   validates :v1, numericality: { only_integer: true, greater_than: -2 }

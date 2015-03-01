@@ -52,6 +52,7 @@ pre {
     position: relative;
     overflow: hidden;
 }
+
 .btn-file input[type=file] {
     position: absolute;
     top: 0;
@@ -68,3 +69,8 @@ pre {
     display: block;
 }
 
+.small-select {
+    margin: 5px;
+    padding: 0px;
+    height: 25px;
+}

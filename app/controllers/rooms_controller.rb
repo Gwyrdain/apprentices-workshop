@@ -17,10 +17,6 @@ class RoomsController < ApplicationController
       redirect_to area_rooms_path(@area), notice: 'Purged unedited rooms.'
     end
     
-    if params[:edit_multiple]
-      render 'edit_multiple'
-    end
-    
   end
 
   def show

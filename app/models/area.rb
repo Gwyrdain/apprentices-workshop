@@ -67,8 +67,8 @@ class Area < ActiveRecord::Base
 #               2**31 => :flag,          # Dec: 2147483648 / Hex:  80000000
 #               2**32 => :flag,          # Dec: 4294967296 / Hex: 100000000
 
-  validates :name, length: { in: 1..20 }
-  validates :author, length: { in: 1..75 }
+  validates :name, length: { in: 1..20 }, format: { with: /\A[ -~]+\z/, message: "Only US-ASCII characters are permitted." }
+  validates :author, length: { in: 1..75 }, format: { with: /\A[ -~]+\z/, message: "Only US-ASCII characters are permitted." }
 
   validates :vnum_qty, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :lowlevel, numericality: { only_integer: true, greater_than: 0, less_than: 51  }

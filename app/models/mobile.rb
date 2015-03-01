@@ -102,10 +102,10 @@ class Mobile < ActiveRecord::Base
                                   },
                    uniqueness:   { scope: :area,
                                    message: "No duplicate vnums allowed." }
-  validates :keywords, length: { in: 3..75 }
-  validates :sdesc, length: { in: 4..75 }
-  validates :ldesc, length: { in: 4..75 }
-  validates :look_desc, length: { minimum: 4 }
+  validates :keywords, length: { in: 3..75 }, format: { with: /\A[ -~]+\z/, message: "Only US-ASCII characters are permitted." }
+  validates :sdesc, length: { in: 4..75 }, format: { with: /\A[ -~]+\z/, message: "Only US-ASCII characters are permitted." }
+  validates :ldesc, length: { in: 4..75 }, format: { with: /\A[ -~]+\z/, message: "Only US-ASCII characters are permitted." }
+  validates :look_desc, length: { minimum: 4 }, format: { with: /\A[ -~]+\z/, message: "Only US-ASCII characters are permitted." }
   validates :act_flags, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :affect_flags, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :alignment, numericality: { only_integer: true }  

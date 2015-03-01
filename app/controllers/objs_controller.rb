@@ -1,7 +1,7 @@
 class ObjsController < ApplicationController
   before_action :authenticate_user!#, except: [:index]
   before_action :set_obj, only: [:show, :edit, :update, :destroy]
-  before_action :set_area, only: [:index, :show, :new, :edit, :create, :update, :destroy]
+  before_action :set_area, only: [:index, :show, :new, :edit, :create, :update, :destroy, :edit_multiple]
   before_action :correct_user, only: [:new, :edit, :create, :update, :destroy] #[:show, :edit, :update, :destroy]
 
   respond_to :html
@@ -93,6 +93,33 @@ class ObjsController < ApplicationController
       redirect_to area_objs_path(@area), notice: 'Object was sucessfully deleted.'
     else
       redirect_to area_objs_path(@area), notice: 'Something went wrong.'
+    end
+  end
+  
+  def edit_multiple
+    
+    if params[:obj_ids]
+  
+      @objs = Obj.find(params[:obj_ids])
+  
+      if params[:commit] == "Delete Selected"
+        @objs.each do |obj|
+          obj.destroy
+        end
+        redirect_to area_objs_path(@area), notice: 'Deleted multiple objects.'
+      end
+      if params[:commit] == "Update Objects"
+        @objs.reject! do |obj|
+          obj.update_attributes(obj_params.reject { |k,v| v.blank? })
+        end
+        if @objs.empty?
+          redirect_to area_objs_path(@area), notice: 'Updated multiple objects.'
+        else
+          render "edit_multiple"
+        end
+      end
+    else
+      redirect_to area_objs_path(@area), notice: 'No objects selected.'
     end
   end
 

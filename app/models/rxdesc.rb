@@ -1,7 +1,7 @@
 class Rxdesc < ActiveRecord::Base
   belongs_to :room
   
-  validates :keywords, length: { in: 4..75 }
-  validates :description, length: { minimum: 4 }
+  validates :keywords, length: { in: 4..75 }, format: { with: /\A[ -~]+\z/, message: "Only US-ASCII characters are permitted." }
+  validates :description, length: { minimum: 4 }, format: { with: /\A[ -~]+\z/, message: "Only US-ASCII characters are permitted." }
 
 end

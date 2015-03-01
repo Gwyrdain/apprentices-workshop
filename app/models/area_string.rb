@@ -8,8 +8,8 @@ class AreaString < ActiveRecord::Base
                                   },
                    uniqueness:   { scope: :area,
                                    message: "No duplicate vnums allowed." }
-  validates :message_to_pc, length: { in: 4..75 }
-  validates :message_to_room, length: { in: 4..75 }
+  validates :message_to_pc, length: { in: 4..75 }, format: { with: /\A[ -~]+\z/, message: "Only US-ASCII characters are permitted." }
+  validates :message_to_room, length: { in: 4..75 }, format: { with: /\A[ -~]+\z/, message: "Only US-ASCII characters are permitted." }
 
   def max_vnum
     area.vnum_qty

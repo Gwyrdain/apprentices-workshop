@@ -1,4 +1,6 @@
 <%- model_class = Mobile -%>
+<%= form_tag edit_multiple_area_mobiles_path(@area), :method => :post do %>
+
 <div class="panel panel-default monospace">
     <div class="panel-heading"><h3>
       <%= link_to @area.name, area_path(@area) %> / Mobiles
@@ -15,10 +17,9 @@
       <table class="table table-hover monospace">
         <thead>
           <tr>
+            <td></td>
             <th>Vnum</th>
             <th>Mobile</th>
-            <th><%= model_class.human_attribute_name(:keywords) %></th>
-            <th><%= model_class.human_attribute_name(:ldesc) %></th>
             <th><%= model_class.human_attribute_name(:look_desc) %></th>
             <th><%= model_class.human_attribute_name(:alignment) %></th>
             <th><%= model_class.human_attribute_name(:level) %></th>
@@ -29,14 +30,13 @@
         <tbody>
           <% @mobiles.order(:vnum).each do |mobile| %>
             <tr>
+                <td><%= check_box_tag "mobile_ids[]", mobile.id %></td>
                 <td><%= mobile.formal_vnum %></td>
                 <td><%= link_to mobile.sdesc, area_mobile_path(@area, mobile) %>
                   <% if !mobile.has_assoc_reset? %>
                     <span style="color:orange" title="No associated reset."><%= glyph('warning-sign') %></span>
                   <% end %>
                 </td>
-                <td><%= mobile.keywords %></td>
-                <td><%= mobile.ldesc %></td>
                 <td><%= simple_format(truncate(mobile.look_desc, length: 80, separator: ' ', omission: '[...]')) %></td>
                 <td><%= mobile.alignment_word %></td>
                 <td><%= mobile.level %></td>
@@ -59,6 +59,9 @@
     <div class="panel-footer">
       <%= link_to 'New mobile', new_area_mobile_path, :class => 'btn btn-primary' %>
       <%= link_to 'Back', area_path(@area), :class => 'btn btn-default' %>
+      <%= submit_tag "Edit Selected", :class => 'btn btn-warning' %>
+      <%= submit_tag "Delete Selected", :class => 'btn btn-danger', data: { confirm: "Are you sure?" } %>
+      
       <% if @area.mobiles.count < @area.vnum_qty %>
         <%= link_to 'Pre-make 10 Mobiles', new_area_mobile_path(@area, :make => 10), :class => 'btn btn-success' %>
       <% end %>
@@ -74,4 +77,5 @@
 <strong class="monospace">Formatted #MOBILES Block:</strong>
 <pre><%= render 'mobiles/mobilesblock' %></pre>
 <br/>
+<% end %>
 <% end %>

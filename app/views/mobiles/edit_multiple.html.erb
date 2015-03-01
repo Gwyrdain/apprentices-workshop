@@ -1,0 +1,459 @@
+<%- model_class = Mobile -%>
+<%= form_tag edit_multiple_area_mobiles_path(@area), :method => :put, :class => 'form-horizontal' do %>
+
+<div class="panel panel-default monospace">
+    <div class="panel-heading"><h3>
+      <%= link_to @area.name, area_path(@area) %> / Edit Selected Mobiles
+    </h3></div>
+    <div class="panel-body">
+      
+      
+      <div class="form-group">
+        <%= label_tag :mobiles, 'Selected Mobiles', :class => 'control-label col-md-2' %>
+        <div class="col-md-10">
+          <ul class="list-unstyled">
+          <% @mobiles.each do |mobile| %>
+            <li>
+              <%= hidden_field_tag "mobile_ids[]", mobile.id %>
+              <%= mobile.formal_vnum %> <%= mobile.sdesc %>
+              <ul class="list-group-item-danger">
+                <% mobile.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+      
+      
+      <%= fields_for :mobile do |f| %>
+      
+        <div class="form-group">
+          <%= f.label :keywords, :class => 'control-label col-md-2' %>
+          <div class="col-md-10">
+            <%= f.text_field :keywords, :class => 'text_field form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :sdesc, :class => 'control-label col-md-2' %>
+          <div class="col-md-10">
+            <%= f.text_field :sdesc, :class => 'text_field form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :ldesc, :class => 'control-label col-md-2' %>
+          <div class="col-md-10">
+            <%= f.text_field :ldesc, :class => 'text_field form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :look_desc, :class => 'control-label col-md-2' %>
+          <div class="col-md-10">
+            <%= ruler %><%= f.text_area :look_desc, :class => 'text_field form-control', rows: 10 %>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :act_flags, 'Action flags', :class => 'control-label col-md-2' %>
+          <div class="col-md-10">
+      
+            <div class="form-inline col-md-4">
+              <%= f.select :sentinel, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :sentinel, 'sentinel'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :scavenger, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :scavenger, 'scavenger'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :plant, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :plant, 'plant'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :aggressive, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :aggressive, 'aggressive'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :stay_area, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :stay_area, 'stay_area'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :wimpy, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :wimpy, 'wimpy'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :train, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :train, 'train'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :practice, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :practice, 'practice'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :super_wimpy, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :super_wimpy, 'super_wimpy'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :assist_same, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :assist_same, 'assist_same'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :assist, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :assist, 'assist'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :assist_always, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :assist_always, 'assist_always'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :swim, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :swim, 'swim'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :water_only, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :water_only, 'water_only'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :animal, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :animal, 'animal'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :no_wear_eq, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :no_wear_eq, 'no_wear_eq'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :no_corpse, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :no_corpse, 'no_corpse'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :fireproof, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :fireproof, 'fireproof'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :intelligent, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :intelligent, 'intelligent'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :cloaked, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :cloaked, 'cloaked'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :no_random_eq, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :no_random_eq, 'no_random_eq'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+          </div>  
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :affect_flags, 'Affect flags', :class => 'control-label col-md-2' %>
+          <div class="col-md-10">
+      
+            <div class="form-inline col-md-4">
+              <%= f.select :blind, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :blind, 'blind'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :invisible, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :invisible, 'invisible'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :detect_evil, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :detect_evil, 'detect_evil'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :detect_invis, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :detect_invis, 'detect_invis'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :detect_magic, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :detect_magic, 'detect_magic'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :detect_hidden, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :detect_hidden, 'detect_hidden'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :detect_good, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :detect_good, 'detect_good'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :sanctuary, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :sanctuary, 'sanctuary'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :faerie_fire, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :faerie_fire, 'faerie_fire'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :infrared, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :infrared, 'infrared'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :curse, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :curse, 'curse'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :no_steal, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :no_steal, 'no_steal'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :poison, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :poison, 'poison'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :protect_from_evil, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :protect_from_evil, 'protect_from_evil'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :protect_from_good, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :protect_from_good, 'protect_from_good'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :sneak, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :sneak, 'sneak'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :hide, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :hide, 'hide'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :sleep, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :sleep, 'sleep'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :charm, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :charm, 'charm'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :flying, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :flying, 'flying'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :passdoor, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :passdoor, 'passdoor'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :no_trace, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :no_trace, 'no_trace'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :no_sleep, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :no_sleep, 'no_sleep'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :no_summon, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :no_summon, 'no_summon'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :no_charm, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :no_charm, 'no_charm'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :improved_invis, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :improved_invis, 'improved_invis'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+          </div>  
+        </div>
+        
+        <div class="form-group">
+          <%= f.label 'Alignment', :class => 'control-label col-md-2' %>
+          <div class="col-md-10">
+            <%= f.select :alignment, [["Unaligned", 0], ["Evil", -1000], ["Good", 1000]], {:include_blank => true}, {class: "form-control"} %>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :level, :class => 'control-label col-md-2' %>
+          <div class="col-md-10">
+            <%= f.text_field :level, :class => 'text_field form-control' %>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label 'Sex', :class => 'control-label col-md-2' %>
+          <div class="col-md-10">
+            <%= f.select :sex, [["No gender", 0], ["Male", 1], ["Female", 2]], {:include_blank => true}, {class: "form-control"} %>
+            </div>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :langs_known, 'Languages Known', :class => 'control-label col-md-2' %>
+          <div class="col-md-10">
+      
+            <div class="form-inline col-md-4">
+              <%= f.select :common, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :common, 'common'.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :dwarven, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :dwarven, 'dwarven'.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :elven, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :elven, 'elven'.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :gnomish, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :gnomish, 'gnomish'.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :halfling, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :halfling, 'halfling'.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :aarakocra, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :aarakocra, 'aarakocra'.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :giant, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :giant, 'giant'.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :minotaur, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :minotaur, 'minotaur'.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :ogre, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :ogre, 'ogre'.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :thoras, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :thoras, 'thoras'.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :goblin, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :goblin, 'goblin'.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :drow, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :drow, 'drow'.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :kobold, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :kobold, 'kobold'.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :orc, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :orc, 'orc'.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :troll, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :troll, 'troll'.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :sahaguin, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :sahaguin, 'sahaguin'.upcase, :class => 'control-label non-bold' %>
+            </div>
+            
+            <div class="form-inline col-md-4">
+              <%= f.select :god, [["Set", true], ["Unset", false]], {:include_blank => true}, {class: "form-control small-select"} %>
+              <%= f.label :god, 'god'.upcase, :class => 'control-label non-bold' %>
+            </div>
+      
+          </div>  
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :lang_spoken, 'Language Spoken', :class => 'control-label col-md-2' %>
+          <div class="col-md-10">
+            <%= f.select(:lang_spoken, options_for_select(
+                [
+                  ['NONE', 0],
+                  ['COMMON', 1],
+                  ['DWARVEN', 2],
+                  ['ELVEN', 4],
+                  ['GNOMISH', 8],
+                  ['HALFLING', 16],
+                  ['AARAKOCRA', 32],
+                  ['GIANT', 64],
+                  ['MINOTAUR', 128],
+                  ['OGRE', 256],
+                  ['THORAS', 512],
+                  ['GOBLIN', 1024],
+                  ['DROW', 2048],
+                  ['KOBOLD', 4096],
+                  ['ORC', 8192],
+                  ['TROLL', 16384],
+                  ['SAHAGUIN', 32768],
+                  ['GOD', 65535]
+                ]
+              ), {:include_blank => true}, {class: "form-control"}) %>
+          </div>
+        </div>
+      
+      <% end %>
+
+
+    </div>
+
+    <div class="panel-footer">
+      <%= submit_tag "Update Mobiles", :class => 'btn btn-primary' %>
+      <%= link_to 'Back', area_mobiles_path(@area), :class => 'btn btn-default' %>
+    </div>
+    
+</div>
+<% end %>

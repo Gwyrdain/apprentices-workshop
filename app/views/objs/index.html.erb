@@ -1,4 +1,6 @@
 <%- model_class = Obj -%>
+<%= form_tag edit_multiple_area_objs_path(@area), :method => :post do %>
+
 <div class="panel panel-default monospace">
     <div class="panel-heading"><h3>
       <%= link_to @area.name, area_path(@area) %> / Objects
@@ -15,10 +17,9 @@
       <table class="table table-hover monospace">
         <thead>
           <tr>
+            <td></td>
             <th>Vnum</th>
             <th>Object</th>
-            <th><%= model_class.human_attribute_name(:keywords) %></th>
-            <th><%= model_class.human_attribute_name(:ldesc) %></th>
             <th><%= model_class.human_attribute_name(:object_type) %></th>
             <th>Wear Location</th>
             <th><%= model_class.human_attribute_name(:weight) %></th>
@@ -29,22 +30,18 @@
         <tbody>
           <% @objs.order(:vnum).each do |obj| %>
             <tr>
+                <td><%= check_box_tag "obj_ids[]", obj.id %></td>
                 <td><%= obj.formal_vnum %></td>
                 <td><%= link_to obj.sdesc, area_obj_path(@area, obj) %>
                   <% if !obj.has_assoc_reset? %>
                     <span style="color:orange" title="No associated reset."><%= glyph('warning-sign') %></span>
                   <% end %>
                 </td>
-                <td><%= obj.keywords %></td>
-                <td><%= obj.ldesc %></td>
                 <td><%= object_type_from_num(obj.object_type) %></td>
                 <td><%= obj.wear_location %></td>
                 <td><%= obj.weight %></td>
                 <td><%= obj.cost %></td>
               <td>
-                <%= link_to area_obj_path(@area, obj), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
-                  <%= glyph 'info-sign' %>
-                <%- end -%>
                 <%= link_to edit_area_obj_path(@area, obj), :class => 'btn btn-xs', :title => "#{ t('.edit', :default => t('helpers.links.edit')) }" do %>
                   <%= glyph 'pencil' %>
                 <%- end -%>
@@ -62,6 +59,9 @@
     <div class="panel-footer">
       <%= link_to 'New object', new_area_obj_path, :class => 'btn btn-primary' %>
       <%= link_to 'Back', area_path(@area), :class => 'btn btn-default' %>
+      <%= submit_tag "Edit Selected", :class => 'btn btn-warning' %>
+      <%= submit_tag "Delete Selected", :class => 'btn btn-danger', data: { confirm: "Are you sure?" } %>
+      
       <% if @area.objs.count < @area.vnum_qty %>
         <%= link_to 'Pre-make 10 Objects', new_area_obj_path(@area, :make => 10), :class => 'btn btn-success' %>
       <% end %>
@@ -77,4 +77,5 @@
 <strong class="monospace">Formatted #OBJECTS Block:</strong>
 <pre><%= render 'objs/objsblock' %></pre>
 <br/>
+<% end %>
 <% end %>

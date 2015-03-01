@@ -1,7 +1,7 @@
 class MobilesController < ApplicationController
   before_action :authenticate_user!#, except: [:index]
   before_action :set_mobile, only: [:show, :edit, :update, :destroy]
-  before_action :set_area, only: [:index, :show, :new, :edit, :create, :update, :destroy]
+  before_action :set_area, only: [:index, :show, :new, :edit, :create, :update, :destroy, :edit_multiple]
   before_action :correct_user, only: [:new, :edit, :create, :update, :destroy] #[:show, :edit, :update, :destroy]
 
   respond_to :html
@@ -92,6 +92,33 @@ class MobilesController < ApplicationController
       redirect_to area_mobiles_path(@area), notice: 'Mobile was sucessfully deleted.'
     else
       redirect_to area_mobiles_path(@area), notice: 'Something went wrong.'
+    end
+  end
+  
+  def edit_multiple
+    
+    if params[:mobile_ids]
+  
+      @mobiles = Mobile.find(params[:mobile_ids])
+  
+      if params[:commit] == "Delete Selected"
+        @mobiles.each do |mobile|
+          mobile.destroy
+        end
+        redirect_to area_mobiles_path(@area), notice: 'Deleted multiple mobiles.'
+      end
+      if params[:commit] == "Update Mobiles"
+        @mobiles.reject! do |mobile|
+          mobile.update_attributes(mobile_params.reject { |k,v| v.blank? })
+        end
+        if @mobiles.empty?
+          redirect_to area_mobiles_path(@area), notice: 'Updated multiple mobiles.'
+        else
+          render "edit_multiple"
+        end
+      end
+    else
+      redirect_to area_mobiles_path(@area), notice: 'No mobiles selected.'
     end
   end
 
