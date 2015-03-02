@@ -38,11 +38,53 @@ class ResetsController < ApplicationController
   end
 
   def create
+    new_record = false
+    
     if not params[:reset]
       @reset = @area.resets.build
     end
     
+    if params[:reset][:val_2].to_i == 0 # Calling for a New
+      new_record = true
+      if params[:reset][:reset_type] == 'O'
+        $record = @area.objs.create(:vnum => @area.nextobjvnum,
+                                    :sdesc => '<sdesc here>',
+                                    :ldesc => '<ldesc here>',
+                                    :keywords => '<keywords here>',
+                                    :object_type => 1,
+                                    :v0 => 0,
+                                    :v1 => 0,
+                                    :v2 => 0,
+                                    :v3 => 0,
+                                    :extra_flags => 0,
+                                    :wear_flags => 1,
+                                    :misc_flags => 0,
+                                    :weight => 1,
+                                    :cost => 0
+                                    )
+      end
+      if params[:reset][:reset_type] == 'M'
+        $record = @area.mobiles.create( :vnum => @area.nextmobilevnum,
+                                        :sdesc => '<sdesc here>',
+                                        :ldesc => '<ldesc here>',
+                                        :look_desc => '<look desc here>',
+                                        :keywords => '<keywords here>',
+                                        :act_flags => 64,
+                                        :affect_flags => 0,
+                                        :alignment => 0,
+                                        :level => 1,
+                                        :sex => 0,
+                                        :langs_known => 0,
+                                        :lang_spoken => 0
+                                        )
+      end
+    end
+    
     @reset = @area.resets.create(reset_params)
+    
+    if new_record
+      @reset.update(:val_2 => $record.id)
+    end    
     
     if @reset.save
       if params[:return_to_room]

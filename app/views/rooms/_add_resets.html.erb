@@ -17,7 +17,9 @@
 
   <div class="form-group">
     <%= f.label :val_2, 'Mobile', :class => 'sr-only' %>
-      <%= f.collection_select(:val_2, @area.mobiles.order('vnum ASC'), :id, :vnum_and_sdesc, {}, {:id => 'MobileVnumField', :class => 'form-control'})  %>
+    <%= f.select(:val_2, options_for_select(
+            [['--- New Mobile', 0]] + @area.mobiles.order('vnum ASC').map{ |e| [e.vnum_and_sdesc, e.id] }
+          ), {}, {:class => "form-control"}) %>
   </div>
   
   <div class="form-group">
@@ -50,7 +52,9 @@
 
     <div class="form-group">
       <%= f.label :val_2, 'Object', :class => 'sr-only' %>
-        <%= f.collection_select(:val_2, @area.objs.order('vnum ASC'), :id, :vnum_and_sdesc, {}, {:id => 'ObjectVnumField', :class => 'form-control'})  %>
+      <%= f.select(:val_2, options_for_select(
+              [['--- New Object', 0]] + @area.objs.order('vnum ASC').map{ |e| [e.vnum_and_sdesc, e.id] }
+            ), {}, {:class => "form-control"}) %>
     </div>
     
     <div class="form-group">

@@ -11,7 +11,7 @@ module RoomsHelper
       output = output << "(Humming) " if this_obj.hum?
       output = output << "(Invis) "   if this_obj.invis?
       
-      output = output << "#{this_obj.ldesc}</font>"
+      output = output << "#{this_obj.ldesc.gsub("<","&lt;").gsub(">","&gt;")}</font>"
       return output.html_safe
     else
       return '*** ERROR: OBJECT NOT FOUND ***'
@@ -29,7 +29,7 @@ module RoomsHelper
       output = output << "(Humming) " if this_obj.hum?
       output = output << "(Invis) "   if this_obj.invis?
       
-      output = output << "#{this_obj.sdesc}</font>"
+      output = output << "#{this_obj.sdesc.gsub("<","&lt;").gsub(">","&gt;")}</font>"
       return output.html_safe
     else
       return '*** ERROR: OBJECT NOT FOUND ***'
@@ -49,7 +49,7 @@ module RoomsHelper
       output = output << "(<font color=red>Light Red Aura</font>) "  if this_mobile.alignment == -1000
       
       output = output << "</font><font color=purple>"
-      output = output << "#{this_mobile.ldesc}</font>"
+      output = output << "#{this_mobile.ldesc.gsub("<","&lt;").gsub(">","&gt;")}</font>"
       return output.html_safe
     else
       return '*** ERROR: MOBILE NOT FOUND ***'
