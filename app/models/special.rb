@@ -67,8 +67,8 @@ class Special < ActiveRecord::Base
 
   def helper_type
     $type = nil
-    $type = 'mob with spec_cxxx' if self.extended_value_1 == 1
-    $type = 'mob with spec_sxxx' if self.extended_value_1 == 2
+    $type = 'mob with spec_clark_kent' if self.extended_value_1 == 1
+    $type = 'mob with spec_superman' if self.extended_value_1 == 2
     return $type
   end
   
