@@ -66,28 +66,28 @@
     </div>
   </fieldset>
 
-  <% @area.objs.exists?(:id => @exit.keyvnum)      ? $LocalDoorKeyVnumRadio = true : $LocalDoorKeyVnumRadio = false %>
-  <% @exit.keyvnum > (@exit.room.area.vnum_qty - 1) ? $ExternalDoorKeyVnumRadio = true : $ExternalDoorKeyVnumRadio = false %>
-  <% !$LocalKeyVnumRadio && !(@exit.keyvnum > (@exit.room.area.vnum_qty - 1))     ? $NoDoorKeyRadio = true : $NoDoorKeyRadio = false %>
+  <% $KeyRadioChoice = 1 %>
+  <% $KeyRadioChoice = 2 if @exit.is_key_external? %>
+  <% $KeyRadioChoice = 3 if @exit.keyvnum == 0 %>
 
   <div id="DoorKeyGroup">
     <div class="form-group">
       <%= f.label 'Key', :class => 'control-label col-md-2' %>
       <div class="col-md-3">
         <label class="radio-inline">
-          <input type="radio" name="DoorKeyVnumRadioOptions" id="LocalDoorKeyVnumRadio" value="1" <%= "checked" if $LocalDoorKeyVnumRadio %>> Local Key Vnum
+          <input type="radio" name="DoorKeyVnumRadioOptions" id="LocalDoorKeyVnumRadio" value="1" <%= "checked" if $KeyRadioChoice == 1 %>> Local Key Vnum
         </label>
       </div>
   
       <div class="col-md-3">
         <label class="radio-inline">
-          <input type="radio" name="DoorKeyVnumRadioOptions" id="ExternalDoorKeyVnumRadio" value="2" <%= "checked" if $ExternalDoorKeyVnumRadio %>> External Key Vnum
+          <input type="radio" name="DoorKeyVnumRadioOptions" id="ExternalDoorKeyVnumRadio" value="2" <%= "checked" if $KeyRadioChoice == 2 %>> External Key Vnum
         </label>
       </div>
       
       <div class="col-md-3">
         <label class="radio-inline">
-          <input type="radio" name="DoorKeyVnumRadioOptions" id="NoDoorKeyRadio" value="3" <%= "checked" if $NoDoorKeyRadio %>> No Key
+          <input type="radio" name="DoorKeyVnumRadioOptions" id="NoDoorKeyRadio" value="3" <%= "checked" if $KeyRadioChoice == 3 %>> No Key
         </label>
       </div>
   

@@ -78,6 +78,27 @@ class Exit < ActiveRecord::Base
     return $desc
   end
   
+  def formal_key_vnum
+    if self.is_key_external? == true || self.keyvnum == 0
+      return self.keyvnum
+    else
+      return obj_info(self.keyvnum, 'formal_vnum')
+    end
+  end
+
+  def is_key_external?
+    if Obj.exists?(:id => self.keyvnum)
+      $this_obj = Obj.find(self.keyvnum)
+      if $this_obj.area == self.room.area
+        return false
+      else
+        return true
+      end
+    else
+      return true
+    end
+  end
+  
   def formal_vnum
     if self.destination_exists?
       return self.destination.formal_vnum
