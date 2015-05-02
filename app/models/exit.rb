@@ -215,8 +215,8 @@ class Exit < ActiveRecord::Base
   def has_reset?
     i = false
     i = true if self.has_door? && self.reset == 0
-    i = true if self.has_door? && self.reset == 0
-    i = true if self.has_door? && self.reset == 0
+    i = true if self.has_door? && self.reset == 1
+    i = true if self.has_door? && self.reset == 2
     return i
   end
 
