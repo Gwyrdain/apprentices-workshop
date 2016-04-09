@@ -1,8 +1,7 @@
 class Special < ActiveRecord::Base
   belongs_to :mobile
   
-  validates :name, uniqueness:  { scope: :mobile,
-                                       message: "No duplicate specials." }
+  validates :name, uniqueness: { scope: :mobile, message: "No duplicate specials of this type." }, unless: :allowable_duplicate
   validates :extended_value_1, numericality: { only_integer: true, greater_than: -2 }
   validates :extended_value_2, numericality: { only_integer: true, greater_than: -2 }
   validates :extended_value_3, numericality: { only_integer: true, greater_than: -2 }
@@ -78,6 +77,12 @@ class Special < ActiveRecord::Base
     $dist = 'the same room' if self.extended_value_2 == 0
     $dist = 'the same area' if self.extended_value_2 == 0
     return $dist
+  end
+  
+  def allowable_duplicate
+    $allow = false
+    $allow = true if self.name == "spec_act_on_give"
+    return $allow
   end
 
 end
