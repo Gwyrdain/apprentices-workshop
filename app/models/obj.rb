@@ -71,9 +71,9 @@ class Obj < ActiveRecord::Base
                                   },
                    uniqueness:   { scope: :area,
                                    message: "No duplicate vnums allowed." }
-  validates :keywords, length: { in: 4..75 }, format: { with: /\A[ -~]+\z/, message: "Only US-ASCII characters are permitted." }
-  validates :sdesc, length: { in: 4..75 }, format: { with: /\A[ -~]+\z/, message: "Only US-ASCII characters are permitted." }
-  validates :ldesc, length: { minimum: 4 }, format: { with: /\A[\x0A\x0D -~]+\z/, message: "Only US-ASCII characters are permitted." }
+  validates :keywords, length: { in: 4..75 }
+  validates :sdesc, length: { in: 4..75 }
+  validates :ldesc, length: { minimum: 4 }#, format: { with: /\A[\x0A\x0D -~]+\z/ }
   validates :object_type, numericality: { only_integer: true, greater_than: 0 }
   validates :v0, numericality: { only_integer: true, greater_than: -2 }
   validates :v1, numericality: { only_integer: true, greater_than: -2 }
@@ -82,6 +82,12 @@ class Obj < ActiveRecord::Base
   validates :wear_flags, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :extra_flags, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :misc_flags, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  
+  validate do |obj|
+    obj.errors.add :base, "Keywords may only contain US-ASCII characters.  Invalid characters: " + obj.keywords.remove(/[ -~]/) if obj.keywords.remove(/[ -~]/).length > 0
+    obj.errors.add :base, "Short description may only contain US-ASCII characters.  Invalid characters: " + obj.sdesc.remove(/[ -~]/) if obj.sdesc.remove(/[ -~]/).length > 0
+    obj.errors.add :base, "Long description may only contain US-ASCII characters.  Invalid characters: " + obj.ldesc.remove(/[ -~]/) if obj.ldesc.remove(/[ -~]/).length > 0
+  end
 
   before_create :default_values
   def default_values

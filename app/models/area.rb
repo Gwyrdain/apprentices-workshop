@@ -67,8 +67,8 @@ class Area < ActiveRecord::Base
 #               2**31 => :flag,          # Dec: 2147483648 / Hex:  80000000
 #               2**32 => :flag,          # Dec: 4294967296 / Hex: 100000000
 
-  validates :name, length: { in: 1..20 }, format: { with: /\A[ -~]+\z/, message: "Only US-ASCII characters are permitted." }
-  validates :author, length: { in: 1..75 }, format: { with: /\A[ -~]+\z/, message: "Only US-ASCII characters are permitted." }
+  validates :name, length: { in: 1..20 }
+  validates :author, length: { in: 1..75 }
 
   validates :vnum_qty, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :lowlevel, numericality: { only_integer: true, greater_than: 0, less_than: 51  }
@@ -76,6 +76,11 @@ class Area < ActiveRecord::Base
   validates :default_terrain, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :area_number,  numericality: { only_integer: true, greater_than: 0 }
   validates :user_id,  numericality: { only_integer: true, greater_than: 0 }
+  
+  validate do |area|
+    area.errors.add :base, "Name may only contain US-ASCII characters.  Invalid characters: " + area.name.remove(/[ -~]/) if area.name.remove(/[ -~]/).length > 0
+    area.errors.add :base, "Author may only contain US-ASCII characters.  Invalid characters: " + area.author.remove(/[ -~]/) if area.author.remove(/[ -~]/).length > 0
+  end
 
   before_create :default_values
   def default_values
@@ -227,7 +232,7 @@ class Area < ActiveRecord::Base
       return false
     end
   end
-    
+  
 end
 
 

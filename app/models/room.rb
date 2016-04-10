@@ -49,9 +49,14 @@ class Room < ActiveRecord::Base
                    uniqueness:   { scope: :area,
                                    message: "No duplicate vnums allowed." }
     
-  validates :name, length: { in: 4..75 }, format: { with: /\A[ -~]+\z/, message: "Only US-ASCII characters are permitted." }
-  validates :description, length: { minimum: 4 }, format: { with: /\A[\x0A\x0D -~]+\z/, message: "Only US-ASCII characters are permitted." }
+  validates :name, length: { in: 4..75 }
+  validates :description, length: { minimum: 4 }#, format: { with: /\A[\x0A\x0D -~]+\z/ }
   validates :terrain, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  
+  validate do |room|
+    room.errors.add :base, "Name may only contain US-ASCII characters.  Invalid characters: " + room.name.remove(/[ -~]/) if room.name.remove(/[ -~]/).length > 0
+    room.errors.add :base, "Description may only contain US-ASCII characters.  Invalid characters: " + room.description.remove(/[ -~]/) if room.description.remove(/[ -~]/).length > 0
+  end
 
   before_create :default_values
   def default_values

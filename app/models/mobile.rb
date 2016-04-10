@@ -102,10 +102,10 @@ class Mobile < ActiveRecord::Base
                                   },
                    uniqueness:   { scope: :area,
                                    message: "No duplicate vnums allowed." }
-  validates :keywords, length: { in: 3..75 }, format: { with: /\A[ -~]+\z/, message: "Only US-ASCII characters are permitted." }
-  validates :sdesc, length: { in: 4..75 }, format: { with: /\A[ -~]+\z/, message: "Only US-ASCII characters are permitted." }
-  validates :ldesc, length: { in: 4..75 }, format: { with: /\A[ -~]+\z/, message: "Only US-ASCII characters are permitted." }
-  validates :look_desc, length: { minimum: 4 }, format: { with: /\A[\x0A\x0D -~]+\z/, message: "Only US-ASCII characters are permitted." }
+  validates :keywords, length: { in: 3..75 }
+  validates :sdesc, length: { in: 4..75 }
+  validates :ldesc, length: { in: 4..75 }
+  validates :look_desc, length: { minimum: 4 }#, format: { with: /\A[\x0A\x0D -~]+\z/}
   validates :act_flags, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :affect_flags, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :alignment, numericality: { only_integer: true }  
@@ -113,6 +113,13 @@ class Mobile < ActiveRecord::Base
   validates :sex, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :langs_known, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :lang_spoken, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  
+  validate do |mobile|
+    mobile.errors.add :base, "Keywords may only contain US-ASCII characters.  Invalid characters: " + mobile.keywords.remove(/[ -~]/) if mobile.keywords.remove(/[ -~]/).length > 0
+    mobile.errors.add :base, "Short description may only contain US-ASCII characters.  Invalid characters: " + mobile.sdesc.remove(/[ -~]/) if mobile.sdesc.remove(/[ -~]/).length > 0
+    mobile.errors.add :base, "Long description may only contain US-ASCII characters.  Invalid characters: " + mobile.ldesc.remove(/[ -~]/) if mobile.ldesc.remove(/[ -~]/).length > 0
+    mobile.errors.add :base, "Look description may only contain US-ASCII characters.  Invalid characters: " + mobile.look_desc.remove(/[ -~]/) if mobile.look_desc.remove(/[ -~]/).length > 0
+  end
 
   before_create :default_values
   def default_values
