@@ -31,7 +31,7 @@
   <div class="form-group">
     <%= f.label :description, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :description, :class => 'text_field form-control' %>
+      <%= ruler %><%= f.text_area :description, :class => 'text_field form-control', rows: 10 %>
     </div>
   </div>
   <div class="form-group">
