@@ -74,7 +74,11 @@ class AreasController < ApplicationController
 
   def update
     if @area.update(area_params)
-      redirect_to @area, notice: 'Area was sucessfully updated.'
+      if params[:ownership]
+        redirect_to areas_path, notice: 'Ownership transfered.'
+      else
+        redirect_to @area, notice: 'Area was sucessfully updated.'
+      end
     else
       render action: 'edit'
     end     
@@ -91,7 +95,7 @@ class AreasController < ApplicationController
     end
 
     def area_params
-      params.require(:area).permit(:name, :author, :area_number,
+      params.require(:area).permit(:user_id, :name, :author, :area_number,
                                    :vnum_qty, :manmade, :city, :forest,
 #                                   :limited, :aerial, :reserved, :arena, <-- These area flags removed
                                    :quest, :novnum, :no_save, :default_terrain, 

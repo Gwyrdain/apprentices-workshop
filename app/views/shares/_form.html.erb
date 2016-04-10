@@ -11,7 +11,7 @@
     </div>
   <% end %>
   
-  <div id="LocalDoorKeyVnumGroup" class="form-group">
+  <div id="UserList" class="form-group">
       <%= f.label :user_id, 'User', :class => 'control-label col-md-2' %>
       <div class="col-md-10">
         <%= f.collection_select(:user_id, User.order(:email), :id, :email, {}, {:id => 'EmailSelectList', :class => 'form-control'})  %>

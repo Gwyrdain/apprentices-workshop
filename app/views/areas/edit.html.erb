@@ -4,7 +4,11 @@
     </h3></div>
     <div class="panel-body">
 
-        <%= render 'form' %>
+        <% if params[:ownership] %>
+            <%= render :partial => 'ownership' %>
+        <% else %>
+            <%= render :partial => 'form' %>
+        <% end %>
     
     </div>
     
