@@ -4,7 +4,7 @@
 <div class="panel panel-default monospace">
     <div class="panel-heading"><h3>
       <%= link_to @area.name, area_path(@area) %> / Mobiles
-      <%= link_to new_area_mobile_path(@area), :class => 'btn btn-xs', :title => "#{ t('.new', :default => t('helpers.links.show')) }" do %>
+      <%= link_to new_area_mobile_path(@area), :class => 'btn btn-xs', :title => "#{ t('.new', :default => t('helpers.links.new')) }" do %>
         <%= glyph 'plus' %>
       <%- end -%>
       <div class="btn-group pull-right" role="group" aria-label="...">

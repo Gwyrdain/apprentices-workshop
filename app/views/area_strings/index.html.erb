@@ -2,7 +2,7 @@
 <div class="panel panel-default monospace">
     <div class="panel-heading"><h3>
       <%= link_to @area.name, area_path(@area) %> / Strings
-      <%= link_to new_area_area_string_path(@area), :class => 'btn btn-xs', :title => "#{ t('.new', :default => t('helpers.links.show')) }" do %>
+      <%= link_to new_area_area_string_path(@area), :class => 'btn btn-xs', :title => "#{ t('.new', :default => t('helpers.links.new')) }" do %>
         <%= glyph 'plus' %>
       <%- end -%>
     </h3></div>

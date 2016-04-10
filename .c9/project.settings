@@ -48,7 +48,6 @@
             "json()": {
                 "Ruby on Rails": {
                     "command": "Area.count()",
-                    "debug": true,
                     "default": true,
                     "env": {},
                     "name": "Ruby on Rails",
