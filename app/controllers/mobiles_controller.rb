@@ -22,34 +22,58 @@ class MobilesController < ApplicationController
   end
 
   def new
-    if params[:make]
-      params[:make].to_i.times do
-        @area.mobiles.create( :vnum => @area.nextmobilevnum,
-                              :sdesc => '<sdesc here>',
-                              :ldesc => '<ldesc here>',
-                              :look_desc => '<look desc here>',
-                              :keywords => '<keywords here>',
-                              :act_flags => 64,
-                              :affect_flags => 0,
-                              :alignment => 0,
-                              :level => 1,
-                              :sex => 0,
-                              :langs_known => 0,
-                              :lang_spoken => 0
-                              )
+    
+    if params[:copy_mobile] # Copying a mobile
+      base_mobile = Mobile.find(params[:copy_mobile])
+      new_mobile = base_mobile.dup
+      new_mobile.vnum = @area.nextmobilevnum
+      new_mobile.save
+      
+      base_mobile.specials.each do |special|
+        new_special = special.dup
+        new_special.mobile_id = new_mobile.id
+        new_special.save
       end
-      redirect_to area_mobiles_path(@area), notice: 'Empty mobiles created.'
+
+      base_mobile.shops.each do |shop|
+        new_shop = shop.dup
+        new_shop.mobile_id = new_mobile.id
+        new_shop.save
+      end
+      
+      redirect_to area_mobiles_path(@area), 
+                  notice: new_mobile.errors.any? ? 'Error: ' + new_mobile.errors.full_messages[0].to_s : 'Mobile copied.'
     else
-      @mobile = @area.mobiles.build
-  
-      @mobile.vnum = @area.nextmobilevnum
-      @mobile.act_flags = 64
-      @mobile.affect_flags = 0
-      @mobile.alignment = 0
-      @mobile.level = 1
-      @mobile.sex = 0
-      @mobile.langs_known = 0
-      @mobile.lang_spoken = 0
+      
+      if params[:make] # Pre-make multiple mobiles.
+        params[:make].to_i.times do
+          @area.mobiles.create( :vnum => @area.nextmobilevnum,
+                                :sdesc => '<sdesc here>',
+                                :ldesc => '<ldesc here>',
+                                :look_desc => '<look desc here>',
+                                :keywords => '<keywords here>',
+                                :act_flags => 64,
+                                :affect_flags => 0,
+                                :alignment => 0,
+                                :level => 1,
+                                :sex => 0,
+                                :langs_known => 0,
+                                :lang_spoken => 0
+                                )
+        end
+        redirect_to area_mobiles_path(@area), notice: 'Empty mobiles created.'
+      else
+        @mobile = @area.mobiles.build
+    
+        @mobile.vnum = @area.nextmobilevnum
+        @mobile.act_flags = 64
+        @mobile.affect_flags = 0
+        @mobile.alignment = 0
+        @mobile.level = 1
+        @mobile.sex = 0
+        @mobile.langs_known = 0
+        @mobile.lang_spoken = 0
+      end
     end
   end
 
