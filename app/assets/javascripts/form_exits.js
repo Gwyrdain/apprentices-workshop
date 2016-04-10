@@ -14,10 +14,12 @@ function setExitType() {
     hideExitDestinationTypes();
     $('#NoExitField').prop('disabled', false);
     $('#ExitDestinationGroup').hide();
+    $('#Reciprocality').prop('disabled', true).hide();
     setKeyType();
     
   } else {
     $('#ExitDestinationGroup').show();
+    $('#Reciprocality').prop('disabled', false).show();
     if($('#NoExitVnumRadio').is(':checked')) { // IF it's not LOOK-ONLY but it's set to 'no exit' reset to a local vnum.
       $('#LocalVnumRadio').prop('checked', true);
       $('#LocalVnumFormGroup').prop('disabled', false).show();
