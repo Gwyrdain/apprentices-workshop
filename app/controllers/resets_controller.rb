@@ -110,6 +110,7 @@ class ResetsController < ApplicationController
   end
 
   def destroy
+    Reset.where(parent_id: @reset.id).destroy_all
     @reset.destroy
     if @reset.save
       if params[:return_to_room]
@@ -132,6 +133,7 @@ class ResetsController < ApplicationController
     end
 
     def reset_params
-      params.require(:reset).permit(:reset_type, :val_1, :val_2, :val_3, :val_4, :area_id)
+      params.require(:reset).permit(:reset_type, :parent_type, :parent_id,
+                                    :val_1, :val_2, :val_3, :val_4, :area_id)
     end
 end

@@ -22,7 +22,9 @@
               <td><%= reset.desc_brief %></td>
               <td>
                 <%= reset.comment %>
-                <% if reset.sub_resets.count > 0 %><%= render 'resets/sub_resetstable', :reset => reset %><% end %>
+                <% if (reset.sub_resets.count > 0) || (reset.area.resets.where(parent_id: reset.id).count > 0) %>
+                  <%= render 'resets/sub_resetstable', :reset => reset %>
+                <% end %>
               </td>
               <td>
                 <%= link_to area_reset_path(@area, reset), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
@@ -36,6 +38,7 @@
                 <%- end -%>
                 <% if reset.reset_type == 'O' && obj_info(reset.val_2, 'type_word') == 'CONTAINER' %>
                   <%= link_to 'Put', new_area_reset_sub_reset_path(@area, reset, :reset_type => 'P' ), :class => 'btn btn-primary btn-xs' %>
+                  <%= link_to 'Insert', new_area_reset_path(@area, reset, :insert => true, :parent_type => 'reset', :parent_id => reset.id ), :class => 'btn btn-primary btn-xs' %>
                 <% end %>
                 <% if ( reset.reset_type == 'M' || reset.reset_type == 'Q' ) %>
                   <%= link_to 'Give', new_area_reset_sub_reset_path(@area, reset, :reset_type => 'G' ), :class => 'btn btn-primary btn-xs' %>
