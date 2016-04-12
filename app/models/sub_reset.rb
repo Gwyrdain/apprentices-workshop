@@ -190,5 +190,15 @@ class SubReset < ActiveRecord::Base
     $prefix = $prefix << ">" << " " * ( 21 - $prefix.length )
     return $prefix
   end
+
+  def count_dependents
+    $count = 0
+    $count = $count + self.reset.area.resets.where(parent_id: self.id).count
+    return $count
+  end
+  
+  def dependent_resets
+    return self.reset.area.resets.where(parent_id: self.id)
+  end
   
 end

@@ -123,6 +123,17 @@ class Reset < ActiveRecord::Base
       
     return $parent
   end
+  
+  def count_dependents
+    $count = 0
+    $count = $count + self.sub_resets.count
+    $count = $count + self.area.resets.where(parent_id: self.id).count
+    return $count
+  end
+  
+  def dependent_resets
+    return self.area.resets.where(parent_id: self.id)
+  end
 
 end
 
