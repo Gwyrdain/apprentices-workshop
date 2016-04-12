@@ -37,8 +37,8 @@
                   <%= glyph 'remove' %>
                 <%- end -%>
                 <% if reset.reset_type == 'O' && obj_info(reset.val_2, 'type_word') == 'CONTAINER' %>
-                  <%= link_to 'Put', new_area_reset_sub_reset_path(@area, reset, :reset_type => 'P' ), :class => 'btn btn-primary btn-xs' %>
-                  <%= link_to 'Insert', new_area_reset_path(@area, reset, :insert => true, :parent_type => 'reset', :parent_id => reset.id ), :class => 'btn btn-primary btn-xs' %>
+                  <%= link_to 'Put', new_area_reset_path(@area, reset, :reset_type => 'P', :parent_type => 'reset', :parent_id => reset.id ), :class => 'btn btn-primary btn-xs' %>
+                  <%= link_to 'Insert', new_area_reset_path(@area, reset, :reset_type => 'I', :parent_type => 'reset', :parent_id => reset.id ), :class => 'btn btn-primary btn-xs' %>
                 <% end %>
                 <% if ( reset.reset_type == 'M' || reset.reset_type == 'Q' ) %>
                   <%= link_to 'Give', new_area_reset_sub_reset_path(@area, reset, :reset_type => 'G' ), :class => 'btn btn-primary btn-xs' %>

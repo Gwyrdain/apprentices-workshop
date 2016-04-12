@@ -10,6 +10,7 @@
     <ul class="list-group subreset">
       <% reset.sub_resets.each do |sub_reset| %>
         <li class="list-group-item">
+            <% if sub_reset.reset_type == 'P' %><a class="text-danger">(LEGACY)</a> <% end %>
             <%= sub_reset.comment %>
             <%= link_to area_reset_sub_reset_path(@area, sub_reset.reset, sub_reset), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
               <%= glyph 'info-sign' %>

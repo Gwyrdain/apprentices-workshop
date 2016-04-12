@@ -1,5 +1,9 @@
-<% if params[:insert] %>
+<% if params[:reset_type] == 'I' %>
   <%= render :partial => 'insertform' %>
 <% else %>
-  <%= render :partial => 'otherform' %>
+  <% if params[:reset_type] == 'P' %>
+    <%= render :partial => 'putform' %>
+  <% else %>
+    <%= render :partial => 'otherform' %>
+  <% end %>
 <% end %>
