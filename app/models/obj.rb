@@ -84,9 +84,9 @@ class Obj < ActiveRecord::Base
   validates :misc_flags, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   
   validate do |obj|
-    obj.errors.add :base, "Keywords may only contain US-ASCII characters.  Invalid characters: " + obj.keywords.remove(/[ -~]/) if obj.keywords.remove(/[ -~]/).length > 0
-    obj.errors.add :base, "Short description may only contain US-ASCII characters.  Invalid characters: " + obj.sdesc.remove(/[ -~]/) if obj.sdesc.remove(/[ -~]/).length > 0
-    obj.errors.add :base, "Long description may only contain US-ASCII characters.  Invalid characters: " + obj.ldesc.remove(/[ -~]/) if obj.ldesc.remove(/[ -~]/).length > 0
+    obj.errors.add :base, "Keywords may only contain US-ASCII characters.  Invalid characters: " + obj.keywords.remove(/[\x0A\x0D -~]/) if obj.keywords.remove(/[\x0A\x0D -~]/).length > 0
+    obj.errors.add :base, "Short description may only contain US-ASCII characters.  Invalid characters: " + obj.sdesc.remove(/[\x0A\x0D -~]/) if obj.sdesc.remove(/[\x0A\x0D -~]/).length > 0
+    obj.errors.add :base, "Long description may only contain US-ASCII characters.  Invalid characters: " + obj.ldesc.remove(/[\x0A\x0D -~]/) if obj.ldesc.remove(/[\x0A\x0D -~]/).length > 0
   end
 
   before_create :default_values

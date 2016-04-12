@@ -6,8 +6,8 @@ class Help < ActiveRecord::Base
     validates :body, length: { minimum: 4 }#, format: { with: /\A[\x0A\x0D -~]+\z/ }
     
   validate do |help|
-    help.errors.add :base, "Help keywords may only contain US-ASCII characters.  Invalid characters: " + help.keywords.remove(/[ -~]/) if help.keywords.remove(/[ -~]/).length > 0
-    help.errors.add :base, "Help body may only contain US-ASCII characters.  Invalid characters: " + help.body.remove(/[ -~]/) if help.body.remove(/[ -~]/).length > 0
+    help.errors.add :base, "Help keywords may only contain US-ASCII characters.  Invalid characters: " + help.keywords.remove(/[\x0A\x0D -~]/) if help.keywords.remove(/[\x0A\x0D -~]/).length > 0
+    help.errors.add :base, "Help body may only contain US-ASCII characters.  Invalid characters: " + help.body.remove(/[\x0A\x0D -~]/) if help.body.remove(/[\x0A\x0D -~]/).length > 0
   end
 
 end

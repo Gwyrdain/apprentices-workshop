@@ -115,10 +115,10 @@ class Mobile < ActiveRecord::Base
   validates :lang_spoken, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   
   validate do |mobile|
-    mobile.errors.add :base, "Keywords may only contain US-ASCII characters.  Invalid characters: " + mobile.keywords.remove(/[ -~]/) if mobile.keywords.remove(/[ -~]/).length > 0
-    mobile.errors.add :base, "Short description may only contain US-ASCII characters.  Invalid characters: " + mobile.sdesc.remove(/[ -~]/) if mobile.sdesc.remove(/[ -~]/).length > 0
-    mobile.errors.add :base, "Long description may only contain US-ASCII characters.  Invalid characters: " + mobile.ldesc.remove(/[ -~]/) if mobile.ldesc.remove(/[ -~]/).length > 0
-    mobile.errors.add :base, "Look description may only contain US-ASCII characters.  Invalid characters: " + mobile.look_desc.remove(/[ -~]/) if mobile.look_desc.remove(/[ -~]/).length > 0
+    mobile.errors.add :base, "Keywords may only contain US-ASCII characters.  Invalid characters: " + mobile.keywords.remove(/[\x0A\x0D -~]/) if mobile.keywords.remove(/[\x0A\x0D -~]/).length > 0
+    mobile.errors.add :base, "Short description may only contain US-ASCII characters.  Invalid characters: " + mobile.sdesc.remove(/[\x0A\x0D -~]/) if mobile.sdesc.remove(/[\x0A\x0D -~]/).length > 0
+    mobile.errors.add :base, "Long description may only contain US-ASCII characters.  Invalid characters: " + mobile.ldesc.remove(/[\x0A\x0D -~]/) if mobile.ldesc.remove(/[\x0A\x0D -~]/).length > 0
+    mobile.errors.add :base, "Look description may only contain US-ASCII characters.  Invalid characters: " + mobile.look_desc.remove(/[\x0A\x0D -~]/) if mobile.look_desc.remove(/[\x0A\x0D -~]/).length > 0
   end
 
   before_create :default_values

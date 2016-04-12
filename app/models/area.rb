@@ -78,8 +78,8 @@ class Area < ActiveRecord::Base
   validates :user_id,  numericality: { only_integer: true, greater_than: 0 }
   
   validate do |area|
-    area.errors.add :base, "Name may only contain US-ASCII characters.  Invalid characters: " + area.name.remove(/[ -~]/) if area.name.remove(/[ -~]/).length > 0
-    area.errors.add :base, "Author may only contain US-ASCII characters.  Invalid characters: " + area.author.remove(/[ -~]/) if area.author.remove(/[ -~]/).length > 0
+    area.errors.add :base, "Name may only contain US-ASCII characters.  Invalid characters: " + area.name.remove(/[\x0A\x0D -~]/) if area.name.remove(/[\x0A\x0D -~]/).length > 0
+    area.errors.add :base, "Author may only contain US-ASCII characters.  Invalid characters: " + area.author.remove(/[\x0A\x0D -~]/) if area.author.remove(/[\x0A\x0D -~]/).length > 0
   end
 
   before_create :default_values
