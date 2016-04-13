@@ -232,6 +232,10 @@ class Area < ActiveRecord::Base
       return false
     end
   end
+
+  def my_area
+    return self
+  end
   
 end
 
@@ -311,7 +315,17 @@ def get_string_vnum(i)
   end
 end
 
-
+def is_local_obj(area, id)
+  if Obj.exists?(:id => id)
+    if Obj.find(id).area == area # If area matches...
+      return true
+    else
+      return false
+    end
+  else
+    return false
+  end
+end
 
 # functions to fetch Room, Object, Mobile retated strings
 def obj_info(id, property)
@@ -323,7 +337,11 @@ def obj_info(id, property)
     $result = $this_obj.type_word        if property == 'type_word'
     $result = $this_obj.ldesc            if property == 'ldesc'
   else
-    $result = 'UNKNOWN'
+    if property == 'formal_vnum'
+      $result = id # Assume an external vnum is referenced and return such. 
+    else
+      $result = 'UNKNOWN' 
+    end
   end
   return $result
 end

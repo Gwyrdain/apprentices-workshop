@@ -53,6 +53,8 @@ function setExtendedSpecFunLabels() {
 
 
 function setActOnGiveActionFields() {
+  $('#LocalObjFormGroup').prop('disabled', true).hide()
+  $('#ExternalObjFormGroup').prop('disabled', true).hide()
   $('#ActOnGive_GiveObj').prop('disabled', true).hide()
   $('#ActOnGive_Transfer').prop('disabled', true).hide()
 
@@ -65,7 +67,19 @@ function setActOnGiveActionFields() {
       $('#ExtendedSpecialField').val() == 'spec_act_on_give' ) {
     $('#ActOnGive_GiveObj').prop('disabled', false).show()
   }
-  
+
+
+  if($('#LocalVnumRadio').is(':checked')) {
+    $('#LocalVnumField').prop('disabled', false).show();
+    $('#ExternalVnumField').prop('disabled', true).hide();
+    $('#LocalObjFormGroup').prop('disabled', false).show()
+  }
+
+  if($('#ExternalVnumRadio').is(':checked')) {
+    $('#LocalVnumField').prop('disabled', true).hide();
+    $('#ExternalVnumField').prop('disabled', false).show();
+    $('#ExternalObjFormGroup').prop('disabled', false).show()
+  }
 }
 
 function updateChanceString() {
@@ -98,6 +112,12 @@ $(function() {
 $(function() {
   $('#ChanceN').change(function() {
     updateChanceString()
+  })
+});
+
+$(function() {
+  $('input[name=ObjLocalityRadioOptions]:radio').change(function() {
+    setActOnGiveActionFields();
   })
 });
 

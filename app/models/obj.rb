@@ -178,6 +178,10 @@ class Obj < ActiveRecord::Base
       return false
     end
   end
+  
+  def my_area
+    return self.area
+  end
 
 end
 

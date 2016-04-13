@@ -153,10 +153,43 @@
   
   <fieldset hidden='hidden' id="xActOnGive">
     
-    <div class="form-group">
-      <%= f.label :extended_value_1, 'Object to receive', :class => 'control-label col-md-2' %>
+    <div id="ObjLocalityGroup" class="form-group">
+      <%= f.label 'Object Locality', :class => 'control-label col-md-2' %>
+
+      <% if @special.extended_value_1 < 0 %>
+        <% $ExternalVnumRadio = false %><% $LocalVnumRadio = true %>
+      <% else %>
+        <% if is_local_obj(@special.mobile.area, @special.extended_value_1) %>
+          <% $ExternalVnumRadio = false %><% $LocalVnumRadio = true %>
+        <% else %>
+          <% $ExternalVnumRadio = true %><% $LocalVnumRadio = false %>
+        <% end %>
+      <% end %>
+
+      <div class="col-md-3">
+        <label class="radio-inline">
+          <input type="radio" name="ObjLocalityRadioOptions" id="LocalVnumRadio" value="1" <%= "checked" if $LocalVnumRadio %>> Local Object Vnum
+        </label>
+      </div>
+  
+      <div class="col-md-3">
+        <label class="radio-inline">
+          <input type="radio" name="ObjLocalityRadioOptions" id="ExternalVnumRadio" value="2" <%= "checked" if $ExternalVnumRadio %>> External Object Vnum
+        </label>
+      </div>
+    </div>
+    
+    <div class="form-group" id="LocalObjFormGroup" hidden="hidden">
+      <%= f.label :extended_value_1, 'Object to receive', {:id => 'LocalObjFieldLabel', :class => 'control-label col-md-2'} %>
       <div class="col-md-10">
-        <%= f.collection_select(:extended_value_1, @area.objs.order('vnum ASC'), :id, :vnum_and_sdesc, {}, {:id => 'ObjToReceive', :class => 'form-control'})  %>
+        <%= f.collection_select(:extended_value_1, @area.objs.order('vnum ASC'), :id, :vnum_and_sdesc, {}, {:id => 'LocalVnumField', :class => 'form-control'})  %>
+      </div>
+    </div>
+  
+    <div class="form-group" id="ExternalObjFormGroup" hidden="hidden">
+      <%= f.label :extended_value_1, 'Object to receive (external vnum)', {:id => 'ExternalObjFieldLabel', :class => 'control-label col-md-2'} %>
+      <div class="col-md-10">
+        <%= f.text_field :extended_value_1, {:id => 'ExternalVnumField', :class => 'text_field form-control'} %>
       </div>
     </div>
     

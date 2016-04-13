@@ -84,5 +84,9 @@ class Special < ActiveRecord::Base
     $allow = true if self.name == "spec_act_on_give"
     return $allow
   end
+  
+  def my_area
+    return self.mobile.area
+  end
 
 end

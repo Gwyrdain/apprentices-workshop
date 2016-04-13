@@ -193,6 +193,10 @@ class Mobile < ActiveRecord::Base
     return $alignment
   end
 
+  def my_area
+    return self.area
+  end
+
 end
 
 def lang_from_num(i)
