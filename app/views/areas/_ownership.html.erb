@@ -1,0 +1,31 @@
+<%= form_for [@area], :html => { :class => 'form-horizontal' } do |f| %>
+  <% if @area.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@area.errors.count, "error") %> prohibited saving:</h3>
+
+      <ul>
+      <% @area.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div id="UserList" class="form-group">
+      <%= f.label :user_id, 'New Owner', :class => 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.collection_select(:user_id, User.order(:email), :id, :email, {}, {:id => 'EmailSelectList', :class => 'form-control'})  %>
+      </div>
+    </div>
+    
+  <%= hidden_field_tag(:ownership, 'true') %>
+
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit 'Transfer Ownership', :class => 'btn btn-warning' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  areas_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>

@@ -1,0 +1,64 @@
+<%= form_for  [@reset.area, @reset], :html => { :class => 'form-horizontal' } do |f| %>
+  <% if @reset.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@reset.errors.count, "error") %> prohibited saving:</h3>
+
+      <ul>
+      <% @reset.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <% if params[:return_to_room] %><input name="return_to_room" type="hidden" value="<%= params[:return_to_room] %>" /><% end %>
+  
+  <div class="form-group">
+    <%= f.label :reset_type, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.select(:reset_type, options_for_select(
+            [
+              ['INSERT', 'I']
+            ], @reset.reset_type
+          ), {}, {class: "form-control"}) %>
+    </div>
+  </div>
+
+  <%= f.hidden_field :val_1, :value => 0 %>
+  
+  <div class="form-group">
+    <%= f.label :val_2, 'Object', :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.collection_select(:val_2, @area.objs.order('vnum ASC').where(object_type: 15), :id, :vnum_and_sdesc, {}, {:id => 'ObjectVnumField', :class => 'form-control'})  %>
+    </div>
+  </div>
+  
+  <%= f.hidden_field :val_3, :value => 100 %>
+  
+  <div class="form-group">
+    <%= f.label :val_4, 'Into container', :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <% if params[:parent_type] == 'reset' %>
+        <%= f.text_field :val_4, {:class => 'text_field form-control', :disabled => 'disabled',
+        :value => obj_info(Reset.find(params[:parent_id]).val_2, 'formal_vnum') + ' ' + obj_info(Reset.find(params[:parent_id]).val_2, 'sdesc') } %>
+      <% end %>
+      <% if params[:parent_type] == 'sub_reset' %>
+        <%= f.text_field :val_4, {:class => 'text_field form-control', :disabled => 'disabled',
+        :value => obj_info(SubReset.find(params[:parent_id]).val_2, 'formal_vnum') + ' ' + obj_info(SubReset.find(params[:parent_id]).val_2, 'sdesc') } %>
+      <% end %>
+    </div>
+  </div>
+  <%= f.hidden_field :val_4, :value => 0 %>
+  
+  <%= f.hidden_field :parent_type, :value => params[:parent_type] %>
+  <%= f.hidden_field :parent_id, :value => params[:parent_id] %>
+  
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  area_resets_path(@area), :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>
