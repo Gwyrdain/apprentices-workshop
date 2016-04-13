@@ -73,7 +73,7 @@ class Obj < ActiveRecord::Base
                                    message: "No duplicate vnums allowed." }
   validates :keywords, length: { in: 4..75 }
   validates :sdesc, length: { in: 4..75 }
-  validates :ldesc, length: { minimum: 4 }#, format: { with: /\A[\x0A\x0D -~]+\z/ }
+  validates :ldesc, length: { minimum: 0 }#, format: { with: /\A[\x0A\x0D -~]+\z/ }
   validates :object_type, numericality: { only_integer: true, greater_than: 0 }
   validates :v0, numericality: { only_integer: true, greater_than: -2 }
   validates :v1, numericality: { only_integer: true, greater_than: -2 }
