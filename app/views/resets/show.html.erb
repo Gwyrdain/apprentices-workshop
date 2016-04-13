@@ -22,14 +22,14 @@
       <div class="col-md-2">
         <strong>
           <%= 'Mobile:' if ( @reset.reset_type == 'M' || @reset.reset_type == 'Q' ) %>
-          <%= 'Object:' if @reset.reset_type == 'O' %>
+          <%= 'Object:' if ( @reset.reset_type == 'O' || @reset.reset_type == 'I' || @reset.reset_type == 'P' ) %>
           <%= 'Room:' if ( @reset.reset_type == 'D' || @reset.reset_type == 'R' ) %>
         </strong>
       </div>
       <div class="col-md-10">
         <div class="col-md-10">
         <%= mobile_info(@reset.val_2, 'formal_vnum') + ' ' + mobile_info(@reset.val_2, 'sdesc') if ( @reset.reset_type == 'M' || @reset.reset_type == 'Q' ) %>
-        <%= obj_info(@reset.val_2, 'formal_vnum') + ' ' + obj_info(@reset.val_2, 'sdesc') if @reset.reset_type == 'O' %>
+        <%= obj_info(@reset.val_2, 'formal_vnum') + ' ' + obj_info(@reset.val_2, 'sdesc') if ( @reset.reset_type == 'O' || @reset.reset_type == 'I' || @reset.reset_type == 'P' ) %>
         <%= room_info(@reset.val_2, 'formal_vnum') + ' ' + room_info(@reset.val_2, 'name') if ( @reset.reset_type == 'D' || @reset.reset_type == 'R' ) %>
         </div>
       </div>
@@ -38,14 +38,14 @@
     <div class="row">
       <div class="col-md-2">
         <strong>
-          <%= 'Mudwide limit:' if ( @reset.reset_type == 'M' || @reset.reset_type == 'Q' || @reset.reset_type == 'O' ) %>
+          <%= 'Mudwide limit:' if ( @reset.reset_type == 'M' || @reset.reset_type == 'Q' || @reset.reset_type == 'O' || @reset.reset_type == 'I' || @reset.reset_type == 'P' ) %>
           <%= 'Door direction:' if @reset.reset_type == 'D' %>
           <%= 'Exits to randomize:' if @reset.reset_type == 'R' %>
         </strong>
       </div>
       <div class="col-md-10">
         <div class="col-md-10">
-          <%= @reset.val_3 if ( @reset.reset_type == 'M' || @reset.reset_type == 'Q' || @reset.reset_type == 'O' ) %>
+          <%= @reset.val_3 if ( @reset.reset_type == 'M' || @reset.reset_type == 'Q' || @reset.reset_type == 'O' || @reset.reset_type == 'I' || @reset.reset_type == 'P' ) %>
           <%= @reset.reset_door_direction if @reset.reset_type == 'D' %>
           <%= num_to_exits(@reset.val_3) if @reset.reset_type == 'R' %>
         </div>
@@ -56,12 +56,14 @@
       <div class="col-md-2">
         <strong>
           <%= 'Load to room:' if ( @reset.reset_type == 'M' || @reset.reset_type == 'Q' || @reset.reset_type == 'O' ) %>
+          <%= 'Into container:' if ( @reset.reset_type == 'I' || @reset.reset_type == 'P' ) %>
           <%= 'Door state:' if @reset.reset_type == 'D' %>
         </strong>
       </div>
       <div class="col-md-10">
         <div class="col-md-10">
           <%= room_info(@reset.val_4, 'formal_vnum') + ' ' + room_info(@reset.val_4, 'name') if ( @reset.reset_type == 'M' || @reset.reset_type == 'Q' || @reset.reset_type == 'O') %>
+          <%= obj_info(@reset.parent.val_2, 'formal_vnum') + ' ' + obj_info(@reset.parent.val_2, 'sdesc') if ( @reset.reset_type == 'I' || @reset.reset_type == 'P' ) %>
           <%= door_state(@reset.val_4) if  @reset.reset_type == 'D' %>
         </div>
       </div>
