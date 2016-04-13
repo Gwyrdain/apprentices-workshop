@@ -166,8 +166,8 @@ class Obj < ActiveRecord::Base
   
   def has_assoc_reset?
     i = false
-    i = true if ( self.area.resets.where(:reset_type => 'O', :val_2 => self.id).count > 0 )
-    i = true if ( self.area.sub_resets.where(:val_2 => self.id).count > 0 )
+    i = true if ( self.area.resets.where(:reset_type => ['O', 'I', 'P'], :val_2 => self.id).count > 0 )
+    i = true if ( self.area.sub_resets.where(:val_2 => self.id).count > 0 ) # This should cover all Equip, Give, and (Legacy) Put resets
     return i
   end
   
