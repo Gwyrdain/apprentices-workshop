@@ -330,7 +330,7 @@ end
 # functions to fetch Room, Object, Mobile retated strings
 def obj_info(id, property)
   $result = nil
-  if Obj.exists?(:id => id)
+  if ( Obj.exists?(:id => id) && Obj.find(id).area == self.my_area )
     $this_obj = Obj.find(id)
     $result = $this_obj.formal_vnum.to_s if property == 'formal_vnum'
     $result = $this_obj.sdesc            if property == 'sdesc'
