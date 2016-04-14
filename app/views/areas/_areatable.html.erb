@@ -17,6 +17,7 @@
             <td>
               <% if ( current_user.is_admin? && current_user.id != area.user_id && !area.shared_with?(current_user) && !area.share_publicly? ) %>(A) <% end %>
               <%= link_to(area) do %><%= area.name %><% end %>
+              <div class="small"><i>Last Updated: <%= area.last_updated? %></i></div>
             </td>
             <td><%= area.author %></td>
             <td><%= area.mobiles.count %></td>

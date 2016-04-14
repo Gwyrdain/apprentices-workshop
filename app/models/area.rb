@@ -8,8 +8,12 @@ class Area < ActiveRecord::Base
   has_many :resets, dependent: :destroy
   has_many :shares, dependent: :destroy
   
+  has_many :applies, through: :objs
+  has_many :oxdescs, through: :objs
   has_many :shops, through: :mobiles
   has_many :specials, through: :mobiles
+  has_many :exits, through: :rooms
+  has_many :rxdescs, through: :rooms
   has_many :room_specials, through: :rooms
   has_many :sub_resets, through: :resets
   has_many :triggers, through: :rooms, :source => :triggers
@@ -235,6 +239,58 @@ class Area < ActiveRecord::Base
 
   def my_area
     return self
+  end
+  
+  def last_updated?
+    $latest_update = self.updated_at
+    $update = $latest_update
+    
+    $update = self.area_strings.order(updated_at: :desc).first.updated_at if self.area_strings.count > 0
+    $latest_update = $update           if $update > $latest_update
+    
+    $update = self.helps.order(updated_at: :desc).first.updated_at if self.helps.count > 0
+    $latest_update = $update           if $update > $latest_update
+    
+    $update = self.rooms.order(updated_at: :desc).first.updated_at if self.rooms.count > 0
+    $latest_update = $update           if $update > $latest_update
+    
+    $update = self.mobiles.order(updated_at: :desc).first.updated_at if self.mobiles.count > 0
+    $latest_update = $update           if $update > $latest_update
+    
+    $update = self.objs.order(updated_at: :desc).first.updated_at if self.objs.count > 0
+    $latest_update = $update           if $update > $latest_update
+    
+    $update = self.resets.order(updated_at: :desc).first.updated_at if self.resets.count > 0
+    $latest_update = $update           if $update > $latest_update
+
+    $update = self.shops.order(updated_at: :desc).first.updated_at if self.shops.count > 0
+    $latest_update = $update           if $update > $latest_update
+
+    $update = self.specials.order(updated_at: :desc).first.updated_at if self.specials.count > 0
+    $latest_update = $update           if $update > $latest_update
+
+    $update = self.room_specials.order(updated_at: :desc).first.updated_at if self.room_specials.count > 0
+    $latest_update = $update           if $update > $latest_update
+
+    $update = self.sub_resets.order(updated_at: :desc).first.updated_at if self.sub_resets.count > 0
+    $latest_update = $update           if $update > $latest_update
+
+    $update = self.triggers.order(updated_at: :desc).first.updated_at if self.triggers.count > 0
+    $latest_update = $update           if $update > $latest_update
+
+    $update = self.applies.order(updated_at: :desc).first.updated_at if self.applies.count > 0
+    $latest_update = $update           if $update > $latest_update
+
+    $update = self.exits.order(updated_at: :desc).first.updated_at if self.exits.count > 0
+    $latest_update = $update           if $update > $latest_update
+
+    $update = self.rxdescs.order(updated_at: :desc).first.updated_at if self.rxdescs.count > 0
+    $latest_update = $update           if $update > $latest_update
+
+    $update = self.oxdescs.order(updated_at: :desc).first.updated_at if self.oxdescs.count > 0
+    $latest_update = $update           if $update > $latest_update
+    
+    return $latest_update
   end
   
 end
