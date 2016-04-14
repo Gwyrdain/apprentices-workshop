@@ -26,9 +26,9 @@ class Special < ActiveRecord::Base
     
     if self.special_type == 'N'
       if self.name == 'spec_act_on_give'
-        $output = $output << " #{obj_info(self.extended_value_1, 'formal_vnum')} #{self.extended_value_2}"
+        $output = $output << " #{obj_info(self.extended_value_1, 'formal_vnum', self.mobile.area)} #{self.extended_value_2}"
         $output = $output << " #{room_info(self.extended_value_3, 'formal_vnum')}" if self.extended_value_2 == 0
-        $output = $output << " #{obj_info(self.extended_value_3, 'formal_vnum')}" if self.extended_value_2 == 1
+        $output = $output << " #{obj_info(self.extended_value_3, 'formal_vnum', self.mobile.area)}" if self.extended_value_2 == 1
         $output = $output << " -1 #{get_string_vnum(self.extended_value_5)}"
       end
       if self.name == 'spec_call_for_help'
@@ -50,9 +50,9 @@ class Special < ActiveRecord::Base
     $comment = "#{self.mobile.sdesc}"
     
     if self.name == 'spec_act_on_give'
-      $comment = $comment << ": when given '#{obj_info(self.extended_value_1, 'sdesc')}',"
+      $comment = $comment << ": when given '#{obj_info(self.extended_value_1, 'sdesc', self.mobile.area)}',"
       $comment = $comment << " transfer PC to '#{room_info(self.extended_value_3, 'name')}'" if self.extended_value_2 == 0
-      $comment = $comment << " give PC '#{obj_info(self.extended_value_3, 'sdesc')}'" if self.extended_value_2 == 1
+      $comment = $comment << " give PC '#{obj_info(self.extended_value_3, 'sdesc', self.mobile.area)}'" if self.extended_value_2 == 1
     end
     if self.name == 'spec_call_for_help'
       $comment = $comment << ": call a #{self.helper_type} from #{self.helper_dist}"

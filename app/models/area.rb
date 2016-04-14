@@ -328,9 +328,9 @@ def is_local_obj(area, id)
 end
 
 # functions to fetch Room, Object, Mobile retated strings
-def obj_info(id, property)
+def obj_info(id, property, area)
   $result = nil
-  if ( Obj.exists?(:id => id) && Obj.find(id).area == self.my_area )
+  if ( Obj.exists?(:id => id) && Obj.find(id).area == area )
     $this_obj = Obj.find(id)
     $result = $this_obj.formal_vnum.to_s if property == 'formal_vnum'
     $result = $this_obj.sdesc            if property == 'sdesc'
@@ -338,7 +338,7 @@ def obj_info(id, property)
     $result = $this_obj.ldesc            if property == 'ldesc'
   else
     if property == 'formal_vnum'
-      $result = id # Assume an external vnum is referenced and return such. 
+      $result = id.to_s # Assume an external vnum is referenced and return such. 
     else
       $result = 'UNKNOWN' 
     end

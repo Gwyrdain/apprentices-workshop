@@ -82,7 +82,7 @@ class Exit < ActiveRecord::Base
     if self.is_key_external? == true || self.keyvnum == 0
       return self.keyvnum
     else
-      return obj_info(self.keyvnum, 'formal_vnum')
+      return obj_info(self.keyvnum, 'formal_vnum', self.room.area)
     end
   end
 

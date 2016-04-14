@@ -20,21 +20,21 @@ class Reset < ActiveRecord::Base
   def comment
     $comment = nil
     $comment = "Load '" + mobile_info(self.val_2, 'sdesc') + "' at '" + room_info(self.val_4, 'name') + "'" if ( self.reset_type == 'M' || self.reset_type == 'Q' )
-    $comment = "Load '" + obj_info(self.val_2, 'sdesc') + "' at '" + room_info(self.val_4, 'name') + "'" if self.reset_type == 'O'
+    $comment = "Load '" + obj_info(self.val_2, 'sdesc', self.area) + "' at '" + room_info(self.val_4, 'name') + "'" if self.reset_type == 'O'
     
     if self.reset_type == 'I'
       if self.parent
-        $comment = "Insert '" + obj_info(self.val_2, 'sdesc') + "' into '" + obj_info(self.parent.val_2, 'sdesc') + "'"
+        $comment = "Insert '" + obj_info(self.val_2, 'sdesc', self.area) + "' into '" + obj_info(self.parent.val_2, 'sdesc', self.area) + "'"
       else
-        $comment = "Insert '" + obj_info(self.val_2, 'sdesc') + "' into '" + 'MISSING PARENT' + "'"
+        $comment = "Insert '" + obj_info(self.val_2, 'sdesc', self.area) + "' into '" + 'MISSING PARENT' + "'"
       end
     end
     
     if self.reset_type == 'P'
       if self.parent
-        $comment = "Put '" + obj_info(self.val_2, 'sdesc') + "' into '" + obj_info(self.parent.val_2, 'sdesc') + "'"
+        $comment = "Put '" + obj_info(self.val_2, 'sdesc', self.area) + "' into '" + obj_info(self.parent.val_2, 'sdesc', self.area) + "'"
       else
-        $comment = "Put '" + obj_info(self.val_2, 'sdesc') + "' into '" + 'MISSING PARENT' + "'"
+        $comment = "Put '" + obj_info(self.val_2, 'sdesc', self.area) + "' into '" + 'MISSING PARENT' + "'"
       end
     end
   
@@ -51,16 +51,16 @@ class Reset < ActiveRecord::Base
       $output = $output + ' ' + self.val_3.to_s + ' ' + room_info(self.val_4, 'formal_vnum') + " * "
     end
     if self.reset_type == 'O'
-      $output = self.reset_type + ' ' + '0' + ' ' + obj_info(self.val_2, 'formal_vnum')
+      $output = self.reset_type + ' ' + '0' + ' ' + obj_info(self.val_2, 'formal_vnum', self.area)
       $output = $output + ' ' + self.val_3.to_s + ' ' + room_info(self.val_4, 'formal_vnum') + " * "
     end
     if self.reset_type == 'I'
-      $output = self.reset_type + ' ' + '0' + ' ' + obj_info(self.val_2, 'formal_vnum')
-      $output = $output + ' ' + self.val_3.to_s + ' ' + obj_info(self.parent.val_2, 'formal_vnum') + " * "
+      $output = self.reset_type + ' ' + '0' + ' ' + obj_info(self.val_2, 'formal_vnum', self.area)
+      $output = $output + ' ' + self.val_3.to_s + ' ' + obj_info(self.parent.val_2, 'formal_vnum', self.area) + " * "
     end
     if self.reset_type == 'P'
-      $output = self.reset_type + ' ' + '0' + ' ' + obj_info(self.val_2, 'formal_vnum')
-      $output = $output + ' ' + self.val_3.to_s + ' ' + obj_info(self.parent.val_2, 'formal_vnum') + " * "
+      $output = self.reset_type + ' ' + '0' + ' ' + obj_info(self.val_2, 'formal_vnum', self.area)
+      $output = $output + ' ' + self.val_3.to_s + ' ' + obj_info(self.parent.val_2, 'formal_vnum', self.area) + " * "
     end
     if self.reset_type == 'D'
       $output = self.reset_type + ' ' + '0' + ' ' + room_info(self.val_2, 'formal_vnum')
@@ -133,6 +133,10 @@ class Reset < ActiveRecord::Base
   
   def dependent_resets
     return self.area.resets.where(parent_id: self.id)
+  end
+  
+  def my_area
+    return self.area
   end
 
 end

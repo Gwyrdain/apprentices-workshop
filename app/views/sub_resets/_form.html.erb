@@ -92,7 +92,7 @@
     <div class="form-group">
       <%= f.label :val_4, 'Into container', :class => 'control-label col-md-2' %>
       <div class="col-md-10">
-        <%= f.text_field :val_4, {:class => 'text_field form-control', :disabled => 'disabled', :value => obj_info(@sub_reset.reset.val_2, 'formal_vnum') + ' ' + obj_info(@sub_reset.reset.val_2, 'sdesc') } %>
+        <%= f.text_field :val_4, {:class => 'text_field form-control', :disabled => 'disabled', :value => obj_info(@sub_reset.reset.val_2, 'formal_vnum', @sub_reset.reset.area) + ' ' + obj_info(@sub_reset.reset.val_2, 'sdesc', @sub_reset.reset.area) } %>
       </div>
     </div>
     <%= f.hidden_field :val_4, :value => 0 %>

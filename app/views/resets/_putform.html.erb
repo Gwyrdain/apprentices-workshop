@@ -40,11 +40,11 @@
     <div class="col-md-10">
       <% if params[:parent_type] == 'reset' %>
         <%= f.text_field :val_4, {:class => 'text_field form-control', :disabled => 'disabled',
-        :value => obj_info(Reset.find(params[:parent_id]).val_2, 'formal_vnum') + ' ' + obj_info(Reset.find(params[:parent_id]).val_2, 'sdesc') } %>
+        :value => obj_info(Reset.find(params[:parent_id]).val_2, 'formal_vnum', @reset.area) + ' ' + obj_info(Reset.find(params[:parent_id]).val_2, 'sdesc', @reset.area) } %>
       <% end %>
       <% if params[:parent_type] == 'sub_reset' %>
         <%= f.text_field :val_4, {:class => 'text_field form-control', :disabled => 'disabled',
-        :value => obj_info(SubReset.find(params[:parent_id]).val_2, 'formal_vnum') + ' ' + obj_info(SubReset.find(params[:parent_id]).val_2, 'sdesc') } %>
+        :value => obj_info(SubReset.find(params[:parent_id]).val_2, 'formal_vnum', @reset.area) + ' ' + obj_info(SubReset.find(params[:parent_id]).val_2, 'sdesc', @reset.area) } %>
       <% end %>
     </div>
   </div>

@@ -37,7 +37,7 @@ class Trigger < ActiveRecord::Base
         $output = $output << " #{self.extended_value_1} #{get_string_vnum(self.extended_value_2)} #{get_string_vnum(self.extended_value_3)} #{self.extended_value_4} #{self.extended_value_5}"
       end
       if self.name == 'trig_sentinel_mob'
-        $output = $output << " #{obj_info(self.extended_value_1, 'formal_vnum')} #{get_string_vnum(self.extended_value_2)} #{get_string_vnum(self.extended_value_3)} #{self.extended_value_4 == -1 ? -1 : mobile_info(self.extended_value_4, 'formal_vnum')} #{self.extended_value_5}"
+        $output = $output << " #{obj_info(self.extended_value_1, 'formal_vnum', self.exit.room.area)} #{get_string_vnum(self.extended_value_2)} #{get_string_vnum(self.extended_value_3)} #{self.extended_value_4 == -1 ? -1 : mobile_info(self.extended_value_4, 'formal_vnum')} #{self.extended_value_5}"
       end
       if self.name == 'trig_time_block'
         $output = $output << " #{self.extended_value_1} #{self.extended_value_2} #{get_string_vnum(self.extended_value_3)} #{get_string_vnum(self.extended_value_4)} -1"
@@ -55,7 +55,7 @@ class Trigger < ActiveRecord::Base
       $comment = $comment << ": allow followers#{self.bit_1 == true ? ', UA PCs' : ''}#{self.bit_2 == true ? ', venerators' : ''}#{self.bit_3 == true ? ', NPCs' : ''}"
     end
     if self.name == 'trig_sentinel_mob'
-      $comment = $comment << ": hold #{obj_info(self.extended_value_1, 'sdesc')} #{self.extended_value_4 == -1 ? '' : 'for ' << mobile_info(self.extended_value_4, 'sdesc') << ' ' }for passage"
+      $comment = $comment << ": hold #{obj_info(self.extended_value_1, 'sdesc', self.exit.room.area)} #{self.extended_value_4 == -1 ? '' : 'for ' << mobile_info(self.extended_value_4, 'sdesc') << ' ' }for passage"
     end
     if self.name == 'trig_time_block'
       $comment = $comment << ": deny access between #{hour_from_num(self.extended_value_1)} and #{hour_from_num(self.extended_value_2)}"

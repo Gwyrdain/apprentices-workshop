@@ -23,7 +23,7 @@
                 <%= glyph 'remove' %>
               <%- end -%>
               
-              <% if (sub_reset.reset_type == 'E' || sub_reset.reset_type == 'G') && obj_info(sub_reset.val_2, 'type_word') == 'CONTAINER' %>
+              <% if (sub_reset.reset_type == 'E' || sub_reset.reset_type == 'G') && obj_info(sub_reset.val_2, 'type_word', sub_reset.reset.area) == 'CONTAINER' %>
                 <%= link_to 'Put', new_area_reset_path(@area, sub_reset, :reset_type => 'P', :parent_type => 'sub_reset', :parent_id => sub_reset.id ), :class => 'btn btn-primary btn-xs' %>
                 <%= link_to 'Insert', new_area_reset_path(@area, sub_reset, :reset_type => 'I', :parent_type => 'sub_reset', :parent_id => sub_reset.id ), :class => 'btn btn-primary btn-xs' %>
               <% end %>
@@ -52,7 +52,7 @@
               <%= glyph 'remove' %>
             <%- end -%>
             
-            <% if dependent_reset.reset_type == 'I' && obj_info(dependent_reset.val_2, 'type_word') == 'CONTAINER' %>
+            <% if dependent_reset.reset_type == 'I' && obj_info(dependent_reset.val_2, 'type_word', dependent_reset.area) == 'CONTAINER' %>
               <%= link_to 'Put', new_area_reset_path(@area, dependent_reset, :reset_type => 'P', :parent_type => 'reset', :parent_id => dependent_reset.id ), :class => 'btn btn-primary btn-xs' %>
               <%= link_to 'Insert', new_area_reset_path(@area, dependent_reset, :reset_type => 'I', :parent_type => 'reset', :parent_id => dependent_reset.id ), :class => 'btn btn-primary btn-xs' %>
             <% end %>

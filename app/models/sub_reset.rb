@@ -36,21 +36,21 @@ class SubReset < ActiveRecord::Base
 
   def comment
     $desc = nil
-    $obj_sdesc = obj_info(self.val_2, 'sdesc')
+    $obj_sdesc = obj_info(self.val_2, 'sdesc', self.reset.area)
     $desc = "Equip '#{mobile_info(self.reset.val_2, 'sdesc')}' with '#{$obj_sdesc}' as #{self.wear_loc_word}" if self.reset_type == 'E'
     $desc = "Give '#{mobile_info(self.reset.val_2, 'sdesc')}' '#{$obj_sdesc}'" if self.reset_type == 'G'
-    $desc = "Put '#{$obj_sdesc}' into '#{obj_info(self.reset.val_2, 'sdesc')}'" if self.reset_type == 'P'
+    $desc = "Put '#{$obj_sdesc}' into '#{obj_info(self.reset.val_2, 'sdesc', self.reset.area)}'" if self.reset_type == 'P'
     return $desc
   end
   
   def output
-    $output = "#{self.reset_type} 0 #{obj_info(self.val_2, 'formal_vnum')} 100"
+    $output = "#{self.reset_type} 0 #{obj_info(self.val_2, 'formal_vnum', self.reset.area)} 100"
 
     if self.reset_type == 'E'
       $output = $output << " #{self.val_4}"
     end
     if self.reset_type == 'P'
-      $output = $output << " #{obj_info(self.reset.val_2, 'formal_vnum')}"
+      $output = $output << " #{obj_info(self.reset.val_2, 'formal_vnum', self.reset.area)}"
     end
     
     $output = $output << " *" << " " * ( 25 - $output.length ) << self.comment    
@@ -199,6 +199,10 @@ class SubReset < ActiveRecord::Base
   
   def dependent_resets
     return self.reset.area.resets.where(parent_id: self.id)
+  end
+
+  def my_area
+    return self.reset.area
   end
   
 end

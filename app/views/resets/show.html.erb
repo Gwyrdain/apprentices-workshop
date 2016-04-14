@@ -29,7 +29,7 @@
       <div class="col-md-10">
         <div class="col-md-10">
         <%= mobile_info(@reset.val_2, 'formal_vnum') + ' ' + mobile_info(@reset.val_2, 'sdesc') if ( @reset.reset_type == 'M' || @reset.reset_type == 'Q' ) %>
-        <%= obj_info(@reset.val_2, 'formal_vnum') + ' ' + obj_info(@reset.val_2, 'sdesc') if ( @reset.reset_type == 'O' || @reset.reset_type == 'I' || @reset.reset_type == 'P' ) %>
+        <%= obj_info(@reset.val_2, 'formal_vnum', @reset.area) + ' ' + obj_info(@reset.val_2, 'sdesc', @reset.area) if ( @reset.reset_type == 'O' || @reset.reset_type == 'I' || @reset.reset_type == 'P' ) %>
         <%= room_info(@reset.val_2, 'formal_vnum') + ' ' + room_info(@reset.val_2, 'name') if ( @reset.reset_type == 'D' || @reset.reset_type == 'R' ) %>
         </div>
       </div>
@@ -63,7 +63,7 @@
       <div class="col-md-10">
         <div class="col-md-10">
           <%= room_info(@reset.val_4, 'formal_vnum') + ' ' + room_info(@reset.val_4, 'name') if ( @reset.reset_type == 'M' || @reset.reset_type == 'Q' || @reset.reset_type == 'O') %>
-          <%= obj_info(@reset.parent.val_2, 'formal_vnum') + ' ' + obj_info(@reset.parent.val_2, 'sdesc') if ( @reset.reset_type == 'I' || @reset.reset_type == 'P' ) %>
+          <%= obj_info(@reset.parent.val_2, 'formal_vnum', @reset.area) + ' ' + obj_info(@reset.parent.val_2, 'sdesc', @reset.area) if ( @reset.reset_type == 'I' || @reset.reset_type == 'P' ) %>
           <%= door_state(@reset.val_4) if  @reset.reset_type == 'D' %>
         </div>
       </div>
