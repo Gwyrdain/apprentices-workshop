@@ -1,44 +1,63 @@
 <div class="panel panel-default monospace">
   <div class="panel-heading"><h2>Edit <%= resource_name.to_s.humanize %> <% if current_user.is_admin? %><span class="badge">Admin</span><% end %></h2></div>
-  <div class="panel-body">
+  <div class="panel-body form-horizontal">
     
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
     
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+      <div class="form-group">
+        <%= f.label :email, :class => 'control-label col-md-2' %>
+        <div class="col-md-10">
+          <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :time_zone, :class => 'control-label col-md-2' %>
+        <div class="col-md-10">
+          <%= f.time_zone_select :time_zone, nil, {:default => 'Arizona'}, {:class => 'form-control'} %>
+        </div>
       </div>
     
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
     
-      <div class="field">
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-        <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+      <div class="form-group">
+        <%= f.label :password, 'New Password', :class => 'control-label col-md-2' %>
+        <div class="col-md-10">
+          <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+          <i>(leave blank if you don't want to change it)</i>
+        </div>
       </div>
     
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+      <div class="form-group">
+        <%= f.label :password_confirmation, :class => 'control-label col-md-2' %>
+        <div class="col-md-10">
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+        </div>
       </div>
     
-      <div class="field">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
+      <div class="form-group">
+        <%= f.label :current_password, :class => 'control-label col-md-2' %>
+        <div class="col-md-10">
+          <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
+          <i>(we need your current password to confirm your changes)</i>
+        </div>
       </div>
       <br>
-      <div class="actions">
-        <%= f.submit "Update", class: 'btn btn-primary' %>
-
+      
+      <div class="form-group">
+        <div class='col-md-offset-2 col-md-10'>
+          <%= f.submit 'Update', :class => 'btn btn-primary' %>
+          <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                      root_path, :class => 'btn btn-default' %>
+          <%= link_to "Delete Account", registration_path(resource_name),
+                data: { confirm: "Are you sure?" }, method: :delete, :class => 'btn btn-danger' %>
+        </div>
       </div>
+      
     <% end %>
   </div>
-  <div class="panel-footer">
-    <%= link_to "Back", :back %>
-    <br>
-    <%= link_to "Cancel Account", registration_path(resource_name),
-          data: { confirm: "Are you sure?" }, method: :delete %>
-  </div>
+  <div class="panel-footer"></div>
 </div>

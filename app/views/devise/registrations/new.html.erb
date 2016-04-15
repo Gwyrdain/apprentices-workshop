@@ -1,33 +1,52 @@
 <div class="panel panel-default monospace">
   <div class="panel-heading"><h2>Sign up</h2></div>
-  <div class="panel-body">
+  <div class="panel-body form-horizontal">
     
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
     
       <div class="form-group">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+        <%= f.label :email, :class => 'control-label col-md-2' %>
+        <div class="col-md-10">
+          <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :time_zone, :class => 'control-label col-md-2' %>
+        <div class="col-md-10">
+          <%= f.time_zone_select :time_zone, nil, {:default => 'Arizona'}, {:class => 'form-control'} %>
+        </div>
       </div>
     
       <div class="form-group">
-        <%= f.label :password %>
+        <%= f.label :password, :class => 'control-label col-md-2' %>
         <% if @validatable %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+        <% end %>
+        <div class="col-md-10">
+          <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        </div>
       </div>
     
       <div class="form-group">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+        <%= f.label :password_confirmation, :class => 'control-label col-md-2' %>
+        <div class="col-md-10">
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+        </div>
       </div>
-    
-      <div class="actions">
-        <%= f.submit "Sign up", class: 'btn btn-primary' %>
+
+      <div class="form-group">
+        <div class='col-md-offset-2 col-md-10'>
+          <%= f.submit 'Sign up', :class => 'btn btn-primary' %>
+          <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                      root_path, :class => 'btn btn-default' %>
+        </div>
       </div>
+      
+      
     <% end %>
     
   </div>
-  <div class="panel-footer"><%= render "devise/shared/links" %></div>
+  <div class="panel-footer"></div>
 </div>

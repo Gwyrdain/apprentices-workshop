@@ -22,8 +22,8 @@
           <td><%= user.id %></td>
           <td><%= user.email %></td>
           <td><%= user.sign_in_count %></td>
-          <td><%= user.current_sign_in_at.in_time_zone("Arizona") %></td>
-          <td><%= user.created_at.in_time_zone("Arizona") %></td>
+          <td><%= user.current_sign_in_at.in_time_zone(user.time_zone).strftime(ApplicationController::DATE_FORMAT) %></td>
+          <td><%= user.created_at.in_time_zone(user.time_zone).strftime(ApplicationController::DATE_FORMAT) %></td>
         </tr>
       <% end %>
     </tbody>
