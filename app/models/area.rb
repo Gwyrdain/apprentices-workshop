@@ -463,6 +463,19 @@ def parse_objects(objects_block)
       object_info["applies"] = applies
     end
     
+    if object.match(/^F$/)
+      object_info["flammable"] = true
+    end
+    if object.match(/^M$/)
+      object_info["metallic"] = true
+    end
+    if object.match(/^T$/)
+      object_info["two_handed"] = true
+    end
+    if object.match(/^U$/)
+      object_info["underwater_breath"] = true
+    end
+    
     objects_info[i] = object_info
     i = i + 1
   end

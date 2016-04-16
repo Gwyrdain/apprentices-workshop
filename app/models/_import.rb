@@ -31,9 +31,6 @@ def parse_area_header_v1(header, user_id)
 end
 
 def parse_area_header_v2(header, user_id)
-  author = header.match(/Name .*~/)
-  #Author[^~]*~\nLowlevel \d\nHighlevel \d*\nFlags .* End\nDescription\n.*?~\nInstalled [0-9-]*\nRevision \$Revision\$\nUpdated \$Date\$\nEnd
-
   header_info = Hash.new
   
   header_info["version"] = 2
