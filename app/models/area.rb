@@ -441,6 +441,28 @@ def parse_objects(objects_block)
       object_info["extra_descs"] = extra_descs
     end
     
+    if object.match(/^A$/) # Object has any applies?
+      applies_list = object.split(/^A$/).map(&:strip) # Split by A and remove front end junk.
+      applies_list.shift
+      
+      applies = Hash.new
+      
+      j = 1
+      
+      applies_list.each do |apply_group|
+        
+        apply = Hash.new
+        am = apply_group.match(/^(\d*) (\d*)/)
+        apply["apply_type"] = am[1].to_i
+        apply["amount"]     = am[2].to_i
+        
+        applies[j] = apply
+        j = j + 1
+      end
+      
+      object_info["applies"] = applies
+    end
+    
     objects_info[i] = object_info
     i = i + 1
   end
