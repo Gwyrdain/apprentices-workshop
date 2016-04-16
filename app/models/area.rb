@@ -1,5 +1,6 @@
 require_relative '_import'
 require_relative '_translate'
+require_relative '_lookup'
 
 class Area < ActiveRecord::Base
   belongs_to :user
@@ -301,75 +302,96 @@ class Area < ActiveRecord::Base
     return $latest_update
   end
   
-end
+  def self.import(file, user_id)
 
-def get_string_vnum(i)
-  if i == -1
-    return '-1'
-    else
-    if  AreaString.exists?(:id => i)
-      return AreaString.find(i).formal_vnum
-    else
-      return 'UNKNOWN'
+    range_low ||= 0
+    range_high ||= 0
+    author ||= ''
+    name ||= ''
+    flags ||= 0
+    
+    area_file = file.read.encode(universal_newline: true).gsub(/\s*\n/,"\n")
+    #lines = area_file.readlines.map(&:chomp) #readlines from file & removes newline symbol
+
+    header_v1 = 'No Format 1 Area Header'
+    header_v2 = 'No Format 2 Area Header'
+    mobiles_block = 'No Mobiles Block'
+    objects_block = 'No Objects Block'
+    rooms_block = 'No Rooms Block'
+    strings_block = 'No Strings Block'
+    resets_block = 'No Resets Block'
+    shops_block = 'No Shops Block'
+    specials_block = 'No Specials Block'
+    rspecs_block = 'No Room Specials Block'
+    triggers_block = 'No Triggers Block'
+    header_info = ''
+    
+    # Parse v1 Header Info
+    if area_file.match(/^#AREA.*~.*?\n/)
+      header_v1 = area_file.match(/^#AREA.*~.*?\n/)
+      header_info = parse_area_header_v1(header_v1[0], user_id)
     end
-  end
-end
-
-def is_local_obj(area, id)
-  if Obj.exists?(:id => id)
-    if Obj.find(id).area == area # If area matches...
-      return true
-    else
-      return false
+    # Parse v2 Header Info
+    if area_file.match(/^#AREA.*?\nEnd/m)
+      header_v2 = area_file.match(/^#AREA.*?\nEnd/m)
+      header_info = parse_area_header_v2(header_v2[0], user_id)
     end
-  else
-    return false
-  end
-end
-
-# functions to fetch Room, Object, Mobile retated strings
-def obj_info(id, property, area)
-  $result = nil
-  if ( Obj.exists?(:id => id) && Obj.find(id).area == area )
-    $this_obj = Obj.find(id)
-    $result = $this_obj.formal_vnum.to_s if property == 'formal_vnum'
-    $result = $this_obj.sdesc            if property == 'sdesc'
-    $result = $this_obj.type_word        if property == 'type_word'
-    $result = $this_obj.ldesc            if property == 'ldesc'
-  else
-    if property == 'formal_vnum'
-      $result = id.to_s # Assume an external vnum is referenced and return such. 
-    else
-      $result = 'UNKNOWN' 
+    # Parse the Mobiles Block
+    if area_file.match(/^#MOBILES\n#(.*?)\n#0/m)
+      mobiles_block = parse_mobiles( area_file.match(/^#MOBILES\n#(.*?)\n#0/m)[1] )
     end
+    # Parse the Objects Block
+    if area_file.match(/^#OBJECTS\n#.*?\n#0/m)
+      objects_block = parse_objects( area_file.match(/^#OBJECTS\n#(.*?)\n#0/m)[1] )
+    end
+    
+    
+    
+    if area_file.match(/^#ROOMS\n#.*?\n#0/m)
+      rooms_block = area_file.match(/^#ROOMS\n#(.*?)\n#0/m)
+    end
+    if area_file.match(/^#STRINGS\n#.*?\n#0/m)
+      strings_block = area_file.match(/^#STRINGS\n#(.*?)\n#0/m)
+    end
+    if area_file.match(/^#RESETS\n.*?\nS/m)
+      resets_block = area_file.match(/^#RESETS\n.*?\nS/m)
+    end
+    if area_file.match(/^#SHOPS\n.*?\n0/m)
+      shops_block = area_file.match(/^#SHOPS\n.*?\n0/m)
+    end
+    if area_file.match(/^#SPECIALS\n.*?\nS/m)
+      specials_block = area_file.match(/^#SPECIALS\n.*?\nS/m)
+    end
+    if area_file.match(/^#RSPECS\n.*?\nS/m)
+      rspecs_block = area_file.match(/^#RSPECS\n.*?\nS/m)
+    end
+    if area_file.match(/^#TRIGGERS\n.*?\nS/m)
+      triggers_block = area_file.match(/^#TRIGGERS\n.*?\nS/m)
+    end
+
+    return "<h1>Header</h1>#{format_hash(header_info)}<hr>" <<
+           "<h1>Mobiles</h1>#{format_hash(mobiles_block)}<hr>" <<
+           "<h1>Objects (WIP)</h1>#{format_hash(objects_block)}<hr>" #<<
+           #"#{rooms_block}<hr>#{strings_block}<hr>#{resets_block}<hr>#{shops_block}" <<
+           #"#{specials_block}<hr>#{rspecs_block}<hr>#{triggers_block}<hr><b>EOF</b>"
+
   end
-  return $result
+  
 end
 
-def room_info(id, property)
-  $result = nil
-  if Room.exists?(:id => id)
-    $this_room = Room.find(id)
-    $result = $this_room.formal_vnum.to_s if property == 'formal_vnum'
-    $result = $this_room.name             if property == 'name'
-  else
-    $result = 'UNKNOWN'
-  end
-  return $result
-end
-
-def mobile_info(id, property)
-  $result = nil
-  if Mobile.exists?(:id => id)
-    $this_mobile = Mobile.find(id)
-    $result = $this_mobile.formal_vnum.to_s if property == 'formal_vnum'
-    $result = $this_mobile.sdesc            if property == 'sdesc'
-    $result = $this_mobile.ldesc            if property == 'ldesc'
-    $result = !$this_mobile.no_wear_eq?     if property == 'can_wear?'
-  else
-    $result = 'UNKNOWN'
-  end
-  return $result
+def format_hash(h)
+  $formatted_hash = ''
+  
+    h.each do |item|
+      $formatted_hash = $formatted_hash + "<b>#{item[0]}:</b> "
+      if item[1].class.name == "Hash"
+        $formatted_hash = $formatted_hash + "<table border=\"1\"><tr><td>#{format_hash(item[1])}</td></tr></table>"
+      else
+        $formatted_hash = $formatted_hash + "#{item[1]}<br>"
+      end
+    end
+  
+  return $formatted_hash
 end
 
 def parse_objects(objects_block)
@@ -380,17 +402,46 @@ def parse_objects(objects_block)
   
   objects.each do |object|
     m = object.match(/^(\d*)\n(.*)~\n(.*)~\n(.*)\n~\n/)
-    if m
-      object_info = Hash.new
-      object_info["vnum"]     = m[1].to_i
-      object_info["keywords"] = m[2].strip
-      object_info["sdesc"]    = m[3].strip
-      object_info["ldesc"]    = m[4].strip
+    object_info = Hash.new
+    object_info["vnum"]     = m[1].to_i
+    object_info["keywords"] = m[2].strip
+    object_info["sdesc"]    = m[3].strip
+    object_info["ldesc"]    = m[4].strip
+    
+    m = object.match(/^(\d*) (\d*) (\d*)\n(\d*) (\d*) (\d*) (\d*)\n(\d*) (\d*) 0/)
+    object_info["object_type"] = m[1].to_i
+    object_info["extra_flags"] = m[2].to_i
+    object_info["wear_flags"]  = m[3].to_i
+    object_info["v0"]          = m[4].to_i
+    object_info["v1"]          = m[5].to_i
+    object_info["v2"]          = m[6].to_i
+    object_info["v3"]          = m[7].to_i
+    object_info["weight"]      = m[8].to_i
+    object_info["cost"]        = m[9].to_i
+    
+    if object.match(/^E$/) # Object has any extra descriptions?
+      extras_list = object.split(/^E$/).map(&:strip) # Split by E and remove front end junk.
+      extras_list.shift
       
-      objects_info[i] = object_info
-    else
-      objects_info[i] = 'bad object'
+      extra_descs = Hash.new
+      
+      j = 1
+      
+      extras_list.each do |desc|
+        
+        extra_desc = Hash.new
+        dm = desc.match(/^(.*)~\n(.*)\n~/m)
+        extra_desc["keywords"]    = dm[1].strip
+        extra_desc["description"] = dm[2].strip
+        
+        extra_descs[j] = extra_desc
+        j = j + 1
+      end
+      
+      object_info["extra_descs"] = extra_descs
     end
+    
+    objects_info[i] = object_info
     i = i + 1
   end
   
