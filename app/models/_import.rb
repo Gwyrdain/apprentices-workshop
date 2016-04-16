@@ -3,6 +3,8 @@ def parse_area_header_v1(header, user_id)
   
   header_info = Hash.new
   
+  header_info["version"] = 1
+  
   if m
     header_info["author"] = m[2].strip
     header_info["name"]   = m[3].strip
@@ -34,6 +36,8 @@ def parse_area_header_v2(header, user_id)
 
   header_info = Hash.new
   
+  header_info["version"] = 2
+  
   header_info["author"] = header.match(/Author (.*)~/)[1].strip
   header_info["name"]   = header.match(/Name (.*)~/)[1].strip
   header_info["flags"]  = header.match(/Flags (.*) End/)[1].strip
@@ -43,8 +47,12 @@ def parse_area_header_v2(header, user_id)
   
   header_info["description"]  = header.match(/Description\n(.*)\n~/m)[1].strip
   
-  header_info["installed"]  = header.match(/Installed (.*)\n/)[1].strip
-
+  if header.match(/Installed (.*)\n/)
+    header_info["installed"]  = header.match(/Installed (.*)\n/)[1].strip
+  else
+    header_info["installed"]  = nil
+  end
+  
   return header_info
   
 end
