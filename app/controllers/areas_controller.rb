@@ -60,16 +60,16 @@ class AreasController < ApplicationController
   end
   
   def import
-
-    render :text => Area.import(params[:file], current_user.id)
-#   @area = Area.import(params[:file], current_user.id)
-#   
-#   if @area.save
-#     redirect_to @area, notice: 'Area was sucessfully imported.'
-#   else
-#     redirect_to areas_path, notice: 'Something went wrong.'
+#    if params[:parse]
+      render :text => Area.import(params[:file], current_user.id)
+#    else
+#      @area = Area.import(params[:file], current_user.id)
+#      if @area.save
+#       redirect_to @area, notice: 'Area was sucessfully imported.'
+#      else
+#       redirect_to areas_path, notice: 'Something went wrong.'
+#      end
 #    end
-    
   end
 
   def update

@@ -1,3 +1,6 @@
+require_relative '_import'
+require_relative '_translate'
+
 class Area < ActiveRecord::Base
   belongs_to :user
   has_many :helps, dependent: :destroy
@@ -104,8 +107,7 @@ class Area < ActiveRecord::Base
     name ||= ''
     flags ||= 0
     
-    
-    area_file = file.read
+    area_file = file.read.encode(universal_newline: true).gsub(/\s*\n/,"\n")
     #lines = area_file.readlines.map(&:chomp) #readlines from file & removes newline symbol
 
     header_v1 = 'No Format 1 Area Header'
@@ -121,41 +123,47 @@ class Area < ActiveRecord::Base
     triggers_block = 'No Triggers Block'
     header_info = ''
     
+    # Parse v1 Header Info
     if area_file.match(/^#AREA.*~.*?\n/)
       header_v1 = area_file.match(/^#AREA.*~.*?\n/)
-      
       header_info = parse_area_header_v1(header_v1[0], user_id)
-      
     end
+    # Parse v2 Header Info
     if area_file.match(/^#AREA.*?\nEnd/m)
       header_v2 = area_file.match(/^#AREA.*?\nEnd/m)
+      header_info = parse_area_header_v2(header_v2[0], user_id)
     end
-    if area_file.match(/^#MOBILES.*?\n#0/m)
-      mobiles_block = area_file.match(/^#MOBILES.*?\n#0/m)
+    # Parse the Mobiles Block
+    if area_file.match(/^#MOBILES\n#(.*?)\n#0/m)
+      mobiles_block = parse_mobiles( area_file.match(/^#MOBILES\n#(.*?)\n#0/m)[1] )
     end
-    if area_file.match(/^#OBJECTS.*?\n#0/m)
-      objects_block = area_file.match(/^#OBJECTS.*?\n#0/m)
+    # Parse the Objects Block
+    if area_file.match(/^#OBJECTS\n#.*?\n#0/m)
+      objects_block = parse_objects( area_file.match(/^#OBJECTS\n#(.*?)\n#0/m)[1] )
     end
-    if area_file.match(/^#ROOMS.*?\n#0/m)
-      rooms_block = area_file.match(/^#ROOMS.*?\n#0/m)
+    
+    
+    
+    if area_file.match(/^#ROOMS\n#.*?\n#0/m)
+      rooms_block = area_file.match(/^#ROOMS\n#(.*?)\n#0/m)
     end
-    if area_file.match(/^#STRINGS.*?\n#0/m)
-      strings_block = area_file.match(/^#STRINGS.*?\n#0/m)
+    if area_file.match(/^#STRINGS\n#.*?\n#0/m)
+      strings_block = area_file.match(/^#STRINGS\n#(.*?)\n#0/m)
     end
-    if area_file.match(/^#RESETS.*?\nS/m)
-      resets_block = area_file.match(/^#RESETS.*?\nS/m)
+    if area_file.match(/^#RESETS\n.*?\nS/m)
+      resets_block = area_file.match(/^#RESETS\n.*?\nS/m)
     end
-    if area_file.match(/^#SHOPS.*?\n0/m)
-      shops_block = area_file.match(/^#SHOPS.*?\n0/m)
+    if area_file.match(/^#SHOPS\n.*?\n0/m)
+      shops_block = area_file.match(/^#SHOPS\n.*?\n0/m)
     end
-    if area_file.match(/^#SPECIALS.*?\nS/m)
-      specials_block = area_file.match(/^#SPECIALS.*?\nS/m)
+    if area_file.match(/^#SPECIALS\n.*?\nS/m)
+      specials_block = area_file.match(/^#SPECIALS\n.*?\nS/m)
     end
-    if area_file.match(/^#RSPECS.*?\nS/m)
-      rspecs_block = area_file.match(/^#RSPECS.*?\nS/m)
+    if area_file.match(/^#RSPECS\n.*?\nS/m)
+      rspecs_block = area_file.match(/^#RSPECS\n.*?\nS/m)
     end
-    if area_file.match(/^#TRIGGERS.*?\nS/m)
-      triggers_block = area_file.match(/^#TRIGGERS.*?\nS/m)
+    if area_file.match(/^#TRIGGERS\n.*?\nS/m)
+      triggers_block = area_file.match(/^#TRIGGERS\n.*?\nS/m)
     end
 
     return "#{header_info}<hr>#{header_v1}<hr>#{header_v2}<hr>#{mobiles_block}<hr>#{objects_block}<hr>" <<
@@ -295,70 +303,6 @@ class Area < ActiveRecord::Base
   
 end
 
-
-def object_type_from_num(i)
-  $object_type = nil
-  $object_type = 'N/A' if i == 0
-  $object_type = 'ARMOR' if i == 9
-  $object_type = 'ARMOR ANIMAL' if i == 14
-  $object_type = 'BOAT' if i == 22
-  $object_type = 'CONTAINER' if i == 15
-  $object_type = 'DECORATION' if i == 27
-  $object_type = 'DRINK CONTAINER' if i == 17
-  $object_type = 'FETISH' if i == 7
-  $object_type = 'FOOD' if i == 19
-  $object_type = 'FOUNTAIN' if i == 25
-  $object_type = 'FURNITURE' if i == 12
-  $object_type = 'JEWELRY' if i == 30
-  $object_type = 'KEY' if i == 18
-  $object_type = 'LIGHT' if i == 1
-  $object_type = 'MONEY' if i == 20
-  $object_type = 'PET FOOD' if i == 11
-  $object_type = 'PILL' if i == 26
-  $object_type = 'POTION' if i == 10
-  $object_type = 'RELIC' if i == 33
-  $object_type = 'RING' if i == 29
-  $object_type = 'SCROLL' if i == 2
-  $object_type = 'STAFF' if i == 4
-  $object_type = 'TRASH' if i == 13
-  $object_type = 'TREASURE' if i == 8
-  $object_type = 'WAND' if i == 3
-  $object_type = 'WEAPON' if i == 5
-  $object_type = 'WEAPON ANIMAL' if i == 6
-  return $object_type
-end
-
-def num_to_exits(i)
-  $exit_list = nil
-  $exit_list = 'n' if i == 0
-  $exit_list = 'n, e' if i == 1
-  $exit_list = 'n, e, s' if i == 2
-  $exit_list = 'n, e, s, w' if i == 3
-  $exit_list = 'n, e, s, w, u' if i == 4
-  $exit_list = 'n, e, s, w, u, d' if i == 5
-  return $exit_list
-end
-
-def num_to_attribute(i)
-  $attribute = nil
-  $attribute = 'STR' if i == 0
-  $attribute = 'INT' if i == 1
-  $attribute = 'WIS' if i == 2
-  $attribute = 'DEX' if i == 3
-  $attribute = 'CON' if i == 4
-  $attribute = 'CHR' if i == 5
-  $attribute = 'LUC' if i == 6
-  return $attribute
-end
-
-def door_state(i)
-  $state = nil
-  $state = 'open' if i == 0
-  $state = 'closed' if i == 1
-  $state = 'closed+locked' if i == 2
-  return $state
-end
-
 def get_string_vnum(i)
   if i == -1
     return '-1'
@@ -428,99 +372,27 @@ def mobile_info(id, property)
   return $result
 end
 
-def num_to_dir(i)
-  $word = nil
-  $word = 'North' if i == 0
-  $word = 'East' if i == 1
-  $word = 'South' if i == 2
-  $word = 'West' if i == 3
-  $word = 'Up' if i == 4
-  $word = 'Down' if i == 5
-  return $word
-end
-
-def opposite_dir(i)
-  $dir = nil
-  $dir = 0 if i == 2  # N opposite of S
-  $dir = 2 if i == 0  # S opposite of N
-  $dir = 1 if i == 3  # E opposite of W
-  $dir = 3 if i == 1  # W opposite of E
-  $dir = 4 if i == 5  # U opposite of D
-  $dir = 5 if i == 4  # D opposite of U
-  return $dir
-end
-
-def hour_from_num(i)
-  $hour = nil
-  $hour = '12AM' if i == 0
-  $hour = '1AM' if i == 1
-  $hour = '2AM' if i == 2
-  $hour = '3AM' if i == 3
-  $hour = '4AM' if i == 4
-  $hour = '5AM' if i == 5
-  $hour = '6AM' if i == 6
-  $hour = '7AM' if i == 7
-  $hour = '8AM' if i == 8
-  $hour = '9AM' if i == 9
-  $hour = '10AM' if i == 10
-  $hour = '11AM' if i == 11
-  $hour = '12PM' if i == 12
-  $hour = '1PM' if i == 13
-  $hour = '2PM' if i == 14
-  $hour = '3PM' if i == 15
-  $hour = '4PM' if i == 16
-  $hour = '5PM' if i == 17
-  $hour = '6PM' if i == 18
-  $hour = '7PM' if i == 19
-  $hour = '8PM' if i == 20
-  $hour = '9PM' if i == 21
-  $hour = '10PM' if i == 22
-  $hour = '11PM' if i == 23
-  return $hour
-end
-
-def race_from_num(i)
-  $race = nil
-  $race = 'no one' if i == -1
-  $race = 'humans' if i == 0
-  $race = 'dwarves' if i == 1
-  $race = 'elves' if i == 2
-  $race = 'gnomes' if i == 3
-  $race = 'halfelves' if i == 4
-  $race = 'halflings' if i == 5
-  $race = 'aarakocra' if i == 6
-  $race = 'giants' if i == 7
-  $race = 'minotaurs' if i == 8
-  $race = 'ogres' if i == 9
-  return $race
-end
-
-def parse_area_header_v1(header, user_id)
-  m = header.match(/\{(.*)\} (........) (.*)~\s*F (\d+)/)
+def parse_objects(objects_block)
+  objects_info = Hash.new
+  i = 1
   
-  header_info = Hash.new
+  objects = objects_block.split("#").map(&:strip)
   
-  if m
-    header_info["author"] = m[2].strip
-    header_info["name"]   = m[3].strip
-    header_info["flags"]  = m[4].to_i
-
-    if m[1].match(/(\d) (\d)/)
-      range = m[1].match(/(\d+) (\d+)/)
-        header_info["range_low"]  = range[1].to_i
-        header_info["range_high"] = range[2].to_i
+  objects.each do |object|
+    m = object.match(/^(\d*)\n(.*)~\n(.*)~\n(.*)\n~\n/)
+    if m
+      object_info = Hash.new
+      object_info["vnum"]     = m[1].to_i
+      object_info["keywords"] = m[2].strip
+      object_info["sdesc"]    = m[3].strip
+      object_info["ldesc"]    = m[4].strip
+      
+      objects_info[i] = object_info
     else
-      if m[1].match(/ALL/)
-        header_info["range_low"]   = 1
-        header_info["range_high"]  = 50
-      end
-      if m[1].match(/HARD/)
-        header_info["range_low"]   = 50
-        header_info["range_high"]  = 50
-      end
+      objects_info[i] = 'bad object'
     end
+    i = i + 1
   end
-
-  return header_info
   
+  return objects_info
 end
