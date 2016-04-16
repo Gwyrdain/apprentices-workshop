@@ -311,45 +311,40 @@ class Area < ActiveRecord::Base
     flags ||= 0
     
     area_file = file.read.encode(universal_newline: true).gsub(/\s*\n/,"\n")
-    #lines = area_file.readlines.map(&:chomp) #readlines from file & removes newline symbol
 
-    header_v1 = 'No Format 1 Area Header'
-    header_v2 = 'No Format 2 Area Header'
-    mobiles_block = 'No Mobiles Block'
-    objects_block = 'No Objects Block'
-    rooms_block = 'No Rooms Block'
+    mobiles_block = nil
+    objects_block = nil
+    rooms_block = nil
+    
     strings_block = 'No Strings Block'
     resets_block = 'No Resets Block'
     shops_block = 'No Shops Block'
     specials_block = 'No Specials Block'
     rspecs_block = 'No Room Specials Block'
     triggers_block = 'No Triggers Block'
-    header_info = ''
+    header_info = nil
     
-    # Parse v1 Header Info
-    if area_file.match(/^#AREA.*~.*?\n/)
-      header_v1 = area_file.match(/^#AREA.*~.*?\n/)
-      header_info = parse_area_header_v1(header_v1[0], user_id)
+    if area_file.match(/^#AREA.*~.*?\n/) # v1 Header
+      header_info = parse_area_header_v1( area_file.match(/^#AREA.*~.*?\n/)[0] )
     end
-    # Parse v2 Header Info
-    if area_file.match(/^#AREA.*?\nEnd/m)
-      header_v2 = area_file.match(/^#AREA.*?\nEnd/m)
-      header_info = parse_area_header_v2(header_v2[0], user_id)
+    
+    if area_file.match(/^#AREA.*?\nEnd/m) # v2 Header
+      header_info = parse_area_header_v2( area_file.match(/^#AREA.*?\nEnd/m)[0] )
     end
-    # Parse the Mobiles Block
+
     if area_file.match(/^#MOBILES\n#(.*?)\n#0/m)
       mobiles_block = parse_mobiles( area_file.match(/^#MOBILES\n#(.*?)\n#0/m)[1] )
     end
-    # Parse the Objects Block
+
     if area_file.match(/^#OBJECTS\n#.*?\n#0/m)
       objects_block = parse_objects( area_file.match(/^#OBJECTS\n#(.*?)\n#0/m)[1] )
     end
     
-    
-    
     if area_file.match(/^#ROOMS\n#.*?\n#0/m)
-      rooms_block = area_file.match(/^#ROOMS\n#(.*?)\n#0/m)
+      rooms_block = parse_rooms( area_file.match(/^#ROOMS\n#(.*?)\n#0/m)[1] )
     end
+    
+    # --- BOOKMARK ---  Items below not started.
     if area_file.match(/^#STRINGS\n#.*?\n#0/m)
       strings_block = area_file.match(/^#STRINGS\n#(.*?)\n#0/m)
     end
@@ -369,9 +364,10 @@ class Area < ActiveRecord::Base
       triggers_block = area_file.match(/^#TRIGGERS\n.*?\nS/m)
     end
 
-    return "<h1>Header</h1>#{format_hash(header_info)}<hr>" <<
-           "<h1>Mobiles</h1>#{format_hash(mobiles_block)}<hr>" <<
-           "<h1>Objects (WIP)</h1>#{format_hash(objects_block)}<hr>" #<<
+    return "<h1>Header</h1>#{format_hash(header_info) if header_info != nil}<hr>" <<
+           "<h1>Mobiles</h1>#{format_hash(mobiles_block) if mobiles_block != nil}<hr>" <<
+           "<h1>Objects</h1>#{format_hash(objects_block) if objects_block != nil}<hr>" <<
+           "<h1>Rooms (WIP)</h1>#{format_hash(rooms_block) if rooms_block != nil}<hr>" #<<
            #"#{rooms_block}<hr>#{strings_block}<hr>#{resets_block}<hr>#{shops_block}" <<
            #"#{specials_block}<hr>#{rspecs_block}<hr>#{triggers_block}<hr><b>EOF</b>"
 
@@ -394,91 +390,45 @@ def format_hash(h)
   return $formatted_hash
 end
 
-def parse_objects(objects_block)
-  objects_info = Hash.new
+def parse_rooms(rooms_block)
+  rooms_info = Hash.new
   i = 1
   
-  objects = objects_block.split("#").map(&:strip)
+  rooms = rooms_block.split("#").map(&:strip)
   
-  objects.each do |object|
-    m = object.match(/^(\d*)\n(.*)~\n(.*)~\n(.*)\n~\n/)
-    object_info = Hash.new
-    object_info["vnum"]     = m[1].to_i
-    object_info["keywords"] = m[2].strip
-    object_info["sdesc"]    = m[3].strip
-    object_info["ldesc"]    = m[4].strip
+  rooms.each do |room|
+    m = room.match(/^(\d+)\n(.*)~\n([^~]*)\n~\n(\d*) ([0-9|]*) (\d*)/)
+    room_info = Hash.new
+    room_info["vnum"]        = m[1].to_i
+    room_info["name"]        = m[2].strip
+    room_info["description"] = m[3].strip
+    room_info["area_number"] = m[4].to_i
     
-    m = object.match(/^(\d*) (\d*) (\d*)\n(\d*) (\d*) (\d*) (\d*)\n(\d*) (\d*) 0/)
-    object_info["object_type"] = m[1].to_i
-    object_info["extra_flags"] = m[2].to_i
-    object_info["wear_flags"]  = m[3].to_i
-    object_info["v0"]          = m[4].to_i
-    object_info["v1"]          = m[5].to_i
-    object_info["v2"]          = m[6].to_i
-    object_info["v3"]          = m[7].to_i
-    object_info["weight"]      = m[8].to_i
-    object_info["cost"]        = m[9].to_i
-    
-    if object.match(/^E$/) # Object has any extra descriptions?
-      extras_list = object.split(/^E$/).map(&:strip) # Split by E and remove front end junk.
-      extras_list.shift
-      
-      extra_descs = Hash.new
-      
-      j = 1
-      
-      extras_list.each do |desc|
-        
-        extra_desc = Hash.new
-        dm = desc.match(/^(.*)~\n(.*)\n~/m)
-        extra_desc["keywords"]    = dm[1].strip
-        extra_desc["description"] = dm[2].strip
-        
-        extra_descs[j] = extra_desc
-        j = j + 1
-      end
-      
-      object_info["extra_descs"] = extra_descs
+    if m[5].match(/|/)
+      room_info["room_flags"]  = sum_piped( m[5].strip )
+    else
+      room_info["room_flags"]  = m[5].to_i
     end
     
-    if object.match(/^A$/) # Object has any applies?
-      applies_list = object.split(/^A$/).map(&:strip) # Split by A and remove front end junk.
-      applies_list.shift
-      
-      applies = Hash.new
-      
-      j = 1
-      
-      applies_list.each do |apply_group|
-        
-        apply = Hash.new
-        am = apply_group.match(/^(\d*) (\d*)/)
-        apply["apply_type"] = am[1].to_i
-        apply["amount"]     = am[2].to_i
-        
-        applies[j] = apply
-        j = j + 1
-      end
-      
-      object_info["applies"] = applies
+    room_info["terrain"]     = m[6].to_i
+    
+    if room.match(/^E$/) # any extra descriptions?
+      room_info["extra_descs"] = parse_extra_descs( room.split(/^E$/).map(&:strip) )
     end
     
-    if object.match(/^F$/)
-      object_info["flammable"] = true
-    end
-    if object.match(/^M$/)
-      object_info["metallic"] = true
-    end
-    if object.match(/^T$/)
-      object_info["two_handed"] = true
-    end
-    if object.match(/^U$/)
-      object_info["underwater_breath"] = true
-    end
-    
-    objects_info[i] = object_info
+    rooms_info[i] = room_info
     i = i + 1
   end
   
-  return objects_info
+  return rooms_info
+end
+
+def sum_piped( piped_numbers )
+  total = 0
+  number_list = piped_numbers.split("|").map(&:strip)
+  number_list.each do |number|
+    total = total + number.to_i
+  end
+
+  return total
 end
