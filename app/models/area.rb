@@ -403,17 +403,15 @@ def parse_rooms(rooms_block)
     room_info["name"]        = m[2].strip
     room_info["description"] = m[3].strip
     room_info["area_number"] = m[4].to_i
-    
-    if m[5].match(/|/)
-      room_info["room_flags"]  = sum_piped( m[5].strip )
-    else
-      room_info["room_flags"]  = m[5].to_i
-    end
-    
+    room_info["room_flags"]  = read_flags( m[5].strip )
     room_info["terrain"]     = m[6].to_i
     
     if room.match(/^E$/) # any extra descriptions?
       room_info["extra_descs"] = parse_extra_descs( room.split(/^E$/).map(&:strip) )
+    end
+    
+    if room.match(/^D\d$/) # any exits?
+      #room_info["exits"] = parse_exits( room.split(/^D$/).map(&:strip) )
     end
     
     rooms_info[i] = room_info
@@ -423,12 +421,20 @@ def parse_rooms(rooms_block)
   return rooms_info
 end
 
-def sum_piped( piped_numbers )
-  total = 0
-  number_list = piped_numbers.split("|").map(&:strip)
-  number_list.each do |number|
-    total = total + number.to_i
+
+def read_flags( flags )
+  
+  if flags.match(/|/)
+
+    total = 0
+    number_list = flags.split("|").map(&:strip)
+    number_list.each do |number|
+      total = total + number.to_i
+    end
+    
+    return total
+  else
+    return flags
   end
 
-  return total
 end

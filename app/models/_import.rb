@@ -1,5 +1,5 @@
 def parse_area_header_v1(header)
-  m = header.match(/\{(.*)\} (........) (.*)~\s*F (\d+)/)
+  m = header.match(/\{(.*)\} (........) (.*)~\s*F ([0-9|]+)/)
   
   header_info = Hash.new
   
@@ -8,7 +8,7 @@ def parse_area_header_v1(header)
   if m
     header_info["author"] = m[2].strip
     header_info["name"]   = m[3].strip
-    header_info["flags"]  = m[4].to_i
+    header_info["flags"]  = read_flags( m[4].strip )
 
     if m[1].match(/(\d) (\d)/)
       range = m[1].match(/(\d+) (\d+)/)
@@ -68,10 +68,10 @@ def parse_mobiles(mobiles_block)
     mobile_info["sdesc"]    = m[3].strip
     mobile_info["ldesc"]    = m[4].strip
     
-    m = mobile.match(/^~\n(.*)\n~\n(\d*) (\d*) ([-\d]*) S\n(\d*).*\n8 8 (\d*)/m)
+    m = mobile.match(/^~\n(.*)\n~\n([0-9|]*) ([0-9|]*) ([-\d]*) S\n(\d*).*\n8 8 (\d*)/m)
     mobile_info["look_desc"]    = m[1].strip
-    mobile_info["act_flags"]    = m[2].to_i
-    mobile_info["affect_flags"] = m[3].to_i
+    mobile_info["act_flags"]    = read_flags( m[2].strip )
+    mobile_info["affect_flags"] = read_flags( m[3].strip )
     mobile_info["alignment"]    = m[4].to_i
     mobile_info["level"]        = m[5].to_i
     mobile_info["sex"]          = m[6].to_i
@@ -118,10 +118,10 @@ def parse_objects(objects_block)
     object_info["sdesc"]    = m[3].strip
     object_info["ldesc"]    = m[4].strip
     
-    m = object.match(/^(\d*) (\d*) (\d*)\n(\d*) (\d*) (\d*) (\d*)\n(\d*) (\d*) 0/)
+    m = object.match(/^(\d*) ([0-9|]*) ([0-9|]*)\n(\d*) (\d*) (\d*) (\d*)\n(\d*) (\d*) 0/)
     object_info["object_type"] = m[1].to_i
-    object_info["extra_flags"] = m[2].to_i
-    object_info["wear_flags"]  = m[3].to_i
+    object_info["extra_flags"] = read_flags( m[2].strip )
+    object_info["wear_flags"]  = read_flags( m[3].strip )
     object_info["v0"]          = m[4].to_i
     object_info["v1"]          = m[5].to_i
     object_info["v2"]          = m[6].to_i
@@ -196,4 +196,21 @@ def parse_extra_descs(extras_list)
   
   return extra_descs
   
+end
+
+def read_flags( flags )
+  
+  if flags.match(/|/)
+
+    total = 0
+    number_list = flags.split("|").map(&:strip)
+    number_list.each do |number|
+      total = total + number.to_i
+    end
+    
+    return total
+  else
+    return flags.to_i
+  end
+
 end
