@@ -1,5 +1,5 @@
 D<%= exit.direction %>
-<% if exit.description.length > 0 %><%= word_wrap(exit.description, line_width: ApplicationController::WORDWRAP_LENGTH) %>
+<% if exit.description.length > 0 %><%= word_wrap(exit.description, line_width: WORDWRAP_LENGTH) %>
 <% end %>~
 <%= exit.keywords %>~
 <%= exit.exittype %> <%= exit.formal_key_vnum %> <%= exit.formal_vnum %><% if (exit.name.length > 0) %>
