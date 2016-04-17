@@ -318,12 +318,11 @@ class Area < ActiveRecord::Base
     objects_block = nil
     rooms_block = nil
     strings_block = nil
-    
-    resets_block = 'No Resets Block'
-    shops_block = 'No Shops Block'
-    specials_block = 'No Specials Block'
-    rspecs_block = 'No Room Specials Block'
-    triggers_block = 'No Triggers Block'
+    resets_block = nil
+    shops_block = nil
+    specials_block = nil
+    rspecs_block = nil
+    triggers_block = nil
     
     if area_file.match(/^#AREA.*~.*?\n/) # v1 Header
       header_info = parse_area_header_v1( area_file.match(/^#AREA.*~.*?\n/)[0] )
@@ -360,13 +359,13 @@ class Area < ActiveRecord::Base
       shops_block = parse_shops( area_file.match(/^#SHOPS\n(.*?)\n0/m)[1] )
     end
     if area_file.match(/^#SPECIALS\n.*?\nS/m)
-      specials_block = area_file.match(/^#SPECIALS\n.*?\nS/m)
+      specials_block = parse_specials( area_file.match(/^#SPECIALS\n(.*?)\nS/m)[1] )
     end
     if area_file.match(/^#RSPECS\n.*?\nS/m)
-      rspecs_block = area_file.match(/^#RSPECS\n.*?\nS/m)
+      rspecs_block = parse_specials( area_file.match(/^#RSPECS\n(.*?)\nS/m)[1] )
     end
     if area_file.match(/^#TRIGGERS\n.*?\nS/m)
-      triggers_block = area_file.match(/^#TRIGGERS\n.*?\nS/m)
+      triggers_block = parse_triggers( area_file.match(/^#TRIGGERS\n(.*?)\nS/m)[1] )
     end
 
     return "<h1>Header</h1>#{format_hash(header_info) if header_info != nil}<hr>" <<
@@ -376,7 +375,10 @@ class Area < ActiveRecord::Base
            "<h1>Rooms</h1>#{format_hash(rooms_block) if rooms_block != nil}<hr>" <<
            "<h1>Strings</h1>#{format_hash(strings_block) if strings_block != nil}<hr>" <<
            "<h1>Resets</h1>#{format_hash(resets_block) if resets_block != nil}<hr>" <<
-           "<h1>Shops</h1>#{format_hash(shops_block) if shops_block != nil}<hr>" #<<
+           "<h1>Shops</h1>#{format_hash(shops_block) if shops_block != nil}<hr>" <<
+           "<h1>Specials</h1>#{format_hash(specials_block) if specials_block != nil}<hr>" <<
+           "<h1>Room Specials</h1>#{format_hash(rspecs_block) if rspecs_block != nil}<hr>" <<
+           "<h1>Triggers</h1>#{format_hash(triggers_block) if triggers_block != nil}<hr>"
 
   end
   
@@ -397,32 +399,69 @@ def format_hash(h)
   return $formatted_hash
 end
 
-def parse_shops (shops_block)
-  shops_info = Hash.new
+def parse_specials (specials_block)
+  specials_info = Hash.new
   i = 1
   
-  shops_block.gsub!(/^\*.*\n/,'') # remove any commented out lines
-  shops = shops_block.split(/\n/).map(&:strip)
+  specials_block.gsub!(/^\*.*\n/,'')
+  specials = specials_block.split(/\n/).map(&:strip)
   
-  shops.each do |shop|
-    shop_info = Hash.new
+  specials.each do |special|
+    special_info = Hash.new
 
-    m = shop.match(/^(\d*)\s*(\d*)\s*(\d*)\s*(\d*)\s*(\d*)\s*(\d*)\s*\d*\s*\d*\s*(\d*)\s*(\d*)\s*([0-9-]*)/)
+    m = special.match(/^(\w) (\d*) (\w*)/)
     if m
-      shop_info["mobile_vnum"] = m[1].to_i
-      shop_info["buy_type_1"]  = m[2].to_i
-      shop_info["buy_type_2"]  = m[3].to_i
-      shop_info["buy_type_3"]  = m[4].to_i
-      shop_info["buy_type_4"]  = m[5].to_i
-      shop_info["buy_type_5"]  = m[6].to_i
-      shop_info["open_hour"]   = m[7].to_i
-      shop_info["close_hour"]  = m[8].to_i
-      shop_info["race"]        = m[9].to_i
+      special_info["type"] = m[1].strip
+      special_info["vnum"] = m[2].to_i
+      special_info["name"] = m[3].strip
     end
-
-    shops_info[i] = shop_info
+    
+    m = special.match(/^\w \d* \w* ([0-9-]*) ([0-9-]*) ([0-9-]*) ([0-9-]*) ([0-9-]*)/)
+    if m
+      special_info["extended_value_1"] = m[1].to_i
+      special_info["extended_value_2"] = m[2].to_i
+      special_info["extended_value_3"] = m[3].to_i
+      special_info["extended_value_4"] = m[4].to_i
+      special_info["extended_value_5"] = m[5].to_i
+    end
+    
+    specials_info[i] = special_info
     i = i + 1  
   end
   
-  return shops_info
+  return specials_info
+end
+
+def parse_triggers (triggers_block)
+  triggers_info = Hash.new
+  i = 1
+  
+  triggers_block.gsub!(/^\*.*\n/,'')
+  triggers = triggers_block.split(/\n/).map(&:strip)
+  
+  triggers.each do |trigger|
+    trigger_info = Hash.new
+
+    m = trigger.match(/^(\w) (\d*) (\d*) (\w*)/)
+    if m
+      trigger_info["type"] = m[1].strip
+      trigger_info["vnum"] = m[2].to_i
+      trigger_info["door"] = m[3].to_i
+      trigger_info["name"] = m[4].strip
+    end
+    
+    m = trigger.match(/^\w \d* \w* \w* ([0-9-]*) ([0-9-]*) ([0-9-]*) ([0-9-]*) ([0-9-]*)/)
+    if m
+      trigger_info["extended_value_1"] = m[1].to_i
+      trigger_info["extended_value_2"] = m[2].to_i
+      trigger_info["extended_value_3"] = m[3].to_i
+      trigger_info["extended_value_4"] = m[4].to_i
+      trigger_info["extended_value_5"] = m[5].to_i
+    end
+    
+    triggers_info[i] = trigger_info
+    i = i + 1  
+  end
+  
+  return triggers_info
 end

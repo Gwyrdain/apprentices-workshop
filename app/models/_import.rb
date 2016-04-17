@@ -58,7 +58,7 @@ def parse_mobiles(mobiles_block)
   mobiles_info = Hash.new
   i = 1
   
-  mobiles = mobiles_block.split("#").map(&:strip)
+  mobiles = mobiles_block.split(/^#/).map(&:strip)
   
   mobiles.each do |mobile|
     m = mobile.match(/^(\d*)\n(.*)~\n(.*)~\n(.*)\n~\n/)
@@ -108,7 +108,7 @@ def parse_objects(objects_block)
   objects_info = Hash.new
   i = 1
   
-  objects = objects_block.split("#").map(&:strip)
+  objects = objects_block.split(/^#/).map(&:strip)
   
   objects.each do |object|
     m = object.match(/^(\d*)\n(.*)~\n(.*)~\n(.*)\n~\n/)
@@ -219,7 +219,7 @@ def parse_rooms(rooms_block)
   rooms_info = Hash.new
   i = 1
   
-  rooms = rooms_block.split("#").map(&:strip)
+  rooms = rooms_block.split(/^#/).map(&:strip)
   
   rooms.each do |room|
     m = room.match(/^(\d+)\n(.*)~\n([^~]*)\n~\n(\d*) ([0-9|]*) (\d*)/)
@@ -311,7 +311,7 @@ def parse_strings( strings_block )
   strings_info = Hash.new
   i = 1
   
-  string_sets = strings_block.split("#").map(&:strip)
+  string_sets = strings_block.split(/^#/).map(&:strip)
 
   string_sets.each do |string_set|
     string_info = Hash.new
