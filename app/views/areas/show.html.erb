@@ -266,6 +266,18 @@
       <%= link_to 'Download', area_path(@area, :download => true), :class => 'btn btn-primary'  %>
       <%= link_to 'Preview', area_path(@area, :preview => true), :target => "_blank", :class => 'btn btn-success'  %>
       <%= link_to 'Review', area_path(@area, :review => true), :class => 'btn btn-warning'  %>
+      <div class="btn-group pull-right" role="group" aria-label="...">
+        <button type="button" class="btn btn-warning">Rotate Area</button>
+        <%= link_to '90°', area_path(@area, :rotate => true, :direction => -1),
+                            :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                            :target => "_blank", :class => 'btn btn-default'  %>
+        <%= link_to '180°', area_path(@area, :rotate => true, :direction => -2),
+                            :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                            :target => "_blank", :class => 'btn btn-default'  %>
+        <%= link_to '270°', area_path(@area, :rotate => true, :direction => -3),
+                            :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                            :target => "_blank", :class => 'btn btn-default'  %>
+      </div>
     </div>
 
 </div>
