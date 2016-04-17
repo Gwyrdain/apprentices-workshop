@@ -285,3 +285,24 @@ def parse_exits(exits_block)
   
   return exits_info
 end
+
+def parse_helps( helps_block )
+  helps_info = Hash.new
+  i = 1
+  
+  helps = helps_block.split(/^~$/).map(&:strip)
+  helps.pop
+  helps.each do |help|
+    help_info = Hash.new
+    
+    m = help.match(/^(\d*) (.*)~\n([^~]*)/)
+    help_info["min_level"] = m[1].to_i
+    help_info["keywords"]  = m[2].strip
+    help_info["body"]      = m[3].strip
+    
+    helps_info[i] = help_info
+    i = i + 1
+  end
+  
+  return helps_info
+end

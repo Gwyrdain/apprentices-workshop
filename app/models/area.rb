@@ -312,17 +312,19 @@ class Area < ActiveRecord::Base
     
     area_file = file.read.encode(universal_newline: true).gsub(/\s*\n/,"\n")
 
+    header_info = nil
+    helps_block = nil
     mobiles_block = nil
     objects_block = nil
     rooms_block = nil
     
     strings_block = 'No Strings Block'
+    
     resets_block = 'No Resets Block'
     shops_block = 'No Shops Block'
     specials_block = 'No Specials Block'
     rspecs_block = 'No Room Specials Block'
     triggers_block = 'No Triggers Block'
-    header_info = nil
     
     if area_file.match(/^#AREA.*~.*?\n/) # v1 Header
       header_info = parse_area_header_v1( area_file.match(/^#AREA.*~.*?\n/)[0] )
@@ -332,6 +334,10 @@ class Area < ActiveRecord::Base
       header_info = parse_area_header_v2( area_file.match(/^#AREA.*?\nEnd/m)[0] )
     end
 
+    if area_file.match(/^#HELPS\n(.*?)0 \$~/m)
+      helps_block = parse_helps( area_file.match(/^#HELPS\n(.*?)0 \$~/m)[1] )
+    end
+    
     if area_file.match(/^#MOBILES\n#(.*?)\n#0/m)
       mobiles_block = parse_mobiles( area_file.match(/^#MOBILES\n#(.*?)\n#0/m)[1] )
     end
@@ -344,7 +350,6 @@ class Area < ActiveRecord::Base
       rooms_block = parse_rooms( area_file.match(/^#ROOMS\n#(.*?)\n#0/m)[1] )
     end
     
-    # --- BOOKMARK ---  Items below not started.
     if area_file.match(/^#STRINGS\n#.*?\n#0/m)
       strings_block = area_file.match(/^#STRINGS\n#(.*?)\n#0/m)
     end
@@ -365,9 +370,10 @@ class Area < ActiveRecord::Base
     end
 
     return "<h1>Header</h1>#{format_hash(header_info) if header_info != nil}<hr>" <<
+           "<h1>Helps</h1>#{format_hash(helps_block) if helps_block != nil}<hr>" <<
            "<h1>Mobiles</h1>#{format_hash(mobiles_block) if mobiles_block != nil}<hr>" <<
            "<h1>Objects</h1>#{format_hash(objects_block) if objects_block != nil}<hr>" <<
-           "<h1>Rooms (WIP)</h1>#{format_hash(rooms_block) if rooms_block != nil}<hr>" #<<
+           "<h1>Rooms</h1>#{format_hash(rooms_block) if rooms_block != nil}<hr>" #<<
            #"#{rooms_block}<hr>#{strings_block}<hr>#{resets_block}<hr>#{shops_block}" <<
            #"#{specials_block}<hr>#{rspecs_block}<hr>#{triggers_block}<hr><b>EOF</b>"
 
