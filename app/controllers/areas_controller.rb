@@ -26,6 +26,28 @@ class AreasController < ApplicationController
     if params[:review]
       render('areas/areareview')
     end
+    if params[:rotate]
+      direction = params[:direction].to_i
+      # -1 is for rotate 90°, -2 is for rotate 180°, -3 is for rotate 270°
+      report = 'Rotating '
+      report = "#{report} 90°\n\n"  if direction == -1
+      report = "#{report} 180°\n\n" if direction == -2
+      report = "#{report} 270°\n\n" if direction == -3
+      
+        @area.exits.each do |exit|
+          if exit.direction < 4 # ignore up / down
+            $new_direction = ( exit.direction + direction ) % 4 
+            report = report + "Room #{exit.room.vnum}: #{exit.room.name} -- Old D: #{exit.direction} #{exit.direction_word} => "
+            exit.update_attribute(:direction, $new_direction)
+            report = report + "New D: #{exit.direction} #{exit.direction_word}.\n"
+          else
+            report = report + "Room #{exit.room.vnum}: #{exit.room.name} -- Old D#: #{exit.direction} #{exit.direction_word} (Unchanged for up/down}.\n"
+          end
+        end
+      render('areas/arearotate', locals: {report: report})
+      #render :text => report 
+      #redirect_to @area, notice: 'Area exit directions were rotated. Any randomize resets should be manually reviewed.'
+    end
   end
 
   def new
