@@ -268,7 +268,7 @@ def parse_exits(exits_block)
     m = exit_data.match(/\d\n([^~]*)~/)
     exit_info["description"] = m[1].strip
   
-    m = exit_data.match(/^(.*)~\n(\d*) (\d*) (\d*)$/)
+    m = exit_data.match(/^(.*)~\n([0-9-]*) ([0-9-]*) ([0-9-]*)$/)
     exit_info["keywords"]    = ( m[1].strip == nil ? "" : m[1].strip )
     exit_info["exittype"]    = m[2].to_i
     exit_info["key_vnum"]    = m[3].to_i
