@@ -129,3 +129,18 @@ def door_state(i)
   $state = 'closed+locked' if i == 2
   return $state
 end
+
+def area_flag_as_number( flag_name )
+  $number = 0
+  $number = 2**0 if flag_name == 'MANMADE'
+  $number = 2**1 if flag_name == 'CITY'
+  $number = 2**2 if flag_name == 'FOREST'
+  $number = 2**3 if flag_name == 'LIMITED'
+  $number = 2**4 if flag_name == 'AERIAL'
+  $number = 2**5 if flag_name == 'RESERVED'
+  $number = 2**6 if flag_name == 'ARENA'
+  $number = 2**7 if flag_name == 'QUEST'
+  $number = 2**8 if flag_name == 'NOVNUM'
+  $number = 2**9 if flag_name == 'NOSAVE'
+  return $number
+end

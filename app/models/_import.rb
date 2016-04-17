@@ -6,9 +6,9 @@ def parse_area_header_v1(header)
   header_info["version"] = 1
   
   if m
-    header_info["author"] = m[2].strip
-    header_info["name"]   = m[3].strip
-    header_info["flags"]  = read_flags( m[4].strip )
+    header_info["author"]       = m[2].strip
+    header_info["name"]         = m[3].strip
+    header_info["flags"] = read_flags( m[4].strip ) # These are hex and won't work!!!
 
     if m[1].match(/(\d) (\d)/)
       range = m[1].match(/(\d+) (\d+)/)
@@ -35,9 +35,11 @@ def parse_area_header_v2(header)
   
   header_info["version"] = 2
   
-  header_info["author"] = header.match(/Author (.*)~/)[1].strip
-  header_info["name"]   = header.match(/Name (.*)~/)[1].strip
-  header_info["flags"]  = header.match(/Flags (.*) End/)[1].strip
+  header_info["author"]       = header.match(/Author (.*)~/)[1].strip
+  header_info["name"]         = header.match(/Name (.*)~/)[1].strip
+  header_info["flags_string"] = header.match(/Flags (.*) End/)[1].strip
+
+  header_info["flags"]        = parse_area_flags( header_info["flags_string"] )
   
   header_info["range_low"]   = header.match(/Lowlevel (\d.*)\n/)[1].to_i
   header_info["range_high"]  = header.match(/Highlevel (\d.*)\n/)[1].to_i
@@ -392,4 +394,86 @@ def parse_shops (shops_block)
   end
   
   return shops_info
+end
+
+def parse_specials (specials_block)
+  specials_info = Hash.new
+  i = 1
+  
+  specials_block.gsub!(/^\*.*\n/,'')
+  specials = specials_block.split(/\n/).map(&:strip)
+  
+  specials.each do |special|
+    special_info = Hash.new
+
+    m = special.match(/^(\w) (\d*) (\w*)/)
+    if m
+      special_info["type"] = m[1].strip
+      special_info["vnum"] = m[2].to_i
+      special_info["name"] = m[3].strip
+    end
+    
+    m = special.match(/^\w \d* \w* ([0-9-]*) ([0-9-]*) ([0-9-]*) ([0-9-]*) ([0-9-]*)/)
+    if m
+      special_info["extended_value_1"] = m[1].to_i
+      special_info["extended_value_2"] = m[2].to_i
+      special_info["extended_value_3"] = m[3].to_i
+      special_info["extended_value_4"] = m[4].to_i
+      special_info["extended_value_5"] = m[5].to_i
+    end
+    
+    specials_info[i] = special_info
+    i = i + 1  
+  end
+  
+  return specials_info
+end
+
+def parse_triggers (triggers_block)
+  triggers_info = Hash.new
+  i = 1
+  
+  triggers_block.gsub!(/^\*.*\n/,'')
+  triggers = triggers_block.split(/\n/).map(&:strip)
+  
+  triggers.each do |trigger|
+    trigger_info = Hash.new
+
+    m = trigger.match(/^(\w) (\d*) (\d*) (\w*)/)
+    if m
+      trigger_info["type"] = m[1].strip
+      trigger_info["vnum"] = m[2].to_i
+      trigger_info["door"] = m[3].to_i
+      trigger_info["name"] = m[4].strip
+    end
+    
+    m = trigger.match(/^\w \d* \w* \w* ([0-9-]*) ([0-9-]*) ([0-9-]*) ([0-9-]*) ([0-9-]*)/)
+    if m
+      trigger_info["extended_value_1"] = m[1].to_i
+      trigger_info["extended_value_2"] = m[2].to_i
+      trigger_info["extended_value_3"] = m[3].to_i
+      trigger_info["extended_value_4"] = m[4].to_i
+      trigger_info["extended_value_5"] = m[5].to_i
+    end
+    
+    triggers_info[i] = trigger_info
+    i = i + 1  
+  end
+  
+  return triggers_info
+end
+
+def parse_area_flags( flags_string )
+  $value = 0
+  m = flags_string.match(/\d/) #Any number present?
+  if m
+    # parse as hex?
+    $value = -1
+  else
+    flags_list = flags_string.split(" ").map(&:strip)
+    flags_list.each do |flag|
+      $value = $value + area_flag_as_number( flag )
+    end
+  end
+  return $value
 end
