@@ -118,12 +118,12 @@ def parse_objects(objects_block)
     object_info["sdesc"]    = m[3].strip
     object_info["ldesc"]    = m[4].strip
     
-    m = object.match(/^(\d*) ([0-9|]*) ([0-9|]*)\n(\d*) (\d*) (\d*) (\d*)\n(\d*) (\d*) 0/)
+    m = object.match(/^(\d*) ([0-9|]*) ([0-9|]*)\n(\d*) ([0-9|]*) (\d*) (\d*)\n(\d*) (\d*) 0/)
     object_info["object_type"] = m[1].to_i
     object_info["extra_flags"] = read_flags( m[2].strip )
     object_info["wear_flags"]  = read_flags( m[3].strip )
     object_info["v0"]          = m[4].to_i
-    object_info["v1"]          = m[5].to_i
+    object_info["v1"]          = read_flags( m[5].strip )
     object_info["v2"]          = m[6].to_i
     object_info["v3"]          = m[7].to_i
     object_info["weight"]      = m[8].to_i

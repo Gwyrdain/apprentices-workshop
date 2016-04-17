@@ -412,6 +412,8 @@ def parse_rooms(rooms_block)
     
     if room.match(/^D\d$/) # any exits?
       #room_info["exits"] = parse_exits( room.split(/^D$/).map(&:strip) )
+      
+      room_info["exits"] = parse_exits( room.match(/^D\d\n[^#]*^S$/)[0] ) # Parse from 1st exit to end-of-room
     end
     
     rooms_info[i] = room_info
@@ -421,20 +423,40 @@ def parse_rooms(rooms_block)
   return rooms_info
 end
 
-
-def read_flags( flags )
+def parse_exits(exits_block)
+  exits_block.gsub!(/^D(\d)$/,'Exit: \1')
+  exits_block.gsub!(/^E\n^.*~\n[^~]*~/, '') # remove extra descriptions
+  exits_block.gsub!(/^S$/, '') # remove trailing S
   
-  if flags.match(/|/)
-
-    total = 0
-    number_list = flags.split("|").map(&:strip)
-    number_list.each do |number|
-      total = total + number.to_i
+  exits_list = exits_block.split(/^Exit: /).map(&:strip)
+  exits_list.shift
+  
+  exits_info = Hash.new
+  i = 1
+  
+  exits_list.each do |exit_data|
+    exit_info = Hash.new
+    
+    m = exit_data.match(/^(\d)$/)
+    exit_info["direction"]   = m[1].to_i
+    
+    m = exit_data.match(/\d\n([^~]*)~/)
+    exit_info["description"] = m[1].strip
+  
+    m = exit_data.match(/^(.*)~\n(\d*) (\d*) (\d*)$/)
+    exit_info["keywords"]    = ( m[1].strip == nil ? "" : m[1].strip )
+    exit_info["exittype"]    = m[2].to_i
+    exit_info["key_vnum"]    = m[3].to_i
+    exit_info["exit_vnum"]   = m[4].to_i
+    
+    if exit_data.match(/^O$/)
+      m = exit_data.match(/^O\n(.*)~/)
+      exit_info["name"] = m[1].strip
     end
     
-    return total
-  else
-    return flags
+    exits_info[i] = exit_info
+    i = i + 1
   end
-
+  
+  return exits_info
 end
