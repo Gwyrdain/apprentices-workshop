@@ -354,7 +354,7 @@ class Area < ActiveRecord::Base
     end
     
     if area_file.match(/^#RESETS\n.*?\nS/m)
-      resets_block = area_file.match(/^#RESETS\n.*?\nS/m)
+      resets_block = parse_resets( area_file.match(/^#RESETS\n(.*?)\nS/m)[1] )
     end
     if area_file.match(/^#SHOPS\n.*?\n0/m)
       shops_block = area_file.match(/^#SHOPS\n.*?\n0/m)
@@ -374,9 +374,8 @@ class Area < ActiveRecord::Base
            "<h1>Mobiles</h1>#{format_hash(mobiles_block) if mobiles_block != nil}<hr>" <<
            "<h1>Objects</h1>#{format_hash(objects_block) if objects_block != nil}<hr>" <<
            "<h1>Rooms</h1>#{format_hash(rooms_block) if rooms_block != nil}<hr>" <<
-           "<h1>Strings</h1>#{format_hash(strings_block) if strings_block != nil}<hr>" #<<
-           #"#{rooms_block}<hr>#{strings_block}<hr>#{resets_block}<hr>#{shops_block}" <<
-           #"#{specials_block}<hr>#{rspecs_block}<hr>#{triggers_block}<hr><b>EOF</b>"
+           "<h1>Strings</h1>#{format_hash(strings_block) if strings_block != nil}<hr>" <<
+           "<h1>Resets</h1>#{format_hash(resets_block) if resets_block != nil}<hr>" #<<
 
   end
   
@@ -397,23 +396,32 @@ def format_hash(h)
   return $formatted_hash
 end
 
-def parse_strings( strings_block )
-  strings_info = Hash.new
+def parse_resets (resets_block)
+  resets_info = Hash.new
   i = 1
   
-  string_sets = strings_block.split("#").map(&:strip)
+  resets_block.gsub!(/^\*.*\n/,'')
+  resets = resets_block.split(/\n/).map(&:strip)
+  
+  resets.each do |reset|
+    reset_info = Hash.new
 
-  string_sets.each do |string_set|
-    string_info = Hash.new
+    m = reset.match(/(\w) (\d*) (\d*) (\d*)/)
+    if m
+      reset_info["reset_type"] = m[1].strip
+      reset_info["reset_v0"]   = m[2].to_i
+      reset_info["reset_v1"]   = m[3].to_i
+      reset_info["reset_v2"]   = m[4].to_i
+    end
     
-    m = string_set.match(/^(\d*)\n(.*)\n~\n(.*)\n~/)
-    string_info["min_level"] = m[1].to_i
-    string_info["keywords"]  = m[2].strip
-    string_info["body"]      = m[3].strip
+    m = reset.match(/\w \d* \d* \d* (\d*)/)
+    if m
+      reset_info["reset_v3"]   = m[1].to_i
+    end
     
-    strings_info[i] = string_info
-    i = i + 1
+    resets_info[i] = reset_info
+    i = i + 1  
   end
   
-  return strings_info
+  return resets_info
 end
