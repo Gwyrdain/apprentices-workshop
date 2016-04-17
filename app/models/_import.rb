@@ -42,10 +42,16 @@ def parse_area_header_v2(header)
   header_info["range_low"]   = header.match(/Lowlevel (\d.*)\n/)[1].to_i
   header_info["range_high"]  = header.match(/Highlevel (\d.*)\n/)[1].to_i
   
-  header_info["description"]  = header.match(/Description\n(.*)\n~/m)[1].strip
+  m = header.match(/Description\n(.*)\n~/m) # Allow description to be undefined.
+  if m
+    header_info["description"]  = m[1].strip
+  else
+    header_info["description"]  = nil
+  end
   
-  if header.match(/Installed (.*)\n/)
-    header_info["installed"]  = header.match(/Installed (.*)\n/)[1].strip
+  m = header.match(/Installed (.*)\n/) # Allow insatlled to be undefined.
+  if m
+    header_info["installed"]  = m[1].strip
   else
     header_info["installed"]  = nil
   end
