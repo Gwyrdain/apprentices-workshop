@@ -317,8 +317,7 @@ class Area < ActiveRecord::Base
     mobiles_block = nil
     objects_block = nil
     rooms_block = nil
-    
-    strings_block = 'No Strings Block'
+    strings_block = nil
     
     resets_block = 'No Resets Block'
     shops_block = 'No Shops Block'
@@ -342,17 +341,18 @@ class Area < ActiveRecord::Base
       mobiles_block = parse_mobiles( area_file.match(/^#MOBILES\n#(.*?)\n#0/m)[1] )
     end
 
-    if area_file.match(/^#OBJECTS\n#.*?\n#0/m)
+    if area_file.match(/^#OBJECTS\n#(.*?)\n#0/m)
       objects_block = parse_objects( area_file.match(/^#OBJECTS\n#(.*?)\n#0/m)[1] )
     end
     
-    if area_file.match(/^#ROOMS\n#.*?\n#0/m)
+    if area_file.match(/^#ROOMS\n#(.*?)\n#0/m)
       rooms_block = parse_rooms( area_file.match(/^#ROOMS\n#(.*?)\n#0/m)[1] )
     end
     
     if area_file.match(/^#STRINGS\n#.*?\n#0/m)
-      strings_block = area_file.match(/^#STRINGS\n#(.*?)\n#0/m)
+      strings_block = parse_strings( area_file.match(/^#STRINGS\n#(.*?)\n#0/m)[1] )
     end
+    
     if area_file.match(/^#RESETS\n.*?\nS/m)
       resets_block = area_file.match(/^#RESETS\n.*?\nS/m)
     end
@@ -373,7 +373,8 @@ class Area < ActiveRecord::Base
            "<h1>Helps</h1>#{format_hash(helps_block) if helps_block != nil}<hr>" <<
            "<h1>Mobiles</h1>#{format_hash(mobiles_block) if mobiles_block != nil}<hr>" <<
            "<h1>Objects</h1>#{format_hash(objects_block) if objects_block != nil}<hr>" <<
-           "<h1>Rooms</h1>#{format_hash(rooms_block) if rooms_block != nil}<hr>" #<<
+           "<h1>Rooms</h1>#{format_hash(rooms_block) if rooms_block != nil}<hr>" <<
+           "<h1>Strings</h1>#{format_hash(strings_block) if strings_block != nil}<hr>" #<<
            #"#{rooms_block}<hr>#{strings_block}<hr>#{resets_block}<hr>#{shops_block}" <<
            #"#{specials_block}<hr>#{rspecs_block}<hr>#{triggers_block}<hr><b>EOF</b>"
 
@@ -396,3 +397,23 @@ def format_hash(h)
   return $formatted_hash
 end
 
+def parse_strings( strings_block )
+  strings_info = Hash.new
+  i = 1
+  
+  string_sets = strings_block.split("#").map(&:strip)
+
+  string_sets.each do |string_set|
+    string_info = Hash.new
+    
+    m = string_set.match(/^(\d*)\n(.*)\n~\n(.*)\n~/)
+    string_info["min_level"] = m[1].to_i
+    string_info["keywords"]  = m[2].strip
+    string_info["body"]      = m[3].strip
+    
+    strings_info[i] = string_info
+    i = i + 1
+  end
+  
+  return strings_info
+end

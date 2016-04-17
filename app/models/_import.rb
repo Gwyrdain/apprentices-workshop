@@ -306,3 +306,24 @@ def parse_helps( helps_block )
   
   return helps_info
 end
+
+def parse_strings( strings_block )
+  strings_info = Hash.new
+  i = 1
+  
+  string_sets = strings_block.split("#").map(&:strip)
+
+  string_sets.each do |string_set|
+    string_info = Hash.new
+    
+    m = string_set.match(/^(\d*)\n(.*)\n~\n(.*)\n~/)
+    string_info["min_level"] = m[1].to_i
+    string_info["keywords"]  = m[2].strip
+    string_info["body"]      = m[3].strip
+    
+    strings_info[i] = string_info
+    i = i + 1
+  end
+  
+  return strings_info
+end
