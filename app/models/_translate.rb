@@ -131,6 +131,7 @@ def door_state(i)
 end
 
 def area_flag_as_number( flag_name )
+  flag_name = flag_name.upcase
   $number = 0
   $number = 2**0 if flag_name == 'MANMADE'
   $number = 2**1 if flag_name == 'CITY'

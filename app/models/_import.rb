@@ -8,7 +8,7 @@ def parse_area_header_v1(header)
   if m
     header_info["author"]       = m[2].strip
     header_info["name"]         = m[3].strip
-    header_info["flags"] = read_flags( m[4].strip ) # These are hex and won't work!!!
+    header_info["flags"] = read_hex_flags( m[4].strip ) # These are hex and won't work!!!
 
     if m[1].match(/(\d) (\d)/)
       range = m[1].match(/(\d+) (\d+)/)
@@ -219,6 +219,23 @@ def read_flags( flags )
     return total
   else
     return flags.to_i
+  end
+
+end
+
+def read_hex_flags( flags )
+  
+  if flags.match(/|/)
+
+    total = 0
+    number_list = flags.split("|").map(&:strip)
+    number_list.each do |number|
+      total = total + number.to_i(16)
+    end
+    
+    return total
+  else
+    return flags.to_i(16)
   end
 
 end
@@ -465,12 +482,14 @@ end
 
 def parse_area_flags( flags_string )
   $value = 0
+  
+  flags_list = flags_string.split(" ").map(&:strip)
   m = flags_string.match(/\d/) #Any number present?
   if m
-    # parse as hex?
-    $value = -1
+    flags_list.each do |flag|
+      $value = $value + read_hex_flags( flag )
+    end
   else
-    flags_list = flags_string.split(" ").map(&:strip)
     flags_list.each do |flag|
       $value = $value + area_flag_as_number( flag )
     end
