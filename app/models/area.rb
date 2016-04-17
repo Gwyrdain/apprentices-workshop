@@ -333,19 +333,19 @@ class Area < ActiveRecord::Base
       header_info = parse_area_header_v2( area_file.match(/^#AREA.*?\nEnd/m)[0] )
     end
 
-    if area_file.match(/^#HELPS\n(.*?)0 \$~/m)
+    if area_file.match(/^#HELPS\n.*?0 \$~/m)
       helps_block = parse_helps( area_file.match(/^#HELPS\n(.*?)0 \$~/m)[1] )
     end
     
-    if area_file.match(/^#MOBILES\n#(.*?)\n#0/m)
+    if area_file.match(/^#MOBILES\n#.*?\n#0/m)
       mobiles_block = parse_mobiles( area_file.match(/^#MOBILES\n#(.*?)\n#0/m)[1] )
     end
 
-    if area_file.match(/^#OBJECTS\n#(.*?)\n#0/m)
+    if area_file.match(/^#OBJECTS\n#.*?\n#0/m)
       objects_block = parse_objects( area_file.match(/^#OBJECTS\n#(.*?)\n#0/m)[1] )
     end
     
-    if area_file.match(/^#ROOMS\n#(.*?)\n#0/m)
+    if area_file.match(/^#ROOMS\n#.*?\n#0/m)
       rooms_block = parse_rooms( area_file.match(/^#ROOMS\n#(.*?)\n#0/m)[1] )
     end
     
@@ -357,7 +357,7 @@ class Area < ActiveRecord::Base
       resets_block = parse_resets( area_file.match(/^#RESETS\n(.*?)\nS/m)[1] )
     end
     if area_file.match(/^#SHOPS\n.*?\n0/m)
-      shops_block = area_file.match(/^#SHOPS\n.*?\n0/m)
+      shops_block = parse_shops( area_file.match(/^#SHOPS\n(.*?)\n0/m)[1] )
     end
     if area_file.match(/^#SPECIALS\n.*?\nS/m)
       specials_block = area_file.match(/^#SPECIALS\n.*?\nS/m)
@@ -375,7 +375,8 @@ class Area < ActiveRecord::Base
            "<h1>Objects</h1>#{format_hash(objects_block) if objects_block != nil}<hr>" <<
            "<h1>Rooms</h1>#{format_hash(rooms_block) if rooms_block != nil}<hr>" <<
            "<h1>Strings</h1>#{format_hash(strings_block) if strings_block != nil}<hr>" <<
-           "<h1>Resets</h1>#{format_hash(resets_block) if resets_block != nil}<hr>" #<<
+           "<h1>Resets</h1>#{format_hash(resets_block) if resets_block != nil}<hr>" <<
+           "<h1>Shops</h1>#{format_hash(shops_block) if shops_block != nil}<hr>" #<<
 
   end
   
@@ -396,32 +397,32 @@ def format_hash(h)
   return $formatted_hash
 end
 
-def parse_resets (resets_block)
-  resets_info = Hash.new
+def parse_shops (shops_block)
+  shops_info = Hash.new
   i = 1
   
-  resets_block.gsub!(/^\*.*\n/,'')
-  resets = resets_block.split(/\n/).map(&:strip)
+  shops_block.gsub!(/^\*.*\n/,'') # remove any commented out lines
+  shops = shops_block.split(/\n/).map(&:strip)
   
-  resets.each do |reset|
-    reset_info = Hash.new
+  shops.each do |shop|
+    shop_info = Hash.new
 
-    m = reset.match(/(\w) (\d*) (\d*) (\d*)/)
+    m = shop.match(/^(\d*)\s*(\d*)\s*(\d*)\s*(\d*)\s*(\d*)\s*(\d*)\s*\d*\s*\d*\s*(\d*)\s*(\d*)\s*([0-9-]*)/)
     if m
-      reset_info["reset_type"] = m[1].strip
-      reset_info["reset_v0"]   = m[2].to_i
-      reset_info["reset_v1"]   = m[3].to_i
-      reset_info["reset_v2"]   = m[4].to_i
+      shop_info["mobile_vnum"] = m[1].to_i
+      shop_info["buy_type_1"]  = m[2].to_i
+      shop_info["buy_type_2"]  = m[3].to_i
+      shop_info["buy_type_3"]  = m[4].to_i
+      shop_info["buy_type_4"]  = m[5].to_i
+      shop_info["buy_type_5"]  = m[6].to_i
+      shop_info["open_hour"]   = m[7].to_i
+      shop_info["close_hour"]  = m[8].to_i
+      shop_info["race"]        = m[9].to_i
     end
-    
-    m = reset.match(/\w \d* \d* \d* (\d*)/)
-    if m
-      reset_info["reset_v3"]   = m[1].to_i
-    end
-    
-    resets_info[i] = reset_info
+
+    shops_info[i] = shop_info
     i = i + 1  
   end
   
-  return resets_info
+  return shops_info
 end

@@ -327,3 +327,63 @@ def parse_strings( strings_block )
   
   return strings_info
 end
+
+def parse_resets (resets_block)
+  resets_info = Hash.new
+  i = 1
+  
+  resets_block.gsub!(/^\*.*\n/,'')
+  resets = resets_block.split(/\n/).map(&:strip)
+  
+  resets.each do |reset|
+    reset_info = Hash.new
+
+    m = reset.match(/(\w) (\d*) (\d*) (\d*)/)
+    if m
+      reset_info["reset_type"] = m[1].strip
+      reset_info["reset_v0"]   = m[2].to_i
+      reset_info["reset_v1"]   = m[3].to_i
+      reset_info["reset_v2"]   = m[4].to_i
+    end
+    
+    m = reset.match(/\w \d* \d* \d* (\d*)/)
+    if m
+      reset_info["reset_v3"]   = m[1].to_i
+    end
+    
+    resets_info[i] = reset_info
+    i = i + 1  
+  end
+  
+  return resets_info
+end
+
+def parse_shops (shops_block)
+  shops_info = Hash.new
+  i = 1
+  
+  shops_block.gsub!(/^\*.*\n/,'') # remove any commented out lines
+  shops = shops_block.split(/\n/).map(&:strip)
+  
+  shops.each do |shop|
+    shop_info = Hash.new
+
+    m = shop.match(/^(\d*)\s*(\d*)\s*(\d*)\s*(\d*)\s*(\d*)\s*(\d*)\s*\d*\s*\d*\s*(\d*)\s*(\d*)\s*([0-9-]*)/)
+    if m
+      shop_info["mobile_vnum"] = m[1].to_i
+      shop_info["buy_type_1"]  = m[2].to_i
+      shop_info["buy_type_2"]  = m[3].to_i
+      shop_info["buy_type_3"]  = m[4].to_i
+      shop_info["buy_type_4"]  = m[5].to_i
+      shop_info["buy_type_5"]  = m[6].to_i
+      shop_info["open_hour"]   = m[7].to_i
+      shop_info["close_hour"]  = m[8].to_i
+      shop_info["race"]        = m[9].to_i
+    end
+
+    shops_info[i] = shop_info
+    i = i + 1  
+  end
+  
+  return shops_info
+end
