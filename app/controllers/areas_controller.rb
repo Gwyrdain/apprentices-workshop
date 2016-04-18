@@ -66,6 +66,10 @@ class AreasController < ApplicationController
   end
 
   def create
+    if not params[:area]
+      @area = current_user.rooms.build
+    end
+
     @area = current_user.areas.create(area_params)
 
     @area.flags ||= 0
@@ -82,16 +86,11 @@ class AreasController < ApplicationController
   end
   
   def import
-#    if params[:parse]
-      render :text => Area.import(params[:file], current_user.id)
-#    else
-#      @area = Area.import(params[:file], current_user.id)
-#      if @area.save
-#       redirect_to @area, notice: 'Area was sucessfully imported.'
-#      else
-#       redirect_to areas_path, notice: 'Something went wrong.'
-#      end
-#    end
+    area_info = Area.import(params[:file])
+    
+    import_area( area_info )
+    
+    redirect_to areas_path, notice: 'Area imported.'
   end
 
   def update
@@ -155,3 +154,17 @@ def can_user_view
 
 end
 
+def import_area( area_info )
+  current_user.areas.create(
+    :vnum_qty => 100, ## fix this?
+    :default_terrain => 0,
+    :default_room_flags => 0,
+    :misc_flags => 0,
+    :name => area_info["header_info"]["name"],
+    :author => area_info["header_info"]["author"],
+    :flags => area_info["header_info"]["flags"],
+    :lowlevel => area_info["header_info"]["range_low"],
+    :highlevel => area_info["header_info"]["range_high"],
+    :area_number => 1 ## fix this
+    )
+end
