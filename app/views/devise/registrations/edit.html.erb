@@ -33,6 +33,11 @@
               <%= f.label :collapse_panels, 'collapse_panels'.humanize.upcase, :class => 'control-label non-bold' %>
             </div>
 
+            <div class="check_box col-md-3">
+              <%= f.check_box :use_rulers, {:checked => current_user.use_rulers? ? true : false} %>
+              <%= f.label :use_rulers, 'use_rulers'.humanize.upcase, :class => 'control-label non-bold' %>
+            </div>
+
         </div>  
       </div>
     

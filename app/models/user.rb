@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   
   bitfield :settings,
                     2**0 => :admin,
-                    2**1 => :collapse_panels
+                    2**1 => :collapse_panels,
+                    2**2 => :use_rulers
                     
 
   def is_admin?
