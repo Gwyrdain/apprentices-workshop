@@ -6,7 +6,7 @@
     </a>
   </div>
   
-  <div id="collapse<%= reset.id.to_s %>" class="panel-collapse collapse">
+  <div id="collapse<%= reset.id.to_s %>" class="panel-collapse collapse<%= current_user.collapse_panels? ? '' : 'in' %>">
     <table class="table table-hover monospace">
       <tbody>
       <% if reset.class.name == 'Reset' %>
