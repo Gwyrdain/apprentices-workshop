@@ -1,4 +1,5 @@
-$navbar-height: 50px;
+
+$navbar-height: 40px;
 //$navbar-default-bg: slategray;
 //$navbar-default-color: wheat;
 //$navbar-default-link-color: wheat;
@@ -90,4 +91,16 @@ pre {
     margin: 5px;
     padding: 0px;
     height: 25px;
+}
+
+//.panel-title {
+//    color: $brand-primary;
+//    font-weight: normal;
+//    font-size: 150%;
+//}
+
+h3{
+    font-size: large;
+    padding: 0px;
+    margin: 0px;
 }

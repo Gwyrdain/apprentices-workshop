@@ -7,10 +7,11 @@
   </div>
   
   <div id="collapse<%= reset.id.to_s %>" class="panel-collapse collapse">
-    <ul class="list-group subreset">
+    <table class="table table-hover monospace">
+      <tbody>
       <% if reset.class.name == 'Reset' %>
         <% reset.sub_resets.each do |sub_reset| %>
-          <li class="list-group-item">
+          <tr><td>
               <% if sub_reset.reset_type == 'P' %><a class="text-danger">(LEGACY)</a> <% end %>
               <%= sub_reset.comment %>
               <%= link_to area_reset_sub_reset_path(@area, sub_reset.reset, sub_reset), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
@@ -27,20 +28,20 @@
                 <%= link_to 'Put', new_area_reset_path(@area, sub_reset, :reset_type => 'P', :parent_type => 'sub_reset', :parent_id => sub_reset.id ), :class => 'btn btn-primary btn-xs' %>
                 <%= link_to 'Insert', new_area_reset_path(@area, sub_reset, :reset_type => 'I', :parent_type => 'sub_reset', :parent_id => sub_reset.id ), :class => 'btn btn-primary btn-xs' %>
               <% end %>
-              
-          </li>
-          
-          <% if (sub_reset.reset.area.resets.where(parent_id: sub_reset.id).count > 0) %>
-            <%= render 'resets/sub_resetstable', :reset => sub_reset %>
-          <% end %>
+
+            <% if (sub_reset.reset.area.resets.where(parent_id: sub_reset.id).count > 0) %>
+              <%= render 'resets/sub_resetstable', :reset => sub_reset %>
+            <% end %>
+          </td></tr>
         <% end %>
+        
       <% end %>
       
       <% if reset.class.name == 'Reset' %><% $area = reset.area %><% end %>
       <% if reset.class.name == 'SubReset' %><% $area = reset.reset.area %><% end %>
       
       <% $area.resets.where(parent_id: reset.id).each do |dependent_reset| %>
-        <li class="list-group-item">
+        <tr><td>
             <%= dependent_reset.comment %>
             <%= link_to area_reset_path(@area, dependent_reset), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
               <%= glyph 'info-sign' %>
@@ -56,15 +57,15 @@
               <%= link_to 'Put', new_area_reset_path(@area, dependent_reset, :reset_type => 'P', :parent_type => 'reset', :parent_id => dependent_reset.id ), :class => 'btn btn-primary btn-xs' %>
               <%= link_to 'Insert', new_area_reset_path(@area, dependent_reset, :reset_type => 'I', :parent_type => 'reset', :parent_id => dependent_reset.id ), :class => 'btn btn-primary btn-xs' %>
             <% end %>
-            
-        </li>
 
-        <% if (dependent_reset.area.resets.where(parent_id: dependent_reset.id).count > 0) %>
-          <%= render 'resets/sub_resetstable', :reset => dependent_reset %>
-        <% end %>
+          <% if (dependent_reset.area.resets.where(parent_id: dependent_reset.id).count > 0) %>
+            <%= render 'resets/sub_resetstable', :reset => dependent_reset %>
+          <% end %>
+        </td></tr>
       <% end %>
     
-    </ul>
+      </tbody>
+    </table>
   </div>
 
 </div>
