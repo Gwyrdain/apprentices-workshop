@@ -3,9 +3,7 @@
     <div class="panel-heading"><h3>
      My Areas
     </h3></div>
-    <div class="panel-body">
-      <%= render 'areas/areatable', :some_areas => @areas.order(:area_number).where(:user => current_user.id) %>
-    </div>
+    <%= render 'areas/areatable', :some_areas => @areas.order(:area_number).where(:user => current_user.id) %>
     
     <div class="panel-footer">
       <%= link_to 'New Area', new_area_path, :class => 'btn btn-primary'  %>
@@ -20,7 +18,5 @@
     <div class="panel-heading"><h3>
      Other Areas (Shared With Me)
     </h3></div>
-    <div class="panel-body">
-      <%= render 'areas/areatable', :some_areas => @areas.order(:area_number).where.not(:user => current_user.id) %>
-    </div>
+    <%= render 'areas/areatable', :some_areas => @areas.order(:area_number).where.not(:user => current_user.id) %>
 </div>

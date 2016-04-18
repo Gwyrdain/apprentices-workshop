@@ -1,8 +1,9 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
 <div class="panel panel-default monospace">
-  <div class="panel-heading"><h2>Edit <%= resource_name.to_s.humanize %> <% if current_user.is_admin? %><span class="badge">Admin</span><% end %></h2></div>
+  <div class="panel-heading"><h3>Edit <%= resource_name.to_s.humanize %> <% if current_user.is_admin? %><span class="badge">Admin</span><% end %></h3></div>
   <div class="panel-body form-horizontal">
-    
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
       <%= devise_error_messages! %>
     
       <div class="form-group">
@@ -46,18 +47,15 @@
         </div>
       </div>
       <br>
-      
-      <div class="form-group">
-        <div class='col-md-offset-2 col-md-10'>
-          <%= f.submit 'Update', :class => 'btn btn-primary' %>
-          <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                      root_path, :class => 'btn btn-default' %>
-          <%= link_to "Delete Account", registration_path(resource_name),
-                data: { confirm: "Are you sure?" }, method: :delete, :class => 'btn btn-danger' %>
-        </div>
-      </div>
-      
-    <% end %>
+    
   </div>
-  <div class="panel-footer"></div>
+  <div class="panel-footer">
+    <%= f.submit 'Update', :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                root_path, :class => 'btn btn-default' %>
+    <%= link_to "Delete Account", registration_path(resource_name),
+          data: { confirm: "Are you sure?" }, method: :delete, :class => 'btn btn-danger' %>
+  </div>
 </div>
+
+<% end %>
