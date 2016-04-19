@@ -34,13 +34,25 @@ class SubReset < ActiveRecord::Base
     self.reset_type == 'E' ? true : false
   end
 
-  def comment
-    $desc = nil
+  def comment( verbose = false )
+    $comment = nil
     $obj_sdesc = obj_info(self.val_2, 'sdesc', self.reset.area)
-    $desc = "Equip '#{mobile_info(self.reset.val_2, 'sdesc')}' with '#{$obj_sdesc}' as #{self.wear_loc_word}" if self.reset_type == 'E'
-    $desc = "Give '#{mobile_info(self.reset.val_2, 'sdesc')}' '#{$obj_sdesc}'" if self.reset_type == 'G'
-    $desc = "Put '#{$obj_sdesc}' into '#{obj_info(self.reset.val_2, 'sdesc', self.reset.area)}'" if self.reset_type == 'P'
-    return $desc
+    verbose ? $obj_vnum = " (" + obj_info(self.val_2, 'formal_vnum', self.reset.area) + ")" : $obj_vnum = ''
+    
+    if (self.reset_type == 'E' || self.reset_type == 'G')
+      $target_sdesc = mobile_info(self.reset.val_2, 'sdesc')
+      verbose ? $target_vnum = " (" + mobile_info(self.reset.val_2, 'formal_vnum') + ")" : $target_vnum = ''
+    end
+    
+    if self.reset_type == 'P'
+      $target_sdesc = obj_info(self.reset.val_2, 'sdesc', self.reset.area)
+      verbose ? $target_vnum = " (" + obj_info(self.reset.val_2, 'formal_vnum', self.reset.area) + ")" : $target_vnum = ''
+    end
+    
+    $comment = "Equip '#{$target_sdesc}'#{$target_vnum} with '#{$obj_sdesc}'#{$obj_vnum} as #{self.wear_loc_word}" if self.reset_type == 'E'
+    $comment = "Give '#{$target_sdesc}'#{$target_vnum} '#{$obj_sdesc}'#{$obj_vnum}" if self.reset_type == 'G'
+    $comment = "Put '#{$obj_sdesc}'#{$obj_vnum} into '#{$target_sdesc}'#{$target_vnum}" if self.reset_type == 'P'
+    return $comment
   end
   
   def output
