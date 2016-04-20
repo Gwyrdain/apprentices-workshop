@@ -17,4 +17,4 @@ link_to obj_inv_view(sub_reset.obj_id), edit_area_obj_path(@area, sub_reset.obj_
 
 ></font> [ <%= link_to 'give', new_area_reset_sub_reset_path(@area, reset, :reset_type => 'G', :return_to_room => @room.id) %><% if
 mobile_info(reset.val_2, 'can_wear?') %> | <%= link_to 'equip', new_area_reset_sub_reset_path(@area, reset, :reset_type => 'E',
-:return_to_room => @room.id ) %> ]</div><% end %>
+:return_to_room => @room.id ) %><% end %> ]</div>
