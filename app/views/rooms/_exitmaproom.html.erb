@@ -6,17 +6,15 @@
       <% $dest_room = $this_exit.destination %>
       
       <!-- IF EXIT IN THIS DIR AND THE DESTINATION EXISTS -->
-      <%= link_to area_room_path(@area, $dest_room), :class => 'btn btn-success btn-md btn-block' do %>
-          <%= $this_exit.direction_word %> to <%= $this_exit.destination.vnum %><br>
-          <%= truncate($dest_room.name, length: 14, separator: ' ', omission: '') %><br>
-          &nbsp
+      <%= link_to area_room_path(@area, $dest_room), :class => 'btn btn-success btn-xs btn-block' do %>
+          <%= simple_format ( word_wrap("#{$this_exit.direction_word} to [#{$this_exit.destination.formal_vnum}] #{$dest_room.name}", line_width: 19) ) %>
       <% end %>
       
     <% else %>
       <!-- IF EXIT IN THIS DIR BUT THE DESTINATION DOES NOT EXIST -->
       
       <% if $this_exit.exittype == -1 %>
-        <%= link_to edit_area_room_exit_path(@area, @room, $this_exit), :class => 'btn btn-primary btn-md btn-block' do %>
+        <%= link_to edit_area_room_exit_path(@area, @room, $this_exit), :class => 'btn btn-primary btn-xs btn-block' do %>
           No <%= num_to_dir(dir).titleize %> Exit<br>
           <br>
           Look Only
@@ -25,15 +23,15 @@
       <% end %>
 
       <% if $this_exit.is_external? %>
-        <%= link_to edit_area_room_exit_path(@area, @room, $this_exit), :class => 'btn btn-warning btn-md btn-block' do %>
+        <%= link_to edit_area_room_exit_path(@area, @room, $this_exit), :class => 'btn btn-warning btn-xs btn-block' do %>
           <%= num_to_dir(dir).titleize %> Exit<br>
           To External:<br>
-          <%= $this_exit.exit_room_id %>
+          [<%= $this_exit.exit_room_id %>]
         <% end %>
       <% end %>
       
       <% if $this_exit.is_bad? %>
-        <%= link_to edit_area_room_exit_path(@area, @room, $this_exit), :class => 'btn btn-danger btn-md btn-block' do %>
+        <%= link_to edit_area_room_exit_path(@area, @room, $this_exit), :class => 'btn btn-danger btn-xs btn-block' do %>
           <%= num_to_dir(dir).titleize %> Exit<br>
           is<br>
           BAD
@@ -45,13 +43,13 @@
     
   <% else %>
     <% if @area.rooms.count < @area.vnum_qty %>
-      <%= link_to new_area_room_exit_path(@area, @room, :make_reciprocal => true, :dir => dir), :class => 'btn btn-default btn-md btn-block' do %>
+      <%= link_to new_area_room_exit_path(@area, @room, :make_reciprocal => true, :dir => dir), :class => 'btn btn-default btn-xs btn-block' do %>
         No <%= num_to_dir(dir).titleize %> Exit<br>
         Add<br>
         Reciprocal?
       <% end %>
     <% else %>
-      <%= link_to new_area_room_exit_path(@area, @room, :dir => dir), :class => 'btn btn-default btn-md btn-block' do %>
+      <%= link_to new_area_room_exit_path(@area, @room, :dir => dir), :class => 'btn btn-default btn-xs btn-block' do %>
         No <%= num_to_dir(dir).titleize %> Exit<br>
         <br>
         Add Exit?

@@ -17,29 +17,40 @@ class Reset < ActiveRecord::Base
     self.val_4 ||= 0
   end
 
-  def comment
+  def comment( verbose = false )
     $comment = nil
-    $comment = "Load '" + mobile_info(self.val_2, 'sdesc') + "' at '" + room_info(self.val_4, 'name') + "'" if ( self.reset_type == 'M' || self.reset_type == 'Q' )
-    $comment = "Load '" + obj_info(self.val_2, 'sdesc', self.area) + "' at '" + room_info(self.val_4, 'name') + "'" if self.reset_type == 'O'
     
-    if self.reset_type == 'I'
-      if self.parent
-        $comment = "Insert '" + obj_info(self.val_2, 'sdesc', self.area) + "' into '" + obj_info(self.parent.val_2, 'sdesc', self.area) + "'"
-      else
-        $comment = "Insert '" + obj_info(self.val_2, 'sdesc', self.area) + "' into '" + 'MISSING PARENT' + "'"
-      end
+    if ( self.reset_type == 'M' || self.reset_type == 'Q' )
+      $comment = "Load '#{mobile_info(self.val_2, 'sdesc')}'#{ verbose ? ' (' + mobile_info(self.val_2, 'formal_vnum') + ')' : ''} " <<
+                   "at '#{  room_info(self.val_4, 'name' )}'#{ verbose ? ' (' +   room_info(self.val_4, 'formal_vnum') + ')' : ''}"
     end
     
-    if self.reset_type == 'P'
+    if self.reset_type == 'O'
+      $comment = "Load '#{ obj_info(self.val_2, 'sdesc', self.area)}'#{ verbose ? ' (' +  obj_info(self.val_2, 'formal_vnum', self.area) + ')' : ''} " <<
+                   "at '#{room_info(self.val_4, 'name')            }'#{ verbose ? ' (' + room_info(self.val_4, 'formal_vnum') + ')' : ''}"
+    end
+    
+    if ( self.reset_type == 'I' || self.reset_type == 'P' )
+      
+      self.reset_type == 'I' ? $verb = 'Insert' : $verb = 'Put' 
+      
       if self.parent
-        $comment = "Put '" + obj_info(self.val_2, 'sdesc', self.area) + "' into '" + obj_info(self.parent.val_2, 'sdesc', self.area) + "'"
+        $comment = "#{$verb} '#{ obj_info(self.val_2, 'sdesc', self.area)       }'#{ verbose ? ' (' + obj_info(self.val_2, 'formal_vnum', self.area) + ')' : ''} " <<
+                       "into '#{ obj_info(self.parent.val_2, 'sdesc', self.area)}'#{ verbose ? ' (' + obj_info(self.parent.val_2, 'formal_vnum', self.area) + ')' : ''}"
       else
-        $comment = "Put '" + obj_info(self.val_2, 'sdesc', self.area) + "' into '" + 'MISSING PARENT' + "'"
+        $comment = "#{$verb} '#{ obj_info(self.val_2, 'sdesc', self.area)       }'#{ verbose ? ' (' + obj_info(self.val_2, 'formal_vnum', self.area) + ')' : ''} " <<
+                       "into 'MISSING PARENT'"
       end
     end
   
-    $comment = "Set " + self.reset_door_direction + " door at '" + room_info(self.val_2, 'name') + "' to " + door_state(self.val_4) if self.reset_type == 'D'
-    $comment = "Randomize any " + num_to_exits(self.val_3) + " exits at '" + room_info(self.val_2, 'name') + "'" if self.reset_type == 'R'
+    if self.reset_type == 'D'
+      $comment = "Set #{self.reset_door_direction} door at '#{room_info(self.val_2, 'name')}' #{ verbose ? ' (' + room_info(self.val_2, 'formal_vnum') + ')' : ''} to #{door_state(self.val_4)}"
+    end
+    
+    if self.reset_type == 'R'
+      $comment = "Randomize any #{num_to_exits(self.val_3)} exits at '#{room_info(self.val_2, 'name')}'#{ verbose ? ' (' + room_info(self.val_2, 'formal_vnum') + ')' : ''}"
+    end
+    
     return $comment
   end
   

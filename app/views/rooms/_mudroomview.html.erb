@@ -1,4 +1,4 @@
-<div class="jumbotron monospace-pre"><% if @area.use_rulers? %><%= WORDWRAP_RULER %>
+<div class="jumbotron monospace-pre"><% if current_user.use_rulers? %><%= WORDWRAP_RULER %>
 <% end %><font color=white>[<%= @room.formal_vnum %>]<% if @room.room_flags > 0 %> [<%= @room.room_flags_as_string %>]<% end %> &lt<%= @room.terrain_word %>&gt<%= render 'roomspecial'%></font>
 
 <%= link_to "<font color='darkcyan'>#{@room.name.gsub("<","&lt;").gsub(">","&gt;")}</font>".html_safe, edit_area_room_path(@area, @room) %>
@@ -13,4 +13,4 @@ link_to exit.direction_word.downcase, edit_area_room_exit_path(@area, @room, exi
 @area.resets.order(:val_2).where(reset_type: ['M', 'Q']).where(val_4: @room.id).each do |reset| %><% if Mobile.exists?(:id => reset.obj_id) %><%= 
 render 'mudmobileview', :reset => reset %><% end %><% end %><% end %>
 
-<% if @area.use_rulers? %><%= WORDWRAP_RULER %><% end %></div>
+<% if current_user.use_rulers? %><%= WORDWRAP_RULER %><% end %></div>

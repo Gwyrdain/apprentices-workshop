@@ -11,7 +11,7 @@
         <thead>
           <tr>
             <th>Type</th>
-            <th>Vnum</th>
+
             <th>Description</th>
             <th><%=t '.actions', :default => t("helpers.actions") %></th>
           </tr>
@@ -22,7 +22,7 @@
               <td><%= reset.desc_brief %></td>
               <td><%= reset.output.match(/^\w \d* (\d*)/)[1] %></td>
               <td>
-                <%= reset.comment %>
+                <%= reset.comment(true)%>
                 <% if (reset.sub_resets.count > 0) || (reset.area.resets.where(parent_id: reset.id).count > 0) %>
                   <%= render 'resets/sub_resetstable', :reset => reset %>
                 <% end %>

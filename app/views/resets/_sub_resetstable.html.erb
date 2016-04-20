@@ -6,14 +6,14 @@
     </a>
   </div>
   
-  <div id="collapse<%= reset.id.to_s %>" class="panel-collapse collapse">
+  <div id="collapse<%= reset.id.to_s %>" class="panel-collapse collapse<%= current_user.collapse_panels? ? '' : 'in' %>">
     <table class="table table-hover monospace">
       <tbody>
       <% if reset.class.name == 'Reset' %>
         <% reset.sub_resets.each do |sub_reset| %>
           <tr><td>
               <% if sub_reset.reset_type == 'P' %><a class="text-danger">(LEGACY)</a> <% end %>
-              <%= sub_reset.comment %>
+              <%= sub_reset.comment(true) %>
               <%= link_to area_reset_sub_reset_path(@area, sub_reset.reset, sub_reset), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
                 <%= glyph 'info-sign' %>
               <%- end -%>
@@ -42,7 +42,7 @@
       
       <% $area.resets.where(parent_id: reset.id).each do |dependent_reset| %>
         <tr><td>
-            <%= dependent_reset.comment %>
+            <%= dependent_reset.comment(true) %>
             <%= link_to area_reset_path(@area, dependent_reset), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
               <%= glyph 'info-sign' %>
             <%- end -%>

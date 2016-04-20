@@ -23,9 +23,8 @@
       <%= render 'rooms/exitmaproom', :room => @room, :dir => 3 %>
       
       <div class="col-md-2">
-        <button type="button" class="btn btn-info btn-md btn-block" disabled="disabled">
-          <%= @room.vnum %><br>
-          <%= truncate(@room.name, length: 14, separator: ' ', omission: '') %><br>
+        <button type="button" class="btn btn-info btn-xs btn-block" disabled="disabled">
+          <%= simple_format ( word_wrap("[#{@room.formal_vnum}] #{@room.name}", line_width: 19) ) %>
           (You are here)
         </button>
       </div>
