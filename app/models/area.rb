@@ -85,6 +85,9 @@ class Area < ActiveRecord::Base
   validates :default_terrain, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :area_number,  numericality: { only_integer: true, greater_than: 0 }
   validates :user_id,  numericality: { only_integer: true, greater_than: 0 }
+  validates :revision, numericality: { only_integer: true, greater_than_or_equal_to: 0 },
+                       uniqueness:   { scope: :name,
+                                       message: "No duplicate revision numbers allowed." }
   
   validate do |area|
     area.errors.add :base, "Name may only contain US-ASCII characters.  Invalid characters: " + area.name.remove(/[\x0A\x0D -~]/) if area.name.remove(/[\x0A\x0D -~]/).length > 0

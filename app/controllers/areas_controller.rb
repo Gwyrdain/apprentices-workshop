@@ -129,7 +129,7 @@ class AreasController < ApplicationController
                                    :misc_flags, :share_publicly,
                                    :description, :lowlevel, :highlevel,
                                    :file, :use_rulers, :flags, :installed,
-                                   :show_formatted_blocks
+                                   :show_formatted_blocks, :revision
                                   )
     end
 end
@@ -155,8 +155,17 @@ def can_user_view
 end
 
 def import_area( area_info )
+  
+  $areas_with_same_name = Area.where(:name => area_info["header_info"]["name"])
+  
+  if $areas_with_same_name
+    $new_rev = $areas_with_same_name.order(revision: :desc).first.revision + 1
+  else
+    $new_rev = 0
+  end
+  
   current_user.areas.create(
-    :vnum_qty => 100, ## fix this?
+    :vnum_qty => 100, ## fix this
     :default_terrain => 0,
     :default_room_flags => 0,
     :misc_flags => 0,
@@ -165,6 +174,7 @@ def import_area( area_info )
     :flags => area_info["header_info"]["flags"],
     :lowlevel => area_info["header_info"]["range_low"],
     :highlevel => area_info["header_info"]["range_high"],
-    :area_number => 1 ## fix this
+    :area_number => 1, ## fix this
+    :revision => $new_rev
     )
 end
