@@ -164,7 +164,7 @@ def import_area( area_info )
     $new_rev = 0
   end
   
-  current_user.areas.create(
+  $new_area = current_user.areas.create(
     :vnum_qty => 100, ## fix this
     :default_terrain => 0,
     :default_room_flags => 0,
@@ -177,4 +177,13 @@ def import_area( area_info )
     :area_number => 1, ## fix this
     :revision => $new_rev
     )
+    
+  area_info["helps_block"].each_value do |help_record|
+    $new_area.helps.create(
+      :min_level => help_record["min_level"].to_i,
+      :keywords => help_record["keywords"],
+      :body => help_record["body"]
+      )
+  end
+    
 end
