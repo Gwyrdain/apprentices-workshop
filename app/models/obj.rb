@@ -138,6 +138,14 @@ class Obj < ActiveRecord::Base
   def vnum_and_sdesc
     return  format("%03d",self.vnum) + " " + self.sdesc
   end
+  
+  def is_container
+    if self.object_type == 15
+      return true
+    else
+      return false
+    end
+  end
 
   def wear_location
     $wear_loc = nil
@@ -182,7 +190,7 @@ class Obj < ActiveRecord::Base
   def my_area
     return self.area
   end
-
+  
 end
 
 
