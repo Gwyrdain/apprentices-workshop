@@ -1,6 +1,6 @@
 module RoomsHelper
   
-  def obj_room_view(id)
+  def obj_room_view(id, safe = true)
     output = ''
     if Obj.exists?(:id => id)
       this_obj = Obj.find(id)
@@ -12,7 +12,11 @@ module RoomsHelper
       output = output << "(Invis) "   if this_obj.invis?
       
       output = output << "#{this_obj.ldesc.gsub("<","&lt;").gsub(">","&gt;")}</font>"
-      return output.html_safe
+      if safe
+        return output.html_safe
+      else
+        return strip_tags(output)
+      end
     else
       return '*** ERROR: OBJECT NOT FOUND ***'
     end
@@ -36,7 +40,7 @@ module RoomsHelper
     end
   end
   
-  def mobile_room_view(id)
+  def mobile_room_view(id, safe = true)
     output = ''
     if Mobile.exists?(:id => id)
       this_mobile = Mobile.find(id)
@@ -50,7 +54,11 @@ module RoomsHelper
       
       output = output << "</font><font color=purple>"
       output = output << "#{this_mobile.ldesc.gsub("<","&lt;").gsub(">","&gt;")}</font>"
-      return output.html_safe
+      if safe
+        return output.html_safe
+      else
+        return strip_tags(output)
+      end
     else
       return '*** ERROR: MOBILE NOT FOUND ***'
     end

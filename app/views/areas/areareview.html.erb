@@ -32,6 +32,8 @@
         
         <% if !mobile.stay_area? %><li class="list-group-item list-group-item-warning">The 'STAY AREA' flag is not set for <%= link_to "#{mobile.formal_vnum} #{mobile.sdesc}", area_mobile_path(@area, mobile) %>.</li><% end %>
         
+        <% if mobile_room_view(mobile.id, false).length > WORDWRAP_LENGTH %><li class="list-group-item list-group-item-warning">With (prefixes) mobile long description length is <%= mobile_room_view(mobile.id, false).length %> characters: <%= link_to "#{mobile.formal_vnum} #{mobile.sdesc}", area_mobile_path(@area, mobile) %>.</li><% end %>
+        
       <% end %>
       
       <!-- REVIEW OBJECTS FOR ISSUES -->
@@ -43,6 +45,8 @@
         
         <% if obj.has_applies_without_magic_flag? %><li class="list-group-item list-group-item-danger">No 'MAGIC' flag set for <%= link_to "#{obj.formal_vnum} #{obj.sdesc}", area_obj_path(@area, obj) %> (which has applies).</li><% end %>
 
+        <% if obj_room_view(obj.id, false).length > WORDWRAP_LENGTH %><li class="list-group-item list-group-item-warning">With (prefixes) object long description length is <%= obj_room_view(obj.id, false).length %> characters: <%= link_to "#{obj.formal_vnum} #{obj.sdesc}", area_obj_path(@area, obj) %>.</li><% end %>
+        
       <% end %>
 
       <!-- REVIEW CONTAINER RESETS FOR ISSUES -->
