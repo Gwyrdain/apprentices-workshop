@@ -5,7 +5,7 @@
 <font color=red>[</font><font color=darkred>Exits:<% if @room.exits.where("exittype > ?", -1).count < 1 %> <font color=white>none</font><% end %><% @room.exits.where("exittype > ?", -1).order(:direction).each do |exit| %> <u><% 
 if exit.destination_exists? %><%= link_to exit.direction_word.downcase, area_room_path(@area, exit.destination), {:style => 'color: darkred'} %><% else %><%= 
 link_to exit.direction_word.downcase, edit_area_room_exit_path(@area, @room, exit), {:style => 'color: darkred'} %><% end %></u><% end %></font><font color=red>]</font> <% if @room.exits.where(:exittype => -1).count > 0 %><font color=#303030>(Look:<% @room.exits.where(exittype: -1).order(:direction).each do |exit| %> <u><%=
-link_to exit.direction_word.downcase, edit_area_room_exit_path(@area, @room, exit), {:style => 'color: #303030'} %><% end %></u>)</font><% end %>
+link_to exit.direction_word.downcase, edit_area_room_exit_path(@area, @room, exit), {:style => 'color: #303030'} %></u><% end %>)</font><% end %>
 <%= word_wrap(@room.description, line_width: WORDWRAP_LENGTH) %>
 <% if @room.has_contents? %>
 
