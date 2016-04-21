@@ -64,6 +64,9 @@
     <div class="panel-footer">
       <%= link_to 'New reset', new_area_reset_path(@area) %> | 
       <%= link_to 'Back', area_path(@area) %>
+      <% if @area.sub_resets.where(:reset_type => 'P').count > 0 %>
+       | <%= link_to 'Convert Legecy Put Resets', new_area_reset_path(@area, :convert_legacy => true) %>
+      <% end %>
     </div>
     
 </div>
