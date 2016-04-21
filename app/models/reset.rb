@@ -149,6 +149,50 @@ class Reset < ActiveRecord::Base
   def my_area
     return self.area
   end
+  
+  def is_container
+    if (( self.reset_type == 'O' || self.reset_type == 'I' || self.reset_type == 'P' ) && 
+          self.area.objs.exists?(:id => self.obj_id) && Obj.find(self.obj_id).is_container )
+      return true
+    else
+      return false
+    end
+  end
+  
+  def container_capacity
+    if self.is_container
+      $container = Obj.find(self.obj_id)
+      # capacity value less container weight
+      return ( $container.v0 - $container.weight )
+    else
+      return 0
+    end
+  end
+  
+  def container_weight_held
+    if self.is_container
+      $weight_held = 0
+      dependent_resets.each do |dependent_reset|
+        if dependent_reset.is_container
+          $weight_held = $weight_held + dependent_reset.container_filled_weight
+        else
+          $weight_held = $weight_held + dependent_reset.object_weight
+        end
+      end
+      return $weight_held
+    else
+      return 0
+    end
+  end
+
+  def object_weight
+    $object = Obj.find(self.obj_id)
+    return $object.weight
+  end
+  
+  def container_filled_weight
+    return (self.container_weight_held + self.object_weight)
+  end
 
 end
 

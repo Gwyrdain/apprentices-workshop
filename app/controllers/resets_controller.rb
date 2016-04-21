@@ -28,8 +28,24 @@ class ResetsController < ApplicationController
       
       redirect_to area_resets_path(@area), notice: 'Reset copied.'
     else
-      @reset = @area.resets.build
-      @reset.reset_type = params[:reset_type]
+      if params[:convert_legacy]
+        @area.sub_resets.where(:reset_type => 'P').each do |legacy_put|
+          @area.resets.create(
+            :reset_type => 'P',
+            :parent_type => 'reset',
+            :parent_id => legacy_put.reset.id,
+            :val_1 => legacy_put.val_1,
+            :val_2 => legacy_put.val_2,
+            :val_3 => legacy_put.val_3,
+            :val_4 => legacy_put.val_4
+            )
+          legacy_put.destroy
+        end
+        redirect_to area_resets_path(@area), notice: 'Converted legacy put resets.'
+      else
+        @reset = @area.resets.build
+        @reset.reset_type = params[:reset_type]
+      end
     end
   end
 
