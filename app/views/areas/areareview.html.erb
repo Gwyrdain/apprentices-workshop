@@ -34,7 +34,7 @@
         
       <% end %>
       
-      <!-- REVIEW OBJECTS FOR ISSUES -->  
+      <!-- REVIEW OBJECTS FOR ISSUES -->
       <% @area.objs.order(:vnum).each do |obj| %>
       
         <% if !obj.has_assoc_reset? %><li class="list-group-item list-group-item-warning">No reset has been created for <%= link_to "#{obj.formal_vnum} #{obj.sdesc}", area_obj_path(@area, obj) %>.</li><% end %>
@@ -42,6 +42,13 @@
         <% if obj.ldesc.length < 1 %><li class="list-group-item list-group-item-warning">No long description given for <%= link_to "#{obj.formal_vnum} #{obj.sdesc}", area_obj_path(@area, obj) %>.</li><% end %>        
         
         <% if obj.has_applies_without_magic_flag? %><li class="list-group-item list-group-item-danger">No 'MAGIC' flag set for <%= link_to "#{obj.formal_vnum} #{obj.sdesc}", area_obj_path(@area, obj) %> (which has applies).</li><% end %>
+
+      <% end %>
+
+      <!-- REVIEW CONTAINER RESETS FOR ISSUES -->
+      <% @area.resets.where(reset_type: ['I', 'O']).each do |reset| %>
+      
+        <% if reset.container_weight_held > reset.container_capacity %><li class="list-group-item list-group-item-danger">Overloaded container reset: <%= link_to "#{reset.comment}", area_reset_path(@area, reset) %>.</li><% end %>
 
       <% end %>
       

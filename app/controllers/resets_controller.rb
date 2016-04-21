@@ -106,7 +106,7 @@ class ResetsController < ApplicationController
       if params[:return_to_room]
         redirect_to area_room_path(@area, params[:return_to_room]), notice: 'Reset was sucessfully created.'
       else
-        redirect_to area_reset_path(@area, @reset), notice: 'Reset was sucessfully created.'
+        redirect_to area_resets_path(@area), notice: 'Reset was sucessfully created.'
       end
     else
       render action: 'new'
