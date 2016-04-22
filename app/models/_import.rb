@@ -496,3 +496,17 @@ def parse_area_flags( flags_string )
   end
   return $value
 end
+
+def get_area_number(area_info)
+  $room_number = 0
+  if area_info["mobiles_block"].count > 1
+    $room_number = area_info["mobiles_block"][1]["vnum"] / 100
+  end
+  if area_info["objects_block"].count > 1
+    $room_number = area_info["objects_block"][1]["vnum"] / 100
+  end
+  if area_info["rooms_block"].count > 1
+    $room_number = area_info["rooms_block"][1]["vnum"] / 100
+  end
+  return $room_number
+end

@@ -11,11 +11,7 @@
         <%= glyph 'plus' %>
       <%- end -%>
       <div class="pull-right">
-        <div class="btn-group" role="group" aria-label="...">
-          <%= link_to "Rooms", area_rooms_path(@area), :class => 'btn btn-default btn-xs' %>
-          <%= link_to "Mobiles", area_mobiles_path(@area), :class => 'btn btn-default btn-xs' %>
-          <%= link_to "Objects", area_objs_path(@area), :class => 'btn btn-default btn-xs' %>
-        </div>
+        <%= render 'areas/quick_links' %>
         <div class="btn-group " role="group" aria-label="...">
           <% if @obj.last_obj %><%= link_to "Last Object: #{@obj.last_obj.vnum}", area_obj_path(@area, @obj.last_obj), :class => 'btn btn-default  btn-xs' %><% end %>
           <% if @obj.next_obj %><%= link_to "Next Object: #{@obj.next_obj.vnum}", area_obj_path(@area, @obj.next_obj), :class => 'btn btn-default  btn-xs' %><% end %>

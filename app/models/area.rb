@@ -311,6 +311,8 @@ class Area < ActiveRecord::Base
     area_info["specials_block"] = specials_block
     area_info["rspecs_block"]   = rspecs_block
     area_info["triggers_block"] = triggers_block
+    
+    area_info["header_info"]["area_number"] = get_area_number( area_info )
 
     if parse_only
       return "<h1>Header</h1>#{format_hash(header_info) if header_info != nil}<hr>" <<

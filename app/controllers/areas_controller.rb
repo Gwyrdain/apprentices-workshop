@@ -168,7 +168,7 @@ def import_area( area_info )
   end
   
   $new_area = current_user.areas.create(
-    :vnum_qty => 100, ## fix this
+    :vnum_qty => 1000, ## maybe reset lower after import when high vnums known?
     :default_terrain => 0,
     :default_room_flags => 0,
     :misc_flags => 0,
@@ -177,7 +177,7 @@ def import_area( area_info )
     :flags => area_info["header_info"]["flags"],
     :lowlevel => area_info["header_info"]["range_low"],
     :highlevel => area_info["header_info"]["range_high"],
-    :area_number => 1, ## fix this
+    :area_number => area_info["header_info"]["area_number"],
     :revision => $new_rev
     )
     
@@ -191,10 +191,31 @@ def import_area( area_info )
     end
   end
   
+  if area_info["mobiles_block"]
+    area_info["mobiles_block"].each_value do |mobile_record|
+      $vnum = mobile_record["vnum"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
+      $new_area.mobiles.create(
+        :vnum => $vnum,
+        :keywords => mobile_record["keywords"],
+        :sdesc => mobile_record["sdesc"],
+        :ldesc => mobile_record["ldesc"],
+        :look_desc => mobile_record["look_desc"],
+        :act_flags => mobile_record["act_flags"].to_i,
+        :affect_flags => mobile_record["affect_flags"].to_i,
+        :alignment => mobile_record["alignment"].to_i,
+        :level => mobile_record["level"].to_i,
+        :sex => mobile_record["sex"].to_i,
+        :langs_known => mobile_record["langs_known"],
+        :lang_spoken => mobile_record["lang_spoken"]
+        )
+    end
+  end
+  
   if area_info["strings_block"]
     area_info["strings_block"].each_value do |string_record|
+      $vnum = string_record["vnum"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
       $new_area.area_strings.create(
-        :vnum => string_record["vnum"].to_i,
+        :vnum => $vnum,
         :message_to_pc => string_record["message_to_pc"],
         :message_to_room => string_record["message_to_room"]
         )
