@@ -86,11 +86,13 @@ class AreasController < ApplicationController
   end
   
   def import
-    #area_info = Area.import(params[:file])
-    render :text => Area.import(params[:file])
-    #import_area( area_info )
-    
-    #redirect_to areas_path, notice: 'Area imported.'
+    if params[:parse_only]
+      render :text => Area.import(params[:file], true)
+    else
+      area_info = Area.import(params[:file], false)
+      import_area( area_info )
+      redirect_to areas_path, notice: 'Area imported.'
+    end
   end
 
   def update
@@ -129,7 +131,8 @@ class AreasController < ApplicationController
                                    :misc_flags, :share_publicly,
                                    :description, :lowlevel, :highlevel,
                                    :file, :use_rulers, :flags, :installed,
-                                   :show_formatted_blocks, :revision
+                                   :show_formatted_blocks, :revision,
+                                   :parse_only
                                   )
     end
 end

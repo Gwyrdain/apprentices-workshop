@@ -52,7 +52,9 @@
       </div>
     </div>
   </div>
-
+  <% if params[:parse_only] %>
+    <%= hidden_field_tag 'parse_only', 'true' %>
+  <% end %>
   <div class="form-group">
     <div class='col-md-offset-2 col-md-10'>  
       <%= submit_tag "Import", :class => 'btn btn-primary' %>

@@ -233,7 +233,7 @@ class Area < ActiveRecord::Base
     return $latest_update
   end
   
-  def self.import(file)
+  def self.import(file, parse_only = true)
 
     range_low ||= 0
     range_high ||= 0
@@ -312,21 +312,21 @@ class Area < ActiveRecord::Base
     area_info["rspecs_block"]   = rspecs_block
     area_info["triggers_block"] = triggers_block
 
-  #return area_info
-  #return format_hash( area_info )
-  
-    return "<h1>Header</h1>#{format_hash(header_info) if header_info != nil}<hr>" <<
-           "<h1>Helps</h1>#{format_hash(helps_block) if helps_block != nil}<hr>" <<
-           "<h1>Mobiles</h1>#{format_hash(mobiles_block) if mobiles_block != nil}<hr>" <<
-           "<h1>Objects</h1>#{format_hash(objects_block) if objects_block != nil}<hr>" <<
-           "<h1>Rooms</h1>#{format_hash(rooms_block) if rooms_block != nil}<hr>" <<
-           "<h1>Strings</h1>#{format_hash(strings_block) if strings_block != nil}<hr>" <<
-           "<h1>Resets</h1>#{format_hash(resets_block) if resets_block != nil}<hr>" <<
-           "<h1>Shops</h1>#{format_hash(shops_block) if shops_block != nil}<hr>" <<
-           "<h1>Specials</h1>#{format_hash(specials_block) if specials_block != nil}<hr>" <<
-           "<h1>Room Specials</h1>#{format_hash(rspecs_block) if rspecs_block != nil}<hr>" <<
-           "<h1>Triggers</h1>#{format_hash(triggers_block) if triggers_block != nil}<hr>"
-
+    if parse_only
+      return "<h1>Header</h1>#{format_hash(header_info) if header_info != nil}<hr>" <<
+             "<h1>Helps</h1>#{format_hash(helps_block) if helps_block != nil}<hr>" <<
+             "<h1>Mobiles</h1>#{format_hash(mobiles_block) if mobiles_block != nil}<hr>" <<
+             "<h1>Objects</h1>#{format_hash(objects_block) if objects_block != nil}<hr>" <<
+             "<h1>Rooms</h1>#{format_hash(rooms_block) if rooms_block != nil}<hr>" <<
+             "<h1>Strings</h1>#{format_hash(strings_block) if strings_block != nil}<hr>" <<
+             "<h1>Resets</h1>#{format_hash(resets_block) if resets_block != nil}<hr>" <<
+             "<h1>Shops</h1>#{format_hash(shops_block) if shops_block != nil}<hr>" <<
+             "<h1>Specials</h1>#{format_hash(specials_block) if specials_block != nil}<hr>" <<
+             "<h1>Room Specials</h1>#{format_hash(rspecs_block) if rspecs_block != nil}<hr>" <<
+             "<h1>Triggers</h1>#{format_hash(triggers_block) if triggers_block != nil}<hr>"
+    else
+      return area_info
+    end
   end
   
 end
