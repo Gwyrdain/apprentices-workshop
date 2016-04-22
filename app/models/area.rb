@@ -312,10 +312,9 @@ class Area < ActiveRecord::Base
     area_info["rspecs_block"]   = rspecs_block
     area_info["triggers_block"] = triggers_block
 
-  return area_info
+  #return area_info
   #return format_hash( area_info )
   
-=begin
     return "<h1>Header</h1>#{format_hash(header_info) if header_info != nil}<hr>" <<
            "<h1>Helps</h1>#{format_hash(helps_block) if helps_block != nil}<hr>" <<
            "<h1>Mobiles</h1>#{format_hash(mobiles_block) if mobiles_block != nil}<hr>" <<
@@ -327,7 +326,6 @@ class Area < ActiveRecord::Base
            "<h1>Specials</h1>#{format_hash(specials_block) if specials_block != nil}<hr>" <<
            "<h1>Room Specials</h1>#{format_hash(rspecs_block) if rspecs_block != nil}<hr>" <<
            "<h1>Triggers</h1>#{format_hash(triggers_block) if triggers_block != nil}<hr>"
-=end
 
   end
   

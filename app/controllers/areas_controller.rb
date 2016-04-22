@@ -86,11 +86,11 @@ class AreasController < ApplicationController
   end
   
   def import
-    area_info = Area.import(params[:file])
+    #area_info = Area.import(params[:file])
+    render :text => Area.import(params[:file])
+    #import_area( area_info )
     
-    import_area( area_info )
-    
-    redirect_to areas_path, notice: 'Area imported.'
+    #redirect_to areas_path, notice: 'Area imported.'
   end
 
   def update
@@ -158,7 +158,7 @@ def import_area( area_info )
   
   $areas_with_same_name = Area.where(:name => area_info["header_info"]["name"])
   
-  if $areas_with_same_name
+  if $areas_with_same_name.count > 0
     $new_rev = $areas_with_same_name.order(revision: :desc).first.revision + 1
   else
     $new_rev = 0
@@ -178,12 +178,24 @@ def import_area( area_info )
     :revision => $new_rev
     )
     
-  area_info["helps_block"].each_value do |help_record|
-    $new_area.helps.create(
-      :min_level => help_record["min_level"].to_i,
-      :keywords => help_record["keywords"],
-      :body => help_record["body"]
-      )
+  if area_info["helps_block"]
+      area_info["helps_block"].each_value do |help_record|
+      $new_area.helps.create(
+        :min_level => help_record["min_level"].to_i,
+        :keywords => help_record["keywords"],
+        :body => help_record["body"]
+        )
+    end
+  end
+  
+  if area_info["strings_block"]
+    area_info["strings_block"].each_value do |string_record|
+      $new_area.area_strings.create(
+        :vnum => string_record["vnum"].to_i,
+        :message_to_pc => string_record["message_to_pc"],
+        :message_to_room => string_record["message_to_room"]
+        )
+    end
   end
     
 end

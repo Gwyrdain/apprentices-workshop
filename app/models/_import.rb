@@ -342,9 +342,9 @@ def parse_strings( strings_block )
     string_info = Hash.new
     
     m = string_set.match(/^(\d*)\n(.*)\n~\n(.*)\n~/)
-    string_info["min_level"] = m[1].to_i
-    string_info["keywords"]  = m[2].strip
-    string_info["body"]      = m[3].strip
+    string_info["vnum"]            = m[1].to_i
+    string_info["message_to_pc"]   = m[2].strip
+    string_info["message_to_room"] = m[3].strip
     
     strings_info[i] = string_info
     i = i + 1
