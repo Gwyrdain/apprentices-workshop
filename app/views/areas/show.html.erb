@@ -15,7 +15,7 @@
     </h3>
   </div>
     <div class="panel-body">
-      
+
       <div class="row">
         <div class="col-md-2">
           <strong>Area Owner:</strong>
@@ -26,6 +26,17 @@
             <% if ( current_user.id == @area.user_id || current_user.is_admin? ) %>
               <%= link_to 'Transfer Ownership', edit_area_path(@area, :ownership => true), :class => 'btn btn-warning btn-xs' %>
             <% end %>
+          </div>
+        </div>
+      </div><br/>
+      
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Revision:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @area.revision %>
           </div>
         </div>
       </div><br/>

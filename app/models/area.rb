@@ -1,6 +1,7 @@
 require_relative '_import'
 require_relative '_translate'
 require_relative '_lookup'
+require_relative '_support'
 
 class Area < ActiveRecord::Base
   belongs_to :user
@@ -84,6 +85,9 @@ class Area < ActiveRecord::Base
   validates :default_terrain, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :area_number,  numericality: { only_integer: true, greater_than: 0 }
   validates :user_id,  numericality: { only_integer: true, greater_than: 0 }
+  validates :revision, numericality: { only_integer: true, greater_than_or_equal_to: 0 },
+                       uniqueness:   { scope: :name,
+                                       message: "No duplicate revision numbers allowed." }
   
   validate do |area|
     area.errors.add :base, "Name may only contain US-ASCII characters.  Invalid characters: " + area.name.remove(/[\x0A\x0D -~]/) if area.name.remove(/[\x0A\x0D -~]/).length > 0
@@ -229,7 +233,7 @@ class Area < ActiveRecord::Base
     return $latest_update
   end
   
-  def self.import(file, user_id)
+  def self.import(file, parse_only = true)
 
     range_low ||= 0
     range_high ||= 0
@@ -294,35 +298,35 @@ class Area < ActiveRecord::Base
     if area_file.match(/^#TRIGGERS\n.*?\nS/m)
       triggers_block = parse_triggers( area_file.match(/^#TRIGGERS\n(.*?)\nS/m)[1] )
     end
+    
+    area_info = Hash.new
+    area_info["header_info"]    = header_info
+    area_info["helps_block"]    = helps_block
+    area_info["mobiles_block"]  = mobiles_block
+    area_info["objects_block"]  = objects_block
+    area_info["rooms_block"]    = rooms_block
+    area_info["strings_block"]  = strings_block
+    area_info["resets_block"]   = resets_block
+    area_info["shops_block"]    = shops_block
+    area_info["specials_block"] = specials_block
+    area_info["rspecs_block"]   = rspecs_block
+    area_info["triggers_block"] = triggers_block
 
-    return "<h1>Header</h1>#{format_hash(header_info) if header_info != nil}<hr>" <<
-           "<h1>Helps</h1>#{format_hash(helps_block) if helps_block != nil}<hr>" <<
-           "<h1>Mobiles</h1>#{format_hash(mobiles_block) if mobiles_block != nil}<hr>" <<
-           "<h1>Objects</h1>#{format_hash(objects_block) if objects_block != nil}<hr>" <<
-           "<h1>Rooms</h1>#{format_hash(rooms_block) if rooms_block != nil}<hr>" <<
-           "<h1>Strings</h1>#{format_hash(strings_block) if strings_block != nil}<hr>" <<
-           "<h1>Resets</h1>#{format_hash(resets_block) if resets_block != nil}<hr>" <<
-           "<h1>Shops</h1>#{format_hash(shops_block) if shops_block != nil}<hr>" <<
-           "<h1>Specials</h1>#{format_hash(specials_block) if specials_block != nil}<hr>" <<
-           "<h1>Room Specials</h1>#{format_hash(rspecs_block) if rspecs_block != nil}<hr>" <<
-           "<h1>Triggers</h1>#{format_hash(triggers_block) if triggers_block != nil}<hr>"
-
+    if parse_only
+      return "<h1>Header</h1>#{format_hash(header_info) if header_info != nil}<hr>" <<
+             "<h1>Helps</h1>#{format_hash(helps_block) if helps_block != nil}<hr>" <<
+             "<h1>Mobiles</h1>#{format_hash(mobiles_block) if mobiles_block != nil}<hr>" <<
+             "<h1>Objects</h1>#{format_hash(objects_block) if objects_block != nil}<hr>" <<
+             "<h1>Rooms</h1>#{format_hash(rooms_block) if rooms_block != nil}<hr>" <<
+             "<h1>Strings</h1>#{format_hash(strings_block) if strings_block != nil}<hr>" <<
+             "<h1>Resets</h1>#{format_hash(resets_block) if resets_block != nil}<hr>" <<
+             "<h1>Shops</h1>#{format_hash(shops_block) if shops_block != nil}<hr>" <<
+             "<h1>Specials</h1>#{format_hash(specials_block) if specials_block != nil}<hr>" <<
+             "<h1>Room Specials</h1>#{format_hash(rspecs_block) if rspecs_block != nil}<hr>" <<
+             "<h1>Triggers</h1>#{format_hash(triggers_block) if triggers_block != nil}<hr>"
+    else
+      return area_info
+    end
   end
   
 end
-
-def format_hash(h)
-  $formatted_hash = ''
-  
-    h.each do |item|
-      $formatted_hash = $formatted_hash + "<b>#{item[0]}:</b> "
-      if item[1].class.name == "Hash"
-        $formatted_hash = $formatted_hash + "<table border=\"1\"><tr><td>#{format_hash(item[1])}</td></tr></table>"
-      else
-        $formatted_hash = $formatted_hash + "#{item[1]}<br>"
-      end
-    end
-  
-  return $formatted_hash
-end
-

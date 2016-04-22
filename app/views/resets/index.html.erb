@@ -5,17 +5,14 @@
       <%= link_to new_area_reset_path(@area), :class => 'btn btn-xs', :title => "#{ t('.new', :default => t('helpers.links.new')) }" do %>
         <%= glyph 'plus' %>
       <%- end -%>
-      <div class="btn-group pull-right" role="group" aria-label="...">
-        <%= link_to "Rooms", area_rooms_path(@area), :class => 'btn btn-default btn-xs' %>
-        <%= link_to "Mobiles", area_mobiles_path(@area), :class => 'btn btn-default btn-xs' %>
-        <%= link_to "Objects", area_objs_path(@area), :class => 'btn btn-default btn-xs' %>
-      </div>
+      <%= render 'areas/quick_links' %>
     </h3></div>
 
       <table class="table table-hover monospace">
         <thead>
           <tr>
             <th>Type</th>
+
             <th>Description</th>
             <th><%=t '.actions', :default => t("helpers.actions") %></th>
           </tr>
@@ -24,6 +21,7 @@
           <% @resets.order(:reset_type, :val_2).where(reset_type: ['M','Q', 'O', 'R']).each do |reset| %>
             <tr>
               <td><%= reset.desc_brief %></td>
+              <td><%= reset.output.match(/^\w \d* (\d*)/)[1] %></td>
               <td>
                 <%= reset.comment(true)%>
                 <% if reset.is_container %>

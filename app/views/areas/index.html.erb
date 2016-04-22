@@ -7,9 +7,10 @@
     
     <div class="panel-footer">
       <%= link_to 'New Area', new_area_path, :class => 'btn btn-primary'  %>
-      <% #if current_user.is_admin? %>
-        <%= link_to 'Import (testing only)', new_area_path(:import => true), :class => 'btn btn-warning'  %>
-      <% #end %>
+      <%= link_to 'Import (parse only)', new_area_path(:import => true, :parse_only => true), :target => "_blank", :class => 'btn btn-warning'  %>
+      <% if current_user.is_admin? %>
+        <%= link_to 'Import', new_area_path(:import => true), :class => 'btn btn-warning'  %>
+      <% end %>
     </div>
 </div>
 

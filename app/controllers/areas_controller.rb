@@ -66,6 +66,10 @@ class AreasController < ApplicationController
   end
 
   def create
+    if not params[:area]
+      @area = current_user.rooms.build
+    end
+
     @area = current_user.areas.create(area_params)
 
     @area.flags ||= 0
@@ -82,16 +86,13 @@ class AreasController < ApplicationController
   end
   
   def import
-#    if params[:parse]
-      render :text => Area.import(params[:file], current_user.id)
-#    else
-#      @area = Area.import(params[:file], current_user.id)
-#      if @area.save
-#       redirect_to @area, notice: 'Area was sucessfully imported.'
-#      else
-#       redirect_to areas_path, notice: 'Something went wrong.'
-#      end
-#    end
+    if params[:parse_only]
+      render :text => Area.import(params[:file], true)
+    else
+      area_info = Area.import(params[:file], false)
+      import_area( area_info )
+      redirect_to areas_path, notice: 'Area imported.'
+    end
   end
 
   def update
@@ -130,7 +131,8 @@ class AreasController < ApplicationController
                                    :misc_flags, :share_publicly,
                                    :description, :lowlevel, :highlevel,
                                    :file, :use_rulers, :flags, :installed,
-                                   :show_formatted_blocks
+                                   :show_formatted_blocks, :revision,
+                                   :parse_only
                                   )
     end
 end
@@ -155,3 +157,48 @@ def can_user_view
 
 end
 
+def import_area( area_info )
+  
+  $areas_with_same_name = Area.where(:name => area_info["header_info"]["name"])
+  
+  if $areas_with_same_name.count > 0
+    $new_rev = $areas_with_same_name.order(revision: :desc).first.revision + 1
+  else
+    $new_rev = 0
+  end
+  
+  $new_area = current_user.areas.create(
+    :vnum_qty => 100, ## fix this
+    :default_terrain => 0,
+    :default_room_flags => 0,
+    :misc_flags => 0,
+    :name => area_info["header_info"]["name"],
+    :author => area_info["header_info"]["author"],
+    :flags => area_info["header_info"]["flags"],
+    :lowlevel => area_info["header_info"]["range_low"],
+    :highlevel => area_info["header_info"]["range_high"],
+    :area_number => 1, ## fix this
+    :revision => $new_rev
+    )
+    
+  if area_info["helps_block"]
+      area_info["helps_block"].each_value do |help_record|
+      $new_area.helps.create(
+        :min_level => help_record["min_level"].to_i,
+        :keywords => help_record["keywords"],
+        :body => help_record["body"]
+        )
+    end
+  end
+  
+  if area_info["strings_block"]
+    area_info["strings_block"].each_value do |string_record|
+      $new_area.area_strings.create(
+        :vnum => string_record["vnum"].to_i,
+        :message_to_pc => string_record["message_to_pc"],
+        :message_to_room => string_record["message_to_room"]
+        )
+    end
+  end
+    
+end
