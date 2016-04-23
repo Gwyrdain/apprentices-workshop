@@ -12,12 +12,17 @@ function validMaxAC () {
 
 function validHoldWeight () {
   if( $('#obj_object_type').val() == 15 &&
-      $('#ItemValueGroupContainer').find('#obj_v0').val() <= $('#obj_weight').val().parseInt() ) {
+      parseInt($('#ItemValueGroupContainer').find('#obj_v0').val()) <= parseInt($('#obj_weight').val()) ) {
         bootbox.alert('Container <strong>hold weight</strong> must be greater than object <strong>weight</strong>.  Increasing hold weight.');
-        $('#ItemValueGroupContainer').find('#obj_v0').val( $('#obj_weight').val().parseInt() + 5 );
+        $('#ItemValueGroupContainer').find('#obj_v0').val( $('#obj_weight').val() + 5 );
+      
     return false
   }
   return true
+}
+
+function updateHoldWeight () {
+  $('#ItemValueGroupContainer').find('#obj_v0').val( parseInt($('#obj_weight').val()) + parseInt($('#obj_capacity').val()) );
 }
 
 function validDrinks () {
@@ -228,6 +233,15 @@ $(function() {
   $('#obj_weight').change(function() {
     validWeight();
     validHoldWeight();
+    updateHoldWeight();
+  })
+});
+
+$(function() {
+  $('#obj_capacity').change(function() {
+    validWeight();
+    validHoldWeight();
+    updateHoldWeight();
   })
 });
 
@@ -242,7 +256,7 @@ $(function() {
     $('#obj_object_type').change(function() {
       
       initObjForm();
-      
+
       validMaxAC();
       validHoldWeight();
       validDrinks();
