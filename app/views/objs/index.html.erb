@@ -15,7 +15,7 @@
       <table class="table table-hover monospace">
         <thead>
           <tr>
-            <th></th>
+            <th><%= check_box_tag "select_all_checkboxes" %></th>
             <th>Vnum</th>
             <th>Object</th>
             <th><%= model_class.human_attribute_name(:object_type) %></th>
