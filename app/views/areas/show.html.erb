@@ -2,13 +2,7 @@
 
 <div class="panel panel-default monospace">
   <div class="panel-heading">
-    <h3>
-      <%= @area.name %>
-      <%= link_to edit_area_path(@area), :class => 'btn btn-xs', :title => "#{ t('.edit', :default => t('helpers.links.edit')) }" do %>
-        <%= glyph 'pencil' %>
-      <%- end -%>
-      <%= render 'areas/quick_links' %>
-    </h3>
+    <%= render 'areas/quick_links', :model_class => model_class %>
   </div>
     <div class="panel-body">
 

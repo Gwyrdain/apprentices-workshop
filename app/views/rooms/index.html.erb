@@ -2,13 +2,15 @@
 <%= form_tag edit_multiple_area_rooms_path(@area), :method => :post do %>
 
 <div class="panel panel-default monospace">
-    <div class="panel-heading"><h3>
-      <%= link_to @area.name, area_path(@area) %> / <%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>
-      <%= link_to new_area_room_path(@area), :class => 'btn btn-xs', :title => "#{ t('.new', :default => t('helpers.links.show')) }" do %>
+  <div class="panel-heading">
+    <%= render 'areas/quick_links', :model_class => model_class %>
+    <h5>
+      <%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>
+      <%= link_to new_area_room_path(@area), :class => 'btn btn-xs', :title => "#{ t('.new', :default => t('helpers.links.new')) }" do %>
         <%= glyph 'plus' %>
       <%- end -%>
-      <%= render 'areas/quick_links' %>
-    </h3></div>
+    </h5>
+  </div>
 
     <table class="table table-hover monospace">
       <thead>

@@ -2,8 +2,9 @@
 
 <div class="panel panel-default monospace">
     <div class="panel-heading">
-      <h3>
-        <%= link_to @area.name, area_path(@area) %> / <%= @room.name %>
+      <%= render 'areas/quick_links', :model_class => model_class %>
+      <h5>
+        <%= link_to 'Rooms', area_rooms_path(@area) %> / <%= @room.name %>
         <%= link_to edit_area_room_path(@area, @room), :class => 'btn btn-xs', :title => "#{ t('.edit', :default => t('helpers.links.edit')) }" do %>
           <%= glyph 'pencil' %>
         <%- end -%>
@@ -11,13 +12,12 @@
           <%= glyph 'plus' %>
         <%- end -%>
         <div class="pull-right">
-          <%= render 'areas/quick_links' %>
           <div class="btn-group" role="group" aria-label="...">
             <% if @room.last_room %><%= link_to "Last Room: #{@room.last_room.vnum}", area_room_path(@area, @room.last_room), :class => 'btn btn-default btn-xs' %><% end %>
             <% if @room.next_room %><%= link_to "Next Room: #{@room.next_room.vnum}", area_room_path(@area, @room.next_room), :class => 'btn btn-default btn-xs' %><% end %>
           </div>
         </div>
-      </h3>
+      </h5>
     </div>
     <div class="panel-body">
       

@@ -2,21 +2,22 @@
 
 <div class="panel panel-default monospace">
   <div class="panel-heading">
-    <h3>
-      <%= link_to @area.name, area_path(@area) %> / <%= @mobile.sdesc %>
-      <%= link_to edit_area_mobile_path(@area, @mobile), :class => 'btn btn-xs', :title => "#{ t('.edit', :default => t('helpers.links.edit')) }" do %>
-        <%= glyph 'pencil' %>
-      <%- end -%>
-      <%= link_to new_area_mobile_path(@area), :class => 'btn btn-xs', :title => "#{ t('.new', :default => t('helpers.links.new')) }" do %>
-        <%= glyph 'plus' %>
-      <%- end -%>
-      <div class="pull-right">
-        <%= render 'areas/quick_links' %>
-        <div class="btn-group" role="group" aria-label="...">
-          <% if @mobile.last_mobile %><%= link_to "Last Mobile: #{@mobile.last_mobile.vnum}", area_mobile_path(@area, @mobile.last_mobile), :class => 'btn btn-default btn-xs' %><% end %>
-          <% if @mobile.next_mobile %><%= link_to "Next Mobile: #{@mobile.next_mobile.vnum}", area_mobile_path(@area, @mobile.next_mobile), :class => 'btn btn-default btn-xs' %><% end %>
-        </div>
-    </h3>
+    <%= render 'areas/quick_links', :model_class => model_class %>
+    <h5>
+    <%= link_to 'Mobiles', area_mobiles_path(@area) %> / <%= @mobile.sdesc %>
+    <%= link_to edit_area_mobile_path(@area, @mobile), :class => 'btn btn-xs', :title => "#{ t('.edit', :default => t('helpers.links.edit')) }" do %>
+      <%= glyph 'pencil' %>
+    <%- end -%>
+    <%= link_to new_area_mobile_path(@area), :class => 'btn btn-xs', :title => "#{ t('.new', :default => t('helpers.links.new')) }" do %>
+      <%= glyph 'plus' %>
+    <%- end -%>
+    <div class="pull-right">
+      <div class="btn-group" role="group" aria-label="...">
+        <% if @mobile.last_mobile %><%= link_to "Last Mobile: #{@mobile.last_mobile.vnum}", area_mobile_path(@area, @mobile.last_mobile), :class => 'btn btn-default btn-xs' %><% end %>
+        <% if @mobile.next_mobile %><%= link_to "Next Mobile: #{@mobile.next_mobile.vnum}", area_mobile_path(@area, @mobile.next_mobile), :class => 'btn btn-default btn-xs' %><% end %>
+      </div>
+    </div>
+    </h5>
   </div>
   <div class="panel-body">
     

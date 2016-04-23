@@ -1,6 +1,11 @@
 <%- model_class = Rxdesc -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <div class="panel-heading">
+    <%= render 'areas/quick_links', :model_class => model_class %>
+    <h5>
+    <%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>
+    </h5>
+  </div>
 </div>
 <table class="table table-striped">
   <thead>

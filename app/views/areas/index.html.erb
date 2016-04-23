@@ -1,8 +1,10 @@
 <%- model_class = Area -%>
 <div class="panel panel-default monospace">
-    <div class="panel-heading"><h3>
-     My Areas
-    </h3></div>
+    <div class="panel-heading">
+      <h3>
+        My Areas
+      </h3>
+    </div>
     <%= render 'areas/areatable', :some_areas => @areas.order(:area_number).where(:user => current_user.id) %>
     
     <div class="panel-footer">
