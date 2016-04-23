@@ -194,7 +194,7 @@ def import_area( area_info )
   if area_info["mobiles_block"]
     area_info["mobiles_block"].each_value do |mobile_record|
       $vnum = mobile_record["vnum"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
-      $new_area.mobiles.create(
+      $new_mobile = $new_area.mobiles.create(
         :vnum => $vnum,
         :keywords => mobile_record["keywords"],
         :sdesc => mobile_record["sdesc"],
@@ -205,9 +205,18 @@ def import_area( area_info )
         :alignment => mobile_record["alignment"].to_i,
         :level => mobile_record["level"].to_i,
         :sex => mobile_record["sex"].to_i,
-        :langs_known => mobile_record["langs_known"],
-        :lang_spoken => mobile_record["lang_spoken"]
         )
+      if mobile_record["langs_known"]
+         $new_mobile.update(
+           :langs_known => mobile_record["langs_known"],
+           :lang_spoken => mobile_record["lang_spoken"]
+           )
+      else
+         $new_mobile.update(
+           :langs_known => 0,
+           :lang_spoken => 0
+           )
+      end
     end
   end
   

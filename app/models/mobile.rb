@@ -187,9 +187,9 @@ class Mobile < ActiveRecord::Base
   
   def alignment_word
     $alignment = nil
-    $alignment = 'evil'    if self.alignment == -1000
+    $alignment = 'evil'    if self.alignment < 0
     $alignment = 'unaligned'    if self.alignment == 0
-    $alignment = 'good'  if self.alignment == 1000
+    $alignment = 'good'  if self.alignment > 0
     return $alignment
   end
 
