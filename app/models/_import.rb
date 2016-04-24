@@ -8,7 +8,7 @@ def parse_area_header_v1(header)
   if m
     header_info["author"]       = m[2].strip
     header_info["name"]         = m[3].strip
-    header_info["flags"] = read_hex_flags( m[4].strip ) # These are hex and won't work!!!
+    header_info["flags"] = read_hex_flags( m[4].strip )
 
     if m[1].match(/(\d) (\d)/)
       range = m[1].match(/(\d+) (\d+)/)
@@ -37,7 +37,13 @@ def parse_area_header_v2(header)
   
   header_info["author"]       = header.match(/Author (.*)~/)[1].strip
   header_info["name"]         = header.match(/Name (.*)~/)[1].strip
-  header_info["flags_string"] = header.match(/Flags (.*) End/)[1].strip
+  
+  m = header.match(/Flags (.*) End/) # Allow flags to be undefined.
+  if m
+    header_info["flags_string"] = m[1].strip
+  else
+    header_info["flags_string"] = ''
+  end
 
   header_info["flags"]        = parse_area_flags( header_info["flags_string"] )
   
@@ -261,8 +267,6 @@ def parse_rooms(rooms_block)
     end
     
     if room.match(/^D\d$/) # any exits?
-      #room_info["exits"] = parse_exits( room.split(/^D$/).map(&:strip) )
-      
       room_info["exits"] = parse_exits( room.match(/^D\d\n[^#]*^S$/)[0] ) # Parse from 1st exit to end-of-room
     end
     
@@ -302,6 +306,8 @@ def parse_exits(exits_block)
     if exit_data.match(/^O$/)
       m = exit_data.match(/^O\n(.*)~/)
       exit_info["name"] = m[1].strip
+    else
+      exit_info["name"] = ''
     end
     
     exits_info[i] = exit_info

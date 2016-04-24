@@ -6,6 +6,7 @@
       <th>Mobiles</th>
       <th>Objects</th>
       <th>Rooms</th>
+      <th>Resets</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -19,14 +20,22 @@
               <%= link_to(area) do %><%= area.name %><% end %> (Rev. <%= area.revision %>)
               <div class="small"><i>Last Updated: <%= area.last_updated?.in_time_zone(current_user.time_zone).strftime(DATE_FORMAT) %></i></div>
             </td>
-            <td><%= area.author %></td>
-            <td><%= area.mobiles.count %></td>
-            <td><%= area.objs.count %></td>
-            <td><%= area.rooms.count %></td>
             <td>
-              <%= link_to area_path(area), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
-                <%= glyph 'info-sign' %>
-              <%- end -%>
+              <%= area.author %>
+            </td>
+            <td>
+              <%= link_to "#{area.mobiles.count}", area_mobiles_path(area) %>
+            </td>
+            <td>
+              <%= link_to "#{area.objs.count}", area_objs_path(area) %>
+            </td>
+            <td>
+              <%= link_to "#{area.rooms.count}", area_rooms_path(area) %>
+            </td>
+            <td>
+              <%= link_to "#{area.resets.count}", area_resets_path(area) %>
+            </td>
+            <td>
               <%= link_to edit_area_path(area), :class => 'btn btn-xs', :title => "#{ t('.edit', :default => t('helpers.links.edit')) }" do %>
                 <%= glyph 'pencil' %>
               <%- end -%>

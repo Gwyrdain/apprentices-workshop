@@ -13,7 +13,7 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass', '~> 3.3.6.0'
 gem 'bootstrap-sass-extras', '~> 0.0.7'
 gem 'devise', '~> 3.4.1'
-gem 'bitfields', '~> 0.5.2'
+gem 'bitfields', '~> 0.7.0'
 gem 'bootbox-rails', '~> 0.4.0'
 gem 'jquery-turbolinks', '~> 2.1.0'
 gem 'raphael-rails', '~> 2.1.2'

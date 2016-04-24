@@ -171,15 +171,27 @@ def import_area( area_info )
     :vnum_qty => 1000, ## maybe reset lower after import when high vnums known?
     :default_terrain => 0,
     :default_room_flags => 0,
-    :misc_flags => 0,
+    :misc_flags => 2**2, # set show forbatted blocks to on
     :name => area_info["header_info"]["name"],
     :author => area_info["header_info"]["author"],
-    :flags => area_info["header_info"]["flags"],
     :lowlevel => area_info["header_info"]["range_low"],
     :highlevel => area_info["header_info"]["range_high"],
     :area_number => area_info["header_info"]["area_number"],
     :revision => $new_rev
     )
+  
+  if area_info["header_info"]["flags"]
+    $new_area.update(
+      :flags => area_info["header_info"]["flags"],
+      )
+  end
+  
+  
+  if area_info["header_info"]["description"]
+    $new_area.update(
+      :description => area_info["header_info"]["description"]
+      )
+  end
     
   if area_info["helps_block"]
       area_info["helps_block"].each_value do |help_record|
@@ -189,7 +201,7 @@ def import_area( area_info )
         :body => help_record["body"]
         )
     end
-  end
+  end # helps_block
   
   if area_info["mobiles_block"]
     area_info["mobiles_block"].each_value do |mobile_record|
@@ -206,6 +218,7 @@ def import_area( area_info )
         :level => mobile_record["level"].to_i,
         :sex => mobile_record["sex"].to_i,
         )
+        
       if mobile_record["langs_known"]
          $new_mobile.update(
            :langs_known => mobile_record["langs_known"],
@@ -217,9 +230,112 @@ def import_area( area_info )
            :lang_spoken => 0
            )
       end
-    end
-  end
+      
+      $new_mobile.update(:animal => true)     if mobile_record["animal"]
+      $new_mobile.update(:no_wear_eq => true) if mobile_record["no_wear_eq"]
+      
+      $new_mobile.update(:spell => mobile_record["one_spell"])      if mobile_record["one_spell"]
+      
+    end # each do
+  end # mobiles_block
   
+  if area_info["objects_block"]
+    area_info["objects_block"].each_value do |object_record|
+      $vnum = object_record["vnum"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
+      $new_obj = $new_area.objs.create(
+        :vnum        => $vnum,
+        :keywords    => object_record["keywords"],
+        :sdesc       => object_record["sdesc"],
+        :ldesc       => object_record["ldesc"],
+        :object_type => object_record["object_type"].to_i,
+        :extra_flags => object_record["extra_flags"].to_i,
+        :wear_flags  => object_record["wear_flags"].to_i,
+        :misc_flags  => 0,
+        :v0          => object_record["v0"].to_i,
+        :v1          => object_record["v1"].to_i,
+        :v2          => object_record["v2"].to_i,
+        :v3          => object_record["v3"].to_i,
+        :weight      => object_record["weight"].to_i,
+        :cost        => object_record["cost"].to_i
+        )
+        
+      $new_obj.update(:flammable => true)         if object_record["flammable"]
+      $new_obj.update(:metallic => true)          if object_record["metallic"]
+      $new_obj.update(:two_handed => true)        if object_record["two_handed"]
+      $new_obj.update(:underwater_breath => true) if object_record["underwater_breath"]
+      
+      if object_record["extra_descs"]
+        object_record["extra_descs"].each_value do |oxdesc|
+          $new_obj.oxdescs.create(
+            :keywords     => oxdesc["keywords"],
+            :description  => oxdesc["description"]
+            )
+        end
+      end
+      
+      if object_record["applies"]
+        object_record["applies"].each_value do |apply|
+          $new_obj.applies.create(
+            :apply_type => apply["apply_type"].to_i,
+            :amount     => apply["amount"].to_i
+            )
+        end
+      end
+        
+    end
+  end # objects_block
+
+  if area_info["rooms_block"]
+    area_info["rooms_block"].each_value do |room_record|
+      $vnum = room_record["vnum"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
+      $new_room = $new_area.rooms.create(
+        :vnum         => $vnum,
+        :name         => room_record["name"],
+        :description  => room_record["description"],
+        :room_flags   => room_record["room_flags"].to_i,
+        :terrain      => room_record["terrain"].to_i
+        )
+        
+      if room_record["extra_descs"]
+        room_record["extra_descs"].each_value do |rxdesc|
+          $new_room.rxdescs.create(
+            :keywords     => rxdesc["keywords"],
+            :description  => rxdesc["description"]
+            )
+        end
+      end
+      
+      if room_record["exits"]
+        room_record["exits"].each_value do |exit|
+          
+          $new_room.exits.create(
+            :direction    => exit["direction"].to_i,
+            :description  => exit["description"],
+            :keywords     => exit["keywords"],
+            :exittype     => exit["exittype"].to_i,
+            :keyvnum      => exit["key_vnum"].to_i, #needs work
+            :exit_room_id => exit["exit_vnum"].to_i, #needs work
+            :name         => exit["name"],
+            )
+        end
+      end
+    end # do each room
+    
+    # connect all internal exits...
+    $new_area.exits.each do |exit|
+      if ( exit.exit_room_id / 100 ) == $new_area.area_number
+        $vnum = exit.exit_room_id - ($new_area.area_number * 100)
+        $matching_rooms = $new_area.rooms.where(:vnum => $vnum)
+        if $matching_rooms.count > 0
+          exit.update(
+            :exit_room_id => $matching_rooms.first.id
+            )
+        end
+      end
+    end
+    
+  end # rooms_block
+
   if area_info["strings_block"]
     area_info["strings_block"].each_value do |string_record|
       $vnum = string_record["vnum"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
@@ -229,6 +345,6 @@ def import_area( area_info )
         :message_to_room => string_record["message_to_room"]
         )
     end
-  end
+  end# strings_block
     
 end
