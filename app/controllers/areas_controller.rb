@@ -498,5 +498,75 @@ def import_area( area_info )
         )
     end
   end# shops_block
+  
+  if area_info["specials_block"]
+    area_info["specials_block"].each_value do |special_record|
+      
+      special_type = special_record["type"]
+
+      $mobile_vnum  = special_record["vnum"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
+      special_mobile = $new_area.mobiles.where(:vnum => $mobile_vnum).first
+
+      if ( special_type == 'M' )
+        special_mobile.specials.create(
+          :special_type => special_record["type"],
+          :name => special_record["name"],
+          :extended_value_1 => -1,
+          :extended_value_2 => -1,
+          :extended_value_3 => -1,
+          :extended_value_4 => -1,
+          :extended_value_5 => -1
+          )
+      end
+      
+      if ( special_type == 'N' )
+        special_mobile.specials.create(
+          :special_type => special_record["type"],
+          :name => special_record["name"],
+          :extended_value_1 => special_record["extended_value_1"].to_i,
+          :extended_value_2 => special_record["extended_value_2"].to_i,
+          :extended_value_3 => special_record["extended_value_3"].to_i,
+          :extended_value_4 => special_record["extended_value_4"].to_i,
+          :extended_value_5 => special_record["extended_value_5"].to_i
+          )
+      end
+      
+    end
+  end# specials_block
+  
+  if area_info["rspecs_block"]
+    area_info["rspecs_block"].each_value do |rspec_record|
+      
+      rspec_type = rspec_record["type"]
+
+      $room_vnum  = rspec_record["vnum"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
+      rspec_room = $new_area.rooms.where(:vnum => $room_vnum).first
+
+      if ( rspec_type == 'D' )
+        rspec_room.room_specials.create(
+          :room_special_type => rspec_record["type"],
+          :name => rspec_record["name"],
+          :extended_value_1 => -1,
+          :extended_value_2 => -1,
+          :extended_value_3 => -1,
+          :extended_value_4 => -1,
+          :extended_value_5 => -1
+          )
+      end
+      
+      if ( rspec_type == 'E' )
+        rspec_room.room_specials.create(
+          :room_special_type => rspec_record["type"],
+          :name => rspec_record["name"],
+          :extended_value_1 => rspec_record["extended_value_1"].to_i,
+          :extended_value_2 => rspec_record["extended_value_2"].to_i,
+          :extended_value_3 => rspec_record["extended_value_3"].to_i,
+          :extended_value_4 => rspec_record["extended_value_4"].to_i,
+          :extended_value_5 => rspec_record["extended_value_5"].to_i
+          )
+      end
+      
+    end
+  end# rspecs_block
     
 end
