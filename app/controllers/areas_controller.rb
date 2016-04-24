@@ -168,7 +168,7 @@ def import_area( area_info )
   end
   
   $new_area = current_user.areas.create(
-    :vnum_qty => 1000, ## maybe reset lower after import when high vnums known?
+    :vnum_qty => 10000,
     :default_terrain => 0,
     :default_room_flags => 0,
     :misc_flags => 2**2, # set show forbatted blocks to on
@@ -179,6 +179,8 @@ def import_area( area_info )
     :area_number => area_info["header_info"]["area_number"],
     :revision => $new_rev
     )
+    
+  area_id = $new_area.id
   
   if area_info["header_info"]["flags"]
     $new_area.update(
@@ -296,29 +298,32 @@ def import_area( area_info )
         :terrain      => room_record["terrain"].to_i
         )
         
-      if room_record["extra_descs"]
-        room_record["extra_descs"].each_value do |rxdesc|
-          $new_room.rxdescs.create(
-            :keywords     => rxdesc["keywords"],
-            :description  => rxdesc["description"]
-            )
+      if $new_room.save
+        
+        if room_record["extra_descs"]
+          room_record["extra_descs"].each_value do |rxdesc|
+            $new_room.rxdescs.create(
+              :keywords     => rxdesc["keywords"],
+              :description  => rxdesc["description"]
+              )
+          end
         end
-      end
-      
-      if room_record["exits"]
-        room_record["exits"].each_value do |exit|
-          
-          $new_room.exits.create(
-            :direction    => exit["direction"].to_i,
-            :description  => exit["description"],
-            :keywords     => exit["keywords"],
-            :exittype     => exit["exittype"].to_i,
-            :keyvnum      => exit["key_vnum"].to_i, #needs work
-            :exit_room_id => exit["exit_vnum"].to_i, #needs work
-            :name         => exit["name"],
-            )
+        
+        if room_record["exits"]
+          room_record["exits"].each_value do |exit|
+            
+            $new_room.exits.create(
+              :direction    => exit["direction"].to_i,
+              :description  => exit["description"],
+              :keywords     => exit["keywords"],
+              :exittype     => exit["exittype"].to_i,
+              :keyvnum      => exit["key_vnum"].to_i, #needs work
+              :exit_room_id => exit["exit_vnum"].to_i, #needs work
+              :name         => exit["name"],
+              )
+          end
         end
-      end
+      end # $new_room.save
     end # do each room
     
     # connect all internal exits...
@@ -568,5 +573,60 @@ def import_area( area_info )
       
     end
   end# rspecs_block
+  
+  if area_info["triggers_block"]
+    area_info["triggers_block"].each_value do |trigger_record|
+      
+      trigger_type = trigger_record["type"]
+
+      $room_vnum  = trigger_record["vnum"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
+      trigger_room = $new_area.rooms.where(:vnum => $room_vnum).first
+      trigger_exit = trigger_room.exits.where(:direction => trigger_record["door"]).first
+
+      if ( trigger_type == 'A' || trigger_type == 'P' )
+        trigger_exit.triggers.create(
+          :trigger_type => trigger_record["type"],
+          :name => trigger_record["name"],
+          :extended_value_1 => -1,
+          :extended_value_2 => -1,
+          :extended_value_3 => -1,
+          :extended_value_4 => -1,
+          :extended_value_5 => -1
+          )
+      end
+      
+      if ( trigger_type == 'Q' )
+        trigger_exit.triggers.create(
+          :trigger_type => trigger_record["type"],
+          :name => trigger_record["name"],
+          :extended_value_1 => trigger_record["extended_value_1"].to_i,
+          :extended_value_2 => trigger_record["extended_value_2"].to_i,
+          :extended_value_3 => trigger_record["extended_value_3"].to_i,
+          :extended_value_4 => trigger_record["extended_value_4"].to_i,
+          :extended_value_5 => trigger_record["extended_value_5"].to_i
+          )
+      end
+      
+    end
+  end# triggers_block
+  
+  high_vnum = 0
+  if $new_area.mobiles.count > 0
+    high_vnum = $new_area.mobiles.order(vnum: :desc).first.vnum if $new_area.mobiles.order(vnum: :desc).first.vnum > high_vnum
+  end
+  if $new_area.objs.count > 0
+    high_vnum = $new_area.objs.order(vnum: :desc).first.vnum if $new_area.objs.order(vnum: :desc).first.vnum > high_vnum
+  end
+  if $new_area.rooms.count > 0
+    high_vnum = $new_area.rooms.order(vnum: :desc).first.vnum if $new_area.rooms.order(vnum: :desc).first.vnum > high_vnum
+  end
+  
+  $new_area = Area.find(area_id)
+  
+  vnum_qty = ( ( ( high_vnum / 100 ) + 1 ) * 100 )
+  
+  $new_area.update(
+    :vnum_qty => vnum_qty
+    )
     
 end

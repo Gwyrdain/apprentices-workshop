@@ -512,7 +512,7 @@ def get_area_number(area_info)
     $room_number = area_info["objects_block"][1]["vnum"] / 100
   end
   if area_info["rooms_block"]
-    $room_number = area_info["rooms_block"][1]["vnum"] / 100
+    $room_number = area_info["rooms_block"][1]["area_number"]
   end
   return $room_number
 end

@@ -241,8 +241,7 @@ class Area < ActiveRecord::Base
     name ||= ''
     flags ||= 0
     
-    #area_file = file.read.encode(universal_newline: true).gsub(/\s*\n/,"\n")
-    area_file = file.read.gsub(/\r\n/,"\n").gsub(/[ ]*\n/,"\n")
+    area_file = file.read.encode('US-ASCII', :invalid => :replace, :undef => :replace).gsub(/\r\n/,"\n").gsub(/[ ]*\n/,"\n")
 
     header_info = nil
     helps_block = nil
