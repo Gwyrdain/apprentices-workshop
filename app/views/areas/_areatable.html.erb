@@ -33,7 +33,7 @@
               <%= link_to "#{area.rooms.count}", area_rooms_path(area) %>
             </td>
             <td>
-              <%= link_to "#{area.resets.count}", area_resets_path(area) %>
+              <%= link_to "#{(area.resets.count + area.sub_resets.count + area.door_reset_count)}", area_resets_path(area) %>
             </td>
             <td>
               <%= link_to edit_area_path(area), :class => 'btn btn-xs', :title => "#{ t('.edit', :default => t('helpers.links.edit')) }" do %>

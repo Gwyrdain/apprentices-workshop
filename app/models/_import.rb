@@ -371,15 +371,15 @@ def parse_resets (resets_block)
 
     m = reset.match(/(\w) (\d*) (\d*) (\d*)/)
     if m
-      reset_info["reset_type"] = m[1].strip
-      reset_info["reset_v0"]   = m[2].to_i
-      reset_info["reset_v1"]   = m[3].to_i
-      reset_info["reset_v2"]   = m[4].to_i
+      reset_info["reset_type"]  = m[1].strip
+      reset_info["val_1"]       = m[2].to_i
+      reset_info["val_2"]       = m[3].to_i
+      reset_info["val_3"]       = m[4].to_i
     end
     
     m = reset.match(/\w \d* \d* \d* (\d*)/)
     if m
-      reset_info["reset_v3"]   = m[1].to_i
+      reset_info["val_4"]       = m[1].to_i
     end
     
     resets_info[i] = reset_info

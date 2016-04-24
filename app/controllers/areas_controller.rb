@@ -323,15 +323,27 @@ def import_area( area_info )
     
     # connect all internal exits...
     $new_area.exits.each do |exit|
-      if ( exit.exit_room_id / 100 ) == $new_area.area_number
-        $vnum = exit.exit_room_id - ($new_area.area_number * 100)
-        $matching_rooms = $new_area.rooms.where(:vnum => $vnum)
-        if $matching_rooms.count > 0
+      
+      if ( exit.keyvnum / 100 ) == $new_area.area_number
+        $key = exit.keyvnum - ($new_area.area_number * 100)
+        $matches = $new_area.objs.where(:vnum => $vnum)
+        if $matches.count > 0
           exit.update(
-            :exit_room_id => $matching_rooms.first.id
+            :keyvnum => $matches.first.id
             )
         end
       end
+      
+      if ( exit.exit_room_id / 100 ) == $new_area.area_number
+        $vnum = exit.exit_room_id - ($new_area.area_number * 100)
+        $matches = $new_area.rooms.where(:vnum => $vnum)
+        if $matches.count > 0
+          exit.update(
+            :exit_room_id => $matches.first.id
+            )
+        end
+      end
+    
     end
     
   end # rooms_block
@@ -346,5 +358,145 @@ def import_area( area_info )
         )
     end
   end# strings_block
+  
+  if area_info["resets_block"]
+    
+    last_mobile_reset = 0
+    last_object_reset = 0
+    
+    area_info["resets_block"].each_value do |reset_record|
+      reset_type = reset_record["reset_type"]
+      # M / Q / O / R ... load it directly
+      if ( reset_type == 'M' || reset_type == 'Q' )
+        
+        $mobile_vnum  = reset_record["val_2"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
+        $room_vnum    = reset_record["val_4"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
+        $matches = $new_area.mobiles.where(:vnum => $mobile_vnum)
+        if $matches.count > 0
+          $mobile_id = $matches.first.id
+        end
+        $matches = $new_area.rooms.where(:vnum => $room_vnum)
+        if $matches.count > 0
+          $room_id = $matches.first.id
+        end
+
+        $new_mobile_reset = $new_area.resets.create(
+          :reset_type => reset_record["reset_type"],
+          :val_1      => reset_record["val_1"].to_i,
+          :val_2      => $mobile_id,
+          :val_3      => reset_record["val_3"].to_i,
+          :val_4      => $room_id
+          )
+        last_mobile_reset = $new_mobile_reset
+      end
+
+      if reset_type == 'O'
+        
+        $obj_vnum   = reset_record["val_2"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
+        $room_vnum  = reset_record["val_4"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
+        $matches = $new_area.objs.where(:vnum => $obj_vnum)
+        if $matches.count > 0
+          $obj_vnum = $matches.first.id
+        end
+        $matches = $new_area.rooms.where(:vnum => $room_vnum)
+        if $matches.count > 0
+          $room_id = $matches.first.id
+        end
+        
+        $new_obj_reset = $new_area.resets.create(
+          :reset_type => reset_record["reset_type"],
+          :val_1      => reset_record["val_1"].to_i,
+          :val_2      => $obj_vnum,
+          :val_3      => reset_record["val_3"].to_i,
+          :val_4      => $room_id
+          )
+        last_object_reset = $new_obj_reset
+      end
+
+      # E / G ... make a sub-reset, need to know the last M or Q
+      if ( reset_type == 'E' || reset_type == 'G' )
+        
+        $obj_vnum   = reset_record["val_2"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
+        $matches = $new_area.objs.where(:vnum => $obj_vnum)
+        if $matches.count > 0
+          $obj_vnum = $matches.first.id
+        end
+
+        $new_sub_reset = last_mobile_reset.sub_resets.create(
+          :reset_type   => reset_record["reset_type"],
+          :val_1        => reset_record["val_1"].to_i,
+          :val_2        => $obj_vnum,
+          :val_3        => reset_record["val_3"].to_i,
+          :val_4        => reset_record["val_4"].to_i,
+          )
+      end
+
+      # P, need to know the last O (or I in theory)
+      if ( reset_type == 'P')
+        
+        $obj_vnum   = reset_record["val_2"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
+        $matches = $new_area.objs.where(:vnum => $obj_vnum)
+        if $matches.count > 0
+          $obj_vnum = $matches.first.id
+        end
+
+        $new_mobile_reset = $new_area.resets.create(
+          :reset_type   => reset_record["reset_type"],
+          :val_1        => reset_record["val_1"].to_i,
+          :val_2        => $obj_vnum,
+          :val_3        => reset_record["val_3"].to_i,
+          :val_4        => 0,
+          :parent_type  => 'reset',
+          :parent_id    => last_object_reset.id
+          )
+      end
+      
+      # D ... make a change in the exit record
+      if reset_type == 'D'
+        
+        $room_vnum  = reset_record["val_2"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
+        $room = $new_area.rooms.where(:vnum => $room_vnum).first
+        $exit = $room.exits.where(:direction => reset_record["val_3"].to_i).first
+        $exit.update(
+          :reset => reset_record["val_4"].to_i
+          )
+          
+      end
+      
+      # R
+      if reset_type == 'R'
+        
+        $room_vnum  = reset_record["val_2"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
+        $room = $new_area.rooms.where(:vnum => $room_vnum).first
+        $new_area.resets.create(
+          :reset_type => reset_record["reset_type"],
+          :val_1      => 0,
+          :val_2      => $room.id,
+          :val_3      => reset_record["val_3"].to_i,
+          :val_4      => 0
+          )
+      end
+
+
+    end
+  end# strings_block
+  
+  if area_info["shops_block"]
+    area_info["shops_block"].each_value do |shop_record|
+      $mobile_vnum  = shop_record["mobile_vnum"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
+      shop_mobile = $new_area.mobiles.where(:vnum => $mobile_vnum).first
+
+      shop_mobile.shops.create(
+        :buy_type_1 => shop_record["buy_type_1"],
+        :buy_type_2 => shop_record["buy_type_2"],
+        :buy_type_3 => shop_record["buy_type_3"],
+        :buy_type_4 => shop_record["buy_type_4"],
+        :buy_type_5 => shop_record["buy_type_5"],
+        :open_hour  => shop_record["open_hour"],
+        :close_hour => shop_record["close_hour"],
+        :race       => shop_record["race"],
+        )
+    end
+  end# shops_block
     
 end
