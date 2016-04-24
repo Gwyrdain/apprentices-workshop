@@ -83,7 +83,7 @@ def parse_mobiles(mobiles_block)
     mobile_info["ldesc"]    = m[4].strip
     
     m = mobile.match(/^~\n(.*)\n~\n([0-9|]*) ([0-9|]*) ([-\d]*) S\n(\d*).*\n8 8 (\d*)/m)
-    mobile_info["look_desc"]    = m[1].strip
+    mobile_info["look_desc"]    = m[1]
     mobile_info["act_flags"]    = read_flags( m[2].strip )
     mobile_info["affect_flags"] = read_flags( m[3].strip )
     mobile_info["alignment"]    = m[4].to_i
@@ -125,7 +125,7 @@ def parse_objects(objects_block)
   objects = objects_block.split(/^#/).map(&:strip)
   
   objects.each do |object|
-    m = object.match(/^(\d*)\n(.*)~\n(.*)~\n(.*)\n~\n/)
+    m = object.match(/^(\d*)\n(.*)~\n(.*)~\n(.*)~\n~\n/)
     object_info = Hash.new
     object_info["vnum"]     = m[1].to_i
     object_info["keywords"] = m[2].strip
@@ -201,7 +201,7 @@ def parse_extra_descs(extras_list)
     if m
       extra_desc = Hash.new
       extra_desc["keywords"]    = m[1].strip
-      extra_desc["description"] = m[2].strip
+      extra_desc["description"] = m[2]
 
       extra_descs[i] = extra_desc
       i = i + 1
@@ -257,7 +257,7 @@ def parse_rooms(rooms_block)
     room_info = Hash.new
     room_info["vnum"]        = m[1].to_i
     room_info["name"]        = m[2].strip
-    room_info["description"] = m[3].strip
+    room_info["description"] = m[3]
     room_info["area_number"] = m[4].to_i
     room_info["room_flags"]  = read_flags( m[5].strip )
     room_info["terrain"]     = m[6].to_i
@@ -329,7 +329,7 @@ def parse_helps( helps_block )
     m = help.match(/^(\d*) (.*)~\n([^~]*)/)
     help_info["min_level"] = m[1].to_i
     help_info["keywords"]  = m[2].strip
-    help_info["body"]      = m[3].strip
+    help_info["body"]      = m[3]
     
     helps_info[i] = help_info
     i = i + 1

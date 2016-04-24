@@ -325,15 +325,15 @@ def import_area( area_info )
     $new_area.exits.each do |exit|
       
       if ( exit.keyvnum / 100 ) == $new_area.area_number
-        $key = exit.keyvnum - ($new_area.area_number * 100)
-        $matches = $new_area.objs.where(:vnum => $vnum)
+        $keyvnum = exit.keyvnum - ($new_area.area_number * 100)
+        $matches = $new_area.objs.where(:vnum => $keyvnum)
         if $matches.count > 0
           exit.update(
             :keyvnum => $matches.first.id
             )
         end
       end
-      
+      # connect all internal keys...
       if ( exit.exit_room_id / 100 ) == $new_area.area_number
         $vnum = exit.exit_room_id - ($new_area.area_number * 100)
         $matches = $new_area.rooms.where(:vnum => $vnum)
