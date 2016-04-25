@@ -40,7 +40,7 @@
       <% if reset.class.name == 'Reset' %><% $area = reset.area %><% end %>
       <% if reset.class.name == 'SubReset' %><% $area = reset.reset.area %><% end %>
       
-      <% $area.resets.where(parent_id: reset.id).each do |dependent_reset| %>
+      <% $area.resets.where(parent_id: reset.id).order(reset_type: :desc).each do |dependent_reset| %>
         <tr><td>
             <%= dependent_reset.comment(true) %>
             <%= link_to area_reset_path(@area, dependent_reset), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>

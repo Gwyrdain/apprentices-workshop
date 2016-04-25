@@ -367,7 +367,8 @@ def import_area( area_info )
   if area_info["resets_block"]
     
     last_mobile_reset = 0
-    last_object_reset = 0
+    last_container_reset = 0
+    last_container_reset_type = ''
     
     area_info["resets_block"].each_value do |reset_record|
       reset_type = reset_record["reset_type"]
@@ -399,32 +400,35 @@ def import_area( area_info )
         
         $obj_vnum   = reset_record["val_2"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
         $room_vnum  = reset_record["val_4"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
-        $matches = $new_area.objs.where(:vnum => $obj_vnum)
-        if $matches.count > 0
-          $obj_vnum = $matches.first.id
+        this_obj = $new_area.objs.where(:vnum => $obj_vnum).first
+        if this_obj
+          $obj_vnum = this_obj.id
         end
-        $matches = $new_area.rooms.where(:vnum => $room_vnum)
-        if $matches.count > 0
-          $room_id = $matches.first.id
+        this_room = $new_area.rooms.where(:vnum => $room_vnum).first
+        if this_room
+          $room_id = this_room.id
         end
         
-        $new_obj_reset = $new_area.resets.create(
+        $new_reset = $new_area.resets.create(
           :reset_type => reset_record["reset_type"],
           :val_1      => reset_record["val_1"].to_i,
           :val_2      => $obj_vnum,
           :val_3      => reset_record["val_3"].to_i,
           :val_4      => $room_id
           )
-        last_object_reset = $new_obj_reset
+        if this_obj.is_container
+          last_container_reset = $new_reset 
+          last_container_reset_type = 'reset' 
+        end
       end
 
       # E / G ... make a sub-reset, need to know the last M or Q
       if ( reset_type == 'E' || reset_type == 'G' )
         
         $obj_vnum   = reset_record["val_2"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
-        $matches = $new_area.objs.where(:vnum => $obj_vnum)
-        if $matches.count > 0
-          $obj_vnum = $matches.first.id
+        this_obj = $new_area.objs.where(:vnum => $obj_vnum).first
+        if this_obj
+          $obj_vnum = this_obj.id
         end
 
         $new_sub_reset = last_mobile_reset.sub_resets.create(
@@ -434,26 +438,54 @@ def import_area( area_info )
           :val_3        => reset_record["val_3"].to_i,
           :val_4        => reset_record["val_4"].to_i,
           )
+        if this_obj.is_container
+          last_container_reset = $new_sub_reset 
+          last_container_reset_type = 'sub_reset' 
+        end
       end
 
-      # P, need to know the last O (or I in theory)
+      # P, need to know the last O or I
       if ( reset_type == 'P')
         
         $obj_vnum   = reset_record["val_2"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
-        $matches = $new_area.objs.where(:vnum => $obj_vnum)
-        if $matches.count > 0
-          $obj_vnum = $matches.first.id
+        this_obj = $new_area.objs.where(:vnum => $obj_vnum).first
+        if this_obj
+          $obj_vnum = this_obj.id
         end
 
-        $new_mobile_reset = $new_area.resets.create(
+        $new_reset = $new_area.resets.create(
           :reset_type   => reset_record["reset_type"],
           :val_1        => reset_record["val_1"].to_i,
           :val_2        => $obj_vnum,
           :val_3        => reset_record["val_3"].to_i,
           :val_4        => 0,
           :parent_type  => 'reset',
-          :parent_id    => last_object_reset.id
+          :parent_id    => last_container_reset.id
           )
+      end
+      
+      # I
+      if ( reset_type == 'I')
+        
+        $obj_vnum   = reset_record["val_2"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
+        this_obj = $new_area.objs.where(:vnum => $obj_vnum).first
+        if this_obj
+          $obj_vnum = this_obj.id
+        end
+
+        $new_reset = $new_area.resets.create(
+          :reset_type   => reset_record["reset_type"],
+          :val_1        => reset_record["val_1"].to_i,
+          :val_2        => $obj_vnum,
+          :val_3        => reset_record["val_3"].to_i,
+          :val_4        => 0,
+          :parent_type  => 'reset',
+          :parent_id    => last_container_reset.id
+          )
+        if this_obj.is_container
+          last_container_reset = $new_reset 
+          last_container_reset_type = 'reset' 
+        end
       end
       
       # D ... make a change in the exit record
