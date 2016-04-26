@@ -259,8 +259,8 @@ class Area < ActiveRecord::Base
       header_info = parse_area_header_v1( area_file.match(/^#AREA.*~.*?\n/)[0] )
     end
     
-    if area_file.match(/^#AREA.*?\nEnd/m) # v2 Header
-      header_info = parse_area_header_v2( area_file.match(/^#AREA.*?\nEnd/m)[0] )
+    if area_file.match(/^#AREA.*?\nEnd\n/m) # v2 Header
+      header_info = parse_area_header_v2( area_file.match(/^#AREA.*?\nEnd\n/m)[0] )
     end
 
     if area_file.match(/^#HELPS\n.*?0 \$~/m)
