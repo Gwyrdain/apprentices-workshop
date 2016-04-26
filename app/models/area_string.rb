@@ -8,8 +8,8 @@ class AreaString < ActiveRecord::Base
                                   },
                    uniqueness:   { scope: :area,
                                    message: "No duplicate vnums allowed." }
-  validates :message_to_pc, length: { in: 4..75 }
-  validates :message_to_room, length: { in: 4..75 }
+  validates :message_to_pc, length: { in: 4..80 }
+  validates :message_to_room, length: { in: 4..80 }
   
   validate do |areastring|
     areastring.errors.add :base, "Message to PC may only contain US-ASCII characters.  Invalid characters: " + areastring.message_to_pc.remove(/[\x0A\x0D -~]/) if areastring.message_to_pc.remove(/[\x0A\x0D -~]/).length > 0

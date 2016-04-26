@@ -49,7 +49,7 @@ class Room < ActiveRecord::Base
                    uniqueness:   { scope: :area,
                                    message: "No duplicate vnums allowed." }
     
-  validates :name, length: { in: 4..75 }
+  validates :name, length: { in: 4..80 }
   validates :description, length: { minimum: 4 }#, format: { with: /\A[\x0A\x0D -~]+\z/ }
   validates :terrain, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   

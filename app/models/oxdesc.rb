@@ -1,7 +1,7 @@
 class Oxdesc < ActiveRecord::Base
   belongs_to :obj
   
-  validates :keywords, length: { in: 2..75 }
+  validates :keywords, length: { in: 2..80 }
   validates :description, length: { minimum: 4 }#, format: { with: /\A[\x0A\x0D -~]+\z/ }
   
   validate do |oxdesc|
