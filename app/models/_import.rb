@@ -1,5 +1,5 @@
 def parse_area_header_v1(header)
-  m = header.match(/\{(.*)\} (........) (.*)~\s*F ([0-9|]+)/)
+  m = header.match(/#AREA [{]?(.....)[}]? (........) (.*)~\s*F ([0-9|]+)/)
   
   header_info = Hash.new
   
