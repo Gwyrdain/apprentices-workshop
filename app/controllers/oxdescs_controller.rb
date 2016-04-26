@@ -36,7 +36,7 @@ class OxdescsController < ApplicationController
 
   def update
     if @oxdesc.update(oxdesc_params)
-      redirect_to area_obj_oxdesc_path(@area, @obj, @oxdesc), notice: 'Obj Extra Description was sucessfully updated.'
+      redirect_to area_obj_path(@area, @obj), notice: 'Obj Extra Description was sucessfully updated.'
     else
       render action: 'edit'
     end 
@@ -45,9 +45,9 @@ class OxdescsController < ApplicationController
   def destroy
     @oxdesc.destroy
     if @oxdesc.save
-      redirect_to area_obj_oxdescs_path(@area, @obj), notice: 'Obj was sucessfully deleted.'
+      redirect_to area_obj_path(@area, @obj), notice: 'Obj was sucessfully deleted.'
     else
-      redirect_to area_obj_oxdescs_path(@area, @obj), notice: 'Something went wrong.'
+      redirect_to area_obj_path(@area, @obj), notice: 'Something went wrong.'
     end
   end
 
