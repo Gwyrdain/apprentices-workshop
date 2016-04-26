@@ -145,3 +145,32 @@ def area_flag_as_number( flag_name )
   $number = 2**9 if flag_name == 'NOSAVE'
   return $number
 end
+
+def apply_type_name(apply_type)
+  name = ''
+  name = 'STR'                if apply_type == 1
+  name = 'DEX'                if apply_type == 2
+  name = 'INT'                if apply_type == 3
+  name = 'WIS'                if apply_type == 4
+  name = 'CON'                if apply_type == 5
+  name = 'MANA'               if apply_type == 12
+  name = 'HIT'                if apply_type == 13
+  name = 'MOVE'               if apply_type == 14
+  name = 'AC'                 if apply_type == 17
+  name = 'HITROLL'            if apply_type == 18
+  name = 'DAMROLL'            if apply_type == 19
+  name = 'SAVE V SPELL'       if apply_type == 24
+  name = 'CHARISMA'           if apply_type == 25
+  name = 'LUCK'               if apply_type == 26
+  name = 'NOSTEAL'            if apply_type == 27
+  name = 'NOSLEEP'            if apply_type == 28
+  name = 'NOSUMMON'           if apply_type == 29
+  name = 'NOCHARM'            if apply_type == 30
+  name = 'NOSEXCHANGE'        if apply_type == 31
+  name = 'TRUESEE'            if apply_type == 32
+  name = 'NOINFO'             if apply_type == 33
+  name = 'WATERBREATH'        if apply_type == 34
+  name = 'DAMAGE ABSORPTION'  if apply_type == 41
+  name = 'MAGICAL RESISTANCE' if apply_type == 43
+  return name
+end

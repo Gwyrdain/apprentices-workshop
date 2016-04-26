@@ -17,9 +17,6 @@
             <td><%= oxdesc.keywords %></td>
             <td><%= simple_format(truncate(oxdesc.description, length: 220, separator: ' ', omission: '[...]')) %></td>
             <td>
-              <%= link_to area_obj_oxdesc_path(@area, @obj, oxdesc), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
-                <%= glyph 'info-sign' %>
-              <%- end -%>
               <%= link_to edit_area_obj_oxdesc_path(@area, @obj, oxdesc), :class => 'btn btn-xs', :title => "#{ t('.edit', :default => t('helpers.links.edit')) }" do %>
                 <%= glyph 'pencil' %>
               <%- end -%>

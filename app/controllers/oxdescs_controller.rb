@@ -45,7 +45,7 @@ class OxdescsController < ApplicationController
   def destroy
     @oxdesc.destroy
     if @oxdesc.save
-      redirect_to area_obj_path(@area, @obj), notice: 'Obj was sucessfully deleted.'
+      redirect_to area_obj_path(@area, @obj), notice: 'Obj Extra Description was sucessfully deleted.'
     else
       redirect_to area_obj_path(@area, @obj), notice: 'Something went wrong.'
     end

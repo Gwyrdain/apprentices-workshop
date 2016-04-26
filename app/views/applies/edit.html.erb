@@ -1,12 +1,12 @@
 <%- model_class = Apply -%>
 
 <div class="panel panel-default monospace">
-    <div class="panel-heading"><h3>
-        <%= link_to @area.name, area_path(@area) %> /
-        <%= link_to 'Objs', area_objs_path(@area) %> /
-        <%= link_to "Obj: #{@obj.vnum}", area_obj_path(@area, @obj) %> /
-        Edit Apply
-    </div>
+  <div class="panel-heading">
+    <%= render 'areas/quick_links', :model_class => model_class %>
+    <h5>
+      <%= link_to 'Objects', area_objs_path(@area) %> / <%= link_to "#{@obj.formal_vnum} #{@obj.sdesc}", area_obj_path(@area, @obj) %> / <%= apply_type_name(@apply.apply_type) %>
+    </h5>
+  </div>
     <div class="panel-body">    
     
         <%= render :partial => 'form' %>

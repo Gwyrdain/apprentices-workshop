@@ -1,11 +1,25 @@
 <%- model_class = Oxdesc -%>
 
 <div class="panel panel-default monospace">
-    <div class="panel-heading"><h3>
-        <%= link_to @area.name, area_path(@area) %> /
-        <%= link_to "Obj: #{@obj.vnum}", area_obj_path(@area, @obj) %> /
-        <%= @oxdesc.keywords %>
-    </h3></div>
+  <div class="panel-heading">
+    <%= render 'areas/quick_links', :model_class => model_class %>
+    <h5>
+      <%= link_to 'Objects', area_objs_path(@area) %> / <%= link_to "Obj: #{@obj.vnum} #{@obj.sdesc}", area_obj_path(@area, @obj) %> / <%= @oxdesc.keywords %>
+      <%= link_to edit_area_obj_path(@area, @obj), :class => 'btn btn-xs', :title => "#{ t('.edit', :default => t('helpers.links.edit')) }" do %>
+        <%= glyph 'pencil' %>
+      <%- end -%>
+      <%= link_to new_area_obj_path(@area), :class => 'btn btn-xs', :title => "#{ t('.new', :default => t('helpers.links.new')) }" do %>
+        <%= glyph 'plus' %>
+      <%- end -%>
+      <div class="pull-right">
+        <div class="btn-group " role="group" aria-label="...">
+          <% if @obj.last_obj %><%= link_to "Last Object: #{@obj.last_obj.vnum}", area_obj_path(@area, @obj.last_obj), :class => 'btn btn-default  btn-xs' %><% end %>
+          <% if @obj.next_obj %><%= link_to "Next Object: #{@obj.next_obj.vnum}", area_obj_path(@area, @obj.next_obj), :class => 'btn btn-default  btn-xs' %><% end %>
+        </div>
+      </div>
+    </h5>
+  </div>
+
     <div class="panel-body">
       
       <div class="row">
