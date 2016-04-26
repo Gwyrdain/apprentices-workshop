@@ -95,7 +95,7 @@ def parse_mobiles(mobiles_block)
       mobile_info["sdesc"]    = m[3].strip
       mobile_info["ldesc"]    = m[4].strip
       
-      m = mobile.match(/^~\n(.*)\n~\n([0-9|]*) ([0-9|]*) ([-\d]*) S\n(\d*).*\n8 8 (\d*)/m)
+      m = mobile.match(/^~\n([^~]*)\n~\n([0-9|]*) ([0-9|]*) ([-\d]*) S\n(\d*).*\n8 8 (\d*)/m)
       mobile_info["look_desc"]    = m[1]
       mobile_info["act_flags"]    = read_flags( m[2].strip )
       mobile_info["affect_flags"] = read_flags( m[3].strip )
@@ -151,7 +151,7 @@ def parse_objects(objects_block)
       object_info["sdesc"]    = m[3].strip
       object_info["ldesc"]    = m[4].strip
       
-      m = object.match(/^(\d*) ([0-9|]*) ([0-9|]*)\n(\d*) ([0-9|]*) (\d*) (\d*)\n(\d*) (\d*) 0/)
+      m = object.match(/^(\d*) ([0-9|]*) ([0-9|]*)\n(\d*) ([0-9|]*) ([-\d]*) (\d*)\n(\d*) (\d*) 0/)
       object_info["object_type"] = m[1].to_i
       object_info["extra_flags"] = read_flags( m[2].strip )
       object_info["wear_flags"]  = read_flags( m[3].strip )
@@ -177,7 +177,7 @@ def parse_objects(objects_block)
         applies_list.each do |apply_group|
           
           apply = Hash.new
-          am = apply_group.match(/^(\d*) (\d*)/)
+          am = apply_group.match(/^(\d*) ([-\d]*)/)
           apply["apply_type"] = am[1].to_i
           apply["amount"]     = am[2].to_i
           
