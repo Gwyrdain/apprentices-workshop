@@ -6,7 +6,7 @@ def format_hash(h)
       if item[1].class.name == "Hash"
         $formatted_hash = $formatted_hash + "<table border=\"1\"><tr><td>#{format_hash(item[1])}</td></tr></table>"
       else
-        $formatted_hash = $formatted_hash + "#{item[1]}<br>"
+        $formatted_hash = $formatted_hash + "#{CGI.escapeHTML(item[1].to_s)}<br>"
       end
     end
   
