@@ -355,7 +355,7 @@ def import_area( area_info )
 
   if area_info["strings_block"]
     area_info["strings_block"].each_value do |string_record|
-      $vnum = string_record["vnum"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
+      $vnum = $new_area.localize_vnum ( string_record["vnum"].to_i )
       $new_area.area_strings.create(
         :vnum => $vnum,
         :message_to_pc => string_record["message_to_pc"],
@@ -363,6 +363,25 @@ def import_area( area_info )
         )
     end
   end# strings_block
+  
+  high_vnum = 0
+  if $new_area.mobiles.count > 0
+    high_vnum = $new_area.mobiles.order(vnum: :desc).first.vnum if $new_area.mobiles.order(vnum: :desc).first.vnum > high_vnum
+  end
+  if $new_area.objs.count > 0
+    high_vnum = $new_area.objs.order(vnum: :desc).first.vnum if $new_area.objs.order(vnum: :desc).first.vnum > high_vnum
+  end
+  if $new_area.rooms.count > 0
+    high_vnum = $new_area.rooms.order(vnum: :desc).first.vnum if $new_area.rooms.order(vnum: :desc).first.vnum > high_vnum
+  end
+  
+  $new_area = Area.find(area_id)
+  
+  vnum_qty = ( ( ( high_vnum / 100 ) + 1 ) * 100 )
+  
+  $new_area.update(
+    :vnum_qty => vnum_qty
+    )
   
   if area_info["resets_block"]
     
@@ -375,8 +394,9 @@ def import_area( area_info )
       # M / Q / O / R ... load it directly
       if ( reset_type == 'M' || reset_type == 'Q' )
         
-        $mobile_vnum  = reset_record["val_2"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
-        $room_vnum    = reset_record["val_4"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
+        $mobile_vnum  = $new_area.localize_vnum ( reset_record["val_2"].to_i )
+        $room_vnum    = $new_area.localize_vnum ( reset_record["val_4"].to_i )
+        
         $matches = $new_area.mobiles.where(:vnum => $mobile_vnum)
         if $matches.count > 0
           $mobile_id = $matches.first.id
@@ -398,8 +418,9 @@ def import_area( area_info )
 
       if reset_type == 'O'
         
-        $obj_vnum   = reset_record["val_2"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
-        $room_vnum  = reset_record["val_4"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
+        $obj_vnum     = $new_area.localize_vnum ( reset_record["val_2"].to_i )
+        $room_vnum    = $new_area.localize_vnum ( reset_record["val_4"].to_i )
+        
         this_obj = $new_area.objs.where(:vnum => $obj_vnum).first
         if this_obj
           $obj_vnum = this_obj.id
@@ -416,16 +437,19 @@ def import_area( area_info )
           :val_3      => reset_record["val_3"].to_i,
           :val_4      => $room_id
           )
-        if this_obj.is_container
+          
+        if this_obj && this_obj.is_container
           last_container_reset = $new_reset 
           last_container_reset_type = 'reset' 
         end
+
       end
 
       # E / G ... make a sub-reset, need to know the last M or Q
       if ( reset_type == 'E' || reset_type == 'G' )
         
-        $obj_vnum   = reset_record["val_2"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
+        $obj_vnum     = $new_area.localize_vnum ( reset_record["val_2"].to_i )
+        
         this_obj = $new_area.objs.where(:vnum => $obj_vnum).first
         if this_obj
           $obj_vnum = this_obj.id
@@ -438,7 +462,7 @@ def import_area( area_info )
           :val_3        => reset_record["val_3"].to_i,
           :val_4        => reset_record["val_4"].to_i,
           )
-        if this_obj.is_container
+        if this_obj && this_obj.is_container
           last_container_reset = $new_sub_reset 
           last_container_reset_type = 'sub_reset' 
         end
@@ -447,11 +471,14 @@ def import_area( area_info )
       # P, need to know the last O or I
       if ( reset_type == 'P')
         
-        $obj_vnum   = reset_record["val_2"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
+        $obj_vnum     = $new_area.localize_vnum ( reset_record["val_2"].to_i )
+        
         this_obj = $new_area.objs.where(:vnum => $obj_vnum).first
         if this_obj
           $obj_vnum = this_obj.id
         end
+        
+        last_container_reset = $new_area.resets.where(:reset_type => ['O','I']).order(id: :desc).first
 
         $new_reset = $new_area.resets.create(
           :reset_type   => reset_record["reset_type"],
@@ -467,11 +494,14 @@ def import_area( area_info )
       # I
       if ( reset_type == 'I')
         
-        $obj_vnum   = reset_record["val_2"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
+        $obj_vnum     = $new_area.localize_vnum ( reset_record["val_2"].to_i )
+        
         this_obj = $new_area.objs.where(:vnum => $obj_vnum).first
         if this_obj
           $obj_vnum = this_obj.id
         end
+        
+        last_container_reset = $new_area.resets.where(:reset_type => ['O','I']).order(id: :desc).first
 
         $new_reset = $new_area.resets.create(
           :reset_type   => reset_record["reset_type"],
@@ -482,7 +512,7 @@ def import_area( area_info )
           :parent_type  => 'reset',
           :parent_id    => last_container_reset.id
           )
-        if this_obj.is_container
+        if this_obj && this_obj.is_container
           last_container_reset = $new_reset 
           last_container_reset_type = 'reset' 
         end
@@ -543,29 +573,32 @@ def import_area( area_info )
 
       $mobile_vnum  = special_record["vnum"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
       special_mobile = $new_area.mobiles.where(:vnum => $mobile_vnum).first
-
-      if ( special_type == 'M' )
-        special_mobile.specials.create(
-          :special_type => special_record["type"],
-          :name => special_record["name"],
-          :extended_value_1 => -1,
-          :extended_value_2 => -1,
-          :extended_value_3 => -1,
-          :extended_value_4 => -1,
-          :extended_value_5 => -1
-          )
-      end
       
-      if ( special_type == 'N' )
-        special_mobile.specials.create(
-          :special_type => special_record["type"],
-          :name => special_record["name"],
-          :extended_value_1 => special_record["extended_value_1"].to_i,
-          :extended_value_2 => special_record["extended_value_2"].to_i,
-          :extended_value_3 => special_record["extended_value_3"].to_i,
-          :extended_value_4 => special_record["extended_value_4"].to_i,
-          :extended_value_5 => special_record["extended_value_5"].to_i
-          )
+      if special_mobile
+        if ( special_type == 'M' )
+          special_mobile.specials.create(
+            :special_type => special_record["type"],
+            :name => special_record["name"],
+            :extended_value_1 => -1,
+            :extended_value_2 => -1,
+            :extended_value_3 => -1,
+            :extended_value_4 => -1,
+            :extended_value_5 => -1
+            )
+        end
+      
+        if ( special_type == 'N' )
+          special_mobile.specials.create(
+            :special_type => special_record["type"],
+            :name => special_record["name"],
+            :extended_value_1 => special_record["extended_value_1"].to_i,
+            :extended_value_2 => special_record["extended_value_2"].to_i,
+            :extended_value_3 => special_record["extended_value_3"].to_i,
+            :extended_value_4 => special_record["extended_value_4"].to_i,
+            :extended_value_5 => special_record["extended_value_5"].to_i
+            )
+        end
+        
       end
       
     end
@@ -641,24 +674,5 @@ def import_area( area_info )
       
     end
   end# triggers_block
-  
-  high_vnum = 0
-  if $new_area.mobiles.count > 0
-    high_vnum = $new_area.mobiles.order(vnum: :desc).first.vnum if $new_area.mobiles.order(vnum: :desc).first.vnum > high_vnum
-  end
-  if $new_area.objs.count > 0
-    high_vnum = $new_area.objs.order(vnum: :desc).first.vnum if $new_area.objs.order(vnum: :desc).first.vnum > high_vnum
-  end
-  if $new_area.rooms.count > 0
-    high_vnum = $new_area.rooms.order(vnum: :desc).first.vnum if $new_area.rooms.order(vnum: :desc).first.vnum > high_vnum
-  end
-  
-  $new_area = Area.find(area_id)
-  
-  vnum_qty = ( ( ( high_vnum / 100 ) + 1 ) * 100 )
-  
-  $new_area.update(
-    :vnum_qty => vnum_qty
-    )
     
 end

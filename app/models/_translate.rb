@@ -68,7 +68,7 @@ def race_from_num(i)
 end
 
 def object_type_from_num(i)
-  $object_type = nil
+  $object_type = 'UNKNOWN'
   $object_type = 'N/A' if i == 0
   $object_type = 'ARMOR' if i == 9
   $object_type = 'ARMOR ANIMAL' if i == 14
@@ -96,6 +96,8 @@ def object_type_from_num(i)
   $object_type = 'WAND' if i == 3
   $object_type = 'WEAPON' if i == 5
   $object_type = 'WEAPON ANIMAL' if i == 6
+  $object_type = 'NPC CORPSE' if i == 23
+  $object_type = 'PC CORPSE' if i == 24
   return $object_type
 end
 

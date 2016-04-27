@@ -233,6 +233,19 @@ class Area < ActiveRecord::Base
     return $latest_update
   end
   
+  def localize_vnum(vnum)
+    
+    lowest_vnum  = self.area_number * 100
+    highest_vnum = ( self.area_number * 100 ) + self.vnum_qty - 1
+    
+    if ( vnum >= lowest_vnum && vnum <= highest_vnum )
+      return ( vnum - ( self.area_number* 100 ) )
+    else
+      return vnum # If not localizable return input
+    end
+    
+  end
+  
   def self.import(file, parse_only = true)
 
     range_low ||= 0
@@ -241,8 +254,12 @@ class Area < ActiveRecord::Base
     name ||= ''
     flags ||= 0
     
-    area_file = file.read.encode('US-ASCII', :invalid => :replace, :undef => :replace).gsub(/\r\n/,"\n").gsub(/[ ]*\n/,"\n")
-
+    area_file = file.read.encode('US-ASCII', :invalid => :replace, :undef => :replace)
+    
+    area_file.gsub!(/\r\n/,"\n")      # normalize line endings
+    area_file.gsub!(/[ ]*\n/,"\n")    # strip trailing spaces on lines
+    area_file.gsub!(/[\x09]/,"     ") # replace tabs with 5 spaces
+    
     header_info = nil
     helps_block = nil
     mobiles_block = nil

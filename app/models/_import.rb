@@ -438,17 +438,18 @@ def parse_shops (shops_block)
   if shops_block.match(/^#[a-zA-Z]+/) # Chuck it if #SOMETHING is in here, e.g.
     return nil
   else
-      
+    
     shops_info = Hash.new
     i = 1
     
+    shops_block.gsub!(/^\s*\n/,'')  # remove blank lines
     shops_block.gsub!(/^\*.*\n/,'') # remove any commented out lines
     shops = shops_block.split(/\n/).map(&:strip)
     
     shops.each do |shop|
       shop_info = Hash.new
   
-      m = shop.match(/^(\d*)\s*(\d*)\s*(\d*)\s*(\d*)\s*(\d*)\s*(\d*)\s*\d*\s*\d*\s*(\d*)\s*(\d*)\s*([0-9-]*)/)
+      m = shop.match(/^\s*(\d*)\s*(\d*)\s*(\d*)\s*(\d*)\s*(\d*)\s*(\d*)\s*\d*\s*\d*\s*(\d*)\s*(\d*)\s*([0-9-]*)/)
       if m
         shop_info["mobile_vnum"] = m[1].to_i
         shop_info["buy_type_1"]  = m[2].to_i
@@ -484,14 +485,14 @@ def parse_specials (specials_block)
     specials.each do |special|
       special_info = Hash.new
   
-      m = special.match(/^(\w) (\d*) (\w*)/)
+      m = special.match(/^(\w)\s*(\d*)\s*(\w*)/)
       if m
         special_info["type"] = m[1].strip
         special_info["vnum"] = m[2].to_i
         special_info["name"] = m[3].strip
       end
       
-      m = special.match(/^\w \d* \w* ([0-9-]*) ([0-9-]*) ([0-9-]*) ([0-9-]*) ([0-9-]*)/)
+      m = special.match(/^\w\s*\d*\s*\w* ([0-9-]*) ([0-9-]*) ([0-9-]*) ([0-9-]*) ([0-9-]*)/)
       if m
         special_info["extended_value_1"] = m[1].to_i
         special_info["extended_value_2"] = m[2].to_i
