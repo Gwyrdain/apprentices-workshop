@@ -88,14 +88,14 @@ def parse_mobiles(mobiles_block)
     mobiles = mobiles_block.split(/^#/).map(&:strip)
     
     mobiles.each do |mobile|
-      m = mobile.match(/^(\d*)\n(.*)~\n(.*)~\n(.*)\n~\n/)
+      m = mobile.match(/^(\d*)\n(.*)~\n(.*)~\n([^~]*)\n~\n/)
       mobile_info = Hash.new
       mobile_info["vnum"]     = m[1].to_i
       mobile_info["keywords"] = m[2].strip
       mobile_info["sdesc"]    = m[3].strip
       mobile_info["ldesc"]    = m[4].strip
       
-      m = mobile.match(/^~\n([^~]*)\n~\n([0-9|]*) ([0-9|]*) ([-\d]*) S\n(\d*).*\n8 8 (\d*)/m)
+      m = mobile.match(/^~\n([^~]*)\n?~\n([0-9|]*) ([0-9|]*) ([-\d]*) S\n(\d*)[^#]*\n8 8 (\d*)/)
       mobile_info["look_desc"]    = m[1]
       mobile_info["act_flags"]    = read_flags( m[2].strip )
       mobile_info["affect_flags"] = read_flags( m[3].strip )
@@ -151,7 +151,7 @@ def parse_objects(objects_block)
       object_info["sdesc"]    = m[3].strip
       object_info["ldesc"]    = m[4].strip
       
-      m = object.match(/^(\d*) ([0-9|]*) ([0-9|]*)\n(\d*) ([0-9|]*) ([-\d]*) (\d*)\n(\d*) (\d*) 0/)
+      m = object.match(/^(\d*) ([0-9|]*) ([0-9|]*)\n(\d*) ([0-9|]*) ([-\d]*) ([-\d]*)\n(\d*) (\d*) \d*/)
       object_info["object_type"] = m[1].to_i
       object_info["extra_flags"] = read_flags( m[2].strip )
       object_info["wear_flags"]  = read_flags( m[3].strip )
