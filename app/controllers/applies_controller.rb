@@ -38,7 +38,7 @@ class AppliesController < ApplicationController
   def update
     if @apply.update(apply_params)
       Obj.update(@apply.obj_id, :magic => true)
-      redirect_to area_obj_apply_path(@area, @obj, @apply), notice: 'Apply was sucessfully updated.'
+      redirect_to area_obj_path(@area, @obj), notice: 'Apply was sucessfully updated.'
     else
       render action: 'edit'
     end 

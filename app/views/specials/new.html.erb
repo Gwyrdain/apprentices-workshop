@@ -1,12 +1,13 @@
 <%- model_class = Special -%>
 
 <div class="panel panel-default monospace">
-    <div class="panel-heading"><h3>
-        <%= link_to @area.name, area_path(@area) %> /
-        <%= link_to 'Mobiles', area_mobiles_path(@area) %> /
-        <%= link_to "Mobile: #{@mobile.vnum}", area_mobile_path(@area, @mobile) %> /
-        New Mobile Special Function
-    </div>
+  <div class="panel-heading">
+    <%= render 'areas/quick_links', :model_class => model_class %>
+    <h5>
+      <%= link_to 'Mobiles', area_mobiles_path(@area) %> / <%= link_to "#{@mobile.formal_vnum} #{@mobile.sdesc}", area_mobile_path(@area, @mobile) %> / New Mobile Special Function
+    </h5>
+  </div>
+
     <div class="panel-body">    
     
         <%= render :partial => 'form' %>

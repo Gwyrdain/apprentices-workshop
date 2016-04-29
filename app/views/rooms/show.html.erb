@@ -4,7 +4,7 @@
     <div class="panel-heading">
       <%= render 'areas/quick_links', :model_class => model_class %>
       <h5>
-        <%= link_to 'Rooms', area_rooms_path(@area) %> / <%= @room.name %>
+        <%= link_to 'Rooms', area_rooms_path(@area) %> / <%= "#{@room.formal_vnum} #{@room.name}" %>
         <%= link_to edit_area_room_path(@area, @room), :class => 'btn btn-xs', :title => "#{ t('.edit', :default => t('helpers.links.edit')) }" do %>
           <%= glyph 'pencil' %>
         <%- end -%>

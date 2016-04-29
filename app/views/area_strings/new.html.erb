@@ -1,11 +1,14 @@
 <%- model_class = AreaString -%>
 
 <div class="panel panel-default monospace">
-    <div class="panel-heading"><h3>
-        <%= link_to @area.name, area_path(@area) %> /
-        <%= link_to 'Strings', area_area_strings_path(@area) %> /
-        <%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %>
-    </div>
+
+  <div class="panel-heading">
+    <%= render 'areas/quick_links', :model_class => model_class %>
+    <h5>
+      <%= link_to 'Strings', area_area_strings_path(@area) %> / New String
+    </h5>
+  </div>
+
     <div class="panel-body">    
     
         <%= render :partial => 'form' %>

@@ -32,9 +32,6 @@
             <td><%= hour_from_num(shop.close_hour) %></td>
             <td><%= race_from_num(shop.race) %></td>
             <td>
-              <%= link_to area_mobile_shop_path(@area, shop.mobile, shop), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
-                <%= glyph 'info-sign' %>
-              <%- end -%>
               <%= link_to edit_area_mobile_shop_path(@area, shop.mobile, shop), :class => 'btn btn-xs', :title => "#{ t('.edit', :default => t('helpers.links.edit')) }" do %>
                 <%= glyph 'pencil' %>
               <%- end -%>

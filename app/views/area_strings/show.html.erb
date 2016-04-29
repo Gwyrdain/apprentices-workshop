@@ -1,10 +1,13 @@
 <%- model_class = AreaString -%>
 <div class="panel panel-default monospace">
-  <div class="panel-heading"><h3>
-      <%= link_to @area.name, area_path(@area) %> /
-      <%= link_to 'Strings', area_area_strings_path(@area) %> /
-      String: <%= @area_string.vnum %>
-  </h3></div>
+  
+  <div class="panel-heading">
+    <%= render 'areas/quick_links', :model_class => model_class %>
+    <h5>
+      <%= link_to 'Strings', area_area_strings_path(@area) %> / <%= @area_string.formal_vnum %>
+    </h5>
+  </div>
+
   <div class="panel-body">
       
     <div class="row">
