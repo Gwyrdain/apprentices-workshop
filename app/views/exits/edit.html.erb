@@ -1,12 +1,14 @@
 <%- model_class = Exit -%>
 
 <div class="panel panel-default monospace">
-    <div class="panel-heading"><h3>
-        <%= link_to @area.name, area_path(@area) %> /
-        <%= link_to 'Rooms', area_rooms_path(@area) %> /
-        <%= link_to "Room #{@room.formal_vnum} #{@room.name}", area_room_path(@area, @room) %> /
-        <%= @exit.direction_word %>
-    </div>
+    
+  <div class="panel-heading">
+    <%= render 'areas/quick_links', :model_class => model_class %>
+    <h5>
+      <%= link_to 'Rooms', area_rooms_path(@area) %> / <%= link_to "#{@room.formal_vnum} #{@room.name}", area_room_path(@area, @room) %> / <%= @exit.direction_word %>
+    </h5>
+  </div>
+
     <div class="panel-body">    
     
         <%= render :partial => 'form' %>
