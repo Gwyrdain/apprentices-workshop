@@ -34,8 +34,10 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  
+
   # Added per devise install instructions
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  
+
+  BetterErrors::Middleware.allow_ip! '97.117.237.128'
+
 end

@@ -7,15 +7,19 @@
       <%= link_to new_area_reset_path(@area), :class => 'btn btn-xs', :title => "#{ t('.new', :default => t('helpers.links.new')) }" do %>
         <%= glyph 'plus' %>
       <%- end -%>
-      <br>
-      Reset count: <%= "M:#{@area.resets.where(:reset_type => 'M').count} 
-                        Q:#{@area.resets.where(:reset_type => 'Q').count} 
-                        O:#{@area.resets.where(:reset_type => 'O').count} 
-                        I:#{@area.resets.where(:reset_type => 'I').count} 
-                        P:#{@area.resets.where(:reset_type => 'P').count} 
-                        E:#{@area.sub_resets.where(:reset_type => 'E').count}
-                        G:#{@area.sub_resets.where(:reset_type => 'G').count} 
-                        D:#{@area.door_reset_count}" %>
+        <div class="pull-right btn-xs">
+          <font color=lightgray>
+            [ Counts: <%= "M:#{@area.resets.where(:reset_type => 'M').count} |
+                              Q:#{@area.resets.where(:reset_type => 'Q').count} |
+                              O:#{@area.resets.where(:reset_type => 'O').count} |
+                              I:#{@area.resets.where(:reset_type => 'I').count} |
+                              P:#{@area.resets.where(:reset_type => 'P').count} |
+                              E:#{@area.sub_resets.where(:reset_type => 'E').count} |
+                              G:#{@area.sub_resets.where(:reset_type => 'G').count} |
+                              D:#{@area.door_reset_count}" %>
+            ]
+          </font>
+        </div>
     </h5>
   </div>
 
@@ -71,13 +75,13 @@
       </table>
 
     <div class="panel-footer">
-      <%= link_to 'New reset', new_area_reset_path(@area) %> | 
+      <%= link_to 'New reset', new_area_reset_path(@area) %> |
       <%= link_to 'Back', area_path(@area) %>
       <% if @area.sub_resets.where(:reset_type => 'P').count > 0 %>
        | <%= link_to 'Convert Legecy Put Resets', new_area_reset_path(@area, :convert_legacy => true) %>
       <% end %>
     </div>
-    
+
 </div>
 
 <% if @area.show_formatted_blocks? %>

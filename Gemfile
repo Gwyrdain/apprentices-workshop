@@ -21,6 +21,8 @@ gem 'bootstrap-datepicker-rails', '~> 1.3.1.1'
 
 group :development, :test do
     gem 'sqlite3'
+    gem 'better_errors'
+    gem "binding_of_caller"
 end
 
 group :production do

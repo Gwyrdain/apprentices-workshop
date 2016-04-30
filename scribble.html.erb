@@ -1,7 +1,7 @@
 Misc Notes
 ---
 
-      bitfield :misc_flags, 
+      bitfield :misc_flags,
                     2**0 =>  :flag,          # Dec:          1 / Hex:         1
                     2**1 =>  :flag,          # Dec:          2 / Hex:         2
                     2**2 =>  :flag,          # Dec:          4 / Hex:         4
@@ -37,3 +37,26 @@ Misc Notes
                     2**32 => :flag,          # Dec: 4294967296 / Hex: 100000000
 
 
+
+
+<%
+=begin *** OLD CONTAINER value_0 DISPLAY ***
+
+  <div class="form-group">
+    <%= f.label :v0, 'Weight (loaded)', :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :v0, {:class => 'text_field form-control', :readonly => true} %>
+    </div>
+  </div>
+=end %>
+
+<br/><div class="row">
+        <div class="col-md-2">
+          <strong>Weight (loaded):</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @obj.v0 %>
+          </div>
+        </div>
+      </div>

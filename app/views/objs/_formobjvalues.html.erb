@@ -168,7 +168,7 @@
 %>
 
 <fieldset hidden='hidden' id=ItemValueGroupGeneric>
-  
+
   <div class="form-group" hidden="hidden">
     <%= f.label :v0, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -176,7 +176,7 @@
       <%= f.hidden_field :v0, :value => 0 %>
     </div>
   </div>
-  
+
   <div class="form-group" hidden="hidden">
     <%= f.label :v1, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -184,7 +184,7 @@
       <%= f.hidden_field :v1, :value => 0 %>
     </div>
   </div>
-  
+
   <div class="form-group" hidden="hidden">
     <%= f.label :v2, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -192,7 +192,7 @@
       <%= f.hidden_field :v2, :value => 0 %>
     </div>
   </div>
-  
+
   <div class="form-group" hidden="hidden">
     <%= f.label :v3, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -200,20 +200,20 @@
       <%= f.hidden_field :v3, :value => 0 %>
     </div>
   </div>
-  
+
 </fieldset>
 
 
 
 <fieldset hidden='hidden' id=ItemValueGroupMoney>
-  
+
   <div class="form-group">
     <%= f.label :v0, '# of coins', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :v0, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group" hidden="hidden">
     <%= f.label :v1, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -221,7 +221,7 @@
       <%= f.hidden_field :v1, :value => 0 %>
     </div>
   </div>
-  
+
   <div class="form-group" hidden="hidden">
     <%= f.label :v2, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -229,7 +229,7 @@
       <%= f.hidden_field :v2, :value => 0 %>
     </div>
   </div>
-  
+
   <div class="form-group" hidden="hidden">
     <%= f.label :v3, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -243,21 +243,21 @@
 
 
 <fieldset hidden='hidden' id=ItemValueGroupDrink>
-  
+
   <div class="form-group">
     <%= f.label :v0, '# of drinks', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :v0, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :v1, 'Amount left', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :v1, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :v2, 'Liquid type', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -265,7 +265,7 @@
           ), {}, {class: "form-control"}) %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :v3, 'Poison?', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -280,7 +280,7 @@
 
 
 <fieldset hidden='hidden' id=ItemValueGroupJewelry>
-  
+
   <div class="form-group" hidden="hidden">
     <%= f.label :v0, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -288,7 +288,7 @@
       <%= f.hidden_field :v0, :value => 0 %>
     </div>
   </div>
-  
+
   <div class="form-group" hidden="hidden">
     <%= f.label :v1, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -296,14 +296,14 @@
       <%= f.hidden_field :v1, :value => 0 %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :v2, '# of repairs', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :v2, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group" hidden="hidden">
     <%= f.label :v3, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -317,7 +317,7 @@
 
 
 <fieldset hidden='hidden' id=ItemValueGroupFountain>
-  
+
   <div class="form-group" hidden="hidden">
     <%= f.label :v0, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -325,7 +325,7 @@
       <%= f.hidden_field :v0, :value => 0 %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :v1, 'liquid type', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -333,27 +333,27 @@
           ), {}, {class: "form-control"}) %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :v2, 'spell level', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :v2, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :v3, 'Spell', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.select(:v3, options_for_select(spell_list, @obj.v3), {}, {class: "form-control"}) %>
     </div>
   </div>
-  
+
 </fieldset>
 
 
 
 <fieldset hidden='hidden' id=ItemValueGroupWeapon>
-  
+
   <div class="form-group" hidden="hidden">
     <%= f.label :v0, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -361,34 +361,34 @@
       <%= f.hidden_field :v0, :value => 0 %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :v1, 'Range min.', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :v1, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :v2, 'Range max.', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :v2, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :v3, 'Damage type', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.select(:v3, options_for_select(damage_types, @obj.v3), {}, {class: "form-control"}) %>
     </div>
   </div>
-  
+
 </fieldset>
 
 
 
 <fieldset hidden='hidden' id=ItemValueGroupLight>
-  
+
   <div class="form-group" hidden="hidden">
     <%= f.label :v0, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -396,7 +396,7 @@
       <%= f.hidden_field :v0, :value => 0 %>
     </div>
   </div>
-  
+
   <div class="form-group" hidden="hidden">
     <%= f.label :v1, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -404,11 +404,11 @@
       <%= f.hidden_field :v1, :value => 0 %>
     </div>
   </div>
-  
+
   <% @obj.v1 == -1 ? $LightInfinite = true : $LightInfinite = false %>
   <% @obj.v1 ==  0 ? $LightDead     = true : $LightDead     = false %>
   <% @obj.v1 >   0 ? $LightHours    = true : $LightHours    = false %>
-  
+
   <div class="form-group">
     <%= f.label 'Light Duration', :class => 'control-label col-md-2' %>
     <div class="col-md-2">
@@ -422,24 +422,24 @@
         <input type="radio" name="LightRadioOptions" id="LightDead" value="2" <%= "checked" if $LightDead %>> Dead
       </label>
     </div>
-    
+
     <div class="col-md-2">
       <label class="radio-inline">
         <input type="radio" name="LightRadioOptions" id="LightHours" value="3" <%= "checked" if $LightHours %>> Set Hours
       </label>
     </div>
   </div>
-  
+
   <%= f.hidden_field :v2, {:id => 'LightInfiniteField', :value => -1} %>
   <%= f.hidden_field :v2, {:id => 'LightDeadField', :value => 0} %>
-  
+
   <div class="form-group">
     <%= f.label :v2, 'Hours lit', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :v2, {:id => 'LightHoursField', :class => 'text_field form-control'} %>
     </div>
   </div>
-  
+
   <div class="form-group" hidden="hidden">
     <%= f.label :v3, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -453,28 +453,28 @@
 
 
 <fieldset hidden='hidden' id=ItemValueGroupArmor>
-  
+
   <div class="form-group">
     <%= f.label :v0, 'AC', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :v0, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :v1, 'Max AC', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :v1, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :v2, '# of repairs', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :v2, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group" hidden="hidden">
     <%= f.label :v3, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -482,27 +482,22 @@
       <%= f.hidden_field :v3, :value => 0 %>
     </div>
   </div>
-  
+
 </fieldset>
 
 
 
 <fieldset hidden='hidden' id=ItemValueGroupContainer>
-  
+
   <div class="form-group">
-    <%= f.label :capacity, 'Capacity (weight)', :class => 'control-label col-md-2' %>
+    <%= f.label :capacity, 'Capacity', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= text_field_tag :obj_capacity, (@obj.v0 - @obj.weight), :class => 'text_field form-control' %>
     </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :v0, 'Weight (loaded)', :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
-      <%= f.text_field :v0, {:class => 'text_field form-control', :readonly => true} %>
-    </div>
-  </div>
-  
+  <%= f.hidden_field :v0 %>
+
   <div class="form-group">
     <%= f.label :v1, 'Container flags', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -528,7 +523,7 @@
         <input type="radio" name="ContainerKeyVnumRadioOptions" id="ExternalKeyVnumRadio" value="2" <%= "checked" if $ExternalKeyVnumRadio %>> External Key Vnum
       </label>
     </div>
-    
+
     <div class="col-md-3">
       <label class="radio-inline">
         <input type="radio" name="ContainerKeyVnumRadioOptions" id="BadKeyVnumRadio" value="3" <%= "checked" if $BadKeyVnumRadio %>> No Key
@@ -543,16 +538,16 @@
       <%= f.collection_select(:v2, @area.objs.order('vnum ASC'), :id, :vnum_and_sdesc, {}, {:id => 'LocalKeyVnumField', :class => 'form-control'})  %>
     </div>
   </div>
-  
+
   <div id="ExternalKeyVnumGroup" class="form-group">
     <%= f.label :v2, 'External key vnum', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :v2, {:id => 'ExternalKeyVnumField', :class => 'text_field form-control'} %>
     </div>
   </div>
-  
+
   <%= f.hidden_field :v2, {:id => 'BadKeyVnumField', :value => 0} %>
-  
+
   <div class="form-group" hidden="hidden">
     <%= f.label :v3, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -560,86 +555,86 @@
       <%= f.hidden_field :v3, :value => 0 %>
     </div>
   </div>
-  
+
 </fieldset>
 
 
 
 <fieldset hidden='hidden' id=ItemValueGroupMultiUseMagicItems>
-  
+
   <div class="form-group">
     <%= f.label :v0, 'Spell level', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :v0, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :v1, 'Max. charges', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :v1, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :v2, 'Remaining charges', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :v2, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :v3, 'Spell', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.select(:v3, options_for_select(spell_list, @obj.v3), {}, {class: "form-control"}) %>
     </div>
   </div>
-  
+
 </fieldset>
 
 <fieldset hidden='hidden' id=ItemValueGroupSingleUseMagicItems>
-  
+
   <div class="form-group">
     <%= f.label :v0, 'Spell level', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :v0, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :v1, '1st Spell', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.select(:v1, options_for_select(spell_list, @obj.v1), {}, {class: "form-control"}) %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :v2, '2nd Spell', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.select(:v2, options_for_select(spell_list, @obj.v2), {}, {class: "form-control"}) %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :v3, '3rd Spell', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.select(:v3, options_for_select(spell_list, @obj.v3), {}, {class: "form-control"}) %>
     </div>
   </div>
-  
+
 </fieldset>
 
 
 
 <fieldset hidden='hidden' id=ItemValueGroupFood>
-  
+
   <div class="form-group">
     <%= f.label :v0, 'Food-hours', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :v0, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group" hidden="hidden">
     <%= f.label :v1, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -647,7 +642,7 @@
       <%= f.hidden_field :v1, :value => 0 %>
     </div>
   </div>
-  
+
   <div class="form-group" hidden="hidden">
     <%= f.label :v2, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -655,7 +650,7 @@
       <%= f.hidden_field :v2, :value => 0 %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :v3, 'Poison?', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -664,5 +659,5 @@
       </div>
     </div>
   </div>
-  
+
 </fieldset>

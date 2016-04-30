@@ -6,7 +6,7 @@
     <%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>
     </h5>
   </div>
-    
+
     <table class="table table-hover monospace">
       <thead>
         <tr>
@@ -22,9 +22,6 @@
             <td><%= link_to area_mobile_path(@area, $mobile) do %><%= $mobile.formal_vnum %> <%= $mobile.sdesc %><% end %></td>
             <td><%= special.name %></td>
             <td>
-              <%= link_to area_mobile_special_path(@area, special.mobile, special), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
-                <%= glyph 'info-sign' %>
-              <%- end -%>
               <%= link_to edit_area_mobile_special_path(@area, special.mobile, special), :class => 'btn btn-xs', :title => "#{ t('.edit', :default => t('helpers.links.edit')) }" do %>
                 <%= glyph 'pencil' %>
               <%- end -%>
@@ -40,7 +37,7 @@
     <div class="panel-footer">
       <%= link_to 'Back', area_path(@area) %>
     </div>
-    
+
 </div>
 
 <% if @area.show_formatted_blocks? %>

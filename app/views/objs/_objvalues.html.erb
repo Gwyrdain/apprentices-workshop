@@ -15,7 +15,7 @@
         </div>
       </div><br/>
     <% end %>
-    
+
     <% if obj.object_type == 20 %>
       <!-- MONEY -->
       <div class="row">
@@ -29,7 +29,7 @@
         </div>
       </div><br/>
     <% end %>
-    
+
     <% if obj.object_type == 17 %>
       <!-- DRINK -->
       <div class="row">
@@ -73,7 +73,7 @@
         </div>
       </div><br/>
     <% end %>
-    
+
     <% if obj.object_type == 30 %>
       <!-- JEWELRY -->
       <div class="row">
@@ -121,7 +121,7 @@
         </div>
       </div><br/>
     <% end %>
-    
+
     <% if obj.object_type == 5 || obj.object_type == 6 %>
       <!-- WEAPON -->
       <div class="row">
@@ -155,7 +155,7 @@
         </div>
       </div><br/>
     <% end %>
-    
+
     <% if obj.object_type == 9 || obj.object_type == 14 %>
       <!-- ARMOR -->
       <div class="row">
@@ -189,25 +189,16 @@
         </div>
       </div><br/>
     <% end %>
-    
+
     <% if obj.object_type == 15 %>
       <!-- CONTAINER -->
       <div class="row">
         <div class="col-md-2">
-          <strong>Capacity (weight):</strong>
+          <strong>Capacity:</strong>
         </div>
         <div class="col-md-10">
           <div class="col-md-10">
             <%= (@obj.v0 - @obj.weight) %>
-          </div>
-        </div>
-      </div><br/><div class="row">
-        <div class="col-md-2">
-          <strong>Weight (loaded):</strong>
-        </div>
-        <div class="col-md-10">
-          <div class="col-md-10">
-            <%= @obj.v0 %>
           </div>
         </div>
       </div><br/>
@@ -235,7 +226,7 @@
       <% end %>
 
     <% end %>
-    
+
     <% if obj.object_type == 3 || obj.object_type == 4 || obj.object_type == 7 || obj.object_type == 29 || obj.object_type == 33 %>
       <!-- MULTI USE MAGIC ITEMS -->
       <div class="row">
@@ -279,7 +270,7 @@
         </div>
       </div><br/>
     <% end %>
-    
+
     <% if obj.object_type == 2 || obj.object_type == 10 || obj.object_type == 26 %>
       <!-- SINGLE USE MAGIC ITEMS -->
       <div class="row">
@@ -323,7 +314,7 @@
         </div>
       </div><br/>
     <% end %>
-    
+
     <% if obj.object_type == 11 || obj.object_type == 19 %>
       <!-- FOOD -->
       <div class="row">

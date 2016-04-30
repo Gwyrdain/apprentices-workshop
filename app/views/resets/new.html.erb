@@ -1,12 +1,13 @@
 <%- model_class = Reset -%>
 <div class="panel panel-default monospace">
-    <div class="panel-heading"><h3>
-        <%= link_to @area.name, area_path(@area) %> /
-        <%= link_to 'Resets', area_resets_path(@area) %> /
-        <%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %>
-    </div>
-    <div class="panel-body">    
-    
+  <div class="panel-heading">
+    <%= render 'areas/quick_links', :model_class => model_class %>
+    <h5>
+      <%= link_to 'Resets', area_resets_path(@area) %> / New Reset
+    </h5>
+  </div>
+    <div class="panel-body">
+
         <%= render :partial => 'form' %>
 
     </div>
