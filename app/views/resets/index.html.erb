@@ -30,7 +30,6 @@
         <thead>
           <tr>
             <th>Type</th>
-
             <th>Description</th>
             <th><%=t '.actions', :default => t("helpers.actions") %></th>
           </tr>
@@ -39,7 +38,6 @@
           <% @resets.order(:reset_type, :val_2).where(reset_type: ['M','Q', 'O', 'R']).each do |reset| %>
             <tr>
               <td><%= reset.desc_brief %></td>
-              <td><%= reset.output.match(/^\w \d* (\d*)/)[1] %></td>
               <td>
                 <%= reset.comment(true)%>
                 <% if reset.is_container %>
