@@ -176,3 +176,12 @@ def apply_type_name(apply_type)
   name = 'MAGICAL RESISTANCE' if apply_type == 43
   return name
 end
+
+def random_type_word(i)
+  word = 'UNKNOWN'
+  word = 'weapon'             if i == 0
+  word = 'armor'              if i == 1
+  word = 'potion'             if i == 2
+  word = 'miscellaneous item' if i == 3
+  return word
+end

@@ -549,9 +549,9 @@ def import_area( area_info )
 
         $new_sub_reset = last_mobile_reset.sub_resets.create(
           :reset_type => reset_record["reset_type"],
-          :val_1      => reset_record["val_1"].to_i,
+          :val_1      => 0,
           :val_2      => reset_record["val_2"].to_i,
-          :val_3      => reset_record["val_3"].to_i,
+          :val_3      => 0,
           :val_4      => 0
           )
       end

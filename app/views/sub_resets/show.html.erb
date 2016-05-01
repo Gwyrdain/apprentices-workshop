@@ -19,35 +19,42 @@
         </div>
       </div>
     </div><br/>
-    
+
     <div class="row">
       <div class="col-md-2">
         <strong>
           <%= 'Equip:' if @sub_reset.reset_type == 'E' %>
           <%= 'Give:' if @sub_reset.reset_type == 'G' %>
           <%= 'Put:' if @sub_reset.reset_type == 'P' %>
+          <%= 'Type:' if ( @sub_reset.reset_type == 'F' || @sub_reset.reset_type == 'C' ) %>
         </strong>
       </div>
       <div class="col-md-10">
         <div class="col-md-10">
-        <%= obj_info(@sub_reset.val_2, 'formal_vnum', @sub_reset.reset.area) + ' ' + obj_info(@sub_reset.val_2, 'sdesc', @sub_reset.reset.area) %>
+        <% if ( @sub_reset.reset_type == 'F' || @sub_reset.reset_type == 'C' ) %>
+          <%= random_type_word(@sub_reset.val_2) %>
+        <% else %>
+          <%= obj_info(@sub_reset.val_2, 'formal_vnum', @sub_reset.reset.area) + ' ' + obj_info(@sub_reset.val_2, 'sdesc', @sub_reset.reset.area) %>
+        <% end %>
         </div>
       </div>
     </div><br/>
-    
-    <div class="row">
-      <div class="col-md-2">
-        <strong>
-          Mudwide limit:
-        </strong>
-      </div>
-      <div class="col-md-10">
+
+    <% if ( @sub_reset.reset_type == 'E' || @sub_reset.reset_type == 'G' || @sub_reset.reset_type == 'P' ) %>
+      <div class="row">
+        <div class="col-md-2">
+          <strong>
+            Mudwide limit:
+          </strong>
+        </div>
         <div class="col-md-10">
-          <%= @sub_reset.val_3 %>
+          <div class="col-md-10">
+            <%= @sub_reset.val_3 %>
+          </div>
         </div>
-      </div>
-    </div><br/>
-    
+      </div><br/>
+    <% end %>
+
     <div class="row">
       <div class="col-md-2">
         <strong>
@@ -62,7 +69,7 @@
         </div>
       </div>
     </div><br/>
-      
+
   <div class="panel-footer">
     <%= link_to t('.back', :default => t("helpers.links.back")),
                 area_resets_path(@area), :class => 'btn btn-default'  %>

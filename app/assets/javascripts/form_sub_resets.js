@@ -6,17 +6,24 @@ function initSubResetForm() {
 
 function setSubResetType() {
   hideSubResetTypes();
-  
+
   if( $('#sub_reset_reset_type').val() == 'E') {
-    $('#EquipGroup').prop('disabled', false).show(); 
+    $('#EquipGroup').prop('disabled', false).show();
+    $('#NonRandom').prop('disabled', false).show();
   }
-  
+
   if( $('#sub_reset_reset_type').val() == 'G') {
-    $('#GiveGroup').prop('disabled', false).show(); 
+    $('#GiveGroup').prop('disabled', false).show();
+    $('#NonRandom').prop('disabled', false).show();
   }
-  
+
+  if( $('#sub_reset_reset_type').val() == 'C' || $('#sub_reset_reset_type').val() == 'F' ) {
+    $('#Random').prop('disabled', false).show();
+  }
+
   if( $('#sub_reset_reset_type').val() == 'P') {
-    $('#PutGroup').prop('disabled', false).show(); 
+    $('#PutGroup').prop('disabled', false).show();
+    $('#NonRandom').prop('disabled', false).show();
   }
 
 }
@@ -32,7 +39,9 @@ $(function() {
 //  --=={ GENERAL FUNCTIONS }==-
 
 function hideSubResetTypes() {
- $('#EquipGroup').prop('disabled', true).hide(); 
- $('#GiveGroup').prop('disabled', true).hide(); 
- $('#PutGroup').prop('disabled', true).hide(); 
+ $('#EquipGroup').prop('disabled', true).hide();
+ $('#GiveGroup').prop('disabled', true).hide();
+ $('#PutGroup').prop('disabled', true).hide();
+ $('#Random').prop('disabled', true).hide();
+ $('#NonRandom').prop('disabled', true).hide();
 }

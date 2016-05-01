@@ -52,8 +52,8 @@ class SubReset < ActiveRecord::Base
     $comment = "Equip '#{$target_sdesc}'#{$target_vnum} with '#{$obj_sdesc}'#{$obj_vnum} as #{self.wear_loc_word}" if self.reset_type == 'E'
     $comment = "Give '#{$target_sdesc}'#{$target_vnum} '#{$obj_sdesc}'#{$obj_vnum}" if self.reset_type == 'G'
     $comment = "Put '#{$obj_sdesc}'#{$obj_vnum} into '#{$target_sdesc}'#{$target_vnum}" if self.reset_type == 'P'
-    $comment = "Give '#{$target_sdesc}'#{$target_vnum} a level ? random ???" if self.reset_type == 'C'
-    $comment = "Equip '#{$target_sdesc}'#{$target_vnum} with a level ? random ???" if self.reset_type == 'F'
+    $comment = "Give '#{$target_sdesc}'#{$target_vnum} a random #{random_type_word(self.val_2)}" if self.reset_type == 'C'
+    $comment = "Equip '#{$target_sdesc}'#{$target_vnum} with a random #{random_type_word(self.val_2)}" if self.reset_type == 'F'
     return $comment
   end
 
@@ -61,7 +61,7 @@ class SubReset < ActiveRecord::Base
     $output = "#{self.reset_type} 0 #{obj_info(self.val_2, 'formal_vnum', self.reset.area)} 100"
 
     if ( self.reset_type == 'C' || self.reset_type == 'F' )
-      $output = "#{self.reset_type} #{self.val_1} #{self.val_2} #{self.val_3} #{self.val_4}"
+      $output = "#{self.reset_type} 0 #{self.val_2} 0 0"
     end
 
     if self.reset_type == 'E'
