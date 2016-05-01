@@ -9,14 +9,17 @@
       <%- end -%>
         <div class="pull-right btn-xs">
           <font color=lightgray>
-            [ Counts: <%= "M:#{@area.resets.where(:reset_type => 'M').count} |
-                              Q:#{@area.resets.where(:reset_type => 'Q').count} |
-                              O:#{@area.resets.where(:reset_type => 'O').count} |
-                              I:#{@area.resets.where(:reset_type => 'I').count} |
-                              P:#{@area.resets.where(:reset_type => 'P').count} |
-                              E:#{@area.sub_resets.where(:reset_type => 'E').count} |
-                              G:#{@area.sub_resets.where(:reset_type => 'G').count} |
-                              D:#{@area.door_reset_count}" %>
+            [ Counts: <%=  "M:#{@area.resets.where(:reset_type => 'M').count} |
+                            Q:#{@area.resets.where(:reset_type => 'Q').count} |
+                            O:#{@area.resets.where(:reset_type => 'O').count} |
+                            I:#{@area.resets.where(:reset_type => 'I').count} |
+                            P:#{@area.resets.where(:reset_type => 'P').count} |
+                            R:#{@area.resets.where(:reset_type => 'R').count} |
+                            E:#{@area.sub_resets.where(:reset_type => 'E').count} |
+                            F:#{@area.sub_resets.where(:reset_type => 'F').count} |
+                            G:#{@area.sub_resets.where(:reset_type => 'G').count} |
+                            C:#{@area.sub_resets.where(:reset_type => 'C').count} |
+                            D:#{@area.door_reset_count}" %>
             ]
           </font>
         </div>
@@ -47,9 +50,6 @@
                 <% end %>
               </td>
               <td>
-                <%= link_to area_reset_path(@area, reset), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
-                  <%= glyph 'info-sign' %>
-                <%- end -%>
                 <%= link_to edit_area_reset_path(@area, reset, :reset_type => reset.reset_type, :parent_type => reset.parent_type, :parent_id => reset.parent_id ), :class => 'btn btn-xs', :title => "#{ t('.edit', :default => t('helpers.links.edit')) }" do %>
                   <%= glyph 'pencil' %>
                 <%- end -%>

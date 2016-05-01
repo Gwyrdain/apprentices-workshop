@@ -33,10 +33,10 @@ class AreasController < ApplicationController
       report = "#{report} 90°\n\n"  if direction == -1
       report = "#{report} 180°\n\n" if direction == -2
       report = "#{report} 270°\n\n" if direction == -3
-      
+
         @area.exits.each do |exit|
           if exit.direction < 4 # ignore up / down
-            $new_direction = ( exit.direction + direction ) % 4 
+            $new_direction = ( exit.direction + direction ) % 4
             report = report + "Room #{exit.room.vnum}: #{exit.room.name} -- Old D: #{exit.direction} #{exit.direction_word} => "
             exit.update_attribute(:direction, $new_direction)
             report = report + "New D: #{exit.direction} #{exit.direction_word}.\n"
@@ -45,7 +45,7 @@ class AreasController < ApplicationController
           end
         end
       render('areas/arearotate', locals: {report: report})
-      #render :text => report 
+      #render :text => report
       #redirect_to @area, notice: 'Area exit directions were rotated. Any randomize resets should be manually reviewed.'
     end
   end
@@ -58,11 +58,11 @@ class AreasController < ApplicationController
     @area.default_terrain ||= 0
     @area.default_room_flags ||= 0
     @area.misc_flags ||= 0
-    
+
   end
 
   def edit
-    
+
   end
 
   def create
@@ -84,7 +84,7 @@ class AreasController < ApplicationController
       render action: 'new'
     end
   end
-  
+
   def import
     if params[:parse_only]
       render :text => Area.import(params[:file], true)
@@ -104,9 +104,9 @@ class AreasController < ApplicationController
       end
     else
       render action: 'edit'
-    end     
+    end
   end
-  
+
   def destroy
     @area.destroy
     redirect_to areas_url
@@ -121,7 +121,7 @@ class AreasController < ApplicationController
       params.require(:area).permit(:user_id, :name, :author, :area_number,
                                    :vnum_qty, :manmade, :city, :forest,
 #                                   :limited, :aerial, :reserved, :arena, <-- These area flags removed
-                                   :quest, :novnum, :no_save, :default_terrain, 
+                                   :quest, :novnum, :no_save, :default_terrain,
                                    :default_room_flags, :dark, :no_sleep,
                                    :no_mob, :indoors, :foggy, :fire, :lava,
                                    :private_room, :peaceful, :solitary,
@@ -158,15 +158,15 @@ def can_user_view
 end
 
 def import_area( area_info )
-  
+
   $areas_with_same_name = Area.where(:name => area_info["header_info"]["name"])
-  
+
   if $areas_with_same_name.count > 0
     $new_rev = $areas_with_same_name.order(revision: :desc).first.revision + 1
   else
     $new_rev = 0
   end
-  
+
   $new_area = current_user.areas.create(
     :vnum_qty => 10000,
     :default_terrain => 0,
@@ -179,22 +179,22 @@ def import_area( area_info )
     :area_number => area_info["header_info"]["area_number"],
     :revision => $new_rev
     )
-    
+
   area_id = $new_area.id
-  
+
   if area_info["header_info"]["flags"]
     $new_area.update(
       :flags => area_info["header_info"]["flags"],
       )
   end
-  
-  
+
+
   if area_info["header_info"]["description"]
     $new_area.update(
       :description => area_info["header_info"]["description"]
       )
   end
-    
+
   if area_info["helps_block"]
       area_info["helps_block"].each_value do |help_record|
       $new_area.helps.create(
@@ -204,7 +204,7 @@ def import_area( area_info )
         )
     end
   end # helps_block
-  
+
   if area_info["mobiles_block"]
     area_info["mobiles_block"].each_value do |mobile_record|
       $vnum = mobile_record["vnum"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
@@ -220,7 +220,7 @@ def import_area( area_info )
         :level => mobile_record["level"].to_i,
         :sex => mobile_record["sex"].to_i,
         )
-        
+
       if mobile_record["langs_known"]
          $new_mobile.update(
            :langs_known => mobile_record["langs_known"],
@@ -232,15 +232,15 @@ def import_area( area_info )
            :lang_spoken => 0
            )
       end
-      
+
       $new_mobile.update(:animal => true)     if mobile_record["animal"]
       $new_mobile.update(:no_wear_eq => true) if mobile_record["no_wear_eq"]
-      
+
       $new_mobile.update(:spell => mobile_record["one_spell"])      if mobile_record["one_spell"]
-      
+
     end # each do
   end # mobiles_block
-  
+
   if area_info["objects_block"]
     area_info["objects_block"].each_value do |object_record|
       $vnum = object_record["vnum"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
@@ -260,12 +260,12 @@ def import_area( area_info )
         :weight      => object_record["weight"].to_i,
         :cost        => object_record["cost"].to_i
         )
-        
+
       $new_obj.update(:flammable => true)         if object_record["flammable"]
       $new_obj.update(:metallic => true)          if object_record["metallic"]
       $new_obj.update(:two_handed => true)        if object_record["two_handed"]
       $new_obj.update(:underwater_breath => true) if object_record["underwater_breath"]
-      
+
       if object_record["extra_descs"]
         object_record["extra_descs"].each_value do |oxdesc|
           $new_obj.oxdescs.create(
@@ -274,7 +274,7 @@ def import_area( area_info )
             )
         end
       end
-      
+
       if object_record["applies"]
         object_record["applies"].each_value do |apply|
           $new_obj.applies.create(
@@ -283,7 +283,7 @@ def import_area( area_info )
             )
         end
       end
-        
+
     end
   end # objects_block
 
@@ -297,9 +297,9 @@ def import_area( area_info )
         :room_flags   => room_record["room_flags"].to_i,
         :terrain      => room_record["terrain"].to_i
         )
-        
+
       if $new_room.save
-        
+
         if room_record["extra_descs"]
           room_record["extra_descs"].each_value do |rxdesc|
             $new_room.rxdescs.create(
@@ -308,10 +308,10 @@ def import_area( area_info )
               )
           end
         end
-        
+
         if room_record["exits"]
           room_record["exits"].each_value do |exit|
-            
+
             $new_room.exits.create(
               :direction    => exit["direction"].to_i,
               :description  => exit["description"],
@@ -325,10 +325,10 @@ def import_area( area_info )
         end
       end # $new_room.save
     end # do each room
-    
+
     # connect all internal exits...
     $new_area.exits.each do |exit|
-      
+
       if ( exit.keyvnum / 100 ) == $new_area.area_number
         $keyvnum = exit.keyvnum - ($new_area.area_number * 100)
         $matches = $new_area.objs.where(:vnum => $keyvnum)
@@ -348,9 +348,9 @@ def import_area( area_info )
             )
         end
       end
-    
+
     end
-    
+
   end # rooms_block
 
   if area_info["strings_block"]
@@ -363,7 +363,7 @@ def import_area( area_info )
         )
     end
   end# strings_block
-  
+
   high_vnum = 0
   if $new_area.mobiles.count > 0
     high_vnum = $new_area.mobiles.order(vnum: :desc).first.vnum if $new_area.mobiles.order(vnum: :desc).first.vnum > high_vnum
@@ -374,29 +374,29 @@ def import_area( area_info )
   if $new_area.rooms.count > 0
     high_vnum = $new_area.rooms.order(vnum: :desc).first.vnum if $new_area.rooms.order(vnum: :desc).first.vnum > high_vnum
   end
-  
+
   $new_area = Area.find(area_id)
-  
+
   vnum_qty = ( ( ( high_vnum / 100 ) + 1 ) * 100 )
-  
+
   $new_area.update(
     :vnum_qty => vnum_qty
     )
-  
+
   if area_info["resets_block"]
-    
+
     last_mobile_reset = 0
     last_container_reset = 0
     last_container_reset_type = ''
-    
+
     area_info["resets_block"].each_value do |reset_record|
       reset_type = reset_record["reset_type"]
       # M / Q / O / R ... load it directly
       if ( reset_type == 'M' || reset_type == 'Q' )
-        
+
         $mobile_vnum  = $new_area.localize_vnum ( reset_record["val_2"].to_i )
         $room_vnum    = $new_area.localize_vnum ( reset_record["val_4"].to_i )
-        
+
         $matches = $new_area.mobiles.where(:vnum => $mobile_vnum)
         if $matches.count > 0
           $mobile_id = $matches.first.id
@@ -417,10 +417,10 @@ def import_area( area_info )
       end
 
       if reset_type == 'O'
-        
+
         $obj_vnum     = $new_area.localize_vnum ( reset_record["val_2"].to_i )
         $room_vnum    = $new_area.localize_vnum ( reset_record["val_4"].to_i )
-        
+
         this_obj = $new_area.objs.where(:vnum => $obj_vnum).first
         if this_obj
           $obj_vnum = this_obj.id
@@ -429,7 +429,7 @@ def import_area( area_info )
         if this_room
           $room_id = this_room.id
         end
-        
+
         $new_reset = $new_area.resets.create(
           :reset_type => reset_record["reset_type"],
           :val_1      => reset_record["val_1"].to_i,
@@ -437,19 +437,19 @@ def import_area( area_info )
           :val_3      => reset_record["val_3"].to_i,
           :val_4      => $room_id
           )
-          
+
         if this_obj && this_obj.is_container
-          last_container_reset = $new_reset 
-          last_container_reset_type = 'reset' 
+          last_container_reset = $new_reset
+          last_container_reset_type = 'reset'
         end
 
       end
 
       # E / G ... make a sub-reset, need to know the last M or Q
       if ( reset_type == 'E' || reset_type == 'G' )
-        
+
         $obj_vnum     = $new_area.localize_vnum ( reset_record["val_2"].to_i )
-        
+
         this_obj = $new_area.objs.where(:vnum => $obj_vnum).first
         if this_obj
           $obj_vnum = this_obj.id
@@ -463,21 +463,21 @@ def import_area( area_info )
           :val_4        => reset_record["val_4"].to_i,
           )
         if this_obj && this_obj.is_container
-          last_container_reset = $new_sub_reset 
-          last_container_reset_type = 'sub_reset' 
+          last_container_reset = $new_sub_reset
+          last_container_reset_type = 'sub_reset'
         end
       end
 
       # P, need to know the last O or I
       if ( reset_type == 'P')
-        
+
         $obj_vnum     = $new_area.localize_vnum ( reset_record["val_2"].to_i )
-        
+
         this_obj = $new_area.objs.where(:vnum => $obj_vnum).first
         if this_obj
           $obj_vnum = this_obj.id
         end
-        
+
         last_container_reset = $new_area.resets.where(:reset_type => ['O','I']).order(id: :desc).first
 
         $new_reset = $new_area.resets.create(
@@ -490,17 +490,17 @@ def import_area( area_info )
           :parent_id    => last_container_reset.id
           )
       end
-      
+
       # I
       if ( reset_type == 'I')
-        
+
         $obj_vnum     = $new_area.localize_vnum ( reset_record["val_2"].to_i )
-        
+
         this_obj = $new_area.objs.where(:vnum => $obj_vnum).first
         if this_obj
           $obj_vnum = this_obj.id
         end
-        
+
         last_container_reset = $new_area.resets.where(:reset_type => ['O','I']).order(id: :desc).first
 
         $new_reset = $new_area.resets.create(
@@ -513,26 +513,26 @@ def import_area( area_info )
           :parent_id    => last_container_reset.id
           )
         if this_obj && this_obj.is_container
-          last_container_reset = $new_reset 
-          last_container_reset_type = 'reset' 
+          last_container_reset = $new_reset
+          last_container_reset_type = 'reset'
         end
       end
-      
+
       # D ... make a change in the exit record
       if reset_type == 'D'
-        
+
         $room_vnum  = reset_record["val_2"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
         $room = $new_area.rooms.where(:vnum => $room_vnum).first
         $exit = $room.exits.where(:direction => reset_record["val_3"].to_i).first
         $exit.update(
           :reset => reset_record["val_4"].to_i
           )
-          
+
       end
-      
+
       # R
       if reset_type == 'R'
-        
+
         $room_vnum  = reset_record["val_2"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
         $room = $new_area.rooms.where(:vnum => $room_vnum).first
         $new_area.resets.create(
@@ -544,10 +544,22 @@ def import_area( area_info )
           )
       end
 
+      # C or F random resets
+      if ( reset_type == 'C' || reset_type == 'F' )
+
+        $new_sub_reset = last_mobile_reset.sub_resets.create(
+          :reset_type => reset_record["reset_type"],
+          :val_1      => reset_record["val_1"].to_i,
+          :val_2      => reset_record["val_2"].to_i,
+          :val_3      => reset_record["val_3"].to_i,
+          :val_4      => 0
+          )
+      end
+
 
     end
   end# strings_block
-  
+
   if area_info["shops_block"]
     area_info["shops_block"].each_value do |shop_record|
       $mobile_vnum  = shop_record["mobile_vnum"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
@@ -565,15 +577,15 @@ def import_area( area_info )
         )
     end
   end# shops_block
-  
+
   if area_info["specials_block"]
     area_info["specials_block"].each_value do |special_record|
-      
+
       special_type = special_record["type"]
 
       $mobile_vnum  = special_record["vnum"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
       special_mobile = $new_area.mobiles.where(:vnum => $mobile_vnum).first
-      
+
       if special_mobile
         if ( special_type == 'M' )
           special_mobile.specials.create(
@@ -586,7 +598,7 @@ def import_area( area_info )
             :extended_value_5 => -1
             )
         end
-      
+
         if ( special_type == 'N' )
           special_mobile.specials.create(
             :special_type => special_record["type"],
@@ -598,15 +610,15 @@ def import_area( area_info )
             :extended_value_5 => special_record["extended_value_5"].to_i
             )
         end
-        
+
       end
-      
+
     end
   end# specials_block
-  
+
   if area_info["rspecs_block"]
     area_info["rspecs_block"].each_value do |rspec_record|
-      
+
       rspec_type = rspec_record["type"]
 
       $room_vnum  = rspec_record["vnum"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
@@ -623,7 +635,7 @@ def import_area( area_info )
           :extended_value_5 => -1
           )
       end
-      
+
       if ( rspec_type == 'E' )
         rspec_room.room_specials.create(
           :room_special_type => rspec_record["type"],
@@ -635,13 +647,13 @@ def import_area( area_info )
           :extended_value_5 => rspec_record["extended_value_5"].to_i
           )
       end
-      
+
     end
   end# rspecs_block
-  
+
   if area_info["triggers_block"]
     area_info["triggers_block"].each_value do |trigger_record|
-      
+
       trigger_type = trigger_record["type"]
 
       $room_vnum  = trigger_record["vnum"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
@@ -659,7 +671,7 @@ def import_area( area_info )
           :extended_value_5 => -1
           )
       end
-      
+
       if ( trigger_type == 'Q' )
         trigger_exit.triggers.create(
           :trigger_type => trigger_record["type"],
@@ -671,8 +683,8 @@ def import_area( area_info )
           :extended_value_5 => trigger_record["extended_value_5"].to_i
           )
       end
-      
+
     end
   end# triggers_block
-    
+
 end

@@ -1,5 +1,5 @@
-<%= reset.output %><% if reset.count_dependents > 0 %><% if reset.class.name == 'Reset' %><% reset.sub_resets.order(:val_2).where(reset_type: 'E').each do |sub_reset| %>
-<%= render 'resets/resetblock', :reset => sub_reset %><% end %><% reset.sub_resets.order(:val_2).where(reset_type: 'G').each do |sub_reset| %>
+<%= reset.output %><% if reset.count_dependents > 0 %><% if reset.class.name == 'Reset' %><% reset.sub_resets.order(:val_2).where(reset_type: ['E','F']).each do |sub_reset| %>
+<%= render 'resets/resetblock', :reset => sub_reset %><% end %><% reset.sub_resets.order(:val_2).where(reset_type: ['G','C']).each do |sub_reset| %>
 <%= render 'resets/resetblock', :reset => sub_reset %><% end %><% reset.sub_resets.order(:val_2).where(reset_type: 'P').each do |sub_reset| %>
 <%= render 'resets/resetblock', :reset => sub_reset %><% end %><% end %><% reset.dependent_resets.order(:val_2).where(reset_type: 'P').each do |sub_reset| %>
 <%= render 'resets/resetblock', :reset => sub_reset %><% end %><% reset.dependent_resets.order(:val_2).where(reset_type: 'I').each do |sub_reset| %>
