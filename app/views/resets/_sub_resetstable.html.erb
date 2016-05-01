@@ -32,7 +32,7 @@
               </div>
 
             <% if (sub_reset.reset.area.resets.where(parent_id: sub_reset.id).count > 0) %>
-              <%= render 'resets/sub_resetstable', :reset => sub_reset %>
+              </br></br><%= render 'resets/sub_resetstable', :reset => sub_reset %>
             <% end %>
           </td></tr>
         <% end %>
@@ -63,7 +63,7 @@
             </div>
 
           <% if (dependent_reset.area.resets.where(parent_id: dependent_reset.id).count > 0) %>
-            <%= render 'resets/sub_resetstable', :reset => dependent_reset %>
+            </br></br><%= render 'resets/sub_resetstable', :reset => dependent_reset %>
           <% end %>
         </td></tr>
       <% end %>
