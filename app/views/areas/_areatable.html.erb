@@ -2,6 +2,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Range</th>
       <th>Author(s)</th>
       <th>Mobiles</th>
       <th>Objects</th>
@@ -19,6 +20,9 @@
               <% if ( current_user.is_admin? && current_user.id != area.user_id && !area.shared_with?(current_user) && !area.share_publicly? ) %>(A) <% end %>
               <%= link_to(area) do %><%= area.name %><% end %> (Rev. <%= area.revision %>)
               <div class="small"><i>Last Updated: <%= area.last_updated?.in_time_zone(current_user.time_zone).strftime(DATE_FORMAT) %></i></div>
+            </td>
+            <td>
+              <%= area.range_text %>
             </td>
             <td>
               <%= area.author %>

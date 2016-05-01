@@ -12,7 +12,7 @@ class Area < ActiveRecord::Base
   has_many :area_strings, dependent: :destroy
   has_many :resets, dependent: :destroy
   has_many :shares, dependent: :destroy
-  
+
   has_many :applies, through: :objs
   has_many :oxdescs, through: :objs
   has_many :shops, through: :mobiles
@@ -22,14 +22,14 @@ class Area < ActiveRecord::Base
   has_many :room_specials, through: :rooms
   has_many :sub_resets, through: :resets
   has_many :triggers, through: :rooms, :source => :triggers
-  
+
   include Bitfields
-  
+
   bitfield :misc_flags,
                     2**0 => :share_publicly,
                     2**1 => :use_rulers, # Deprecated -- moved this function to a user setting.
                     2**2 => :show_formatted_blocks
-  
+
   bitfield  :flags, 2**0 => :manmade,  # Hex 1
                     2**1 => :city,     # Hex 2
                     2**2 => :forest,   # Hex 4
@@ -40,8 +40,8 @@ class Area < ActiveRecord::Base
                     2**7 => :quest,    # Hex 80
                     2**8 => :novnum,   # Hex 100
                     2**9 => :no_save   # Hex 200
-                    
-  bitfield :default_room_flags, 
+
+  bitfield :default_room_flags,
                 2**0 =>  :dark,          # Dec:          1 / Hex:         1
                 2**1 =>  :no_sleep,      # Dec:          2 / Hex:         2
                 2**2 =>  :no_mob,        # Dec:          4 / Hex:         4
@@ -88,7 +88,7 @@ class Area < ActiveRecord::Base
   validates :revision, numericality: { only_integer: true, greater_than_or_equal_to: 0 },
                        uniqueness:   { scope: :name,
                                        message: "No duplicate revision numbers allowed." }
-  
+
   validate do |area|
     area.errors.add :base, "Name may only contain US-ASCII characters.  Invalid characters: " + area.name.remove(/[\x0A\x0D -~]/) if area.name.remove(/[\x0A\x0D -~]/).length > 0
     area.errors.add :base, "Author may only contain US-ASCII characters.  Invalid characters: " + area.author.remove(/[\x0A\x0D -~]/) if area.author.remove(/[\x0A\x0D -~]/).length > 0
@@ -103,7 +103,7 @@ class Area < ActiveRecord::Base
     self.default_room_flags ||= 0
     return true
   end
-  
+
   def nextroomvnum
     $i = 0
     while self.rooms.exists?(:vnum => $i)  do
@@ -111,7 +111,7 @@ class Area < ActiveRecord::Base
     end
     return $i
   end
-  
+
   def nextobjvnum
     $i = 0
     while self.objs.exists?(:vnum => $i)  do
@@ -135,12 +135,19 @@ class Area < ActiveRecord::Base
     end
     return $i
   end
-  
+
   def flags_as_hex
     #return self.flags.to_s(16).upper ... trying new
     return "%X" % self.flags
   end
-  
+
+  def range_text
+    text = "{#{format("%2.2s", self.lowlevel)} #{format("%2.2s", self.highlevel)}}"
+    text = '{HARD!}' if self.lowlevel == 50 && self.highlevel == 50
+    text = '{ ALL }' if self.lowlevel == 50 && self.highlevel == 50
+    return text
+  end
+
   def flags_as_string
     $flags_string = ''
     $flags_string = $flags_string + ' MANMADE' if self.manmade
@@ -155,7 +162,7 @@ class Area < ActiveRecord::Base
     $flags_string = $flags_string + ' NOSAVE' if self.no_save
     return $flags_string
   end
-  
+
   def door_reset_count
     i = 0
     self.rooms.each do |room|
@@ -167,7 +174,7 @@ class Area < ActiveRecord::Base
     end
     return i
   end
-  
+
   def shared_with?(this_user)
 #   if ( this_user.id == self.user_id || self.share_publicly? || this_user.is_admin? || self.shares.exists?(:user_id => this_user.id ) )
     if self.shares.exists?(:user_id => this_user.id )
@@ -180,26 +187,26 @@ class Area < ActiveRecord::Base
   def my_area
     return self
   end
-  
+
   def last_updated?
     $latest_update = self.updated_at
     $update = $latest_update
-    
+
     $update = self.area_strings.order(updated_at: :desc).first.updated_at if self.area_strings.count > 0
     $latest_update = $update           if $update > $latest_update
-    
+
     $update = self.helps.order(updated_at: :desc).first.updated_at if self.helps.count > 0
     $latest_update = $update           if $update > $latest_update
-    
+
     $update = self.rooms.order(updated_at: :desc).first.updated_at if self.rooms.count > 0
     $latest_update = $update           if $update > $latest_update
-    
+
     $update = self.mobiles.order(updated_at: :desc).first.updated_at if self.mobiles.count > 0
     $latest_update = $update           if $update > $latest_update
-    
+
     $update = self.objs.order(updated_at: :desc).first.updated_at if self.objs.count > 0
     $latest_update = $update           if $update > $latest_update
-    
+
     $update = self.resets.order(updated_at: :desc).first.updated_at if self.resets.count > 0
     $latest_update = $update           if $update > $latest_update
 
@@ -229,23 +236,23 @@ class Area < ActiveRecord::Base
 
     $update = self.oxdescs.order(updated_at: :desc).first.updated_at if self.oxdescs.count > 0
     $latest_update = $update           if $update > $latest_update
-    
+
     return $latest_update
   end
-  
+
   def localize_vnum(vnum)
-    
+
     lowest_vnum  = self.area_number * 100
     highest_vnum = ( self.area_number * 100 ) + self.vnum_qty - 1
-    
+
     if ( vnum >= lowest_vnum && vnum <= highest_vnum )
       return ( vnum - ( self.area_number* 100 ) )
     else
       return vnum # If not localizable return input
     end
-    
+
   end
-  
+
   def self.import(file, parse_only = true)
 
     range_low ||= 0
@@ -253,13 +260,13 @@ class Area < ActiveRecord::Base
     author ||= ''
     name ||= ''
     flags ||= 0
-    
+
     area_file = file.read.encode('US-ASCII', :invalid => :replace, :undef => :replace)
-    
+
     area_file.gsub!(/\r\n/,"\n")      # normalize line endings
     area_file.gsub!(/[ ]*\n/,"\n")    # strip trailing spaces on lines
     area_file.gsub!(/[\x09]/,"     ") # replace tabs with 5 spaces
-    
+
     header_info = nil
     helps_block = nil
     mobiles_block = nil
@@ -271,11 +278,11 @@ class Area < ActiveRecord::Base
     specials_block = nil
     rspecs_block = nil
     triggers_block = nil
-    
+
     if area_file.match(/^#AREA.*~.*?\n/) # v1 Header
       header_info = parse_area_header_v1( area_file.match(/^#AREA.*~.*?\n/)[0] )
     end
-    
+
     if area_file.match(/^#AREA.*?\nEnd\n/m) # v2 Header
       header_info = parse_area_header_v2( area_file.match(/^#AREA.*?\nEnd\n/m)[0] )
     end
@@ -283,7 +290,7 @@ class Area < ActiveRecord::Base
     if area_file.match(/^#HELPS\n.*?0 \$~/m)
       helps_block = parse_helps( area_file.match(/^#HELPS\n(.*?)0 \$~/m)[1] )
     end
-    
+
     if area_file.match(/^#MOBILES\n#.*?\n#0/m)
       mobiles_block = parse_mobiles( area_file.match(/^#MOBILES\n#(.*?)\n#0/m)[1] )
     end
@@ -291,15 +298,15 @@ class Area < ActiveRecord::Base
     if area_file.match(/^#OBJECTS\n#.*?\n#0/m)
       objects_block = parse_objects( area_file.match(/^#OBJECTS\n#(.*?)\n#0/m)[1] )
     end
-    
+
     if area_file.match(/^#ROOMS\n#.*?\n#0/m)
       rooms_block = parse_rooms( area_file.match(/^#ROOMS\n#(.*?)\n#0/m)[1] )
     end
-    
+
     if area_file.match(/^#STRINGS\n#.*?\n#0/m)
       strings_block = parse_strings( area_file.match(/^#STRINGS\n#(.*?)\n#0/m)[1] )
     end
-    
+
     if area_file.match(/^#RESETS\n.*?\nS/m)
       resets_block = parse_resets( area_file.match(/^#RESETS\n(.*?)\nS/m)[1] )
     end
@@ -315,7 +322,7 @@ class Area < ActiveRecord::Base
     if area_file.match(/^#TRIGGERS\n.*?\nS/m)
       triggers_block = parse_triggers( area_file.match(/^#TRIGGERS\n(.*?)\nS/m)[1] )
     end
-    
+
     area_info = Hash.new
     area_info["header_info"]    = header_info
     area_info["helps_block"]    = helps_block
@@ -328,7 +335,7 @@ class Area < ActiveRecord::Base
     area_info["specials_block"] = specials_block
     area_info["rspecs_block"]   = rspecs_block
     area_info["triggers_block"] = triggers_block
-    
+
     area_info["header_info"]["area_number"] = get_area_number( area_info )
 
     if parse_only
@@ -347,5 +354,5 @@ class Area < ActiveRecord::Base
       return area_info
     end
   end
-  
+
 end
