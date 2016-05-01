@@ -1,6 +1,6 @@
 class Mobile < ActiveRecord::Base
   belongs_to :area
-  
+
   has_many :specials, dependent: :destroy
   has_many :shops, dependent: :destroy
 
@@ -75,8 +75,8 @@ class Mobile < ActiveRecord::Base
 #               2**30 => :flag,                # Dec: 1073741824 / Hex:  40000000
 #               2**31 => :flag,                # Dec: 2147483648 / Hex:  80000000
 #               2**32 => :flag,                # Dec: 4294967296 / Hex: 100000000
-  
-  bitfield :langs_known, 
+
+  bitfield :langs_known,
                 2**0 =>  :common,        # Dec:          1 / Hex:         1
                 2**1 =>  :dwarven,       # Dec:          2 / Hex:         2
                 2**2 =>  :elven,         # Dec:          4 / Hex:         4
@@ -108,12 +108,12 @@ class Mobile < ActiveRecord::Base
   validates :look_desc, length: { minimum: 0 }#, format: { with: /\A[\x0A\x0D -~]+\z/}
   validates :act_flags, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :affect_flags, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :alignment, numericality: { only_integer: true }  
+  validates :alignment, numericality: { only_integer: true }
   validates :level, numericality: { only_integer: true, greater_than: 0 }
   validates :sex, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :langs_known, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :lang_spoken, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  
+
   validate do |mobile|
     mobile.errors.add :base, "Keywords may only contain US-ASCII characters.  Invalid characters: " + mobile.keywords.remove(/[\x0A\x0D -~]/) if mobile.keywords.remove(/[\x0A\x0D -~]/).length > 0
     mobile.errors.add :base, "Short description may only contain US-ASCII characters.  Invalid characters: " + mobile.sdesc.remove(/[\x0A\x0D -~]/) if mobile.sdesc.remove(/[\x0A\x0D -~]/).length > 0
@@ -131,7 +131,7 @@ class Mobile < ActiveRecord::Base
     self.langs_known ||= 0
     self.lang_spoken ||= 0
   end
-  
+
   def next_mobile
     $next_mobile = false # return self if no next mobile
     x = self.vnum + 1
@@ -143,7 +143,7 @@ class Mobile < ActiveRecord::Base
     end
     return $next_mobile
   end
-  
+
   def last_mobile
     $last_mobile = false # return self if no last mobile
     i = self.vnum
@@ -160,7 +160,7 @@ class Mobile < ActiveRecord::Base
   def max_vnum
     area.vnum_qty
   end
-  
+
   def formal_vnum
     (area.area_number * 100) + self.vnum
   end
@@ -168,7 +168,7 @@ class Mobile < ActiveRecord::Base
   def vnum_and_sdesc
     return  format("%03d",self.vnum) + " " + self.sdesc
   end
-  
+
   def has_assoc_reset?
     if self.area.resets.where(:reset_type => 'M', :val_2 => self.id).count > 0
       return true
@@ -176,7 +176,7 @@ class Mobile < ActiveRecord::Base
       return false
     end
   end
-  
+
   def sex_word
     $sex = nil
     $sex = 'none'    if self.sex == 0
@@ -184,13 +184,39 @@ class Mobile < ActiveRecord::Base
     $sex = 'female'  if self.sex == 2
     return $sex
   end
-  
+
   def alignment_word
     $alignment = nil
     $alignment = 'evil'    if self.alignment < 0
     $alignment = 'unaligned'    if self.alignment == 0
     $alignment = 'good'  if self.alignment > 0
     return $alignment
+  end
+
+  def act_flags_list
+    list = Array.new
+    list.push('sentinel') if self.sentinel
+    list.push('scavenger') if self.scavenger
+    list.push('plant') if self.plant
+    list.push('aggressive') if self.aggressive
+    list.push('stay_area') if self.stay_area
+    list.push('wimpy') if self.wimpy
+    list.push('train') if self.train
+    list.push('practice') if self.practice
+    list.push('super_wimpy') if self.super_wimpy
+    list.push('assist_same') if self.assist_same
+    list.push('assist') if self.assist
+    list.push('assist_always') if self.assist_always
+    list.push('swim') if self.swim
+    list.push('water_only') if self.water_only
+    list.push('animal') if self.animal
+    list.push('no_wear_eq') if self.no_wear_eq
+    list.push('no_corpse') if self.no_corpse
+    list.push('fireproof') if self.fireproof
+    list.push('intelligent') if self.intelligent
+    list.push('cloaked') if self.cloaked
+    list.push('no_random_eq') if self.no_random_eq
+    return list.to_sentence.humanize.titleize.gsub(/And/,'and')
   end
 
   def my_area
