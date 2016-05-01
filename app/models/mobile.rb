@@ -219,6 +219,68 @@ class Mobile < ActiveRecord::Base
     return list.to_sentence.humanize.titleize.gsub(/And/,'and')
   end
 
+  def affect_flags_list
+    list = Array.new
+    list.push('blind') if self.blind
+    list.push('invisible') if self.invisible
+    list.push('detect_evil') if self.detect_evil
+    list.push('detect_invis') if self.detect_invis
+    list.push('detect_magic') if self.detect_magic
+    list.push('detect_hidden') if self.detect_hidden
+    list.push('detect_good') if self.detect_good
+    list.push('sanctuary') if self.sanctuary
+    list.push('faerie_fire') if self.faerie_fire
+    list.push('infrared') if self.infrared
+    list.push('curse') if self.curse
+    list.push('no_steal') if self.no_steal
+    list.push('poison') if self.poison
+    list.push('protect_from_evil') if self.protect_from_evil
+    list.push('protect_from_good') if self.protect_from_good
+    list.push('sneak') if self.sneak
+    list.push('hide') if self.hide
+    list.push('sleep') if self.sleep
+    list.push('charm') if self.charm
+    list.push('flying') if self.flying
+    list.push('passdoor') if self.passdoor
+    list.push('no_trace') if self.no_trace
+    list.push('no_sleep') if self.no_sleep
+    list.push('no_summon') if self.no_summon
+    list.push('no_charm') if self.no_charm
+    list.push('improved_invis') if self.improved_invis
+    return list.to_sentence.humanize.titleize.gsub(/And/,'and')
+  end
+
+  def languages_list
+    list = Array.new
+    list.push('common') if self.common
+    list.push('dwarven') if self.dwarven
+    list.push('elven') if self.elven
+    list.push('gnomish') if self.gnomish
+    list.push('halfling') if self.halfling
+    list.push('aarakocra') if self.aarakocra
+    list.push('giant') if self.giant
+    list.push('minotaur') if self.minotaur
+    list.push('ogre') if self.ogre
+    list.push('thoras') if self.thoras
+    list.push('goblin') if self.goblin
+    list.push('drow') if self.drow
+    list.push('kobold') if self.kobold
+    list.push('orc') if self.orc
+    list.push('troll') if self.troll
+    list.push('sahaguin') if self.sahaguin
+    list.push('god') if self.god
+    if list.count < 1
+        return 'none'
+    else
+        return list.to_sentence.humanize.titleize.gsub(/And/,'and')
+    end
+  end
+
+  def language_word
+    word = lang_from_num(self.lang_spoken)
+    return word.downcase
+  end
+
   def my_area
     return self.area
   end
