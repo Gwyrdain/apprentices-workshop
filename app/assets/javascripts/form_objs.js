@@ -15,7 +15,7 @@ function validHoldWeight () {
       parseInt($('#ItemValueGroupContainer').find('#obj_v0').val()) <= parseInt($('#obj_weight').val()) ) {
         bootbox.alert('Container <strong>hold weight</strong> must be greater than object <strong>weight</strong>.  Increasing hold weight.');
         $('#ItemValueGroupContainer').find('#obj_v0').val( $('#obj_weight').val() + 5 );
-      
+        $('#ItemValueGroupContainer').find('#obj_weight').val( 5 );
     return false
   }
   return true
@@ -53,7 +53,7 @@ function validCharges () {
         $('#ItemValueGroupMultiUseMagicItems').find('#obj_v2').val( '1' );
     return false
   }
-  
+
   return true
 }
 
@@ -72,14 +72,14 @@ function validMetallic () {
   if( $('#obj_metallic').is(':checked') == true &&
     ( $('#obj_object_type').val() != 9 && $('#obj_object_type').val() != 14) ) {
         bootbox.alert('The <strong>METALLIC</strong> flag may only be used with an armor object type.');
-        $('#obj_metallic').prop('checked', false); 
+        $('#obj_metallic').prop('checked', false);
     return false
   }
   if( $('#obj_metallic').is(':checked') == false &&
     ( $('#obj_object_type').val() == 9 || $('#obj_object_type').val() === 14) &&
       $('#ItemValueGroupArmor').find('#obj_v0').val() > 5 ) {
         bootbox.alert('The <strong>METALLIC</strong> flag set for armor with an AC of greater than 5.');
-        $('#obj_metallic').prop('checked', true); 
+        $('#obj_metallic').prop('checked', true);
     return false
   }
   return true
@@ -89,7 +89,7 @@ function validTwoHanded () {
   if( $('#obj_two_handed').is(':checked') == true &&
     ( $('#obj_object_type').val() != 5 && $('#obj_object_type').val() != 6) ) {
         bootbox.alert('<strong>TWO HANDED</strong> flag may only be used with a weapon object type.');
-        $('#obj_two_handed').prop('checked', false); 
+        $('#obj_two_handed').prop('checked', false);
         return false
       } else {
         return true
@@ -100,7 +100,7 @@ function validUnderwaterBreath () {
   if( $('#obj_underwater_breath').is(':checked') == true &&
     ( $('#obj_object_type').val() != 9 && $('#obj_object_type').val() != 14) ) {
         bootbox.alert('The <strong>UNDERWATER BREATH</strong> flag may only be used with an armor object type.');
-        $('#obj_underwater_breath').prop('checked', false); 
+        $('#obj_underwater_breath').prop('checked', false);
     return false
   } else {
     return true
@@ -108,11 +108,11 @@ function validUnderwaterBreath () {
 }
 
 function validWeight () {
-  if( $('#obj_weight').val() > 9 && 
+  if( $('#obj_weight').val() > 9 &&
     ($('#obj_object_type').val() == 5 || $('#obj_object_type').val() == 6) &&
       $('#obj_two_handed').is(':checked') == false ) {
         bootbox.alert('<strong>TWO HANDED</strong> flag set for a weapon of weight greater than 9 kg.');
-        $('#obj_two_handed').prop('checked', true); 
+        $('#obj_two_handed').prop('checked', true);
         return false
       } else {
         return true
@@ -251,10 +251,10 @@ $(function() {
   })
 });
 
-  
+
 $(function() {
     $('#obj_object_type').change(function() {
-      
+
       initObjForm();
 
       validMaxAC();
@@ -277,7 +277,7 @@ $(function() {
 //  --=={ INITIALIZE THE OBJECTS FORM FOR VISIBLE VS HIDDEN }==-
 
 function setObjValues() {
-  
+
   var i = $( '#obj_object_type' ).val();
 
   if(i== 1) {
@@ -368,7 +368,7 @@ function hideItemGroups() {
   $('#ItemValueGroupMultiUseMagicItems').prop('disabled', true).hide();
   $('#ItemValueGroupSingleUseMagicItems').prop('disabled', true).hide();
   $('#ItemValueGroupFood').prop('disabled', true).hide();
-  
+
   $('#obj_metallic').parent().hide();
   $('#obj_two_handed').parent().hide();
   $('#obj_underwater_breath').parent().hide();
@@ -435,7 +435,7 @@ function setKeyValueOptions() {
       $('#LocalKeyVnumGroup').show();
       $('#ExternalKeyVnumGroup').hide();
     }
-      
+
   }
 }
 
