@@ -355,7 +355,7 @@ def import_area( area_info )
 
   if area_info["strings_block"]
     area_info["strings_block"].each_value do |string_record|
-      $vnum = $new_area.localize_vnum ( string_record["vnum"].to_i )
+      $vnum = $new_area.localize_vnum( string_record["vnum"].to_i )
       $new_area.area_strings.create(
         :vnum => $vnum,
         :message_to_pc => string_record["message_to_pc"],
@@ -394,8 +394,8 @@ def import_area( area_info )
       # M / Q / O / R ... load it directly
       if ( reset_type == 'M' || reset_type == 'Q' )
 
-        $mobile_vnum  = $new_area.localize_vnum ( reset_record["val_2"].to_i )
-        $room_vnum    = $new_area.localize_vnum ( reset_record["val_4"].to_i )
+        $mobile_vnum  = $new_area.localize_vnum( reset_record["val_2"].to_i )
+        $room_vnum    = $new_area.localize_vnum( reset_record["val_4"].to_i )
 
         $matches = $new_area.mobiles.where(:vnum => $mobile_vnum)
         if $matches.count > 0
@@ -418,8 +418,8 @@ def import_area( area_info )
 
       if reset_type == 'O'
 
-        $obj_vnum     = $new_area.localize_vnum ( reset_record["val_2"].to_i )
-        $room_vnum    = $new_area.localize_vnum ( reset_record["val_4"].to_i )
+        $obj_vnum     = $new_area.localize_vnum( reset_record["val_2"].to_i )
+        $room_vnum    = $new_area.localize_vnum( reset_record["val_4"].to_i )
 
         this_obj = $new_area.objs.where(:vnum => $obj_vnum).first
         if this_obj
@@ -448,7 +448,7 @@ def import_area( area_info )
       # E / G ... make a sub-reset, need to know the last M or Q
       if ( reset_type == 'E' || reset_type == 'G' )
 
-        $obj_vnum     = $new_area.localize_vnum ( reset_record["val_2"].to_i )
+        $obj_vnum     = $new_area.localize_vnum( reset_record["val_2"].to_i )
 
         this_obj = $new_area.objs.where(:vnum => $obj_vnum).first
         if this_obj
@@ -472,7 +472,7 @@ def import_area( area_info )
       # P, need to know the last O or I
       if ( reset_type == 'P')
 
-        $obj_vnum     = $new_area.localize_vnum ( reset_record["val_2"].to_i )
+        $obj_vnum     = $new_area.localize_vnum( reset_record["val_2"].to_i )
 
         this_obj = $new_area.objs.where(:vnum => $obj_vnum).first
         if this_obj
@@ -500,7 +500,7 @@ def import_area( area_info )
       # I
       if ( reset_type == 'I')
 
-        $obj_vnum     = $new_area.localize_vnum ( reset_record["val_2"].to_i )
+        $obj_vnum     = $new_area.localize_vnum( reset_record["val_2"].to_i )
 
         this_obj = $new_area.objs.where(:vnum => $obj_vnum).first
         if this_obj
@@ -611,16 +611,118 @@ def import_area( area_info )
         end
 
         if ( special_type == 'N' )
-          special_mobile.specials.create(
-            :special_type => special_record["type"],
-            :name => special_record["name"],
-            :extended_value_1 => special_record["extended_value_1"].to_i,
-            :extended_value_2 => special_record["extended_value_2"].to_i,
-            :extended_value_3 => special_record["extended_value_3"].to_i,
-            :extended_value_4 => special_record["extended_value_4"].to_i,
-            :extended_value_5 => special_record["extended_value_5"].to_i
-            )
-        end
+
+          if special_record["name"] == 'spec_act_on_give' && special_record["extended_value_2"].to_i == 0 # transfer type
+
+            obj_vnum  = $new_area.localize_vnum( special_record["extended_value_1"].to_i )
+            obj_matches = $new_area.objs.where(:vnum => obj_vnum)
+            if obj_matches.count > 0
+              obj_id = obj_matches.first.id
+            else
+              obj_id = special_record["extended_value_1"].to_i
+            end
+
+            room_vnum  = $new_area.localize_vnum( special_record["extended_value_3"].to_i )
+            room_matches = $new_area.rooms.where(:vnum => room_vnum)
+            if room_matches.count > 0
+              room_id = room_matches.first.id
+            else
+              room_id = special_record["extended_value_3"].to_i
+            end
+
+            string1_vnum = $new_area.localize_vnum( special_record["extended_value_5"].to_i )
+            string1_matches = $new_area.area_strings.where(:vnum => string1_vnum)
+            if string1_matches.count > 0
+              string1_id = string1_matches.first.id
+            else
+              string1_id = special_record["extended_value_5"].to_i
+            end
+
+            special_mobile.specials.create(
+              :special_type => special_record["type"],
+              :name => special_record["name"],
+              :extended_value_1 => obj_id,
+              :extended_value_2 => 0,
+              :extended_value_3 => room_id,
+              :extended_value_4 => -1,
+              :extended_value_5 => string1_id
+              )
+
+          end
+
+          if special_record["name"] == 'spec_act_on_give' && special_record["extended_value_2"].to_i == 1 # give type
+
+            obj_vnum  = $new_area.localize_vnum( special_record["extended_value_1"].to_i )
+            obj_matches = $new_area.objs.where(:vnum => obj_vnum)
+            if obj_matches.count > 0
+              obj_id = obj_matches.first.id
+            else
+              obj_id = special_record["extended_value_1"].to_i
+            end
+
+            obj2_vnum  = $new_area.localize_vnum( special_record["extended_value_3"].to_i )
+            obj2_matches = $new_area.objs.where(:vnum => obj2_vnum)
+            if obj2_matches.count > 0
+              obj2_id = obj2_matches.first.id
+            else
+              obj2_id = special_record["extended_value_3"].to_i
+            end
+
+            string1_vnum = $new_area.localize_vnum( special_record["extended_value_5"].to_i )
+            string1_matches = $new_area.area_strings.where(:vnum => string1_vnum)
+            if string1_matches.count > 0
+              string1_id = string1_matches.first.id
+            else
+              string1_id = special_record["extended_value_5"].to_i
+            end
+
+            special_mobile.specials.create(
+              :special_type => special_record["type"],
+              :name => special_record["name"],
+              :extended_value_1 => obj_id,
+              :extended_value_2 => 1,
+              :extended_value_3 => obj2_id,
+              :extended_value_4 => -1,
+              :extended_value_5 => string1_id
+              )
+
+          end
+
+          if special_record["name"] == 'spec_mage_protector'
+
+            string1_vnum = $new_area.localize_vnum( special_record["extended_value_1"].to_i )
+            string1_matches = $new_area.area_strings.where(:vnum => string1_vnum)
+            if string1_matches.count > 0
+              string1_id = string1_matches.first.id
+            else
+              string1_id = special_record["extended_value_1"].to_i
+            end
+
+            special_mobile.specials.create(
+              :special_type => special_record["type"],
+              :name => special_record["name"],
+              :extended_value_1 => string1_id,
+              :extended_value_2 => -1,
+              :extended_value_3 => -1,
+              :extended_value_4 => -1,
+              :extended_value_5 => -1
+              )
+
+          end
+
+          if special_record["name"] == 'spec_call_for_help' || special_record["name"] == 'spec_timed_teleport'
+            special_mobile.specials.create(
+              :special_type => special_record["type"],
+              :name => special_record["name"],
+              :extended_value_1 => special_record["extended_value_1"],
+              :extended_value_2 => special_record["extended_value_2"],
+              :extended_value_3 => special_record["extended_value_3"],
+              :extended_value_4 => special_record["extended_value_4"],
+              :extended_value_5 => special_record["extended_value_5"]
+              )
+          end
+
+        end # N Reset
 
       end
 
@@ -645,19 +747,41 @@ def import_area( area_info )
           :extended_value_4 => -1,
           :extended_value_5 => -1
           )
-      end
+      end # D Reset
 
       if ( rspec_type == 'E' )
+
+        if rspec_record["name"] == 'spec_check_door_open'
+
+          string1_vnum = $new_area.localize_vnum( rspec_record["extended_value_4"].to_i )
+          string2_vnum = $new_area.localize_vnum( rspec_record["extended_value_5"].to_i )
+
+          string1_matches = $new_area.area_strings.where(:vnum => string1_vnum)
+          string2_matches = $new_area.area_strings.where(:vnum => string2_vnum)
+
+          if string1_matches.count > 0
+            string1_id = string1_matches.first.id
+          else
+            string1_id = rspec_record["extended_value_4"].to_i
+          end
+          if string2_matches.count > 0
+            string2_id = string2_matches.first.id
+          else
+            string2_id = rspec_record["extended_value_5"].to_i
+          end
+
         rspec_room.room_specials.create(
           :room_special_type => rspec_record["type"],
           :name => rspec_record["name"],
           :extended_value_1 => rspec_record["extended_value_1"].to_i,
           :extended_value_2 => rspec_record["extended_value_2"].to_i,
           :extended_value_3 => rspec_record["extended_value_3"].to_i,
-          :extended_value_4 => rspec_record["extended_value_4"].to_i,
-          :extended_value_5 => rspec_record["extended_value_5"].to_i
+          :extended_value_4 => string1_id,
+          :extended_value_5 => string2_id
           )
-      end
+
+        end # spec_check_door_open
+      end # E Reset
 
     end
   end# rspecs_block
@@ -684,16 +808,112 @@ def import_area( area_info )
       end
 
       if ( trigger_type == 'Q' )
-        trigger_exit.triggers.create(
-          :trigger_type => trigger_record["type"],
-          :name => trigger_record["name"],
-          :extended_value_1 => trigger_record["extended_value_1"].to_i,
-          :extended_value_2 => trigger_record["extended_value_2"].to_i,
-          :extended_value_3 => trigger_record["extended_value_3"].to_i,
-          :extended_value_4 => trigger_record["extended_value_4"].to_i,
-          :extended_value_5 => trigger_record["extended_value_5"].to_i
-          )
-      end
+
+        if trigger_record["name"] == 'trig_block_heathen'
+
+          string1_vnum = $new_area.localize_vnum( trigger_record["extended_value_2"].to_i )
+          string2_vnum = $new_area.localize_vnum( trigger_record["extended_value_3"].to_i )
+
+          string1_matches = $new_area.area_strings.where(:vnum => string1_vnum)
+          string2_matches = $new_area.area_strings.where(:vnum => string2_vnum)
+
+          if string1_matches.count > 0
+            string1_id = string1_matches.first.id
+          else
+            string1_id = trigger_record["extended_value_2"].to_i
+          end
+          if string2_matches.count > 0
+            string2_id = string2_matches.first.id
+          else
+            string2_id = trigger_record["extended_value_3"].to_i
+          end
+
+          trigger_exit.triggers.create(
+            :trigger_type => trigger_record["type"],
+            :name => trigger_record["name"],
+            :extended_value_1 => trigger_record["extended_value_1"].to_i,
+            :extended_value_2 => string1_id,
+            :extended_value_3 => string2_id,
+            :extended_value_4 => trigger_record["extended_value_4"].to_i,
+            :extended_value_5 => trigger_record["extended_value_5"].to_i
+            )
+        end # trig_block_heathen
+
+        if trigger_record["name"] == 'trig_sentinel_mob'
+
+          obj_vnum  = $new_area.localize_vnum( trigger_record["extended_value_1"].to_i )
+          obj_matches = $new_area.objs.where(:vnum => obj_vnum)
+          if obj_matches.count > 0
+            obj_id = obj_matches.first.id
+          else
+            obj_id = trigger_record["extended_value_1"].to_i
+          end
+
+          string1_vnum  = $new_area.localize_vnum( trigger_record["extended_value_2"].to_i )
+          string2_vnum  = $new_area.localize_vnum( trigger_record["extended_value_3"].to_i )
+          string1_matches = $new_area.area_strings.where(:vnum => string1_vnum)
+          string2_matches = $new_area.area_strings.where(:vnum => string2_vnum)
+          if string1_matches.count > 0
+            string1_id = string1_matches.first.id
+          else
+            string1_id = trigger_record["extended_value_2"].to_i
+          end
+          if string2_matches.count > 0
+            string2_id = string2_matches.first.id
+          else
+            string2_id = trigger_record["extended_value_3"].to_i
+          end
+
+          mob_vnum  = $new_area.localize_vnum( trigger_record["extended_value_4"].to_i )
+          mob_matches = $new_area.mobiles.where(:vnum => mob_vnum)
+          if mob_matches.count > 0
+            mob_id = mob_matches.first.id
+          else
+            mob_id = trigger_record["extended_value_4"].to_i
+          end
+
+          trigger_exit.triggers.create(
+            :trigger_type => trigger_record["type"],
+            :name => trigger_record["name"],
+            :extended_value_1 => obj_id,
+            :extended_value_2 => string1_id,
+            :extended_value_3 => string2_id,
+            :extended_value_4 => mob_id,
+            :extended_value_5 => trigger_record["extended_value_5"].to_i
+            )
+        end # trig_sentinel_mob
+
+        if trigger_record["name"] == 'trig_time_block'
+
+          string1_vnum = $new_area.localize_vnum( trigger_record["extended_value_3"].to_i )
+          string2_vnum = $new_area.localize_vnum( trigger_record["extended_value_4"].to_i )
+
+          string1_matches = $new_area.area_strings.where(:vnum => string1_vnum)
+          string2_matches = $new_area.area_strings.where(:vnum => string2_vnum)
+
+          if string1_matches.count > 0
+            string1_id = string1_matches.first.id
+          else
+            string1_id = trigger_record["extended_value_3"].to_i
+          end
+          if string2_matches.count > 0
+            string2_id = string2_matches.first.id
+          else
+            string2_id = trigger_record["extended_value_4"].to_i
+          end
+
+          trigger_exit.triggers.create(
+            :trigger_type => trigger_record["type"],
+            :name => trigger_record["name"],
+            :extended_value_1 => trigger_record["extended_value_1"].to_i,
+            :extended_value_2 => trigger_record["extended_value_2"].to_i,
+            :extended_value_3 => string1_id,
+            :extended_value_4 => string2_id,
+            :extended_value_5 => trigger_record["extended_value_5"].to_i
+            )
+        end # trig_time_block
+
+      end # Q Reset
 
     end
   end# triggers_block
