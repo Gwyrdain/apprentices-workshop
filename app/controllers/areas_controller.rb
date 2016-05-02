@@ -462,6 +462,7 @@ def import_area( area_info )
           :val_3        => reset_record["val_3"].to_i,
           :val_4        => reset_record["val_4"].to_i,
           )
+
         if this_obj && this_obj.is_container
           last_container_reset = $new_sub_reset
           last_container_reset_type = 'sub_reset'
@@ -478,7 +479,12 @@ def import_area( area_info )
           $obj_vnum = this_obj.id
         end
 
-        last_container_reset = $new_area.resets.where(:reset_type => ['O','I']).order(id: :desc).first
+        if last_container_reset_type == 'reset'
+          last_container_reset = $new_area.resets.where(:reset_type => ['O','I']).order(id: :desc).first
+        end
+        if last_container_reset_type == 'sub_reset'
+          last_container_reset = $new_area.sub_resets.where(:reset_type => ['E','G']).order(id: :desc).first
+        end
 
         $new_reset = $new_area.resets.create(
           :reset_type   => reset_record["reset_type"],
@@ -486,7 +492,7 @@ def import_area( area_info )
           :val_2        => $obj_vnum,
           :val_3        => reset_record["val_3"].to_i,
           :val_4        => 0,
-          :parent_type  => 'reset',
+          :parent_type  => last_container_reset_type,
           :parent_id    => last_container_reset.id
           )
       end
@@ -501,7 +507,12 @@ def import_area( area_info )
           $obj_vnum = this_obj.id
         end
 
-        last_container_reset = $new_area.resets.where(:reset_type => ['O','I']).order(id: :desc).first
+        if last_container_reset_type == 'reset'
+          last_container_reset = $new_area.resets.where(:reset_type => ['O','I']).order(id: :desc).first
+        end
+        if last_container_reset_type == 'sub_reset'
+          last_container_reset = $new_area.sub_resets.where(:reset_type => ['E','G']).order(id: :desc).first
+        end
 
         $new_reset = $new_area.resets.create(
           :reset_type   => reset_record["reset_type"],
@@ -509,7 +520,7 @@ def import_area( area_info )
           :val_2        => $obj_vnum,
           :val_3        => reset_record["val_3"].to_i,
           :val_4        => 0,
-          :parent_type  => 'reset',
+          :parent_type  => last_container_reset_type,
           :parent_id    => last_container_reset.id
           )
         if this_obj && this_obj.is_container
