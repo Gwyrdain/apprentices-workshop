@@ -10,14 +10,14 @@
       </ul>
     </div>
   <% end %>
-  
+
   <div class="form-group">
     <%= f.label :name, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :name, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :revision, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -31,21 +31,21 @@
       <%= f.text_field :author, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :description, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= ruler %><%= f.text_area :description, :class => 'text_field form-control', rows: 10 %>
     </div>
   </div>
- 
+
   <div class="form-group">
     <%= f.label :area_number, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :area_number, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :vnum_qty, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -57,21 +57,21 @@
           ), {}, {class: "form-control"}) %>
     </div>
   </div>
- 
+
   <div class="form-group">
     <%= f.label :lowlevel, 'Low level', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :lowlevel, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :highlevel, 'High level', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :highlevel, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :installed, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -94,7 +94,7 @@
       </div>
     </div>
   </div>
- 
+
   <div class="form-group">
     <%= f.label :flags, 'Other flags', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -228,11 +228,11 @@
           <%= f.label :no_vnum, 'no_vnum'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
 
-    </div>  
+    </div>
   </div>
-  
+
   <div class="form-group">
-    <%= f.label :default_terrain, :class => 'control-label col-md-2' %> 
+    <%= f.label :default_terrain, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
     <%= f.select(:default_terrain, options_for_select(
           [
@@ -251,7 +251,7 @@
         ), {}, {class: "form-control"}) %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :misc_flags, 'Misc Settings', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -260,13 +260,13 @@
           <%= f.check_box :share_publicly, {:checked => @area.share_publicly? ? true : false} %>
           <%= f.label :share_publicly, 'share_publicly'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
-        
+
         <div class="check_box col-md-3">
           <%= f.check_box :show_formatted_blocks, {:checked => @area.show_formatted_blocks? ? true : false} %>
           <%= f.label :show_formatted_blocks, 'show_formatted_blocks'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
- 
-    </div>  
+
+    </div>
   </div>
 
   <div class="form-group">
@@ -281,4 +281,4 @@
 
 <script type = "text/javascript">
   initAreasForm();
-</script> 
+</script>

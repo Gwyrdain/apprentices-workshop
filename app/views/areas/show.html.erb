@@ -19,7 +19,7 @@
           </div>
         </div>
       </div><br/>
-      
+
       <div class="row">
         <div class="col-md-2">
           <strong>Revision:</strong>
@@ -30,7 +30,7 @@
           </div>
         </div>
       </div><br/>
-      
+
       <div class="row">
         <div class="col-md-2">
           <strong>Author:</strong>
@@ -41,7 +41,7 @@
           </div>
         </div>
       </div><br/>
-      
+
       <div class="row">
         <div class="col-md-2">
           <strong>Description:</strong>
@@ -52,7 +52,7 @@
           </div>
         </div>
       </div><br/>
-      
+
       <div class="row">
         <div class="col-md-2">
           <strong>Area number:</strong>
@@ -63,7 +63,7 @@
           </div>
         </div>
       </div><br/>
-      
+
       <div class="row">
         <div class="col-md-2">
           <strong>Low Level:</strong>
@@ -74,7 +74,7 @@
           </div>
         </div>
       </div><br/>
-      
+
       <div class="row">
         <div class="col-md-2">
           <strong>High Level:</strong>
@@ -85,7 +85,7 @@
           </div>
         </div>
       </div><br/>
-       
+
       <div class="row">
         <div class="col-md-2">
           <strong>Vnum qty assigned:</strong>
@@ -96,7 +96,7 @@
           </div>
         </div>
       </div><br/>
-      
+
       <div class="row">
         <div class="col-md-2">
           <strong>Installed:</strong>
@@ -107,7 +107,7 @@
           </div>
         </div>
       </div><br/>
-      
+
       <div class="row">
         <div class="col-md-2">
           <strong>Area Flags:</strong>
@@ -185,7 +185,7 @@
           <% if @area.show_formatted_blocks? %><div class="col-md-3">SHOW FORMATTED BLOCKS</div><% end %>
         </div>
       </div><br/>
-      
+
       <div class="row">
         <div class="col-md-2">
           <strong>Shared with:</strong>
@@ -204,10 +204,10 @@
             </div>
         </div>
       </div><br/>
-      
+
       <hr>
       <div class="row center">
-        
+
         <div class="btn-group" role="group">
 
           <%= link_to(area_helps_path(@area), :class => "btn btn-default") do %>
@@ -241,24 +241,24 @@
           <%= link_to(area_specials_path(@area), :class => "btn btn-default") do %>
             Specials: <%= @area.specials.count %>
           <% end %>
-          
+
           <%= link_to(area_room_specials_path(@area), :class => "btn btn-default") do %>
             Rspecs: <%= @area.room_specials.count %>
 
           <%= link_to(area_triggers_path(@area), :class => "btn btn-default") do %>
             Triggers: <%= @area.triggers.count %>
           <% end %>
-        
+
           <% end %>
-          
+
         </div>
-        
+
       </div>
-     
+
     </div>
-    
+
     </br>
-    
+
     <div class="panel-footer">
       <%= link_to t('.back', :default => t("helpers.links.back")),
                   areas_path(@area), :class => 'btn btn-default'  %>
@@ -269,9 +269,9 @@
                   :method => 'delete',
                   :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                   :class => 'btn btn-danger' %>
-      <%= link_to 'Download', area_path(@area, :download => true), :class => 'btn btn-primary'  %>
-      <%= link_to 'Preview', area_path(@area, :preview => true), :target => "_blank", :class => 'btn btn-success'  %>
-      <%= link_to 'Review', area_path(@area, :review => true), :class => 'btn btn-warning'  %>
+      <%= link_to 'Download', area_path(@area, :download => true), :id => "Download", :class => 'btn btn-primary'  %>
+      <%= link_to 'Preview', area_path(@area, :preview => true), :id => "Preview", :target => "_blank", :class => 'btn btn-success'  %>
+      <%= link_to 'Review', area_path(@area, :review => true), :id => "Review", :class => 'btn btn-warning'  %>
       <div class="btn-group pull-right" role="group" aria-label="...">
         <button type="button" class="btn btn-warning">Rotate Area</button>
         <%= link_to '90°', area_path(@area, :rotate => true, :direction => -1),

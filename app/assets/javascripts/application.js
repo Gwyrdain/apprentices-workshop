@@ -19,3 +19,5 @@
 //= require_tree .
 //= require bootbox
 //= require bootstrap-datepicker/core
+//= require spin
+//= require jquery.spin

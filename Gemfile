@@ -18,6 +18,7 @@ gem 'bootbox-rails', '~> 0.4.0'
 gem 'jquery-turbolinks', '~> 2.1.0'
 gem 'raphael-rails', '~> 2.1.2'
 gem 'bootstrap-datepicker-rails', '~> 1.3.1.1'
+gem 'spinjs-rails', '~> 1.4'
 
 group :development, :test do
     gem 'sqlite3'
