@@ -145,7 +145,7 @@ class Area < ActiveRecord::Base
   def range_text
     text = "{#{format("%2.2s", self.lowlevel)} #{format("%2.2s", self.highlevel)}}"
     text = '{HARD!}' if self.lowlevel == 50 && self.highlevel == 50
-    text = '{ ALL }' if self.lowlevel == 50 && self.highlevel == 50
+    text = '{ ALL }' if self.lowlevel ==  1 && self.highlevel == 50
     return text
   end
 
