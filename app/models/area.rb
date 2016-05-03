@@ -1,3 +1,4 @@
+#encoding: ASCII-8BIT
 require_relative '_import'
 require_relative '_translate'
 require_relative '_lookup'
@@ -229,8 +230,9 @@ class Area < ActiveRecord::Base
     name ||= ''
     flags ||= 0
 
-    area_file = file.read.encode('US-ASCII', :invalid => :replace, :undef => :replace)
-
+    area_file = file.read
+    area_file = area_file.gsub(/\xE2\x80\x9C/,'"').gsub(/\xE2\x80\x9D/,'"').gsub(/\xE2\x80\x98/,"'").gsub(/\xE2\x80\x99/,"'")
+    area_file = area_file.encode('US-ASCII', :invalid => :replace, :undef => :replace)
     area_file.gsub!(/\r\n/,"\n")      # normalize line endings
     area_file.gsub!(/[ ]*\n/,"\n")    # strip trailing spaces on lines
     area_file.gsub!(/[\x09]/,"     ") # replace tabs with 5 spaces
