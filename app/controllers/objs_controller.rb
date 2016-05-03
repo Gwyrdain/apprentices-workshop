@@ -8,7 +8,7 @@ class ObjsController < ApplicationController
 
   def index
     @objs = @area.objs
-    
+
     if params[:purge]
       @area.objs.where(:sdesc => '<sdesc here>').each do |obj|
         obj.destroy
@@ -43,7 +43,7 @@ class ObjsController < ApplicationController
       redirect_to area_objs_path(@area), notice: 'Empty objects created.'
     else
       @obj = @area.objs.build
-  
+
       @obj.vnum = @area.nextobjvnum
       @obj.v0 = 0
       @obj.v1 = 0
@@ -58,7 +58,7 @@ class ObjsController < ApplicationController
   end
 
   def edit
-    
+
   end
 
   def create
@@ -66,8 +66,9 @@ class ObjsController < ApplicationController
     @obj.misc_flags ||= 0
     @obj.extra_flags ||= 0
     @obj.wear_flags ||= 0
-    
+
     if @obj.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_obj_path(@area, @obj), notice: 'Object was sucessfully created.'
     else
       render action: 'new'
@@ -76,32 +77,34 @@ class ObjsController < ApplicationController
 
   def update
     if @obj.update(obj_params)
-      
+
       if params[:return_to_room]
+        @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
         redirect_to area_room_path(@area, params[:return_to_room]), notice: 'Object was sucessfully updated.'
       else
         redirect_to area_obj_path(@area, @obj), notice: 'Object was sucessfully updated.'
       end
     else
       render action: 'edit'
-    end 
+    end
   end
 
   def destroy
     @obj.destroy
     if @obj.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_objs_path(@area), notice: 'Object was sucessfully deleted.'
     else
       redirect_to area_objs_path(@area), notice: 'Something went wrong.'
     end
   end
-  
+
   def edit_multiple
-    
+
     if params[:obj_ids]
-  
+
       @objs = Obj.find(params[:obj_ids])
-  
+
       if params[:commit] == "Delete Selected"
         @objs.each do |obj|
           obj.destroy
@@ -127,11 +130,11 @@ class ObjsController < ApplicationController
     def set_obj
       @obj = Obj.find(params[:id])
     end
-    
+
     def set_area
         @area = Area.find(params[:area_id])
     end
-    
+
     def obj_params
       params.require(:obj).permit(:area_id, :vnum, :keywords, :sdesc, :ldesc,
                                   :object_type, :v0, :v1, :v2, :v3, :extra_flags,
@@ -142,7 +145,7 @@ class ObjsController < ApplicationController
                                   :glow, :hum, :evil, :invis, :magic, :nodrop,
                                   :anti_good, :anti_evil, :anti_neutral,
                                   :noremove, :inventory, :metallic, :good,
-                                  :not_purgable, :flammable, :two_handed, 
+                                  :not_purgable, :flammable, :two_handed,
                                   :use_cost, :anti_unalign, :neutral, :no_hoard,
                                   :masked,
                                   :underwater_breath

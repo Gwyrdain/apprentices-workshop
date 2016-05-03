@@ -27,6 +27,7 @@ class ShopsController < ApplicationController
   def create
     @shop = @mobile.shops.create(shop_params)
     if @shop.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_mobile_path(@area, @mobile), notice: 'Shop was sucessfully created.'
     else
       render action: 'new'
@@ -35,6 +36,7 @@ class ShopsController < ApplicationController
 
   def update
     if @shop.update(shop_params)
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_mobile_path(@area, @mobile), notice: 'Shop was sucessfully updated.'
     else
       render action: 'edit'
@@ -44,6 +46,7 @@ class ShopsController < ApplicationController
   def destroy
     @shop.destroy
     if @shop.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_mobile_path(@area, @mobile), notice: 'Shop was sucessfully deleted.'
     else
       redirect_to area_mobile_path(@area, @mobile), notice: 'Something went wrong.'

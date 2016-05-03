@@ -13,13 +13,13 @@
   </thead>
 
   <tbody>
-      <% some_areas.each do |area| %>
+      <% some_areas.order(last_updated_at: :desc).each do |area| %>
         <% if ( current_user.id == area.user_id || area.shared_with?(current_user) || current_user.is_admin? || area.share_publicly? ) %>
           <tr>
             <td>
               <% if ( current_user.is_admin? && current_user.id != area.user_id && !area.shared_with?(current_user) && !area.share_publicly? ) %>(A) <% end %>
               <%= link_to(area) do %><%= area.name %><% end %> (Rev. <%= area.revision %>)
-              <div class="small"><i>Last Updated: <%= area.last_updated?.in_time_zone(current_user.time_zone).strftime(DATE_FORMAT) %></i></div>
+              <div class="small"><i><%= area.last_updated_time.in_time_zone(current_user.time_zone).strftime(DATE_FORMAT) %> by <%= area.last_updated_user %></i></div>
             </td>
             <td>
               <%= area.range_text %>

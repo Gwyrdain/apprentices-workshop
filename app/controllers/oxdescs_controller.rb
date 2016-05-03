@@ -28,6 +28,7 @@ class OxdescsController < ApplicationController
   def create
     @oxdesc = @obj.oxdescs.create(oxdesc_params)
     if @oxdesc.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_obj_path(@area, @obj), notice: 'Obj Extra Description was sucessfully created.'
     else
       render action: 'new'
@@ -36,6 +37,7 @@ class OxdescsController < ApplicationController
 
   def update
     if @oxdesc.update(oxdesc_params)
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_obj_path(@area, @obj), notice: 'Obj Extra Description was sucessfully updated.'
     else
       render action: 'edit'
@@ -45,6 +47,7 @@ class OxdescsController < ApplicationController
   def destroy
     @oxdesc.destroy
     if @oxdesc.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_obj_path(@area, @obj), notice: 'Obj Extra Description was sucessfully deleted.'
     else
       redirect_to area_obj_path(@area, @obj), notice: 'Something went wrong.'

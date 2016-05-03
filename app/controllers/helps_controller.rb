@@ -17,7 +17,7 @@ class HelpsController < ApplicationController
     def new
         @help = @area.helps.build
     end
-    
+
     def edit
 
     end
@@ -25,23 +25,26 @@ class HelpsController < ApplicationController
     def create
         @help = @area.helps.create(help_params)
         if @help.save
+          @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
           redirect_to area_help_path(@area, @help), notice: 'Help was sucessfully created.'
         else
           render action: 'new'
         end
     end
-    
+
     def update
         if @help.update(help_params)
+          @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
           redirect_to area_help_path(@area, @help), notice: 'Help was sucessfully updated.'
         else
           render action: 'edit'
-        end     
+        end
     end
 
     def destroy
         @help.destroy
         if @help.save
+          @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
           redirect_to area_helps_path(@area), notice: 'Help was sucessfully deleted.'
         else
           redirect_to area_helps_path(@area), notice: 'Something went wrong.'
@@ -56,9 +59,9 @@ class HelpsController < ApplicationController
         def set_area
             @area = Area.find(params[:area_id])
         end
-        
+
         def help_params
             params.require(:help).permit(:min_level, :keywords, :body )
         end
-    
+
 end

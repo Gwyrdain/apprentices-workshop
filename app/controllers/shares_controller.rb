@@ -27,6 +27,7 @@ class SharesController < ApplicationController
     @share = @area.shares.create(share_params)
 
     if @share.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_path(@area), notice: 'Share was sucessfully created.'
     else
       render action: 'new'
@@ -35,6 +36,7 @@ class SharesController < ApplicationController
 
   def update
     if @share.update(share_params)
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_path(@area), notice: 'Share was sucessfully updated.'
     else
       render action: 'edit'
@@ -44,6 +46,7 @@ class SharesController < ApplicationController
   def destroy
     @share.destroy
     if @share.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_path(@area), notice: 'Share was sucessfully deleted.'
     else
       redirect_to area_path(@area), notice: 'Something went wrong.'

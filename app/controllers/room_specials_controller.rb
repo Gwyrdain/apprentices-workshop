@@ -40,6 +40,7 @@ class RoomSpecialsController < ApplicationController
     @room_special.extended_value_5 ||= -1
     
     if @room_special.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_room_path(@area, @room), notice: 'Room Special Function was sucessfully created.'
     else
       render action: 'new'
@@ -48,6 +49,7 @@ class RoomSpecialsController < ApplicationController
 
   def update
     if @room_special.update(room_special_params)
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_room_path(@area, @room), notice: 'Room Special Function was sucessfully updated.'
     else
       render action: 'edit'
@@ -57,6 +59,7 @@ class RoomSpecialsController < ApplicationController
   def destroy
     @room_special.destroy
     if @room_special.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_room_path(@area, @room), notice: 'Room Special Function was sucessfully deleted.'
     else
       redirect_to area_room_path(@area, @room), notice: 'Something went wrong.'

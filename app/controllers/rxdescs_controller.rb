@@ -28,6 +28,7 @@ class RxdescsController < ApplicationController
   def create
     @rxdesc = @room.rxdescs.create(rxdesc_params)
     if @rxdesc.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_room_path(@area, @room), notice: 'Room Extra Description was sucessfully created.'
     else
       render action: 'new'
@@ -36,6 +37,7 @@ class RxdescsController < ApplicationController
 
   def update
     if @rxdesc.update(rxdesc_params)
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_room_rxdesc_path(@area, @room, @rxdesc), notice: 'Room Extra Description was sucessfully updated.'
     else
       render action: 'edit'
@@ -45,6 +47,7 @@ class RxdescsController < ApplicationController
   def destroy
     @rxdesc.destroy
     if @rxdesc.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_room_rxdescs_path(@area, @room), notice: 'Room was sucessfully deleted.'
     else
       redirect_to area_room_rxdescs_path(@area, @room), notice: 'Something went wrong.'

@@ -28,6 +28,7 @@ class AppliesController < ApplicationController
   def create
     @apply = @obj.applies.create(apply_params)
     if @apply.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       Obj.update(@apply.obj_id, :magic => true)
       redirect_to area_obj_path(@area, @obj), notice: 'Apply was sucessfully created.'
     else
@@ -37,6 +38,7 @@ class AppliesController < ApplicationController
 
   def update
     if @apply.update(apply_params)
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       Obj.update(@apply.obj_id, :magic => true)
       redirect_to area_obj_path(@area, @obj), notice: 'Apply was sucessfully updated.'
     else
@@ -47,6 +49,7 @@ class AppliesController < ApplicationController
   def destroy
     @apply.destroy
     if @apply.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_obj_path(@area, @obj), notice: 'Apply was sucessfully deleted.'
     else
       redirect_to area_obj_path(@area, @obj), notice: 'Something went wrong.'

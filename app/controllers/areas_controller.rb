@@ -77,6 +77,8 @@ class AreasController < ApplicationController
     @area.default_terrain ||= 0
     @area.default_room_flags ||= 0
     @area.misc_flags ||= 0
+    @area.last_updated_at ||= Time.now
+    @area.last_updated_by ||= current_user.id
 
     if @area.save
       redirect_to @area, notice: 'Area was sucessfully created.'
@@ -97,6 +99,7 @@ class AreasController < ApplicationController
 
   def update
     if @area.update(area_params)
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       if params[:ownership]
         redirect_to areas_path, notice: 'Ownership transfered.'
       else

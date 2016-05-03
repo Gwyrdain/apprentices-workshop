@@ -40,6 +40,7 @@ class SpecialsController < ApplicationController
     @special.extended_value_5 ||= -1
 
     if @special.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_mobile_path(@area, @mobile), notice: 'Special Function was sucessfully created.'
     else
       render action: 'new'
@@ -48,6 +49,7 @@ class SpecialsController < ApplicationController
 
   def update
     if @special.update(special_params)
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_mobile_path(@area, @mobile), notice: 'Special Function was sucessfully updated.'
     else
       render action: 'edit'
@@ -57,6 +59,7 @@ class SpecialsController < ApplicationController
   def destroy
     @special.destroy
     if @special.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_mobile_path(@area, @mobile), notice: 'Special Function was sucessfully deleted.'
     else
       redirect_to area_mobile_path(@area, @mobile), notice: 'Something went wrong.'

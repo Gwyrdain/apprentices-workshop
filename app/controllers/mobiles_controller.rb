@@ -92,6 +92,7 @@ class MobilesController < ApplicationController
     @mobile.lang_spoken ||= 0
     
     if @mobile.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_mobile_path(@area, @mobile), notice: 'Mobile was sucessfully created.'
     else
       render action: 'new'
@@ -100,6 +101,7 @@ class MobilesController < ApplicationController
 
   def update
     if @mobile.update(mobile_params)
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       if params[:return_to_room]
         redirect_to area_room_path(@area, params[:return_to_room]), notice: 'Mobile was sucessfully updated.'
       else
@@ -113,6 +115,7 @@ class MobilesController < ApplicationController
   def destroy
     @mobile.destroy
     if @mobile.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_mobiles_path(@area), notice: 'Mobile was sucessfully deleted.'
     else
       redirect_to area_mobiles_path(@area), notice: 'Something went wrong.'

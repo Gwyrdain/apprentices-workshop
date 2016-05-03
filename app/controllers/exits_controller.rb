@@ -4,7 +4,7 @@ class ExitsController < ApplicationController
   before_action :set_room, only: [:index, :show, :new, :edit, :create, :update, :destroy]
   before_action :set_area, only: [:index, :show, :new, :edit, :create, :update, :destroy]
   before_action :correct_user, only: [:new, :edit, :create, :update, :destroy] #[:show, :edit, :update, :destroy]
-  
+
   respond_to :html
 
   def index
@@ -47,7 +47,7 @@ class ExitsController < ApplicationController
       end
     else
       @exit = @room.exits.build
-  
+
       @exit.direction = params[:dir]
       @exit.description = params[:description]
       @exit.keywords = params[:keywords]
@@ -55,7 +55,7 @@ class ExitsController < ApplicationController
       @exit.keyvnum = params[:keyvnum]
       @exit.exit_room_id = params[:exit_room_id]
       @exit.name = params[:name]
-      
+
       @exit.exittype ||= 0
       @exit.keyvnum ||= 0
       @exit.exit_room_id ||= -1
@@ -66,7 +66,7 @@ class ExitsController < ApplicationController
   end
 
   def create
-    
+
     if params[:exit][:exit_room_id].to_i == 0 # Calling for a New Room
       new_room = true
       $far_room = @area.rooms.create(:vnum => @area.nextroomvnum,
@@ -75,17 +75,19 @@ class ExitsController < ApplicationController
                                      :terrain => @area.default_terrain,
                                      :room_flags => @area.default_room_flags
                                     )
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
     end
 
     if params[:force_reciprocal]
       @exit = @room.exits.create(exit_params)
-      
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
+
       if new_room
         @exit.update(:exit_room_id => $far_room.id)
       else
         $far_room = Room.find(params[:exit][:exit_room_id])
       end
-        
+
       if $far_room.exits.exists?(:direction => opposite_dir( @exit.direction ))
         $far_exit = $far_room.exits.where(:direction => opposite_dir( @exit.direction )).first
         Exit.update($far_exit.id,
@@ -121,12 +123,13 @@ class ExitsController < ApplicationController
         @exit.name = params[:name]
       else
         @exit = @room.exits.create(exit_params)
-        
+
         if new_room
           @exit.update(:exit_room_id => $far_room.id)
         end
       end
       if @exit.save
+        @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
         redirect_to area_room_path(@area, @room), notice: 'Exit was sucessfully created.'
       else
         render action: 'new'
@@ -135,7 +138,7 @@ class ExitsController < ApplicationController
   end
 
   def update
-    
+
     if params[:exit][:exit_room_id].to_i == 0 # Calling for a New Room
       new_room = true
       $far_room = @area.rooms.create(:vnum => @area.nextroomvnum,
@@ -144,17 +147,19 @@ class ExitsController < ApplicationController
                                      :terrain => @area.default_terrain,
                                      :room_flags => @area.default_room_flags
                                     )
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
     end
-    
+
     if params[:force_reciprocal]
       @exit.update(exit_params)
-      
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
+
       if new_room
         @exit.update(:exit_room_id => $far_room.id)
       else
         $far_room = Room.find( params[:exit][:exit_room_id] )
       end
-      
+
       if $far_room.exits.exists?(:direction => opposite_dir( @exit.direction ))
         $far_exit = $far_room.exits.where(:direction => opposite_dir( @exit.direction )).first
         Exit.update($far_exit.id,
@@ -181,6 +186,7 @@ class ExitsController < ApplicationController
     else
 
       if @exit.update(exit_params)
+        @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
         @exit.update(:exit_room_id => $far_room.id) if new_room
         redirect_to area_room_path(@area, @room), notice: 'Exit was sucessfully updated.'
       else
@@ -192,6 +198,7 @@ class ExitsController < ApplicationController
   def destroy
     @exit.destroy
     if @exit.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_room_path(@area, @room), notice: 'Exit was sucessfully deleted.'
     else
       redirect_to area_room_path(@area, @room), notice: 'Something went wrong.'
@@ -202,17 +209,17 @@ class ExitsController < ApplicationController
     def set_exit
       @exit = Exit.find(params[:id])
     end
-    
+
     def set_room
       @room = Room.find(params[:room_id])
     end
-    
+
     def set_area
       @area = Area.find(params[:area_id])
     end
-    
+
     def exit_params
-      params.require(:exit).permit(:direction, :description, :keywords, 
+      params.require(:exit).permit(:direction, :description, :keywords,
                                    :exittype, :keyvnum, :exit_room_id, :name,
                                    :reset, :room_id
                                    )

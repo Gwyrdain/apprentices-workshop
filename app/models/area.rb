@@ -188,56 +188,24 @@ class Area < ActiveRecord::Base
     return self
   end
 
-  def last_updated?
-    $latest_update = self.updated_at
-    $update = $latest_update
+  def last_updated_user
+    if self.last_updated_by
+      if User.exists?(self.last_updated_by)
+        return User.find(self.last_updated_by).email
+      else
+        return 'Deleted User'
+      end
+    else
+      return 'Unknown'
+    end
+  end
 
-    $update = self.area_strings.order(updated_at: :desc).first.updated_at if self.area_strings.count > 0
-    $latest_update = $update           if $update > $latest_update
-
-    $update = self.helps.order(updated_at: :desc).first.updated_at if self.helps.count > 0
-    $latest_update = $update           if $update > $latest_update
-
-    $update = self.rooms.order(updated_at: :desc).first.updated_at if self.rooms.count > 0
-    $latest_update = $update           if $update > $latest_update
-
-    $update = self.mobiles.order(updated_at: :desc).first.updated_at if self.mobiles.count > 0
-    $latest_update = $update           if $update > $latest_update
-
-    $update = self.objs.order(updated_at: :desc).first.updated_at if self.objs.count > 0
-    $latest_update = $update           if $update > $latest_update
-
-    $update = self.resets.order(updated_at: :desc).first.updated_at if self.resets.count > 0
-    $latest_update = $update           if $update > $latest_update
-
-    $update = self.shops.order(updated_at: :desc).first.updated_at if self.shops.count > 0
-    $latest_update = $update           if $update > $latest_update
-
-    $update = self.specials.order(updated_at: :desc).first.updated_at if self.specials.count > 0
-    $latest_update = $update           if $update > $latest_update
-
-    $update = self.room_specials.order(updated_at: :desc).first.updated_at if self.room_specials.count > 0
-    $latest_update = $update           if $update > $latest_update
-
-    $update = self.sub_resets.order(updated_at: :desc).first.updated_at if self.sub_resets.count > 0
-    $latest_update = $update           if $update > $latest_update
-
-    $update = self.triggers.order(updated_at: :desc).first.updated_at if self.triggers.count > 0
-    $latest_update = $update           if $update > $latest_update
-
-    $update = self.applies.order(updated_at: :desc).first.updated_at if self.applies.count > 0
-    $latest_update = $update           if $update > $latest_update
-
-    $update = self.exits.order(updated_at: :desc).first.updated_at if self.exits.count > 0
-    $latest_update = $update           if $update > $latest_update
-
-    $update = self.rxdescs.order(updated_at: :desc).first.updated_at if self.rxdescs.count > 0
-    $latest_update = $update           if $update > $latest_update
-
-    $update = self.oxdescs.order(updated_at: :desc).first.updated_at if self.oxdescs.count > 0
-    $latest_update = $update           if $update > $latest_update
-
-    return $latest_update
+  def last_updated_time
+    if self.last_updated_at
+      return self.last_updated_at
+    else
+      return self.updated_at
+    end
   end
 
   def localize_vnum(vnum)

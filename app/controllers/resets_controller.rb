@@ -19,13 +19,13 @@ class ResetsController < ApplicationController
       base_reset = Reset.find(params[:copy_reset])
       new_reset = base_reset.dup
       new_reset.save
-      
+
       base_reset.sub_resets.each do |sub_reset|
         new_sub_reset = sub_reset.dup
         new_sub_reset.reset_id = new_reset.id
         new_sub_reset.save
       end
-      
+
       redirect_to area_resets_path(@area), notice: 'Reset copied.'
     else
       if params[:convert_legacy]
@@ -50,16 +50,16 @@ class ResetsController < ApplicationController
   end
 
   def edit
-    
+
   end
 
   def create
     new_record = false
-    
+
     if not params[:reset]
       @reset = @area.resets.build
     end
-    
+
     if params[:reset][:val_2].to_i == 0 # Calling for a New
       new_record = true
       if params[:reset][:reset_type] == 'O'
@@ -95,14 +95,15 @@ class ResetsController < ApplicationController
                                         )
       end
     end
-    
+
     @reset = @area.resets.create(reset_params)
-    
+
     if new_record
       @reset.update(:val_2 => $record.id)
-    end    
-    
+    end
+
     if @reset.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       if params[:return_to_room]
         redirect_to area_room_path(@area, params[:return_to_room]), notice: 'Reset was sucessfully created.'
       else
@@ -115,6 +116,7 @@ class ResetsController < ApplicationController
 
   def update
     if @reset.update(reset_params)
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       if params[:return_to_room]
         redirect_to area_room_path(@area, params[:return_to_room]), notice: 'Reset was sucessfully updated.'
       else
@@ -122,13 +124,14 @@ class ResetsController < ApplicationController
       end
     else
       render action: 'edit'
-    end    
+    end
   end
 
   def destroy
     Reset.where(parent_id: @reset.id).destroy_all
     @reset.destroy
     if @reset.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       if params[:return_to_room]
         redirect_to area_room_path(@area, params[:return_to_room]), notice: 'Reset was sucessfully deleted.'
       else
@@ -143,7 +146,7 @@ class ResetsController < ApplicationController
     def set_reset
       @reset = Reset.find(params[:id])
     end
-    
+
     def set_area
         @area = Area.find(params[:area_id])
     end

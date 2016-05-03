@@ -35,6 +35,7 @@ class SubResetsController < ApplicationController
     @sub_reset = @reset.sub_resets.create(sub_reset_params)
 
     if @sub_reset.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       if params[:return_to_room]
         redirect_to area_room_path(@area, params[:return_to_room]), notice: 'Sub-reset was sucessfully created.'
       else
@@ -47,6 +48,7 @@ class SubResetsController < ApplicationController
 
   def update
     if @sub_reset.update(sub_reset_params)
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       if params[:return_to_room]
         redirect_to area_room_path(@area, params[:return_to_room]), notice: 'Sub-reset was sucessfully created.'
       else
@@ -60,6 +62,7 @@ class SubResetsController < ApplicationController
   def destroy
     @sub_reset.destroy
     if @sub_reset.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_reset_path(@area, @reset), notice: 'Sub-reset was sucessfully deleted.'
     else
       redirect_to area_reset_path(@area, @reset), notice: 'Something went wrong.'

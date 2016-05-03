@@ -40,6 +40,7 @@ class TriggersController < ApplicationController
     @trigger.extended_value_5 ||= -1
     
     if @trigger.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_room_path(@area, @room), notice: 'Exit Trigger was sucessfully created.'
     else
       render action: 'new'
@@ -48,6 +49,7 @@ class TriggersController < ApplicationController
 
   def update
     if @trigger.update(trigger_params)
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_room_path(@area, @room), notice: 'Exit Trigger was sucessfully updated.'
     else
       render action: 'edit'
@@ -57,6 +59,7 @@ class TriggersController < ApplicationController
   def destroy
     @trigger.destroy
     if @trigger.save
+      @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
       redirect_to area_room_path(@area, @room), notice: 'Exit Trigger was sucessfully deleted.'
     else
       redirect_to area_room_path(@area, @room), notice: 'Something went wrong.'
