@@ -15,7 +15,7 @@ function validHoldWeight () {
       parseInt($('#ItemValueGroupContainer').find('#obj_v0').val()) <= parseInt($('#obj_weight').val()) ) {
         bootbox.alert('Container <strong>hold weight</strong> must be greater than object <strong>weight</strong>.  Increasing hold weight.');
         $('#ItemValueGroupContainer').find('#obj_v0').val( $('#obj_weight').val() + 5 );
-        $('#ItemValueGroupContainer').find('#obj_weight').val( 5 );
+        $('#ItemValueGroupContainer').find('#obj_capacity').val( 5 );
     return false
   }
   return true
