@@ -10,7 +10,12 @@
       </ul>
     </div>
   <% end %>
-  
+
+  <div class="alert alert-danger"><i>
+    Warning!  When you assign a share to another user, you are granting them the ability to both see and edit any and all aspects of this area.
+    This includes the ability to add shares and delete this area entirely.
+  </i></div>
+
   <div id="UserList" class="form-group">
       <%= f.label :user_id, 'User', :class => 'control-label col-md-2' %>
       <div class="col-md-10">
