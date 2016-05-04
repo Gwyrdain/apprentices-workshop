@@ -55,8 +55,8 @@ module RoomsHelper
       output = output << "(White Aura) "  if this_mobile.sanctuary?
       output = output << "(Pink Aura) "   if this_mobile.faerie_fire?
       output = output << "(Translucent) " if this_mobile.passdoor?
-      output = output << "(<font color=blue>Blue Aura</font>) " if this_mobile.alignment > 0
-      output = output << "(<font color=red>Red Aura</font>) "   if this_mobile.alignment < 0
+      output = output << "(<font color=blue>Light Blue Aura</font>) " if this_mobile.alignment > 0
+      output = output << "(<font color=red>Light Red Aura</font>) "   if this_mobile.alignment < 0
 
       output = output << "</font><font color=purple>"
       output = output << "#{this_mobile.ldesc.gsub("<","&lt;").gsub(">","&gt;")}</font>"
