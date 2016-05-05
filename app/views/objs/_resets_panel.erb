@@ -1,0 +1,50 @@
+</br>
+<div class="panel panel-info">
+
+  <div class="panel-heading">
+    <a data-toggle="collapse" href="#collapseReset">
+      <b>Assocaited Resets</b>
+    </a>
+  </div>
+
+  <div id="collapseReset" class="panel-collapse collapse<%= current_user.collapse_panels? ? '' : 'in' %>">
+
+    <%= render 'resets/resetstable', :given_resets => assoc_resets, :show_type => true %>
+
+    <div class="panel-footer">
+      <% @reset = @area.resets.build %>
+      <%= form_for  [@reset.area, @reset], :url => area_resets_path(@reset.area, :return_to_obj => @obj.id), :html => { :class => 'form-inline center' } do |f| %>
+        <% if @reset.errors.any? %>
+          <div id="error_explanation">
+            <h3><%= pluralize(@reset.errors.count, "error") %> prohibited saving:</h3>
+
+            <ul>
+            <% @reset.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <%= f.hidden_field :reset_type, :value => 'O' %>
+        <%= f.hidden_field :val_1, :value => 0 %>
+        <%= f.hidden_field :val_2, :value => @obj.id %>
+
+        <div class="form-group">
+          <%= f.label :val_4, 'Room', :class => 'sr-only' %>
+          <%= f.select(:val_4, options_for_select(
+                  @area.rooms.order('vnum ASC').map{ |e| [e.vnum_and_name, e.id] }
+                ), {}, {:class => "form-control"}) %>
+        </div>
+
+          <div class="form-group">
+          <%= f.label :val_3, 'Mudwide Limit', :class => 'sr-only' %>
+            <%= f.text_field :val_3, :class => 'text_field form-control col-md-1', :placeholder => 'Limit' %>
+          </div>
+
+        <%= f.submit 'Add Object Reset', :class => 'btn btn-primary' %>
+
+      <% end %>
+    </div>
+  </div>
+</div>
