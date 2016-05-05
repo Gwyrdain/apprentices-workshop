@@ -2,12 +2,12 @@
 
 <font color=silver>You poke <%= mobile.sdesc %> in the ribs.
 
-<%= mobile.sdesc.humanize %> says 'Hello, let me tell you about myself'.
+<%= word_wrap("#{mobile.sdesc.humanize} says 'Hello, let me tell you about myself'.", line_width: WORDWRAP_LENGTH ) %>
 
-<%= mobile.sdesc.humanize %> says 'I'm level <%= mobile.level %>, and my alignment is <%= mobile.alignment %>'.
-<%= mobile.sdesc.humanize %> says '<% if mobile.act_flags <= 1 %>I have no act flags<% else %>My act flags are <%= mobile.act_flags_list %><% end %>'.
-<%= mobile.sdesc.humanize %> says '<% if mobile.affect_flags == 0 %>I have no affect flags<% else %>My affect flags are <%= mobile.affect_flags_list %>(-TDB-)<% end %>'.
-<%= mobile.sdesc.humanize %> says 'I'm <%= mobile.animal? ? '' : 'not ' %>an animal, and I can<%= mobile.no_wear_eq? ? 'not' : '' %> wear equipment'.
-<%= mobile.sdesc.humanize %> says (in <%= mobile.language_word %>) 'My known languages include <%= mobile.languages_list %>'.
+<%= word_wrap("#{mobile.sdesc.humanize} says 'I'm level #{mobile.level}, and my alignment is #{mobile.alignment}'.", line_width: WORDWRAP_LENGTH ) %>
+<%= word_wrap("#{mobile.sdesc.humanize} says '#{mobile.act_flags <= 1 ? "I have no act flags" : "My act flags are #{mobile.act_flags_list}"}'.", line_width: WORDWRAP_LENGTH ) %>
+<%= word_wrap("#{mobile.sdesc.humanize} says '#{mobile.affect_flags <= 1 ? "I have no affect flags" : "My affect flags are #{mobile.affect_flags_list}"}'.", line_width: WORDWRAP_LENGTH ) %>
+<%= word_wrap("#{mobile.sdesc.humanize} says 'I'm #{mobile.animal? ? '' : 'not '}an animal, and I can#{mobile.no_wear_eq? ? 'not' : ''} wear equipment'.", line_width: WORDWRAP_LENGTH ) %>
+<%= word_wrap("#{mobile.sdesc.humanize} says (in #{mobile.language_word}) 'My known languages include #{mobile.languages_list}'.", line_width: WORDWRAP_LENGTH ) %>
 
 ></font></div>
