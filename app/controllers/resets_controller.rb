@@ -104,10 +104,13 @@ class ResetsController < ApplicationController
 
     if @reset.save
       @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
-      if params[:return_to_room]
-        redirect_to area_room_path(@area, params[:return_to_room]), notice: 'Reset was sucessfully created.'
+      message = 'Reset was sucessfully created.'
+      if params[:return_to_room] || params[:return_to_mobile] || params[:return_to_obj]
+        redirect_to area_room_path(@area, params[:return_to_room]), notice: message if params[:return_to_room]
+        redirect_to area_mobile_path(@area, params[:return_to_mobile]), notice: message if params[:return_to_mobile]
+        redirect_to area_obj_path(@area, params[:return_to_obj]), notice: message if params[:return_to_obj]
       else
-        redirect_to area_resets_path(@area), notice: 'Reset was sucessfully created.'
+        redirect_to area_resets_path(@area), notice: message
       end
     else
       render action: 'new'
@@ -117,10 +120,13 @@ class ResetsController < ApplicationController
   def update
     if @reset.update(reset_params)
       @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
-      if params[:return_to_room]
-        redirect_to area_room_path(@area, params[:return_to_room]), notice: 'Reset was sucessfully updated.'
+      message = 'Reset was sucessfully updated.'
+      if params[:return_to_room] || params[:return_to_mobile] || params[:return_to_obj]
+        redirect_to area_room_path(@area, params[:return_to_room]), notice: message if params[:return_to_room]
+        redirect_to area_mobile_path(@area, params[:return_to_mobile]), notice: message if params[:return_to_mobile]
+        redirect_to area_obj_path(@area, params[:return_to_obj]), notice: message if params[:return_to_obj]
       else
-        redirect_to area_reset_path(@area, @reset), notice: 'Reset was sucessfully updated.'
+        redirect_to area_resets_path(@area), notice: message
       end
     else
       render action: 'edit'
@@ -132,10 +138,13 @@ class ResetsController < ApplicationController
     @reset.destroy
     if @reset.save
       @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)
-      if params[:return_to_room]
-        redirect_to area_room_path(@area, params[:return_to_room]), notice: 'Reset was sucessfully deleted.'
+      message = 'Reset was sucessfully deleted.'
+      if params[:return_to_room] || params[:return_to_mobile] || params[:return_to_obj]
+        redirect_to area_room_path(@area, params[:return_to_room]), notice: message if params[:return_to_room]
+        redirect_to area_mobile_path(@area, params[:return_to_mobile]), notice: message if params[:return_to_mobile]
+        redirect_to area_obj_path(@area, params[:return_to_obj]), notice: message if params[:return_to_obj]
       else
-        redirect_to area_resets_path(@area), notice: 'Reset was sucessfully deleted.'
+        redirect_to area_resets_path(@area), notice: message
       end
     else
       redirect_to area_resets_path(@area), notice: 'Something went wrong.'

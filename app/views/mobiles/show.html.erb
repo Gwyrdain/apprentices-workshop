@@ -20,7 +20,7 @@
     </h5>
   </div>
   <div class="panel-body">
-    
+
   <div class="row">
     <div class="col-md-2">
       <strong>Formal Vnum:</strong>
@@ -42,7 +42,7 @@
       </div>
     </div>
   </div><br/>
-  
+
   <div class="row">
     <div class="col-md-2">
       <strong>Short description:</strong>
@@ -53,7 +53,7 @@
       </div>
     </div>
   </div><br/>
-  
+
   <div class="row">
     <div class="col-md-2">
       <strong>Long description:</strong>
@@ -64,7 +64,7 @@
       </div>
     </div>
   </div><br/>
-  
+
   <div class="row">
     <div class="col-md-2">
       <strong>Look description:</strong>
@@ -75,7 +75,7 @@
       </div>
     </div>
   </div><br/>
-  
+
   <div class="row">
     <div class="col-md-2">
       <strong>Action flags:</strong>
@@ -105,7 +105,7 @@
       <% if @mobile.no_random_eq? %><div class='col-md-2'>NO RANDOM EQ</div><% end %>
     </div>
   </div><br/>
-  
+
   <div class="row">
     <div class="col-md-2">
       <strong>Affect flags:</strong>
@@ -140,7 +140,7 @@
       <% if @mobile.improved_invis? %><div class='col-md-2'>IMPROVED INVIS</div><% end %>
     </div>
   </div><br/>
-  
+
   <div class="row">
     <div class="col-md-2">
       <strong>Alignment:</strong>
@@ -151,7 +151,7 @@
       </div>
     </div>
   </div><br/>
-  
+
   <div class="row">
     <div class="col-md-2">
       <strong>Level:</strong>
@@ -162,7 +162,7 @@
       </div>
     </div>
   </div><br/>
-  
+
   <div class="row">
     <div class="col-md-2">
       <strong>Sex:</strong>
@@ -173,7 +173,7 @@
       </div>
     </div>
   </div><br/>
-  
+
   <div class="row">
     <div class="col-md-2">
       <strong>Languages known:</strong>
@@ -199,7 +199,7 @@
       <% if @mobile.god? %><div class='col-md-2'>GOD</div><% end %>
     </div>
   </div><br/>
-  
+
   <div class="row">
     <div class="col-md-2">
       <strong>Language spoken:</strong>
@@ -244,7 +244,7 @@
       </div><br/>
     <% end %>
   <% end %>
-  
+
   <div class="row">
     <div class="col-md-2">
       <strong>Shopkeeper Info:</strong>
@@ -268,14 +268,16 @@
       </div>
     </div>
   </div>
-  
+
+  <%= render 'resets_panel', :assoc_resets => @area.resets.order(:reset_type, :val_2).where(reset_type: 'M', val_2: @mobile.id) %>
+
   <% if @area.show_formatted_blocks? %>
     <br/>
     <strong class="monospace">Formatted Mobile:</strong>
     <p>
         <pre><%= render 'mobiles/mobileblock', :mobile => @mobile %></pre>
     </p>
-    
+
     <% if @mobile.specials.count > 0 %>
       <strong class="monospace">Formatted Special:</strong>
       <p>
@@ -283,7 +285,7 @@
 <% end %></pre>
       </p>
     <% end %>
-  
+
     <% if @mobile.shops.count > 0 %>
       <strong class="monospace">Formatted Shop:</strong>
       <p>
@@ -292,7 +294,7 @@
     <% end %>
   <% end %>
   </div>
-    
+
   <div class="panel-footer">
     <%= link_to t('.back', :default => t("helpers.links.back")),
                 area_mobiles_path(@area), :class => 'btn btn-default'  %>

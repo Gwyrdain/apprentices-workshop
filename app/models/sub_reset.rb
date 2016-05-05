@@ -221,6 +221,14 @@ class SubReset < ActiveRecord::Base
     return self.reset.area.resets.where(parent_id: self.id)
   end
 
+  def parent
+    return self.reset
+  end
+
+  def first_ancestor
+    return self.parent.first_ancestor
+  end
+
   def my_area
     return self.reset.area
   end
