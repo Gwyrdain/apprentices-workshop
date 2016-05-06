@@ -269,7 +269,7 @@
     </div>
   </div>
 
-  <%= render 'resets_panel', :assoc_resets => @area.resets.order(:reset_type, :val_2).where(reset_type: 'M', val_2: @mobile.id) %>
+  <%= render 'resets_panel', :assoc_resets => @area.resets.order(:reset_type, :val_2).where(reset_type: ['M', 'Q'], val_2: @mobile.id) %>
 
   <% if @area.show_formatted_blocks? %>
     <br/>

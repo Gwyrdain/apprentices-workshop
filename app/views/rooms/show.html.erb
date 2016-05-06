@@ -20,20 +20,22 @@
       </h5>
     </div>
     <div class="panel-body">
-      
+
       <%= render 'mudroomview' %>
-      
+
       <%= render 'add_resets' %>
 
       <%= render 'rooms/exitmap', :room => @room %>
-          
+
       <%= render 'rooms/exitstable', :room => @room %>
-      
+
       <%= render 'rooms/rxdescstable', :room => @room %>
+
+      <%= render 'resets_panel', :assoc_resets => @area.resets.order(:reset_type, :val_2).where(reset_type: 'R', val_2: @room.id) %>
 
     <% if @area.show_formatted_blocks? %>
     <br/>
-      
+
     <strong class="monospace">Formatted Room:</strong>
     <p>
         <pre><%= render 'rooms/roomblock', :room => @room %></pre>
@@ -45,14 +47,14 @@
           <pre><%= render 'rooms/doorresetsblock', :exits => @room.exits %></pre>
       </p>
     <% end %>
-      
+
     <% if @room.room_specials.count > 0 %>
       <strong class="monospace">Formatted Room Special:</strong>
       <p>
           <pre><%= render 'room_specials/room_specialblock', :room_special => @room.room_specials.first %></pre>
       </p>
     <% end %>
-    
+
     <strong class="monospace">Formatted Trigger(s):</strong>
     <p><pre><% @room.exits.each do |exit| %><% if exit.triggers.count > 0 %><%= render 'triggers/triggerblock', :trigger => exit.triggers.first %>
 <% end %><% end %></pre></p>
@@ -70,5 +72,5 @@
                   :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                   :class => 'btn btn-danger' %>
     </div>
-    
+
 </div>
