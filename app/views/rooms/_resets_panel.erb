@@ -1,0 +1,55 @@
+</br>
+<div class="panel panel-info">
+
+  <div class="panel-heading">
+    <a data-toggle="collapse" href="#collapseReset">
+      <b>Associated Resets</b>
+    </a>
+  </div>
+
+  <div id="collapseReset" class="panel-collapse collapse<%= current_user.collapse_panels? ? '' : 'in' %>">
+
+    <%= render 'resets/resetstable', :given_resets => assoc_resets, :show_type => true %>
+
+    <div class="panel-footer">
+      <% @reset = @area.resets.build %>
+      <%= form_for  [@reset.area, @reset], :url => area_resets_path(@reset.area, :return_to_room => @room.id), :html => { :class => 'form-inline center' } do |f| %>
+        <% if @reset.errors.any? %>
+          <div id="error_explanation">
+            <h3><%= pluralize(@reset.errors.count, "error") %> prohibited saving:</h3>
+
+            <ul>
+            <% @reset.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <%= f.hidden_field :reset_type, :value => 'R' %>
+        <%= f.hidden_field :val_1, :value => 0 %>
+        <%= f.hidden_field :val_2, :value => @room.id %>
+        <%= f.hidden_field :val_4, :value => 0 %>
+
+        <div class="form-group">
+          <%= f.label :val_3, 'Exits to randomize', :class => 'control-label col-md-2' %>
+          <div class="col-md-10">
+            <%= f.select(:val_3, options_for_select(
+                  [
+                    ['Randomize: north', 0],
+                    ['Randomize: north and south', 1],
+                    ['Randomize: north, east, and south', 2],
+                    ['Randomize: north, east, south, and west', 3],
+                    ['Randomize: north, east, south, west, and up', 4],
+                    ['Randomize: north, east, south, west, up, and down', 5]
+                  ], @reset.val_3
+                ), {}, {class: "form-control"}) %>
+          </div>
+        </div>
+
+        <%= f.submit 'Add Radomize Reset', :class => 'btn btn-primary' %>
+
+      <% end %>
+    </div>
+  </div>
+</div>
