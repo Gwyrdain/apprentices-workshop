@@ -26,7 +26,7 @@
     </h5>
   </div>
 
-  <%= render 'resets/resetstable', :given_resets => @resets.order(:reset_type, :val_2).where(reset_type: ['M','Q', 'O', 'R']), :show_type => true %>
+  <%= render 'resets/resetstable', :given_resets => @resets.order(:reset_type, :val_2).where(reset_type: ['M','Q','O']), :show_type => true %>
 
   <div class="panel-footer">
     <%= link_to 'New reset', new_area_reset_path(@area) %> |
