@@ -7,11 +7,12 @@ def obj_info(id, property, area)
     $result = $this_obj.sdesc            if property == 'sdesc'
     $result = $this_obj.type_word        if property == 'type_word'
     $result = $this_obj.ldesc            if property == 'ldesc'
+    $result = $this_obj                  if property == 'self'
   else
     if property == 'formal_vnum'
-      $result = id.to_s # Assume an external vnum is referenced and return such. 
+      $result = id.to_s # Assume an external vnum is referenced and return such.
     else
-      $result = 'UNKNOWN' 
+      $result = 'UNKNOWN'
     end
   end
   return $result
@@ -23,6 +24,7 @@ def room_info(id, property)
     $this_room = Room.find(id)
     $result = $this_room.formal_vnum.to_s if property == 'formal_vnum'
     $result = $this_room.name             if property == 'name'
+    $result = $this_room                  if property == 'self'
   else
     $result = 'UNKNOWN'
   end
@@ -37,6 +39,7 @@ def mobile_info(id, property)
     $result = $this_mobile.sdesc            if property == 'sdesc'
     $result = $this_mobile.ldesc            if property == 'ldesc'
     $result = !$this_mobile.no_wear_eq?     if property == 'can_wear?'
+    $result = $this_mobile                  if property == 'self'
   else
     $result = 'UNKNOWN'
   end

@@ -11,7 +11,33 @@
       <tr>
         <% if show_type %><td><%= reset.desc_brief %></td><% end %>
         <td>
-          <%= reset.comment(true)%>
+          Load
+          <% if reset.reset_type == 'M' || reset.reset_type == 'Q' %>
+            <% target_mobile = mobile_info(reset.val_2, 'self') %>
+            <% if target_mobile == 'UNKNOWN' %>
+              UNKNOWN Mobile
+            <% else %>
+              <%= link_to "#{target_mobile.sdesc} (#{target_mobile.formal_vnum})", area_mobile_path(@area, target_mobile) %>
+            <% end %>
+          <% end %>
+          <% if reset.reset_type == 'O' %>
+            <% target_obj = obj_info(reset.val_2, 'self', @area) %>
+            <% if target_obj == 'UNKNOWN' %>
+              UNKNOWN Object
+            <% else %>
+              <%= link_to "#{target_obj.sdesc} (#{target_obj.formal_vnum})", area_obj_path(@area, target_obj) %>
+            <% end %>
+          <% end %>
+          at
+          <% target_room = room_info(reset.val_4, 'self') %>
+          <% if target_room == 'UNKNOWN' %>
+            UNKNOWN Room
+          <% else %>
+            <%= link_to "#{target_room.name} (#{target_room.formal_vnum})", area_room_path(@area, target_room) %>
+          <% end %>
+          <% if reset.reset_type == 'M' || reset.reset_type == 'Q' %>
+            / Limit: <%= reset.val_3 %>
+          <% end %>
           <% if reset.is_container %>
             </br>Container capacity: <%= reset.container_weight_held %>/<%= reset.container_capacity %>
           <% end %>
