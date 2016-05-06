@@ -23,6 +23,7 @@
       <% @area.mobiles.order(:vnum).each do |mobile| %>
         <% if !mobile.has_assoc_reset? %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning">No reset has been created for <%= link_to "#{mobile.formal_vnum} #{mobile.sdesc}", area_mobile_path(@area, mobile) %>.</li><% end %>
         <% if !mobile.stay_area? %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning">The 'STAY AREA' flag is not set for <%= link_to "#{mobile.formal_vnum} #{mobile.sdesc}", area_mobile_path(@area, mobile) %>.</li><% end %>
+        <% if !mobile.animal?  && mobile.lang_spoken == 0 %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning"><%= link_to "#{mobile.formal_vnum} #{mobile.sdesc.humanize}", area_mobile_path(@area, mobile) %> is not an animal, yet speaks no language..</li><% end %>
         <% if mobile_room_view(mobile.id, false).length > WORDWRAP_LENGTH %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning">With (prefixes) mobile long description length is <%= mobile_room_view(mobile.id, false).length %> characters: <%= link_to "#{mobile.formal_vnum} #{mobile.sdesc}", area_mobile_path(@area, mobile) %>.</li><% end %>
       <% end %>
 

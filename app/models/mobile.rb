@@ -289,7 +289,7 @@ end
 
 def lang_from_num(i)
   $lang = nil
-  $lang = 'NONE'    if i == 0
+  $lang = 'NONE'      if i == 0
   $lang = 'COMMON'    if i == 1
   $lang = 'DWARVEN'   if i == 2
   $lang = 'ELVEN'     if i == 4
