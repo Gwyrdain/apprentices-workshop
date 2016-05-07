@@ -56,7 +56,9 @@
                 <%= link_to area_mobile_path(@area, mobile), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
                   <%= glyph 'remove' %>
                 <%- end -%>
-                <%= link_to 'Copy', new_area_mobile_path(@area, :copy_mobile => mobile.id ), :class => 'btn btn-warning btn-xs' %>
+                <%= link_to new_area_mobile_path(@area, :copy_mobile => mobile.id ), :class => 'btn btn-xs' do %>
+                  <%= glyph 'duplicate' %>
+                <%- end -%>
               </td>
             </tr>
           <% end %>
