@@ -12,8 +12,9 @@
       <% if reset.class.name == 'Reset' %>
         <% reset.sub_resets.each do |sub_reset| %>
           <tr><td>
-              <% if sub_reset.reset_type == 'P' %><a class="text-danger">(LEGACY)</a> <%= sub_reset.comment(true) %><% end %>
-
+            <% if sub_reset.reset_type == 'P' %>
+              <a class="text-danger">(LEGACY)</a> <%= sub_reset.comment(true) %>
+            <% else %>
               <%= 'Equip' if sub_reset.reset_type == 'E' || sub_reset.reset_type == 'F' %>
               <%= 'Give' if sub_reset.reset_type == 'G' || sub_reset.reset_type == 'C' %>
               <% target_mobile = mobile_info(sub_reset.parent.val_2, 'self') %>
@@ -53,7 +54,7 @@
                   <%= link_to 'Insert', new_area_reset_path(@area, sub_reset, :reset_type => 'I', :parent_type => 'sub_reset', :parent_id => sub_reset.id ), :class => 'btn btn-primary btn-xs' %>
                 <% end %>
               </div>
-
+            <% end %>
             <% if (sub_reset.reset.area.resets.where(parent_id: sub_reset.id).count > 0) %>
               </br></br><%= render 'resets/sub_resetstable', :reset => sub_reset %>
             <% end %>
