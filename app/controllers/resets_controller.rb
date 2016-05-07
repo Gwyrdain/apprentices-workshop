@@ -8,6 +8,14 @@ class ResetsController < ApplicationController
 
   def index
     @resets = @area.resets
+
+    if params[:purge]
+      @area.orphaned_resets.each do |reset|
+        reset.destroy
+      end
+      redirect_to area_resets_path(@area), notice: 'Purged orphaned resets.'
+    end
+
   end
 
   def show
@@ -134,7 +142,7 @@ class ResetsController < ApplicationController
   end
 
   def destroy
-    Reset.where(parent_id: @reset.id).destroy_all
+    @area.resets.where(parent_type: 'reset', parent_id: @reset.id).destroy_all
     @reset.destroy
     if @reset.save
       @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)

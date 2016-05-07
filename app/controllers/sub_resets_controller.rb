@@ -17,21 +17,21 @@ class SubResetsController < ApplicationController
 
   def new
       @sub_reset = @reset.sub_resets.build
-      
+
       @sub_reset.reset_type = params[:reset_type]
       @sub_reset.val_3 ||= 100
 
   end
 
   def edit
-    
+
   end
 
   def create
     if not params[:sub_reset]
       @sub_reset = @reset.sub_resets.build
     end
-    
+
     @sub_reset = @reset.sub_resets.create(sub_reset_params)
 
     if @sub_reset.save
@@ -56,10 +56,11 @@ class SubResetsController < ApplicationController
       end
     else
       render action: 'edit'
-    end    
+    end
   end
 
   def destroy
+    @area.resets.where(parent_type: 'sub_reset', parent_id: @sub_reset.id).destroy_all
     @sub_reset.destroy
     if @sub_reset.save
       @area.update(:last_updated_at => Time.now, :last_updated_by => current_user.id)

@@ -177,6 +177,10 @@ class Mobile < ActiveRecord::Base
     end
   end
 
+  def count_resets
+    return self.area.resets.where(:reset_type => 'M', :val_2 => self.id).count
+  end
+
   def sex_word
     $sex = nil
     $sex = 'none'    if self.sex == 0

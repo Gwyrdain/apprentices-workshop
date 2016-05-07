@@ -164,6 +164,10 @@ class Area < ActiveRecord::Base
     return $flags_string
   end
 
+  def orphaned_resets
+    return self.resets.where(:parent_type => ['reset','sub_reset']).reject{|s| !s.orphan }
+  end
+
   def door_reset_count
     i = 0
     self.rooms.each do |room|

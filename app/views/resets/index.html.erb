@@ -38,6 +38,21 @@
 
 </div>
 
+
+<% if @area.orphaned_resets.count > 0 %>
+  <div class="panel panel-default monospace">
+    <div class="panel-heading">
+      <h5>
+        Orphaned Resets
+      </h5>
+    </div>
+    <%= render 'resets/resetstable', :given_resets => @area.orphaned_resets, :show_type => true %>
+    <div class="panel-footer">
+      <%= link_to 'Purge Orphans', area_resets_path(@area, :purge => true), :class => 'btn btn-danger', data: { confirm: "Are you sure?" }  %>
+    </div>
+  </div>
+<% end %>
+
 <% if @area.show_formatted_blocks? %>
   <br/>
   <strong class="monospace">Formatted #RESETS Block:</strong>

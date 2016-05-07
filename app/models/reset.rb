@@ -125,15 +125,31 @@ class Reset < ActiveRecord::Base
   def parent
     $parent = nil
 
-    if (self.parent_type == 'reset') && (Reset.exists?(:id => self.parent_id))
-      $parent =  Reset.find(self.parent_id)
+    if self.parent_type == 'reset'
+      if Reset.exists?(:id => self.parent_id)
+        $parent =  Reset.find(self.parent_id)
+      else
+        $parent = 'orphaned'
+      end
     end
 
-    if (self.parent_type == 'sub_reset') && (SubReset.exists?(:id => self.parent_id))
-      $parent = SubReset.find(self.parent_id)
+    if self.parent_type == 'sub_reset'
+      if SubReset.exists?(:id => self.parent_id)
+        $parent = SubReset.find(self.parent_id)
+      else
+        $parent = 'orphaned'
+      end
     end
 
     return $parent
+  end
+
+  def orphan
+    if self.parent == 'orphaned'
+      return true
+    else
+      return false
+    end
   end
 
   def first_ancestor

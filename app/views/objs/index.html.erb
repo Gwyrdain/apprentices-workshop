@@ -21,7 +21,7 @@
             <th><%= model_class.human_attribute_name(:object_type) %></th>
             <th>Wear Location</th>
             <th><%= model_class.human_attribute_name(:weight) %></th>
-            <th><%= model_class.human_attribute_name(:cost) %></th>
+            <th>Resets</th>
             <th><%=t '.actions', :default => t("helpers.actions") %></th>
           </tr>
         </thead>
@@ -30,15 +30,40 @@
             <tr>
                 <td><%= check_box_tag "obj_ids[]", obj.id %></td>
                 <td><%= obj.formal_vnum %></td>
-                <td><%= link_to obj.sdesc, area_obj_path(@area, obj) %>
-                  <% if !obj.has_assoc_reset? %>
-                    <span style="color:orange" title="No associated reset."><%= glyph('warning-sign') %></span>
-                  <% end %>
-                </td>
+                <td><%= link_to obj.sdesc, area_obj_path(@area, obj) %></td>
                 <td><%= object_type_from_num(obj.object_type) %></td>
                 <td><%= obj.wear_location %></td>
                 <td><%= obj.weight %></td>
-                <td><%= obj.cost %></td>
+                <td>
+                  <% if !obj.has_assoc_reset? %>
+                    <span style="color:orange" title="No associated reset."><%= glyph('warning-sign') %></span>
+                  <% else %>
+                    <% reset_count = @area.resets.where(:reset_type => ['O', 'P', 'I'], :val_2 => obj.id).count %>
+                    <% sub_reset_count = @area.sub_resets.where(:reset_type => ['E', 'G'], :val_2 => obj.id).count %>
+                    <% if reset_count > 0 %>
+                      <% # IF ANY RESET(S) %>
+                      <% target_reset = @area.resets.where(:reset_type => ['O', 'P', 'I'], :val_2 => obj.id).first %>
+                      <% if target_reset.reset_type == 'O' %>
+                        <% target = room_info(target_reset.val_4,'self') %>
+                        <%= link_to "At #{target.formal_vnum}", area_reset_path(@area, target_reset) %>
+                      <% end %>
+                      <% if target_reset.reset_type == 'P' || target_reset.reset_type == 'I' %>
+                        <% parent = target_reset.parent %>
+                        <% target = obj_info(target_reset.parent.val_2,'self', @area) %>
+                        <%= link_to "In #{target.formal_vnum}", area_reset_path(@area, target_reset) %>
+                      <% end %>
+                    <% else %>
+                      <% # ELSE SUB_RESET(S) %>
+                      <% target_sub_reset = @area.sub_resets.where(:reset_type => ['E', 'G'], :val_2 => obj.id).first %>
+                      <% target = mobile_info(target_sub_reset.parent.val_2,'self') %>
+                      <%= link_to "On #{target.formal_vnum}", area_reset_sub_reset_path(@area, target_sub_reset.parent, target_sub_reset) %>
+                    <% end%>
+                    <% if (reset_count + sub_reset_count) > 1 %>
+                      </br>and <%= (reset_count + sub_reset_count) - 1 %> more...
+                    <% end %>
+
+                  <% end %>
+                </td>
               <td>
                 <%= link_to edit_area_obj_path(@area, obj), :class => 'btn btn-xs', :title => "#{ t('.edit', :default => t('helpers.links.edit')) }" do %>
                   <%= glyph 'pencil' %>

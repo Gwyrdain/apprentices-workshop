@@ -5,7 +5,7 @@ class Obj < ActiveRecord::Base
 
   include Bitfields
 
-  bitfield :wear_flags, 
+  bitfield :wear_flags,
                     2**0 =>  :takeable,      # Dec:          1 / Hex:         1
                     2**1 =>  :finger,        # Dec:          2 / Hex:         2
                     2**2 =>  :neck,          # Dec:          4 / Hex:         4
@@ -23,7 +23,7 @@ class Obj < ActiveRecord::Base
                     2**14 => :hold,          # Dec:      16384 / Hex:      4000
                     2**15 => :decoration     # Dec:      32768 / Hex:      8000
 
-  bitfield :extra_flags, 
+  bitfield :extra_flags,
                     2**0 =>  :glow,          # Dec:          1 / Hex:         1
                     2**1 =>  :hum,           # Dec:          2 / Hex:         2
 #                   2**2 =>  :flag,          # Dec:          4 / Hex:         4
@@ -58,7 +58,7 @@ class Obj < ActiveRecord::Base
 #                   2**31 => :flag,          # Dec: 2147483648 / Hex:  80000000
 #                   2**32 => :flag           # Dec: 4294967296 / Hex: 100000000
 
-  bitfield :misc_flags, 
+  bitfield :misc_flags,
 #                    2**0 =>  :flag,             # Dec:          1 / Hex:         1
 #                    2**1 =>  :flag,             # Dec:          2 / Hex:         2
 #                    2**2 =>  :flag,             # Dec:          4 / Hex:         4
@@ -82,7 +82,7 @@ class Obj < ActiveRecord::Base
   validates :wear_flags, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :extra_flags, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :misc_flags, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  
+
   validate do |obj|
     obj.errors.add :base, "Keywords may only contain US-ASCII characters.  Invalid characters: " + obj.keywords.remove(/[\x0A\x0D -~]/) if obj.keywords.remove(/[\x0A\x0D -~]/).length > 0
     obj.errors.add :base, "Short description may only contain US-ASCII characters.  Invalid characters: " + obj.sdesc.remove(/[\x0A\x0D -~]/) if obj.sdesc.remove(/[\x0A\x0D -~]/).length > 0
@@ -101,7 +101,7 @@ class Obj < ActiveRecord::Base
     self.weight ||= 0
     self.cost ||= 0
   end
-  
+
   def next_obj
     $next_obj = false # return self if no next obj
     x = self.vnum + 1
@@ -113,7 +113,7 @@ class Obj < ActiveRecord::Base
     end
     return $next_obj
   end
-  
+
   def last_obj
     $last_obj = false # return self if no last obj
     i = self.vnum
@@ -130,7 +130,7 @@ class Obj < ActiveRecord::Base
   def max_vnum
     area.vnum_qty
   end
-  
+
   def formal_vnum
     (area.area_number * 100) + self.vnum
   end
@@ -138,7 +138,7 @@ class Obj < ActiveRecord::Base
   def vnum_and_sdesc
     return  format("%03d",self.vnum) + " " + self.sdesc
   end
-  
+
   def is_container
     if self.object_type == 15
       return true
@@ -165,20 +165,27 @@ class Obj < ActiveRecord::Base
     $wear_loc = 'WIELDED' if self.wield?
     $wear_loc = 'HOLD' if self.hold?
     $wear_loc = 'DECORATION' if self.decoration?
-    return $wear_loc    
+    return $wear_loc
   end
-  
+
   def type_word
     return object_type_from_num( self.object_type )
   end
-  
+
   def has_assoc_reset?
     i = false
     i = true if ( self.area.resets.where(:reset_type => ['O', 'I', 'P'], :val_2 => self.id).count > 0 )
     i = true if ( self.area.sub_resets.where(:val_2 => self.id).count > 0 ) # This should cover all Equip, Give, and (Legacy) Put resets
     return i
   end
-  
+
+  def count_resets
+    i = 0
+    i = i + self.area.resets.where(:reset_type => ['O', 'I', 'P'], :val_2 => self.id).count
+    i = i + self.area.sub_resets.where(:val_2 => self.id).count
+    return i
+  end
+
   def has_applies_without_magic_flag?
     if ( self.applies.count > 0 && !self.magic )
       return true
@@ -186,11 +193,11 @@ class Obj < ActiveRecord::Base
       return false
     end
   end
-  
+
   def my_area
     return self.area
   end
-  
+
 end
 
 

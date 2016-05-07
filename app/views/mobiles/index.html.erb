@@ -22,6 +22,7 @@
             <th><%= model_class.human_attribute_name(:alignment) %></th>
             <th><%= model_class.human_attribute_name(:level) %></th>
             <th><%= model_class.human_attribute_name(:sex) %></th>
+            <th>Resets</th>
             <th><%=t '.actions', :default => t("helpers.actions") %></th>
           </tr>
         </thead>
@@ -31,14 +32,23 @@
                 <td><%= check_box_tag "mobile_ids[]", mobile.id %></td>
                 <td><%= mobile.formal_vnum %></td>
                 <td><%= link_to mobile.sdesc, area_mobile_path(@area, mobile) %>
-                  <% if !mobile.has_assoc_reset? %>
-                    <span style="color:orange" title="No associated reset."><%= glyph('warning-sign') %></span>
-                  <% end %>
                 </td>
                 <td><%= simple_format(truncate(mobile.look_desc, length: 80, separator: ' ', omission: '[...]')) %></td>
                 <td><%= mobile.alignment_word %></td>
                 <td><%= mobile.level %></td>
                 <td><%= mobile.sex_word %></td>
+                <td>
+                  <% if !mobile.has_assoc_reset? %>
+                    <span style="color:orange" title="No associated reset."><%= glyph('warning-sign') %></span>
+                  <% else %>
+                    <% target_reset = @area.resets.where(:reset_type => 'M', :val_2 => mobile.id).first %>
+                    <% target_room = room_info(target_reset.val_4,'self') %>
+                    <%= link_to "At #{target_room.formal_vnum}", area_reset_path(@area, target_reset) %>
+                    <% if mobile.count_resets > 1 %>
+                      </br>and <%= mobile.count_resets - 1 %> more...
+                    <% end %>
+                  <% end %>
+                </td>
               <td>
                 <%= link_to edit_area_mobile_path(@area, mobile), :class => 'btn btn-xs', :title => "#{ t('.edit', :default => t('helpers.links.edit')) }" do %>
                   <%= glyph 'pencil' %>
@@ -52,13 +62,13 @@
           <% end %>
         </tbody>
       </table>
-      
+
     <div class="panel-footer">
       <%= link_to 'New mobile', new_area_mobile_path, :class => 'btn btn-primary' %>
       <%= link_to 'Back', area_path(@area), :class => 'btn btn-default' %>
       <%= submit_tag "Edit Selected", :class => 'btn btn-warning' %>
       <%= submit_tag "Delete Selected", :class => 'btn btn-danger', data: { confirm: "Are you sure?" } %>
-      
+
       <% if @area.mobiles.count < @area.vnum_qty %>
         <%= link_to 'Pre-make 10 Mobiles', new_area_mobile_path(@area, :make => 10), :class => 'btn btn-success' %>
       <% end %>
@@ -66,7 +76,7 @@
         <%= link_to 'Purge Unedited Mobiles', area_mobiles_path(@area, :purge => true), :class => 'btn btn-danger' %>
       <% end %>
     </div>
-    
+
 </div>
 
 <% if @area.show_formatted_blocks? %>
