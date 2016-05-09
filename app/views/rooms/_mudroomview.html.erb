@@ -13,6 +13,11 @@ link_to exit.direction_word.downcase, edit_area_room_exit_path(@area, @room, exi
 <font color=lightgray>></font><% if @area.resets.where(reset_type: ['M', 'Q']).where(val_4: @room.id).count > 0 %><%
 @area.resets.order(:val_2).where(reset_type: ['M', 'Q']).where(val_4: @room.id).each do |reset| %><% if Mobile.exists?(:id => reset.obj_id) %><%=
 render 'mudmobileview', :reset => reset %><%=
-render 'mudmobilepoke', :reset => reset %><% end %><% end %><% end %>
+render 'mudmobilepoke', :reset => reset %><% end %><% end %><% end %><%
+if @area.resets.where(reset_type: ['O']).where(val_4: @room.id).count > 0 %><%
+@area.resets.order(:val_2).where(reset_type: ['O']).where(val_4: @room.id).each do |reset| %><%
+if Obj.exists?(:id => reset.obj_id) %><%=
+render 'mudobjlookin', :reset => reset %><%=
+render 'mudobjstudy', :reset => reset %><% end %><% end %><% end %>
 
 <% if current_user.use_rulers? %><%= WORDWRAP_RULER %><% end %></div>
