@@ -1,0 +1,9 @@
+<div id=<%= "\"lookin_#{reset.id}\"".html_safe %> hidden='hidden'><% obj = Obj.find(reset.obj_id) %><font color=yellow>look in <%=
+obj.keywords.slice(/\w+/) %></font>
+
+<font color=silver><% if obj.is_container %><%= obj.sdesc.humanize %> contains:
+<% @area.resets.where(parent_type: 'reset', parent_id: reset.id).each do |dependent_reset| %><%=
+render '_walkthrough/inventory_obj_view', :reset => dependent_reset, :prefix => '' %>
+<% end %><% else %>That is not a container.<% end %>
+></font> <% if obj.is_container %>[ <%= link_to 'put', new_area_reset_path(@area, :reset_type => 'P', :parent_type => 'reset', :parent_id => reset.id, :return_to_room => @room.id) %> | <%=
+link_to 'insert', new_area_reset_path(@area, :reset_type => 'I', :parent_type => 'reset', :parent_id => reset.id, :return_to_room => @room.id) %> ]<% end %></div>

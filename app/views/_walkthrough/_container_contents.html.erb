@@ -1,0 +1,3 @@
+<%# Loop through a container's contents. Receives dependent resets as 'resets' %><span id=<%= "\"contents_#{reset.id}\"".html_safe %> hidden='hidden'><% count = resets.count %><% i = 0 %><% if count == 0 %>
+<%= prefix %><font color="#505050">╰─</font> Nothing.<% end %><% resets.each do |dependent_reset| %><% i = i + 1 %>
+<%= prefix %><font color="#505050"><% if i == count %>╰<% else %>├<% end %>─</font> <%= render '_walkthrough/inventory_obj_view', :reset => dependent_reset, :prefix => (prefix + '   ') %><% if i != count %><% end %><% end %></span>

@@ -1,0 +1,515 @@
+
+#AREA { 1 50}          ~  F 0
+
+
+#MOBILES
+#0
+
+
+#OBJECTS
+#1000
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1001
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1002
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1003
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1004
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1005
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1006
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1007
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1008
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1009
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1010
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1011
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1012
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1013
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1014
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1015
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1016
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1017
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1018
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1019
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1020
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1021
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1022
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1023
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1024
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1025
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1026
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1027
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1028
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1029
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1030
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1031
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1032
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1033
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1034
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1035
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1036
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1037
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1038
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1039
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1040
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1041
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1042
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1043
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1044
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1045
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1046
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1047
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1048
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1049
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1050
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1051
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1052
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1053
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1054
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1055
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1056
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1057
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1058
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#1059
+names~
+short~
+long~
+~
+9 0 1
+5 0 0 0
+5 1000 0
+#0
+
+
+#ROOMS
+#0
+
+
+#RESETS
+S
+
+
+#SHOPS
+0
+
+
+#SPECIALS
+S
+
+#RSPECS
+S
+
+#TRIGGERS
+S
+
+#$
+

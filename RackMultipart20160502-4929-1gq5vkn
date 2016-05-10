@@ -1,0 +1,301 @@
+
+#AREA
+Format 2
+Name All Ext Spec Funcs~
+Author Theros~
+Lowlevel 50
+Highlevel 50
+Flags RESERVED End
+Description
+help
+~
+Installed 2015-02-01
+Revision $Revision$
+Updated $Date$
+End
+
+
+#MOBILES
+#15100
+eel~
+a pitch black eel~
+The sinuous form of an eel is barely perceptible here.
+~
+The Black sawtoothed eel (Serrivomer brevidentatus)
+is an eel in the family Nemichthyidae (snipe eels).
+It was described by Louis Roule and Leon Bertin in 1929, originally as a
+subspecies of Serrivomer sector. It is a marine, deep water-dwelling eel
+which is known from the eastern and western Atlantic Ocean, including the
+Strait of Gibraltar, Cape Verde, and the United States. It dwells at a
+depth range of 150-6000 metres. Males can reach a maximum total length of
+60 centimetres.
+~
+360512 2 -1000 S
+15 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+A
+#15101
+troll sea-troll 'sea troll'~
+a grinning sea-troll~
+A sea-troll floats here with a wearing a curious grin.
+~
+What the deuce is a sea-troll?  I do not know -- and yet here she is
+selling sea-trinket crap.  I think she is winking at you.
+~
+66 65664 1000 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+L
+16384 16384
+#15102
+<keywords here>~
+a purple haddock~
+A purple haddock is not a real fish, but here it is anyway.
+~
+You closely examine this mythical fishy and discover that it is, in fact, a
+shape-shifting sea cucumber.  Oops.
+~
+64 65536 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#15103
+guard cityguard~
+a cityguard~
+<ldesc here>
+~
+He is a rather tall fellow wearing a coat with shiny brass buttons.
+~
+64 0 1000 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+0 16
+#15104
+janitor~
+the laziest janitor~
+An incredibly lazy janitor is here avoiding work.
+~
+He's filthy and etc.
+~
+64 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+1 1
+#0
+
+
+#OBJECTS
+#15100
+vial~
+a silver vial~
+An intricately crafted silver vial is here abandoned.~
+~
+17 99 1
+5 5 2 0
+1 0 0
+A
+29 10
+#15101
+trident justice~
+the trident of justice~
+The trident of justice longs to be retrieved.~
+~
+5 66 8193
+0 10 12 2
+5 0 0
+A
+18 5
+A
+19 5
+#15102
+gold ring~
+a fine gold ring~
+A golden ring is lying here.~
+~
+30 64 3
+0 0 5 0
+1 0 0
+#15103
+invisible object~
+an invisible object~
+~
+~
+13 0 1
+0 0 0 0
+1 0 0
+#15104
+<keywords here>~
+a blade of grass~
+<ldesc here>~
+~
+13 0 0
+0 0 0 0
+1 0 0
+#15106
+bag sack~
+a big bag~
+A big bag is here.~
+~
+15 524288 1
+21 0 0 0
+1 0 0
+#15112
+<keywords here>~
+magic beans~
+<ldesc here>~
+~
+19 0 1
+1 0 0 0
+1 0 0
+#15117
+pouch~
+a small pouch~
+A small pouch is here.~
+~
+15 0 1
+6 0 0 0
+1 0 0
+#0
+
+
+#ROOMS
+#15100
+Leon's Brew Pub~
+The Black sawtoothed eel (Serrivomer brevidentatus) is an eel in the family
+Nemichthyidae (snipe eels). It was described by Louis Roule and Leon Bertin
+in 1929, originally as a subspecies of Serrivomer sector.
+~
+151 33 0 
+D0
+~
+~
+-1 0 -1
+D1
+~
+~
+0 0 15106
+D2
+~
+~
+0 0 15112
+D4
+~
+boulder~
+1 49 15103
+E
+abcdefg~
+abcdefg
+~
+S
+#15103
+The Crystal Fountain of His Imperial Magesty King Farnugel~
+<room description here>
+~
+151 33 8 
+D5
+~
+boulder~
+1 49 15100
+S
+#15106
+A room of mysteries~
+<room description here>
+~
+151 0 0 
+D3
+~
+~
+0 0 15100
+S
+#15112
+This Room Has A Very Long Title That Probably Should Be Disallowed, right?~
+<room description here>
+~
+151 0 0 
+S
+#0
+
+
+#STRINGS
+#15100
+You are very  smelly!
+~
+$n is very smelly!
+~
+#0
+
+
+#RESETS
+*** Mobile Resets ***
+M 0 15101 1 15103 *      Load 'a grinning sea-troll' at 'The Crystal Fountain of His Imperial Magesty King Farnugel'
+E 0 15102 100 2 *        Equip 'a grinning sea-troll' with 'a fine gold ring' as RIGHT FINGER
+E 0 15117 100 17 *       Equip 'a grinning sea-troll' with 'a small pouch' as HOLD
+P 0 15112 100 15117 *    Put 'magic beans' into 'a small pouch'
+G 0 15106 100 *          Give 'a grinning sea-troll' 'a big bag'
+I 0 15117 100 15106 *    Insert 'a small pouch' into 'a big bag'
+P 0 15104 100 15117 *    Put 'a blade of grass' into 'a small pouch'
+M 0 15103 1 15100 *      Load 'a cityguard' at 'Leon's Brew Pub'
+E 0 15101 100 16 *       Equip 'a cityguard' with 'the trident of justice' as WIELD
+E 0 15102 100 1 *        Equip 'a cityguard' with 'a fine gold ring' as LEFT FINGER
+E 0 15102 100 2 *        Equip 'a cityguard' with 'a fine gold ring' as RIGHT FINGER
+E 0 15117 100 17 *       Equip 'a cityguard' with 'a small pouch' as HOLD
+G 0 15112 100 *          Give 'a cityguard' 'magic beans'
+*** Object Resets ***
+O 0 15100 1 15100 *      Load 'a silver vial' at 'Leon's Brew Pub'
+O 0 15101 1 15100 *      Load 'the trident of justice' at 'Leon's Brew Pub'
+O 0 15102 1 15100 *      Load 'a fine gold ring' at 'Leon's Brew Pub'
+O 0 15104 1 15100 *      Load 'a blade of grass' at 'Leon's Brew Pub'
+O 0 15106 1 15103 *      Load 'a big bag' at 'The Crystal Fountain of His Imperial Magesty King Farnugel'
+P 0 15100 100 15106 *    Put 'a silver vial' into 'a big bag'
+P 0 15100 100 15106 *    Put 'a silver vial' into 'a big bag'
+P 0 15112 100 15106 *    Put 'magic beans' into 'a big bag'
+I 0 15117 100 15106 *    Insert 'a small pouch' into 'a big bag'
+P 0 15112 100 15117 *    Put 'magic beans' into 'a small pouch'
+I 0 15117 100 15117 *    Insert 'a small pouch' into 'a small pouch'
+P 0 15104 100 15117 *    Put 'a blade of grass' into 'a small pouch'
+I 0 15106 100 15117 *    Insert 'a big bag' into 'a small pouch'
+O 0 15112 1 15100 *      Load 'magic beans' at 'Leon's Brew Pub'
+O 0 15117 1 15100 *      Load 'a small pouch' at 'Leon's Brew Pub'
+P 0 15101 100 15117 *    Put 'the trident of justice' into 'a small pouch'
+P 0 15104 100 15117 *    Put 'a blade of grass' into 'a small pouch'
+P 0 15112 100 15117 *    Put 'magic beans' into 'a small pouch'
+P 0 15112 100 15117 *    Put 'magic beans' into 'a small pouch'
+***  Door Resets  ***
+D 0 15100 4 1 *          Set up door at 'Leon's Brew Pub' to closed
+D 0 15103 5 1 *          Set down door at 'The Crystal Fountain of His Imperial Magesty King Farnugel' to closed
+R 0 15100 1 *            Randomize any n, e exits at 'Leon's Brew Pub'
+S
+
+
+#SHOPS
+15100 9 0 0 0 0 100 100 0 0 0 * a pitch black eel buys type: armor, open 12AM-12AM, favors humans
+0
+
+
+#SPECIALS
+N 15100 spec_act_on_give 15100 0 15103 -1 15100 * a pitch black eel: when given 'a silver vial', transfer PC to 'The Crystal Fountain of His Imperial Magesty King Farnugel'
+N 15101 spec_act_on_give 15104 1 15100 -1 15100 * a grinning sea-troll: when given 'a blade of grass', give PC 'a silver vial'
+N 15102 spec_call_for_help 2 0 -1 -1 -1 * a purple haddock: call a mob with spec_superman from the same area
+N 15103 spec_mage_protector 15100 -1 -1 -1 -1 * a cityguard
+N 15104 spec_timed_teleport 2 0 -1 -1 -1 * the laziest janitor: a 1 in 1 chance of teleporting at 2AM
+S
+
+#RSPECS
+E 15100 spec_check_door_open 0 0 15 15100 15100 * Leon's Brew Pub: require min. STR of 15 for the north exit
+D 15103 spec_mildgas * The Crystal Fountain of His Imperial Magesty King Farnugel
+S
+
+#TRIGGERS
+Q 15100 1 trig_block_heathen -1 15100 15100 -1 7 * Leon's Brew Pub (East): allow followers, UA PCs, venerators, NPCs
+Q 15100 2 trig_sentinel_mob 15101 15100 15100 15103 31 * Leon's Brew Pub (South): hold the trident of justice for a cityguard for passage
+Q 15100 4 trig_time_block 0 0 15100 15100 -1 * Leon's Brew Pub (Up): deny access between 12AM and 12AM
+S
+
+#$
+

@@ -1,0 +1,3668 @@
+
+#AREA
+Format 2
+Name Presidents Quest '15~
+Author Tynian~
+Lowlevel 1
+Highlevel 50
+Flags NOVNUM NOSAVE End
+Revision $Revision$
+Updated $Date$
+End
+
+
+#MOBILES
+#18400
+zombie pq15 warren harding~
+the zombie of Warren G. Harding~
+The zombie of Warren G. Harding is here.
+~
+Before you is the decaying form of the 29th president.
+~
+67108864 0 -1000 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18401
+zombie pq15 James Buchanan~
+the zombie of James Buchanan~
+The zombie of James Buchanan is here.
+~
+You see before you the zombie form of the 15th president of the United
+States.
+~
+67108864 0 -1000 S
+2 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18402
+zombie pq15 Andrew Johnson~
+the zombie of Andrew Johnson~
+The zombie of Andrew Johnson is here.
+~
+You see before you the zombie of the 17th president.
+~
+67108864 0 -1000 S
+3 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18403
+zombie pq15 Franklin Pierce~
+the zombie of Franklin Pierce~
+The zombie of Franklin Pierce is here.
+~
+You see before you the zombie form of the 14th President of the United
+States.
+~
+67108864 0 -1000 S
+4 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18404
+zombie pq15 Millard Fillmore~
+the zombie of Millard Fillmore~
+The zombie of Millard Fillmore is here.
+~
+You see before you the decaying form of the 13th President of the
+United States.
+~
+67108864 0 -1000 S
+5 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18405
+zombie pq15 William Henry Harrison~
+the zombie of William Henry Harrison~
+The zombie of William Henry Harrison is here.
+~
+You see before you the decaying form of the 9th President of the United
+States.
+~
+67108864 0 -1000 S
+6 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18406
+zombie pq15 Ulysses Grant~
+the zombie of Ulysses S. Grant~
+The zombie of Ulysses S. Grant is here.
+~
+You see before you the decaying form of the 18th President of the
+United States.
+~
+67108864 0 -1000 S
+7 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18407
+zombie pq15 John Tyler~
+the zombie of John Tyler~
+The zombie of John Tyler is here.
+~
+You see before you the decaying form of the 10th President of the United
+States.
+~
+67108864 0 -1000 S
+8 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18408
+zombie pq15 Zachary Taylor~
+the zombie of Zachary Taylor~
+The zombie of Zachary Taylor is here.
+~
+You see before you the decaying form of the 9th President of the United
+States.
+~
+67108864 0 -1000 S
+9 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18409
+zombie pq15 Benjamin Harrison~
+the zombie of Benjamin Harrison~
+The zombie of Benjamin Harrison is here.
+~
+You see before you the decaying form of the 23rd President of the United
+States.
+~
+67108864 0 -1000 S
+11 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18410
+zombie pq15 Richard Nixon~
+the zombie of Richard Nixon~
+The zombie of Richard Nixon is here.
+~
+You see before you the decaying form of the 37th President of the United
+States.
+~
+67108864 0 -1000 S
+12 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18411
+zombie pq15 Calvin Coolidge~
+the zombie of Calvin Coolidge~
+The zombie of Calvin Coolidge is here.
+~
+You see before you the decaying form of the 30th President of the United
+States.
+~
+67108864 0 -1000 S
+13 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18412
+zombie pq15 Herbert Hoover~
+the zombie of Herbert Hoover~
+The zombie of Herbert Hoover is here.
+~
+You see before you the decaying form of the 31st President of the United
+States.
+~
+67108864 0 -1000 S
+14 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18413
+zombie James Garfield~
+the zombie of James A. Garfield~
+The zombie of James A. Garfield is here.
+~
+You see before you the decaying form of the 20th President of the United
+States.
+~
+67108864 0 -1000 S
+15 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18414
+zombie pq15 Chester Arthur~
+the zombie of Chester A. Arthur~
+The zombie of Chester A. Arthur is here.
+~
+You see before you the decaying form of the 21st President of the United
+States.
+~
+67108864 0 -1000 S
+16 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18415
+zombie pq15 Gerald Ford~
+the zombie of Gerald Ford~
+The zombie of Gerald Ford is here.
+~
+You see before you the decaying form of the 38th President of the United
+States.
+~
+67108864 0 -1000 S
+17 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18416
+zombie pq15 Rutherford Hayes~
+the zombie of Rutherford B. Hayes~
+The zombie of Rutherford B. Hayes is here.
+~
+You see before you the decaying form of the 19th President of the United
+States.
+~
+67108864 0 -1000 S
+18 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18417
+zombie pq15 Martin Van Buren~
+the zombie of Martin Van Buren~
+The zombie of Martin Van Buren is here.
+~
+You see before you the decaying form of the 8th President of the United
+States.
+~
+67108864 0 -1000 S
+19 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18418
+zombie pq15 William Howard Taft~
+the zombie of William Howard Taft~
+The zombie of William Howard Taft is here.
+~
+You see before you the decaying form of the 27th President of the United
+States.
+~
+67108864 0 -1000 S
+20 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18419
+zombie pq15 William McKinley~
+the zombie of William McKinley~
+The zombie of William McKinley is here.
+~
+You stand before the decaying form of the 25th President of the United
+States.
+~
+67108864 0 -1000 S
+25 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18420
+zombie pq15 Grover Cleveland~
+the zombie of Grover Cleveland~
+The zombie of Grover Cleveland is here.
+~
+You stand before the decaying form of the 22nd and 24th President of the
+United States.
+~
+67108864 0 -1000 S
+22 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18421
+zombie pq15 John Quincy Adams~
+the zombie of John Quincy Adams~
+The zombie of John Quincy Adams is here.
+~
+You stand before the decaying form of the 6th President of the United
+States.
+~
+67108864 0 -1000 S
+23 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18422
+zombie pq15 Ronald Reagan~
+the zombie of Ronald Reagan~
+The zombie of Ronald Reagan is here.
+~
+You stand before the decaying form of the 40th President of the United
+States.
+~
+67108864 0 -1000 S
+24 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18423
+zombie pq15 Lyndon Johnson~
+the zombie of Lyndon B. Johnson~
+The zombie of Lyndon B. Johnson is here.
+~
+You stand before the decaying form of the 36th President of the United
+States.
+~
+67108864 0 -1000 S
+25 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18424
+zombie pq15 James Monroe~
+the zombie of James Monroe~
+The zombie of James Monroe is here.
+~
+You stand before the decaying form of the 5th President of the United
+States.
+~
+67108864 0 -1000 S
+26 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18425
+zombie pq15 James Madison~
+the zombie of James Madison~
+The zombie of James Madison is here.
+~
+You stand before the decaying form of the 27th President of the United
+States.
+~
+67108864 0 -1000 S
+27 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18426
+zombie pq15 John Adams~
+the zombie of John Adams~
+The zombie of John Adams is here.
+~
+You stand before the decaying form of the 2nd President of the United
+States.
+~
+67108864 0 -1000 S
+28 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18427
+zombie pq15 John Kennedy~
+the zombie of John F. Kennedy~
+The zombie of John F. Kennedy is here.
+~
+You stand before the decaying form of the 35th President of the United
+States.
+~
+67108864 0 -1000 S
+29 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18428
+zombie pq15 James Polk~
+the zombie of James K. Polk~
+The zombie of James K. Polk is here.
+~
+You stand before the decaying form of the 11th President of the United
+States.
+~
+67108864 0 -1000 S
+30 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18429
+zombie pq15 Dwight D. Eisenhower~
+the zombie of Dwight D. Eisenhower~
+The zombie of Dwight D. Eisenhower is here.
+~
+You stand before the decaying form of the 34th President of the United
+States.
+~
+67108864 0 -1000 S
+31 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18430
+zombie pq15 Andrew Jackson~
+the zombie of Andrew Jackson~
+The zombie of Andrew Jackson is here.
+~
+You stand before the decaying form of the 7th President of the United
+States.
+~
+67108864 0 -1000 S
+32 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18431
+zombie pq15 Harry Truman~
+the zombie of Harry S. Truman~
+The zombie of Harry S. Truman is here.
+~
+You stand before the decaying form of the 33rd President of the United
+States.
+~
+67108864 0 -1000 S
+33 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18432
+zombie pq15 Woodrow Wilson~
+the zombie of Woodrow Wilson~
+The zombie of Woodrow Wilson is here.
+~
+You stand before the decaying form of the 28th President of the United
+States.
+~
+67108864 0 -1000 S
+34 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18433
+zombie pq15 Theodore Roosevelt~
+the zombie of Theodore Roosevelt~
+The zombie of Theodore Roosevelt is here.
+~
+You stand before the decaying form of the 26th President of the United
+States.
+~
+67108864 0 -1000 S
+35 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18434
+zombie pq15 Thomas Jefferson~
+the zombie of Thomas Jefferson~
+The zombie of Thomas Jefferson is here.
+~
+You stand before the decaying form of the 3rd President of the United
+States.
+~
+67108864 0 -1000 S
+36 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18435
+zombie pq15 George Washington~
+the zombie of George Washington~
+The zombie of George Washington is here.
+~
+You stand before the decaying form of the 1st President of the United
+States.
+~
+67108864 0 -1000 S
+37 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18436
+zombie pq15 Franklin Roosevelt~
+the zombie of Franklin D. Roosevelt~
+The zombie of Franklin D. Roosevelt is here.
+~
+You stand before the decaying form of the 32nd President of the United
+States.
+~
+67108864 0 -1000 S
+38 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18437
+zombie pq15 Abraham Lincoln~
+the zombie of Abraham Lincoln~
+The zombie of Abraham Lincoln is here.
+~
+You stand before the decaying form of the 16th President of the United
+States.
+~
+67108864 0 -1000 S
+39 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18438
+pq15 Jimmy Carter~
+Jimmy Carter~
+Jimmy Carter is here.
+~
+You are in the presence of the 39th President of the United States.
+~
+67108864 128 0 S
+90 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18439
+pq15 George Bush~
+George H. W. Bush~
+George H. W. Bush is here.
+~
+You are in the presence of the 41st President of the United States.
+~
+67108864 128 0 S
+90 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18440
+pq15 Bill Clinton~
+Bill Clinton~
+Bill Clinton is here.
+~
+You stand in the presence of the 42nd President of the United States.
+~
+67108864 128 0 S
+90 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18441
+pq15 George Bush~
+George W. Bush~
+George W. Bush is here.
+~
+You stand in the presence of the 43rd President of the United States.
+~
+67108864 128 0 S
+90 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18442
+pq15 Barack Obama~
+Barack Obama~
+Barack Obama is here.
+~
+You stand before the 44th President of the United States.
+~
+67108864 128 0 S
+90 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18443
+pq15 John Wilkes Booth~
+John Wilkes Booth~
+John Wilkes Booth is here.
+~
+He's not a big fan of the theater, tall northern Presidents, or walks
+on the beach.
+~
+67108928 0 -1000 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18444
+pq15 Sally Hemings~
+Sally Hemings~
+Sally Hemings is here, admiring the image of Thomas Jefferson.
+~
+She and T.J. are close... very close.  
+~
+66 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+#18445
+pq15 Lee Harvey Oswald~
+Lee Harvey Oswald~
+Lee Harvey Oswald is here.
+~
+L.H.O. likes hanging out with his rifle, goin' huntin'.
+~
+64 0 -1000 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18446
+pq15 Dolley Madison~
+Dolley Madison~
+Dolley Madison is here.
+~
+Dolley saved as many treasures as she could before the British burned down
+the White House.
+~
+64 0 1000 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+#18447
+pq15 sculpturer apprentice~
+an apprentice sculpturer~
+An apprentice sculpturer is rushing around with a rag and a tooth brush. 
+~
+The harried novice sculpturer isn't trusted with a chisel.  Instead, he
+is assigned to clean up presidential faces.  So, when someone spray paints
+the rock, this poor man has to clean it up.  He has far more work to
+do than he can possibly complete.
+~
+64 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18448
+pq15 bucket boy~
+a bucket boy~
+A bucket boy is here.
+~
+This boy is responsible for dumping water over the massive sculptures while
+the apprentices scrub away grime and graffiti.  He is out of breath from
+keeping up with the apprentices. 
+~
+64 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18449
+bucket girl~
+a bucket girl~
+A bucket girl is here.
+~
+This girl is responsible for dumping water over the massive sculptures
+while
+the apprentices scrub away grime and graffiti.  She is out of breath from
+keeping up with the apprentices.
+~
+64 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+#18450
+master sculpter~
+the master sculpter~
+The master sculpter is here.
+~
+She created the massive sculptures of the notable presidents.  It was the
+master work of her career.  Now she's semi-retired.  While she occasionally
+wields her chisel, she mostly orders her small crew around.
+~
+64 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+#18451
+impatient tourist~
+an impatient tourist~
+An impatient tourist here gawking, and rushing to see everything.
+~
+This tourist wants to take in all of the sights... NOW!  Mount Rush More
+is the perfect attraction, since everyone is scurrying around.
+~
+64 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18452
+pq15 supportive weather tromper~
+a supportive Weather Tromper~
+A Weather Tromper is here, giving you a "thumbs up."
+~
+A Weather Tromper is here, giving you a "thumbs up."
+~
+4160 0 1000 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18453
+pq15 rebel scumbag~
+a rebel scumbag~
+A rebel scumbag is here, looking for trouble.
+~
+A rebel scumbag is here, looking for trouble.
+~
+4160 0 -1000 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18454
+jarhead blinks~
+Jarhead Blinks~
+Jarhead Blinks is here.
+~
+"Meesa looking to get shot."
+~
+2112 0 -1000 S
+10 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18455
+Chewy~
+Chewy~
+Chewy is here.
+~
+Chewy always has a big wad of gum in his mouth, and can't chew with his
+mouth closed.  Annoying!  But no one is willing to tell him to close his
+mouth or to get rid of the gum.
+~
+98 0 -1000 S
+60 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18456
+princess lay ya~
+Princess Lay Ya~
+Princess Lay Ya is here, screeching a command & insulted by your presence.
+~
+She used to be an actual princess, like Snow White, only not quite so
+innocent.  Still, she loves being a pretty pretty princess, and she expects
+to have her every whim satisfied.
+
+Then her planet went and blew up somehow.  I mean, really, the details
+aren't important about how.  But, *BOOM*!
+
+And just like that, she went from pampered princess to everyday refugee
+shmoe.
+
+But don't try to tell HER that!  She still thinks very highly of herself,
+and she is still demanding.
+
+Such a SPOILED PRINCESS.
+
+So, "Princess" is what people call her to her face... she thinks it is out
+of respect, and they think they're being catty, so it works out for
+everyone.
+
+"Lay Ya" was a nickname the Princess got in high school.  Kids can be so
+mean.  And really, it's none of their business.
+~
+96 16520 -1000 S
+50 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+#18457
+revision two r2~
+Revision Two~
+Revision Two is here.
+~
+This was Luke's second attempt at building a droid.  His first was Gold
+Bricker.  It's surprising Luke didn't put his wrenches away forever, but he
+thought he could do better.
+
+Not that it would be difficult.
+
+It's a good thing he did.  This squat droid is really the only rebel with a
+clue about what's going on, and is always saving the rebels' proverbial
+bacon.  But R2 is not talking.
+~
+98 128 -1000 S
+45 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18458
+luke duke groundwalker~
+Luke Duke Groundwalker~
+Luke Duke Groundwalker is here, yelling "YEEEEEEEEAAAAAH-HAAW!"
+~
+Luke Duke Groundwalker is a country boy at heart.  Gotta admire his
+enthusiasm.
+~
+98 16520 -1000 S
+50 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18459
+pq15 Hand Solo~
+Hand Solo~
+Hand Solo is here.
+~
+We aren't going to discuss Hand's nickname or his hairy palms.
+~
+98 0 -1000 S
+50 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18460
+rebel leader~
+a rebel leader~
+A rebel leader is here.
+~
+A rebel leader is here.
+~
+2144 0 -1000 S
+20 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+#18461
+red red-shirted security officer~
+a red-shirted security officer~
+A red-shirted security officer is here.
+~
+A red-shirted security officer is here.
+~
+4162 0 1000 S
+10 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18462
+pq15 admiral obvious~
+Admiral Obvious~
+Admiral Obvious is here, shouting about a trap.
+~
+He looks pretty tasty.  All that's missing is light breading, a deep fryer,
+and some dipping sauce.  Yum.
+~
+98 0 -1000 S
+20 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18463
+Attichitcuk~
+Attichitcuk~
+Attichitcuk is here.
+~
+Attichitcuk is here.
+~
+66 0 0 S
+5 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18464
+a-soaka atannin~
+A-soaka 'n' Atannin'~
+A-soaka 'n' Atannin' is dressed for a day at the beach.
+~
+A-soaka looks as though she'd like to be laying out on the beach or
+splashing in the ocean.  Too bad she got plucked up from her vacation.
+~
+96 16520 -1000 S
+30 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+#18465
+captain t-rex~
+Captain T-Rex~
+Captain T-Rex is here.
+~
+Captain T-Rex is so named because he's large... and his breath stinks.
+~
+66 0 1000 S
+40 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18466
+fun-loving Weather Tromper~
+a fun-loving Weather Tromper~
+A fun-loving Weather Tromper is here, having a great time.
+~
+A fun-loving Weather Tromper is here, having a great time.
+~
+64 0 1000 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18467
+drowsing weather tromper ~
+A drowsing Weather Tromper~
+A drowsing Weather Tromper is here.
+~
+They really must sleep in their armor...
+~
+66 0 1000 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18468
+land-ho calamari~
+Land-ho Calamari~
+Land-ho Calamari is here.
+~
+Land-ho is dressed like a sailor.
+~
+66 0 -1000 S
+5 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18469
+commander bly~
+Commander Bly~
+Commander Bly is here.
+~
+Commander Bly is here.
+~
+66 0 1000 S
+40 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18470
+frowning Weather Tromper~
+a frowning Weather Tromper~
+A Weather Tromper is here, eyeing you suspiciously.
+~
+You get the feeling you don't belong here.
+~
+4160 0 1000 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18471
+elite tromper~
+an elite Tromper~
+An elite Tromper is here.
+~
+An elite Tromper is here.
+~
+4192 0 1000 S
+45 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18472
+imperial guard~
+an Imperial Guard~
+An Imperial Guard is here.
+~
+An Imperial Guard is here.
+~
+4194 0 1000 S
+50 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18473
+emperor~
+the Emperor~
+The Emperor is here, completely naked.
+~
+The Emperor is wearing no clothes!
+
+The Emperor says, "My robe is made of pure Force.  Ain't it pretty?"
+~
+98 8328 1000 S
+80 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18474
+Gold Bricker~
+Gold Bricker~
+Gold Bricker is here.
+~
+A prissy gold-plated droid is here.
+
+Oh, dear.
+~
+2144 0 -1000 S
+30 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18475
+pq15 Asajj Ventress~
+Asajj Ventress~
+Asajj Ventress is here.
+~
+Asajj Ventress is here.
+~
+64 8328 1000 S
+25 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+#18476
+Imperial officer~
+an Imperial officer~
+An Imperial officer is here.
+~
+An Imperial officer is here.
+~
+64 0 1000 S
+10 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18477
+dark banker~
+Dark Banker~
+Dark Banker is here.
+~
+Dark Banker got his name from his predilection for wearing all black. 
+Black leather armor, cape... mask.
+
+Dark Banker is responsible for arranging much of the financing for the Debt
+Star.  He has become rich off of the interest.
+
+Dark Banker says, "I find your lack of credit disturbing."
+~
+16448 8328 1000 S
+85 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18478
+grand muff~
+the Grand Muff~
+The Grand Muff is here.
+~
+The Grand Muff is here.
+~
+64 0 1000 S
+55 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18479
+commander Codeine~
+Commander Codeine~
+Commander Codeine is here.
+~
+Commander Codeine is here.
+~
+66 0 1000 S
+85 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18480
+commander alpo~
+Commander Alpo~
+Commander Alpo is here.
+~
+Commander Alpo is here.
+~
+66 0 1000 S
+85 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18481
+pq15 Mace Windu~
+Mace Windu~
+Mace Windu is here.
+~
+Mace Windu is here.
+~
+16482 16520 -1000 S
+80 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18482
+yoda~
+Yoda~
+Yoda is here.
+~
+Yoda is here.
+~
+16482 16520 -1000 S
+83 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18483
+pq15 Cad Bane~
+Cad Bane~
+Cad Bane is here.
+~
+Cad Bane is here.
+~
+66 0 1000 S
+30 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18484
+wedgy Antilles~
+Wedgy Antilles~
+Wedgy Antilles is here.
+~
+Wedgy has a problem with underwear that rides up.  He's always having to
+"go fishing" to straighten out the problem.
+~
+66 0 -1000 S
+5 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#18485
+pearl farmer~
+Pearl the pearl farmer~
+Pearl the pearl farmer is here, farming pearls.
+~
+Pearl the pearl farmer is here, farming pearls.
+~
+64 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+#18486
+pq15 pig American Yorkshire~
+an American Yorkshire pig~
+A pig is here.
+~
+A pig is here.
+~
+2112 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18487
+pq15 pig Berkshire~
+a Berkshire pig~
+A pig is here.
+~
+A pig is here.
+~
+2112 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18488
+pq15 pig Chester White~
+a Chester White pig~
+A pig is here.
+~
+A pig is here.
+~
+2112 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18489
+pq15 pig Duroc~
+a Duroc pig~
+A pig is here.
+~
+A pig is here.
+~
+2112 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18490
+pq15 pig Gloucestershire Old Spot~
+a Gloucestershire Old Spot pig~
+A pig is here.
+~
+A pig is here.
+~
+2112 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18491
+pq15 pig Guinea Hog~
+a Guinea Hog~
+A pig is here.
+~
+A pig is here. 
+~
+2112 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18492
+pq15 pig Hampshire~
+a Hampshire pig~
+A pig is here.
+~
+A pig is here.
+~
+2112 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18493
+pq15 pig Hereford~
+a Hereford pig~
+A pig is here.
+~
+A pig is here.
+~
+2112 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18494
+pq15 pig Large Black~
+a Large Black pig~
+A pig is here.
+~
+A pig is here.
+~
+2112 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18495
+pq15 pig Large White~
+A Large White pig~
+A pig is here.
+~
+A pig is here.
+~
+2112 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18496
+pq15 pig Mulefoot~
+a Mulefoot pig~
+A pig is here.
+~
+A pig is here.
+~
+2112 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18497
+pq15 pig Ossabaw Island~
+an Ossabaw Island pig~
+A pig is here.
+~
+A pig is here.
+~
+2112 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18498
+pq15 pig Tamworth~
+A Tamworth pig~
+A pig is here.
+~
+A pig is here.
+~
+2112 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18499
+pq15 pig Kunekune~
+a Kunekune pig~
+A pig is here.
+~
+A pig is here.
+~
+2112 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18500
+pq15 pig Red Wattle~
+A Red Wattle pig~
+A pig is here.
+~
+A pig is here.
+~
+2112 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18502
+pq15 pig Cinta Senese~
+a Cinta Senese pig~
+A pig is here.
+~
+A pig is here.
+~
+2112 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18503
+pq15 pig Iberico~
+a Iberico pig~
+A pig is here.
+~
+A pig is here.
+~
+2112 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#18504
+pq15 pig Meishan~
+a Meishan pig~
+A pig is here.
+~
+A pig is here.
+~
+2112 0 0 S
+1 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+#0
+
+
+#OBJECTS
+#18400
+pq15 copy gettysburg address token~
+a copy of "The Gettysburg Address" (token)~
+A copy of "The Gettysburg Address" is laying here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18401
+pq15 slave manacles~
+a pair of broken slave manacles~
+A pair of broken slave manacles have been abandoned here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18402
+pq15 amendment joint resolution~
+a copy of the 13th amendment resolution, signed by a president (token)~
+A joint resolution is laying here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18403
+pq15 confederate flag~
+a Confederate flag (token)~
+A Confederate flag sits here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18404
+pq15 declaration war~
+a copy of the World War II declaration of war (token)~
+A war declaration sits here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18405
+pq15 award~
+the "most re-elected" award (token)~
+An award sits here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18406
+pq15 new deal plans~
+a copy of the New Deal plans~
+Some plans have been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18407
+pq15 arsenal democracy award~
+an "arsenal of democracy" award~
+An award has been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18408
+pq15 general armies rank insignia~
+a "general of the armies" rank insignia (token)~
+Rank insignia have been abandoned here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18409
+pq15 president token~
+a "unanimous selection for president" token~
+A token has been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18410
+pq15 jay treaty~
+a copy of the Jay Treaty~
+A treaty has been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18411
+pq15 replica mount vernon~
+a replica of Mount Vernon~
+A replica of Mount Vernon is laying here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18412
+pq15 founding father statue~
+a Founding Father statue (token)~
+A statue sits here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18413
+pq15 contract louisiana purchase~
+a contract for the Louisiana Purchase (token)~
+A contract sits here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18414
+pq15 replica monticello~
+a replica of Monticello~
+A replica lays here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18415
+pq15 teddy bear~
+a teddy bear (token)~
+A teddy bear is here, looking cute.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18416
+pq15 saddle~
+a "Rough Riders" saddle~
+A saddle has been abandoned here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18417
+pq15 stick~
+a big stick (token)~
+A big stick is laying on the ground.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18418
+pq15 charter scroll~
+a "League of Nations" charter~
+A rolled up scroll is sitting on the ground.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18419
+lq15 nobel peace prize~
+a Nobel Peace Prize~
+An award of some sort is sitting here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18420
+pq15 treaty versailles manuscript~
+the Treaty of Versailles (token)~
+A manuscript is laying here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18421
+pq15 money bill cash paper~
+a $100,000 bill~
+A slip of green paper.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18422
+pq15 atomic bomb~
+an atomic bomb (token)~
+A very large object dominates the room.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18423
+pq15 general macarthur walking papers~
+General MacArthur's walking papers~
+Some papers have been left on the floor.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18424
+pq15 confederate bill slip paper~
+a Confederate $1000 bill~
+A slip of paper is on the ground.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18425
+pq15 star stars~
+some "5 Star General" stars (token)~
+Some metal stars lie here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18426
+pq15 proclamation parchment~
+the "Veteran’s Day" proclamation~
+A piece of parchment is laying here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18427
+pq15 interstate freeway map~
+an Interstate freeway map~
+A map is laying here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18428
+pq15 statue knighthood~
+an honorary knighthood~
+A metallic statue is here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18429
+pq15 postage stamps paper~
+some postage stamps~
+Several little squares of paper are on the ground.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18430
+pq15 invasion plans paper papers~
+some invasion plans for Cuba (token)~
+A stack of papers are here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18431
+pq15 badge~
+the "First Vice-President" badge (token)~
+A badge has been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18432
+pq15 statue~
+a "Snubbing the successor" statue~
+A statue has been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18433
+pq15 stack paper papers~
+a copy of "The Federalist Papers" (token)~
+A stack of papers have been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18434
+pq15 manuscript bill of rights~
+a copy of "The Bill of Rights"~
+A parchment has been abandoned here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18435
+pq15 declaration war parchment~
+a declaration of war, dated "1812" (token)~
+A parchment has been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18436
+pq15 monroe doctrine manuscript~
+a copy of "The Monroe Doctrine"~
+A manuscript is laying here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18437
+pq15 gulf tonkin resolution parchment~
+the "Gulf of Tonkin" resolution~
+A parchment has been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18438
+pq15 jelly beans~
+a handful of Jelly Beans (token)~
+A handful of Jelly Beans have been abandoned here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18439
+pq15 screen actors guild president name tag~
+a Screen Actors Guild President name tag~
+A name tag has been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18440
+pq15 battle plan plans grenada invasion~
+battle plans for the Grenada invasion (token)~
+Battle plans have been abandoned here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18441
+pq15 daddy's favorite chair~
+daddy’s favorite chair (token)~
+A comfortable looking executive chair sits here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18442
+pq15 minister russia plaque~
+the "1st minister of Russia" plaque~
+A plaque is resting here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18443
+pq15 blue muppet character~
+a blue Muppet character~
+A blue Muppet character has been discarded here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18444
+pq15 treaty paris document~
+the Treaty of Paris~
+A document has been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18445
+pq15 chief justice robe robes~
+some Chief Justice robes (token)~
+Some robes lay crumpled upon the ground.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18446
+pq15 big bag almonds~
+a big bag of almonds~
+A big bag of almonds is lying here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18447
+pq15 water skin~
+a water skin for "Lemonade Lucy"~
+A water skin is laying here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18448
+pq15 award~
+an award for only VP and president not elected to either office (token)~
+An award has been abandoned here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18449
+pq15 pardon proclamation~
+Richard Nixon's full presidential pardon~
+A proclamation has been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18450
+pq15 stock market ticker tape~
+a stock market ticker tape with the line dropping steeply (token)~
+A ticker tape has been abandoned here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18451
+pq15 plan plans engineering~
+the engineering plans for Boulder Dam~
+Some plans have been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18452
+pq15 plumbers tools~
+Plumbers' tools (token)~
+Some Plumbers' tools have been dropped here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18453
+pq15 tape recording system~
+a tape recording system (token)~
+A tape recording system has been dropped here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18454
+pq15 nixon's resignation letter paper~
+Nixon's resignation letter~
+A piece of paper is sitting here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18455
+pq15 map china~
+a map of China~
+A map is sitting here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18456
+pq15 chair~
+Grandpa's favorite chair~
+A fancy antique chair has been abandoned here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18457
+pq15 ribbon~
+the "His Accidency" ribbon~
+A ribbon has been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18458
+pq15 award~
+the dubious "Longest inaugural address & shortest tenure" award~
+An award is laying here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18459
+pq15 papers articles impeachment~
+the Articles of Impeachment (token)~
+Some papers have been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18460
+pq15 speech manuscript~
+the "Thousand Points of Light" speech (token)~
+A manuscript has been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18461
+pq15 seal team strike plans~
+SEAL team strike plans (token)~
+Some plans have been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18462
+pq15 corpse osama bin laden~
+the corpse of Osama bin Laden~
+The corpse of Osama bin Laden is here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18463
+pq15 replica twin towers~
+a replica of the Twin Towers~
+A replica of two buildings has been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18464
+pq15 knee pads~
+some knee pads (token)~
+Some well-used knee pads have been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18465
+pq15 newspaper~
+a newspaper reporting the "Iran Hostage Crisis" (token)~
+A newspaper has been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18466
+pq15 passcard~
+passcard "A"~
+Passcard "A" has been left here.~
+~
+18 536870912 1
+0 0 0 0
+1 0 0
+#18467
+pq15 passcard~
+passcard "B"~
+Passcard "B" has been left here.~
+~
+18 536870912 1
+0 0 0 0
+1 0 0
+#18468
+pq15 passcard~
+passcard "C"~
+Passcard "C" has been left here.~
+~
+18 536870912 1
+0 0 0 0
+1 0 0
+#18469
+pq15 passcard~
+passcard "D"~
+Passcard "D" has been left here.~
+~
+18 536870912 1
+0 0 0 0
+1 0 0
+#18470
+pq15 passcard~
+passcard "E"~
+Passcard "E" has been left here.~
+~
+18 536870912 1
+0 0 0 0
+1 0 0
+#18471
+inoperable blaster~
+an inoperable blaster~
+An inoperable blaster has been left here.~
+~
+5 536870912 8193
+0 1 3 0
+1 0 0
+#18472
+tighty whities~
+a pair of used tighty whities~
+A pair of used tighty whities are here.~
+~
+9 536870912 33
+0 0 0 0
+1 0 0
+#18473
+wad chewing gum~
+a huge wad of chewing gum~
+a huge wad of chewing gum has been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18474
+General LEE-iiight saber~
+the General LEE-iiight saber~
+A light saber has been left here.~
+~
+5 536870912 8193
+0 12 20 1
+1 0 0
+#18475
+red shirt~
+a red shirt~
+a red shirt has been left here.~
+~
+9 536870976 9
+0 0 0 0
+1 0 0
+A
+17 4
+#18476
+bikini top~
+a bikini top~
+a bikini top has been left here.~
+~
+9 536870912 9
+0 0 0 0
+1 0 0
+#18477
+bikini briefs~
+some bikini briefs~
+Some bikini briefs have been left here.~
+~
+9 536870912 33
+0 0 0 0
+1 0 0
+#18478
+pillow~
+a pillow~
+a pillow has been dropped here.~
+~
+9 536870912 1
+0 0 0 0
+1 0 0
+#18479
+IOU emperor~
+an IOU from the Emperor~
+A slip of paper has been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18480
+Count Dooku's mummified severed hands~
+Count Dooku's mummified severed hands~
+Some mummified severed hands are here.~
+~
+8 536870912 1
+0 0 0 0
+1 0 0
+#18481
+Jango Fett's helmet~
+Jango Fett's helmet~
+A strange helmet has been left here.~
+~
+8 536870912 1
+0 0 0 0
+1 0 0
+#18482
+Kit Fisto's inoperable light saber~
+Kit Fisto's inoperable light saber~
+An inoperable light saber has been left here.~
+~
+8 536870912 1
+0 0 0 0
+1 0 0
+#18483
+pq15 metallic remains General Grievous~
+the metallic remains of General Grievous~
+Some metallic wreckage was left here.~
+~
+8 536870912 1
+0 0 0 0
+1 0 0
+#18484
+Qui-Gon Jinn's damaged light saber~
+Qui-Gon Jinn's damaged light saber~
+A damaged light saber is here.~
+~
+8 536870912 1
+0 0 0 0
+1 0 0
+#18485
+Sifo-Dyas' blue lightsaber~
+Sifo-Dyas' blue lightsaber~
+A lightsaber has been left here.~
+~
+1 536870912 1
+0 0 0 0
+1 0 0
+#18486
+decayed corpse Padme Amidala~
+the decayed corpse of Padme Amidala~
+A corpse has been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18487
+Boba Fett's jet pack~
+Boba Fett's jet pack~
+A jet pack has been left here.  Hey, wait, what's a jet pack??~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18488
+Obi-Wan Kenobi's robe~
+Obi-Wan Kenobi's robe~
+A robe has been left here.~
+~
+9 536870912 1025
+0 0 0 0
+1 0 0
+#18489
+memorial figurine Shmi Skywalker~
+a memorial figurine of Shmi Skywalker~
+A figurine has been left here.~
+~
+8 536870912 1
+0 0 0 0
+1 0 0
+#18490
+corpse Greedo~
+the corpse of Greedo, wearing a "I shot first" T-shirt~
+A corpse wearing a T-shirt has been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18491
+bloated corpse~
+the bloated corpse of Jabba the Hutt~
+A massive, bloated corpse has been left here.~
+~
+12 536870912 1
+0 0 0 0
+1 0 0
+#18492
+disposable bag~
+a disposable bag~
+A bag has been dropped here.~
+~
+15 536870912 1
+100 0 0 0
+1 0 0
+#18493
+bothan spy corpse~
+the corpse of a Bothan spy~
+A corpse of a Bothan spy is here.~
+~
+12 0 1
+0 0 0 0
+1 0 0
+#18494
+photo photograph panama canal~
+a photograph of the Panama Canal~
+A rectangular colored paper has been left here.~
+~
+12 0 1
+0 0 0 0
+1 0 0
+#18495
+replica united nations building~
+a small replica of the United Nations building~
+A small building replica is here.~
+~
+12 0 1
+0 0 0 0
+1 0 0
+#18496
+charred painting~
+a charred painting~
+A charred painting is here.~
+~
+8 0 1
+0 0 0 0
+1 0 0
+#18497
+secret papers~
+some secret papers~
+Some papers have been left here.~
+~
+12 0 1
+0 0 0 0
+1 0 0
+#0
+
+
+#ROOMS
+#18400
+Mount Rush More Entrance~
+Everyone is in such a hurry!  There is a large mountain up ahead, and
+the faces of four presidents have been carved into it.  Remarkable!
+~
+184 1081348 4 
+D0
+~
+~
+0 0 18401
+S
+#18401
+Washington's Head~
+Up in front of you is the giant sculpted head of Washington.  Impressive!
+~
+184 1081344 4 
+D1
+~
+~
+0 0 18402
+S
+#18402
+The Head of Thomas Jefferson~
+The giant sculpted head of Thomas Jefferson is chiseled into the rock
+in front of you.  Impressive!
+~
+184 1081344 4 
+D1
+~
+~
+0 0 18403
+D3
+~
+~
+0 0 18401
+S
+#18403
+Theodore Roosevelt's Head~
+You are standing in front of the giant sculpted head of Theodore
+Roosevelt.
+~
+184 1081344 4 
+D1
+~
+~
+0 0 18404
+D3
+~
+~
+0 0 18402
+S
+#18404
+The Sculpted Head of Abraham Lincoln~
+Before you is a giant sculpted head of Abraham Lincoln.
+~
+184 1081344 4 
+D3
+~
+~
+0 0 18403
+S
+#18405
+Entrance to the Debt Star~
+[In order to avoid the wrath of a certain litigious "mighty" mouse with an
+army of lawyers that now own a certain franchise and who would surely care
+about a text game in a galaxy far, far away... this may or may not resemble
+something you may or may not recognize.]
+
+You have been transported to the Debt Star, a defensive base for the lawful
+government.  It has recently been infiltrated by treasonous rebels.  This
+civil war must be brought to an end!
+
+The Debt Star is an impressive structure, so named because of the
+construction costs, as well as necessary operating expenses, such as
+personnel and equipment.  And the power requirements?  Oy.  It ain't cheap
+creating your own massive planet-destroying defensive structure, if even
+you run an empire and can print your own money.
+~
+184 1081352 0 
+D1
+~
+~
+0 0 18408
+S
+#18406
+Hanger Deck~
+You are on the hanger deck of the Debt Star.  Around you are various
+fighters and transports, mostly of Imperial design... although it's obvious
+that the rebels managed to land here, as well.  How much hard currency was
+spent on all of these ships?  Perhaps they were purchased on credit.
+~
+184 1081352 0 
+D1
+~
+~
+0 0 18407
+D2
+~
+~
+0 0 18408
+S
+#18407
+Hanger Deck~
+You are on the hanger deck of the Debt Star.  Around you are various
+fighters and transports, mostly of Imperial design... although it's obvious
+that the rebels managed to land here, as well.  How much hard currency was
+spent on all of these ships?  Perhaps they were purchased on credit.
+~
+184 1081352 0 
+D2
+~
+~
+0 0 18409
+D3
+~
+~
+0 0 18406
+S
+#18408
+Hanger Deck~
+You are on the hanger deck of the Debt Star.  Around you are various
+fighters and transports, mostly of Imperial design... although it's obvious
+that the rebels managed to land here, as well.  How much hard currency was
+spent on all of these ships?  Perhaps they were purchased on credit.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 18406
+D1
+~
+~
+0 0 18409
+S
+#18409
+Hanger Deck~
+You are on the hanger deck of the Debt Star.  Around you are various
+fighters and transports, mostly of Imperial design... although it's obvious
+that the rebels managed to land here, as well.  How much hard currency was
+spent on all of these ships?  Perhaps they were purchased on credit.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 18407
+D2
+~
+~
+0 0 18411
+D3
+~
+~
+0 0 18408
+S
+#18410
+Hanger Deck~
+You are on the hanger deck of the Debt Star.  Around you are various
+fighters and transports, mostly of Imperial design... although it's obvious
+that the rebels managed to land here, as well.  How much hard currency was
+spent on all of these ships?  Perhaps they were purchased on credit.
+~
+184 1081352 0 
+D1
+~
+~
+0 0 18411
+D2
+~
+~
+0 0 18412
+S
+#18411
+Hanger Deck~
+You are on the hanger deck of the Debt Star.  Around you are various
+fighters and transports, mostly of Imperial design... although it's obvious
+that the rebels managed to land here, as well.  How much hard currency was
+spent on all of these ships?  Perhaps they were purchased on credit.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 18409
+D3
+~
+~
+0 0 18410
+S
+#18412
+Hanger Deck~
+You are on the hanger deck of the Debt Star.  Around you are various
+fighters and transports, mostly of Imperial design... although it's obvious
+that the rebels managed to land here, as well.  How much hard currency was
+spent on all of these ships?  Perhaps they were purchased on credit.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 18410
+D1
+~
+~
+0 0 18413
+S
+#18413
+Hanger Deck~
+You are on the hanger deck of the Debt Star.  Around you are various
+fighters and transports, mostly of Imperial design... although it's obvious
+that the rebels managed to land here, as well.  How much hard currency was
+spent on all of these ships?  Perhaps they were purchased on credit.
+~
+184 1081352 0 
+D2
+A curved passage
+~
+~
+0 0 18414
+D3
+~
+~
+0 0 18412
+S
+#18414
+A Corridor~
+A corridor is here.  There is a curved passageway to the east, and the
+corridor goes straight to the south.
+~
+184 1081356 0 
+D1
+~
+~
+0 0 18413
+D2
+~
+~
+0 0 18415
+S
+#18415
+A Corridor~
+You are in a corridor.  It extends to the north and south.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 18414
+D2
+~
+~
+0 0 18416
+S
+#18416
+A Corridor~
+You are in a corridor.  It extends to the north and east.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 18415
+D1
+~
+~
+0 0 18417
+S
+#18417
+A Corridor~
+You are standing in a corridor.  It extends to the east and west.  There
+is also a door to the north.
+~
+184 1081352 0 
+D0
+~
+~
+1 0 18468
+D1
+~
+~
+0 0 18418
+D3
+~
+~
+0 0 18416
+S
+#18418
+A Corridor~
+You are in a corridor.  It extends to the east and west.
+~
+184 1081352 0 
+D1
+~
+~
+0 0 18419
+D3
+~
+~
+0 0 18417
+S
+#18419
+A Corridor~
+You are in a corridor.  It extends to the east and west.  There is also
+a door to the north.
+~
+184 1081352 0 
+D0
+~
+~
+2 18466 18432
+D1
+~
+~
+0 0 18420
+D3
+~
+~
+0 0 18418
+S
+#18420
+A Corridor~
+You are in a corridor.  It extends to the east and west.
+~
+184 1081352 0 
+D1
+~
+~
+0 0 18421
+D3
+~
+~
+0 0 18419
+S
+#18421
+A Corridor~
+You are in a corridor.  It extends to the east and west.  There is also
+a door to the north.
+~
+184 1081352 0 
+D0
+~
+~
+1 0 18438
+D1
+~
+~
+0 0 18422
+D3
+~
+~
+0 0 18420
+S
+#18422
+A Corridor~
+You are in a corridor.  It extends to the east and west.
+~
+184 1081352 0 
+D1
+~
+~
+0 0 18423
+D3
+~
+~
+0 0 18421
+S
+#18423
+A Corridor~
+You are in a corridor.  It extends to the east and west.
+~
+184 1081352 0 
+D1
+~
+~
+0 0 18424
+D3
+~
+~
+0 0 18422
+S
+#18424
+A Corridor~
+You are in a corridor.  It extends to the north and west.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 18425
+D3
+~
+~
+0 0 18423
+S
+#18425
+A Corridor~
+You are in a corridor.  It extends to the north and south.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 18426
+D2
+~
+~
+0 0 18424
+S
+#18426
+A Corridor~
+You are in a corridor.  It extends to the south.
+
+You see what looks like a large recreation and barracks area to the east. 
+~
+184 1081356 0 
+D2
+~
+~
+0 0 18425
+D3
+~
+~
+0 0 18437
+S
+#18427
+A Detention Cell~
+You are a detention cell.  The way out is to the east.
+~
+184 1081352 0 
+D1
+~
+~
+2 18468 18428
+S
+#18428
+Security Checkpoint~
+You are in a security checkpoint.
+~
+184 1081356 0 
+D1
+~
+~
+2 18468 18429
+D2
+~
+~
+0 0 18433
+D3
+~
+~
+2 18468 18427
+S
+#18429
+Detention Cell~
+You are in a detention cell.  There are two doors, one to the north and
+another to the west.
+~
+184 1081352 0 
+D0
+~
+~
+2 18468 18442
+D3
+~
+~
+2 18468 18428
+S
+#18430
+Detention Cell~
+You are in a detention cell.  The way out is to the west.
+~
+184 1081352 0 
+D3
+~
+~
+2 18468 18442
+S
+#18431
+Detention Cell~
+You are in a detention cell.  The only way out is up.
+~
+184 1081352 0 
+D4
+~
+~
+2 18468 18442
+S
+#18432
+Security Checkpoint~
+You are at a security checkpoint.  There is another security checkpoint
+to the north, a room to the east, and an exit to the south.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 18465
+D1
+~
+~
+2 18469 18467
+D2
+~
+~
+2 18466 18419
+S
+#18433
+Barracks & Recreation Room~
+You are in a large barracks and recreation room.  There is a security
+checkpoint to the north.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 18428
+D1
+~
+~
+0 0 18434
+D2
+~
+~
+0 0 18436
+S
+#18434
+Barracks & Recreation Room~
+You are in a large barracks and recreation room.
+~
+184 1081352 0 
+D2
+~
+~
+0 0 18437
+D3
+~
+~
+0 0 18433
+S
+#18435
+Barracks & Recreation Room~
+You are in a large barracks and recreation room.
+~
+184 1081352 0 
+D1
+~
+~
+0 0 18436
+D2
+~
+~
+0 0 18438
+S
+#18436
+Barracks & Recreation Room~
+You are in a large barracks and recreation room.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 18433
+D1
+~
+~
+0 0 18437
+D2
+~
+~
+0 0 18439
+D3
+~
+~
+0 0 18435
+S
+#18437
+Barracks & Recreation Room~
+You are in a large barracks and recreation room.  There is a corridor
+to the east.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 18434
+D1
+~
+~
+0 0 18426
+D2
+~
+~
+0 0 18440
+D3
+~
+~
+0 0 18436
+S
+#18438
+Barracks & Recreation Room~
+You are in a large barracks and recreation room.  There is an exit to
+the south.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 18435
+D1
+~
+~
+0 0 18439
+D2
+~
+~
+1 0 18421
+S
+#18439
+Barracks & Recreation Room~
+You are in a large barracks and recreation room.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 18436
+D3
+~
+~
+0 0 18438
+S
+#18440
+Barracks & Recreation Room~
+You are in a large barracks and recreation room.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 18437
+S
+#18441
+A Detention Cell~
+You are in a detention cell.  The way out is to the north.
+~
+184 1081352 0 
+D0
+~
+~
+2 18468 18442
+S
+#18442
+Security Checkpoint~
+You are at a security checkpoint.  There are detention cells all around,
+and a corridor to the north.
+~
+184 1081356 0 
+D0
+~
+~
+0 0 18443
+D1
+~
+~
+2 18468 18430
+D2
+~
+~
+2 18468 18441
+D3
+curved passageway
+~
+~
+2 18468 18429
+D4
+~
+~
+2 18468 18459
+D5
+~
+~
+2 18468 18431
+S
+#18443
+A Corridor~
+You are in a corridor.  It continues to the west.  There is a security
+checkpoint to the south.
+~
+184 1081352 0 
+D2
+~
+~
+0 0 18442
+D3
+~
+~
+0 0 18444
+S
+#18444
+A Corridor~
+You are in a corridor.  It extends to the east and west.
+~
+184 1081352 0 
+D1
+~
+~
+0 0 18443
+D3
+~
+~
+0 0 18445
+S
+#18445
+A Corridor~
+You are in a corridor.  It extends to the east and west.
+~
+184 1081352 0 
+D1
+~
+~
+0 0 18444
+D3
+~
+~
+0 0 18446
+S
+#18446
+A Corridor~
+You are in a corridor.  It extends to the east and west.
+~
+184 1081352 0 
+D1
+~
+~
+0 0 18445
+D3
+~
+~
+0 0 18447
+S
+#18447
+A Corridor~
+You are in a corridor.  It extends to the east and west.
+~
+184 1081352 0 
+D1
+~
+~
+0 0 18446
+D3
+~
+~
+0 0 18448
+S
+#18448
+A Corridor~
+You are in a corridor.  It extends to the east.  The command deck of the
+Debt Star is to the north.  The Emperor's chamber is to the south.
+~
+184 1081356 0 
+D0
+~
+~
+0 0 18460
+D1
+~
+~
+0 0 18447
+D2
+~
+~
+0 0 18449
+S
+#18449
+The Emperor's Chambers~
+You are in the Emperor's private chambers.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 18448
+D1
+~
+~
+0 0 18450
+D2
+~
+~
+0 0 18452
+S
+#18450
+The Emperor's Chambers~
+You are in the Emperor's private chambers.
+~
+184 1081352 0 
+D1
+~
+~
+0 0 18451
+D3
+~
+~
+0 0 18449
+S
+#18451
+The Emperor's Chambers~
+You are in the Emperor's private chambers.
+~
+184 1081352 0 
+D2
+~
+~
+0 0 18454
+D3
+~
+~
+0 0 18450
+S
+#18452
+The Emperor's Chambers~
+You are in the Emperor's private chambers.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 18449
+D1
+~
+~
+0 0 18453
+D2
+~
+~
+0 0 18455
+S
+#18453
+The Emperor's Chambers~
+You are in the Emperor's private chambers.
+~
+184 1081352 0 
+D1
+~
+~
+0 0 18454
+D2
+~
+~
+0 0 18456
+D3
+~
+~
+0 0 18452
+S
+#18454
+The Emperor's Chambers~
+You are in the Emperor's private chambers.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 18451
+D1
+~
+~
+0 0 18457
+D3
+~
+~
+0 0 18453
+S
+#18455
+The Emperor's Chambers~
+You are in the Emperor's private chambers.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 18452
+D1
+~
+~
+0 0 18456
+D2
+~
+~
+2 18467 18463
+S
+#18456
+The Emperor's Chambers~
+You are in the Emperor's private chambers.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 18453
+D3
+~
+~
+0 0 18455
+S
+#18457
+The Emperor's Chambers~
+You are in the Emperor's private chambers.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 18458
+D3
+~
+~
+0 0 18454
+S
+#18458
+Emperor's Throne Room~
+You are in the presence of the Emperor's throne.  
+~
+184 1081352 0 
+D2
+~
+~
+0 0 18457
+S
+#18459
+Detention Cell~
+You are in a detention cell.  The way out is through a downward staircase.
+~
+184 1081352 0 
+D5
+~
+~
+2 18468 18442
+S
+#18460
+Command Deck~
+You are on the command deck of the Debt Star.  The deck extends to the
+east, and the observation deck is to the west.
+~
+184 1081352 0 
+D1
+~
+~
+0 0 18462
+D2
+~
+~
+0 0 18448
+D3
+~
+~
+0 0 18461
+S
+#18461
+Observation Deck~
+You are on the Debt Star observation deck.
+~
+184 1081352 0 
+D1
+~
+~
+0 0 18460
+S
+#18462
+Command Deck~
+You are on the command deck.  It extends to the west.
+~
+184 1081352 0 
+D3
+~
+~
+0 0 18460
+S
+#18463
+Security Checkpoint~
+You are at a security checkpoint.  There's another security checkpoint
+to the south.  There are also doors to the north and east.
+~
+184 1081352 0 
+D0
+~
+~
+2 18467 18455
+D1
+~
+~
+2 18469 18464
+D2
+~
+~
+0 0 18465
+S
+#18464
+A Treasure Room~
+You are in a treasure room.
+~
+184 1081352 0 
+D3
+~
+~
+2 18469 18463
+S
+#18465
+Security Checkpoint~
+You are at a security checkpoint.  There are security checkpoints to the
+north and south, and a detention cell to the east.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 18463
+D1
+~
+~
+2 18470 18466
+D2
+~
+~
+0 0 18432
+S
+#18466
+A Detention Cell~
+You are in a detention cell.  The way out is to the west.
+~
+184 1081352 0 
+D3
+~
+~
+2 18470 18465
+S
+#18467
+Treasure Room~
+You are in a treasure room.
+~
+184 1081352 0 
+D3
+~
+~
+2 18469 18432
+S
+#18468
+The Death Star Morgue~
+This is where the dead go to decompose.
+~
+184 1081352 0 
+D2
+~
+~
+1 0 18417
+S
+#18469
+Pearl Harbor~
+You are standing on a sandy beach.  There are pearls everywhere!  To the
+south is shallow water, and you can see the gleaming shells of clams.
+
+There's a glowing blue portal to the north.
+~
+184 1081344 10 
+D0
+~
+~
+0 0 201
+D2
+You see shallow water and clams.
+~
+water clam clams~
+-1 0 -1
+S
+#18470
+Entrance to the Bay of Pigs~
+As you look around, you see a "sea" of pigs.  There are pigs everywhere! 
+Big pigs!  Small pigs!  Pigs of every shape and size!  It's a confusing,
+disorienting tide of pigs.  Sooey!
+~
+184 5341188 0 
+D1
+~
+~
+0 0 18471
+D2
+~
+~
+0 0 18473
+S
+#18471
+The Bay of Pigs~
+As you look around, you see a "sea" of pigs.  There are pigs everywhere! 
+Big pigs!  Small pigs!  Pigs of every shape and size!  It's a confusing,
+disorienting tide of pigs.  Sooey!
+~
+184 5341184 0 
+D1
+~
+~
+0 0 18472
+D2
+~
+~
+0 0 18474
+S
+#18472
+The Bay of Pigs~
+As you look around, you see a "sea" of pigs.  There are pigs everywhere! 
+Big pigs!  Small pigs!  Pigs of every shape and size!  It's a confusing,
+disorienting tide of pigs.  Sooey!
+~
+184 5341184 0 
+D2
+~
+~
+0 0 18475
+D3
+~
+~
+0 0 18471
+S
+#18473
+The Bay of Pigs~
+As you look around, you see a "sea" of pigs.  There are pigs everywhere! 
+Big pigs!  Small pigs!  Pigs of every shape and size!  It's a confusing,
+disorienting tide of pigs.  Sooey!
+~
+184 5341184 0 
+D1
+~
+~
+0 0 18474
+D2
+~
+~
+0 0 18476
+S
+#18474
+The Bay of Pigs~
+As you look around, you see a "sea" of pigs.  There are pigs everywhere! 
+Big pigs!  Small pigs!  Pigs of every shape and size!  It's a confusing,
+disorienting tide of pigs.  Sooey!
+~
+184 5341184 0 
+D0
+~
+~
+0 0 18471
+D1
+~
+~
+0 0 18475
+D2
+~
+~
+0 0 18477
+D3
+~
+~
+0 0 18473
+D4
+shimmering blue field
+~
+~
+0 0 201
+S
+#18475
+The Bay of Pigs~
+As you look around, you see a "sea" of pigs.  There are pigs everywhere! 
+Big pigs!  Small pigs!  Pigs of every shape and size!  It's a confusing,
+disorienting tide of pigs.  Sooey!
+~
+184 5341184 0 
+D0
+~
+~
+0 0 18472
+D2
+~
+~
+0 0 18478
+D3
+~
+~
+0 0 18474
+S
+#18476
+The Bay of Pigs~
+As you look around, you see a "sea" of pigs.  There are pigs everywhere! 
+Big pigs!  Small pigs!  Pigs of every shape and size!  It's a confusing,
+disorienting tide of pigs.  Sooey!
+~
+184 5341184 0 
+D0
+~
+~
+0 0 18473
+D1
+~
+~
+0 0 18477
+S
+#18477
+The Bay of Pigs~
+As you look around, you see a "sea" of pigs.  There are pigs everywhere! 
+Big pigs!  Small pigs!  Pigs of every shape and size!  It's a confusing,
+disorienting tide of pigs.  Sooey!
+~
+184 5341184 0 
+D0
+~
+~
+0 0 18474
+D1
+~
+~
+0 0 18478
+D3
+~
+~
+0 0 18476
+S
+#18478
+The Bay of Pigs~
+As you look around, you see a "sea" of pigs.  There are pigs everywhere! 
+Big pigs!  Small pigs!  Pigs of every shape and size!  It's a confusing,
+disorienting tide of pigs.  Sooey!
+~
+184 5341184 0 
+D0
+~
+~
+0 0 18475
+D3
+~
+~
+0 0 18477
+S
+#18479
+A Burning Room in the White House~
+The British came a'callin', and set the White House on fire.  Rescue the
+art!
+
+There's a blue portal to the north.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 201
+S
+#18480
+A Room at the Watergate Hotel~
+You have come to the scene of the crime!
+
+There is a blue portal to the north.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 201
+S
+#18481
+William Henry Harrison’s White House~
+You've gone back in time to William Henry Harrison’s White House.
+
+There's a blue portal to the north.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 201
+S
+#18482
+George H. W. Bush White House~
+You have gone back in time to George H. W. Bush's White House!
+
+There is a blue portal to the north.
+~
+184 1081352 0 
+S
+#18483
+Reagan White House~
+You have gone back in time to the Reagan White House!
+
+There is a blue portal to the north.
+~
+184 1081352 0 
+D0
+~
+~
+0 0 299
+S
+#18484
+John Adams’ White House~
+You have gone back in time to John Adams’ White House!
+
+You see a blue portal to the north.
+~
+184 1081352 0 
+S
+#18485
+Teleport Point~
+Teleport Point
+~
+184 1082376 0 
+S
+#0
+
+
+#RESETS
+*** Mobile Resets ***
+M 0 18400 1 18485 *      Load 'the zombie of Warren G. Harding' at 'Teleport Point'
+M 0 18401 1 18485 *      Load 'the zombie of James Buchanan' at 'Teleport Point'
+G 0 18403 100 *          Give 'the zombie of James Buchanan' 'a Confederate flag (token)'
+M 0 18402 1 18485 *      Load 'the zombie of Andrew Johnson' at 'Teleport Point'
+M 0 18403 1 18485 *      Load 'the zombie of Franklin Pierce' at 'Teleport Point'
+M 0 18404 1 18485 *      Load 'the zombie of Millard Fillmore' at 'Teleport Point'
+M 0 18405 1 18481 *      Load 'the zombie of William Henry Harrison' at 'William Henry Harrison’s White House'
+M 0 18406 1 18485 *      Load 'the zombie of Ulysses S. Grant' at 'Teleport Point'
+M 0 18407 1 18485 *      Load 'the zombie of John Tyler' at 'Teleport Point'
+G 0 18457 100 *          Give 'the zombie of John Tyler' 'the "His Accidency" ribbon'
+M 0 18408 1 18485 *      Load 'the zombie of Zachary Taylor' at 'Teleport Point'
+M 0 18409 1 18485 *      Load 'the zombie of Benjamin Harrison' at 'Teleport Point'
+M 0 18410 1 18485 *      Load 'the zombie of Richard Nixon' at 'Teleport Point'
+G 0 18455 100 *          Give 'the zombie of Richard Nixon' 'a map of China'
+M 0 18411 1 18485 *      Load 'the zombie of Calvin Coolidge' at 'Teleport Point'
+M 0 18412 1 18485 *      Load 'the zombie of Herbert Hoover' at 'Teleport Point'
+M 0 18413 1 18485 *      Load 'the zombie of James A. Garfield' at 'Teleport Point'
+M 0 18414 1 18485 *      Load 'the zombie of Chester A. Arthur' at 'Teleport Point'
+M 0 18415 1 18485 *      Load 'the zombie of Gerald Ford' at 'Teleport Point'
+M 0 18416 1 18485 *      Load 'the zombie of Rutherford B. Hayes' at 'Teleport Point'
+G 0 18447 100 *          Give 'the zombie of Rutherford B. Hayes' 'a water skin for "Lemonade Lucy"'
+M 0 18417 1 18485 *      Load 'the zombie of Martin Van Buren' at 'Teleport Point'
+M 0 18418 1 18485 *      Load 'the zombie of William Howard Taft' at 'Teleport Point'
+M 0 18419 1 18485 *      Load 'the zombie of William McKinley' at 'Teleport Point'
+G 0 18444 100 *          Give 'the zombie of William McKinley' 'the Treaty of Paris'
+M 0 18420 1 18485 *      Load 'the zombie of Grover Cleveland' at 'Teleport Point'
+G 0 18443 100 *          Give 'the zombie of Grover Cleveland' 'a blue Muppet character'
+M 0 18421 1 18485 *      Load 'the zombie of John Quincy Adams' at 'Teleport Point'
+G 0 18432 100 *          Give 'the zombie of John Quincy Adams' 'a "Snubbing the successor" statue'
+M 0 18422 1 18483 *      Load 'the zombie of Ronald Reagan' at 'Reagan White House'
+M 0 18422 1 18485 *      Load 'the zombie of Ronald Reagan' at 'Teleport Point'
+M 0 18423 1 18485 *      Load 'the zombie of Lyndon B. Johnson' at 'Teleport Point'
+G 0 18437 100 *          Give 'the zombie of Lyndon B. Johnson' 'the "Gulf of Tonkin" resolution'
+M 0 18424 1 18485 *      Load 'the zombie of James Monroe' at 'Teleport Point'
+M 0 18425 1 18485 *      Load 'the zombie of James Madison' at 'Teleport Point'
+G 0 18412 100 *          Give 'the zombie of James Madison' 'a Founding Father statue (token)'
+M 0 18426 1 18484 *      Load 'the zombie of John Adams' at 'John Adams’ White House'
+G 0 18432 100 *          Give 'the zombie of John Adams' 'a "Snubbing the successor" statue'
+M 0 18427 1 18485 *      Load 'the zombie of John F. Kennedy' at 'Teleport Point'
+M 0 18428 1 18485 *      Load 'the zombie of James K. Polk' at 'Teleport Point'
+G 0 18429 100 *          Give 'the zombie of James K. Polk' 'some postage stamps'
+M 0 18429 1 18485 *      Load 'the zombie of Dwight D. Eisenhower' at 'Teleport Point'
+M 0 18430 1 18485 *      Load 'the zombie of Andrew Jackson' at 'Teleport Point'
+G 0 18424 100 *          Give 'the zombie of Andrew Jackson' 'a Confederate $1000 bill'
+M 0 18431 1 18485 *      Load 'the zombie of Harry S. Truman' at 'Teleport Point'
+G 0 18423 100 *          Give 'the zombie of Harry S. Truman' 'General MacArthur's walking papers'
+M 0 18432 1 18485 *      Load 'the zombie of Woodrow Wilson' at 'Teleport Point'
+M 0 18433 1 18485 *      Load 'the zombie of Theodore Roosevelt' at 'Teleport Point'
+M 0 18434 1 18485 *      Load 'the zombie of Thomas Jefferson' at 'Teleport Point'
+G 0 18414 100 *          Give 'the zombie of Thomas Jefferson' 'a replica of Monticello'
+M 0 18435 1 18485 *      Load 'the zombie of George Washington' at 'Teleport Point'
+G 0 18411 100 *          Give 'the zombie of George Washington' 'a replica of Mount Vernon'
+M 0 18436 1 18485 *      Load 'the zombie of Franklin D. Roosevelt' at 'Teleport Point'
+G 0 18407 100 *          Give 'the zombie of Franklin D. Roosevelt' 'an "arsenal of democracy" award'
+M 0 18437 1 18485 *      Load 'the zombie of Abraham Lincoln' at 'Teleport Point'
+M 0 18438 1 18485 *      Load 'Jimmy Carter' at 'Teleport Point'
+M 0 18439 1 18482 *      Load 'George H. W. Bush' at 'George H. W. Bush White House'
+M 0 18440 1 18485 *      Load 'Bill Clinton' at 'Teleport Point'
+M 0 18441 1 18485 *      Load 'George W. Bush' at 'Teleport Point'
+M 0 18442 1 18485 *      Load 'Barack Obama' at 'Teleport Point'
+M 0 18443 1 18404 *      Load 'John Wilkes Booth' at 'The Sculpted Head of Abraham Lincoln'
+M 0 18444 1 18402 *      Load 'Sally Hemings' at 'The Head of Thomas Jefferson'
+M 0 18445 1 18485 *      Load 'Lee Harvey Oswald' at 'Teleport Point'
+M 0 18446 1 18479 *      Load 'Dolley Madison' at 'A Burning Room in the White House'
+M 0 18447 2 18401 *      Load 'an apprentice sculpturer' at 'Washington's Head'
+M 0 18448 10 18401 *     Load 'a bucket boy' at 'Washington's Head'
+M 0 18449 10 18403 *     Load 'a bucket girl' at 'Theodore Roosevelt's Head'
+M 0 18450 1 18402 *      Load 'the master sculpter' at 'The Head of Thomas Jefferson'
+M 0 18451 10 18404 *     Load 'an impatient tourist' at 'The Sculpted Head of Abraham Lincoln'
+M 0 18452 30 18410 *     Load 'a supportive Weather Tromper' at 'Hanger Deck'
+M 0 18452 30 18406 *     Load 'a supportive Weather Tromper' at 'Hanger Deck'
+M 0 18452 2 18425 *      Load 'a supportive Weather Tromper' at 'A Corridor'
+M 0 18452 10 18421 *     Load 'a supportive Weather Tromper' at 'A Corridor'
+M 0 18452 10 18420 *     Load 'a supportive Weather Tromper' at 'A Corridor'
+M 0 18452 10 18419 *     Load 'a supportive Weather Tromper' at 'A Corridor'
+M 0 18452 10 18418 *     Load 'a supportive Weather Tromper' at 'A Corridor'
+M 0 18452 5 18417 *      Load 'a supportive Weather Tromper' at 'A Corridor'
+M 0 18452 20 18413 *     Load 'a supportive Weather Tromper' at 'Hanger Deck'
+M 0 18452 20 18412 *     Load 'a supportive Weather Tromper' at 'Hanger Deck'
+M 0 18452 30 18411 *     Load 'a supportive Weather Tromper' at 'Hanger Deck'
+M 0 18452 30 18409 *     Load 'a supportive Weather Tromper' at 'Hanger Deck'
+M 0 18452 30 18407 *     Load 'a supportive Weather Tromper' at 'Hanger Deck'
+M 0 18453 6 18408 *      Load 'a rebel scumbag' at 'Hanger Deck'
+G 0 18471 100 *          Give 'a rebel scumbag' 'an inoperable blaster'
+M 0 18454 1 18416 *      Load 'Jarhead Blinks' at 'A Corridor'
+M 0 18455 1 18425 *      Load 'Chewy' at 'A Corridor'
+G 0 18473 100 *          Give 'Chewy' 'a huge wad of chewing gum'
+M 0 18456 1 18425 *      Load 'Princess Lay Ya' at 'A Corridor'
+M 0 18457 1 18425 *      Load 'Revision Two' at 'A Corridor'
+M 0 18458 1 18425 *      Load 'Luke Duke Groundwalker' at 'A Corridor'
+E 0 18474 100 16 *       Equip 'Luke Duke Groundwalker' with 'the General LEE-iiight saber' as WIELD
+M 0 18459 1 18425 *      Load 'Hand Solo' at 'A Corridor'
+M 0 18460 1 18427 *      Load 'a rebel leader' at 'A Detention Cell'
+M 0 18461 20 18432 *     Load 'a red-shirted security officer' at 'Security Checkpoint'
+M 0 18461 20 18442 *     Load 'a red-shirted security officer' at 'Security Checkpoint'
+M 0 18461 20 18442 *     Load 'a red-shirted security officer' at 'Security Checkpoint'
+M 0 18461 20 18463 *     Load 'a red-shirted security officer' at 'Security Checkpoint'
+M 0 18461 20 18463 *     Load 'a red-shirted security officer' at 'Security Checkpoint'
+M 0 18461 20 18432 *     Load 'a red-shirted security officer' at 'Security Checkpoint'
+M 0 18461 20 18432 *     Load 'a red-shirted security officer' at 'Security Checkpoint'
+E 0 18475 100 5 *        Equip 'a red-shirted security officer' with 'a red shirt' as BODY
+M 0 18461 15 18428 *     Load 'a red-shirted security officer' at 'Security Checkpoint'
+M 0 18461 15 18428 *     Load 'a red-shirted security officer' at 'Security Checkpoint'
+G 0 18468 100 *          Give 'a red-shirted security officer' 'passcard "C"'
+M 0 18461 15 18428 *     Load 'a red-shirted security officer' at 'Security Checkpoint'
+M 0 18462 1 18429 *      Load 'Admiral Obvious' at 'Detention Cell'
+M 0 18463 1 18430 *      Load 'Attichitcuk' at 'Detention Cell'
+M 0 18464 1 18431 *      Load 'A-soaka 'n' Atannin'' at 'Detention Cell'
+E 0 18476 100 5 *        Equip 'A-soaka 'n' Atannin'' with 'a bikini top' as BODY
+E 0 18477 100 7 *        Equip 'A-soaka 'n' Atannin'' with 'some bikini briefs' as LEGS
+M 0 18465 1 18432 *      Load 'Captain T-Rex' at 'Security Checkpoint'
+M 0 18466 10 18433 *     Load 'a fun-loving Weather Tromper' at 'Barracks & Recreation Room'
+M 0 18466 20 18434 *     Load 'a fun-loving Weather Tromper' at 'Barracks & Recreation Room'
+M 0 18467 5 18439 *      Load 'A drowsing Weather Tromper' at 'Barracks & Recreation Room'
+G 0 18478 100 *          Give 'A drowsing Weather Tromper' 'a pillow'
+M 0 18468 1 18441 *      Load 'Land-ho Calamari' at 'A Detention Cell'
+M 0 18469 1 18442 *      Load 'Commander Bly' at 'Security Checkpoint'
+G 0 18466 100 *          Give 'Commander Bly' 'passcard "A"'
+M 0 18470 20 18446 *     Load 'a frowning Weather Tromper' at 'A Corridor'
+M 0 18470 20 18447 *     Load 'a frowning Weather Tromper' at 'A Corridor'
+M 0 18470 20 18443 *     Load 'a frowning Weather Tromper' at 'A Corridor'
+M 0 18470 20 18444 *     Load 'a frowning Weather Tromper' at 'A Corridor'
+M 0 18470 20 18445 *     Load 'a frowning Weather Tromper' at 'A Corridor'
+M 0 18471 10 18450 *     Load 'an elite Tromper' at 'The Emperor's Chambers'
+M 0 18471 10 18449 *     Load 'an elite Tromper' at 'The Emperor's Chambers'
+M 0 18471 10 18449 *     Load 'an elite Tromper' at 'The Emperor's Chambers'
+M 0 18471 10 18456 *     Load 'an elite Tromper' at 'The Emperor's Chambers'
+M 0 18471 10 18454 *     Load 'an elite Tromper' at 'The Emperor's Chambers'
+M 0 18471 10 18452 *     Load 'an elite Tromper' at 'The Emperor's Chambers'
+M 0 18471 10 18452 *     Load 'an elite Tromper' at 'The Emperor's Chambers'
+M 0 18471 10 18450 *     Load 'an elite Tromper' at 'The Emperor's Chambers'
+M 0 18471 10 18451 *     Load 'an elite Tromper' at 'The Emperor's Chambers'
+M 0 18471 10 18451 *     Load 'an elite Tromper' at 'The Emperor's Chambers'
+M 0 18472 10 18457 *     Load 'an Imperial Guard' at 'The Emperor's Chambers'
+M 0 18472 10 18457 *     Load 'an Imperial Guard' at 'The Emperor's Chambers'
+M 0 18472 10 18457 *     Load 'an Imperial Guard' at 'The Emperor's Chambers'
+M 0 18472 10 18457 *     Load 'an Imperial Guard' at 'The Emperor's Chambers'
+M 0 18472 10 18457 *     Load 'an Imperial Guard' at 'The Emperor's Chambers'
+M 0 18472 10 18457 *     Load 'an Imperial Guard' at 'The Emperor's Chambers'
+M 0 18472 10 18457 *     Load 'an Imperial Guard' at 'The Emperor's Chambers'
+M 0 18472 10 18457 *     Load 'an Imperial Guard' at 'The Emperor's Chambers'
+M 0 18472 10 18457 *     Load 'an Imperial Guard' at 'The Emperor's Chambers'
+M 0 18472 10 18457 *     Load 'an Imperial Guard' at 'The Emperor's Chambers'
+M 0 18473 1 18458 *      Load 'the Emperor' at 'Emperor's Throne Room'
+G 0 18467 100 *          Give 'the Emperor' 'passcard "B"'
+M 0 18474 1 18459 *      Load 'Gold Bricker' at 'Detention Cell'
+M 0 18475 1 18459 *      Load 'Asajj Ventress' at 'Detention Cell'
+M 0 18476 10 18460 *     Load 'an Imperial officer' at 'Command Deck'
+M 0 18476 10 18462 *     Load 'an Imperial officer' at 'Command Deck'
+M 0 18476 10 18462 *     Load 'an Imperial officer' at 'Command Deck'
+M 0 18476 10 18460 *     Load 'an Imperial officer' at 'Command Deck'
+M 0 18476 10 18460 *     Load 'an Imperial officer' at 'Command Deck'
+M 0 18477 1 18461 *      Load 'Dark Banker' at 'Observation Deck'
+G 0 18479 100 *          Give 'Dark Banker' 'an IOU from the Emperor'
+M 0 18478 1 18462 *      Load 'the Grand Muff' at 'Command Deck'
+M 0 18479 1 18463 *      Load 'Commander Codeine' at 'Security Checkpoint'
+G 0 18469 100 *          Give 'Commander Codeine' 'passcard "D"'
+M 0 18480 1 18465 *      Load 'Commander Alpo' at 'Security Checkpoint'
+G 0 18470 100 *          Give 'Commander Alpo' 'passcard "E"'
+M 0 18481 1 18466 *      Load 'Mace Windu' at 'A Detention Cell'
+M 0 18482 1 18466 *      Load 'Yoda' at 'A Detention Cell'
+M 0 18483 1 18468 *      Load 'Cad Bane' at 'The Death Star Morgue'
+M 0 18484 1 18408 *      Load 'Wedgy Antilles' at 'Hanger Deck'
+G 0 18472 100 *          Give 'Wedgy Antilles' 'a pair of used tighty whities'
+M 0 18485 1 18469 *      Load 'Pearl the pearl farmer' at 'Pearl Harbor'
+M 0 18486 100 18471 *    Load 'an American Yorkshire pig' at 'The Bay of Pigs'
+M 0 18486 100 18471 *    Load 'an American Yorkshire pig' at 'The Bay of Pigs'
+M 0 18486 100 18471 *    Load 'an American Yorkshire pig' at 'The Bay of Pigs'
+M 0 18486 100 18471 *    Load 'an American Yorkshire pig' at 'The Bay of Pigs'
+M 0 18487 100 18471 *    Load 'a Berkshire pig' at 'The Bay of Pigs'
+M 0 18487 100 18471 *    Load 'a Berkshire pig' at 'The Bay of Pigs'
+M 0 18487 100 18471 *    Load 'a Berkshire pig' at 'The Bay of Pigs'
+M 0 18487 100 18471 *    Load 'a Berkshire pig' at 'The Bay of Pigs'
+M 0 18488 100 18471 *    Load 'a Chester White pig' at 'The Bay of Pigs'
+M 0 18488 100 18471 *    Load 'a Chester White pig' at 'The Bay of Pigs'
+M 0 18488 100 18471 *    Load 'a Chester White pig' at 'The Bay of Pigs'
+M 0 18488 100 18471 *    Load 'a Chester White pig' at 'The Bay of Pigs'
+M 0 18489 100 18471 *    Load 'a Duroc pig' at 'The Bay of Pigs'
+M 0 18489 100 18471 *    Load 'a Duroc pig' at 'The Bay of Pigs'
+M 0 18489 100 18471 *    Load 'a Duroc pig' at 'The Bay of Pigs'
+M 0 18489 100 18471 *    Load 'a Duroc pig' at 'The Bay of Pigs'
+M 0 18490 100 18471 *    Load 'a Gloucestershire Old Spot pig' at 'The Bay of Pigs'
+M 0 18490 100 18471 *    Load 'a Gloucestershire Old Spot pig' at 'The Bay of Pigs'
+M 0 18490 100 18471 *    Load 'a Gloucestershire Old Spot pig' at 'The Bay of Pigs'
+M 0 18490 100 18471 *    Load 'a Gloucestershire Old Spot pig' at 'The Bay of Pigs'
+M 0 18491 100 18471 *    Load 'a Guinea Hog' at 'The Bay of Pigs'
+M 0 18491 100 18471 *    Load 'a Guinea Hog' at 'The Bay of Pigs'
+M 0 18491 100 18471 *    Load 'a Guinea Hog' at 'The Bay of Pigs'
+M 0 18491 100 18471 *    Load 'a Guinea Hog' at 'The Bay of Pigs'
+M 0 18492 100 18471 *    Load 'a Hampshire pig' at 'The Bay of Pigs'
+M 0 18492 100 18471 *    Load 'a Hampshire pig' at 'The Bay of Pigs'
+M 0 18492 100 18471 *    Load 'a Hampshire pig' at 'The Bay of Pigs'
+M 0 18492 100 18471 *    Load 'a Hampshire pig' at 'The Bay of Pigs'
+M 0 18493 100 18471 *    Load 'a Hereford pig' at 'The Bay of Pigs'
+M 0 18493 100 18471 *    Load 'a Hereford pig' at 'The Bay of Pigs'
+M 0 18493 100 18471 *    Load 'a Hereford pig' at 'The Bay of Pigs'
+M 0 18493 100 18471 *    Load 'a Hereford pig' at 'The Bay of Pigs'
+M 0 18494 100 18471 *    Load 'a Large Black pig' at 'The Bay of Pigs'
+M 0 18494 100 18471 *    Load 'a Large Black pig' at 'The Bay of Pigs'
+M 0 18494 100 18471 *    Load 'a Large Black pig' at 'The Bay of Pigs'
+M 0 18494 100 18471 *    Load 'a Large Black pig' at 'The Bay of Pigs'
+M 0 18495 100 18471 *    Load 'A Large White pig' at 'The Bay of Pigs'
+M 0 18495 100 18471 *    Load 'A Large White pig' at 'The Bay of Pigs'
+M 0 18495 100 18471 *    Load 'A Large White pig' at 'The Bay of Pigs'
+M 0 18495 100 18471 *    Load 'A Large White pig' at 'The Bay of Pigs'
+M 0 18496 100 18471 *    Load 'a Mulefoot pig' at 'The Bay of Pigs'
+M 0 18496 100 18471 *    Load 'a Mulefoot pig' at 'The Bay of Pigs'
+M 0 18496 100 18471 *    Load 'a Mulefoot pig' at 'The Bay of Pigs'
+M 0 18496 100 18471 *    Load 'a Mulefoot pig' at 'The Bay of Pigs'
+M 0 18497 1 18476 *      Load 'an Ossabaw Island pig' at 'The Bay of Pigs'
+M 0 18498 1 18473 *      Load 'A Tamworth pig' at 'The Bay of Pigs'
+M 0 18499 1 18472 *      Load 'a Kunekune pig' at 'The Bay of Pigs'
+M 0 18500 1 18474 *      Load 'A Red Wattle pig' at 'The Bay of Pigs'
+M 0 18502 1 18475 *      Load 'a Cinta Senese pig' at 'The Bay of Pigs'
+M 0 18503 1 18477 *      Load 'a Iberico pig' at 'The Bay of Pigs'
+M 0 18504 1 18478 *      Load 'a Meishan pig' at 'The Bay of Pigs'
+*** Object Resets ***
+O 0 18480 10 18464 *     Load 'Count Dooku's mummified severed hands' at 'A Treasure Room'
+O 0 18481 10 18464 *     Load 'Jango Fett's helmet' at 'A Treasure Room'
+O 0 18482 10 18464 *     Load 'Kit Fisto's inoperable light saber' at 'A Treasure Room'
+O 0 18483 10 18464 *     Load 'the metallic remains of General Grievous' at 'A Treasure Room'
+O 0 18484 10 18464 *     Load 'Qui-Gon Jinn's damaged light saber' at 'A Treasure Room'
+O 0 18485 10 18464 *     Load 'Sifo-Dyas' blue lightsaber' at 'A Treasure Room'
+O 0 18486 10 18467 *     Load 'the decayed corpse of Padme Amidala' at 'Treasure Room'
+O 0 18487 10 18467 *     Load 'Boba Fett's jet pack' at 'Treasure Room'
+O 0 18488 10 18467 *     Load 'Obi-Wan Kenobi's robe' at 'Treasure Room'
+O 0 18489 10 18467 *     Load 'a memorial figurine of Shmi Skywalker' at 'Treasure Room'
+O 0 18490 10 18468 *     Load 'the corpse of Greedo, wearing a "I shot first" T-shirt' at 'The Death Star Morgue'
+O 0 18491 10 18468 *     Load 'the bloated corpse of Jabba the Hutt' at 'The Death Star Morgue'
+O 0 18492 10 18405 *     Load 'a disposable bag' at 'Entrance to the Debt Star'
+O 0 18493 8 18420 *      Load 'the corpse of a Bothan spy' at 'A Corridor'
+O 0 18493 8 18419 *      Load 'the corpse of a Bothan spy' at 'A Corridor'
+O 0 18493 8 18418 *      Load 'the corpse of a Bothan spy' at 'A Corridor'
+O 0 18493 8 18417 *      Load 'the corpse of a Bothan spy' at 'A Corridor'
+O 0 18496 10 18479 *     Load 'a charred painting' at 'A Burning Room in the White House'
+O 0 18497 10 18480 *     Load 'some secret papers' at 'A Room at the Watergate Hotel'
+***  Door Resets  ***
+D 0 18417 0 1 *          Set north door at 'A Corridor' to closed
+D 0 18419 0 2 *          Set north door at 'A Corridor' to closed & locked
+D 0 18421 0 1 *          Set north door at 'A Corridor' to closed
+D 0 18427 1 2 *          Set east door at 'A Detention Cell' to closed & locked
+D 0 18428 1 2 *          Set east door at 'Security Checkpoint' to closed & locked
+D 0 18428 3 2 *          Set west door at 'Security Checkpoint' to closed & locked
+D 0 18429 0 2 *          Set north door at 'Detention Cell' to closed & locked
+D 0 18429 3 2 *          Set west door at 'Detention Cell' to closed & locked
+D 0 18430 3 2 *          Set west door at 'Detention Cell' to closed & locked
+D 0 18431 4 2 *          Set up door at 'Detention Cell' to closed & locked
+D 0 18432 1 2 *          Set east door at 'Security Checkpoint' to closed & locked
+D 0 18432 2 2 *          Set south door at 'Security Checkpoint' to closed & locked
+D 0 18438 2 1 *          Set south door at 'Barracks & Recreation Room' to closed
+D 0 18441 0 2 *          Set north door at 'A Detention Cell' to closed & locked
+D 0 18442 1 2 *          Set east door at 'Security Checkpoint' to closed & locked
+D 0 18442 2 2 *          Set south door at 'Security Checkpoint' to closed & locked
+D 0 18442 3 2 *          Set west door at 'Security Checkpoint' to closed & locked
+D 0 18442 4 2 *          Set up door at 'Security Checkpoint' to closed & locked
+D 0 18442 5 2 *          Set down door at 'Security Checkpoint' to closed & locked
+D 0 18455 2 2 *          Set south door at 'The Emperor's Chambers' to closed & locked
+D 0 18459 5 2 *          Set down door at 'Detention Cell' to closed & locked
+D 0 18463 0 2 *          Set north door at 'Security Checkpoint' to closed & locked
+D 0 18465 1 2 *          Set east door at 'Security Checkpoint' to closed & locked
+D 0 18466 3 2 *          Set west door at 'A Detention Cell' to closed & locked
+D 0 18467 3 2 *          Set west door at 'Treasure Room' to closed & locked
+D 0 18468 2 1 *          Set south door at 'The Death Star Morgue' to closed
+R 0 18470 3 *            Randomize any n, e, s, w exits at 'Entrance to the Bay of Pigs'
+R 0 18471 3 *            Randomize any n, e, s, w exits at 'The Bay of Pigs'
+R 0 18472 3 *            Randomize any n, e, s, w exits at 'The Bay of Pigs'
+R 0 18473 3 *            Randomize any n, e, s, w exits at 'The Bay of Pigs'
+R 0 18474 3 *            Randomize any n, e, s, w exits at 'The Bay of Pigs'
+R 0 18475 3 *            Randomize any n, e, s, w exits at 'The Bay of Pigs'
+R 0 18476 3 *            Randomize any n, e, s, w exits at 'The Bay of Pigs'
+R 0 18477 3 *            Randomize any n, e, s, w exits at 'The Bay of Pigs'
+R 0 18478 3 *            Randomize any n, e, s, w exits at 'The Bay of Pigs'
+S
+
+
+#SPECIALS
+N 18402 spec_act_on_give 18459 1 18432 -1 -1 * the zombie of Andrew Johnson: when given 'the Articles of Impeachment (token)', give PC 'a "Snubbing the successor" statue'
+N 18409 spec_act_on_give 18456 0 18481 -1 -1 * the zombie of Benjamin Harrison: when given 'Grandpa's favorite chair', transfer PC to 'William Henry Harrison’s White House'
+N 18410 spec_act_on_give 18452 0 18480 -1 -1 * the zombie of Richard Nixon: when given 'Plumbers' tools (token)', transfer PC to 'A Room at the Watergate Hotel'
+N 18412 spec_act_on_give 18450 1 18451 -1 -1 * the zombie of Herbert Hoover: when given 'a stock market ticker tape with the line dropping steeply (token)', give PC 'the engineering plans for Boulder Dam'
+N 18415 spec_act_on_give 18448 1 18449 -1 -1 * the zombie of Gerald Ford: when given 'an award for only VP and president not elected to either office (token)', give PC 'Richard Nixon's full presidential pardon'
+N 18418 spec_act_on_give 18445 1 18446 -1 -1 * the zombie of William Howard Taft: when given 'some Chief Justice robes (token)', give PC 'a big bag of almonds'
+N 18421 spec_act_on_give 18441 0 18484 -1 -1 * the zombie of John Quincy Adams: when given 'daddy’s favorite chair (token)', transfer PC to 'John Adams’ White House'
+N 18422 spec_act_on_give 18438 1 18439 -1 -1 * the zombie of Ronald Reagan: when given 'a handful of Jelly Beans (token)', give PC 'a Screen Actors Guild President name tag'
+N 18424 spec_act_on_give 18412 1 18436 -1 -1 * the zombie of James Monroe: when given 'a Founding Father statue (token)', give PC 'a copy of "The Monroe Doctrine"'
+N 18425 spec_act_on_give 18433 1 18434 -1 -1 * the zombie of James Madison: when given 'a copy of "The Federalist Papers" (token)', give PC 'a copy of "The Bill of Rights"'
+N 18426 spec_act_on_give 18431 1 18412 -1 -1 * the zombie of John Adams: when given 'the "First Vice-President" badge (token)', give PC 'a Founding Father statue (token)'
+N 18427 spec_act_on_give 18430 0 18470 -1 -1 * the zombie of John F. Kennedy: when given 'some invasion plans for Cuba (token)', transfer PC to 'Entrance to the Bay of Pigs'
+N 18429 spec_act_on_give 18425 1 18426 -1 -1 * the zombie of Dwight D. Eisenhower: when given 'some "5 Star General" stars (token)', give PC 'the "Veteran’s Day" proclamation'
+N 18431 spec_act_on_give 18422 1 18495 -1 -1 * the zombie of Harry S. Truman: when given 'an atomic bomb (token)', give PC 'a small replica of the United Nations building'
+N 18432 spec_act_on_give 18418 1 18419 -1 -1 * the zombie of Woodrow Wilson: when given 'a "League of Nations" charter', give PC 'a Nobel Peace Prize'
+N 18433 spec_act_on_give 18415 1 18416 -1 -1 * the zombie of Theodore Roosevelt: when given 'a teddy bear (token)', give PC 'a "Rough Riders" saddle'
+N 18434 spec_act_on_give 18413 1 18412 -1 -1 * the zombie of Thomas Jefferson: when given 'a contract for the Louisiana Purchase (token)', give PC 'a Founding Father statue (token)'
+N 18435 spec_act_on_give 18408 0 18400 -1 -1 * the zombie of George Washington: when given 'a "general of the armies" rank insignia (token)', transfer PC to 'Mount Rush More Entrance'
+N 18436 spec_act_on_give 18404 0 18469 -1 -1 * the zombie of Franklin D. Roosevelt: when given 'a copy of the World War II declaration of war (token)', transfer PC to 'Pearl Harbor'
+N 18437 spec_act_on_give 18400 1 18401 -1 -1 * the zombie of Abraham Lincoln: when given 'a copy of "The Gettysburg Address" (token)', give PC 'a pair of broken slave manacles'
+N 18438 spec_act_on_give 18465 0 18483 -1 -1 * Jimmy Carter: when given 'a newspaper reporting the "Iran Hostage Crisis" (token)', transfer PC to 'Reagan White House'
+N 18439 spec_act_on_give 18460 1 18428 -1 -1 * George H. W. Bush: when given 'the "Thousand Points of Light" speech (token)', give PC 'an honorary knighthood'
+N 18440 spec_act_on_give 18464 1 18459 -1 -1 * Bill Clinton: when given 'some knee pads (token)', give PC 'the Articles of Impeachment (token)'
+N 18441 spec_act_on_give 18463 1 18441 -1 -1 * George W. Bush: when given 'a replica of the Twin Towers', give PC 'daddy’s favorite chair (token)'
+N 18442 spec_act_on_give 18461 1 18462 -1 -1 * Barack Obama: when given 'SEAL team strike plans (token)', give PC 'the corpse of Osama bin Laden'
+M 18450 spec_no_hunt * the master sculpter
+M 18451 spec_no_hunt * an impatient tourist
+S
+
+#$
+

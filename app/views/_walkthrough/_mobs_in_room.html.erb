@@ -1,0 +1,5 @@
+<% if @area.resets.where(reset_type: ['M', 'Q']).where(val_4: @room.id).count > 0 %><%
+@area.resets.order(:val_2).where(reset_type: ['M', 'Q']).where(val_4: @room.id).each do |reset| %><% if Mobile.exists?(:id => reset.obj_id) %><a
+href="#" onclick="toggleLook(<%= reset.id %>)"><%= mobile_room_view(reset.mobile_id) %></a>  <font color=#505050>[<a
+href="#" onclick="togglePoke(<%= reset.id %>)"><font color=#505050>poke</font></a>] </font><%= render '_walkthrough/reset_in_room', :reset => reset %>
+<% end %><% end %><% end %>
