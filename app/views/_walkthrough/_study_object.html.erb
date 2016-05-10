@@ -3,4 +3,5 @@
 <font color=silver><%= obj.ldesc %><% obj.oxdescs.each do |oxdesc| %>
 
 <%= word_wrap("« #{oxdesc.keywords} »", line_width: WORDWRAP_LENGTH) %>
-<%= word_wrap(oxdesc.description, line_width: WORDWRAP_LENGTH) %><% end %></font></span>
+<%= word_wrap(oxdesc.description, line_width: WORDWRAP_LENGTH) %><% end %></font>
+</span>

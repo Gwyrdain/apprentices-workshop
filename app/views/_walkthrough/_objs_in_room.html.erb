@@ -1,6 +1,7 @@
 <% if @area.resets.where(reset_type: 'O').where(val_4: @room.id).count > 0 %><%
-@area.resets.order(:val_2).where(reset_type: 'O').where(val_4: @room.id).each do |reset| %><% if Obj.exists?(:id => reset.obj_id) %><a
-href="#" onclick="toggleLookIn(<%= reset.id %>)"><%= obj_room_view(reset.obj_id) %></a>  <font color=#505050>[<a
-href="#" onclick="toggleStudy(<%= reset.id %>)"><font color=#505050>study</font></a>] </font><%=
+@area.resets.order(:val_2).where(reset_type: 'O').where(val_4: @room.id).each do |reset| %><% if Obj.exists?(:id => reset.obj_id) %><%
+obj = Obj.find(reset.obj_id) %><a href="#" onclick="toggleLookIn(<%= reset.id %>)"><%=
+obj_room_view(reset.obj_id) %></a> <%=
+render '_walkthrough/obj_options', :obj => obj, :reset => reset %><%=
 render '_walkthrough/reset_in_room', :reset => reset %>
 <% end %><% end %><% end %>

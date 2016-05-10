@@ -1,6 +1,6 @@
-<div id=<%= "\"#{reset.id}_poke\"".html_safe %> hidden='hidden'><% mobile = Mobile.find(reset.mobile_id) %><font color=yellow>poke <%= mobile.keywords.slice(/\w+/) %></font>
+<div id=<%= "\"#{reset.id}_poke\"".html_safe %> hidden='hidden'><% mobile = Mobile.find(reset.mobile_id) %><font color=yellow>interrogate <%= mobile.keywords.slice(/\w+/) %></font>
 
-<font color=silver>You poke <%= mobile.sdesc %> in the ribs.
+<font color=silver>You interrogate <%= mobile.sdesc %>.
 
 <%= word_wrap("#{mobile.sdesc.humanize} says 'Hello, let me tell you about myself'.", line_width: WORDWRAP_LENGTH ) %>
 
