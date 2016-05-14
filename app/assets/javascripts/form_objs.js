@@ -271,8 +271,47 @@ $(function() {
     })
 });
 
+$(function() {
+  $('#obj_evil').change(function() {
+    setFormattedLdesc();
+  })
+});
 
+$(function() {
+  $('#obj_good').change(function() {
+    setFormattedLdesc();
+  })
+});
 
+$(function() {
+  $('#obj_invis').change(function() {
+    setFormattedLdesc();
+  })
+});
+
+$(function() {
+  $('#obj_hum').change(function() {
+    setFormattedLdesc();
+  })
+});
+
+$(function() {
+  $('#obj_glow').change(function() {
+    setFormattedLdesc();
+  })
+});
+
+$(function() {
+  $('#obj_magic').change(function() {
+    setFormattedLdesc();
+  })
+});
+
+$(function() {
+  $('#obj_ldesc').keyup(function() {
+    setFormattedLdesc();
+  })
+});
 
 //  --=={ INITIALIZE THE OBJECTS FORM FOR VISIBLE VS HIDDEN }==-
 
@@ -439,9 +478,22 @@ function setKeyValueOptions() {
   }
 }
 
+function setFormattedLdesc() {
+  var text = $( '#obj_ldesc' ).val();
+  if ($('#obj_evil').is(':checked') == true) text = "(Red Aura) " + text;
+  if ($('#obj_good').is(':checked') == true) text = "(Blue Aura) " + text;
+  if ($('#obj_invis').is(':checked') == true) text = "(Invis) " + text;
+  if ($('#obj_hum').is(':checked') == true) text = "(Humming) " + text;
+  if ($('#obj_glow').is(':checked') == true) text = "(Glowing) " + text;
+  if ($('#obj_magic').is(':checked') == true) text = "(Magical) " + text;
+  $('#formatted_ldesc').val(text);
+
+}
 
 function initObjForm() {
   setObjValues();
   setLightValueOptions();
   setKeyValueOptions();
+  setFormattedLdesc();
+  $('input').attr('autocomplete','off');
 }

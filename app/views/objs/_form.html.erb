@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  
+
   <% if params[:return_to_room] %><input name="return_to_room" type="hidden" value="<%= params[:return_to_room] %>" /><% end %>
 
   <div class="form-group">
@@ -19,29 +19,30 @@
       <%= f.text_field :vnum, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :keywords, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :keywords, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :sdesc, 'Short description', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :sdesc, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :ldesc, 'Long description', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= ruler %>
       <%= f.text_field :ldesc, :class => 'text_field form-control' %>
+      <%= ruler %>
+      <textarea id="formatted_ldesc" class="text_field form-control" rows="1" disabled="disabled"></textarea>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :object_type, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -77,7 +78,7 @@
         ), {}, {class: "form-control"}) %>
     </div>
   </div>
-  
+
   <%= render 'objs/formobjvalues', :f => f %>
 
   <div class="form-group">
@@ -93,22 +94,22 @@
           <%= f.check_box :glow, {:checked => @obj.glow? ? true : false} %>
           <%= f.label :glow, 'glow'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
-        
+
         <div class="check_box col-md-2">
           <%= f.check_box :hum, {:checked => @obj.hum? ? true : false} %>
           <%= f.label :hum, 'hum'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
-        
+
         <div class="check_box col-md-2">
           <%= f.check_box :evil, {:checked => @obj.evil? ? true : false} %>
           <%= f.label :evil, 'evil'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
-        
+
         <div class="check_box col-md-2">
           <%= f.check_box :invis, {:checked => @obj.invis? ? true : false} %>
           <%= f.label :invis, 'invis'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
-        
+
         <div class="check_box col-md-2">
 
           <% if @obj.applies.count > 0 %>
@@ -120,82 +121,82 @@
 
           <%= f.label :magic, 'magic'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
-        
+
         <div class="check_box col-md-2">
           <%= f.check_box :nodrop, {:checked => @obj.nodrop? ? true : false} %>
           <%= f.label :nodrop, 'nodrop'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
-        
+
         <div class="check_box col-md-2">
           <%= f.check_box :anti_good, {:checked => @obj.anti_good? ? true : false} %>
           <%= f.label :anti_good, 'anti_good'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
-        
+
         <div class="check_box col-md-2">
           <%= f.check_box :anti_evil, {:checked => @obj.anti_evil? ? true : false} %>
           <%= f.label :anti_evil, 'anti_evil'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
-        
+
         <div class="check_box col-md-2">
           <%= f.check_box :anti_neutral, {:checked => @obj.anti_neutral? ? true : false} %>
           <%= f.label :anti_neutral, 'anti_neutral'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
-        
+
         <div class="check_box col-md-2">
           <%= f.check_box :noremove, {:checked => @obj.noremove? ? true : false} %>
           <%= f.label :noremove, 'noremove'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
-        
+
         <div class="check_box col-md-2">
           <%= f.check_box :inventory, {:checked => @obj.inventory? ? true : false} %>
           <%= f.label :inventory, 'inventory'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
-        
+
         <div class="check_box col-md-2">
           <%= f.check_box :metallic, {:checked => @obj.metallic? ? true : false} %>
           <%= f.label :metallic, 'metallic'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
-        
+
         <div class="check_box col-md-2">
           <%= f.check_box :good, {:checked => @obj.good? ? true : false} %>
           <%= f.label :good, 'good'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
-        
+
         <div class="check_box col-md-2">
           <%= f.check_box :not_purgable, {:checked => @obj.not_purgable? ? true : false} %>
           <%= f.label :not_purgable, 'not_purgable'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
-        
+
         <div class="check_box col-md-2">
           <%= f.check_box :flammable, {:checked => @obj.flammable? ? true : false} %>
           <%= f.label :flammable, 'flammable'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
-        
+
         <div class="check_box col-md-2">
           <%= f.check_box :two_handed, {:checked => @obj.two_handed? ? true : false} %>
           <%= f.label :two_handed, 'two_handed'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
-        
+
         <div class="check_box col-md-2">
           <%= f.check_box :use_cost, {:checked => @obj.use_cost? ? true : false} %>
           <%= f.label :use_cost, 'use_cost'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
-        
+
         <div class="check_box col-md-2">
           <%= f.check_box :anti_unalign, {:checked => @obj.anti_unalign? ? true : false} %>
           <%= f.label :anti_unalign, 'anti_unalign'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
-        
+
         <div class="check_box col-md-2">
           <%= f.check_box :neutral, {:checked => @obj.neutral? ? true : false} %>
           <%= f.label :neutral, 'neutral'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
-        
+
         <div class="check_box col-md-2">
           <%= f.check_box :no_hoard, {:checked => @obj.no_hoard? ? true : false} %>
           <%= f.label :no_hoard, 'no_hoard'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
-        
+
         <div class="check_box col-md-2">
           <%= f.check_box :masked, {:checked => @obj.masked? ? true : false} %>
           <%= f.label :masked, 'masked'.humanize.upcase, :class => 'control-label non-bold' %>
@@ -206,7 +207,7 @@
           <%= f.label :underwater_breath, 'Underwater breath'.upcase, :class => 'control-label non-bold' %>
         </div>
 
-    </div>  
+    </div>
   </div>
 
   <div class="form-group">
@@ -230,18 +231,18 @@
             ['WORN AS WIELD', 8192],
             ['WORN AS HOLD', 16384],
             ['WORN AS DECORATION', 32768]
-          ], (@obj.takeable? ? (@obj.wear_flags - 1) : @obj.wear_flags)               
+          ], (@obj.takeable? ? (@obj.wear_flags - 1) : @obj.wear_flags)
         ), {}, {class: "form-control"}) %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :weight, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :weight, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :cost, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
