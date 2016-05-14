@@ -118,7 +118,11 @@ class ResetsController < ApplicationController
         redirect_to area_mobile_path(@area, params[:return_to_mobile]), notice: message if params[:return_to_mobile]
         redirect_to area_obj_path(@area, params[:return_to_obj]), notice: message if params[:return_to_obj]
       else
-        redirect_to area_resets_path(@area), notice: message
+        if !@reset.orphan || @reset.first_ancestor
+          redirect_to area_reset_path(@area, @reset.first_ancestor), notice: message
+        else
+          redirect_to area_reset_path(@area, @reset), notice: message
+        end
       end
     else
       render action: 'new'
@@ -134,7 +138,11 @@ class ResetsController < ApplicationController
         redirect_to area_mobile_path(@area, params[:return_to_mobile]), notice: message if params[:return_to_mobile]
         redirect_to area_obj_path(@area, params[:return_to_obj]), notice: message if params[:return_to_obj]
       else
-        redirect_to area_resets_path(@area), notice: message
+        if !@reset.orphan || @reset.first_ancestor
+          redirect_to area_reset_path(@area, @reset.first_ancestor), notice: message
+        else
+          redirect_to area_reset_path(@area, @reset), notice: message
+        end
       end
     else
       render action: 'edit'
@@ -152,7 +160,11 @@ class ResetsController < ApplicationController
         redirect_to area_mobile_path(@area, params[:return_to_mobile]), notice: message if params[:return_to_mobile]
         redirect_to area_obj_path(@area, params[:return_to_obj]), notice: message if params[:return_to_obj]
       else
-        redirect_to area_resets_path(@area), notice: message
+        if !@reset.orphan || @reset.first_ancestor
+          redirect_to area_reset_path(@area, @reset.first_ancestor), notice: message
+        else
+          redirect_to area_resets_path(@area), notice: message
+        end
       end
     else
       redirect_to area_resets_path(@area), notice: 'Something went wrong.'

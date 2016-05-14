@@ -9,7 +9,7 @@
   <tbody>
     <% given_resets.each do |reset| %>
       <tr>
-        <% if show_type %><td><%= reset.desc_brief %></td><% end %>
+        <% if show_type %><td><%= link_to reset.desc_brief, area_reset_path(@area, reset) %></td><% end %>
         <td>
           <% if reset.reset_type == 'I' || reset.reset_type == 'P' %>
             <%= 'Put' if reset.reset_type == 'P' %><%= 'Insert' if reset.reset_type == 'I' %>

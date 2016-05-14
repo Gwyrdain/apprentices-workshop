@@ -7,7 +7,7 @@
     </h5>
   </div>
   <div class="panel-body">
-    
+
     <div class="row">
       <div class="col-md-2">
         <strong>Reset type:</strong>
@@ -18,7 +18,7 @@
         </div>
       </div>
     </div><br/>
-    
+
     <div class="row">
       <div class="col-md-2">
         <strong>
@@ -35,7 +35,7 @@
         </div>
       </div>
     </div><br/>
-    
+
     <div class="row">
       <div class="col-md-2">
         <strong>
@@ -52,7 +52,7 @@
         </div>
       </div>
     </div><br/>
-    
+
     <div class="row">
       <div class="col-md-2">
         <strong>
@@ -69,19 +69,19 @@
         </div>
       </div>
     </div><br/>
-    
+
     <%= render 'resets/sub_resetstable', :reset => @reset %>
 
-    
+
     <% if @area.show_formatted_blocks? %>
       <strong class="monospace">Formatted Reset:</strong>
       <p>
           <pre><%= render 'resets/resetblock', :reset => @reset %></pre>
       </p>
     <% end %>
-    
+
     </div>
-      
+
     <div class="panel-footer">
       <%= link_to t('.back', :default => t("helpers.links.back")),
                   area_resets_path(@area), :class => 'btn btn-default'  %>
@@ -92,7 +92,31 @@
                   :method => 'delete',
                   :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                   :class => 'btn btn-danger' %>
+      <div class="pull-right">
+        <% if @reset.reset_type == 'O' && @reset.is_container %>
+          <%= link_to 'Put', new_area_reset_path(@area, @reset,
+                      :reset_type => 'P',
+                      :parent_type => 'reset',
+                      :parent_id => @reset.id ),
+                      :class => 'btn btn-primary' %>
+          <%= link_to 'Insert', new_area_reset_path(@area, @reset,
+                      :reset_type => 'I',
+                      :parent_type => 'reset',
+                      :parent_id => @reset.id ),
+                      :class => 'btn btn-primary' %>
+        <% end %>
+        <% if @reset.reset_type == 'M' || @reset.reset_type == 'Q' %>
+          <%= link_to 'Give', new_area_reset_sub_reset_path(@area, @reset,
+                      :reset_type => 'G' ),
+                      :class => 'btn btn-primary' %>
+          <% if mobile_info(@reset.val_2, 'can_wear?') %>
+            <%= link_to 'Equip', new_area_reset_sub_reset_path(@area, @reset,
+                        :reset_type => 'E' ),
+                        :class => 'btn btn-primary' %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
-  
+
 </div>
 
