@@ -134,7 +134,7 @@
       </ul>
     </div>
   <% end %>
-  
+
   <% if params[:return_to_room] %><input name="return_to_room" type="hidden" value="<%= params[:return_to_room] %>" /><% end %>
 
   <div class="form-group">
@@ -159,6 +159,7 @@
     <%= f.label :ldesc, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :ldesc, :class => 'text_field form-control' %>
+      <textarea id="formatted_ldesc" class="text_field form-control" rows="1" disabled="disabled"></textarea>
     </div>
   </div>
   <div class="form-group">
@@ -167,7 +168,7 @@
       <%= ruler %><%= f.text_area :look_desc, :class => 'text_field form-control', rows: 10 %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :act_flags, 'Action flags', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -176,110 +177,110 @@
         <%= f.check_box :sentinel, {:checked => @mobile.sentinel? ? true : false} %>
         <%= f.label :sentinel, 'sentinel'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :scavenger, {:checked => @mobile.scavenger? ? true : false} %>
         <%= f.label :scavenger, 'scavenger'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :plant, {:checked => @mobile.plant? ? true : false} %>
         <%= f.label :plant, 'plant'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :aggressive, {:checked => @mobile.aggressive? ? true : false} %>
         <%= f.label :aggressive, 'aggressive'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :stay_area, {:checked => @mobile.stay_area? ? true : false} %>
         <%= f.label :stay_area, 'stay_area'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :wimpy, {:checked => @mobile.wimpy? ? true : false} %>
         <%= f.label :wimpy, 'wimpy'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :train, {:checked => @mobile.train? ? true : false} %>
         <%= f.label :train, 'train'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :practice, {:checked => @mobile.practice? ? true : false} %>
         <%= f.label :practice, 'practice'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :super_wimpy, {:checked => @mobile.super_wimpy? ? true : false} %>
         <%= f.label :super_wimpy, 'super_wimpy'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :assist_same, {:checked => @mobile.assist_same? ? true : false} %>
         <%= f.label :assist_same, 'assist_same'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :assist, {:checked => @mobile.assist? ? true : false} %>
         <%= f.label :assist, 'assist'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :assist_always, {:checked => @mobile.assist_always? ? true : false} %>
         <%= f.label :assist_always, 'assist_always'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :swim, {:checked => @mobile.swim? ? true : false} %>
         <%= f.label :swim, 'swim'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :water_only, {:checked => @mobile.water_only? ? true : false} %>
         <%= f.label :water_only, 'water_only'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :animal, {:checked => @mobile.animal? ? true : false} %>
         <%= f.label :animal, 'animal'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :no_wear_eq, {:checked => @mobile.no_wear_eq? ? true : false} %>
         <%= f.label :no_wear_eq, 'no_wear_eq'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :no_corpse, {:checked => @mobile.no_corpse? ? true : false} %>
         <%= f.label :no_corpse, 'no_corpse'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :fireproof, {:checked => @mobile.fireproof? ? true : false} %>
         <%= f.label :fireproof, 'fireproof'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :intelligent, {:checked => @mobile.intelligent? ? true : false} %>
         <%= f.label :intelligent, 'intelligent'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :cloaked, {:checked => @mobile.cloaked? ? true : false} %>
         <%= f.label :cloaked, 'cloaked'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :no_random_eq, {:checked => @mobile.no_random_eq? ? true : false} %>
         <%= f.label :no_random_eq, 'no_random_eq'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
-    </div>  
+
+    </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :affect_flags, 'Affect flags', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -288,135 +289,135 @@
         <%= f.check_box :blind, {:checked => @mobile.blind? ? true : false} %>
         <%= f.label :blind, 'blind'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :invisible, {:checked => @mobile.invisible? ? true : false} %>
         <%= f.label :invisible, 'invisible'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :detect_evil, {:checked => @mobile.detect_evil? ? true : false} %>
         <%= f.label :detect_evil, 'detect_evil'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :detect_invis, {:checked => @mobile.detect_invis? ? true : false} %>
         <%= f.label :detect_invis, 'detect_invis'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :detect_magic, {:checked => @mobile.detect_magic? ? true : false} %>
         <%= f.label :detect_magic, 'detect_magic'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :detect_hidden, {:checked => @mobile.detect_hidden? ? true : false} %>
         <%= f.label :detect_hidden, 'detect_hidden'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :detect_good, {:checked => @mobile.detect_good? ? true : false} %>
         <%= f.label :detect_good, 'detect_good'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :sanctuary, {:checked => @mobile.sanctuary? ? true : false} %>
         <%= f.label :sanctuary, 'sanctuary'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :faerie_fire, {:checked => @mobile.faerie_fire? ? true : false} %>
         <%= f.label :faerie_fire, 'faerie_fire'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :infrared, {:checked => @mobile.infrared? ? true : false} %>
         <%= f.label :infrared, 'infrared'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :curse, {:checked => @mobile.curse? ? true : false} %>
         <%= f.label :curse, 'curse'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :no_steal, {:checked => @mobile.no_steal? ? true : false} %>
         <%= f.label :no_steal, 'no_steal'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :poison, {:checked => @mobile.poison? ? true : false} %>
         <%= f.label :poison, 'poison'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :protect_from_evil, {:checked => @mobile.protect_from_evil? ? true : false} %>
         <%= f.label :protect_from_evil, 'protect_from_evil'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :protect_from_good, {:checked => @mobile.protect_from_good? ? true : false} %>
         <%= f.label :protect_from_good, 'protect_from_good'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :sneak, {:checked => @mobile.sneak? ? true : false} %>
         <%= f.label :sneak, 'sneak'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :hide, {:checked => @mobile.hide? ? true : false} %>
         <%= f.label :hide, 'hide'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :sleep, {:checked => @mobile.sleep? ? true : false} %>
         <%= f.label :sleep, 'sleep'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :charm, {:checked => @mobile.charm? ? true : false} %>
         <%= f.label :charm, 'charm'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :flying, {:checked => @mobile.flying? ? true : false} %>
         <%= f.label :flying, 'flying'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :passdoor, {:checked => @mobile.passdoor? ? true : false} %>
         <%= f.label :passdoor, 'passdoor'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :no_trace, {:checked => @mobile.no_trace? ? true : false} %>
         <%= f.label :no_trace, 'no_trace'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :no_sleep, {:checked => @mobile.no_sleep? ? true : false} %>
         <%= f.label :no_sleep, 'no_sleep'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :no_summon, {:checked => @mobile.no_summon? ? true : false} %>
         <%= f.label :no_summon, 'no_summon'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :no_charm, {:checked => @mobile.no_charm? ? true : false} %>
         <%= f.label :no_charm, 'no_charm'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-3">
         <%= f.check_box :improved_invis, {:checked => @mobile.improved_invis? ? true : false} %>
         <%= f.label :improved_invis, 'improved_invis'.humanize.upcase, :class => 'control-label non-bold' %>
       </div>
-      
-    </div>  
+
+    </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label 'Alignment', :class => 'control-label col-md-2' %>
     <div class="col-md-2">
@@ -435,14 +436,14 @@
       </label>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :level, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :level, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label 'Sex', :class => 'control-label col-md-2' %>
     <div class="col-md-2">
@@ -461,7 +462,7 @@
       </label>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :langs_known, 'Languages Known', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -470,90 +471,90 @@
         <%= f.check_box :common, {:checked => @mobile.common? ? true : false} %>
         <%= f.label :common, 'common'.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :dwarven, {:checked => @mobile.dwarven? ? true : false} %>
         <%= f.label :dwarven, 'dwarven'.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :elven, {:checked => @mobile.elven? ? true : false} %>
         <%= f.label :elven, 'elven'.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :gnomish, {:checked => @mobile.gnomish? ? true : false} %>
         <%= f.label :gnomish, 'gnomish'.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :halfling, {:checked => @mobile.halfling? ? true : false} %>
         <%= f.label :halfling, 'halfling'.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :aarakocra, {:checked => @mobile.aarakocra? ? true : false} %>
         <%= f.label :aarakocra, 'aarakocra'.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :giant, {:checked => @mobile.giant? ? true : false} %>
         <%= f.label :giant, 'giant'.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :minotaur, {:checked => @mobile.minotaur? ? true : false} %>
         <%= f.label :minotaur, 'minotaur'.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :ogre, {:checked => @mobile.ogre? ? true : false} %>
         <%= f.label :ogre, 'ogre'.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :thoras, {:checked => @mobile.thoras? ? true : false} %>
         <%= f.label :thoras, 'thoras'.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :goblin, {:checked => @mobile.goblin? ? true : false} %>
         <%= f.label :goblin, 'goblin'.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :drow, {:checked => @mobile.drow? ? true : false} %>
         <%= f.label :drow, 'drow'.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :kobold, {:checked => @mobile.kobold? ? true : false} %>
         <%= f.label :kobold, 'kobold'.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :orc, {:checked => @mobile.orc? ? true : false} %>
         <%= f.label :orc, 'orc'.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :troll, {:checked => @mobile.troll? ? true : false} %>
         <%= f.label :troll, 'troll'.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :sahaguin, {:checked => @mobile.sahaguin? ? true : false} %>
         <%= f.label :sahaguin, 'sahaguin'.upcase, :class => 'control-label non-bold' %>
       </div>
-      
+
       <div class="check_box col-md-2">
         <%= f.check_box :god, {:checked => @mobile.god? ? true : false} %>
         <%= f.label :god, 'god'.upcase, :class => 'control-label non-bold' %>
       </div>
 
-    </div>  
+    </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :lang_spoken, 'Language Spoken', :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -581,7 +582,7 @@
         ), {}, {class: "form-control"}) %>
     </div>
   </div>
-  
+
   <% if @mobile.specials.count > 0 %>
     <% if @mobile.specials.first.name == 'spec_one_spell' %>
       <div class="form-group">
@@ -592,7 +593,7 @@
       </div>
     <% else %><%= f.hidden_field :spell, :value => '' %><% end %>
   <% else %><%= f.hidden_field :spell, :value => '' %><% end %>
-  
+
 
 
   <div class="form-group">
@@ -602,4 +603,10 @@
                   area_mobiles_path(@area), :class => 'btn btn-default' %>
     </div>
   </div>
+
+<script type = "text/javascript">
+  initMobileForm();
+</script>
+
+
 <% end %>

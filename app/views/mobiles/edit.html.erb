@@ -1,7 +1,7 @@
 <%- model_class = Mobile -%>
 
 <div class="panel panel-default monospace">
-    
+
   <div class="panel-heading">
     <%= render 'areas/quick_links', :model_class => model_class %>
     <h5>
@@ -9,13 +9,15 @@
     </h5>
   </div>
 
+    <div class="panel-body">
+
         <%= render 'form' %>
-    
+
     </div>
-    
+
     <div class="panel-footer">
         <%= link_to 'Show', area_mobile_path(@area, @mobile) %> |
         <%= link_to 'Back', area_mobiles_path(@area) %>
     </div>
-    
+
 </div>
