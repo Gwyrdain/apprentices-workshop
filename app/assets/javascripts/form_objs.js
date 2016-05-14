@@ -267,6 +267,7 @@ $(function() {
       validUnderwaterBreath();
       validWeight();
       validUseCost();
+      addMagicFlag();
 
     })
 });
@@ -392,6 +393,20 @@ function setObjValues() {
     $('#obj_wear_flags').val('0');
   }
 
+}
+
+function addMagicFlag() {
+  if( $('#obj_object_type').val() == 2 ||
+      $('#obj_object_type').val() == 3 ||
+      $('#obj_object_type').val() == 4 ||
+      $('#obj_object_type').val() == 7 ||
+      $('#obj_object_type').val() == 10 ||
+      $('#obj_object_type').val() == 26 ||
+      $('#obj_object_type').val() == 29 ||
+      $('#obj_object_type').val() == 33 ) {
+        bootbox.alert('The <strong>MAGIC</strong> flag has been automatically set for this object type.');
+        $('#obj_magic').prop('checked', true);
+  }
 }
 
 function hideItemGroups() {
