@@ -70,6 +70,31 @@
                 obj.object_type == 6 )
               && obj.v2 < 1) %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning">Maximum damage for <%= link_to "#{obj.formal_vnum} #{obj.sdesc}", area_obj_path(@area, obj) %> should be greater than zero.</li><% end %>
         <% end %>
+        <% if ((obj.object_type == 11 ||
+                obj.object_type == 19 )
+              && obj.v0 < 1) %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning">Hours of nourishment for <%= link_to "#{obj.formal_vnum} #{obj.sdesc}", area_obj_path(@area, obj) %> should be greater than zero.</li><% end %>
+        <% end %>
+        <% if ((obj.object_type == 20 )
+              && obj.v0 < 1) %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning"><%= link_to "#{obj.formal_vnum} #{obj.sdesc}", area_obj_path(@area, obj) %> should be worth more than zero gold.</li><% end %>
+        <% end %>
+        <% if ((obj.object_type == 9 ||
+                obj.object_type == 14 )
+              && obj.v0 < 1) %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning">AC for <%= link_to "#{obj.formal_vnum} #{obj.sdesc}", area_obj_path(@area, obj) %> should be greater than zero.</li><% end %>
+        <% end %>
+        <% if ((obj.object_type == 9 ||
+                obj.object_type == 14 )
+              && obj.v1 < 1) %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning">Max AC for <%= link_to "#{obj.formal_vnum} #{obj.sdesc}", area_obj_path(@area, obj) %> should be greater than zero.</li><% end %>
+        <% end %>
+        <% if ((obj.object_type == 15 )
+              && obj.v0 < 1) %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning"><%= link_to "#{obj.formal_vnum} #{obj.sdesc}", area_obj_path(@area, obj) %> should be have a hold weight of greater than zero.</li><% end %>
+        <% end %>
+        <% if ((obj.object_type == 17 )
+              && obj.v0 < 1) %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning"><%= link_to "#{obj.formal_vnum} #{obj.sdesc}", area_obj_path(@area, obj) %> should have a number of drinks greater than zero.</li><% end %>
+        <% end %>
+        <% if ((obj.object_type == 17 )
+              && obj.v1 < 1) %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning"><%= link_to "#{obj.formal_vnum} #{obj.sdesc}", area_obj_path(@area, obj) %> should have more than zero drinks left.</li><% end %>
+        <% end %>
+
 
       <!-- REVIEW RESETS FOR ISSUES -->
       <% @area.resets.where(reset_type: ['I', 'O']).each do |reset| %>
