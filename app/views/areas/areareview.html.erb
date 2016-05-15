@@ -42,12 +42,26 @@
                 obj.object_type == 29 ||
                 obj.object_type == 33 || )
               && obj.v0 < 1) %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning">No spell level was set for <%= link_to "#{obj.formal_vnum} #{obj.sdesc}", area_obj_path(@area, obj) %>.</li><% end %>
-      <% end %>
+        <% end %>
         <% if ((obj.object_type == 2 ||
                 obj.object_type == 10 ||
                 obj.object_type == 26 || )
               && obj.v1 < 1) %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning">No first spell set for <%= link_to "#{obj.formal_vnum} #{obj.sdesc}", area_obj_path(@area, obj) %>.</li><% end %>
-      <% end %>
+        <% end %>
+        <% if ((obj.object_type == 3 ||
+                obj.object_type == 4 ||
+                obj.object_type == 7 ||
+                obj.object_type == 29 ||
+                obj.object_type == 33 || )
+              && obj.v3 < 1) %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning">No spell set for <%= link_to "#{obj.formal_vnum} #{obj.sdesc}", area_obj_path(@area, obj) %>.</li><% end %>
+        <% end %>
+        <% if ((obj.object_type == 3 ||
+                obj.object_type == 4 ||
+                obj.object_type == 7 ||
+                obj.object_type == 29 ||
+                obj.object_type == 33 || )
+              && obj.v1 < 1) %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning">Max charges for <%= link_to "#{obj.formal_vnum} #{obj.sdesc}", area_obj_path(@area, obj) %> should be greater than zero.</li><% end %>
+        <% end %>
 
       <!-- REVIEW RESETS FOR ISSUES -->
       <% @area.resets.where(reset_type: ['I', 'O']).each do |reset| %>
