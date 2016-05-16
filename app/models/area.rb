@@ -213,17 +213,20 @@ class Area < ActiveRecord::Base
     end
   end
 
+  def lowest_vnum()
+    return self.area_number * 100
+  end
+
+  def highest_vnum()
+    return ( self.area_number * 100 ) + self.vnum_qty - 1
+  end
+
   def localize_vnum(vnum)
-
-    lowest_vnum  = self.area_number * 100
-    highest_vnum = ( self.area_number * 100 ) + self.vnum_qty - 1
-
-    if ( vnum >= lowest_vnum && vnum <= highest_vnum )
-      return ( vnum - ( self.area_number* 100 ) )
+    if ( vnum >= self.lowest_vnum && vnum <= self.highest_vnum )
+      return ( vnum - ( self.area_number * 100 ) )
     else
       return vnum # If not localizable return input
     end
-
   end
 
   def self.import(file, parse_only = true)

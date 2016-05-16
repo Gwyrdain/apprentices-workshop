@@ -77,6 +77,28 @@
 
       <div class="row">
         <div class="col-md-2">
+          <strong>Vnum qty assigned:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @area.vnum_qty %>
+          </div>
+        </div>
+      </div><br/>
+
+      <div class="row">
+        <div class="col-md-2">
+          <strong>Vnum range:</strong>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-10">
+            <%= @area.lowest_vnum %> - <%= @area.highest_vnum %>
+          </div>
+        </div>
+      </div><br/>
+
+      <div class="row">
+        <div class="col-md-2">
           <strong>Low Level:</strong>
         </div>
         <div class="col-md-10">
@@ -93,17 +115,6 @@
         <div class="col-md-10">
           <div class="col-md-10">
             <%= @area.highlevel %>
-          </div>
-        </div>
-      </div><br/>
-
-      <div class="row">
-        <div class="col-md-2">
-          <strong>Vnum qty assigned:</strong>
-        </div>
-        <div class="col-md-10">
-          <div class="col-md-10">
-            <%= @area.vnum_qty %>
           </div>
         </div>
       </div><br/>
