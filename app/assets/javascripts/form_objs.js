@@ -274,43 +274,43 @@ $(function() {
 
 $(function() {
   $('#obj_evil').change(function() {
-    setFormattedLdesc();
+    setFormattedObjLdesc();
   })
 });
 
 $(function() {
   $('#obj_good').change(function() {
-    setFormattedLdesc();
+    setFormattedObjLdesc();
   })
 });
 
 $(function() {
   $('#obj_invis').change(function() {
-    setFormattedLdesc();
+    setFormattedObjLdesc();
   })
 });
 
 $(function() {
   $('#obj_hum').change(function() {
-    setFormattedLdesc();
+    setFormattedObjLdesc();
   })
 });
 
 $(function() {
   $('#obj_glow').change(function() {
-    setFormattedLdesc();
+    setFormattedObjLdesc();
   })
 });
 
 $(function() {
   $('#obj_magic').change(function() {
-    setFormattedLdesc();
+    setFormattedObjLdesc();
   })
 });
 
 $(function() {
   $('#obj_ldesc').keyup(function() {
-    setFormattedLdesc();
+    setFormattedObjLdesc();
   })
 });
 
@@ -493,7 +493,7 @@ function setKeyValueOptions() {
   }
 }
 
-function setFormattedLdesc() {
+function setFormattedObjLdesc() {
   var text = $( '#obj_ldesc' ).val();
   if ($('#obj_evil').is(':checked') == true) text = "(Red Aura) " + text;
   if ($('#obj_good').is(':checked') == true) text = "(Blue Aura) " + text;
@@ -509,6 +509,6 @@ function initObjForm() {
   setObjValues();
   setLightValueOptions();
   setKeyValueOptions();
-  setFormattedLdesc();
+  setFormattedObjLdesc();
   $('input').attr('autocomplete','off');
 }

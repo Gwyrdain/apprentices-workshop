@@ -5,67 +5,67 @@
 
 $(function() {
   $('#mobile_ldesc').keyup(function() {
-    setFormattedLdesc();
+    setFormattedMobileLdesc();
   })
 });
 
 $(function() {
   $('#mobile_alignment_0').change(function() {
-    setFormattedLdesc();
+    setFormattedMobileLdesc();
   })
 });
 
 $(function() {
   $('#mobile_alignment_-1000').change(function() {
-    setFormattedLdesc();
+    setFormattedMobileLdesc();
   })
 });
 
 $(function() {
   $('#mobile_alignment_1000').change(function() {
-    setFormattedLdesc();
+    setFormattedMobileLdesc();
   })
 });
 
 $(function() {
   $('#mobile_invisible').change(function() {
-    setFormattedLdesc();
+    setFormattedMobileLdesc();
   })
 });
 
 $(function() {
   $('#mobile_improved_invis').change(function() {
-    setFormattedLdesc();
+    setFormattedMobileLdesc();
   })
 });
 
 $(function() {
   $('#mobile_hide').change(function() {
-    setFormattedLdesc();
+    setFormattedMobileLdesc();
   })
 });
 
 $(function() {
   $('#mobile_sanctuary').change(function() {
-    setFormattedLdesc();
+    setFormattedMobileLdesc();
   })
 });
 
 $(function() {
   $('#mobile_faerie_fire').change(function() {
-    setFormattedLdesc();
+    setFormattedMobileLdesc();
   })
 });
 
 $(function() {
   $('#mobile_passdoor').change(function() {
-    setFormattedLdesc();
+    setFormattedMobileLdesc();
   })
 });
 
 //  --=={ INITIALIZE THE OBJECTS FORM FOR VISIBLE VS HIDDEN }==-
 
-function setFormattedLdesc() {
+function setFormattedMobileLdesc() {
   var text = $( '#mobile_ldesc' ).val();
   if ($('#mobile_passdoor').is(':checked') == true) text = "(Translucent) " + text;
   if ($('#mobile_faerie_fire').is(':checked') == true) text = "(Pink Aura) " + text;
@@ -79,6 +79,6 @@ function setFormattedLdesc() {
 }
 
 function initMobileForm() {
-  setFormattedLdesc();
+  setFormattedMobileLdesc();
   $('input').attr('autocomplete','off');
 }
