@@ -1,5 +1,5 @@
 <h3>
-  <%= link_to @area.name, area_path(@area) %>
+  <%= link_to "#{@area.name} (Rev. #{@area.revision})", area_path(@area) %>
   <% if model_class.model_name == 'Area' %>
     <%= link_to edit_area_path(@area), :class => 'btn btn-xs', :title => "#{ t('.edit', :default => t('helpers.links.edit')) }" do %>
       <%= glyph 'pencil' %>
