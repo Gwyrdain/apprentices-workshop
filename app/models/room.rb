@@ -210,6 +210,7 @@ class Room < ActiveRecord::Base
     $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }NO_QUEST" if self.no_quest
     $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }NO_ITEM" if self.no_item
     $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }NO_VNUM" if self.no_vnum
+    $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }UNKNOWN_FLAG(S)" if self.unknown_room_flags > 0
     return $flags_string
   end
 
