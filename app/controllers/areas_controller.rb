@@ -135,7 +135,7 @@ class AreasController < ApplicationController
                                    :description, :lowlevel, :highlevel,
                                    :file, :use_rulers, :flags, :installed,
                                    :show_formatted_blocks, :revision,
-                                   :parse_only
+                                   :parse_only, :guild
                                   )
     end
 end

@@ -160,6 +160,10 @@
           <%= f.label :indoors, 'indoors'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
+          <%= f.check_box :guild, {:checked => @area.guild? ? true : false} %>
+          <%= f.label :guild, 'guild'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        <div class="check_box col-md-2">
           <%= f.check_box :foggy, {:checked => @area.foggy? ? true : false} %>
           <%= f.label :foggy, 'foggy'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>

@@ -47,7 +47,7 @@ class Area < ActiveRecord::Base
                 2**1 =>  :no_sleep,      # Dec:          2 / Hex:         2
                 2**2 =>  :no_mob,        # Dec:          4 / Hex:         4
                 2**3 =>  :indoors,       # Dec:          8 / Hex:         8
-#               2**4 =>  :flag,          # Dec:         16 / Hex:        10
+                2**4 =>  :guild,         # Dec:         16 / Hex:        10
                 2**5 =>  :foggy,         # Dec:         32 / Hex:        20
                 2**6 =>  :fire,          # Dec:         64 / Hex:        40
                 2**7 =>  :lava,          # Dec:        128 / Hex:        80

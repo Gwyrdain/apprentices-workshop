@@ -17,14 +17,14 @@
       <%= f.text_field :vnum, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :name, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :name, :class => 'text_field form-control' %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :description, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -51,6 +51,10 @@
         <div class="check_box col-md-2">
           <%= f.check_box :indoors, {:checked => @room.indoors? ? true : false} %>
           <%= f.label :indoors, 'indoors'.humanize.upcase, :class => 'control-label non-bold' %>
+        </div>
+        <div class="check_box col-md-2">
+          <%= f.check_box :guild, {:checked => @room.guild? ? true : false} %>
+          <%= f.label :guild, 'guild'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
         <div class="check_box col-md-2">
           <%= f.check_box :foggy, {:checked => @room.foggy? ? true : false} %>
@@ -121,11 +125,11 @@
           <%= f.label :no_vnum, 'no_vnum'.humanize.upcase, :class => 'control-label non-bold' %>
         </div>
 
-    </div>  
+    </div>
   </div>
-  
+
   <div class="form-group">
-    <%= f.label :terrain, :class => 'control-label col-md-2' %> 
+    <%= f.label :terrain, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
     <%= f.select(:terrain, options_for_select(
           [

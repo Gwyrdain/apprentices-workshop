@@ -132,7 +132,8 @@ class RoomsController < ApplicationController
                                    :private_room, :peaceful, :solitary,
                                    :no_recall, :no_steal, :notrans,
                                    :no_spell, :seafloor, :no_fly, :holy_ground,
-                                   :fly_ok, :no_quest, :no_item, :no_vnum
+                                   :fly_ok, :no_quest, :no_item, :no_vnum,
+                                   :guild
                                   )
     end
 

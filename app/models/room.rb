@@ -4,14 +4,14 @@ class Room < ActiveRecord::Base
   has_many :exits, dependent: :destroy
   has_many :room_specials, dependent: :destroy
   has_many :triggers, through: :exits, :source => :triggers
-  
+
   include Bitfields
-  bitfield :room_flags, 
+  bitfield :room_flags,
                 2**0 =>  :dark,          # Dec:          1 / Hex:         1
                 2**1 =>  :no_sleep,      # Dec:          2 / Hex:         2
                 2**2 =>  :no_mob,        # Dec:          4 / Hex:         4
                 2**3 =>  :indoors,       # Dec:          8 / Hex:         8
-#               2**4 =>  :flag,          # Dec:         16 / Hex:        10
+                2**4 =>  :guild,         # Dec:         16 / Hex:        10
                 2**5 =>  :foggy,         # Dec:         32 / Hex:        20
                 2**6 =>  :fire,          # Dec:         64 / Hex:        40
                 2**7 =>  :lava,          # Dec:        128 / Hex:        80
@@ -48,11 +48,11 @@ class Room < ActiveRecord::Base
                                   },
                    uniqueness:   { scope: :area,
                                    message: "No duplicate vnums allowed." }
-    
+
   validates :name, length: { in: 4..80 }
   validates :description, length: { minimum: 4 }#, format: { with: /\A[\x0A\x0D -~]+\z/ }
   validates :terrain, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  
+
   validate do |room|
     room.errors.add :base, "Name may only contain US-ASCII characters.  Invalid characters: " + room.name.remove(/[\x0A\x0D -~]/) if room.name.remove(/[\x0A\x0D -~]/).length > 0
     room.errors.add :base, "Description may only contain US-ASCII characters.  Invalid characters: " + room.description.remove(/[\x0A\x0D -~]/) if room.description.remove(/[\x0A\x0D -~]/).length > 0
@@ -67,11 +67,11 @@ class Room < ActiveRecord::Base
   def max_vnum
     area.vnum_qty
   end
-  
+
   def formal_vnum
     (area.area_number * 100) + self.vnum
   end
-  
+
   def next_room
     $next_room = false # return self if no next room
     x = self.vnum + 1
@@ -83,7 +83,7 @@ class Room < ActiveRecord::Base
     end
     return $next_room
   end
-  
+
   def last_room
     $last_room = false # return self if no last room
     i = self.vnum
@@ -106,7 +106,7 @@ class Room < ActiveRecord::Base
     end
     return $result
   end
-  
+
   def any_external_exits?
     $result = false
     self.exits.each do |exit|
@@ -116,7 +116,7 @@ class Room < ActiveRecord::Base
     end
     return $result
   end
-  
+
   def any_illogical_exits?
     $result = false
     self.exits.each do |exit|
@@ -126,7 +126,7 @@ class Room < ActiveRecord::Base
     end
     return $result
   end
-  
+
   def any_loopback_exits?
     $result = false
     self.exits.each do |exit|
@@ -136,7 +136,7 @@ class Room < ActiveRecord::Base
     end
     return $result
   end
-  
+
   def any_oneway_exits?
     $result = false
     self.exits.each do |exit|
@@ -146,7 +146,7 @@ class Room < ActiveRecord::Base
     end
     return $result
   end
-  
+
   def any_door_mismatches?
     $result = false
     self.exits.each do |exit|
@@ -156,7 +156,7 @@ class Room < ActiveRecord::Base
     end
     return $result
   end
-  
+
   def exit_dir_exists?(i)
     $result = false
     self.exits.each do |exit|
@@ -166,11 +166,11 @@ class Room < ActiveRecord::Base
     end
     return $result
   end
-  
+
   def vnum_and_name
     return  format("%03d",self.vnum) + " " + self.name
   end
-  
+
   def terrain_word
     $result = 'INSIDE'
     $result = 'CITY' if self.terrain == 1
@@ -192,6 +192,7 @@ class Room < ActiveRecord::Base
     $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }NO_SLEEP" if self.no_sleep
     $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }NO_MOB" if self.no_mob
     $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }INDOORS" if self.indoors
+    $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }GUILD" if self.guild
     $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }FOGGY" if self.foggy
     $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }FIRE" if self.fire
     $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }PRIVATE" if self.private_room
@@ -210,7 +211,7 @@ class Room < ActiveRecord::Base
     $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }NO_VNUM" if self.no_vnum
     return $flags_string
   end
-  
+
   def has_contents?
     if self.area.resets.where(reset_type: ['M', 'Q', 'O']).where(val_4: self.id).count > 0
       return true
