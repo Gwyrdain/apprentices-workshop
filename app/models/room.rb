@@ -195,6 +195,7 @@ class Room < ActiveRecord::Base
     $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }GUILD" if self.guild
     $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }FOGGY" if self.foggy
     $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }FIRE" if self.fire
+    $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }LAVA" if self.lava
     $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }PRIVATE" if self.private_room
     $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }PEACEFUL" if self.peaceful
     $flags_string = "#{$flags_string}#{' ' if $flags_string.length > 0 }SOLITARY" if self.solitary
@@ -218,6 +219,35 @@ class Room < ActiveRecord::Base
     else
       return false
     end
+  end
+
+  def unknown_room_flags
+    value = self.room_flags
+    value = value - 2**0 if self.dark
+    value = value - 2**1 if self.no_sleep
+    value = value - 2**2 if self.no_mob
+    value = value - 2**3 if self.indoors
+    value = value - 2**4 if self.guild
+    value = value - 2**5 if self.foggy
+    value = value - 2**6 if self.fire
+    value = value - 2**7 if self.lava
+   #value = value - 2**8 if self.???
+    value = value - 2**9 if self.private_room
+    value = value - 2**10 if self.peaceful
+    value = value - 2**11 if self.solitary
+   #value = value - 2**12 if self.???
+    value = value - 2**13 if self.no_recall
+    value = value - 2**14 if self.no_steal
+    value = value - 2**15 if self.notrans
+    value = value - 2**16 if self.no_spell
+    value = value - 2**17 if self.seafloor
+    value = value - 2**18 if self.no_fly
+    value = value - 2**19 if self.holy_ground
+    value = value - 2**20 if self.fly_ok
+    value = value - 2**21 if self.no_quest
+    value = value - 2**22 if self.no_item
+    value = value - 2**23 if self.no_vnum
+    return value
   end
 
 end
