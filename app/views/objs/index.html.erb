@@ -45,7 +45,7 @@
                       <% target_reset = @area.resets.where(:reset_type => ['O', 'P', 'I'], :val_2 => obj.id).first %>
                       <% if target_reset.reset_type == 'O' %>
                         <% target = room_info(target_reset.val_4,'self') %>
-                        <% if target = 'UNKNOWN' %>
+                        <% if target == 'UNKNOWN' %>
                           At <%= target %>
                         <% else %>
                           <%= link_to "At #{target.formal_vnum}", area_reset_path(@area, target_reset) %>
