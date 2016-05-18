@@ -21,6 +21,8 @@
     </div>
     <div class="panel-body">
 
+      <% if current_user.is_admin? %>Room Flags: <%= @room.room_flags %> <%= @room.bitfield_values(:room_flags) %><% end %>
+
       <%= render '_walkthrough/mudroomview' %>
 
       <%= render 'add_resets' %>
