@@ -56,12 +56,13 @@
                         <% target = obj_info(target_reset.parent.val_2,'self', @area) %>
                         <%= link_to "In #{target.formal_vnum}", area_reset_path(@area, target_reset) %>
                       <% end %>
-                    <% end %>
-                     <% if sub_reset_count > 0 %>
-                      <% # IF SUB_RESET(S) %>
-                      <% target_sub_reset = @area.sub_resets.where(:reset_type => ['E', 'G'], :val_2 => obj.id).first %>
-                      <% target = mobile_info(target_sub_reset.parent.val_2,'self') %>
-                      <%= link_to "On #{target.formal_vnum}", area_reset_sub_reset_path(@area, target_sub_reset.parent, target_sub_reset) %>
+                    <% else %>
+                      <% if sub_reset_count > 0 %>
+                        <% # IF SUB_RESET(S) %>
+                        <% target_sub_reset = @area.sub_resets.where(:reset_type => ['E', 'G'], :val_2 => obj.id).first %>
+                        <% target = mobile_info(target_sub_reset.parent.val_2,'self') %>
+                        <%= link_to "On #{target.formal_vnum}", area_reset_sub_reset_path(@area, target_sub_reset.parent, target_sub_reset) %>
+                      <% end %>
                     <% end %>
                     <% if (reset_count + sub_reset_count) > 1 %>
                       </br>and <%= (reset_count + sub_reset_count) - 1 %> more...
