@@ -294,7 +294,7 @@
                   :class => 'btn btn-danger' %>
       <%= link_to 'Download', area_path(@area, :download => true), :id => "Download", :class => 'btn btn-primary'  %>
       <%= link_to 'Preview', area_path(@area, :preview => true), :id => "Preview", :target => "_blank", :class => 'btn btn-success'  %>
-      <%= link_to 'Review', area_path(@area, :review => true), :id => "Review", :class => 'btn btn-warning'  %>
+      <%= link_to 'Review', area_path(@area, :review => true), :id => "Review", :target => "_blank", :class => 'btn btn-warning'  %>
       <div class="btn-group pull-right" role="group" aria-label="...">
         <button type="button" class="btn btn-warning">Rotate Area</button>
         <%= link_to '90°', area_path(@area, :rotate => true, :direction => -1),

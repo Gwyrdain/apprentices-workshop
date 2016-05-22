@@ -2,11 +2,10 @@
   <div class="panel-heading"><h4><%= @area.name %> Area Review</h4></div>
   <div class="panel-body">
 
-    <% warnings = 0 %>
-
+    <!-- REVIEW ROOMS FOR ISSUES -->
     <ul class="list-group">
-
-      <!-- REVIEW ROOMS FOR ISSUES -->
+      <li class="list-group-item list-group-item-success"><strong>Review of Rooms</strong></li>
+      <% warnings = 0 %>
       <% @area.rooms.order(:vnum).each do |room| %>
         <% if room.any_loopback_exits? %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-info">Loopback exits detected in room <%= link_to "#{room.formal_vnum} #{room.name}", area_room_path(@area, room) %>.</li><% end %>
         <% if room.any_oneway_exits? %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-info">Oneway exits detected in room <%= link_to "#{room.formal_vnum} #{room.name}", area_room_path(@area, room) %>.</li><% end %>
@@ -14,8 +13,15 @@
         <% if room.any_bad_exits? %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-danger">Bad exits detected in room <%= link_to "#{room.formal_vnum} #{room.name}", area_room_path(@area, room) %>.</li><% end %>
         <% if room.any_door_mismatches? %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning">Mismatched doors detected in room <%= link_to "#{room.formal_vnum} #{room.name}", area_room_path(@area, room) %>.</li><% end %>
       <% end %>
+      <% if warnings == 0 %>
+        <li class="list-group-item">No noticies, warnings, or errors were found.</li>
+      <% end %>
+    </ul>
 
-      <!-- REVIEW MOBILES FOR ISSUES -->
+    <!-- REVIEW MOBILES FOR ISSUES -->
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-success"><strong>Review of Mobiles</strong></li>
+      <% warnings = 0 %>
       <% @area.resets.where(:reset_type => 'Q').each do |reset| %>
         <% warnings = warnings + 1 %>
         <li class="list-group-item list-group-item-warning">A QUEST MOBILE reset was used to: <%= link_to reset.comment, area_reset_path(@area, reset) %>.</li>
@@ -26,8 +32,15 @@
         <% if !mobile.animal?  && mobile.lang_spoken == 0 %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning"><%= link_to "#{mobile.formal_vnum} #{mobile.sdesc.humanize}", area_mobile_path(@area, mobile) %> is not an animal, yet speaks no language..</li><% end %>
         <% if mobile_room_view(mobile.id, false).length > WORDWRAP_LENGTH %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning">With (prefixes) mobile long description length is <%= mobile_room_view(mobile.id, false).length %> characters: <%= link_to "#{mobile.formal_vnum} #{mobile.sdesc}", area_mobile_path(@area, mobile) %>.</li><% end %>
       <% end %>
+      <% if warnings == 0 %>
+        <li class="list-group-item">No noticies, warnings, or errors were found.</li>
+      <% end %>
+    </ul>
 
-      <!-- REVIEW OBJECTS FOR ISSUES -->
+    <!-- REVIEW OBJECTS FOR ISSUES -->
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-success"><strong>Review of Objects</strong></li>
+      <% warnings = 0 %>
       <% @area.objs.order(:vnum).each do |obj| %>
         <% if !obj.has_assoc_reset? %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning">No reset has been created for <%= link_to "#{obj.formal_vnum} #{obj.sdesc}", area_obj_path(@area, obj) %>.</li><% end %>
         <% if obj.ldesc.length < 1 %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning">No long description given for <%= link_to "#{obj.formal_vnum} #{obj.sdesc}", area_obj_path(@area, obj) %>.</li><% end %>
@@ -95,8 +108,15 @@
                 obj.v1 < 1) %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning"><%= link_to "#{obj.formal_vnum} #{obj.sdesc}", area_obj_path(@area, obj) %> should have more than zero drinks left.</li>
         <% end %>
       <% end %>
+      <% if warnings == 0 %>
+        <li class="list-group-item">No noticies, warnings, or errors were found.</li>
+      <% end %>
+    </ul>
 
-      <!-- REVIEW RESETS FOR ISSUES -->
+    <!-- REVIEW RESETS FOR ISSUES -->
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-success"><strong>Review of Resets</strong></li>
+      <% warnings = 0 %>
       <% @area.resets.where(reset_type: ['I', 'O']).each do |reset| %>
         <% if reset.container_weight_held > reset.container_capacity %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-danger">Overloaded container reset: <%= link_to "#{reset.comment}", area_reset_path(@area, reset) %>.</li><% end %>
       <% end %>
@@ -104,14 +124,12 @@
         <% if reset.container_weight_held > reset.container_capacity %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-danger">Overloaded container reset: <%= link_to "#{reset.comment}", area_reset_path(@area, reset) %>.</li><% end %>
       <% end %>
       <% if @area.sub_resets.where(reset_type: ['C', 'F']).count > 0 %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning">Area contains one or more "random item" resets.</li><% end %>
+      <% if warnings == 0 %>
+        <li class="list-group-item">No noticies, warnings, or errors were found.</li>
+      <% end %>
+    </ul>
 
       <!-- REVIEW RSPECS FOR ISSUES -->
-
-      <% if warnings == 0 %>
-        <li class="list-group-item list-group-item-success">No noticies, warnings, or errors were found.</li>
-      <% end %>
-
-    </ul>
 
   </div>
 
