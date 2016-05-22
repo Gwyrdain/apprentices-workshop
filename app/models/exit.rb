@@ -158,18 +158,31 @@ class Exit < ActiveRecord::Base
   end
 
   def reciprocal_door_mismatch?
-    result = false
     if self.is_reciprocal?
       reciprocal_exit = self.destination.exits.where(:direction => opposite_dir(self.direction)).first
+      errors = Array.new
+
       if reciprocal_exit.exittype != self.exittype
-        result = "mismatched exit types: #{self.type_desc} vs #{reciprocal_exit.type_desc}"
+        errors.push "mismatched exit types: #{self.type_desc} vs #{reciprocal_exit.type_desc}"
       else
+        # Only check that the reset matches if the exit type is the same
         if reciprocal_exit.reset != self.reset
-          result = "mismatched reset types: #{self.reset_desc} vs #{reciprocal_exit.reset_desc}"
+          errors.push "mismatched reset types: #{self.reset_desc} vs #{reciprocal_exit.reset_desc}"
         end
       end
-    end
-    return result
+
+      if reciprocal_exit.keyvnum != self.keyvnum
+        errors.push "mismatched key: #{self.formal_key_vnum} vs #{reciprocal_exit.formal_key_vnum}"
+      end
+
+      if errors.length > 0
+        return errors.to_sentence
+      else
+        return false
+      end
+    else
+      return false
+    end # self.is_reciprocal?
   end
 
 
@@ -210,6 +223,7 @@ class Exit < ActiveRecord::Base
 
   def comment
     desc = "Set " + self.direction_word.downcase + " door at '" + self.room.name + "' to " + self.reset_desc
+    return desc
   end
 
   def has_reset?
