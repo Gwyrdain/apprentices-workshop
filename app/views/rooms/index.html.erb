@@ -43,10 +43,6 @@
                 <span style="color:orange" title="Room has external exits."><%= glyph('warning-sign') %></span>
               <% end %>
 
-              <% if room.any_door_mismatches? %>
-                <span style="color:orange" title="Door mismatches."><%= glyph('warning-sign') %></span>
-              <% end %>
-
               </td>
             <td><%= room.rxdescs.count %></td>
             <td>
