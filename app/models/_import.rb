@@ -560,32 +560,32 @@ def parse_triggers (triggers_block)
 end
 
 def parse_area_flags( flags_string )
-  $value = 0
+  value = 0
 
   flags_list = flags_string.split(" ").map(&:strip)
   m = flags_string.match(/\d/) #Any number present?
   if m
     flags_list.each do |flag|
-      $value = $value + read_hex_flags( flag )
+      value = value + read_hex_flags( flag )
     end
   else
     flags_list.each do |flag|
-      $value = $value + area_flag_as_number( flag )
+      value = value + area_flag_as_number( flag )
     end
   end
-  return $value
+  return value
 end
 
 def get_area_number(area_info)
-  $room_number = 0
+  room_number = 0
   if area_info["mobiles_block"]
-    $room_number = area_info["mobiles_block"][1]["vnum"] / 100
+    room_number = area_info["mobiles_block"][1]["vnum"] / 100
   end
   if area_info["objects_block"]
-    $room_number = area_info["objects_block"][1]["vnum"] / 100
+    room_number = area_info["objects_block"][1]["vnum"] / 100
   end
   if area_info["rooms_block"]
-    $room_number = area_info["rooms_block"][1]["area_number"]
+    room_number = area_info["rooms_block"][1]["area_number"]
   end
-  return $room_number
+  return room_number
 end

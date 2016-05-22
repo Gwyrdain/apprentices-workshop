@@ -21,26 +21,26 @@ class RoomSpecial < ActiveRecord::Base
   end
   
   def comment
-    $comment = "#{self.room.name}"
+    comment = "#{self.room.name}"
     if self.name == 'spec_check_door_open'
-      $comment = $comment << ": require min. #{num_to_attribute(self.extended_value_2)} of #{self.extended_value_3} for the #{num_to_dir(self.extended_value_1).downcase} exit"
+      comment = comment << ": require min. #{num_to_attribute(self.extended_value_2)} of #{self.extended_value_3} for the #{num_to_dir(self.extended_value_1).downcase} exit"
     end
-    return $comment
+    return comment
   end
   
   def output
-    $output = "#{self.room_special_type} #{self.room.formal_vnum} #{self.name}"
+    output = "#{self.room_special_type} #{self.room.formal_vnum} #{self.name}"
     
     if self.room_special_type == 'E'
-      $output = $output << " #{self.extended_value_1} #{self.extended_value_2} #{self.extended_value_3}"
+      output = output << " #{self.extended_value_1} #{self.extended_value_2} #{self.extended_value_3}"
       
       if self.name == 'spec_check_door_open'
-        $output = $output << " #{get_string_vnum(self.extended_value_4)} #{get_string_vnum(self.extended_value_5)}"
+        output = output << " #{get_string_vnum(self.extended_value_4)} #{get_string_vnum(self.extended_value_5)}"
       end
     end
     
-    $output = $output << " * #{self.comment}"
-    return $output
+    output = output << " * #{self.comment}"
+    return output
   end
 
 end

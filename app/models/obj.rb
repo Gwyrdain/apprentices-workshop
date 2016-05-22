@@ -103,28 +103,28 @@ class Obj < ActiveRecord::Base
   end
 
   def next_obj
-    $next_obj = false # return self if no next obj
+    next_obj = false # return self if no next obj
     x = self.vnum + 1
     for i in x..self.area.vnum_qty
       if self.area.objs.exists?(:vnum => i)
-        $next_obj = self.area.objs.where(:vnum => i).first
+        next_obj = self.area.objs.where(:vnum => i).first
         break
       end
     end
-    return $next_obj
+    return next_obj
   end
 
   def last_obj
-    $last_obj = false # return self if no last obj
+    last_obj = false # return self if no last obj
     i = self.vnum
     until i < 0
       i -= 1
       if self.area.objs.exists?(:vnum => i)
-        $last_obj = self.area.objs.where(:vnum => i).first
+        last_obj = self.area.objs.where(:vnum => i).first
         break
       end
     end
-    return $last_obj
+    return last_obj
   end
 
   def max_vnum
@@ -148,24 +148,24 @@ class Obj < ActiveRecord::Base
   end
 
   def wear_location
-    $wear_loc = nil
-    $wear_loc = 'NOT WORN / LIGHT' if self.wear_flags < 2
-    $wear_loc = 'FINGER' if self.finger?
-    $wear_loc = 'NECK' if self.neck?
-    $wear_loc = 'BODY' if self.body?
-    $wear_loc = 'HEAD' if self.head?
-    $wear_loc = 'LEGS' if self.legs?
-    $wear_loc = 'FEET' if self.feet?
-    $wear_loc = 'HANDS' if self.hands?
-    $wear_loc = 'ARMS' if self.arms?
-    $wear_loc = 'SHIELD' if self.shield?
-    $wear_loc = 'ABOUT' if self.about?
-    $wear_loc = 'WAIST' if self.waist?
-    $wear_loc = 'WRIST' if self.wrist?
-    $wear_loc = 'WIELDED' if self.wield?
-    $wear_loc = 'HOLD' if self.hold?
-    $wear_loc = 'DECORATION' if self.decoration?
-    return $wear_loc
+    wear_loc = nil
+    wear_loc = 'NOT WORN / LIGHT' if self.wear_flags < 2
+    wear_loc = 'FINGER' if self.finger?
+    wear_loc = 'NECK' if self.neck?
+    wear_loc = 'BODY' if self.body?
+    wear_loc = 'HEAD' if self.head?
+    wear_loc = 'LEGS' if self.legs?
+    wear_loc = 'FEET' if self.feet?
+    wear_loc = 'HANDS' if self.hands?
+    wear_loc = 'ARMS' if self.arms?
+    wear_loc = 'SHIELD' if self.shield?
+    wear_loc = 'ABOUT' if self.about?
+    wear_loc = 'WAIST' if self.waist?
+    wear_loc = 'WRIST' if self.wrist?
+    wear_loc = 'WIELDED' if self.wield?
+    wear_loc = 'HOLD' if self.hold?
+    wear_loc = 'DECORATION' if self.decoration?
+    return wear_loc
   end
 
   def type_word
@@ -202,185 +202,185 @@ end
 
 
 def spell_from_num(i)
-  $spell = nil
-  $spell = 'None' if i == 0
-  $spell = 'Acid Blast' if i == 70
-  $spell = 'Alarm' if i == 48
-  $spell = 'Animate Dead' if i == 97
-  $spell = 'Armor' if i == 1
-  $spell = 'Attunement' if i == 125
-  $spell = 'Bear Totem' if i == 127
-  $spell = 'Bless' if i == 3
-  $spell = 'Blindness' if i == 4
-  $spell = 'Boar Totem' if i == 126
-  $spell = 'Burning Hands' if i == 5
-  $spell = 'Call Lightning' if i == 6
-  $spell = 'Cause Critical Wounds' if i == 63
-  $spell = 'Cause Disease' if i == 105
-  $spell = 'Cause Light Wounds' if i == 62
-  $spell = 'Cause Serious Wounds' if i == 64
-  $spell = 'Change Sex' if i == 82
-  $spell = 'Charm Person' if i == 7
-  $spell = 'Chill Touch' if i == 8
-  $spell = 'Cloak of Protection' if i == 118
-  $spell = 'Colour Spray' if i == 10
-  $spell = 'Comprehend' if i == 46
-  $spell = 'Confusion' if i == 113
-  $spell = 'Continual Light' if i == 57
-  $spell = 'Control Weather' if i == 11
-  $spell = 'Create Food' if i == 12
-  $spell = 'Create Spring' if i == 80
-  $spell = 'Create Water' if i == 13
-  $spell = 'Cure Blindness' if i == 14
-  $spell = 'Cure Critical Wounds' if i == 15
-  $spell = 'Cure Deafness' if i == 99
-  $spell = 'Cure Disease' if i == 104
-  $spell = 'Cure Light Wounds' if i == 16
-  $spell = 'Cure Mute' if i == 139
-  $spell = 'Cure Poison' if i == 43
-  $spell = 'Cure Serious Wounds' if i == 61
-  $spell = 'Curse' if i == 17
-  $spell = 'Darkness' if i == 86
-  $spell = 'Deafness' if i == 52
-  $spell = 'Detect Disease' if i == 117
-  $spell = 'Detect Evil' if i == 18
-  $spell = 'Detect Good' if i == 9
-  $spell = 'Detect Hidden' if i == 44
-  $spell = 'Detect Invisibility' if i == 19
-  $spell = 'Detect magic' if i == 20
-  $spell = 'Detect Poison' if i == 21
-  $spell = 'Dispel Evil' if i == 22
-  $spell = 'Dispel Good' if i == 37
-  $spell = 'Dispel Magic' if i == 59
-  $spell = 'Earthquake' if i == 23
-  $spell = 'Enchant Weapon' if i == 24
-  $spell = 'Energy Drain' if i == 25
-  $spell = 'Exclude' if i == 163
-  $spell = 'Faerie Fire' if i == 72
-  $spell = 'Faerie Fog' if i == 73
-  $spell = 'Fear' if i == 106
-  $spell = 'Fireball' if i == 26
-  $spell = 'Flamestrike' if i == 65
-  $spell = 'Fly' if i == 56
-  $spell = 'Gate a Vampire' if i == 83
-  $spell = 'Give Health' if i == 120
-  $spell = 'Give Mana' if i == 121
-  $spell = 'Give Moves' if i == 122
-  $spell = 'Hailstorm' if i == 134
-  $spell = 'Harm' if i == 27
-  $spell = 'Heal' if i == 28
-  $spell = 'Hurricane' if i == 135
-  $spell = 'Identify' if i == 53
-  $spell = 'Immunity' if i == 116
-  $spell = 'Improved Identify' if i == 55
-  $spell = 'Improved Invisibility' if i == 142
-  $spell = 'Infravision' if i == 77
-  $spell = 'Invisibility' if i == 29
-  $spell = 'Jump' if i == 47
-  $spell = 'Know Alignment' if i == 58
-  $spell = 'Lightning Bolt' if i == 30
-  $spell = 'Locate Object' if i == 31
-  $spell = 'Magic Missile' if i == 32
-  $spell = 'Magic Stone' if i == 131
-  $spell = 'Mass Invisibility' if i == 69
-  $spell = 'Meteor Swarm' if i == 95
-  $spell = 'Mute' if i == 138
-  $spell = 'Naturalize' if i == 95
-  $spell = 'Onset of Disease' if i == 115
-  $spell = 'Owl Totem' if i == 129
-  $spell = 'Pass Door' if i == 74
-  $spell = 'Pass Without Trace' if i == 100
-  $spell = 'Phosphate' if i == 124
-  $spell = 'Poison' if i == 33
-  $spell = 'Portal' if i == 88
-  $spell = 'Protection from Evil' if i == 34
-  $spell = 'Protection from Good' if i == 45
-  $spell = 'Quiet' if i == 108
-  $spell = 'Refresh' if i == 81
-  $spell = 'Remove Curse' if i == 35
-  $spell = 'Remove Fear' if i == 107
-  $spell = 'Rift Souls' if i == 119
-  $spell = 'Sanctuary' if i == 36
-  $spell = 'Shield' if i == 67
-  $spell = 'Shocking Grasp' if i == 51
-  $spell = 'Silence' if i == 112
-  $spell = 'Sleep' if i == 38
-  $spell = 'Soul Sense' if i == 123
-  $spell = 'Spiritual Hammer' if i == 132
-  $spell = 'Stone Skin' if i == 66
-  $spell = 'Strength' if i == 39
-  $spell = 'Summon' if i == 40
-  $spell = 'Sunlight' if i == 140
-  $spell = 'Survey' if i == 137
-  $spell = 'Teleport' if i == 2
-  $spell = 'Thunderclap' if i == 136
-  $spell = 'Tongues' if i == 98
-  $spell = 'True Seeing' if i == 103
-  $spell = 'Unicorn Totem' if i == 130
-  $spell = 'Vampiric Touch' if i == 85
-  $spell = 'Ventriloquate' if i == 41
-  $spell = 'Water Breathing' if i == 133
-  $spell = 'Weaken' if i == 68
-  $spell = 'Weasel Totem' if i == 128
-  $spell = 'Wizard Mark' if i == 49
-  $spell = 'Word of Recall' if i == 42
-  return $spell
+  spell = nil
+  spell = 'None' if i == 0
+  spell = 'Acid Blast' if i == 70
+  spell = 'Alarm' if i == 48
+  spell = 'Animate Dead' if i == 97
+  spell = 'Armor' if i == 1
+  spell = 'Attunement' if i == 125
+  spell = 'Bear Totem' if i == 127
+  spell = 'Bless' if i == 3
+  spell = 'Blindness' if i == 4
+  spell = 'Boar Totem' if i == 126
+  spell = 'Burning Hands' if i == 5
+  spell = 'Call Lightning' if i == 6
+  spell = 'Cause Critical Wounds' if i == 63
+  spell = 'Cause Disease' if i == 105
+  spell = 'Cause Light Wounds' if i == 62
+  spell = 'Cause Serious Wounds' if i == 64
+  spell = 'Change Sex' if i == 82
+  spell = 'Charm Person' if i == 7
+  spell = 'Chill Touch' if i == 8
+  spell = 'Cloak of Protection' if i == 118
+  spell = 'Colour Spray' if i == 10
+  spell = 'Comprehend' if i == 46
+  spell = 'Confusion' if i == 113
+  spell = 'Continual Light' if i == 57
+  spell = 'Control Weather' if i == 11
+  spell = 'Create Food' if i == 12
+  spell = 'Create Spring' if i == 80
+  spell = 'Create Water' if i == 13
+  spell = 'Cure Blindness' if i == 14
+  spell = 'Cure Critical Wounds' if i == 15
+  spell = 'Cure Deafness' if i == 99
+  spell = 'Cure Disease' if i == 104
+  spell = 'Cure Light Wounds' if i == 16
+  spell = 'Cure Mute' if i == 139
+  spell = 'Cure Poison' if i == 43
+  spell = 'Cure Serious Wounds' if i == 61
+  spell = 'Curse' if i == 17
+  spell = 'Darkness' if i == 86
+  spell = 'Deafness' if i == 52
+  spell = 'Detect Disease' if i == 117
+  spell = 'Detect Evil' if i == 18
+  spell = 'Detect Good' if i == 9
+  spell = 'Detect Hidden' if i == 44
+  spell = 'Detect Invisibility' if i == 19
+  spell = 'Detect magic' if i == 20
+  spell = 'Detect Poison' if i == 21
+  spell = 'Dispel Evil' if i == 22
+  spell = 'Dispel Good' if i == 37
+  spell = 'Dispel Magic' if i == 59
+  spell = 'Earthquake' if i == 23
+  spell = 'Enchant Weapon' if i == 24
+  spell = 'Energy Drain' if i == 25
+  spell = 'Exclude' if i == 163
+  spell = 'Faerie Fire' if i == 72
+  spell = 'Faerie Fog' if i == 73
+  spell = 'Fear' if i == 106
+  spell = 'Fireball' if i == 26
+  spell = 'Flamestrike' if i == 65
+  spell = 'Fly' if i == 56
+  spell = 'Gate a Vampire' if i == 83
+  spell = 'Give Health' if i == 120
+  spell = 'Give Mana' if i == 121
+  spell = 'Give Moves' if i == 122
+  spell = 'Hailstorm' if i == 134
+  spell = 'Harm' if i == 27
+  spell = 'Heal' if i == 28
+  spell = 'Hurricane' if i == 135
+  spell = 'Identify' if i == 53
+  spell = 'Immunity' if i == 116
+  spell = 'Improved Identify' if i == 55
+  spell = 'Improved Invisibility' if i == 142
+  spell = 'Infravision' if i == 77
+  spell = 'Invisibility' if i == 29
+  spell = 'Jump' if i == 47
+  spell = 'Know Alignment' if i == 58
+  spell = 'Lightning Bolt' if i == 30
+  spell = 'Locate Object' if i == 31
+  spell = 'Magic Missile' if i == 32
+  spell = 'Magic Stone' if i == 131
+  spell = 'Mass Invisibility' if i == 69
+  spell = 'Meteor Swarm' if i == 95
+  spell = 'Mute' if i == 138
+  spell = 'Naturalize' if i == 95
+  spell = 'Onset of Disease' if i == 115
+  spell = 'Owl Totem' if i == 129
+  spell = 'Pass Door' if i == 74
+  spell = 'Pass Without Trace' if i == 100
+  spell = 'Phosphate' if i == 124
+  spell = 'Poison' if i == 33
+  spell = 'Portal' if i == 88
+  spell = 'Protection from Evil' if i == 34
+  spell = 'Protection from Good' if i == 45
+  spell = 'Quiet' if i == 108
+  spell = 'Refresh' if i == 81
+  spell = 'Remove Curse' if i == 35
+  spell = 'Remove Fear' if i == 107
+  spell = 'Rift Souls' if i == 119
+  spell = 'Sanctuary' if i == 36
+  spell = 'Shield' if i == 67
+  spell = 'Shocking Grasp' if i == 51
+  spell = 'Silence' if i == 112
+  spell = 'Sleep' if i == 38
+  spell = 'Soul Sense' if i == 123
+  spell = 'Spiritual Hammer' if i == 132
+  spell = 'Stone Skin' if i == 66
+  spell = 'Strength' if i == 39
+  spell = 'Summon' if i == 40
+  spell = 'Sunlight' if i == 140
+  spell = 'Survey' if i == 137
+  spell = 'Teleport' if i == 2
+  spell = 'Thunderclap' if i == 136
+  spell = 'Tongues' if i == 98
+  spell = 'True Seeing' if i == 103
+  spell = 'Unicorn Totem' if i == 130
+  spell = 'Vampiric Touch' if i == 85
+  spell = 'Ventriloquate' if i == 41
+  spell = 'Water Breathing' if i == 133
+  spell = 'Weaken' if i == 68
+  spell = 'Weasel Totem' if i == 128
+  spell = 'Wizard Mark' if i == 49
+  spell = 'Word of Recall' if i == 42
+  return spell
 end
 
 def liquid_type_from_num(i)
-  $liquid_type = nil
-  $liquid_type = 'Water (clear)' if i == 0
-  $liquid_type = 'Beer (amber)' if i == 1
-  $liquid_type = 'Wine (rose)' if i == 2
-  $liquid_type = 'Ale (brown)' if i == 3
-  $liquid_type = 'Darkale (dark)' if i == 4
-  $liquid_type = 'Whiskey (golden)' if i == 5
-  $liquid_type = 'Lemonade (pink)' if i == 6
-  $liquid_type = 'Firebreather (boiling)' if i == 7
-  $liquid_type = 'Local Specialty (everclear)' if i == 8
-  $liquid_type = 'Slime (green)' if i == 9
-  $liquid_type = 'Milk (white)' if i == 10
-  $liquid_type = 'Tea (tan)' if i == 11
-  $liquid_type = 'Coffee (black)' if i == 12
-  $liquid_type = 'Blood (red)' if i == 13
-  $liquid_type = 'Saltwater (clear)' if i == 14
-  $liquid_type = 'Mead (thick golden)' if i == 15
-  $liquid_type = 'Dew (clear yellow)' if i == 16
-  return $liquid_type
+  liquid_type = nil
+  liquid_type = 'Water (clear)' if i == 0
+  liquid_type = 'Beer (amber)' if i == 1
+  liquid_type = 'Wine (rose)' if i == 2
+  liquid_type = 'Ale (brown)' if i == 3
+  liquid_type = 'Darkale (dark)' if i == 4
+  liquid_type = 'Whiskey (golden)' if i == 5
+  liquid_type = 'Lemonade (pink)' if i == 6
+  liquid_type = 'Firebreather (boiling)' if i == 7
+  liquid_type = 'Local Specialty (everclear)' if i == 8
+  liquid_type = 'Slime (green)' if i == 9
+  liquid_type = 'Milk (white)' if i == 10
+  liquid_type = 'Tea (tan)' if i == 11
+  liquid_type = 'Coffee (black)' if i == 12
+  liquid_type = 'Blood (red)' if i == 13
+  liquid_type = 'Saltwater (clear)' if i == 14
+  liquid_type = 'Mead (thick golden)' if i == 15
+  liquid_type = 'Dew (clear yellow)' if i == 16
+  return liquid_type
 end
 
 def poison_yes_no(i)
-  $poison = nil
-  $poison = 'No' if i == 0
-  $poison = 'Yes' if i == 1
-  return $poison
+  poison = nil
+  poison = 'No' if i == 0
+  poison = 'Yes' if i == 1
+  return poison
 end
 
 def damage_type_from_num(i)
-  $damage_type = nil
-  $damage_type = 'hits (blunt)' if i == 0
-  $damage_type = 'slices (sharp)' if i == 1
-  $damage_type = 'stabs (sharp, backstabs)' if i == 2
-  $damage_type = 'slashs (sharp)' if i == 3
-  $damage_type = 'whips (blunt)' if i == 4
-  $damage_type = 'claws (sharp)' if i == 5
-  $damage_type = 'blasts (blunt)' if i == 6
-  $damage_type = 'pounds (blunt)' if i == 7
-  $damage_type = 'crushs (blunt)' if i == 8
-  $damage_type = 'strikes (blunt)' if i == 9
-  $damage_type = 'bites (sharp)' if i == 10
-  $damage_type = 'pierces (sharp, backstabs)' if i == 11
-  $damage_type = 'smites (blunt)' if i == 12
-  return $damage_type
+  damage_type = nil
+  damage_type = 'hits (blunt)' if i == 0
+  damage_type = 'slices (sharp)' if i == 1
+  damage_type = 'stabs (sharp, backstabs)' if i == 2
+  damage_type = 'slashs (sharp)' if i == 3
+  damage_type = 'whips (blunt)' if i == 4
+  damage_type = 'claws (sharp)' if i == 5
+  damage_type = 'blasts (blunt)' if i == 6
+  damage_type = 'pounds (blunt)' if i == 7
+  damage_type = 'crushs (blunt)' if i == 8
+  damage_type = 'strikes (blunt)' if i == 9
+  damage_type = 'bites (sharp)' if i == 10
+  damage_type = 'pierces (sharp, backstabs)' if i == 11
+  damage_type = 'smites (blunt)' if i == 12
+  return damage_type
 end
 
 def container_flags_from_num(i)
-  $container_flags = nil
-  $container_flags = 'Not Closeable' if i == 0
-  $container_flags = 'Closeable' if i == 1
-  $container_flags = 'Closed / Closeable' if i == 5
-  $container_flags = 'Locked / Closed / Closeable' if i == 13
-  $container_flags = 'Pickproof / Locked / Closed / Closeable' if i == 15
-  return $container_flags.upcase
+  container_flags = nil
+  container_flags = 'Not Closeable' if i == 0
+  container_flags = 'Closeable' if i == 1
+  container_flags = 'Closed / Closeable' if i == 5
+  container_flags = 'Locked / Closed / Closeable' if i == 13
+  container_flags = 'Pickproof / Locked / Closed / Closeable' if i == 15
+  return container_flags.upcase
 end
 

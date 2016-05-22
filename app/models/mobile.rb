@@ -133,28 +133,28 @@ class Mobile < ActiveRecord::Base
   end
 
   def next_mobile
-    $next_mobile = false # return self if no next mobile
+    next_mobile = false # return self if no next mobile
     x = self.vnum + 1
     for i in x..self.area.vnum_qty
       if self.area.mobiles.exists?(:vnum => i)
-        $next_mobile = self.area.mobiles.where(:vnum => i).first
+        next_mobile = self.area.mobiles.where(:vnum => i).first
         break
       end
     end
-    return $next_mobile
+    return next_mobile
   end
 
   def last_mobile
-    $last_mobile = false # return self if no last mobile
+    last_mobile = false # return self if no last mobile
     i = self.vnum
     until i < 0
       i -= 1
       if self.area.mobiles.exists?(:vnum => i)
-        $last_mobile = self.area.mobiles.where(:vnum => i).first
+        last_mobile = self.area.mobiles.where(:vnum => i).first
         break
       end
     end
-    return $last_mobile
+    return last_mobile
   end
 
   def max_vnum
@@ -182,19 +182,19 @@ class Mobile < ActiveRecord::Base
   end
 
   def sex_word
-    $sex = nil
-    $sex = 'none'    if self.sex == 0
-    $sex = 'male'    if self.sex == 1
-    $sex = 'female'  if self.sex == 2
-    return $sex
+    sex = nil
+    sex = 'none'    if self.sex == 0
+    sex = 'male'    if self.sex == 1
+    sex = 'female'  if self.sex == 2
+    return sex
   end
 
   def alignment_word
-    $alignment = nil
-    $alignment = 'evil'    if self.alignment < 0
-    $alignment = 'unaligned'    if self.alignment == 0
-    $alignment = 'good'  if self.alignment > 0
-    return $alignment
+    alignment = nil
+    alignment = 'evil'    if self.alignment < 0
+    alignment = 'unaligned'    if self.alignment == 0
+    alignment = 'good'  if self.alignment > 0
+    return alignment
   end
 
   def act_flags_list
@@ -292,24 +292,24 @@ class Mobile < ActiveRecord::Base
 end
 
 def lang_from_num(i)
-  $lang = nil
-  $lang = 'NONE'      if i == 0
-  $lang = 'COMMON'    if i == 1
-  $lang = 'DWARVEN'   if i == 2
-  $lang = 'ELVEN'     if i == 4
-  $lang = 'GNOMISH'   if i == 8
-  $lang = 'HALFLING'  if i == 16
-  $lang = 'AARAKOCRA' if i == 32
-  $lang = 'GIANT'     if i == 64
-  $lang = 'MINOTAUR'  if i == 128
-  $lang = 'OGRE'      if i == 256
-  $lang = 'THORAS'    if i == 512
-  $lang = 'GOBLIN'    if i == 1024
-  $lang = 'DROW'      if i == 2048
-  $lang = 'KOBOLD'    if i == 4096
-  $lang = 'ORC'       if i == 8192
-  $lang = 'TROLL'     if i == 16384
-  $lang = 'SAHAGUIN'  if i == 32768
-  $lang = 'GOD'       if i == 65535
-  return $lang.upcase
+  lang = nil
+  lang = 'NONE'      if i == 0
+  lang = 'COMMON'    if i == 1
+  lang = 'DWARVEN'   if i == 2
+  lang = 'ELVEN'     if i == 4
+  lang = 'GNOMISH'   if i == 8
+  lang = 'HALFLING'  if i == 16
+  lang = 'AARAKOCRA' if i == 32
+  lang = 'GIANT'     if i == 64
+  lang = 'MINOTAUR'  if i == 128
+  lang = 'OGRE'      if i == 256
+  lang = 'THORAS'    if i == 512
+  lang = 'GOBLIN'    if i == 1024
+  lang = 'DROW'      if i == 2048
+  lang = 'KOBOLD'    if i == 4096
+  lang = 'ORC'       if i == 8192
+  lang = 'TROLL'     if i == 16384
+  lang = 'SAHAGUIN'  if i == 32768
+  lang = 'GOD'       if i == 65535
+  return lang.upcase
 end

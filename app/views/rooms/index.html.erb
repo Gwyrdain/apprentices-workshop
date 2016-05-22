@@ -24,7 +24,7 @@
           <th><%=t '.actions', :default => t("helpers.actions") %></th>
         </tr>
       </thead>
-      
+
       <tbody>
         <% @rooms.order(:vnum).each do |room| %>
           <tr>
@@ -34,15 +34,19 @@
             <td><%= simple_format(truncate(room.description, length: 220, separator: ' ', omission: '[...]')) %></td>
             <td>
               <%= room.exits.count %>
-              
+
               <% if room.any_bad_exits? %>
                 <span style="color:red" title="Room has bad exits."><%= glyph('exclamation-sign') %></span>
               <% end %>
-              
+
               <% if room.any_external_exits? %>
                 <span style="color:orange" title="Room has external exits."><%= glyph('warning-sign') %></span>
               <% end %>
-              
+
+              <% if room.any_door_mismatches? %>
+                <span style="color:orange" title="Door mismatches."><%= glyph('warning-sign') %></span>
+              <% end %>
+
               </td>
             <td><%= room.rxdescs.count %></td>
             <td>
@@ -71,7 +75,7 @@
         <%= link_to 'Purge Unedited Rooms', area_rooms_path(@area, :purge => true), :class => 'btn btn-danger', data: { confirm: "Are you sure?" }  %>
       <% end %>
     </div>
-    
+
 </div>
 
 <% if @area.show_formatted_blocks? %>

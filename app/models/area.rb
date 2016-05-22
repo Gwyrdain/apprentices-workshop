@@ -106,35 +106,35 @@ class Area < ActiveRecord::Base
   end
 
   def nextroomvnum
-    $i = 0
-    while self.rooms.exists?(:vnum => $i)  do
-        $i +=1
+    i = 0
+    while self.rooms.exists?(:vnum => i)  do
+        i +=1
     end
-    return $i
+    return i
   end
 
   def nextobjvnum
-    $i = 0
-    while self.objs.exists?(:vnum => $i)  do
-        $i +=1
+    i = 0
+    while self.objs.exists?(:vnum => i)  do
+        i +=1
     end
-    return $i
+    return i
   end
 
   def nextmobilevnum
-    $i = 0
-    while self.mobiles.exists?(:vnum => $i)  do
-        $i +=1
+    i = 0
+    while self.mobiles.exists?(:vnum => i)  do
+        i +=1
     end
-    return $i
+    return i
   end
 
   def nextarea_stringvnum
-    $i = 0
-    while self.area_strings.exists?(:vnum => $i)  do
-        $i +=1
+    i = 0
+    while self.area_strings.exists?(:vnum => i)  do
+        i +=1
     end
-    return $i
+    return i
   end
 
   def flags_as_hex
@@ -150,18 +150,18 @@ class Area < ActiveRecord::Base
   end
 
   def flags_as_string
-    $flags_string = ''
-    $flags_string = $flags_string + ' MANMADE' if self.manmade
-    $flags_string = $flags_string + ' CITY' if self.city
-    $flags_string = $flags_string + ' FOREST' if self.forest
-    $flags_string = $flags_string + ' LIMITED' if self.limited
-    $flags_string = $flags_string + ' AERIAL' if self.aerial
-    $flags_string = $flags_string + ' RESERVED' if self.reserved
-    $flags_string = $flags_string + ' ARENA' if self.arena
-    $flags_string = $flags_string + ' QUEST' if self.quest
-    $flags_string = $flags_string + ' NOVNUM' if self.novnum
-    $flags_string = $flags_string + ' NOSAVE' if self.no_save
-    return $flags_string
+    flags_string = ''
+    flags_string = flags_string + ' MANMADE' if self.manmade
+    flags_string = flags_string + ' CITY' if self.city
+    flags_string = flags_string + ' FOREST' if self.forest
+    flags_string = flags_string + ' LIMITED' if self.limited
+    flags_string = flags_string + ' AERIAL' if self.aerial
+    flags_string = flags_string + ' RESERVED' if self.reserved
+    flags_string = flags_string + ' ARENA' if self.arena
+    flags_string = flags_string + ' QUEST' if self.quest
+    flags_string = flags_string + ' NOVNUM' if self.novnum
+    flags_string = flags_string + ' NOSAVE' if self.no_save
+    return flags_string
   end
 
   def orphaned_resets

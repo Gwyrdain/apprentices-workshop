@@ -1,49 +1,49 @@
 # functions to fetch Room, Object, Mobile retated strings
 def obj_info(id, property, area)
-  $result = nil
+  result = nil
   if ( Obj.exists?(:id => id) && Obj.find(id).area == area )
-    $this_obj = Obj.find(id)
-    $result = $this_obj.formal_vnum.to_s if property == 'formal_vnum'
-    $result = $this_obj.sdesc            if property == 'sdesc'
-    $result = $this_obj.type_word        if property == 'type_word'
-    $result = $this_obj.ldesc            if property == 'ldesc'
-    $result = $this_obj                  if property == 'self'
+    this_obj = Obj.find(id)
+    result = this_obj.formal_vnum.to_s if property == 'formal_vnum'
+    result = this_obj.sdesc            if property == 'sdesc'
+    result = this_obj.type_word        if property == 'type_word'
+    result = this_obj.ldesc            if property == 'ldesc'
+    result = this_obj                  if property == 'self'
   else
     if property == 'formal_vnum'
-      $result = id.to_s # Assume an external vnum is referenced and return such.
+      result = id.to_s # Assume an external vnum is referenced and return such.
     else
-      $result = 'UNKNOWN'
+      result = 'UNKNOWN'
     end
   end
-  return $result
+  return result
 end
 
 def room_info(id, property)
-  $result = nil
+  result = nil
   if Room.exists?(:id => id)
-    $this_room = Room.find(id)
-    $result = $this_room.formal_vnum.to_s if property == 'formal_vnum'
-    $result = $this_room.name             if property == 'name'
-    $result = $this_room                  if property == 'self'
+    this_room = Room.find(id)
+    result = this_room.formal_vnum.to_s if property == 'formal_vnum'
+    result = this_room.name             if property == 'name'
+    result = this_room                  if property == 'self'
   else
-    $result = 'UNKNOWN'
+    result = 'UNKNOWN'
   end
-  return $result
+  return result
 end
 
 def mobile_info(id, property)
-  $result = nil
+  result = nil
   if Mobile.exists?(:id => id)
-    $this_mobile = Mobile.find(id)
-    $result = $this_mobile.formal_vnum.to_s if property == 'formal_vnum'
-    $result = $this_mobile.sdesc            if property == 'sdesc'
-    $result = $this_mobile.ldesc            if property == 'ldesc'
-    $result = !$this_mobile.no_wear_eq?     if property == 'can_wear?'
-    $result = $this_mobile                  if property == 'self'
+    this_mobile = Mobile.find(id)
+    result = this_mobile.formal_vnum.to_s if property == 'formal_vnum'
+    result = this_mobile.sdesc            if property == 'sdesc'
+    result = this_mobile.ldesc            if property == 'ldesc'
+    result = !this_mobile.no_wear_eq?     if property == 'can_wear?'
+    result = this_mobile                  if property == 'self'
   else
-    $result = 'UNKNOWN'
+    result = 'UNKNOWN'
   end
-  return $result
+  return result
 end
 
 def get_string_vnum(i)
