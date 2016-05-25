@@ -14,7 +14,7 @@
         <% if room.any_door_mismatches? %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning">Mismatched doors detected in room <%= link_to "#{room.formal_vnum} #{room.name}", area_room_path(@area, room) %>.</li><% end %>
       <% end %>
       <% if warnings == 0 %>
-        <li class="list-group-item">No noticies, warnings, or errors were found.</li>
+        <li class="list-group-item">No notices, warnings, or errors were found.</li>
       <% end %>
     </ul>
 
@@ -33,7 +33,7 @@
         <% if mobile_room_view(mobile.id, false).length > WORDWRAP_LENGTH %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning">With (prefixes) mobile long description length is <%= mobile_room_view(mobile.id, false).length %> characters: <%= link_to "#{mobile.formal_vnum} #{mobile.sdesc}", area_mobile_path(@area, mobile) %>.</li><% end %>
       <% end %>
       <% if warnings == 0 %>
-        <li class="list-group-item">No noticies, warnings, or errors were found.</li>
+        <li class="list-group-item">No notices, warnings, or errors were found.</li>
       <% end %>
     </ul>
 
@@ -109,7 +109,7 @@
         <% end %>
       <% end %>
       <% if warnings == 0 %>
-        <li class="list-group-item">No noticies, warnings, or errors were found.</li>
+        <li class="list-group-item">No notices, warnings, or errors were found.</li>
       <% end %>
     </ul>
 
@@ -125,7 +125,7 @@
       <% end %>
       <% if @area.sub_resets.where(reset_type: ['C', 'F']).count > 0 %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning">Area contains one or more "random item" resets.</li><% end %>
       <% if warnings == 0 %>
-        <li class="list-group-item">No noticies, warnings, or errors were found.</li>
+        <li class="list-group-item">No notices, warnings, or errors were found.</li>
       <% end %>
     </ul>
 
