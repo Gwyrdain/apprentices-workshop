@@ -537,10 +537,14 @@ def import_area( area_info )
 
         $room_vnum  = reset_record["val_2"].to_i - ( area_info["header_info"]["area_number"].to_i * 100 )
         $room = $new_area.rooms.where(:vnum => $room_vnum).first
-        $exit = $room.exits.where(:direction => reset_record["val_3"].to_i).first
-        $exit.update(
-          :reset => reset_record["val_4"].to_i
-          )
+        if $room
+          $exit = $room.exits.where(:direction => reset_record["val_3"].to_i).first
+          if $exit
+            $exit.update(
+              :reset => reset_record["val_4"].to_i
+              )
+          end
+        end
 
       end
 
