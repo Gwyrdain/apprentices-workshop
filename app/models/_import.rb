@@ -144,7 +144,7 @@ def parse_objects(objects_block)
     objects = objects_block.split(/^#/).map(&:strip)
 
     objects.each do |object|
-      m = object.match(/^(\d*)\n(.*)~\n(.*)~\n(.*)~\n~\n/)
+      m = object.match(/^(\d*)\n(.*)~\n(.*)~\n([^~]*)~\n~\n/)
       object_info = Hash.new
       object_info["vnum"]     = m[1].to_i
       object_info["keywords"] = m[2].strip
