@@ -22,38 +22,60 @@ class ObjsController < ApplicationController
   end
 
   def new
-    if params[:make]
-      params[:make].to_i.times do
-        @area.objs.create(:vnum => @area.nextobjvnum,
-                          :sdesc => '<sdesc here>',
-                          :ldesc => '<ldesc here>',
-                          :keywords => '<keywords here>',
-                          :object_type => 1,
-                          :v0 => 0,
-                          :v1 => 0,
-                          :v2 => 0,
-                          :v3 => 0,
-                          :extra_flags => 0,
-                          :wear_flags => 1,
-                          :misc_flags => 0,
-                          :weight => 1,
-                          :cost => 0
-                          )
-      end
-      redirect_to area_objs_path(@area), notice: 'Empty objects created.'
-    else
-      @obj = @area.objs.build
+    if params[:copy_obj] # Copying on object
+      base_obj = Obj.find(params[:copy_obj])
+      new_obj = base_obj.dup
+      new_obj.vnum = @area.nextobjvnum
+      new_obj.save
 
-      @obj.vnum = @area.nextobjvnum
-      @obj.v0 = 0
-      @obj.v1 = 0
-      @obj.v2 = 0
-      @obj.v3 = 0
-      @obj.extra_flags = 0
-      @obj.wear_flags = 1
-      @obj.misc_flags = 0
-      @obj.weight = 1
-      @obj.cost = 0
+      base_obj.oxdescs.each do |oxdesc|
+        new_oxdesc = oxdesc.dup
+        new_oxdesc.obj_id = new_obj.id
+        new_oxdesc.save
+      end
+
+      base_obj.applies.each do |apply|
+        new_apply = apply.dup
+        new_apply.obj_id = new_obj.id
+        new_apply.save
+      end
+
+      redirect_to area_objs_path(@area),
+                  notice: new_obj.errors.any? ? 'Error: ' + new_obj.errors.full_messages[0].to_s : 'Object copied.'
+    else
+      if params[:make]
+        params[:make].to_i.times do
+          @area.objs.create(:vnum => @area.nextobjvnum,
+                            :sdesc => '<sdesc here>',
+                            :ldesc => '<ldesc here>',
+                            :keywords => '<keywords here>',
+                            :object_type => 1,
+                            :v0 => 0,
+                            :v1 => 0,
+                            :v2 => 0,
+                            :v3 => 0,
+                            :extra_flags => 0,
+                            :wear_flags => 1,
+                            :misc_flags => 0,
+                            :weight => 1,
+                            :cost => 0
+                            )
+        end
+        redirect_to area_objs_path(@area), notice: 'Empty objects created.'
+      else
+        @obj = @area.objs.build
+
+        @obj.vnum = @area.nextobjvnum
+        @obj.v0 = 0
+        @obj.v1 = 0
+        @obj.v2 = 0
+        @obj.v3 = 0
+        @obj.extra_flags = 0
+        @obj.wear_flags = 1
+        @obj.misc_flags = 0
+        @obj.weight = 1
+        @obj.cost = 0
+      end
     end
   end
 

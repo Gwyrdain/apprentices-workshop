@@ -77,6 +77,9 @@
                 <%= link_to area_obj_path(@area, obj), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
                   <%= glyph 'remove' %>
                 <%- end -%>
+                <%= link_to new_area_obj_path(@area, :copy_obj => obj.id ), :class => 'btn btn-xs', :title => 'Copy' do %>
+                  <%= glyph 'duplicate' %>
+                <%- end -%>
               </td>
             </tr>
           <% end %>
