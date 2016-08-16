@@ -257,7 +257,7 @@
           <% $shop = @mobile.shops.first %>
           Buying items of type <%= $shop.buy_type_1 > 0 ? object_type_from_num($shop.buy_type_1).downcase : '' %><%= $shop.buy_type_2 > 0 ? " / " + object_type_from_num($shop.buy_type_2).downcase : '' %><%= $shop.buy_type_3 > 0 ? " / " + object_type_from_num($shop.buy_type_3).downcase : '' %><%= $shop.buy_type_4 > 0 ? " / " + object_type_from_num($shop.buy_type_4).downcase : '' %><%= $shop.buy_type_5 > 0 ? " / " + object_type_from_num($shop.buy_type_5).downcase : '' %>.<br/>
           Open from <%= hour_from_num($shop.open_hour) %> to <%= hour_from_num($shop.close_hour) %>.<br/>
-          Racial pricing bais given to <%= race_from_num($shop.race) %>.<br/>
+          Racial pricing bias given to <%= race_from_num($shop.race) %>.<br/>
           <%= link_to edit_area_mobile_shop_path(@area, @mobile, $shop), :class => 'btn btn-xs', :title => "#{ t('.edit', :default => t('helpers.links.edit')) }" do %>
             <%= glyph 'pencil' %>
           <%- end -%>
