@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160503020946) do
+ActiveRecord::Schema.define(version: 20160605185445) do
 
   create_table "applies", force: true do |t|
     t.integer  "apply_type"
@@ -56,6 +56,16 @@ ActiveRecord::Schema.define(version: 20160503020946) do
   end
 
   add_index "areas", ["user_id"], name: "index_areas_on_user_id"
+
+  create_table "comments", force: true do |t|
+    t.text     "comment_text"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id"
 
   create_table "exits", force: true do |t|
     t.integer  "direction"

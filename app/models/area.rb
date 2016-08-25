@@ -13,6 +13,7 @@ class Area < ActiveRecord::Base
   has_many :area_strings, dependent: :destroy
   has_many :resets, dependent: :destroy
   has_many :shares, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
 
   has_many :applies, through: :objs
   has_many :oxdescs, through: :objs
@@ -91,8 +92,8 @@ class Area < ActiveRecord::Base
                                        message: "No duplicate revision numbers allowed." }
 
   validate do |area|
-    area.errors.add :base, "Name may only contain US-ASCII characters.  Invalid characters: " + area.name.remove(/[\x0A\x0D -~]/) if area.name.remove(/[\x0A\x0D -~]/).length > 0
-    area.errors.add :base, "Author may only contain US-ASCII characters.  Invalid characters: " + area.author.remove(/[\x0A\x0D -~]/) if area.author.remove(/[\x0A\x0D -~]/).length > 0
+    area.errors.add :base, "Name may only contain US-ASCII characters.  Invalid characters: " + area.name.remove(/[\x0A\x0D -}]/) if area.name.remove(/[\x0A\x0D -}]/).length > 0
+    area.errors.add :base, "Author may only contain US-ASCII characters.  Invalid characters: " + area.author.remove(/[\x0A\x0D -}]/) if area.author.remove(/[\x0A\x0D -}]/).length > 0
   end
 
   before_create :default_values
