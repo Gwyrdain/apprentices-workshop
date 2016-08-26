@@ -343,7 +343,7 @@ function setObjValues() {
     $('#ItemValueGroupJewelry').prop('disabled', false).show();
     $('#obj_takeable').prop('checked', true);
   }
-  if(i== 8 || i== 12 || i== 13 || i== 18 || i== 22 || i== 27) {
+  if(i== 12 || i== 27) {
     hideItemGroups();
     $('#ItemValueGroupGeneric').prop('disabled', false).show();
     $('#obj_wear_flags').val('0');
