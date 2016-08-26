@@ -107,6 +107,9 @@
         <% if ((obj.object_type == 17 ) &&
                 obj.v1 < 1) %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning"><%= link_to "#{obj.formal_vnum} #{obj.sdesc}", area_obj_path(@area, obj) %> should have more than zero drinks left.</li>
         <% end %>
+        <% if ((obj.object_type == 22 ) &&
+                obj.wear_flags != 0) %><% warnings = warnings + 1 %><li class="list-group-item list-group-item-warning"><%= link_to "#{obj.formal_vnum} #{obj.sdesc}", area_obj_path(@area, obj) %> includes a wear location other than 'NONE' (requires Area Coordinator approval).</li>
+        <% end %>
       <% end %>
       <% if warnings == 0 %>
         <li class="list-group-item">No notices, warnings, or errors were found.</li>
