@@ -406,11 +406,17 @@ def parse_resets (resets_block)
     resets_info = Hash.new
     i = 1
 
-    resets_block.gsub!(/^\*.*\n/,'')
     resets = resets_block.split(/\n/).map(&:strip)
 
     resets.each do |reset|
       reset_info = Hash.new
+
+      #Comments reset
+      m = reset.match(/\*(.*)/)
+      if m
+        reset_info["reset_type"]  = "*"
+        reset_info["comment"]     = m[1].strip
+      end
 
       m = reset.match(/(\w)\s*(\d*)\s*(\d*)\s*(\d*)/)
       if m
