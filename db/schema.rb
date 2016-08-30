@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160605185445) do
+ActiveRecord::Schema.define(version: 20160830024923) do
 
   create_table "applies", force: true do |t|
     t.integer  "apply_type"
@@ -56,16 +56,6 @@ ActiveRecord::Schema.define(version: 20160605185445) do
   end
 
   add_index "areas", ["user_id"], name: "index_areas_on_user_id"
-
-  create_table "comments", force: true do |t|
-    t.text     "comment_text"
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id"
 
   create_table "exits", force: true do |t|
     t.integer  "direction"
@@ -158,6 +148,7 @@ ActiveRecord::Schema.define(version: 20160605185445) do
     t.datetime "updated_at"
     t.string   "parent_type"
     t.integer  "parent_id"
+    t.string   "comment"
   end
 
   add_index "resets", ["area_id"], name: "index_resets_on_area_id"
@@ -189,21 +180,6 @@ ActiveRecord::Schema.define(version: 20160605185445) do
   end
 
   add_index "rooms", ["area_id"], name: "index_rooms_on_area_id"
-
-  create_table "rspecs", force: true do |t|
-    t.string   "rspec_type"
-    t.string   "name"
-    t.integer  "extended_value_1"
-    t.integer  "extended_value_2"
-    t.integer  "extended_value_3"
-    t.integer  "extended_value_4"
-    t.integer  "extended_value_5"
-    t.integer  "room_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "rspecs", ["room_id"], name: "index_rspecs_on_room_id"
 
   create_table "rxdescs", force: true do |t|
     t.string   "keywords"

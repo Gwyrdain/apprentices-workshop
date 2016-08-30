@@ -394,7 +394,7 @@ def import_area( area_info )
 
     area_info["resets_block"].each_value do |reset_record|
       reset_type = reset_record["reset_type"]
-      # M / Q / O / R ... load it directly
+      # M / Q / O / R / * ... load it directly
       if ( reset_type == 'M' || reset_type == 'Q' )
 
         $mobile_vnum  = $new_area.localize_vnum( reset_record["val_2"].to_i )
@@ -417,6 +417,13 @@ def import_area( area_info )
           :val_4      => $room_id
           )
         last_mobile_reset = $new_mobile_reset
+      end
+
+      if ( reset_type == '*' )
+        $new_area.resets.create(
+          :reset_type => reset_record["reset_type"],
+          :comment    => reset_record["comment"]
+        )
       end
 
       if reset_type == 'O'
