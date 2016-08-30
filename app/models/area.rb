@@ -13,7 +13,7 @@ class Area < ActiveRecord::Base
   has_many :area_strings, dependent: :destroy
   has_many :resets, dependent: :destroy
   has_many :shares, dependent: :destroy
-  has_many :comments, as: :commentable, dependent: :destroy
+#  has_many :comments, as: :commentable, dependent: :destroy
 
   has_many :applies, through: :objs
   has_many :oxdescs, through: :objs
