@@ -414,7 +414,8 @@ def import_area( area_info )
           :val_1      => reset_record["val_1"].to_i,
           :val_2      => $mobile_id,
           :val_3      => reset_record["val_3"].to_i,
-          :val_4      => $room_id
+          :val_4      => $room_id,
+          :reset_comment => reset_record["comment"]
           )
         last_mobile_reset = $new_mobile_reset
       end
@@ -445,7 +446,8 @@ def import_area( area_info )
           :val_1      => reset_record["val_1"].to_i,
           :val_2      => $obj_vnum,
           :val_3      => reset_record["val_3"].to_i,
-          :val_4      => $room_id
+          :val_4      => $room_id,
+          :reset_comment => reset_record["comment"]
           )
 
         if this_obj && this_obj.is_container
@@ -471,6 +473,7 @@ def import_area( area_info )
           :val_2        => $obj_vnum,
           :val_3        => reset_record["val_3"].to_i,
           :val_4        => reset_record["val_4"].to_i,
+          :reset_comment => reset_record["comment"]
           )
 
         if this_obj && this_obj.is_container
@@ -503,7 +506,8 @@ def import_area( area_info )
           :val_3        => reset_record["val_3"].to_i,
           :val_4        => 0,
           :parent_type  => last_container_reset_type,
-          :parent_id    => last_container_reset.id
+          :parent_id    => last_container_reset.id,
+          :reset_comment => reset_record["comment"]
           )
       end
 
@@ -531,7 +535,8 @@ def import_area( area_info )
           :val_3        => reset_record["val_3"].to_i,
           :val_4        => 0,
           :parent_type  => last_container_reset_type,
-          :parent_id    => last_container_reset.id
+          :parent_id    => last_container_reset.id,
+          :reset_comment => reset_record["comment"]
           )
         if this_obj && this_obj.is_container
           last_container_reset = $new_reset
@@ -548,7 +553,8 @@ def import_area( area_info )
           $exit = $room.exits.where(:direction => reset_record["val_3"].to_i).first
           if $exit
             $exit.update(
-              :reset => reset_record["val_4"].to_i
+              :reset => reset_record["val_4"].to_i,
+              :reset_comment => reset_record["comment"]
               )
           end
         end
@@ -565,7 +571,8 @@ def import_area( area_info )
           :val_1      => 0,
           :val_2      => $room.id,
           :val_3      => reset_record["val_3"].to_i,
-          :val_4      => 0
+          :val_4      => 0,
+          :reset_comment => reset_record["comment"]
           )
       end
 
@@ -577,7 +584,8 @@ def import_area( area_info )
           :val_1      => 0,
           :val_2      => reset_record["val_2"].to_i,
           :val_3      => 0,
-          :val_4      => 0
+          :val_4      => 0,
+          :reset_comment => reset_record["comment"]
           )
       end
 

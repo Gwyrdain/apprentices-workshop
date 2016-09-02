@@ -410,7 +410,8 @@ def parse_resets (resets_block)
 
     resets.each do |reset|
       reset_info = Hash.new
-
+      reset_info["comment"] = ""
+      
       #Comments reset
       m = reset.match(/^\s*\*(.*)/)
       if m

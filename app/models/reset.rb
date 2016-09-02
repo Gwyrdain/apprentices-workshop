@@ -21,11 +21,15 @@ class Reset < ActiveRecord::Base
     self.val_2 ||= 0
     self.val_3 ||= 0
     self.val_4 ||= 0
-    self.comment ||=''
+    self.reset_comment ||=''
   end
 
   def comment( verbose = false )
     comment = nil
+
+    if self.reset_comment != nil && self.reset_comment != ''
+      return self.reset_comment
+    end
 
     if ( self.reset_type == 'M' || self.reset_type == 'Q' )
       comment = "Load '#{mobile_info(self.val_2, 'sdesc')}'#{ verbose ? ' (' + mobile_info(self.val_2, 'formal_vnum') + ')' : ''} " <<
@@ -58,11 +62,7 @@ class Reset < ActiveRecord::Base
     if self.reset_type == 'R'
       comment = "Randomize any #{num_to_exits(self.val_3)} exits at '#{room_info(self.val_2, 'name')}'#{ verbose ? ' (' + room_info(self.val_2, 'formal_vnum') + ')' : ''}"
     end
-
-    if self.reset_type == '*'
-      comment = self.reset_comment
-    end
-
+    
     return comment
   end
 
@@ -94,8 +94,15 @@ class Reset < ActiveRecord::Base
       output = output + ' ' + self.val_3.to_s + " * "
     end
 
-    output = output + " " * ( 25 - output.length )
-    output = output + self.comment
+    if self.reset_type == '*'
+      output = self.reset_type + ' ' + self.reset_comment
+    end
+
+    if self.reset_type != '*'
+      output = output + " " * ( 25 - output.length )
+      output = output + self.comment
+    end
+
     return output
   end
 
