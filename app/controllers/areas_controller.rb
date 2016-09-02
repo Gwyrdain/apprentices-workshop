@@ -422,7 +422,7 @@ def import_area( area_info )
       if ( reset_type == '*' )
         $new_area.resets.create(
           :reset_type => reset_record["reset_type"],
-          :comment    => reset_record["comment"]
+          :reset_comment    => reset_record["comment"]
         )
       end
 

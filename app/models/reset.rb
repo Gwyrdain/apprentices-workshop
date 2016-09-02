@@ -59,6 +59,10 @@ class Reset < ActiveRecord::Base
       comment = "Randomize any #{num_to_exits(self.val_3)} exits at '#{room_info(self.val_2, 'name')}'#{ verbose ? ' (' + room_info(self.val_2, 'formal_vnum') + ')' : ''}"
     end
 
+    if self.reset_type == '*'
+      comment = self.reset_comment
+    end
+
     return comment
   end
 

@@ -148,7 +148,7 @@ ActiveRecord::Schema.define(version: 20160830024923) do
     t.datetime "updated_at"
     t.string   "parent_type"
     t.integer  "parent_id"
-    t.string   "comment"
+    t.string   "reset_comment"
   end
 
   add_index "resets", ["area_id"], name: "index_resets_on_area_id"
