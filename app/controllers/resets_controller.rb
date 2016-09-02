@@ -178,6 +178,6 @@ class ResetsController < ApplicationController
 
     def reset_params
       params.require(:reset).permit(:reset_type, :parent_type, :parent_id,
-                                    :val_1, :val_2, :val_3, :val_4, :area_id)
+                                    :val_1, :val_2, :val_3, :val_4, :area_id, :reset_comment)
     end
 end
