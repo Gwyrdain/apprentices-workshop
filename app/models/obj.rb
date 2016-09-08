@@ -285,7 +285,7 @@ def spell_from_num(i)
   spell = 'Mass Invisibility' if i == 69
   spell = 'Meteor Swarm' if i == 95
   spell = 'Mute' if i == 138
-  spell = 'Naturalize' if i == 89
+  spell = 'Naturalize' if i == 159
   spell = 'Onset of Disease' if i == 115
   spell = 'Owl Totem' if i == 129
   spell = 'Pass Door' if i == 74
