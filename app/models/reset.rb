@@ -3,10 +3,16 @@ class Reset < ActiveRecord::Base
 
   has_many :sub_resets, dependent: :destroy
 
-  validates :val_1, numericality: { only_integer: true, greater_than: -1 }
-  validates :val_2, numericality: { only_integer: true, greater_than: -1 }
-  validates :val_3, numericality: { only_integer: true, greater_than: -1 }
-  validates :val_4, numericality: { only_integer: true, greater_than: -1 }
+  with_options unless: :is_comment_reset? do |reset|
+    reset.validates :val_1, numericality: { only_integer: true, greater_than: -1 }
+    reset.validates :val_2, numericality: { only_integer: true, greater_than: -1 }
+    reset.validates :val_3, numericality: { only_integer: true, greater_than: -1 }
+    reset.validates :val_4, numericality: { only_integer: true, greater_than: -1 }
+  end
+
+  def is_comment_reset?
+    self.reset_type == '*'
+  end
 
   before_create :default_values
   def default_values
@@ -15,10 +21,15 @@ class Reset < ActiveRecord::Base
     self.val_2 ||= 0
     self.val_3 ||= 0
     self.val_4 ||= 0
+    self.reset_comment ||=''
   end
 
   def comment( verbose = false )
     comment = nil
+
+    if self.reset_comment != nil && self.reset_comment != ''
+      return self.reset_comment
+    end
 
     if ( self.reset_type == 'M' || self.reset_type == 'Q' )
       comment = "Load '#{mobile_info(self.val_2, 'sdesc')}'#{ verbose ? ' (' + mobile_info(self.val_2, 'formal_vnum') + ')' : ''} " <<
@@ -51,7 +62,7 @@ class Reset < ActiveRecord::Base
     if self.reset_type == 'R'
       comment = "Randomize any #{num_to_exits(self.val_3)} exits at '#{room_info(self.val_2, 'name')}'#{ verbose ? ' (' + room_info(self.val_2, 'formal_vnum') + ')' : ''}"
     end
-
+    
     return comment
   end
 
@@ -83,8 +94,15 @@ class Reset < ActiveRecord::Base
       output = output + ' ' + self.val_3.to_s + " * "
     end
 
-    output = output + " " * ( 25 - output.length )
-    output = output + self.comment
+    if self.reset_type == '*'
+      output = self.reset_type + ' ' + self.reset_comment
+    end
+
+    if self.reset_type != '*'
+      output = output + " " * ( 25 - output.length )
+      output = output + self.comment
+    end
+
     return output
   end
 
@@ -97,6 +115,7 @@ class Reset < ActiveRecord::Base
     desc = "PUT" if self.reset_type == 'P'
     desc = "DOOR" if self.reset_type == 'D'
     desc = "RANDOMIZE" if self.reset_type == 'R'
+    desc = "COMMENT" if self.reset_type == '*'
     return desc
   end
 

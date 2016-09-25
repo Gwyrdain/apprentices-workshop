@@ -1,4 +1,9 @@
 #RESETS
+<% if @area.resets.where(reset_type: '*').count > 0 %>*** Comment Resets ***
+<% @area.resets.where(reset_type: '*').each do |reset| %>
+<%= render 'resets/resetblock', :reset => reset %>
+<% end %>
+<% end %>
 <% if @area.resets.where(reset_type: 'M').count + @area.resets.where(reset_type: 'Q').count > 0 %>*** Mobile Resets ***
 <% @area.resets.order(:val_2).where(reset_type: 'M').each do |reset| %>
 <%= render 'resets/resetblock', :reset => reset %>

@@ -15,6 +15,7 @@
                             I:#{@area.resets.where(:reset_type => 'I').count} |
                             P:#{@area.resets.where(:reset_type => 'P').count} |
                             R:#{@area.resets.where(:reset_type => 'R').count} |
+                            *:#{@area.resets.where(:reset_type => '*').count} |
                             E:#{@area.sub_resets.where(:reset_type => 'E').count} |
                             F:#{@area.sub_resets.where(:reset_type => 'F').count} |
                             G:#{@area.sub_resets.where(:reset_type => 'G').count} |
@@ -26,7 +27,7 @@
     </h5>
   </div>
 
-  <%= render 'resets/resetstable', :given_resets => @resets.order(:reset_type, :val_2).where(reset_type: ['M','Q','O']), :show_type => true %>
+  <%= render 'resets/resetstable', :given_resets => @resets.order(:reset_type, :val_2).where(reset_type: ['M','Q','O', '*']), :show_type => true %>
 
   <div class="panel-footer">
     <%= link_to 'New reset', new_area_reset_path(@area) %> |
