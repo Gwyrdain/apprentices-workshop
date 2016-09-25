@@ -1,0 +1,1760 @@
+#AREA
+Format 2
+Name Te'nayu'ka (Cordir)~
+Author Cordir~
+Lowlevel 1
+Highlevel 50
+Flags MANMADE CITY End
+Description
+The Te'nayu'ka is a sailing vessel under the command of Captain Ak'ash'eck.
+Built to transport fragile goods and land-bound passengers across and below
+the waves, it is a unique creation, using the technologies developed by the
+gnomes of Barbegazi and manned by the fearsome sahuagins of Tiren's Rock. A
+smart passenger will remain in the berth provided, as wandering about would
+be unwise. Solidarity and teamwork keep a crew safe when traversing the sea,
+and this crew is experienced in repelling pirates and Tempest alike. With a
+journey that spans the three continents, one should be patient while on the
+Te'nayu'ka, but know that the Captain and her crew will get to port safely.
+~
+Installed 2014-10-31
+Revision $Revision: 1.6 $
+Updated $Date: 2015/09/12 21:36:22 $
+End
+
+#HELPS
+0 Te'nayu'ka tenayuka submarine sub~
+The Te'nayu'ka is a sailing vessel under the command of Captain Ak'ash'eck.
+Built to transport fragile goods and land-bound passengers across and below
+the waves, it is a unique creation, using the technologies developed by the
+gnomes of Barbegazi and manned by the fearsome sahuagins of Tiren's Rock. A
+smart passenger will remain in the berth provided, as wandering about would
+be unwise. Solidarity and teamwork keep a crew safe when traversing the sea,
+and this crew is experienced in repelling pirates and Tempest alike. With a
+journey that spans the three continents, one should be patient while on the
+Te'nayu'ka, but know that the Captain and her crew will get to port safely.~
+0$~
+
+#MOBILES
+#19850
+Captain Ak'ash'eck sahuagin~
+Captain Ak'ash'eck~
+Pearl insignia on the dorsal fin of this sahuagin declares her the captain.
+~
+Ak'ash'eck is a fearsome example of a sahuagin. Healed scars are displayed
+proudly, evidence of her legendary fight against the Terror of the Sea. An
+ornate badge of shell and pearl affixed to her dorsal fin shows her rank:
+captain of this ship and sole authority aboard the Te'nayu'ka. Her grayish
+scales glitter like crushed pearls and her webbed hands and feet end in 
+claws that would be the pride of any dragon. Truly, Ak'ash'eck is a marine
+force to be reckoned with.
+~
+98368 31459444 0 S
+63 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+L
+32776 32768
+#19851
+Ta'ke'shi'ka-ga sahuagin cook~
+Ta'ke'shi'ka-ga the cook~
+Talons wet with tuna gore, Ta'ke'shi'ka-ga prepares a meal for the captain.
+~
+The leftmost talon of this sahuagin's right hand is extremely long and 
+razor-sharp, tipped in metal.  She uses it as a knife to slice open the 
+carcasses of the fish she is preparing for the captain's next meal.  An
+economy of motion characterizes her every movement - deft, deliberate,
+and swift - as she prepares the next culinary adventure.
+~
+114754 29386868 0 S
+48 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+L
+32768 32768
+#19852
+To'lot'zin master arms sahuagin~
+To'lot'zin, the Master at Arms~
+This massive sahuagin could only be To'lot'zin, the Master at Arms.
+~
+The hulking figure of the sahuagin before you is nearly the size of a young
+aquadragon. Vicious claws terminate his powerful arms and legs and his tail
+ends in long, sharp spikes tipped with ichor. His eyes scan constantly, the
+slightest threat measured and acted upon with the violence he is known for.
+~
+114752 31484156 0 S
+65 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#19853
+Ak'cha'mahez helmsman sahuagin~
+the helmsman, Ak'cha'mahez~
+Rumors abound that Ak'cha'mahez got the post of helmsman due to familial bonds.
+~
+Not an impressive specimen of his race, Ak'cha'mahez has a certain cowardly
+air about him. His bulbous yellow eyes flicker this way and that, watching 
+for any sign that one of the more aggressive members of the crew might take
+a bite out of his dull grey hide. His webbed hands are long and nimble, an
+asset when working the delicate controls of the Te'nayu'ka.
+~
+114754 29362292 0 S
+40 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#
+19854
+Bu'lokcha'ban sailor sahuagin~
+Bu'lokcha'ban~
+Bu'lokcha'ban moves quickly about his tasks as a sailor on the Te'nayu'ka.
+~
+It is his hard work, and not any family connections, that got Bu'lokcha'ban
+his post here on the Te'nayu'ka. He is a hard working soul, going about his
+tasks in a timely and conscientious manner.  He considers his shipmates his 
+family - replacing the one lost in an attack on Tiren's Rock by the Terror 
+of the Sea.
+~
+114752 2097268 0 S
+47 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#19855
+Q'u'ma'taz sahuagin~
+Q'u'ma'taz~
+Hurrying along the passageway, Q'u'ma'taz goes about his duties.
+~
+This sahuagin has a very distinct striping along his sides and his gills 
+are a gleaming green. He is of average size for his race, if a bit more 
+quick and nimble in his movements. A small oval of coral affixed to his
+dorsal ridge marks him as a sailor aboard the Te'nayu'ka.
+~
+114752 2097268 0 S
+47 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#19856
+Chac'u'yab ballast master sahuagin~
+Chac'u'yab the ballast master~
+Manning the ballast chamber is Chac'u'yab's job.
+~
+The forearms and shoulders of this sahuagin are massive - easily twin to
+those of a minotaur or even an ogre. This comes from his primary task: a
+swift release or loading of ballast to control the horizontal movement of
+the Te'nayu'ka through the water. Chac'u'yab - or Chac, as he is most often
+called - is a good-natured creature, dedicated to his job. His coloring is
+nearly a twin to that of a shark: a pale, dull grey, with only a hint of 
+green tint to his gills.
+~
+114752 2097268 0 S
+48 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#19857
+Bo'lan'ti'ku sahuagin prisoner~
+Bo'lan'ti'ku~
+Shackles bind the arms of this disgraced sahuagin prisoner.
+~
+Caught derelict at her post, Bo'lan'ti'ku awaits her fate in the brig of 
+the Te'nayu'ka. One eye is badly swollen and bloodied and her dorsal fin
+is raggedly torn, revealing that the Master at Arms was not gentle when 
+placing her under arrest. Thin and gaunt, it is clear that Bo'lan'ti'ku
+is not receiving rations while here in the brig.
+~
+114752 2097268 0 S
+45 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#19858
+Ix'il'iton sahuagin healer~
+Ix'il'iton the healer~
+A clamshell insignia on his dorsal fin marks Ix'il'iton as the ship's healer.
+~
+Tiny seed pearls decorate the shell upon Ix'il'iton's dorsal fin, the mark
+of his rank as ship's healer. His family is a wealthy one and he could not
+help but use any opportunity to remind his fellow shipmates that he is here
+from choice, not need. His lordly air keeps his fanged snout pointed upward,
+and he is the first to point out that his coloring is that of the noble house
+of Tiren's Rock.
+~
+114752 2097268 0 S
+45 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#19859
+Ah'mu'zen'ka sahuagin cargo master~
+Ah'mu'zen'ka the cargo master~
+Ah'mu'zen'ka takes note of every piece of cargo in the hold.
+~
+Ah'mu'zen'ka is not only in charge of tracking and documenting every crate,
+barrel or package aboard the Te'nayu'ka being shipped, but also all of the
+supplies needed by its crew. The placement of every parcel is important, 
+as it can affect the ballast needs of the ship. Ah'mu'zen'ka takes his job
+very seriously, memorizing the statistics of each load.
+~
+114752 2097268 0 S
+48 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#19860
+crew member sailor sahuagin~
+a sahuagin crew member~
+Deftly repairing a bit of net, a sahuagin sailor relaxes here.
+~
+It is always best to stay busy, even in off-time, and this sailor has taken
+that to heart.  A tangle of rope is piled around her as she works to repair 
+a damaged cargo net.
+~
+98368 2097268 0 S
+45 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#19861
+sahuagin crew member~
+a just-awakened crew member~
+Exhausted from a long shift, this crew member has sought sleep.
+~
+Few things are as dangerous as a sahuagin that has been awoken unexpectedly.
+This crew member, having recently completed a double shift, shows the signs
+that reveal exhaustion in his race: a dulling of the color around his gills,
+the drooping of his dorsal crest, and a reddening of the secondary lid
+membranes of his eyes.
+~
+98368 2097268 0 S
+45 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#19862
+novice sailor sahuagin~
+a novice sailor aboard the Te'nayu'ka~
+Moving quickly along the passageway, this novice sailor goes about his tasks.
+~
+It doesn't do to let the captain see one lagging along, a lesson this sailor
+has taken to heart. He moves quickly and confidently along the passageway, a
+sense of energy and purpose to his every movement.
+~
+98368 2097268 0 S
+45 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#19863
+hold member crew sahuagin~
+a member of the hold crew~
+Carefully checking the cargo nets, a member of the hold crew works here.
+~
+This slender sahuagin is the perfect size to slip deftly between the many
+crates, barrels and packages of the load in the Te'nayu'ka's hold. It is
+her task to ensure the cargo nets are bound down tightly, preventing loads
+from shifting.
+~
+98368 2097268 0 S
+45 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#19864
+crew member sahuagin~
+a crew member of the Te'nayu'ka~
+An oval of coral marks this sahuagin as a crew member of the Te'nayu'ka.
+~
+It is an honor to this sahuagin's family to be permitted to serve aboard
+the Te'nayu'ka, one that they work hard to be worthy of.
+~
+114752 2097268 0 S
+45 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#19865
+bristlemouth specimen~
+a monstrous bristlemouth~
+This bristlemouth specimen is vastly larger than most of its kind.
+~
+This fish is named for its mouth full of odd, equally-sized and
+bristle-like teeth. A normal specimen is the size of an human's foot, 
+but this monstrous creature is easily triple that. A line of green
+light-producing photophores is visible along the underside of its 
+body, bright against the coal black of its scaled body. Its tail is 
+short and stubby, much like the small fins along its sides. For all 
+its odd appearance, this creature has a vicious bite.
+~
+98370 2130044 0 S
+40 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+A
+#19866
+viperfish fish~
+a gargantuan viperfish~
+A photophore at the end of the dorsal spine of this viperfish lures in prey.
+~
+A silvery color that fades to green, this viperfish has a bulbous head and
+long, lean body. Its dorsal fin is long and spike-like, and a light-producing
+organ at its tip lures in its prey. One of the most fierce predators of the
+deep sea - that isn't a sahuagin - the viperfish uses its fang-like teeth
+to tear its prey... and it isn't picky about what it devours.
+~
+98370 2130044 0 S
+40 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+A
+#19867
+To'li'tiku sahuagin~
+To'li'tiku~
+To'li'tiku checks to see if passengers have their tickets.
+~
+One of the officers of the Te'nayu'ka, it is To'li'tiku's job to ensure that
+only paying passengers and paid-for stowage is aboard the vessel. His toothy
+grin reveals his delight at the prospect of finding a stowaway.
+~
+98368 2097268 0 S
+45 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#19868
+Ix'uq'tab lookout sahuagin~
+Ix'uq'tab the lookout~
+With his huge, bulbous eyes, Ix'uq'tab is perfect in his role of lookout.
+~
+With his huge, bulbous, golden eyes, Ix'uq'tab keeps a keen look-out through
+the murky waters. The threat of Tempest and Terror combine to ensure he does
+not falter in his duties. He takes pride in his abilities and contribution to
+the ship's safe passage.
+~
+114752 2097268 0 S
+45 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#19869
+stowaway sahuagin~
+a sahuagin stowaway~
+Tales of the sea lured this young sahuagin into the mistake of stowing away.
+~
+Slender from lack of food and pale-gilled from remaining sedentary, this
+stowaway hides in the shadows of the hold, hoping to avoid discovery. A
+crab claw medallion around her throat marks her as a member of the deep-
+water clans.
+~
+98368 2097268 0 S
+35 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#19870
+passenger sahuagin~
+a paying passenger~
+Checking the status of her cargo, this paying passenger tarries in the hold.
+~
+The wealth of pearls and exotic underwater plants in her crates will make
+this merchant a rich woman, once they get back to Safehaven and her wares
+to go market. As a result, she does not trust it to the crew. Each day, a
+trip down to the hold to check on her treasures reveals the same: it has
+been well stowed, carefully tied down, and is being treated with care.
+~
+98368 2097268 0 S
+35 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#19871
+sea-elf passenger~
+a passenger aboard the Te'nayu'ka~
+A hooded cloak hides the features of this passenger.
+~
+A hooded cloak hides the features of this passenger, but the delicacy of 
+her webbed hands reveals it to be a sea-elf. What she is doing, away from
+her home in the depths, one can only guess. Her long, kelp-green hair is
+pulled into ornamental braids that cascade down to her waist, escaping 
+the confines of her hood.
+~
+98368 2097268 0 S
+30 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+L
+32768 32768
+#19872
+drow elf passenger~
+a drow elf passenger~
+With his cloak gathered around him, this drow elf settles in for the journey.
+~
+Heading home to D'or D'Terraithe after heated mercantile negotiations in
+Safehaven, this drow sits apart from the other passengers, keeping wholly
+to himself. His cloak is wrapped around him, a barrier against the chill
+of the sea that permeates the vessel, and his eyes are partially closed,
+though out of boredom or true weariness, you cannot tell. His white hair
+is close-cropped upon his head, and his hands have far more scars than a
+simple merchant might reasonably have. He seems wary even at rest, as if
+his life has been one of conflicts more dangerous than the price of silk.
+~
+1090 2121972 0 S
+60 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+34816 2048
+#19873
+gnome passenger~
+a sea-sick gnome passenger~
+His skin a pasty yellow, a stout gnome clings tightly to a wooden bucket.
+~
+Gnomes are not meant to be sea-faring creatures, and while this fellow
+was warned, he did not realize the full extent of the misery he would 
+be enduring on this trip until it was too late. It is apparent that 
+he has been regularly emptying the contents of his small stomach, as a
+miasma of vomit surrounds him and the bucket he clings desperately to.
+Still, as sick as he is, this does not look like a gnome to trifle 
+with. He has a very soldierly bearing about him and an awareness, even 
+in his misery, of everything around him.
+~
+98368 2097268 0 S
+45 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+34824 8
+#19874
+sabertooth fish~
+an enormous sabertooth fish~
+The twin fang-like teeth of a sabertooth fish identify it instantly.
+~
+With a sleek, powerful body with three lower dorsal fins, the sabertooth
+fish is able to move quickly through the water. Large, bulbous golden eyes
+contrast with its silvery scales. It is the twin set of jutting fangs that
+protrude from its jaws that give the sabertooth fish its easily recognizable
+silhouette.
+~
+98370 2130044 0 S
+40 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+A
+#19875
+lanternfish fish~
+an unusually large lanternfish~
+Light-producing organs along the pectoral line of this lanternfish glow.
+~
+With eyes that are entirely out of scale with the rest of its body, 
+taking up nearly half its head, this lanternfish is an odd-looking
+creature. What makes it unique is the intricate pattern of light-
+producing organs along its pectoral ridge, cheek, and gill-cover. 
+They illuminate the murky water of the bilge, luring in its prey.
+~
+98370 2130044 0 S
+40 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+A
+#19876
+stoplight loosejaw~
+a huge stoplight loosejaw~
+The head of this stoplight loosejaw is out of proportion with its narrow body.
+~
+With a mouthful of teeth like a piranha, enormous, bulbous eyes and a 
+hinged jaw, the stoplight loosejaw looks like something out of a child's
+nightmare. Its lower jaw is nearly a quarter of its entire length, and 
+opens and closes much like a rattrap. Scarlet light-producing organs
+under its large eyes glow eerily in the dark murky water of the bilge.
+~
+98370 2130044 0 S
+40 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+A
+#19877
+penguin~
+an angry, territorial penguin~
+Clacking its beak angrily, this penguin is ready to defend its territory.
+~
+With a classic white and black body and curved black beak, this 
+penguin is, in all respects, perfectly normal, other than its size.
+Nearly half again as large as an average penguin, it is nearly as 
+tall, when standing, as an adult human. A splotch of yellowish color
+marks its neck. This specimen is agitated and very protective of 
+the chamber it considers its territory.
+~
+32866 0 -500 S
+35 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#19878
+sahuagin sailor~
+a sahuagin sailor~
+Attentively going about his tasks, a sahuagin sailor stays busy.
+~
+Stout and strong, this sailor is used to heavy labor. At any time, he might 
+be moving crates in the hold, pumping out the bilge, or helping to secure
+a bulkhead. A towering and powerful-looking specimen of his race, he is 
+alert for any trouble.
+~
+114752 2097268 0 S
+45 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#19879
+sailor vendor~
+a gray-haired ex-sailor~
+Wrinkled by time, sun and sea, an ex-sailor stands here, selling tickets.
+~
+Weathered by time, sea, sun, and wind, this man has the distinct posture
+and demeanor of a long time sailor. One foot is badly mangled, the scars
+stark against the deeply tanned skin. His dark eyes scan the dock, as if
+looking for someone. The light catches on the few remaining hints of red 
+in his faded brown hair as bends his head to examine the tickets held in
+one hand. 
+
+"You don't wanna get caught as a stowaway on the Te'nayu'ka. Better buy a
+ticket if you wanna get on board." 
+~
+66 0 0 S
+20 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+#0
+
+
+#OBJECTS
+#19850
+coral key branch~
+a small branch of green coral~
+A twisted branch of green coral lies here discarded.~
+~
+18 0 32769
+0 0 0 0
+1 1000 0
+#19851
+squid beak piece object~
+a curved piece of squid beak~
+A strange curved object, dull gray in color, lies here.~
+~
+18 0 16385
+0 0 0 0
+1 1000 0
+#19852
+narwhal horn club ivory~
+a narwhal-horn club~
+A  stout club of narwhal ivory lies here, discarded.~
+~
+5 9344 8193
+0 7 7 7
+4 1000 0
+#19853
+sahuagin claw steel sheath~
+a steel-tipped sahuagin claw~
+An unusually long claw of a sahuagin has been fitted with a steel sheath.~
+~
+5 64 8193
+0 7 12 3
+1 1000 0
+A
+24 -3
+A
+18 4
+A
+19 4
+#19854
+pearl shell insignia~
+a pearl and shell insignia~
+This pearl and shell insignia denotes a captain.~
+~
+30 64 5
+0 0 0 0
+1 1000 0
+A
+41 2
+A
+24 -2
+A
+1 2
+#19855
+stack barrels~
+a stack of barrels~
+Barrels have been stacked here and lashed together with cargo nets.~
+~
+13 0 0
+0 0 0 0
+150 1000 0
+#19856
+pile crates~
+a pile of crates~
+A dozen crates are piled and stacked here in perfectly aligned rows.~
+~
+13 0 0
+0 0 0 0
+250 1000 0
+#19857
+boxes pallet~
+a pallet of boxes~
+Boxes of all different sizes, types and kinds, are secured to a pallet.~
+~
+13 0 0
+0 0 0 0
+250 1000 0
+#19858
+canvas netting object~
+a very large object covered in canvas~
+Canvas and cargo netting drape over some sort of very large object.~
+~
+13 0 0
+0 0 0 0
+900 1000 0
+#19859
+rack weapons spears falchions~
+a rack of weapons~
+A wide rack of spears and falchions covers the south wall.~
+~
+12 0 0
+0 0 0 0
+5 1000 0
+#19860
+cargo net~
+a damaged cargo net~
+Someone appears to be trying to repair this damaged cargo net.~
+~
+13 0 16385
+0 0 0 0
+15 1000 0
+#19861
+vomit bucket~
+a wooden bucket half-full of vomit~
+Noxious odor rises from this wooden bucket, currently half-full of vomit.~
+~
+5 0 8193
+0 6 9 7
+8 1000 0
+E
+bucket~
+This is a very nice bucket. The workmanship is good, with wooden lathes
+fitted tightly together, bound with some sort of dark metal. It looks
+like the sort of bucket that would be useful for swabbing a deck or
+scrubbing flooring. Unfortunately, it has been put to less pleasant
+uses of late.
+~
+E
+vomit~
+Judging by the larger chunks, whomever has been using this bucket to
+catch effluvia most recently enjoyed a fine meal of stuffed cave bat
+with a side order of a rosemary muffin.
+~
+#19862
+cargo ropes net~
+a stout cargo net~
+This mass of interlaced ropes forms a net to hold cargo from shifting.~
+~
+15 0 1
+45 0 0 0
+5 1000 0
+#19863
+checklist~
+a lengthy checklist~
+A mage has made a lengthy checklist of various landmarks.~
+~
+2 64 16385
+10 137 0 0
+1 1000 0
+E
+checklist~
+In an elegant elvish hand, this list reads:
+
+* In The Hall of Mirrors
+* The Pinnacle Fortress
+* The Throne Room of the King
+* Utter Blackness
+* The Lair of Flare, the Ancient Red Dragon
+* The Vault of Artifacts
+* The Summoning Chamber
+* Inside a Pentagram
+* Mag Annwyn
+~
+#19864
+bell illumination parchment~
+an illumination of a bell~
+This parchment bears an exquisite illumination of a bell.~
+~
+2 64 16385
+4 48 0 0
+1 1000 0
+#19865
+pebble schist stone minerals~
+a ragged pebble of schist~
+This broken bit of stone displays foliation of the micaceous minerals within.~
+~
+26 64 1
+14 14 28 0
+1 1000 0
+#19866
+philtre ebon fluid~
+a philtre of ebon fluid~
+Murky ebon shadows swirl within the fluid in this clear glass philtre.~
+~
+10 64 1
+1 47 34 0
+1 1000 0
+#19867
+orb coral pearl~
+a luminescent orb of pearl and coral~
+Softly luminescent, an orb of pearl and coral draws the covetous eye.~
+~
+15 1088 16385
+7 5 0 0
+2 1000 0
+A
+25 2
+A
+26 3
+#19868
+silkweave pile over-robe~
+an over-robe of emerald silkweave~
+A pile of luxurious emerald green silkweave lies here.~
+~
+9 64 1025
+3 0 0 0
+1 1000 0
+A
+24 -3
+A
+41 2
+A
+26 2
+E
+robe~
+This luxurious robe has wide bands of silver embroidery, which depict the 
+wind flowing over the trees of Cillidellia.
+~
+#19869
+vambraces~
+leather vambraces with spiderweb repousse~
+Spiderwebs have been carefully raised along the surface of these vambraces.~
+~
+9 64 257
+5 0 0 0
+2 1000 0
+A
+26 3
+A
+24 -3
+E
+vambraces~
+Crafted in D'or D'Terraithe, these leather vambraces are marked with the 
+sigils of a noble house and the spiderweb of Lolth's worship.
+~
+E
+spiderweb web~
+A spider, fangs bared, waits upon the web upon these vambraces.
+~
+#19870
+band scales bracelet~
+a decorative band of aquadragon scales~
+The scales of an aquadragon have been made into an ornate bracelet.~
+~
+9 64 4097
+3 0 0 0
+1 1000 0
+A
+1 2
+A
+2 2
+A
+41 1
+#19871
+apron hide~
+an aquadragon hide apron~
+Fish guts and scales cover the surface of this apron of aquadragon hide.~
+~
+9 64 2049
+5 0 0 0
+2 1000 0
+A
+18 3
+A
+26 2
+A
+1 2
+#19872
+sea chest sea-chest~
+a stout sea-chest~
+An iron-bound sea-chest holds valuables belonging to the officers.~
+~
+15 0 0
+50 15 19851 0
+10 1000 0
+#19873
+armband coral armcuff pearl~
+an armband of pink coral~
+A curving armcuff of pink coral and mother of pearl lies here.~
+~
+9 64 257
+5 0 0 0
+1 1000 0
+A
+5 2
+A
+2 2
+A
+24 -2
+#19874
+armcuff coral armband~
+an armband of white coral~
+A curving armcuff of white coral lies here.~
+~
+9 64 257
+3 0 0 0
+1 1000 0
+A
+3 2
+A
+4 2
+A
+24 -2
+#19875
+eyeball~
+a shriveled eyeball~
+A desiccated, shriveled eyeball stares upward at you.~
+~
+26 64 16385
+18 163 0 0
+1 1000 0
+#19876
+pearl~
+a black pearl~
+As black as the ink of a squid, an unusually large black pearl shimmers here.~
+~
+26 64 1
+20 159 140 0
+1 1000 0
+#19877
+kit bottle medicine~
+an ear-wax removal kit~
+This small bottle contains medicine to remove ear wax.~
+~
+10 64 16385
+7 99 0 0
+1 1000 0
+#19899
+submarine vessel~
+a submarine~
+An unusual, whale-like vessel is docked here, the tower open.~
+~
+12 0 0
+0 0 0 0
+5 0 0
+E
+ship boat vessel submarine tenayuka Te'nayu'ka~
+The Te'nayu'ka is a unique vessel, constructed of the bones of the 
+great leviathan whale, which was driven into extinction decades ago
+by the depredations of the Tempest. This specimen's flexible skeleton
+was used as the foundation of the submarine, constructed for over or
+under water operation by the sahuagins of Tiren's Rock. Perhaps you 
+should come aboard and explore!
+~
+#0
+
+
+#ROOMS
+#19850
+The Tower of the Te'nayu'ka~ 
+Portals above and below allow vertical access into the depths of the ship
+and out to the ocean's wild waves. This structure is oddly organic - made 
+of a flexible whalebone-like material, rather than hard metal. Designs of
+spirals and branches, resembling shells and corals, decorate the interior
+surface and growths that closely resemble barnacles provide handholds for
+those not blessed with fins to traverse.
+~
+198 8 0
+D4
+A rope ladder hangs over the side of the ship.
+~
+~
+0 0 12498
+D5
+
+~
+~
+0 0 19853
+S
+#19851
+The Bridge of the Te'nayu'ka~
+A clear screen of crystal provides a perfect view of the surroundings here
+on the bridge of the Te'nayu'ka. Beyond that barrier, sea creatures dart
+out of the way, their movement stirring the kelp that drifts by. Here on 
+the bridge, crew members go about their tasks. An old-fashioned ship's 
+wheel has been plucked up from some ancient wreck and re-used as part of 
+the navigation system. A rack of charts covers the entirety of the port
+side of the bridge.
+~
+198 8 0
+D2
+
+~
+~
+0 0 19852
+D5
+
+~
+~
+2 19850 19864
+S
+#19852
+A Gangway Aboard the Te'nayu'ka~
+This vessel is made of some sort of strange, flexible, whalebone-like
+material, that feels oddly disconcerting underfoot. To the north, the
+open archway of the bridge can be seen, and to the east, tantalizing 
+scents of fish waft forth. A closed door bars the way to the officers'
+quarters to the west and the passageway continues the length of the 
+vessel to the south.
+~
+198 8 0
+D0
+
+~
+~
+0 0 19851
+D1
+
+~
+~
+0 0 19860
+D2
+
+~
+~
+0 0 19853
+D3
+
+~
+~
+2 19851 19856
+S
+#19853
+A Portal Aboard the Te'nayu'ka~
+This section of the vessel seems almost coral-like, with openings in
+every direction. Below, a gaping bore leads to the hold, and above 
+lies the fairwater. A wide passageway allows movement to the north,
+in the direction of the bridge, and south, towards the stern. A door
+bars the way to the west, a sign upon it reading "Passengers' Quarters",
+and to the east, a sign upon that door reads "Mess Hall".
+~
+198 8 0
+D0
+
+~
+~
+0 0 19852
+D1
+
+~
+~
+0 0 19861
+D2
+
+~
+~
+0 0 19854
+D3
+
+~
+~
+0 0 19857
+D4
+
+~
+~
+0 0 19850
+D5
+
+~
+~
+0 0 19866
+S
+#19854
+A Gangway Aboard the Te'nayu'ka~
+The pale, slightly flexible material of the Te'nayu'ka underfoot is
+tricky to walk upon, as it gives slightly with each step then rebounds,
+almost like a trampoline. This gangway extends towards the stern and 
+bow, and closed doors block entry to the crew quarters, located to the 
+port and starboard.
+~
+198 8 0
+D0
+
+~
+~
+0 0 19853
+D1
+
+~
+~
+1 0 19862
+D2
+
+~
+~
+0 0 19855
+D3
+
+~
+~
+1 0 19858
+S
+#19855
+The Aft Gangway of the Te'nayu'ka~
+Stretching towards the bow of the ship, this passageway is flanked
+by archways to the east and west that lead to the ballast chambers.
+It is bare of ornamentation and not well-traveled. The surface of 
+the walls, ceiling and floor is pale, and oddly flexible to the 
+touch, more organic than metallic in nature.
+~
+198 8 0
+D0
+
+~
+~
+0 0 19854
+D1
+
+~
+~
+0 0 19863
+D2
+
+~
+~
+1 19850 19879
+D3
+
+~
+~
+0 0 19859
+S
+#19856
+The Armory~
+Racks of weapons - harpoons, tridents and spears - line the walls of 
+this chamber. Each is well-tended, sharp and ready for action: whether
+to repel boarders or an attack by the Terror of the Sea. A stout door
+to the east prevents any unauthorized entry.
+~
+198 8 0
+D1
+
+~
+~
+2 19851 19852
+S
+#19857
+The Passengers' Berth~
+This small chamber was designed for the comfort of humanoid passengers,
+with long, narrow benches along each of the walls. There are no creature
+comforts to be found - only a single porthole to peep through. The room
+is immaculately clean and the only ornamentation is a mural along the 
+west wall.
+~
+198 8 0
+D1
+
+~
+~
+0 0 19853
+E
+mural~
+This mural depicts the Tempest in all of its force and fury, laying waste 
+to a human vessel. A tiny figure that bears an uncanny resemblance to Captain 
+Meryl is clutched in one watery appendage, about to be devoured.
+~
+S
+#19858
+The Crew Quarters of the Te'nayu'ka~
+A maze-like chamber of strung nets, this area serves as one of two quarters
+for the crew of the vessel. A pair of communal lockers rests to either side
+of the door. One of the hammock-like nets nearest to the door hangs in limp
+tatters, nearly shredded from the thrashing of its occupant.
+~
+198 8 0
+D1
+
+~
+~
+1 0 19854
+S
+#19859
+The Port Ballast Room~
+A series of valves dot the walls in this chamber and beneath each is a bin 
+of empty bladders, waiting to be filled with either air or water.  Strange
+tools are hung in special racks alongside the archway, readily at hand if
+needed. Here, weight is added or removed from the vessel to help control 
+the vertical position of the Te'nayu'ka.
+~
+198 8 0
+D1
+
+~
+~
+0 0 19855
+S
+#19860
+Galley of the Te'nayu'ka~
+Immaculately clean, this room is the domain of Ta'ke'shi'ka-ga, the cook of 
+the Te'nayu'ka. Bins of fish in fresh, dried, and salted forms hang from
+the north wall and the east wall is completely covered in a massive storage 
+unit of drawers, cabinets, nooks and crannies, stuffed to the gills with
+all manner of spices and other ingredients, from the most delicate sea 
+urchin roe to squid ink. A wide table runs the width of the room, where
+Ta'ke'shi'ka-ga builds her exquisite culinary offerings. A yellow pepper, 
+a single bite missing from it, rests on the corner of the table.
+~
+198 8 0
+D2
+
+~
+~
+0 0 19861
+D3
+
+~
+~
+0 0 19852
+S
+#19861
+Mess Hall of the Te'nayu'ka~
+Tables curve around the edges of this room, mirrored by hammock-like nets,
+providing comfortable resting spots for the sahuagin of the crew as they 
+dine. A pair of suckerfish are attached to the floor, cleaning up every 
+scrap of food that might have been inadvertently spilled. This chamber is
+full at the end of each shift and sees activity at all hours of the day 
+and night.
+~
+198 8 0
+D0
+
+~
+~
+0 0 19860
+D3
+
+~
+~
+0 0 19853
+S
+#19862
+The Crew Quarters of the Te'nayu'ka~
+A maze-like chamber of strung nets, this area serves as one of two quarters
+for the crew of the vessel. A pair of communal lockers rests to either side
+of the door.  Someone has idly sketched a series of interlocking spirals as
+a form of decoration along the length of the west wall and has begun to 
+fill in the shapes with a dark squid ink.
+~
+198 8 0
+D3
+
+~
+~
+1 0 19854
+S
+#19863
+The Starboard Ballast Room~
+A series of valves dot the walls in this chamber and beneath each is a bin 
+of empty bladders, waiting to be filled with either air or water.  Strange
+tools are hung in special racks alongside the archway, readily at hand if
+needed. Here, weight is added or removed from the vessel to help control the
+vertical position of the Te'nayu'ka.
+~
+198 8 0
+D3
+
+~
+~
+0 0 19855
+S
+#19864
+Ak'ash'eck's Quarters~
+This is obviously the quarters of one who is neat and organized - almost
+to a fault. Every surface is pristinely clean and polished, yet there is
+no luxury here or ostentatious display.  All of the furniture is simple:
+a knotted sleeping-net, a plain wooden desk, a small chest of drawers. A
+small, rusted metal anchor hanging on the wall is the chamber's sole form 
+of ornamentation. A stout portal blocks the way to the south and a hatch
+grants entry to the bridge above.
+~
+198 8 0
+D2
+
+~
+~
+2 19850 19865
+D4
+
+~
+~
+2 19850 19851
+E
+anchor~
+A large, serrated, triangular tooth is embedded in the left prong of this
+metal anchor. It appears to have been used as a bludgeon - to good effect - 
+against a enormous specimen of Carcharodon carcharias.
+~
+S
+#19865
+The Lower Gangway~
+Portals block passage in three directions: A large, stout door to the north,
+another to the west and a barred, reinforced door to the east. A small dark
+stain mars the floor by the secured bulkhead, where some form of liquid has
+seeped out from underneath. To the south lies the hold of the ship.  All is
+clean, well-lit, and carefully cared for, save for that odd, fresh stain on
+the floor.
+~
+198 8 0
+D0
+
+~
+~
+2 19850 19864
+D1
+
+~
+~
+2 19851 19873
+D2
+
+~
+~
+1 0 19866
+D3
+
+~
+~
+1 0 19869
+S
+#19866
+The Forward Hold~
+Padding has been lashed around a series of crates, to prevent any jostling
+of the precious and fragile contents of the pallet that rests here in the 
+center of the forward hold. A peek in between the slats of the wooden boxes
+reveals a large quantity of very old looking bottles of wine. Each appears 
+to be destined for a different port and their presence here in the forward
+hold is indicative of the care that Ah'mu'zen'ka, the cargo master, is 
+taking with their condition.
+~
+198 8 0
+D0
+
+~
+~
+0 0 19865
+D1
+
+~
+~
+0 0 19874
+D2
+
+~
+~
+0 0 19867
+D3
+
+~
+~
+0 0 19870
+D4
+
+~
+~
+0 0 19853
+S
+#19867
+The Middle Hold~
+A complex latticework of boards and timbers, ropes and pulleys is piled here.
+It appears to be some sort of complex machinery, perhaps destined for the 
+gnomes of the Settlement, for only they could make sense of such a strange
+contraption. A large whale bladder seems the center point of the device, with
+levers and blowers to inflate and deflate it. How the crew of the Te'nayu'ka
+managed to get it into the hold in one piece is a marvel in and of itself.
+~
+198 8 0
+D0
+
+~
+~
+0 0 19866
+D1
+
+~
+~
+0 0 19875
+D2
+
+~
+~
+0 0 19868
+D3
+
+~
+~
+0 0 19871
+S
+#19868
+The Aft Hold~
+Goods bound for the Northern Continent are stacked here, as they will not 
+need to be accessed until the end of this journey. A large pallet, totally
+covered in canvas that is lashed down tightly with hemp ropes, is marked 
+clearly as being bound for Midgaard. A deep rasping, grunting sound emerges
+from under the canvas and the load shifts slightly as whatever is within 
+its confines tries to get out.
+~
+198 8 0
+D0
+
+~
+~
+0 0 19867
+D1
+
+~
+~
+0 0 19876
+D3
+
+~
+~
+0 0 19872
+D5
+
+~
+~
+0 0 19877
+S
+#19869
+The Officers' Quarters~
+Only four hammocks are slung in this chamber, providing a level of comfort 
+far above that of the crew or passenger quarters.  A pair of wardrobes is 
+bolted to the walls, giving the officers a place to stow their belongings. 
+Even the floor is graced with a rug to provide a spot of color and comfort.
+A knife is buried several inches deep into the fall wall, though whether 
+it was thrown for sport or in anger, cannot be discerned.
+~
+198 8 0
+D1
+
+~
+~
+1 0 19865
+S
+#19870
+The Forward Port Hold~
+A thief has broken into one of several crates stacked here! Evidence
+of the break-in is clear: slats torn from the side of the crate lay
+splintered on the ground, and straw that was used as packing material
+is strewn everywhere. Whatever was in this package is gone now, and 
+there will be hell to pay when the captain and cargo master find out!
+~
+198 8 0
+D1
+
+~
+~
+0 0 19866
+D2
+
+~
+~
+0 0 19871
+S
+#19871
+In the Hold~
+A small load has been lashed down here in the middle stern hold,
+and it appears that someone has been keeping it company for some
+time, although they are not present currently. Bits of chicken 
+bone and some stale bread are discarded beside the pallet, and a
+worn blanket lays upon the floor. It appears that they take the 
+value of this shipment quite seriously, but that its guard has 
+stepped away from their post.
+~
+198 8 0
+D0
+
+~
+~
+0 0 19870
+D1
+
+~
+~
+0 0 19867
+D2
+
+~
+~
+0 0 19872
+S
+#19872
+The Aft Port Hold~
+Bolts of fabric are wrapped in paper to protect them from the moist
+sea winds. Shimmering elfweave of every hue imaginable, sent from a
+skilled loom in Cillidellia, rest beside more humble fabrics, coarse
+and plain, from Riverhold. Each will find their place and price at 
+markets across the sea. A single, narrow roll is double-wrapped, with
+a spider sigil upon the seal and warding spells - obviously a fabric
+of the greatest of value.
+~
+198 8 0
+D0
+
+~
+~
+0 0 19871
+D1
+
+~
+~
+0 0 19868
+S
+#19873
+The Brig of the Te'nayu'ka~
+This small, barren room has no comforts whatsoever. The sole furniture is
+a rusty bucket in one corner, rank and foul with excrement. This room has
+been carefully reinforced, with additional cross-wise beams of the soft,
+cartilage-like material the ship is crafted of, to ensure any prisoner in
+here is unable to escape. The single exit, a door to the west, has only a
+small peep-hole perhaps a hand-span wide, barely large enough to shove a 
+puny fish steak through or glance in to check on a prisoner.
+~
+198 8 0
+D3
+
+~
+~
+2 19851 19865
+S
+#19874
+The Forward Starboard Hold~
+The majority of items here are large hogshead barrels - nearly the size 
+of an adult halfling from Emdeeville, their point of origin - no doubt 
+on their way to the bars in busy Rowen Docks. They are carefully stacked 
+in neat rows, secured with cargo netting that drapes them like a shroud. 
+Some of the barrels appear to have been moved slightly, creating a small 
+central space within their enclosing bulk.
+~
+198 8 0
+D2
+
+~
+~
+0 0 19875
+D3
+
+~
+~
+0 0 19866
+S
+#19875
+In the Hold~
+Ah'mu'zen'ka's handiwork is clear in this section of the hold. Small changes 
+to the loads have been made, shifting their position to keep them secure as 
+the Te'nayu'ka's flexible hull moved beneath. Large stacks of well-tanned
+animal hides, collected in the jungles south of the Cymraeg, are heaped 
+onto wooden pallets are secured beside tall and narrow crates marked with 
+the elven sigils of Cillidellia.
+~
+198 8 0
+D0
+
+~
+~
+0 0 19874
+D2
+
+~
+~
+0 0 19876
+D3
+
+~
+~
+0 0 19867
+S
+#19876
+The Aft Starboard Hold~
+For landlubbers, this part of the hold is the south-east corner. Here, 
+a neat row of various sized wooden crates marked for delivery to Rowen 
+Docks are carefully lashed into place, secured to both the walls and 
+floor of the vessel to prevent shifting. An odd set of notches has been
+carved into the corners of a number of the crates, but their purpose is
+not clear. The hold extends to the north and west.
+~
+198 8 0
+D0
+
+~
+~
+0 0 19875
+D3
+
+~
+~
+0 0 19868
+E
+notches set~
+Triangular notches have been carved out of the edge of several of the 
+crates, marking them for some unknown purpose.
+~
+S
+#19877
+In the Bilge~
+Rank salt water sloshes hip-deep here, icy and foul. This is where water 
+collects that is used on board, whether for cleaning or cooking and also
+where the latrines empty. The smell is a noxious and pungent assault. A 
+thick layer of green scum-like algae can be seen floating over most of 
+the water, which has a surprisingly strong tidal movement that corresponds 
+to the passage of the ship. The bilge extends to the north and a closed 
+hatch leads upward to the main hold.
+~
+198 8 0
+D0
+
+~
+~
+0 0 19878
+D4
+
+~
+~
+0 0 19868
+S
+#19878
+In the Bilge~
+The smell here in the bilge is an overwhelmingly noxious and pungent 
+assault on your nose. This is where water collects that is used on 
+board, for both cleaning and cooking, and where the latrines empty. 
+It is nearly hip-deep and icy cold. A layer of foul scum-like algae 
+can be seen floating over most of the water, which has a strong tidal 
+movement that corresponds to the passage of the ship. The bilge extends 
+to the south and north.
+~
+198 8 0
+D0
+
+~
+~
+0 0 19880
+D2
+
+~
+~
+0 0 19877
+S
+#19879
+The Sea-Lock~
+This small chamber is barricaded at both ends and is used for docking 
+underwater, providing a chamber to keep the Te'nayu'ka from flooding 
+when unloading at Tiren's Rock. Stout doors keep back the waters, an
+unbreakable lock on each.
+~
+198 1036 0
+D0
+
+~
+~
+1 19850 19855
+S
+#19880
+In the Bilge~
+Foul smells fill the air of the bilge, making your eyes water. This 
+channel at the bottom of the vessel is filled nearly to the ceiling 
+with a foul stew of latrine effluvia, dirty water, leakage flow and 
+other liquid. It moves back and forth through the bilge with a strong, 
+tidal shift, caused by the motion of the Te'nayu'ka through the water.  
+Extending to the south and north, this dangerous passageway is actually 
+a tiny tidepool-like environment, with fish living in it.
+~
+198 8 0
+D0
+
+~
+~
+0 0 19881
+D2
+
+~
+~
+0 0 19878
+S
+#19881
+In the Bilge~
+The bulkhead stops northward movement through the bilge here, but the
+passageway extends to the south. Water fills the space, nearly to the 
+ceiling, and its revolting stench is more foul than any rotting heap,
+or midden one can find anywhere in the realm.  Several types of fish,
+all suited to the deep waters, make the bilge their home, though how
+it is they came to be here is anyone's guess.
+~
+198 8 0
+D2
+
+~
+~
+0 0 19880
+S
+#0
+
+
+#RESETS
+D 0 19851 5 2  * The Bridge of the Te'nayu'ka
+D 0 19852 3 2  * A Gangway Aboard the Te'nayu'ka
+D 0 19854 1 1  * A Gangway Aboard the Te'nayu'ka
+D 0 19854 3 1  * A Gangway Aboard the Te'nayu'ka
+D 0 19856 1 2  * The Armory
+D 0 19858 1 1  * The Crew Quarters of the Te'nayu'ka
+D 0 19862 3 1  * The Crew Quarters of the Te'nayu'ka
+D 0 19864 4 2  * Ak'ash'eck's Quarters
+D 0 19864 2 2  * Ak'ash'eck's Quarters
+D 0 19865 0 2  * The Lower Gangway
+D 0 19865 1 2  * The Lower Gangway
+D 0 19865 3 1  * The Lower Gangway
+D 0 19869 1 1  * The Officers' Quarters
+D 0 19873 3 2  * The Brig of the Te'nayu'ka
+D 0 19879 0 2  * The Sea-Lock
+D 0 19855 2 2  * The Aft Gangway of the Te'nayu'ka
+O 0 19899 1 12498  * a submarine -> On a Weathered Dock
+O 0 19872 1 19869  * a stout sea-chest -> The Officers' Quarters
+P 0 19852 100 19872  * a narwhal-horn club -> a stout sea-chest
+M 0 19850 1 19851  * Captain Ak'ash'eck -> The Bridge of the Te'nayu'ka
+G 0 19876 1  * a black pearl
+E 0 19850 100 18  * a small branch of green coral
+E 0 19854 100 4 * a pearl and shell insignia
+M 0 19851 1 19860  * Ta'ke'shi'ka-ga the cook -> Galley of the Te'nayu'ka
+E 0 19871 100 13  * an aquadragon hide apron
+E 0 19853 100 16  * a steel-tipped sahuagin claw
+M 0 19852 1 19854  * To'lot'zin, the Master at Arms -> A Gangway Aboard the Te'nayu'ka
+E 0 19852 100 16  * a narwhal-horn club
+E 0 19851 100 17 * a curved piece of squid beak
+M 0 19853 1 19851  * the helmsman, Ak'cha'mahez -> The Bridge of the Te'nayu'ka
+E 0 19873 100 10  * an armband of pink coral
+M 0 19854 1 19865  * Bu'lokcha'ban -> The Lower Gangway
+M 0 19855 1 19852  * Q'u'ma'taz -> A Gangway Aboard the Te'nayu'ka
+M 0 19856 1 19863  * Chac'u'yab the ballast master -> The Starboard Ballast Room
+E 0 19874 100 10  * an armband of white coral
+M 0 19857 1 19873  * Bo'lan'ti'ku -> The Brig of the Te'nayu'ka
+E 0 19875 100 17  * a shriveled eyeball
+E 0 19874 100 10  * an armband of white coral
+M 0 19858 1 19869  * Ix'il'iton the healer -> The Officers' Quarters
+E 0 19867 100 17  * a luminescent orb of pearl and coral
+M 0 19859 1 19875  * Ah'mu'zen'ka the cargo master -> In the Hold
+E 0 19862 100 17  * a stout cargo net
+M 0 19860 5 19858  * a sahuagin crew member -> The Crew Quarters of the Te'nayu'ka
+M 0 19860 5 19862  * a sahuagin crew member -> The Crew Quarters of the Te'nayu'ka
+M 0 19861 4 19858  * a just-awakened crew member -> The Crew Quarters of the Te'nayu'ka
+M 0 19861 4 19862  * a just-awakened crew member -> The Crew Quarters of the Te'nayu'ka
+M 0 19862 5 19858  * a novice sailor aboard the Te'nayu'ka -> The Crew Quarters of the Te'nayu'ka
+M 0 19862 5 19862  * a novice sailor aboard the Te'nayu'ka -> The Crew Quarters of the Te'nayu'ka
+M 0 19862 5 19859  * a novice sailor aboard the Te'nayu'ka -> The Port Ballast Room
+M 0 19862 5 19866  * a novice sailor aboard the Te'nayu'ka -> The Forward Hold
+M 0 19862 5 19872  * a novice sailor aboard the Te'nayu'ka -> The Aft Port Hold
+M 0 19863 5 19870  * a member of the hold crew -> The Forward Port Hold
+M 0 19863 5 19874  * a member of the hold crew -> The Forward Starboard Hold
+M 0 19863 5 19875  * a member of the hold crew -> In the Hold
+M 0 19863 5 19868  * a member of the hold crew -> The Aft Hold
+M 0 19863 5 19871  * a member of the hold crew -> In the Hold
+M 0 19864 4 19858  * a crew member of the Te'nayu'ka -> The Crew Quarters of the Te'nayu'ka
+M 0 19864 4 19862  * a crew member of the Te'nayu'ka -> The Crew Quarters of the Te'nayu'ka
+M 0 19864 4 19855  * a crew member of the Te'nayu'ka -> The Aft Gangway of the Te'nayu'ka
+M 0 19864 4 19878  * a crew member of the Te'nayu'ka -> In the Bilge
+M 0 19865 8 19877  * a monstrous bristlemouth -> In the Bilge
+M 0 19865 8 19878  * a monstrous bristlemouth -> In the Bilge
+M 0 19866 8 19877  * a gargantuan viperfish -> In the Bilge
+M 0 19866 8 19878  * a gargantuan viperfish -> In the Bilge
+M 0 19867 1 19853  * To'li'tiku -> A Portal Aboard the Te'nayu'ka
+E 0 19870 100 14  * a decorative band of aquadragon scales
+M 0 19868 1 19850  * Ix'uq'tab the lookout -> The Fairwater of the Te'nayu'ka
+M 0 19869 1 19874  * a sahuagin stowaway -> The Forward Starboard Hold
+M 0 19870 2 19857  * a paying passenger -> The Passengers' Berth
+M 0 19869 2 19875  * a sahuagin stowaway -> In the Hold
+M 0 19871 1 19857  * a passenger aboard the Te'nayu'ka -> The Passengers' Berth
+G 0 19877 100  * an ear-wax removal kit
+G 0 19866 100  * a philtre of ebon fluid
+G 0 19865 100  * a ragged pebble of schist
+G 0 19864 100  * an illumination of a bell
+G 0 19863 100  * a lengthy checklist
+M 0 19872 1 19857  * a drow elf passenger -> The Passengers' Berth
+E 0 19869 100 15  * leather vambraces with spiderweb repousse
+E 0 19868 100 5  * an over-robe of emerald silkweave
+M 0 19865 8 19880  * a monstrous bristlemouth -> In the Bilge
+M 0 19865 8 19881  * a monstrous bristlemouth -> In the Bilge
+M 0 19866 8 19880  * a gargantuan viperfish -> In the Bilge
+M 0 19866 8 19881  * a gargantuan viperfish -> In the Bilge
+M 0 19874 8 19877  * an enormous sabertooth fish -> In the Bilge
+M 0 19874 8 19878  * an enormous sabertooth fish -> In the Bilge
+M 0 19874 8 19880  * an enormous sabertooth fish -> In the Bilge
+M 0 19874 8 19881  * an enormous sabertooth fish -> In the Bilge
+M 0 19875 8 19877  * an unusually large lanternfish -> In the Bilge
+M 0 19875 8 19878  * an unusually large lanternfish -> In the Bilge
+M 0 19875 8 19880  * an unusually large lanternfish -> In the Bilge
+M 0 19875 8 19881  * an unusually large lanternfish -> In the Bilge
+M 0 19876 8 19877  * a huge stoplight loosejaw -> In the Bilge
+M 0 19876 8 19878  * a huge stoplight loosejaw -> In the Bilge
+M 0 19876 8 19880  * a huge stoplight loosejaw -> In the Bilge
+M 0 19876 8 19881  * a huge stoplight loosejaw -> In the Bilge
+M 0 19877 1 19864  * an angry, territorial penguin -> Ak'ash'eck's Quarters
+M 0 19878 4 19856  * a sahuagin sailor -> The Armory
+M 0 19878 4 19861  * a sahuagin sailor -> Mess Hall of the Te'nayu'ka
+M 0 19878 4 19855  * a sahuagin sailor -> The Aft Gangway of the Te'nayu'ka
+M 0 19878 4 19865  * a sahuagin sailor -> The Lower Gangway
+M 0 19860 5 19861  * a sahuagin crew member -> Mess Hall of the Te'nayu'ka
+M 0 19870 2 19876  * a paying passenger -> The Aft Starboard Hold
+M 0 19873 1 19857  * a sea-sick gnome passenger -> The Passengers' Berth
+E 0 19861 100 16   * a wooden bucket half-full of vomit
+S
+
+
+#SHOPS
+19871  0 0 0 0 0  100 100  0 23  10 * a passenger aboard the Te'nayu'ka
+19879 0 0 0 0 0 100 100 0 23 -1 * ticket selling sailor pop'd by code not reset 
+0
+
+
+#SPECIALS
+M 19850 init_shaman  * Captain Ak'ash'eck
+M 19852 spec_fight_dirty  * To'lot'zin, the Master at Arms
+M 19853 spec_janitor  * the helmsman, Ak'cha'mahez
+M 19867 spec_Fitzwalter  * To'li'tiku
+M 19868 spec_lookout  * Ix'uq'tab the lookout
+M 19872 init_mage  * a drow elf passenger
+M 19873 spec_guard  * a sea-sick gnome passenger
+S
+
+#RSPECS
+S
+
+#TRIGGERS
+S
+
+#$
+
