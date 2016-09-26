@@ -86,7 +86,6 @@ Rails.application.configure do
     :password       => ENV['SPARKPOST_API_KEY'],
     :domain         => 'apprentices-workshop.herokuapp.com',
     :enable_starttls_auto => true,
-    :format         => html,
     :from           => 'donotreply@apprentices-workshop.herokuapp.com'
   }
 
