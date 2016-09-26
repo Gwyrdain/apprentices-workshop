@@ -37,7 +37,8 @@
             <% if (reset.area.resets.where(parent_id: reset.id).count > 0) %>
               </br></br><%= render 'resets/sub_resetstable', :reset => reset %>
             <% end %>
-
+          <% elsif reset.reset_type == '*' %>
+            <%= reset.comment %> 
           <% else %>
             Load
             <% if reset.reset_type == 'M' || reset.reset_type == 'Q' %>

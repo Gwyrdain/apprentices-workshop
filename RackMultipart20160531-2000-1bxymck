@@ -1,0 +1,4559 @@
+
+#AREA { 1 50} TheBooga Tiren's Rock~  F 2
+
+
+#MOBILES
+#18900
+sahuagin Mo Mo'pakshakur Mopakshakur~
+Mo'pakshakur~
+An undeniably large sahuagin swims around, admiring the weapons.
+~
+Mo'pakshakur, the greatest living sahuagin warrior, is the largest of his
+race. Standing at eight feet tall, he has no body fat - the striations of
+each muscle are visible and clear. Without speaking or taking his eyes off
+you, he nods once at his big stick on the ceiling, implying he may not be
+done adding dents ... or notches.
+~
+16777282 35709096 -500 S
+55 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#18901
+sahuagin guard guardian tomb~
+the tomb guardian of Tiren's Rock~
+A lithe-looking sahuagin is here, appointed to guard the passages below.
+~
+This particular sahuagin looks lean and mean.  Chosen to stand watch over
+the chambers below, whatever skills he may possess must be strong indeed.
+~
+16777282 31582376 750 S
+55 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#18902
+presence phasma An'lakshakmur Anlakshakmur~
+the phasma of An'lakshakmur~
+The ethereal presence of An'lakshakmur remains behind to guard her tomb.
+~
+Hovering motionless and translucent, the embodiment of the legendary lady
+warrior stares blankly.
+~
+1081410 137396392 1000 S
+60 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+#18903
+phasma Kruddi'lukk Kruddilukk~
+the phasma of Kruddi'lukk~
+The phasma of Kruddi'lukk remains behind to watch over his tomb.
+~
+Memories of the unfortunate conjurings that led to this sahuagin's demise
+continue to haunt him beyond death. The phasma of Kruddi'lukk moves about
+angrily.
+~
+1081442 3203240 750 S
+60 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+#18904
+phasma Sh'kwikhanz Shkwikhanz~
+the phasma of Sh'kwikhanz~
+The phasma of the stealthy Sh'kwikhanz searches for new wealth.
+~
+Even in death, this sahuagin's desire for wealth is unparalleled.  The
+translucent phasma of Sh'kwikhanz still possesses talented digits.
+~
+1081410 3244200 -1000 S
+60 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+#18905
+phasma Or'shalkpirsi Orshalkpirsi~
+the phasma of Or'shalkpirsi~
+The phasma of Or'shalkpirsi will have its vengeance.
+~
+Deceived in life, furious in death, the phasma of arch-mage Or'shalkpirsi
+continues to seek retribution for all that was stolen from him.
+~
+1081442 3178666 500 S
+60 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+#18906
+short stout dealer~
+the weapons dealer~
+A short, stout sahuagin is here and ready to deal Mo's weapons.
+~
+Working hard to sell weapons, this under-grown, over-wide sahuagin knows
+his craft.  He caters to Mo'shakpakur's whims, and keeps all the weapons
+polished and in stock.
+~
+32834 12847144 0 S
+30 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#18907
+parrotfish fish~
+a green parrotfish~
+A green parrotfish swims around, looking for smaller things to eat.
+~
+Barely a foot long, this parrotfish swims about looking for littler
+somethings to eat.
+~
+98368 0 0 S
+5 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+A
+N
+#18908
+seaworm worm~
+a tiny seaworm~
+Small and meek, a tiny seaworm seeks shelter in the silt.
+~
+Unable to defend against nearly all predators, this tiny worm flees
+all danger.
+~
+100416 0 0 S
+2 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+A
+N
+#18909
+sahuagin man~
+a manly sahuagin~
+A sahuagin man swims past on his way to complete his business.
+~
+Sucking in his belly and looking as regal as he can, this sahuagin tries
+to look manly while swimming.
+~
+32832 0 0 S
+9 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#18910
+sahuagin lady~
+a lady sahuagin~
+A lady sahuagin swims about elegantly, looking this way and that.
+~
+A female sahuagin swims slowly by, glancing furtively in all directions.
+~
+32832 0 0 S
+8 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+L
+32768 32768
+#18911
+family~
+a sahuagin family~
+A small sahaugin family is here, enjoying their day.
+~
+A mother, father, and their young children are here, enjoying the day
+and each other's company.
+~
+1081536 0 0 S
+10 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+N
+#18912
+watcher~
+a fit city watcher~
+A city watcher swims here, moving powerfully through the water.
+~
+A strong male sahuagin swims here, looking brave and capable.
+~
+32834 40 0 S
+14 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#18913
+watcher~
+a fit city watcher~
+A city watcher swims here, moving powerfully through the water.
+~
+A trim and fit lady sahuagin swims here, ready to fend off trouble.
+~
+32834 40 0 S
+11 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+L
+32768 32768
+#18914
+needlefish~
+a darting little needlefish~
+Swift and svelt, a needlefish darts around and zips past.
+~
+This fish is slim and very speedy - unfortunately too small to be much
+of a meal.
+~
+1146944 0 0 S
+2 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+N
+#18915
+dabbler~
+the dabbler~
+Longing to be a great caster, this sahaugin dabbler is better at selling
+magic.
+~
+This middle-aged sahuagin male tried and tried, but never passed the Mage
+Guild Exams in his youth.  Per chance he could master just one spell, then
+perhaps he could sell his own creations...
+~
+66 29386792 0 S
+42 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#18916
+marine merchant~
+the marine merchant~
+Familiar with all types of marine gear, this merchant is here to sell!
+~
+Well traveled under the seas, this mariner has seen and done more than
+most.  He has brought back the skills of an undersea armorer, and his
+wares are well worth the price.
+~
+16777282 2154536 0 S
+50 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#18917
+cook sous chef~
+the sous chef of Triton Galley~
+An experienced filet-maker, this sahuagin fancies himself a marvelous cook.
+~
+Thin and wiry, this sahuagin is an elitist and has little patience for
+those who cannot decide what they wish to order.  He would prefer to be
+known as a 'master of food preparation' instead of a simple sous chef.
+~
+194 2154664 0 S
+38 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+O
+curse~
+#18918
+tinkerer~
+the tinkerer~
+A venerable old sahuagin tinkerer is here, hoping to sell his gadgets.
+~
+Having owned and operated this alcove for many years, the tinkerer
+is happy and eager to do business with anyone that passes through.
+~
+66 31516712 0 S
+28 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#18919
+lady master chef~
+the master chef of Tiren's Rock~
+A trim lady sahuagin works food preparation magic behind the counter.
+~
+This female sahuagin has been eating healthy for a very long time, and
+it shows. She is well-known across Tiren's Rock for her culinary mastery,
+and has gained a quiet reputation among sahuagins throughout the realm.
+~
+66 29419560 0 S
+44 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+L
+32768 32768
+#18920
+giant cephalopod~
+a truly humongous cephalopod~
+Very large and very squishy, a truly humongous cephalopod munches and
+crunches.
+~
+This giant looks hungry, waving its tentacles about in that manner...
+~
+8258 57344 0 S
+33 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+A
+#18921
+large cephalopod~
+a large cephalopod~
+A fairly large cephalopod crunches a crab shell.
+~
+This cephalopod is well-fed, yet remains continually hungry.
+~
+8258 2154496 0 S
+20 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+A
+#18922
+cephalopod~
+a mid-sized cephalopod~
+A mid-sized cephalopod is here, raking about for food.
+~
+This cephalopod feeds off the unappetizing morsels of food discarded by
+the larger ones.
+~
+8258 2154496 0 S
+15 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+A
+#18923
+baby cephalopod~
+a baby cephalopod~
+A newly formed and squishy cephalopod swims about hungrily.
+~
+It may be small, but the hunger makes it ferocious.
+~
+2 2129920 0 S
+3 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+A
+#18924
+seal shark~
+a seal shark~
+A small predatory shark swims around quietly.
+~
+This small black shark is difficult to see in the dark, murky water.
+~
+102464 65536 0 S
+10 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+A
+N
+#18925
+jellies~
+a small group of jellies~
+These jellies use their weak poison on prey.
+~
+Not the type of jellies for spreading on toast, these can be a bit harmful.
+~
+64 1048576 0 S
+8 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+A
+#18926
+fledgling~
+a fledgling sahuagin~
+A very young sahuagin swims about playfully, strengthening its stroke.
+~
+This small sahuagin child gurgles playfully.
+~
+98368 32768 0 S
+3 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#18927
+fledgling~
+a fledgling sahuagin~
+A very young sahuagin swims about playfully, strengthening its stroke.
+~
+This small sahuagin child gurgles playfully.
+~
+98368 32768 0 S
+3 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+L
+32768 32768
+#18928
+child~
+a young sahuagin child~
+A young sahuagin child swims about playfully, trying to get stronger.
+~
+Not as young as the fledglings swimming around, this child weaves around
+and about with some skill.
+~
+98368 32768 0 S
+5 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#18929
+child~
+a young sahuagin child~
+A young sahuagin child swims about playfully, trying to get stronger.
+~
+Not as young as the fledglings swimming around, this child weaves around
+and about with some skill.
+~
+98368 32768 0 S
+5 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+L
+32768 32768
+#18930
+young instructor~
+a young sahuagin swim instructor~
+This young sahuagin is giving swimming lessons to the younger ones.
+~
+Attempting to instruct the younger sahuagins and fledglings, this young
+sahuagin responsibly looks after their safety, too.
+~
+32832 0 0 S
+7 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#18931
+young instructor~
+a young sahuagin swim instructor~
+This young sahuagin is giving swimming lessons to the younger ones.
+~
+Attempting to instruct the younger sahuagins and fledglings, this young
+sahuagin responsibly looks after their safety, too.
+~
+32832 0 0 S
+7 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+L
+32768 32768
+#18932
+giant ettin~
+the mighty undead ettin~
+Nearly unbeatable when alive, this two-headed giant is doubly as strong now.
+~
+An age ago, ettins shaped the mountains and valleys through brute strength. 
+Few among them had the intelligence to complement that strength, but those
+precious few that did were powerful beyond compare.  One such ettin, caged
+here by unknown means, found a way to magick the waters and preserve body
+and mind beyond death.
+
+Trapped in this enormous underground chasm, the mighty undead ettin has been
+pounding his prison walls for an eternity, looking for passage out.  Now the
+door is open, and his path is clear.
+~
+16810082 24744 -750 S
+70 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#18933
+shade So'shalktiren Soshalktiren Tiren~
+the shade of So'shalktiren~
+Still eager to explore, the shade of Tiren remains restless and vigilant.
+~
+Moving stealthily about the room, the shade of So'shalktiren watches.
+~
+1081410 3244200 500 S
+60 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+#18934
+caretaker fellow priest~
+the Great Sponge priest~
+An odd-looking little fellow, this sahuagin is the Great Sponge's caretaker.
+~
+Aged to perfection, this crusty little sahuagin has seen many an adventurer
+pass through the Great Sponge in his time.  He knows much about the spirit,
+and is willing to train those that have the dedication to grow.
+~
+578 40 1000 S
+50 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#18935
+sahuagin master~
+the Master of Stealth~
+Shifty-eyed and leary, this slim sahuagin takes your measure.
+~
+Ever vigilant, this shifty-eyed sahuagin peeks through the openings in the
+walls of the cabin making sure no one is sneaking up on him.  Being caught
+unaware is not in his book of skills.
+~
+1090 2129920 -500 S
+35 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#18936
+sahuagin master conjurer~
+the Master of Conjurings~
+Fearful of 'summon' miscasts, this sahuagin studies diligently.
+~
+Well aware of what luck befell a former Master of Conjurings, the current
+master studies diligently, but would take time out to teach those who are
+willing to learn.
+~
+1090 2121896 500 S
+35 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+L
+32768 32768
+#18937
+sahuagin master tracker tracks~
+the Master of Tracks~
+Silently contemplating a new foot, this sahuagin is aware he is not alone.
+~
+The Master of Tracks studies all manner of paw, foot, claw, hand, talon, and
+wing, in order that no creature may lead him astray.  He is busily applying
+the phosphorescence to his samples for further analysis.
+~
+1090 2154656 500 S
+35 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#18938
+sahuagin master incanter~
+the Master of Incantations~
+Enjoying the streams of bubbles, this sahuagin utters nary a word.
+~
+This sahuagin enjoys bubbles and baubles.  She demonstrates a short attention
+span, moving from one object to the next hoping for something neat to happen,
+or maybe some great new spell idea.
+~
+1090 57480 500 S
+38 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+L
+32768 32768
+#18939
+sahuagin master melee~
+the Master of Melee~
+Agile and striated, this tall sahuagin moves grumpily about the chamber.
+~
+This tall sahuagin moves easily about, powerful muscles stroking through the
+water unabated.  He looks displeased and glares at the barren walls around.
+One thing he was never able to master was the art of growing phosphorescent
+algae, and this is notably irksome.  However, he does have prowess at other
+skills.
+~
+1090 24704 500 S
+39 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#18940
+green sea turtle~
+a healthy green sea turtle~
+A healthy green sea turtle has swum in from the ocean for a visit.
+~
+Forever swimming the seas except to spawn, this healthy turtle has dropped
+in for a visit to the region of Tiren's Rock.
+~
+98368 0 0 S
+12 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+A
+N
+#18941
+slug~
+a large sea slug~
+A large, slow-moving sea slug is here, oozing along.
+~
+Very large and completely non-aggressive, this sea slug just wants to get
+from here to there.
+~
+98368 0 0 S
+17 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+A
+N
+#18942
+sahuagin lifeguard~
+an adult lifeguard~
+This sahuagin is a highly trained swimmer and is here to teach the young.
+~
+Lean and fit, this sahuagin takes her job seriously as a lifeguard for the
+children of Tiren's Rock.
+~
+32834 0 500 S
+22 0 0 0d0+0 0d0+0
+0 0
+8 8 2
+L
+32768 32768
+#18943
+sahuagin lifeguard~
+an adult lifeguard~
+This sahuagin is a highly trained swimmer and is here to teach the young.
+~
+Lean and fit, this sahuagin takes his job seriously as a lifeguard for the
+children of Tiren's Rock.
+~
+32834 0 500 S
+24 0 0 0d0+0 0d0+0
+0 0
+8 8 1
+L
+32768 32768
+#18944
+hexactinellid sponge~
+a hexactinellid sponge~
+A vase-shaped sponge is here filtering water.
+~
+This type of sponge is rare, but makes a nice collector piece when dried out. 
+It has a thin mesh over its "mouth" that it uses to filter water.
+~
+64 0 0 S
+4 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+A
+N
+#18945
+giant sea spider~
+a giant sea spider~
+Not actually a spider at all, this large spider-like creature looks scary.
+~
+Bizarre in appearance - yet easily mistakable for a large spider, this
+creature is about two feet across and moves slowly through the water.
+~
+64 0 0 S
+11 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+A
+#18946
+six six-gilled shark~
+a very large six-gilled shark~
+A very rare - and very large!- six-gilled shark is here!
+~
+Normally inhabiting deeper, colder waters, this very large scavenger looks
+about for something into which it can sink its toothy maw.
+~
+98500 2129920 0 S
+33 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+A
+#18947
+six six-gilled shark~
+a rare, six-gilled shark~
+A rare, six-gilled shark scavenges the area around it for food.
+~
+Large and hungry, this rare predator is not considered a threat...usually.
+~
+114884 2129920 0 S
+23 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+A
+#18948
+cucumber~
+a white sea cucumber~
+Like cloth caught in the wind, a large white sea cucumber floats here.
+~
+The water acts like wind in a sail for this exotic creature.
+~
+64 2129920 0 S
+4 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+A
+#18949
+cucumber~
+a red sea cucumber~
+Like cloth caught in the wind, a nice red sea cucumber floats here.
+~
+The water acts like wind in a sail for this exotic creature.
+~
+64 2129920 0 S
+3 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+A
+#18950
+cucumber~
+a yellow sea cucumber~
+Like cloth caught in the wind, a squishy yellow sea cucumber floats here.
+~
+The water acts like wind in a sail for this exotic creature.
+~
+64 2129920 0 S
+5 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+A
+#18951
+cucumber~
+a blue sea cucumber~
+Like cloth caught in the wind, a dark blue sea cucumber floats here.
+~
+The water acts like wind in a sail for this exotic creature.
+~
+64 2129920 0 S
+6 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+A
+#18952
+vampire squid~
+a nasty-looking vampire squid~
+Tentacles spiked with ultra sharp teeth, a red vampire squid floats around.
+~
+No longer than a human forearm, this squid is notably ugly.  Bug-eyed,
+reddish, and having tentacles lined with quarter-inch spikes, its predatory
+instincts match its appearance.
+~
+65600 2129920 -250 S
+11 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+A
+#18953
+angler fish~
+a phosphorescent-bellied angler fish~
+No longer than a human hand, a hungry angler fish swims along.
+~
+About the size of an adult human hand, this full-grown angler fish lures prey
+swimming below it with two phosphorescent stripes that run the length of its
+underbelly.
+~
+100420 2195456 0 S
+7 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+A
+N
+#18954
+viper fish~
+an eel-like viper fish~
+A toothy elongated fish swims here, with a very empty belly.
+~
+Able to eat vast amounts and distend its stomach, this toothy fish is
+sometimes mistaken for an eel.
+~
+98372 0 0 S
+12 0 0 0d0+0 0d0+0
+0 0
+8 8 0
+L
+32768 32768
+A
+#0
+
+
+#OBJECTS
+#18900
+mace~
+a translucent heavy-water mace~
+A mace constructed of heavy water is here, bonded by great magicks.~
+~
+5 8384 8193
+0 6 6 6
+9 100000 0
+A
+18 3
+A
+19 3
+A
+2 3
+#18901
+tuna scale pouch~
+a tuna scale pouch~
+A pouch constructed of tuna scale links holds small items.~
+~
+15 1 2049
+16 15 18904 0
+12 200 0
+F
+#18902
+puddle puddles~
+a mineral puddle~
+Several puddles of healthy mineral water have formed here.~
+~
+25 0 0
+0 0 1 81
+1000 0 0
+E
+puddle puddles~
+Yellow minerals have accumulated in some of the pools of water providing an
+added boost in taste.
+~
+#18903
+remains~
+the remains of a revered sahuagin~
+the remains of Sh'kwikhanz, greatest Sahuagin thief.~
+~
+13 16 0
+0 0 0 0
+5 0 0
+#18904
+tuna scale key~
+a tuna scale key~
+A delicately crafted key of tuna scales on a length of kelp root is here.~
+~
+18 1 5
+0 0 0 0
+2 0 0
+F
+#18905
+whale tooth key~
+a sperm whale's tooth~
+A humming, magicked tooth of a sperm whale could unlock secrets.~
+~
+18 0 16385
+0 0 0 0
+4 0 0
+F
+#18906
+sleek needlefish key~
+a sleek adamantium needlefish~
+The semblance of a needlefish has been molded in adamantium.~
+~
+18 0 16385
+0 0 0 0
+3 0 0
+#18907
+trident key~
+a fork-sized adamantium trident~
+A miniature replica of a trident has been molded from pure adamantium.~
+~
+18 0 16385
+0 0 0 0
+1 0 0
+#18908
+lobster claw key~
+a miniature lobster claw~
+A small lobster claw has been smelted from adamantium.~
+~
+18 0 16385
+0 0 0 0
+2 0 0
+#18909
+lightning bolt key~
+a lightning bolt token~
+Adamantium has been used to construct this small key.~
+~
+18 0 16385
+0 0 0 0
+1 0 0
+#18910
+guppy key~
+a guppy-shaped key~
+Forged of adamantium, a key the size of a guppy is here.~
+~
+18 0 16385
+0 0 0 0
+2 0 0
+#18911
+vest~
+a cured shark-hide vest~
+Some shark hide has been toughened with a curing process, and made into
+armor.~
+~
+9 64 9
+5 0 0 0
+10 55 0
+A
+17 -8
+A
+41 1
+#18912
+gloves~
+shark-hide gloves~
+A pair of toughened shark-hide gloves is here.~
+~
+9 64 129
+4 0 0 0
+3 37 0
+A
+17 -2
+#18913
+sleeves~
+shark-hide sleeves~
+Some shark hide has been toughened and worked into a set of sleeves.~
+~
+9 64 257
+4 0 0 0
+6 46 0
+A
+41 1
+#18914
+leggings~
+shark-hide leggings~
+Some shark hide has been toughened and worked into a set of leggings.~
+~
+9 64 33
+4 0 0 0
+5 36 0
+A
+17 -2
+#18915
+coral spear~
+a jagged coral spear~
+A spear tipped with razor-sharp jagged coral is here.~
+~
+5 0 8193
+0 3 7 2
+6 105 0
+#18916
+short coral trident~
+a short-shafted coral trident~
+A trident fashioned from bone and tipped with razor-sharp coral is here.~
+~
+5 0 8193
+0 5 9 2
+6 110 0
+#18917
+sword~
+a conch-hilt sword~
+A sword with a conch shell for a hilt is here.~
+~
+5 0 8193
+0 5 9 1
+5 100 0
+#18918
+sword~
+a dual-ended sword~
+With the two-handed grip in the center, a dual-ended sword is here.~
+~
+5 0 8193
+0 6 13 3
+14 135 0
+T
+#18919
+seaweed~
+floating seaweed~
+A few strands of seaweed float in the current.~
+~
+13 0 16385
+0 0 0 0
+1 0 0
+F
+#18920
+kelp~
+a loose strand of kelp~
+A loose strand of kelp floats in the current.~
+~
+13 0 16401
+0 0 0 0
+1 0 0
+F
+#18921
+sponges~
+several tiny sponges~
+A miscellaneous arrangement of tiny sponges have taken a grip in the
+silt.~
+~
+8 0 16385
+0 0 0 0
+3 0 0
+#18922
+scraps bones~
+a handful of bones and scraps~
+A handful of bones and non-digestible scraps of food litters the floor.~
+~
+13 0 16385
+0 0 0 0
+4 0 0
+#18923
+sarcophagus~
+a sarcophagus~
+A decorative sarcophagus is here.~
+~
+15 16 0
+50 15 18906 0
+1000 0 0
+E
+sarcophagus~
+This sarcophagus is an excellent example of Sahuagin craftsmanship at
+its finest.
+~
+#18924
+sarcophagus~
+a sarcophagus~
+A decorative sarcophagus is here.~
+~
+15 32768 0
+50 15 18907 0
+1000 0 0
+E
+sarcophagus~
+This sarcophagus is an excellent example of Sahuagin craftsmanship at
+its finest.
+~
+#18925
+sarcophagus~
+a sarcophagus~
+A decorative sarcophagus is here.~
+~
+15 32768 0
+50 15 18908 0
+1000 0 0
+E
+sarcophagus~
+This sarcophagus is an excellent example of Sahuagin craftsmanship at
+its finest.
+~
+#18926
+sarcophagus~
+a sarcophagus~
+A decorative sarcophagus is here.~
+~
+15 32768 0
+50 15 18909 0
+1000 0 0
+E
+sarcophagus~
+This sarcophagus is an excellent example of Sahuagin craftsmanship at
+its finest.
+~
+#18927
+sarcophagus~
+a sarcophagus~
+A decorative sarcophagus is here.~
+~
+15 32768 0
+50 15 18910 0
+1000 0 0
+E
+sarcophagus~
+This sarcophagus is an excellent example of Sahuagin craftsmanship at
+its finest.
+~
+#18928
+club plume~
+a cooled volcanic plume of rock~
+Chilled in the depths, this plume of volcanic rock now makes a powerful club.~
+~
+5 33560640 8193
+0 5 9 7
+9 100000 0
+A
+26 3
+A
+18 4
+A
+41 1
+A
+25 -6
+A
+1 2
+E
+club plume~
+Born of volcanic fire and chilled by the ocean depths, this plume of rock
+has been broken off and now makes a heavy, bruising club.
+~
+#18929
+volcanic chest plate~
+the volcanic chest plate~
+A slice of volcanic slate has been cleverly fashioned into a chest plate.~
+~
+9 64 9
+5 0 0 0
+80 100000 0
+A
+2 -3
+A
+17 -10
+A
+41 1
+A
+13 15
+E
+chest plate~
+Having cooled quickly in the frigid depths, this bit of volcanic rock
+is black, shiny, and extremely hard. Fashioned in haste before it was
+unmalleable, this chest plate offers incredible protection from blows
+to the body.
+~
+#18930
+massive key~
+a massive, rusted iron key~
+Oxidized from prolonged exposure in the salty water, an iron key is here.~
+~
+18 1 16385
+0 0 0 0
+5 0 0
+E
+key~
+This massive iron key could have been fashioned for only one door.
+~
+#18931
+killer tooth key~
+a killer whale's tooth~
+A killer whale's tooth has been chiseled into a key.~
+~
+18 0 16385
+0 0 0 0
+3 0 0
+#18932
+tusk key~
+a sea lion's tusk~
+The tusk of a sea lion has been cut into the shape of a skeleton key.~
+~
+18 0 16385
+0 0 0 0
+7 0 0
+#18933
+great white tooth key~
+a great white's tooth~
+The tooth of a large great white shark has been whittled into a skeleton key.~
+~
+18 0 16385
+0 0 0 0
+4 0 0
+#18934
+dragon turtle tooth key~
+a dragon turtle's tooth~
+The tooth of a dragon turtle has been worked into the shape of a small key.~
+~
+18 0 16385
+0 0 0 0
+5 0 0
+#18935
+remains~
+the remains of a revered sahuagin~
+the remains of An'lakshakmur, famous sahuagin warrior~
+~
+13 16 0
+0 0 0 0
+5 0 0
+#18936
+remains~
+the remains of a revered sahuagin~
+the remains of Kruddi'lukk, infamous sahuagin priest.~
+~
+13 16 0
+0 0 0 0
+5 0 0
+#18937
+long coral trident~
+a long-shafted coral trident~
+A long-shafted trident fashioned from bone and tipped with sharp coral is
+here.~
+~
+5 0 8193
+0 8 12 2
+12 155 0
+T
+#18938
+aqua egg orb~
+an aqua-colored orb~
+This fabled aqua dragon egg may bestow great protection.~
+~
+26 4288 16385
+35 1 66 36
+8 45000 0
+F
+A
+24 -2
+#18939
+book~
+a book of skills~
+A little black book of skills magically floats about the room.~
+~
+8 1 16385
+0 0 0 0
+5 0 0
+F
+#18940
+club~
+a blunt stone club~
+Employing minimal skill to construct, this blunt stone club is effective.~
+~
+5 0 8193
+0 5 9 8
+6 75 0
+#18941
+pickled pudding~
+a pernicious pickled pudding~
+A small but potent blob of pickled pudding is here.~
+~
+26 64 1
+23 59 27 82
+1 5000 0
+F
+E
+pickled pudding~
+Super-heated and shrunk and heavily magicked, this pernicious pickled
+pudding can be helpful and harmful in one bite.
+~
+#18942
+chalky crimson pellet~
+a chalky crimson pellet~
+A small crimson pellet sits here.~
+~
+26 64 1
+10 67 0 0
+1 500 0
+F
+E
+pellet~
+This deep red-colored vitamin has a chalky taste.
+~
+#18943
+mushy white capsule~
+a mushy white capsule~
+A tiny white capsule is here, wet and mushy.~
+~
+26 64 1
+5 74 0 0
+1 250 0
+F
+E
+white capsule~
+This little white capsule is mushy from exposure to water.
+~
+#18944
+dark red tablet~
+a dark red tablet~
+Dropped and possibly forgotten, a dark red pill is here.~
+~
+26 64 1
+5 142 0 0
+1 800 0
+F
+E
+tablet~
+This small vitamin probably has no healthful use.
+~
+#18945
+chewy white lozenge~
+a chewy white lozenge~
+A small white lozenge has been left here.~
+~
+26 64 1
+5 43 0 0
+1 400 0
+F
+E
+lozenge~
+Chewy and white, this lozenge might have a healthful nature.
+~
+#18946
+inky black potion~
+an inky black potion~
+An inky black potion has been left here.~
+~
+10 64 16385
+9 133 0 0
+3 150 0
+F
+E
+inky potion~
+Made from squid ink and sea cucumber juice, this potion is definitely not a
+palate pleaser.
+~
+#18947
+salty clear potion~
+a salty clear potion~
+A clear potion has somehow come to rest here.~
+~
+10 64 16385
+3 42 0 0
+3 125 0
+F
+E
+salty clear potion~
+This potion has a salty taste, and pours as a thick, clear gel.
+~
+#18948
+bitter malt concoction~
+a bitter malt concoction~
+A concoction of some sort has been left here in a vial.~
+~
+10 64 16385
+8 39 0 0
+4 275 0
+F
+E
+bitter malt concoction~
+This concoction has a horrible taste but puts scales on chests.
+~
+#18949
+scythe~
+a wicked sharp coral scythe~
+A wicked coral scythe has been dropped here.~
+~
+5 0 8193
+0 6 9 1
+8 250 0
+E
+scythe~
+The coral on this weapon has been sharpened into a wicked slicing device.
+~
+#18950
+sharkskin tunic~
+a sharkskin tunic~
+Made from the hide of the "terror of the seas", a tunic awaits a wearer.~
+~
+9 0 9
+5 0 0 0
+6 115 0
+F
+E
+tunic~
+In return for having been its prey on many an occasion, the sahuagins have
+successfully hunted the great white sharks of the surrounding oceans.  Its
+hide has been fashioned into many things, such as this tight-fitting tunic.
+~
+#18951
+helmet~
+a turtle shell helmet~
+An empty turtle shell is here, offering protection to the ground beneath.~
+~
+9 0 17
+5 0 0 0
+4 95 0
+E
+turtle shell helmet~
+This rock-hard shell has been divested from its former keeper and is now
+quite available to protect softer heads.
+~
+#18952
+fishnet stockings~
+a set of fishnet stockings~
+A bit of fishnet lies here unattended.~
+~
+9 0 33
+1 0 0 0
+1 100 0
+F
+E
+fishnet stockings~
+Considered high fashion in some circles, a delicately woven set of fishnet
+stockings offers little protection -- but is a great gift idea.
+~
+#18953
+flippers~
+a pair of sharkskin flippers~
+A pair of sharkskin flippers has been left here.~
+~
+9 0 65
+3 0 0 0
+5 85 0
+F
+E
+flippers~
+Created from the hide of a great white shark, this set of flippers has been
+made to mock the "terror of the seas".  Now the mighty sea beast can tread
+upon by all.
+~
+#18954
+gloves~
+a set of scaled tuna skin gloves~
+A set of gloves is here, made from the scaled hide of a tuna.~
+~
+9 0 129
+3 0 0 0
+5 55 0
+E
+tuna skin gloves~
+These gloves have been cleverly fashioned from the scaly hide of a mid-sized
+tuna.  The scales are not ideal, but do offer some protection.
+~
+#18955
+sturdy armlets~
+sturdy blue-ringed armlets~
+Made from cured tentacles of a blue-ringed octopus, a set of armlets is
+here.~
+~
+9 0 257
+4 0 0 0
+3 175 0
+F
+E
+blue ringed armlets~
+This set of armlets is a clever creation, no doubt created by the capable
+hands of a sahuagin armorer.
+~
+#18956
+scales poncho~
+a tuna scale mail poncho~
+A heap of tuna scales has been left here.~
+~
+9 0 1025
+4 0 0 0
+6 300 0
+E
+poncho~
+This poncho provides some good overall body protection.  The tuna that
+donated its hide for this much protection had to have been fairly good-
+sized.
+~
+#18957
+cummerbund~
+a sharkskin cummerbund~
+A thick strap of great white shark's skin has been left here.~
+~
+9 0 2049
+3 0 0 0
+4 150 0
+F
+E
+cummerbund~
+From the mind of some insightful sahuagin comes this snazzy-looking 
+sharkskin cummerbund, fashioned from the hide of a great white shark.
+~
+#18958
+kabob~
+a seahorse and triton kabob~
+A couple types of meat are lined up on a skewer.~
+~
+19 0 16385
+8 0 0 0
+3 0 0
+#18959
+thigh~
+a jellied thigh of triton~
+A squishy-looking piece of meat is here.~
+~
+19 0 16385
+10 0 0 0
+5 0 0
+#18960
+filet torso~
+a filet of triton torso~
+A filet of meat has been left uneaten here.~
+~
+19 0 16385
+15 0 0 0
+5 0 0
+#18961
+seahorse~
+a filet of seahorse~
+A filet of a seahorse has been left uneaten here.~
+~
+19 0 16385
+15 0 0 0
+4 0 0
+#18962
+crock gumbo~
+a crock of triton-seahorse gumbo~
+A crock of gumbo is here - mediocre flavor, but ready to eat.~
+~
+19 0 16385
+10 0 0 0
+3 0 0
+#18963
+bit spread triton seahorse~
+a bit of triton-seahorse spread~
+A gross-looking spread is here, made from livers and hearts.~
+~
+19 0 16385
+6 0 0 0
+2 10 0
+#18964
+bundle candles~
+a bundle of thick candles~
+Useless underwater, a bundle of thick candles is here.~
+~
+8 0 16385
+0 0 0 0
+5 20 0
+F
+#18965
+shredded parasol~
+a shredded parasol~
+Shredded and useless, especially under water, a parasol is here.~
+~
+8 0 16385
+0 0 0 0
+2 15 0
+#18966
+shipment soggy foot powder~
+a shipment of soggy foot powder~
+Lost, soaked, and useless, an old shipment of footpowder is here.~
+~
+8 0 16385
+0 0 0 0
+20 31 0
+#18967
+fishing poles~
+a set of fishing poles~
+A set of fishing poles of varying lengths is here.~
+~
+8 0 16385
+0 0 0 0
+5 25 0
+#18968
+orchids flowers~
+an assortment of drowned black orchids~
+Once destined for Ogre lands in topsider territory, these flowers are
+drowned.~
+~
+8 0 16385
+0 0 0 0
+3 10 0
+#18969
+bottle champagne~
+a champagne bottle~
+Tossed over the sailing ship's railing, a champagne bottle is here.~
+~
+17 0 16385
+50 50 0 0
+5 32 0
+#18970
+clove cigarettes~
+a soaked box of clove cigarettes~
+Soaked and ruined, an old box of cigarettes is here.~
+~
+8 0 16385
+0 0 0 0
+1 41 0
+#18971
+set wet towels~
+a set of soaking wet towels~
+A set of towels has been left here - not much use under water.~
+~
+8 0 16385
+0 0 0 0
+5 15 0
+#18972
+spiced cucumber~
+a deliciously spiced sea cucumber~
+A deliciously spiced sea cucumber is a wonderful palate pleaser.~
+~
+19 0 16385
+5 0 0 0
+2 0 0
+#18973
+turtle sushi~
+a decadent piece of sea turtle sushi~
+Artful to the eye and amorous to the tongue, some sushi is here.~
+~
+19 0 16385
+4 0 0 0
+1 0 0
+#18974
+steak~
+a gently prepared tuna steak~
+Seared on the sides but cold in the middle, a fabulous tuna steak is here.~
+~
+19 0 16385
+15 0 0 0
+6 0 0
+#18975
+clam wraps~
+some eelskin clam wraps~
+Some raw clams encased in eel skin look tempting.~
+~
+19 0 16385
+10 0 0 0
+3 0 0
+#18976
+fin stick~
+a shark fin on anemone spine~
+The spine of an anemone has been used as a skewer for a shark fin.~
+~
+19 0 16385
+7 0 0 0
+4 0 0
+#18977
+urchin bites~
+a handful of pickled sea urchin bites~
+A handful of pickled sea urchin bites looks appetizing.~
+~
+19 0 16385
+5 0 0 0
+3 0 0
+#18978
+pool~
+a pool of fresh water~
+A pool of clear fresh water is here.~
+~
+25 0 0
+0 0 0 0
+1000 0 0
+E
+pool~
+Separate from the surrounding mineral puddles, this pool of ultra-fresh
+water has accumulated over time as the sea water above slowly filtered
+through.
+~
+#18979
+remains~
+the remains of a revered sahuagin~
+the remains of Or'shalkpirsi, intrepid sahuagin mage of lore.~
+~
+13 16 0
+0 0 0 0
+5 0 0
+#18980
+remains~
+the remains of a revered sahuagin~
+the remains of So'shalktiren, for whom Tiren's Rock is named.~
+~
+13 16 0
+0 0 0 0
+5 0 0
+#0
+
+
+#ROOMS
+#18900
+The Captain's Private Cabin~
+The wooden planks that once formed the tight, private walls of the cabin
+have separated a bit, allowing prying eyes to scan in all directions...
+~
+189 368651 8
+D2
+A rickety, waterlogged door hangs off the south wall.
+~
+door~
+1 0 18979
+O
+rickety, waterlogged door~
+S
+#18901
+Inside a Rock Dome~
+Looking around, a large rock dome encloses this space -- ceiling and
+walls are solid stone, and covered in black, slimy moss.  Conversely,
+the ground beneath is exceedingly spongy and wet.  Bouncing off the
+rock are the intermittent yet deafening sounds of dripping water.
+
+The air is damp and stale, threatening to extinguish any light source
+born of fire.
+~
+189 262153 0
+D0
+Slippery black moss covers all.
+~
+~
+0 0 0
+D1
+Slippery black moss covers all.
+~
+~
+0 0 0
+D2
+Slippery black moss covers all.
+~
+~
+0 0 0
+D3
+Slippery black moss covers all.
+~
+~
+0 0 0
+D4
+Perhaps fifty feet above, slippery black moss coats all. It has worked
+its way around every bulge, into every crevice, over every stalagmite.
+
+Every few moments, a drop of water forms somewhere above and plops to
+the ground, sliding down one of the many moss-covered stalagtites to
+the dampness below.
+
+Some distance from the ceiling, hovering like a storm cloud but oddly
+silent, a vast grey vortex swirls soundlessly.
+~
+~
+0 0 0
+D5
+Like all big, wet sponges, the ground squishes under any notable weight.
+Alas, no stalagmites rise up to eventually meet their counterparts above.
+Instead, to an endless beat, water plops onto the saturated surface.
+
+The center of the rock dome's floor looks especially damp - water can be
+seen actually bubbling up through the porous floor. Mayhap an opening to
+the wetness below lies there.
+~
+sponge center~
+1 0 18902
+O
+sponge~
+E
+moss~
+The moss is black and slimy, covering every inorganic feature around.
+~
+S
+#18902
+Beneath the Sponge Floor~
+The water is very dark and murky. A periodic thud comes from above - much
+like a raindrop.
+~
+189 294953 8
+D0
+There is no way to go but down -- or possibly up.
+~
+~
+0 0 0
+D1
+There is no way to go but down -- or possibly up.
+~
+~
+0 0 0
+D2
+There is no way to go but down -- or possibly up.
+~
+~
+0 0 0
+D3
+There is no way to go but down -- or possibly up.
+~
+~
+0 0 0
+D4
+Trying to make out shapes of anything above is a challenge - but the
+sense of touch reveals a squishy ceiling.  There may be some opening
+in the sponge.
+~
+sponge center~
+1 0 18901
+O
+sponge~
+D5
+Nothing can be seen down below; however, a slight cold current pushes up
+through the murky blackness.
+~
+~
+0 0 18903
+E
+sponge~
+Even with the extremely limited visibility, it is apparent this sponge is
+quite porous, filled with cavity after cavity.
+~
+S
+#18903
+In Murky Black Water~
+The water is cold, but not overly so.  Progress may only be tracked via
+sense of touch, feeling the slimy walls as they circle around.
+~
+189 294955 8
+D4
+The pressure of the water decreases with upward travel.
+~
+~
+0 0 18902
+D5
+The blackness and muck reveal nothing of the chilly depths below.
+~
+~
+0 0 18904
+S
+#18904
+An Opening in the Rock~
+Colder water pushes up from below, mixing with only slightly less cold
+water flowing in from the west.
+~
+189 294959 8
+D3
+A short, wide tunnel leads westward toward light, and a slightly less
+cold current pushes in.
+~
+~
+0 0 18905
+D4
+The water is black above, with very poor visibility.
+~
+~
+0 0 18903
+D5
+Below, there is only blackness. Blackness and very cold water flowing up
+from the depths.
+~
+~
+0 0 18968
+S
+#18905
+A Wide Tunnel~
+A short but wide tunnel, maybe twenty feet across, leads east and west.
+The tunnel walls are a wee bit mucky - black slime seems to build up on
+the east end.  A current is gently rushing in from the west, as odd forms
+of sea life are glimpsed making their way past the tunnel entrance.
+~
+189 294922 8
+D0
+This wide tunnel has been worked by hands other than those of nature.
+~
+~
+0 0 0
+D1
+Blackness lies to the east, leading to chilly waters.
+~
+~
+0 -1 18904
+D2
+This wide tunnel has been worked by hands other than those of nature.
+~
+~
+0 0 0
+D3
+A small conical sponge floats helplessly past the west tunnel entrance.
+~
+~
+0 0 18906
+D4
+This wide tunnel has been worked by hands other than those of nature.
+~
+~
+0 0 0
+D5
+This wide tunnel has been worked by hands other than those of nature.
+~
+~
+0 0 0
+S
+#18906
+Outside an Opening in the Depths~
+The water bustles with activity up and down, north and south, all around.
+And off to the west the tremendous expanse of ocean depths reveals little
+beyond a thick kelp forest. The ocean floor immediately beneath is a fine
+silt. To the east is a wide tunnel that quickly disappears into blackness.
+
+A seemingly endless school of parrotfish above prevents swimming upward.
+~
+189 425985 8
+D0
+A lazy swim north with the current leads to another opening on the rock
+face.
+~
+~
+0 0 18921
+D1
+A short but wide tunnel quickly disappears in blackness.
+~
+~
+0 0 18905
+D2
+A southward swim leads below a coral shelf.
+~
+~
+0 0 18907
+D3
+A small building is here with a door leading to the sea-lock for the Te'nayu'ka.
+~
+~
+1 0 7972
+D4
+Beautiful green parrotfish swim thickly above.
+~
+~
+0 0 0
+D5
+The sea floor is a fine silt.  A variety of small sponges have taken up
+root here and there.
+~
+~
+0 0 0
+S
+#18907
+Outside in the Depths~
+The depths bustle with activity. A tiny seaworm quickly slips into its
+hole in the ocean floor as any swim near. Busy sahuagins swim to and fro,
+or up to a coral shelf above. An unpassable kelp forest prevents a swim
+westward.
+~
+189 425985 8
+D0
+A brief swim north leads to a cavernous opening in the huge rock face.
+~
+~
+0 0 18906
+D2
+A southward swim against the current leads to a break in the kelp.
+~
+~
+0 0 18908
+D3
+The great kelp forest provides a limited form of security for the
+denizens of Tiren's Rock.
+~
+~
+0 0 0
+D4
+Upward and out of the current lies a coral shelf.
+~
+~
+0 0 18935
+S
+#18908
+The Base of a Huge Pillar of Rock~
+The southwest face of Tiren's Rock looms from the seabed, extending
+upward toward the warmer waters of the surface. A loose kelp leaf
+floats around the bend northward, in between the rock face and the
+massive kelp forest. Off to the east, the kelp sways in the current,
+far enough off the rock wall to permit passage. West, the massive kelp
+forest seperates along the silt ocean floor, forming a treacherous
+tunnel of seaweed out to the ocean blue.
+~
+189 425985 8
+D0
+A northward swim leads under a coral shelf.
+~
+~
+0 0 18907
+D1
+The wall of swaying kelp plays with the rock face to the east.
+~
+~
+0 0 18909
+D2
+The great kelp forest provides a limited form of security for the
+denizens of Tiren's Rock.
+~
+~
+0 0 0
+D3
+The surrounding kelp forest splits to reveal westward passage.
+~
+~
+0 0 18998
+S
+#18909
+Outside an Opening in the Depths~
+The kelp sways in and out toward the rock face, sometimes tickling the
+interior of the opening to the north. East and west along the sea floor,
+needlefish zip in and out of the kelp.
+~
+189 425985 8
+D0
+Three prongs of a trident protrude from above the opening to the north.
+~
+~
+0 0 18923
+D1
+An eastward swim follows a gentle bend around the huge rock face.
+~
+~
+0 0 18910
+D2
+The great kelp forest provides a limited form of security for the
+denizens of Tiren's Rock.
+~
+~
+0 0 0
+D3
+A westward swim leads to a break in the kelp.
+~
+~
+0 0 18908
+S
+#18910
+Outside an Opening in the Depths~
+The kelp sways in and out toward the rock face, sometimes tickling the
+interior of the opening to the north. East and west along the sea floor,
+needlefish zip in and out of the kelp, and maybe thirty feet above, a
+giant tentacle sweeps the rock face from out of the kelp!
+~
+189 491521 8
+D0
+The stone around the opening sizzles and sparkles intermittently, as if 
+it is being electrified somehow.
+~
+~
+0 0 18924
+D1
+A bit of a swim to eastward, around the huge rock, is a large coral shelf.
+~
+~
+0 0 18911
+D2
+The great kelp forest provides a limited form of security for the
+denizens of Tiren's Rock.
+~
+~
+0 0 0
+D3
+A westward swim leads around a gentle bend of rock.
+~
+~
+0 0 18909
+S
+#18911
+Beneath a Coral Shelf~
+A huge table coral protrudes from the rock face above, casting a deeper
+shadow over the narrow path here between the rock and kelp.
+~
+189 425985 8
+D1
+There appears to be a choice of directions to go, just a slight swim east.
+~
+~
+0 0 18912
+D2
+The great kelp forest provides a limited form of security for the
+denizens of Tiren's Rock.
+~
+~
+0 0 0
+D3
+A bit of a swim westward leads around a very gentle bend at the base
+of the rock.
+~
+~
+0 0 18910
+D4
+Up above, table corals form a ledge, just a few strokes away.
+~
+~
+0 0 18941
+S
+#18912
+The Base of a Huge Pillar of Rock~
+The southeast face of Tiren's Rock looms from the seabed, extending
+upward toward the warmer waters of the surface.  A loose kelp leaf
+floats around the bend northward, in between the rock face and the
+massive kelp forest. A path through the kelp roots leads eastward.
+
+To the west, the massive kelp forest sways in the current, far enough
+off the rock wall to permit passage.
+~
+189 425985 8
+D0
+A leisurely swim north parallels the current - and the noticably bent
+kelp.
+~
+~
+0 0 18913
+D1
+Eastward lies a tunnel through the kelp.
+~
+~
+0 0 18976
+D2
+The great kelp forest provides a limited form of security for the
+denizens of Tiren's Rock.
+~
+~
+0 0 0
+D3
+Swimming west leads underneath a huge table coral.
+~
+~
+0 0 18911
+D4
+The southeastern face of Tiren's Rock rises high out of the depths
+toward the waters of the surface.
+~
+~
+0 0 0
+D5
+The silt of the sea floor looks soft.
+~
+~
+0 0 0
+S
+#18913
+Outside an Opening in the Depths~
+The thick, impassable kelp forest obscures all to the east, but is
+noticeably bent northward in the current.  To the west is an opening
+in the rock face, and marks have been chiseled into the stone around
+eye level on the left side of the opening.
+~
+189 425985 8
+D0
+Continuing northward and across from the dense kelp appears to be
+another opening.
+~
+~
+0 0 18914
+D1
+A structure of some sort appears to lie east through the kelp, but
+it is unreachable from here.
+~
+~
+0 0 0
+D2
+A southerly swim against the current leads around the base of the
+huge pillar of rock.
+~
+~
+0 0 18912
+D3
+The opening on the rock face is adorned with several eel skins,
+cured and treated so as not to rot.
+~
+~
+0 0 18925
+E
+marks~
+The markings actually seem to be in a scaled pattern -- a picture --
+a picture of fish scales -- recognizable, but not great art.
+~
+S
+#18914
+Outside an Opening in the Depths~
+A fairly wide opening in the rock face lies to the west, wide enough for
+large sea turtles to swim through three abreast.  The silt on the ocean
+floor has recently been stirred up but is beginning to settle.
+~
+189 425985 8
+D0
+Going with the flow of traffic leads beneath a coral shelf.
+~
+~
+0 0 18915
+D1
+A structure of some sort appears to lie east through the kelp, but
+it is unreachable from here.
+~
+~
+0 0 0
+D2
+To the south, a thin eel darts out of an opening on the rock face and
+into the dense kelp forest across to the east.
+~
+~
+0 0 18913
+D3
+Through the opening to the west, a pocket of light can be seen.
+~
+~
+0 0 18926
+S
+#18915
+Outside in the Depths~
+The depths bustle with activity.  Busy sahuagins swim to and fro, and
+up to a coral shelf above.  An unpassable kelp forest prevents any
+deviation east, and the rock face on the left is massively barnacled
+here in an unnatural pattern.
+~
+189 425985 8
+D0
+The base of the huge rock bends to the left up north, and a loose bit
+of kelp is drawn east.
+~
+~
+0 0 18916
+D1
+The great kelp forest provides a limited form of security for the
+denizens of Tiren's Rock.
+~
+~
+0 0 0
+D2
+The current is strong coming out of the south, but it is good exercise.
+~
+~
+0 0 18914
+D4
+Some table corals extend from the face of the rock.
+~
+~
+0 0 18947
+E
+barnacle barnacles~
+This particular section of the rock face seems to have a cultivated
+barnacle farm.  They have formed a living mosaic of sorts, creating
+the shapes of the crab and starfish.
+~
+S
+#18916
+The Base of a Huge Pillar of Rock~
+The northeast face of Tiren's Rock looms from the seabed, extending
+upward toward the warmer waters of the surface. The current bends east
+here, while to the west, the water seems more still, and the seabed
+calm.
+~
+189 425985 8
+D0
+The great kelp forest provides a limited form of security for the
+denizens of Tiren's Rock.
+~
+~
+0 0 0
+D1
+The kelp tunnel continues eastward.
+~
+~
+0 0 18994
+D2
+Swimming south against the current leads underneath a coral shelf,
+really working the abs.
+~
+~
+0 0 18915
+D3
+Out of the way of the current to the west, things seem calmer.
+~
+~
+0 0 18917
+S
+#18917
+Outside an Opening in the Depths~
+The massive kelp forest to the north is calm, and there is no current
+here. Several tiny sea worms dart into the silt of the ocean floor in
+avoidance of an oncoming predator. The north side of the rock face has
+less hustle, bustle, and otherwise strain.
+
+The opening just south in the rock face is decorated with varied types
+of shells: conch, oyster, clam, sanddollar, crab, and some unrecognizable.
+~
+189 425985 8
+D0
+The great kelp forest provides a limited form of security for the
+denizens of Tiren's Rock.
+~
+~
+0 0 0
+D1
+To the east, a strong current drags away loose kelp and tiny sponges.
+~
+~
+0 0 18916
+D2
+Through the opening to the south, strange objects float in cages.
+~
+~
+0 0 18927
+D3
+The swim lane continues west around Tiren's Rock.
+~
+~
+0 0 18918
+S
+#18918
+Outside an Opening in the Depths~
+The massive kelp forest to the north is calm, and there is no current
+here. Several tiny sea worms dart into the silt of the ocean floor in
+avoidance of an oncoming predator. The north side of the rock face has
+less hustle, bustle, and otherwise strain.
+
+The opening just south in the rock wall is circled by whale bones.
+~
+189 425985 8
+D0
+The great kelp forest provides a limited form of security for the
+denizens of Tiren's Rock.
+~
+~
+0 0 0
+D1
+The swim lane around Tiren's Rock leads eastward.
+~
+~
+0 0 18917
+D2
+Through the opening to the south, a sahuagin or two can be seen chewing
+on things.
+~
+~
+0 0 18928
+D3
+Swimming a little further west down the lane leads under a gloriously
+colorful coral shelf.
+~
+~
+0 0 18919
+E
+whale bones~
+It appears the ribs of a smaller whale have been organized into a
+decorative starburst pattern, and set within the rock face.
+~
+S
+#18919
+Beneath a Coral Shelf~
+Casting odd shadows along the ocean floor, a brilliantly colored coral
+shelf above bristles with activity. The dense kelp forest north prevents 
+easy passage in that direction.  A sea urchin tumbles down the coral
+shelf, and bounces once before bumbling into the kelp.
+
+There is no noticeable current, and the depths yield a sense of calm here.
+~
+189 425985 8
+D0
+The great kelp forest provides a limited form of security for the
+denizens of Tiren's Rock.
+~
+~
+0 0 0
+D1
+Out from under the coral shelf, and several swim strokes east, lies what
+looks to be a wide opening south on the north wall of Tiren's Rock.
+~
+~
+0 0 18918
+D3
+Out from beneath the coral shelf and a few swim strokes west, the
+magnificent Tiren's Rock begins to bend southward and out of view.
+~
+~
+0 0 18920
+D4
+Several strokes and kicks upward, a coral shelf protrudes from the
+face of the rock.
+~
+~
+0 0 18953
+S
+#18920
+The Base of a Huge Pillar of Rock~
+The northwest face of Tiren's Rock looms from the seabed, extending 
+upward toward the warmer waters of the surface.  A current comes from 
+the south and pushes west, where the great kelp forest that surrounds
+Tiren's Rock parts its towering strands, creating a fissure for passage.
+~
+189 425985 8
+D0
+The great kelp forest provides a limited form of security for the
+denizens of Tiren's Rock.
+~
+~
+0 0 0
+D1
+A bit of a swim eastward leads underneath a gloriously colorful coral 
+shelf.
+~
+~
+0 0 18919
+D2
+It could be a struggle swimming southward around the bend of magnificent
+Tiren's Rock and into the oncoming current.
+~
+~
+0 0 18921
+D3
+The current flows westward, out into a tunnel of kelp.
+~
+~
+0 0 18997
+S
+#18921
+Outside an Opening in the Depths~
+The current tugs at the kelp, threatening to carry it northward.  The
+ocean floor is spotless, picked clean by the current -- or it would be 
+littered with the fish bones that float in periodically from the east.
+~
+189 425985 8
+D0
+Swimming with the current leads northward, and then east around Tiren's 
+Rock.
+~
+~
+0 0 18920
+D1
+One of the numerous openings of the porous Tiren's Rock lies to the
+east. Great bundles of bubbles blow from this particular hole every 
+few moments...
+~
+~
+0 0 18922
+D2
+Swimming south against the current leads in front of another gaping 
+hole on the west face of Tiren's Rock.
+~
+~
+0 0 18906
+D3
+The great kelp forest provides a limited form of security for the 
+denizens of Tiren's Rock.
+~
+~
+0 0 0
+S
+#18922
+A Den of Hungry Cephalopods~
+Several very large cephalopods have taken up residence here, fed by
+the many scraps of food not used by the cook in Triton Galley, or the
+chef in nearby Lean Baleen. Tossing aside the undigestable bones of
+the various creatures supplied, they remain hungry. Sometimes, they
+feed on other things...
+~
+189 425993 8
+D3
+Beyond the opening, a sea urchin tumbles across the ocean floor in
+the current.
+~
+~
+0 0 18921
+E
+cephalapod cephalopods~
+Squishy, squishy! These tentacled, skeleton-less octopi find great
+pleasure in wrapping up cherished pray in several thousand suction
+cups, and coaxing meat off bones.
+~
+S
+#18923
+Inside Tridents & Mo~
+This is obviously the shop of a weapons dealer, and the only weapons
+dealer in Tiren's Rock is Mo'pakshakur, a sahuagin to be reckoned with
+for sure.  Trident after trident line the walls, all of varied lengths,
+weights, and balance.  Two racks of spears, and four racks of different
+makes of sword are at the back of the shop.  Everything is made of honed
+stone, and razor-edge corals.  Hanging up above from the ceiling through-
+out the shop are stone clubs, coral-edged maces, and a big stick.
+
+The stick is clearly NOT for sale.
+~
+189 491529 8
+D2
+Through the opening to the south, the great kelp forest obscures any
+noteworthy view.
+~
+~
+0 0 18909
+E
+stick~
+This stick is bolted into the ceiling, and no price can be found
+associated with it.  It has many, many notches on one end, and many,
+many dents on the other.
+~
+S
+#18924
+Inside the Speckled Pearl~
+The Speckled Pearl is where the sahuagins' chief casters sell a few
+of their pills, potions, and pernicious pickled puddings.  Ask for a
+'list' of what's available today.
+~
+189 425993 8
+D2
+Through the opening to the south, the great kelp forest obscures any
+view of distance.
+~
+~
+0 0 18910
+S
+#18925
+Inside Mails, Scales, and Fishnet Stockings~
+This hole in the wall is clearly something more than that, as the
+armors of the deep are on display.  Some of the suits are indeed
+something to behold, scaled leathers made from cured tuna skins,
+sturdy ringed armlets that look as flexible as a caterpillar's body,
+and other wardrobe spectaculars aimed at staving off the chill
+temperatures of the deep -- and the many would-be predators.
+~
+189 442377 8
+D1
+Through the opening to the east, the kelp forest bends to the left in
+the current.
+~
+~
+0 0 18913
+S
+#18926
+Inside Triton Galley~
+Triton Galley is named for the remarkable hors d'vours served by the
+cook.  For the right price, an assortment of edibles are available,
+made from tritons and their seahorses killed in ongoing skirmishes.
+~
+189 425993 8
+D1
+Through the opening to the east, the kelp forest bends to the left in
+the current.
+~
+~
+0 0 18914
+S
+#18927
+Inside Topsider Trinkets~
+This room is a sea dweller's "collector's paradise". All types of
+topsider gadgets and trinkets are on display, floating inside mesh
+cages or tacked gently to the walls of the room. From the world of
+the air-breathers come many fascinating things, procured from their
+surface-riding ships that have lost their cargos in some fashion or
+another.
+~
+189 425993 8
+D0
+North through the opening, the great kelp forest grows strong.
+~
+~
+0 0 18917
+S
+#18928
+Inside Lean Baleen~
+Scattered about are several sahuagins enjoying their next nutritious
+meals, courtesy of Tiren's Rock's cleverest cook.  Items that might be
+on the menu include tuna steaks, clams wrapped in eel skins, shark fins
+on sticks, or even pickled sea urchin spines.  There is no end to the
+creativity.
+~
+189 425993 8
+D0
+Through the opening to the north, the great kelp forest looms rich and
+green.
+~
+~
+0 0 18918
+S
+#18929
+In a Deep, Murky Fissure~
+The water is extremely cold. Phosphorescent algae coat the fissure walls,
+illuminating the water enough to see an opening upward to the west, and
+also an opening to the north. The light is not enough to see everything,
+however.
+~
+189 434219 8
+D0
+The wall to the north has a tightly secured door.
+~
+tomb door~
+2 18905 18930
+D3
+Through the murk, an opening is barely visible sloping up to the west.
+~
+~
+0 0 18969
+S
+#18930
+Inside a Murky Tomb~
+Phosphorescent algae illuminate the area enough to give some visibility
+through the murky, cold water. In the center of the room is a sahuagin-
+made sarcophagus adorned with spider conch and black murex shells.
+~
+189 434731 8
+D2
+This tomb was constructed off the north face of a deep fissure.
+~
+tomb door~
+2 18905 18929
+E
+sarcophagus~
+Adorned with the shells of rare spider conch and black murex, this is the
+customary burial rite for sahuagins who have achieved legendary status in
+their deeds while alive.
+
+This particular tomb is dedicated to An'lakshakmur, the sahuagin from whom
+the Kraken fled before making its way to some far off kingdom, wounded and
+alone.  Alas, An'lakshakmur died from her wounds shortly thereafter.
+~
+S
+#18931
+Inside a Murky Tomb~
+Phosphorescent algae illuminate the area enough to give some visibility
+through the murky, cold water. In the center of the room is a sahuagin-
+made sarcophagus adorned with spider conch and black murex shells.
+~
+189 434731 8
+D2
+The opening to the south leads to a deep sea cave.
+~
+tomb door~
+2 18933 18973
+E
+sarcophagus~
+Adorned with the shells of rare spider conch and black murex, this is the
+customary burial rite for sahuagins who have achieved legendary status in
+their deeds while alive.
+
+This particular tomb is dedicated to Or'shalkpirsi, fabled mage guildmaster
+who secured the only known egg of the huge, ancient aquadragon. Bad fortune
+for Or'shalkpirsi: exhausted from the pursuit that ensued, his demise came
+shortly thereafter, having forgotten to alarm for the beast in his own bed
+chamber. It ate his head while he slept. However, the aquadragon's egg was
+stored away in a secret location, never reclaimed by its creator.
+~
+S
+#18932
+In a Deep, Murky Fissure~
+The water is extremely cold. Phosphorescent algae coat the fissure walls,
+illuminating the water enough to see the fissure extends east and west.
+The illumination is not enough to see everything, however.
+~
+189 434219 8
+D1
+Through the murk, there appears to be eastward passage.
+~
+~
+0 0 18971
+D2
+The south wall of the fissure holds a tightly secured door.
+~
+tomb door~
+2 18932 18959
+D3
+The fissure continues to the west.
+~
+~
+0 0 18933
+S
+#18933
+In a Deep, Murky Fissure~
+The water is extremely cold. Phosphorescent algae coat the fissure walls,
+illuminating the water enough to see the fissure extends east, and there
+is an opening to the south. The illumination is not enough to see much
+else, however.
+~
+189 434219 8
+D1
+The fissure continues to the east.
+~
+~
+0 0 18932
+D2
+The wall to the south holds a tightly secured door.
+~
+tomb door~
+2 18931 18934
+S
+#18934
+Inside a Murky Tomb~
+Phosphorescent algae illuminate the area enough to give some visibility
+through the murky, cold water. In the center of the room is a sahuagin-
+made sarcophagus adorned with spider conch and black murex shells.
+~
+189 434731 8
+D0
+This tomb has been constructed south of a deep fissure.
+~
+tomb door~
+2 18931 18933
+E
+sarcophagus~
+Adorned with the shells of rare spider conch and black murex, this is the
+customary burial rite for sahuagins who have achieved legendary status in
+their deeds while alive.
+
+This particular tomb is dedicated to Kruddi'lukk, the first of his race
+to successfully master the highest priestly arts. His summoning ability
+went unparalleled in all realms beneath the sea -- but it was this same
+ability that brought his downfall.  One errant summon, and the Tempest
+was brought into being, causing havoc to this day.  For imperiling his
+race, Kruddi'lukk was executed by his own brotherhood, entombed, and
+never discussed.
+~
+S
+#18935
+Upon a Coral Shelf~
+Large table corals protrude from the rock face. They are large enough
+whereby a sahuagin family has even set up for a picnic on one. The corals
+extend over the tips of a few kelp strands, but nothing is particularly
+discernable after a few meters. The kelp forest is just too thick for
+even the sharpest of eyes to penetrate. A wide opening in the rock face
+lies to the east, and the coral extends southward around Tiren's Rock.
+~
+189 294913 8
+D1
+Inside the rock face to the east is a very dimly lit room.
+~
+~
+0 0 18938
+D2
+The table corals extend to the south.
+~
+~
+0 0 18936
+D5
+Looking down over the edge of the coral shelf, there is meager passage
+around Tiren's Rock.
+~
+~
+0 0 18907
+S
+#18936
+Swimming Along the Coral Shelf~
+The table corals extend around the southwestern face of Tiren's Rock.
+The view of the great kelp forest surrounding and protecting the undersea
+metropolis is spectacular.
+~
+189 294913 8
+D0
+North lies more of the coral shelf.
+~
+~
+0 0 18935
+D1
+A swim east leads to a decorative outcropping in the rock face, and an
+opening.
+~
+~
+0 0 18937
+S
+#18937
+A Ledge of Giant Clam Shell~
+One side of a giant clam shell, fully eight feet in diameter, has been
+embedded in the side of the rock face. The inner side of the clam shell
+faces upward, as if to cup the ocean in its basin. It could almost be a
+balcony of sorts for the big opening to the north, though in a watery
+environment a balcony could only serve for aesthetic value.
+~
+189 294913 8
+D0
+Inside the rock face north is a very dimly lit room.
+~
+~
+0 0 18938
+D3
+A shelf of table coral extends around the southwest of Tiren's Rock.
+~
+~
+0 0 18936
+S
+#18938
+Inside Tiren's Rock~
+One of many inner chambers of Tiren's Rock, this one sports a passage
+that extends deeper into the formation, headed north. Dim light shines
+from it, a byproduct of the luminescent algae spotting the walls.
+Attached to the walls of this room, though, are large barnacle shells,
+some remain inhabited.
+
+Almost unnoticed for its darkness, a passage also extends upward.
+~
+189 294925 8
+D0
+To the north, luminescent algae cause gemstones to glitter.
+~
+~
+0 0 18939
+D2
+To the south, half a giant clam shell forms a ledge.
+~
+~
+0 0 18937
+D3
+To the west, giant table corals form a colorful, wide ledge.
+~
+~
+0 0 18935
+D4
+The darkness above reveals no secrets.
+~
+~
+0 0 18967
+S
+#18939
+A Chamber Inside the Rock~
+Luminescent algae create a soft glow around the chamber. Some gemstones
+glitter in the dim light, embedded with purpose in the walls, ceiling,
+and floor. The stone passage leads west, or back south.
+~
+189 303112 8
+D2
+Through the water to the south is a barnacled room.
+~
+~
+0 0 18938
+D3
+A more well-lit chamber lies through the water to the west.
+~
+~
+0 0 18940
+S
+#18940
+A Tranquil Stone Chamber~
+Half a giant clam shell rests in this room, outer shell facing upward.
+The chamber's west side has several small holes carved out, allowing
+limited visibility to the ocean outside, and permitting the flow of
+seawater into and out of the chamber. Under construction, and floating
+around the room, several unfinished relics are awaiting completion and
+the magicks to be bestowed upon them.
+
+The luminescent algae are more abundant here, cultivated and healthy.
+~
+189 303112 8
+D1
+A dimly lit passage lies through the water to the east.
+~
+~
+0 0 18939
+S
+#18941
+Upon a Coral Shelf~
+Table corals, many decades in the making, protrude from the face of
+Tiren's Rock.  Tiny sponges live on and around the edges, soaking
+nutrients from the sea.  To the north is another opening in the rock,
+and the coral itself runs around the face of the rock to the east.
+~
+189 294913 8
+D0
+A very dimly lit chamber is just a swim stroke or two to the north.
+~
+~
+0 0 18944
+D1
+To the east, the table corals extend around the southeastern face of
+Tiren's Rock.
+~
+~
+0 0 18942
+D5
+Down below the table corals, the massive kelp forest begins several
+feet off the rock.
+~
+~
+0 0 18911
+S
+#18942
+Swimming Along the Coral Shelf~
+Table corals extend around the southeastern face of Tiren's Rock.  The
+view of the great kelp forest that surrounds and protects the undersea
+metropolis is spectacular. Through the kelp just north of east lies a
+structure - wooden by the looks of it, but any details are extremely
+difficult to discern from here.
+~
+189 294913 8
+D0
+Swimming to the north, table corals form a platform in front of another
+opening in the rock face.
+~
+~
+0 0 18943
+D3
+To the west a few kicks away, the table corals mount themselves below an
+opening in the face of Tiren's Rock.
+~
+~
+0 0 18941
+S
+#18943
+Outside an Opening in the Rock~
+Table corals grow off the rock face, creating an underwater platform in
+front of the opening to the west. Off to the east, some sort of wooden
+structure is barely visible through the thick, impassable kelp.
+~
+189 294913 8
+D2
+A few strokes south, the table corals bend around the southeastern face
+of Tiren's Rock.
+~
+~
+0 0 18942
+D3
+A very dimly illuminated chamber in the rock is a swim stroke or two west.
+~
+~
+0 0 18944
+S
+#18944
+Inside Tiren's Rock~
+One of many inner chambers of Tiren's Rock, this one sports a passage
+that extends deeper into the formation, headed west. Dim light shines
+from it, a byproduct of the luminescent algae spotting the walls. But
+this room, however, is mostly barren, except for two large clams that
+have attached themselves to the floor.
+
+Almost unnoticed for its darkness, a passage also extends upward.
+~
+189 294925 8
+D1
+To the east, table corals extend in a platform-like fashion outside
+the rock.
+~
+~
+0 0 18943
+D2
+A brief swim south, a large shelf of table corals protrude from the
+rock.
+~
+~
+0 0 18941
+D3
+Luminescent algae illuminate the chamber through the water to the west.
+~
+~
+0 0 18945
+D4
+The darkness above reveals no secrets.
+~
+~
+0 0 18961
+S
+#18945
+A Chamber Inside the Rock~
+Luminescent algae create a soft glow throughout the chamber. Sparsely
+decorated, a single shoe, presumably from the world of the topsiders,
+floats gently in the northwestern area of the chamber.  It has been
+used to lay luminescent tracks on the chamber's floor.
+
+The stone passage leads south, or back east.
+~
+189 303112 8
+D1
+To the east, the kelp waves gently northward in the current.
+~
+~
+0 0 18944
+D2
+A decently illuminated chamber lies south.
+~
+~
+0 0 18946
+S
+#18946
+A Spartan Stone Chamber~
+The south side of the chamber has several small holes carved through
+to the outer rock face, allowing for limited visibility to the ocean
+outside, and also permitting the flow of seawater into and out of the
+chamber.  Scattered over the room, floating in their cages, are magically
+preserved feet of dozens and dozens of creatures from both this world and
+the topsiders'.  Some still have a coating of the luminescent algae on
+their undersides - excellent aids in teaching the art of tracking.
+
+The luminescent algae are more abundant here, cultivated and healthy.
+~
+189 303112 8
+D0
+An illuminated chamber is a swim stroke or three north.
+~
+~
+0 0 18945
+S
+#18947
+Upon a Coral Shelf~
+Table corals, many decades in the making, protrude from the face of
+Tiren's Rock.  Tiny sponges live on and around the edges, soaking
+nutrients from the sea. To the west is another opening in the rock,
+and the coral itself runs around the face of the rock to the north.
+~
+189 294913 8
+D0
+A few swim strokes to the north, the table corals extend around the
+northeast face of Tiren's Rock.
+~
+~
+0 0 18948
+D3
+A brightly lit chamber lies through the opening to the west.
+~
+~
+0 0 18950
+D5
+Down beneath the coral shelf, denizens of the underwater metropolis
+swim to and fro.
+~
+~
+0 0 18915
+S
+#18948
+Swimming Along the Coral Shelf~
+Table corals extend around the northeastern face of Tiren's Rock.
+The view of the great kelp forest that surrounds and protects the
+undersea metropolis is spectacular. Through the kelp just south of
+east lies a structure - wooden by the looks of it, but any details
+are extremely difficult to discern from here.
+~
+189 294913 8
+D2
+A few short swim strokes south, table corals extend in front of an
+opening in the rock face.
+~
+~
+0 0 18947
+D3
+To the west, table corals grow outside an opening in the rock face.
+~
+~
+0 0 18949
+S
+#18949
+Outside an Opening in the Rock~
+Table corals grow off the rock face, creating an underwater platform
+in front of the opening to the south.  To the north, very little is
+visible through the thick, impassable kelp forest.
+~
+189 294913 8
+D1
+The coral shelf extends to the east around the face of Tiren's Rock.
+~
+~
+0 0 18948
+D2
+A brightly lit chamber lies inside the opening to the south.
+~
+~
+0 0 18950
+S
+#18950
+Inside Tiren's Rock~
+One of many inner chambers of Tiren's Rock, this one sports a passage
+that extends deeper into the formation, headed south. Dim light shines
+from it, a byproduct of the luminescent algae spotting the walls. This
+particular grotto is brightly lit -- runes and incantations glow on the
+stone floor.
+
+The light illuminates a passage that extends up inside the ceiling. The
+passage quickly falls into darkness.
+~
+189 294925 8
+D0
+North, outside the rock, the thick kelp stands tall and straight beyond
+the coral shelf.
+~
+~
+0 0 18949
+D1
+East, outside the rock, the kelp forest bends to the left in the current.
+~
+~
+0 0 18947
+D2
+Another brightly lit chamber is a swim stroke or three south.
+~
+~
+0 0 18951
+D4
+The darkness above reveals no secrets.
+~
+~
+0 0 18963
+S
+#18951
+A Chamber Inside the Rock~
+Luminescent runes create a soft glow around this chamber.  A great,
+gnarled staff adorns the southwest wall, surrounded by wands arranged
+in a starburst pattern.  All sizzle with a weak energy, as if in need
+of charging.
+
+The stone passage leads east, or back north.
+~
+189 303112 8
+D0
+A brightly lit chamber is north a swim stroke or three.
+~
+~
+0 0 18950
+D1
+A swim stroke or three to the east is a brightly colored chamber.
+~
+~
+0 0 18952
+S
+#18952
+A Bubbling Stone Chamber~
+In each corner of this chamber, torrents of tiny bubbles stream upward
+in columns and cross the ceiling, then flow down the east wall and out
+through several small holes. The holes permit limited visibility to the
+ocean without, and also allow seawater to flow into and out of the rock.
+Each bubble column glows its own color, one red, another blue, another
+green, and the fourth yellow. All together, the bubbles light up the
+chamber.
+
+The source of the entrancing bubble columns is unclear.
+~
+189 303112 8
+D3
+A swim stroke or three to the west is a brightly lit chamber.
+~
+~
+0 0 18951
+S
+#18953
+Upon a Coral Shelf~
+Table corals, many decades in the making, protrude from the face of
+Tiren's Rock.  Tiny sponges live on and around the edges, soaking
+nutrients from the sea. To the south is another opening in the rock,
+and the coral itself runs around the face of the rock to the west.
+~
+189 294913 8
+D2
+Through the opening to the south is a very poorly illuminated chamber.
+~
+~
+0 0 18956
+D3
+A few short swim strokes west, the corals bend around the northwestern
+face of Tiren's Rock.
+~
+~
+0 0 18954
+D5
+Downward a few strokes, a calm seabed teams with life.
+~
+~
+0 0 18919
+S
+#18954
+Swimming Along the Coral Shelf~
+Table corals extend around the northwestern face of Tiren's Rock.
+The view of the great kelp forest that surrounds and protects the
+undersea metropolis is spectacular. Unreachable from here, a path
+through the kelp is discernable along the sea floor to the west
+and northerly -- but the water is more cloudy and the kelp comes
+together again a short distance off, shielding the view beyond.
+~
+189 294913 8
+D1
+A few short swim strokes east lies an opening in the rock.
+~
+~
+0 0 18953
+D2
+A few short swim strokes south, the coral shelf is much younger.
+~
+~
+0 0 18955
+S
+#18955
+Outside an Opening in the Rock~
+Table corals grow off the rock face, but they are not very old and do
+not extend too far out from the rock face. An opening leads east into
+Tiren's Rock. Very little is visible through the impassable kelp forest
+west.
+~
+189 294913 8
+D0
+A few swim strokes north, the table corals bend around the face of
+Tiren's Rock.
+~
+~
+0 0 18954
+D1
+Through the opening to the east is a very poorly illuminated chamber.
+~
+~
+0 0 18956
+S
+#18956
+Inside Tiren's Rock~
+One of many inner chambers of Tiren's Rock, this one sports a passage
+that extends deeper into the formation, headed east.  No light shines
+from it, but there does seem to be a glow emitted from somewhere beyond
+that chamber.  Algae has begun growing on the walls of this chamber,
+slightly luminescent, but not enough to see too much detail.
+
+Almost unnoticed for its darkness, a passage extends upward into the
+ceiling.
+~
+189 294957 8
+D0
+Through the opening to the north, the kelp forest stands straight and
+tall.
+~
+~
+0 0 18953
+D1
+A relatively dark passage lies to the east.
+~
+~
+0 0 18957
+D3
+Through the opening to the west, the kelp forest bends slightly to the
+right.
+~
+~
+0 0 18955
+D4
+The darkness above reveals no secrets...
+~
+~
+0 0 18965
+S
+#18957
+A Chamber Inside the Rock~
+The stone walls of this chamber are barren of the luminescent algae
+found elsewhere inside Tiren's Rock.  Every now and then, light reflects
+in from the outside and gleams off metal veins in the walls...GOLD metal
+veins.
+
+The stone passage leads north to a better lit chamber, or back west.
+~
+189 303145 8
+D0
+To the north, the distinct underwater sound of rock pounding on rock
+can be heard -- and felt.
+~
+~
+0 0 18958
+D3
+The massive kelp forest is visible a short distance to the west.
+~
+~
+0 0 18956
+S
+#18958
+A Disheveled Stone Chamber~
+This wide chamber is not densely covered with luminescent algae, but
+enough has been cultivated to get a clear view.  The room is a total
+mess: stone weights in all sizes and shapes strewn about the floor,
+broken stone weapons lying in between. It would seem someone threw a
+bit of a tantrum.
+
+The north wall of the chamber has small holes drilled into it - about
+the size of a fist.  Maybe the holes were punched through the wall?
+Regardless, seawater flows into and out of the chamber through these
+pores in the rock.
+~
+189 303113 8
+D2
+A few short strokes south, the passageway fades to black.
+~
+~
+0 0 18957
+S
+#18959
+Inside a Murky Tomb~
+Phosphorescent algae illuminate the area enough to give some visibility
+through the murky, cold water. In the center of the room is a sahuagin-
+made sarcophagus adorned with spider conch and black murex shells.
+~
+189 434731 8
+D0
+A deep, murky fissure lies through the water to the north.
+~
+tomb door~
+2 18932 18932
+E
+sarcophagus~
+Adorned with the shells of rare spider conch and black murex, this is the
+customary burial rite for sahuagins who have achieved legendary status in
+their deeds while alive.
+
+This particular tomb is dedicated to Sh'kwikhanz, a famed sahuagin who's
+artful hands managed to acquire unparalleled wealth in all the oceans. He
+single-handedly funded the first Triton-Sahuagin war. Rumors abound as to
+how he handled the affair, but it is an inarguable fact that his coffers
+suddenly became full after a bizarre rendezvous with a large masked wyrm,
+aqua in color. Perhaps not coincidentally, this was also around the time
+Or'shalkpirsi was slain in his sleep.
+~
+S
+#18960
+Inside the Maelstrom~
+The salty sea water flows in an oddly strong current, generated by some
+unseen force.
+~
+189 294921 8
+D1
+Sea water flows powerfully to the east and into darkness.
+~
+~
+0 0 18961
+D3
+Out of the darkness west, sea water rushes in.
+~
+~
+0 0 18967
+S
+#18961
+Inside the Maelstrom~
+The salty sea water flows in an oddly strong current, generated by some
+unseen force.
+~
+189 294921 8
+D0
+Sea water rushes rapidly around to the north, and into darkness.
+~
+~
+0 0 18962
+D3
+Out of the darkness west, sea water rushes in.
+~
+~
+0 0 18960
+D5
+A dim light shines from below.
+~
+~
+0 0 18944
+S
+#18962
+Inside the Maelstrom~
+The salty sea water flows in an oddly strong current, generated by some
+unseen force.
+~
+189 294921 8
+D0
+Sea water rushes rapidly into the darkness to the north.
+~
+~
+0 0 18963
+D2
+Sea water rushes in rapidly from the darkness to the south.
+~
+~
+0 0 18961
+S
+#18963
+Inside the Maelstrom~
+The salty sea water flows in an oddly strong current, generated by some
+unseen force.
+~
+189 294921 8
+D2
+Sea water rushes rapidly in from the darkness to the south.
+~
+~
+0 0 18962
+D3
+Sea water rushes rapidly into the darkness to the west.
+~
+~
+0 0 18964
+D5
+A strong light shines up from below.
+~
+~
+0 0 18950
+S
+#18964
+Inside the Maelstrom~
+The salty sea water flows in an oddly strong current, generated by some
+unseen force.
+~
+189 294921 8
+D1
+Sea water rushes rapidly in from the darkness to the east.
+~
+~
+0 0 18963
+D3
+Sea water rushes rapidly into the darkness to the west.
+~
+~
+0 0 18965
+S
+#18965
+Inside the Maelstrom~
+The salty sea water flows in an oddly strong current, generated by some
+unseen force.
+~
+189 294921 8
+D1
+Sea water rushes rapidly in from the darkness to the east.
+~
+~
+0 0 18964
+D2
+Sea water rushes rapidly into the darkness to the south.
+~
+~
+0 0 18966
+D5
+The darkness below reveals no secrets...
+~
+~
+0 0 18956
+S
+#18966
+Inside the Maelstrom~
+The salty sea water flows in an oddly strong current, generated by some
+unseen force.
+~
+189 294921 8
+D0
+Sea water rushes rapidly in from the darkness to the north.
+~
+~
+0 0 18965
+D2
+Sea water rushes rapidly into the darkness to the south.
+~
+~
+0 0 18967
+S
+#18967
+Inside the Maelstrom~
+The salty sea water flows in an oddly strong current, generated by some
+unseen force.
+~
+189 294921 8
+D0
+Sea water rushes rapidly in from the darkness to the north.
+~
+~
+0 0 18966
+D1
+Sea water rushes rapidly into the darkness to the east.
+~
+~
+0 0 18960
+D5
+A very dim light shines up from below.
+~
+~
+0 0 18938
+S
+#18968
+Deep in the Cold Depths~
+The water is too murky for most light sources to reveal much. A seal shark
+swims near, teeth chewing rapidly...or chattering from the cold? Something
+swims out from the east and to the south, too quick to see clearly.
+~
+189 360491 8
+D1
+Through the murk to the east, the cave walls narrow, but passage is possible.
+~
+~
+0 0 18969
+D2
+A narrow passage south is visible through the murk.
+~
+~
+0 0 18971
+D4
+Dim light shines through an opening a few swim strokes above.
+~
+~
+0 0 18904
+S
+#18969
+An Entrance to an Undersea Fissure~
+The stone surrounding the eastward fissure is a bit jagged and precarious.
+~
+189 426025 8
+D1
+The murky fissure continues to the east, sloping downward.
+~
+~
+0 0 18929
+D2
+There seems to be passage south through the murky water.
+~
+~
+0 0 18970
+D3
+A room lies through the murk to the west.
+~
+~
+0 0 18968
+S
+#18970
+A Deep Sea Chamber~
+The water is quite frigid in this chamber, and what's worse, it's so
+murky that visibility is on the level of blindness.  Navigating by
+sense of touch seems about the only option.
+~
+189 426027 8
+D0
+There seems to be passage north through the frigid, murky darkness.
+~
+~
+0 0 18969
+D5
+Passage downward may leave scratches, but it is possible...
+~
+~
+0 0 18972
+S
+#18971
+An Entrance to an Undersea Fissure~
+The stone surrounding the westward fissure is a bit jagged and precarious.
+~
+189 426025 8
+D0
+Through the murk to the north, there is a passage.
+~
+~
+0 0 18968
+D3
+The murky fissure appears to continue west.
+~
+~
+0 0 18932
+S
+#18972
+Inside a Deep Sea Cave~
+Abundant cultures of luminescent algae brighten this deep sea cave. No
+other life forms are obvious.  Far beneath the ocean floor, this tunnel
+is not very wide, but the distance from ceiling to floor is altogether
+roomy.  The walls are covered with the glowing algae, and some etchings
+that are not familiar.
+
+The cave continues eastward, or there is very tight passage on an upward
+slope to the west.
+~
+189 434217 8
+D1
+The deep sea cave continues east.
+~
+~
+0 0 18973
+D4
+A very tight fit, passage is possible in an upwardly westward direction.
+~
+~
+0 0 18970
+E
+etchings~
+These appear to be etchings in some forgotten tongue, maybe a precursor
+to the Sahuagin language.  This must be an ancient cavern indeed...
+~
+S
+#18973
+Inside a Deep Sea Cave~
+Luminescent algae populating the cave light up the walls, ceiling, and
+floor. There is an opening in the northern cave wall, and the underwater
+cavern seems to thump periodically in no set pattern.
+~
+189 434217 8
+D0
+The north wall of the fissure holds a tightly secured door.
+~
+tomb door~
+2 18933 18931
+D1
+The deep sea cave continues eastward through the cold waters.
+~
+~
+0 0 18974
+D3
+The cave continues west through the cold, deep sea waters.
+~
+~
+0 0 18972
+S
+#18974
+Inside a Deep Sea Cave~
+Luminescent algae populating the cave light up the walls, ceiling, and
+floor.  There is an opening in the cave wall to the north.
+
+The underwater cavern seems to thump periodically in no set pattern,
+drawing attention to the east wall, where the cave ends with a gruesome
+sight.
+~
+189 434217 8
+D0
+The north wall of the fissure holds a tightly secured door.
+~
+tomb door~
+2 18934 18975
+D1
+A gargantuan iron door fills the wall to the east.
+~
+vault~
+2 18930 18999
+D3
+The deep sea cave continues west through the cold waters.
+~
+~
+0 0 18973
+E
+gruesome sight wall~
+Still shackled to the wall, a corpse of a two-headed Giant-kin remains
+in a state of preservation -- either through magic, or maybe because
+things just do not rot at this depth where oxygen is scarce and predators
+rarely swim.
+
+There have been tales of two-headed giants, but none have been seen alive
+in many an age...  Ettins, they were called.  The story behind this one
+must be fantastic, though woe begets the scene.
+
+All limbs are drawn and chained far out from the body in an 'X' formation,
+and both heads slump to the ettin's chest.  Shockingly, it is from behind 
+this creature that the thumping seems to originate.
+
+The dead ettin is chained to a gargantuan iron door.
+~
+E
+door~
+A thickness that could be measured in feet, this massive iron door stands
+steadfast as a barrier between life and death.
+~
+S
+#18975
+Inside a Murky Tomb~
+Phosphorescent algae illuminate the area enough to give some visibility
+through the murky, cold water. In the center of the room is a sahuagin-
+made sarcophagus adorned with spider conch and black murex shells.
+~
+189 434731 8
+D2
+A door is set into the wall to the south.
+~
+tomb door~
+2 18934 18974
+E
+sarcophagus~
+Adorned with the shells of rare spider conch and black murex, this is the
+customary burial rite for sahuagins who have achieved legendary status in
+their deeds while alive.
+
+This tomb, deepest within Tiren's Rock, is dedicated to So'shalktiren, the
+sahuagin for whom Tiren's Rock is named.  So'shalktiren was known for his
+love of exploration, hunting, and small guppies.
+~
+S
+#18976
+A Tunnel in the Kelp~
+Massive dark green stalks of kelp sprout out of the sea floor to either
+side, and stretch upward from the depths, knitting themselves into a an
+impassable mesh above. A constant stream of glowing jellies float several
+feet overhead beyond the normal swimming path, giving some light to the
+tunnel in the kelp.
+~
+189 294921 8
+D0
+The kelp grows thick and strong, impenetrable.
+~
+~
+0 0 0
+D1
+The tunnel of kelp continues eastward.
+~
+~
+0 0 18977
+D2
+The kelp grows thick and strong, impenetrable.
+~
+~
+0 0 0
+D3
+Westward, the tunnel of kelp opens onto a greyish black rock face.
+~
+~
+0 0 18912
+D4
+The kelp comes together a distance overhead, knitting itself together in
+a tight mesh of vegetation.  Dozens of tiny jellies swim continuously,
+glowing and forming a stream of dull light.
+~
+~
+0 0 0
+D5
+The silt of the sea floor stirs ever so slightly here and there, as sea
+worms dig in at the approach of a potential predator.
+~
+~
+0 0 0
+S
+#18977
+A Tunnel in the Kelp~
+The great forest of kelp opens up in several directions here.  To the
+east, a soft blue glow is barely visible.  To the west, the kelp forms
+a dark green tunnel.  And to the north, a wooden structure groans now
+and then from the great ocean pressure.
+~
+189 425993 8
+D0
+An opening in the kelp to the north leads to an old waterlogged wooden
+structure.
+~
+~
+0 0 18978
+D1
+A soft blue glow shimmers from the tunnel of kelp to the east.
+~
+~
+0 0 18991
+D3
+The tunnel of kelp continues to the west, toward an opening.
+~
+~
+0 0 18976
+S
+#18978
+An Opening in a Crushed Bow of a Sunken Vessel~
+Smashed on the rocks far above near the surface, the wooden vessel has
+split, the bow coming to rest in the great kelp forest east of Tiren's
+Rock.  As the years have passed, the wood has become heavily covered in
+barnacles and corals, but has not rotted to a great extent.  Many of the
+ocean's favorite creatures now call this devastated ship their home.
+~
+189 294921 8
+D0
+The passage within the vessel continues north.
+~
+~
+0 0 18985
+D1
+It is dark within the sunken vessel, and shadows play in the passage to
+the east.
+~
+~
+0 0 18979
+D2
+There is passage southward into a tunnel of kelp.
+~
+~
+0 0 18977
+D3
+A jagged hole, perhaps left by the battering ram of another topsider
+vessel, leads outside.
+~
+~
+0 0 18987
+S
+#18979
+Within a Crushed Bow~
+Built by the surface dwellers out of their wooded forestlands, part of a
+topsider vessel has come to rest on the sea floor here, crushed and broken
+by the rocks near the surface.
+~
+189 294921 8
+D0
+A door to some chamber within the bow hangs on rusted metal hinges to the
+north.
+~
+door~
+1 0 18900
+O
+rickety, waterlogged door~
+D1
+The passage within the vessel briefly continues eastward.
+~
+~
+0 0 18980
+D3
+The passage within the sunken vessel briefly continues west.
+~
+~
+0 0 18978
+S
+#18980
+Within a Crushed Bow~
+Built by the surface dwellers out of their wooded forestlands, part of a
+topsider vessel has come to rest on the sea floor here, crushed and broken
+by the rocks near the surface.
+~
+189 294921 8
+D0
+The interior of the wooden vessel continues northward.
+~
+~
+0 0 18981
+D1
+The vessel has suffered some trauma: the deck above has collapsed making
+eastward passage somewhat treacherous.
+~
+~
+0 0 18988
+D2
+The old wood shows few signs of decay, but many signs of life.
+~
+~
+0 0 0
+D3
+The interior of the crushed vessle continues westward.
+~
+~
+0 0 18979
+D4
+Dangling down through the water, strands of algae sway in the wake of
+tiny fishes darting hither and thither.
+~
+~
+0 0 0
+S
+#18981
+Within a Crushed Bow~
+Built by the surface dwellers out of their wooded forestland, part of
+a topsider vessel has come to rest on the sea floor here, crushed and
+broken by the rocks near the surface.
+~
+189 294921 8
+D0
+The passage within the sunken vessel briefly continues north.
+~
+~
+0 0 18982
+D1
+The deck of the ship has collapsed, making passage east a Very Big Risk.
+~
+~
+0 0 18989
+D2
+The passage within the sunken vessel briefly continues south.
+~
+~
+0 0 18980
+S
+#18982
+Within a Crushed Bow~
+Built by the surface dwellers out of their wooded forestlands, part of a
+topsider vessel has come to rest on the sea floor here, crushed and broken
+by the rocks near the surface.
+~
+189 294921 8
+D1
+The deck of the wooden vessel has collapsed, making passage east a little
+risky.
+~
+~
+0 0 18990
+D2
+The passage within the sunken vessel continues south.
+~
+~
+0 0 18981
+D3
+Passage within the sunken vessel continues west.
+~
+~
+0 0 18983
+S
+#18983
+Within a Crushed Bow~
+Built by the surface dwellers out of their wooded forestlands, part of a
+topsider vessel has come to rest on the sea floor here, crushed and broken
+by the rocks near the surface.
+~
+189 294921 8
+D1
+The passage within the sunken vessel briefly continues east.
+~
+~
+0 0 18982
+D3
+The passage within the sunken vessel briefly continues west.
+~
+~
+0 0 18984
+S
+#18984
+Within a Crushed Bow~
+Built by the surface dwellers out of their wooded forestlands, part of a
+topsider vessel has come to rest on the sea floor here, crushed and broken
+by the rocks near the surface.
+~
+189 294921 8
+D1
+The passage within the sunken vessel continues east.
+~
+~
+0 0 18983
+D2
+The passage within the sunken vessel continues south.
+~
+~
+0 0 18985
+S
+#18985
+Within a Crushed Bow~
+Built by the surface dwellers out of their wooded forestlands, part of a
+topsider vessel has come to rest on the sea floor here, crushed and broken
+by the rocks near the surface.
+~
+189 294921 8
+D0
+The passage within the sunken vessel briefly continues north.
+~
+~
+0 0 18984
+D2
+An opening to outside the bow lies southward.
+~
+~
+0 0 18978
+D3
+The bow comes to a tight point to the west.
+~
+~
+0 0 18986
+S
+#18986
+Inside the Bow's Tip~
+The actual bow of the sunken vessel is a pretty tight fit.  Some of the
+heavy wooden planks have splintered, but the bow remains mostly intact.
+~
+189 295436 8
+D1
+The larger portion of the bow lies eastward.
+~
+~
+0 0 18985
+S
+#18987
+A Private Little Alcove~
+Surrounded to the north, west, and south by thick, impassable kelp, the
+water is quiet, dark, and soothing. This private little alcove could be
+the best hiding place ever!
+~
+189 395264 8
+D1
+A jagged hole in the side of a wooden vessel allows passage eastward,
+but be careful going through -- the wood may be old and rotten, but it
+could still scratch anything passing by.
+~
+~
+0 0 18978
+S
+#18988
+Nearly Stuck Within the Bow~
+Beams of wood, bent by weight from the waters above, are cracked and
+crushed.  This looks like a dangerous place to hide.
+~
+189 294925 8
+D3
+Swimming through some crushed beams, passage west is possible.
+~
+~
+0 0 18980
+S
+#18989
+Stuck Within the Bow~
+A few wooden planks split and crumble to the west, making a prisoner
+of any creature larger than a flounder within this room.
+~
+189 296973 8
+S
+#18990
+Nearly Stuck Within the Bow~
+This cramped space is a good hiding place for vicious flesh-eating
+sponges. The planks of the sunken vessel push hard against each other,
+several have split over the years due to building pressures on the
+structure.
+~
+189 294925 8
+D3
+Swimming back through some broken wooden beams, passage west is possible.
+~
+~
+0 0 18982
+S
+#18991
+Among the Phosporescent Blue Kelp~
+Extremely rare, phosphorescent blue kelp grows in thin strands around
+the walls and overhead.  This kelp never sees surface light.  Seeking
+to compensate for this loss makes its own soft blue glow.
+~
+189 425993 8
+D1
+Eastward, a tunnel through the kelp forest continues toward some unknown
+destination...
+~
+~
+0 0 0
+D2
+Tiny columns of bubbles stream up from the seabed to the south.
+~
+~
+0 0 18992
+D3
+The kelp forms a dark green tunnel westward.
+~
+~
+0 0 18977
+S
+#18992
+Among the Bubble Streams~
+Columns of tiny bubbles stream up from the sea floor, stretching up to
+a place unseen above.  Almost every square foot of the seabed erupts
+with effervescence.
+
+And on the perimeter east and west, green and black kelp grows thick and
+strong into the tidal reaches of the ocean surface.
+
+A glowing portal of dark blue hue to the south indicates passage to some
+other region.
+~
+189 425993 8
+D0
+A soft blue glow is visible to the north.
+~
+~
+0 0 18991
+D2
+A glowing portal of a dark blue hue beckons the adventurous spirits.
+~
+~
+0 0 201
+D4
+Above, the bubbles disappear into the extremely porous ceiling. Every
+few moments, a sahuagin pokes its head through one of the holes, looks
+around, and quickly withdraws.
+~
+~
+0 0 18993
+S
+#18993
+The Shrine of the Great Sponge~
+A sponge of immeasurable size yields safety within its cushy walls.
+Little bubbles gurgle from the floor, walls, and ceiling with some
+regularity, and one sahuagin of small stature swims around and pokes
+its head through the floor every few moments, sitting and staring
+around during the moments in between.
+~
+189 263180 8
+D5
+The porous floor of the Great Sponge permits all sorts of creatures
+passage.
+~
+~
+0 0 18992
+S
+#18994
+A Tunnel in the Kelp~
+Massive dark green stalks of kelp sprout out of the sea floor to either
+side, and stretch upward from the depths, knitting themselves into a an
+impassable mesh above.  A constant stream of glowing jellies float several
+feet overhead beyond the normal swimming path, giving some light to the
+tunnel in the kelp.
+~
+189 294921 8
+D1
+The kelp tunnel continues east.
+~
+~
+0 0 18995
+D3
+To the west, a split in the pathway is evident.
+~
+~
+0 0 18916
+S
+#18995
+A Tunnel in the Kelp~
+Massive dark green stalks of kelp sprout out of the sea floor to either
+side, stretching upward from the depths.  The kelp opens gently above,
+swaying this way and that.
+
+An upward current is barely discernable, but as of yet is of no concern.
+~
+189 294921 8
+D3
+The tunnel of kelp continues to the west.
+~
+~
+0 0 18994
+D4
+Looking upward, the kelp forest parts gently revealing a pathway through
+the vegetation.  Short strands of loose kelp flow out of sight.
+~
+~
+0 0 18996
+S
+#18996
+A Tunnel in the Kelp~
+Massive dark green stalks of kelp sprout out of the sea floor to either
+side, and stretch upward from the depths, knitting themselves into a an
+impassable mesh north, south, and west.  Loose kelp strands float up from
+below, then east.  There is a significant easterly current seeking to take
+advantage of things not secured.
+~
+189 294921 8
+D1
+Eastward, beyond the kelp, the current flows to an unknown destination.
+~
+~
+0 0 27701
+D5
+Downward through the kelp, a path is visible.
+~
+~
+0 0 18995
+S
+#18997
+A Tunnel in the Kelp~
+Massive dark green stalks of kelp sprout out of the sea floor to either
+side, and stretch upward from the depths, knitting themselves into a an
+impassable mesh north and south.  Loose kelp strands float in from east
+to west.  The current is significantly a westward flow, tugging at all
+things not properly secured.
+~
+189 294921 8
+D1
+A brief swim to the east, the kelp pathway appears to fork.
+~
+~
+0 0 18920
+D3
+The current flows westerly to a destination beyond the kelp.
+~
+~
+0 0 7964
+S
+#18998
+A Tunnel in the Kelp~
+Massive dark green stalks of kelp sprout out of the sea floor to either
+side, and stretch upward from the depths, knitting themselves into a an
+impassable mesh north and south.  Loose kelp strands float in from east
+to west.  The current is significantly a westward flow, tugging at all
+things not properly secured.
+~
+189 294921 8
+D1
+The pathway appears to fork just east of here.
+~
+~
+0 0 18908
+D3
+The kelp tunnel opens up to the west into regions unknown.
+~
+~
+0 0 7970
+S
+#18999
+Beyond Death's Door~
+Beyond the yawning entry, the cavern falls away beneath to depths best
+left unimagined.  The water is black and still and very cold.
+~
+189 360457 8
+D3
+A great iron door is masterfully set into the west wall.
+~
+vault~
+2 0 18974
+E
+door~
+A thickness that measures in feet, this massive iron door was built to
+efficiently prevent passage in either direction.
+~
+S
+#7971
+The Tiren's Rock Warehouse Sea Lock~
+This gigantic structure is made entirely of a mountainous formation of coral. 
+Whether it was carved into its current shape or convinced to grow that way 
+through sahuagin magic is an impossible task to discern. This section of the 
+building is a sea-lock, granting access to the warehouse in a way that does 
+not flood the dry interior. A pair of stout doors to the west and east block 
+the way. A school of bladderfishes have been harnessed to small openings, 
+and it is their labor that sucks water out of the chamber and expels it 
+through an odd series of valves.
+~
+79 19468 1
+D1
+
+~
+warehouse-lock~
+1 0 7972
+O
+warehouse-lock~
+D3
+
+~
+sea-lock~
+1 0 7967
+O
+sea-lock~
+S
+#7972
+The Tiren's Rock Warehouse and Dock~
+This large chamber was carved out of a massive structure of coral. It is
+surprisingly dry and pleasant.  A complex series of racks and shelves to
+the north and east are filled with every manner of crate, box, or parcel.
+To the west, flanking the sea-lock door, are piles of packages and bins a
+magpie would faint at the sight of.  Cartons labelled in every language,
+entice the eye with curious contents. Another lock-portal is found at the 
+center of the structure, with access down to the Te'nayu'ka when it is at
+dock.
+~
+79 0 1
+D1
+~
+~
+1 0 18906
+D3
+~
+outer-lock~
+1 0 7971
+O
+sea-lock~
+S
+#0
+
+#RESETS
+* NOTE about the rooms here.  There are 2 rooms that connect to rowenbay.are
+* that should be inside the Tiren Rock area but as there are no vnums left
+* 2 from rowenbay.are have been used.  vnum 7971 and 7972
+* Leaving this note as to why as we're bound to forget!
+
+D 0 18906 3 1  * Sea-lock door
+D 0 7972  1 1  * Sea-lock door
+D 0 7972 3 1  * The Tiren's Rock Warehouse and Dock
+D 0 7971 1 1  * The Tiren's Rock Warehouse Sea Lock
+D 0 7971 3 1  * The Tiren's Rock Warehouse Sea Lock
+M 0 7941 3 7972  * a city watcher on lock duty -> The Tiren's Rock Warehouse and Dock
+D 0 18901 5 1  * Inside a Rock Dome
+D 0 18902 4 1  * Beneath the Sponge Floor
+D 0 18974 1 2  * Inside a Deep Sea Cave
+D 0 18979 0 1  * Within a Crushed Bow
+D 0 18900 2 1  * The Captain's Private Cabin
+D 0 18999 3 2  * Beyond Death's Door
+D 0 18959 0 2  * Inside a Murky Tomb
+D 0 18932 2 2  * In a Deep, Murky Fissure
+D 0 18931 2 2  * Inside a Murky Tomb
+D 0 18973 0 2  * Inside a Deep Sea Cave
+D 0 18929 0 2  * In a Deep, Murky Fissure
+D 0 18930 2 2  * Inside a Murky Tomb
+D 0 18933 2 2  * In a Deep, Murky Fissure
+D 0 18934 0 2  * Inside a Murky Tomb
+D 0 18974 0 2  * Inside a Deep Sea Cave
+D 0 18975 2 2  * Inside a Murky Tomb
+O 0 18902 1 18901  * a mineral puddle -> Inside a Rock Dome
+O 0 18923 1 18959  * a sarcophagus -> Inside a Murky Tomb
+P 0 18903 100 18923  * the remains of a revered sahuagin -> a sarcophagus
+P 0 18933 100 18923  * a great white's tooth -> a sarcophagus
+O 0 18920 4 18908  * a loose strand of kelp -> The Base of a Huge Pillar of Rock
+O 0 18925 1 18934  * a sarcophagus -> Inside a Murky Tomb
+P 0 18932 100 18925  * a sea lion's tusk -> a sarcophagus
+P 0 18936 100 18925  * the remains of a revered sahuagin -> a sarcophagus
+O 0 18926 1 18931  * a sarcophagus -> Inside a Murky Tomb
+P 0 18979 100 18926  * the remains of a revered sahuagin -> a sarcophagus
+P 0 18934 100 18926  * a dragon turtle's tooth -> a sarcophagus
+O 0 18927 1 18975  * a sarcophagus -> Inside a Murky Tomb
+P 0 18980 100 18927  * the remains of a revered sahuagin -> a sarcophagus
+P 0 18930 100 18927  * a massive, rusted iron key -> a sarcophagus
+O 0 18924 1 18930  * a sarcophagus -> Inside a Murky Tomb
+P 0 18931 100 18924  * a killer whale's tooth -> a sarcophagus
+P 0 18935 100 18924  * the remains of a revered sahuagin -> a sarcophagus
+O 0 18938 1 18999  * an aqua-colored orb -> Beyond Death's Door
+O 0 18920 4 18912  * a loose strand of kelp -> The Base of a Huge Pillar of Rock
+O 0 18920 4 18917  * a loose strand of kelp -> Outside an Opening in the Depths
+O 0 18978 1 18901  * a pool of fresh water -> Inside a Rock Dome
+O 0 18922 4 18922  * a handful of bones and scraps -> A Den of Hungry Cephalopods
+M 0 18900 1 18923  * Mo'pakshakur -> Inside Tridents & Mo
+E 0 18904 100 3  * a tuna scale key
+E 0 18911 100 5  * a cured shark-hide vest
+E 0 18900 100 16  * a translucent heavy-water mace
+M 0 18901 1 18968  * the tomb guardian of Tiren's Rock -> Deep in the Cold Depths
+E 0 18914 100 7  * shark-hide leggings
+E 0 18913 100 10  * shark-hide sleeves
+E 0 18912 100 9  * shark-hide gloves
+E 0 18911 100 5  * a cured shark-hide vest
+E 0 18901 100 13  * a tuna scale pouch
+P 0 18905 100 18901  * a sperm whale's tooth -> a tuna scale pouch
+M 0 18902 1 18930  * the phasma of An'lakshakmur -> Inside a Murky Tomb
+E 0 18907 100 17  * a fork-sized adamantium trident
+M 0 18903 1 18934  * the phasma of Kruddi'lukk -> Inside a Murky Tomb
+E 0 18908 100 17  * a miniature lobster claw
+M 0 18904 1 18959  * the phasma of Sh'kwikhanz -> Inside a Murky Tomb
+E 0 18906 100 17  * a sleek adamantium needlefish
+M 0 18905 1 18931  * the phasma of Or'shalkpirsi -> Inside a Murky Tomb
+E 0 18909 100 17  * a lightning bolt token
+M 0 18906 1 18923  * the weapons dealer -> Inside Tridents & Mo
+G 0 18949 100  * a wicked sharp coral scythe
+G 0 18940 100  * a blunt stone club
+G 0 18937 100  * a long-shafted coral trident
+G 0 18915 100  * a jagged coral spear
+G 0 18916 100  * a short-shafted coral trident
+G 0 18917 100  * a conch-hilt sword
+G 0 18918 100  * a dual-ended sword
+M 0 18907 6 18906  * a green parrotfish -> Outside an Opening in the Depths
+M 0 18907 6 18911  * a green parrotfish -> Beneath a Coral Shelf
+M 0 18907 6 18915  * a green parrotfish -> Outside in the Depths
+M 0 18907 6 18919  * a green parrotfish -> Beneath a Coral Shelf
+M 0 18907 6 18942  * a green parrotfish -> Swimming Along the Coral Shelf
+M 0 18907 6 18954  * a green parrotfish -> Swimming Along the Coral Shelf
+M 0 18908 8 18907  * a tiny seaworm -> Outside in the Depths
+M 0 18908 8 18909  * a tiny seaworm -> Outside an Opening in the Depths
+M 0 18908 8 18911  * a tiny seaworm -> Beneath a Coral Shelf
+M 0 18908 8 18913  * a tiny seaworm -> Outside an Opening in the Depths
+M 0 18908 8 18915  * a tiny seaworm -> Outside in the Depths
+M 0 18908 8 18917  * a tiny seaworm -> Outside an Opening in the Depths
+M 0 18908 8 18919  * a tiny seaworm -> Beneath a Coral Shelf
+M 0 18908 8 18921  * a tiny seaworm -> Outside an Opening in the Depths
+M 0 18909 10 18906  * a manly sahuagin -> Outside an Opening in the Depths
+M 0 18909 10 18908  * a manly sahuagin -> The Base of a Huge Pillar of Rock
+M 0 18909 10 18912  * a manly sahuagin -> The Base of a Huge Pillar of Rock
+M 0 18909 10 18914  * a manly sahuagin -> Outside an Opening in the Depths
+M 0 18909 10 18916  * a manly sahuagin -> The Base of a Huge Pillar of Rock
+M 0 18909 10 18920  * a manly sahuagin -> The Base of a Huge Pillar of Rock
+M 0 18909 10 18923  * a manly sahuagin -> Inside Tridents & Mo
+M 0 18909 10 18935  * a manly sahuagin -> Upon a Coral Shelf
+M 0 18909 10 18955  * a manly sahuagin -> Outside an Opening in the Rock
+M 0 18909 10 18941  * a manly sahuagin -> Upon a Coral Shelf
+M 0 18910 11 18906  * a lady sahuagin -> Outside an Opening in the Depths
+M 0 18910 11 18911  * a lady sahuagin -> Beneath a Coral Shelf
+M 0 18910 11 18921  * a lady sahuagin -> Outside an Opening in the Depths
+M 0 18910 11 18918  * a lady sahuagin -> Outside an Opening in the Depths
+M 0 18910 11 18925  * a lady sahuagin -> Inside Mails, Scales, and Fishnet Stockings
+M 0 18910 11 18920  * a lady sahuagin -> The Base of a Huge Pillar of Rock
+M 0 18910 11 18935  * a lady sahuagin -> Upon a Coral Shelf
+M 0 18910 11 18939  * a lady sahuagin -> A Chamber Inside the Rock
+M 0 18910 11 18951  * a lady sahuagin -> A Chamber Inside the Rock
+M 0 18910 11 18941  * a lady sahuagin -> Upon a Coral Shelf
+M 0 18910 11 18953  * a lady sahuagin -> Upon a Coral Shelf
+M 0 18911 1 18935  * a sahuagin family -> Upon a Coral Shelf
+M 0 18912 5 18976  * a fit city watcher -> A Tunnel in the Kelp
+E 0 18918 100 16  * a dual-ended sword
+M 0 18912 5 18994  * a fit city watcher -> A Tunnel in the Kelp
+E 0 18918 100 16  * a dual-ended sword
+M 0 18912 5 18997  * a fit city watcher -> A Tunnel in the Kelp
+E 0 18917 100 16  * a conch-hilt sword
+M 0 18912 5 18998  * a fit city watcher -> A Tunnel in the Kelp
+E 0 18917 100 16  * a conch-hilt sword
+M 0 18912 5 18905  * a fit city watcher -> A Wide Tunnel
+E 0 18916 100 16  * a short-shafted coral trident
+M 0 18913 5 18976  * a fit city watcher -> A Tunnel in the Kelp
+E 0 18915 100 16  * a jagged coral spear
+M 0 18913 5 18994  * a fit city watcher -> A Tunnel in the Kelp
+E 0 18915 100 16  * a jagged coral spear
+M 0 18913 5 18997  * a fit city watcher -> A Tunnel in the Kelp
+E 0 18918 100 16  * a dual-ended sword
+M 0 18913 5 18998  * a fit city watcher -> A Tunnel in the Kelp
+E 0 18917 100 16  * a conch-hilt sword
+M 0 18913 5 18905  * a fit city watcher -> A Wide Tunnel
+E 0 18916 100 16  * a short-shafted coral trident
+M 0 18914 8 18910  * a darting little needlefish -> Outside an Opening in the Depths
+M 0 18914 8 18909  * a darting little needlefish -> Outside an Opening in the Depths
+M 0 18914 8 18917  * a darting little needlefish -> Outside an Opening in the Depths
+M 0 18914 8 18918  * a darting little needlefish -> Outside an Opening in the Depths
+M 0 18915 1 18924  * the dabbler -> Inside the Speckled Pearl
+G 0 18941 100  * a pernicious pickled pudding
+G 0 18942 100  * a chalky crimson pellet
+G 0 18943 100  * a mushy white capsule
+G 0 18944 100  * a dark red tablet
+G 0 18945 100  * a chewy white lozenge
+G 0 18946 100  * an inky black potion
+G 0 18947 100  * a salty clear potion
+G 0 18948 100  * a bitter malt concoction
+G 0  1201 999 * the dabbler -> a clear red potion
+M 0 18916 1 18925  * the marine merchant -> Inside Mails, Scales, and Fishnet Stockings
+G 0 18950 100  * a sharkskin tunic
+G 0 18951 100  * a turtle shell helmet
+G 0 18952 100  * a set of fishnet stockings
+G 0 18953 100  * a pair of sharkskin flippers
+G 0 18954 100  * a set of scaled tuna skin gloves
+G 0 18955 100  * sturdy blue-ringed armlets
+G 0 18956 100  * a tuna scale mail poncho
+G 0 18957 100  * a sharkskin cummerbund
+M 0 18917 1 18926  * the sous chef of Triton Galley -> Inside Triton Galley
+G 0 18958 100  * a seahorse and triton kabob
+G 0 18959 100  * a jellied thigh of triton
+G 0 18960 100  * a filet of triton torso
+G 0 18961 100  * a filet of seahorse
+G 0 18962 100  * a crock of triton-seahorse gumbo
+G 0 18963 100  * a bit of triton-seahorse patte
+M 0 18918 1 18927  * the tinkerer of Tiren's Rock -> Inside Topsider Trinkets
+G 0 18964 100  * a bundle of thick candles
+G 0 18965 100  * a shredded parasol
+G 0 18966 100  * a shipment of soggy foot powder
+G 0 18967 100  * a set of fishing poles
+G 0 18968 100  * an assortment of drowned black orchids
+G 0 18969 100  * an empty champagne bottle
+G 0 18970 100  * a soaked box of clove cigarettes
+G 0 18971 100  * a set of soaking wet towels
+M 0 18919 1 18928  * the master chef of Tiren's Rock -> Inside Lean Baleen
+G 0 18972 100  * a deliciously spiced sea cucumber
+G 0 18973 100  * a decadent piece of sea turtle sushi
+G 0 18974 100  * a gently prepared tuna steak
+G 0 18975 100  * some eelskin clam wraps
+G 0 18976 100  * a shark fin on anemone spine
+G 0 18977 100  * a handful of pickled sea urchin bites
+M 0 18920 1 18922  * a truly humongous cephalopod -> A Den of Hungry Cephalopods
+M 0 18921 1 18922  * a large cephalopod -> A Den of Hungry Cephalopods
+M 0 18922 1 18922  * a mid-sized cephalopod -> A Den of Hungry Cephalopods
+M 0 18923 3 18922  * a baby cephalopod -> A Den of Hungry Cephalopods
+M 0 18923 3 18922  * a baby cephalopod -> A Den of Hungry Cephalopods
+M 0 18923 3 18922  * a baby cephalopod -> A Den of Hungry Cephalopods
+M 0 18924 3 18968  * a seal shark -> Deep in the Cold Depths
+M 0 18924 3 18973  * a seal shark -> Inside a Deep Sea Cave
+M 0 18924 3 18933  * a seal shark -> In a Deep, Murky Fissure
+M 0 18925 2 18976  * a small group of jellies -> A Tunnel in the Kelp
+M 0 18925 2 18994  * a small group of jellies -> A Tunnel in the Kelp
+M 0 18928 5 18965  * a young sahuagin child -> Inside the Maelstrom
+M 0 18928 5 18964  * a young sahuagin child -> Inside the Maelstrom
+M 0 18928 5 18961  * a young sahuagin child -> Inside the Maelstrom
+M 0 18928 5 18960  * a young sahuagin child -> Inside the Maelstrom
+M 0 18929 5 18967  * a young sahuagin child -> Inside the Maelstrom
+M 0 18929 5 18960  * a young sahuagin child -> Inside the Maelstrom
+M 0 18929 5 18963  * a young sahuagin child -> Inside the Maelstrom
+M 0 18929 5 18962  * a young sahuagin child -> Inside the Maelstrom
+M 0 18930 3 18967  * a young sahuagin swim instructor -> Inside the Maelstrom
+M 0 18930 3 18967  * a young sahuagin swim instructor -> Inside the Maelstrom
+M 0 18931 3 18961  * a young sahuagin swim instructor -> Inside the Maelstrom
+M 0 18931 3 18965  * a young sahuagin swim instructor -> Inside the Maelstrom
+M 0 18928 5 18966  * a young sahuagin child -> Inside the Maelstrom
+M 0 18929 5 18966  * a young sahuagin child -> Inside the Maelstrom
+M 0 18930 3 18960  * a young sahuagin swim instructor -> Inside the Maelstrom
+M 0 18931 3 18967  * a young sahuagin swim instructor -> Inside the Maelstrom
+M 0 18932 1 18999  * the mighty undead ettin -> Beyond Death's Door
+E 0 18929 100 5  * the volcanic chest plate
+E 0 18928 100 16  * a cooled volcanic plume of rock
+M 0 18933 1 18975  * the shade of So'shalktiren -> Inside a Murky Tomb
+E 0 18910 100 17  * a guppy-shaped key
+M 0 18934 1 18993  * the Great Sponge priest -> The Shrine of the Great Sponge
+E 0 18920 100 6  * a loose strand of kelp
+M 0 18935 1 18900  * the Master of Stealth -> The Captain's Private Cabin
+E 0 18939 100 17  * a book of skills
+E 0 18916 100 16  * a short-shafted coral trident
+M 0 18936 1 18940  * the Master of Conjurings -> A Tranquil Stone Chamber
+E 0 18940 100 16  * a blunt stone club
+E 0 18939 100 17  * a book of skills
+M 0 18937 1 18946  * the Master of Tracks -> A Spartan Stone Chamber
+E 0 18917 100 16  * a conch-hilt sword
+E 0 18939 100 17  * a book of skills
+M 0 18938 1 18952  * the Master of Incantations -> A Bubbling Stone Chamber
+E 0 18939 100 17  * a book of skills
+E 0 18915 100 16  * a jagged coral spear
+M 0 18939 1 18958  * the Master of Melee -> A Disheveled Stone Chamber
+E 0 18916 100 16  * a short-shafted coral trident
+E 0 18939 100 17  * a book of skills
+M 0 18940 5 18997  * a healthy green sea turtle -> A Tunnel in the Kelp
+M 0 18940 5 18998  * a healthy green sea turtle -> A Tunnel in the Kelp
+M 0 18940 5 18948  * a healthy green sea turtle -> Swimming Along the Coral Shelf
+M 0 18940 5 18994  * a healthy green sea turtle -> A Tunnel in the Kelp
+M 0 18940 5 18942  * a healthy green sea turtle -> Swimming Along the Coral Shelf
+M 0 18941 1 18917  * a large sea slug -> Outside an Opening in the Depths
+M 0 18942 2 18960  * an adult lifeguard -> Inside the Maelstrom
+E 0 18953 100 8  * a pair of sharkskin flippers
+M 0 18942 2 18964  * an adult lifeguard -> Inside the Maelstrom
+E 0 18953 100 8  * a pair of sharkskin flippers
+M 0 18943 2 18962  * an adult lifeguard -> Inside the Maelstrom
+E 0 18953 100 8  * a pair of sharkskin flippers
+M 0 18943 2 18966  * an adult lifeguard -> Inside the Maelstrom
+E 0 18953 100 8  * a pair of sharkskin flippers
+M 0 18944 2 18933  * a hexactinellid sponge -> In a Deep, Murky Fissure
+M 0 18944 2 18973  * a hexactinellid sponge -> Inside a Deep Sea Cave
+M 0 18945 3 18970  * a giant sea spider -> A Deep Sea Chamber
+M 0 18945 3 18970  * a giant sea spider -> A Deep Sea Chamber
+M 0 18945 3 18970  * a giant sea spider -> A Deep Sea Chamber
+M 0 18946 1 18996  * a very large six-gilled shark -> A Tunnel in the Kelp
+M 0 18947 2 18982  * a rare, six-gilled shark -> Within a Crushed Bow
+M 0 18947 2 18985  * a rare, six-gilled shark -> Within a Crushed Bow
+M 0 18948 5 18908  * a white sea cucumber -> The Base of a Huge Pillar of Rock
+M 0 18948 5 18920  * a white sea cucumber -> The Base of a Huge Pillar of Rock
+M 0 18948 5 18966  * a white sea cucumber -> Inside the Maelstrom
+M 0 18948 5 18941  * a white sea cucumber -> Upon a Coral Shelf
+M 0 18948 5 18961  * a white sea cucumber -> Inside the Maelstrom
+M 0 18949 4 18960  * a red sea cucumber -> Inside the Maelstrom
+M 0 18949 4 18923  * a red sea cucumber -> Inside Tridents & Mo
+M 0 18949 4 18944  * a red sea cucumber -> Inside Tiren's Rock
+M 0 18949 4 18964  * a red sea cucumber -> Inside the Maelstrom
+M 0 18950 3 18984  * a yellow sea cucumber -> Within a Crushed Bow
+M 0 18950 3 18983  * a yellow sea cucumber -> Within a Crushed Bow
+M 0 18950 3 18962  * a yellow sea cucumber -> Inside the Maelstrom
+M 0 18951 3 18902  * a blue sea cucumber -> Beneath the Sponge Floor
+M 0 18951 3 18963  * a blue sea cucumber -> Inside the Maelstrom
+M 0 18951 3 18980  * a blue sea cucumber -> Within a Crushed Bow
+M 0 18952 2 18929  * a nasty-looking vampire squid -> In a Deep, Murky Fissure
+M 0 18952 2 18983  * a nasty-looking vampire squid -> Within a Crushed Bow
+M 0 18953 3 18933  * a phosphorescent-bellied angler fish -> In a Deep, Murky Fissure
+M 0 18953 3 18932  * a phosphorescent-bellied angler fish -> In a Deep, Murky Fissure
+M 0 18953 3 18903  * a phosphorescent-bellied angler fish -> In Murky Black Water
+M 0 18954 4 18911  * an eel-like viper fish -> Beneath a Coral Shelf
+M 0 18954 4 18922  * an eel-like viper fish -> A Den of Hungry Cephalopods
+M 0 18954 4 18943  * an eel-like viper fish -> Outside an Opening in the Rock
+M 0 18954 4 18955  * an eel-like viper fish -> Outside an Opening in the Rock
+S
+
+
+#SHOPS
+18906  5 0 0 0 0  100 100  7 20  -1 * the weapons dealer
+18915  33 3 4 7 0  100 100  7 20  -1 * the dabbler
+18916  9 0 0 0 0  100 100  7 20  -1 * the marine merchant
+18917  0 0 0 0 0  100 100  11 16  -1 * the sous chef of Triton Galley
+18918  30 0 0 0 0  100 100  7 20  -1 * the tinkerer of Tiren's Rock
+18919  0 0 0 0 0  100 100  10 20  -1 * the master chef of Tiren's Rock
+0
+
+
+#SPECIALS
+M 18900 spec_fight_dirty  * Mo'pakshakur
+M 18901 init_mage  * the tomb guardian of Tiren's Rock
+M 18902 spec_storm_demon  * the phasma of An'lakshakmur
+M 18903 init_priest  * the phasma of Kruddi'lukk
+M 18904 spec_fight_dirty  * the phasma of Sh'kwikhanz
+M 18905 init_mage  * the phasma of Or'shalkpirsi
+M 18912 spec_guard  * a fit city watcher
+M 18913 spec_guard  * a fit city watcher
+M 18915 spec_cast_mage  * the dabbler
+M 18917 spec_one_spell  * the sous chef of Triton Galley
+M 18919 spec_fight_dirty  * the master chef of Tiren's Rock
+M 18924 spec_fido  * a seal shark
+M 18925 spec_poison_sting  * a small group of jellies
+M 18929 spec_thief  * a young sahuagin child
+M 18931 spec_thief  * a young sahuagin swim instructor
+M 18932 spec_cast_shaman  * the mighty undead ettin
+M 18933 spec_storm_demon  * the shade of So'shalktiren
+M 18935 spec_thief  * the Master of Stealth
+M 18936 init_priest  * the Master of Conjurings
+M 18938 init_mage  * the Master of Incantations
+M 18939 spec_fight_dirty  * the Master of Melee
+M 18945 spec_poison_sting  * a giant sea spider
+S
+
+#RSPECS
+D 18901 spec_seal_exits  * Inside a Rock Dome
+D 18902 spec_seal_exits  * Beneath the Sponge Floor
+D 18903 spec_oceancurrent_up  * In Murky Black Water
+D 18904 spec_oceancurrent_up  * An Opening in the Rock
+D 18905 spec_oceancurrent_east  * A Wide Tunnel
+D 18906 spec_oceancurrent_east  * Outside an Opening in the Depths
+D 18907 spec_oceancurrent_north  * Outside in the Depths
+D 18908 spec_oceancurrent_north  * The Base of a Huge Pillar of Rock
+*D 18912 spec_oceancurrent_north  * The Base of a Huge Pillar of Rock
+*D 18913 spec_oceancurrent_north  * Outside an Opening in the Depths
+*D 18914 spec_oceancurrent_north  * Outside an Opening in the Depths
+*D 18915 spec_oceancurrent_north  * Outside in the Depths
+*D 18916 spec_oceancurrent_east  * The Base of a Huge Pillar of Rock
+D 18920 spec_oceancurrent_west  * The Base of a Huge Pillar of Rock
+D 18921 spec_oceancurrent_north  * Outside an Opening in the Depths
+D 18960 spec_oceancurrent_east  * Inside the Maelstrom (was rapids)
+D 18961 spec_oceancurrent_north  * Inside the Maelstrom (was rapids)
+D 18962 spec_oceancurrent_north  * Inside the Maelstrom (was rapids)
+D 18963 spec_oceancurrent_west  * Inside the Maelstrom (was rapids)
+D 18964 spec_oceancurrent_west  * Inside the Maelstrom (was rapids)
+D 18965 spec_oceancurrent_south  * Inside the Maelstrom (was rapids)
+D 18966 spec_oceancurrent_south  * Inside the Maelstrom (was rapids)
+D 18967 spec_oceancurrent_east  * Inside the Maelstrom (was rapids)
+D 18996 spec_oceancurrent_east  * A Tunnel in the Kelp
+D 18997 spec_oceancurrent_west  * A Tunnel in the Kelp
+D 18998 spec_oceancurrent_west  * A Tunnel in the Kelp
+S
+
+#TRIGGERS
+A 18929 3 spec_crack_head  * In a Deep, Murky Fissure
+A 18931 2 spec_crack_head  * Inside a Murky Tomb
+A 18932 1 spec_crack_head  * In a Deep, Murky Fissure
+P 18939 3 spec_cleric_only  * A Chamber Inside the Rock
+P 18945 2 spec_ranger_only  * A Chamber Inside the Rock
+P 18951 1 spec_mage_only  * A Chamber Inside the Rock
+P 18957 0 spec_warrior_only2  * A Chamber Inside the Rock
+A 18969 1 spec_crack_head  * An Entrance to an Undersea Fissure
+A 18970 5 spec_crack_head  * A Deep Sea Chamber
+A 18971 3 spec_crack_head  * An Entrance to an Undersea Fissure
+A 18972 4 spec_crack_head  * Inside a Deep Sea Cave
+A 18973 0 spec_crack_head  * Inside a Deep Sea Cave
+A 18974 0 spec_crack_head  * Inside a Deep Sea Cave
+A 18975 2 spec_crack_head  * Inside a Murky Tomb
+A 18978 3 spec_crack_head  * An Opening in a Crushed Bow of a Sunken Vessel
+P 18979 0 spec_thief_only  * Within a Crushed Bow
+A 18980 1 spec_crack_head  * Within a Crushed Bow
+A 18987 1 spec_crack_head  * A Private Little Alcove
+A 18988 3 spec_crack_head  * Nearly Stuck Within the Bow
+A 18990 3 spec_crack_head  * Nearly Stuck Within the Bow
+P 18992 2 spec_guild_entrance * Among the Bubble Streams 
+S
+
+#$

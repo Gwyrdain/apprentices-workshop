@@ -406,13 +406,21 @@ def parse_resets (resets_block)
     resets_info = Hash.new
     i = 1
 
-    resets_block.gsub!(/^\*.*\n/,'')
     resets = resets_block.split(/\n/).map(&:strip)
 
     resets.each do |reset|
       reset_info = Hash.new
-
-      m = reset.match(/(\w)\s*(\d*)\s*(\d*)\s*(\d*)/)
+      reset_info["comment"] = ""
+      
+      #Comments reset
+      m = reset.match(/^\s*\*(.*)/)
+      if m
+        logger.debug "Here"
+        reset_info["reset_type"]  = "*"
+        reset_info["comment"]     = m[1].strip
+      end
+      logger.debug "here2"
+      m = reset.match(/^\s*(\w)\s*(\d*)\s*(\d*)\s*(\d*)/)
       if m
         reset_info["reset_type"]  = m[1].strip
         reset_info["val_1"]       = m[2].to_i
@@ -420,16 +428,16 @@ def parse_resets (resets_block)
         reset_info["val_3"]       = m[4].to_i
       end
 
-      m = reset.match(/\w\s*\d*\s*\d*\s*\d*\s*(\d*)/)
+      m = reset.match(/^\s*\w\s*\d*\s*\d*\s*\d*\s*(\d*)/)
       if m
         reset_info["val_4"]       = m[1].to_i
       end
 
-      m = reset.match(/\w\s*\d*\s*\d*\s*\d*\s*\d*\s*(.*)$/)
+      m = reset.match(/^\s*\w\s*\d*\s*\d*\s*\d*\s*\d*\s*(.*)$/)
       if m
         reset_info["comment"]       = m[1].gsub('*','').strip
       else
-        m = reset.match(/\w\s*\d*\s*\d*\s*\d*\s*(.*)$/)
+        m = reset.match(/^\s*\w\s*\d*\s*\d*\s*\d*\s*(.*)$/)
         if m
           reset_info["comment"]       = m[1].gsub('*','').strip
         end
