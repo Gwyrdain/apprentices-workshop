@@ -82,11 +82,12 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :address        => ENV['SPARKPOST_SMTP_HOST'],
     :port           => ENV['SPARKPOST_SMTP_PORT'],
-    :authentication => :plain,
     :user_name      => ENV['SPARKPOST_SMTP_USERNAME'],
-    :password       => ENV['SPARKPOST_SMTP_PASSWORD'],
+    :password       => ENV['SPARKPOST_API_KEY'],
     :domain         => 'apprentices-workshop.herokuapp.com',
-    :enable_starttls_auto => true
+    :enable_starttls_auto => true,
+    :format         => html,
+    :from           => 'donotreply@apprentices-workshop.herokuapp.com'
   }
 
 end
