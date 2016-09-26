@@ -75,8 +75,18 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  
+
   # Added per devise install instructions
   config.action_mailer.default_url_options = { host: 'apprentices-workshop.herokuapp.com' }
-  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address        => ENV['SPARKPOST_SMTP_HOST'],
+    :port           => ENV['SPARKPOST_SMTP_PORT'],
+    :authentication => :plain,
+    :user_name      => ENV['SPARKPOST_SMTP_USERNAME'],
+    :password       => ENV['SPARKPOST_SMTP_PASSWORD'],
+    :domain         => 'apprentices-workshop.herokuapp.com',
+    :enable_starttls_auto => true
+  }
+
 end
