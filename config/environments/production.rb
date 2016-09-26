@@ -80,13 +80,13 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'apprentices-workshop.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address        => ENV['SPARKPOST_SMTP_HOST'],
-    :port           => ENV['SPARKPOST_SMTP_PORT'],
-    :user_name      => ENV['SPARKPOST_SMTP_USERNAME'],
-    :password       => ENV['SPARKPOST_API_KEY'],
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
     :domain         => 'apprentices-workshop.herokuapp.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
     :enable_starttls_auto => true,
-    :from           => 'donotreply@apprentices-workshop.herokuapp.com'
   }
 
 end
